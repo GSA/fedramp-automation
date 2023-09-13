@@ -559,7 +559,7 @@
                 name="implemented"
                 value="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement" />
             <sch:report
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 fedramp:specific="true"
                 id="implemented-response-points"
                 role="information"
@@ -577,7 +577,7 @@
         </sch:rule>
         <sch:rule
             context="/oscal:system-security-plan/oscal:control-implementation"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6">
             <sch:let
                 name="registry-ns"
                 value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
@@ -606,7 +606,7 @@
                 name="extraneous"
                 value="$implemented[not(@control-id = $required-controls/@id)]" />
             <sch:report
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 fedramp:specific="true"
                 id="each-required-control-report"
                 role="information"
@@ -624,7 +624,7 @@
             <!--sch:assert
                 diagnostics="incomplete-core-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 3"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 fedramp:specific="true"
                 id="incomplete-core-implemented-requirements"
                 role="error"
@@ -632,7 +632,7 @@
             <sch:assert
                 diagnostics="incomplete-all-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 2"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="incomplete-all-implemented-requirements"
@@ -641,7 +641,7 @@
             <sch:assert
                 diagnostics="extraneous-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 2"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="extraneous-implemented-requirements"
@@ -655,7 +655,7 @@
                 name="total"
                 value="$results/reports/@count" />
             <sch:report
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 fedramp:specific="true"
                 id="control-implemented-requirements-stats"
                 role="information"
@@ -778,7 +778,7 @@
             <sch:assert
                 diagnostics="missing-response-components-diagnostic"
                 doc:checklist-reference="Section D Checks"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="missing-response-components"
@@ -787,7 +787,7 @@
             <sch:assert
                 diagnostics="extraneous-response-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="extraneous-response-description"
@@ -796,7 +796,7 @@
             <sch:assert
                 diagnostics="extraneous-response-remarks-diagnostic"
                 doc:checklist-reference="Section D Checks"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="extraneous-response-remarks"
@@ -811,7 +811,7 @@
             <sch:assert
                 diagnostics="invalid-component-match-diagnostic"
                 doc:checklist-reference="Section D Checks"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="invalid-component-match"
@@ -821,7 +821,7 @@
             <sch:assert
                 diagnostics="missing-component-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-component-description"
                 role="error"
@@ -841,7 +841,7 @@
             <sch:assert
                 diagnostics="incomplete-response-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="incomplete-response-description"
@@ -862,7 +862,7 @@
             <sch:assert
                 diagnostics="incomplete-response-remarks-diagnostic"
                 doc:checklist-reference="Section D Checks"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="incomplete-response-remarks"
@@ -909,7 +909,7 @@
             context="/oscal:system-security-plan/oscal:back-matter/oscal:resource">
             <sch:assert
                 diagnostics="resource-uuid-required-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="resource-uuid-required"
                 role="warning"
@@ -938,7 +938,7 @@
             <sch:assert
                 diagnostics="resource-base64-available-filename-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.10"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="resource-base64-available-filename"
                 role="error"
@@ -946,7 +946,7 @@
             <sch:assert
                 diagnostics="resource-base64-available-media-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.10"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="resource-base64-available-media-type"
                 role="error"
@@ -968,19 +968,19 @@
             value="$fedramp-values//fedramp:value-set[@name eq 'attachment-type']//fedramp:enum/@value" />
         <sch:rule
             context="oscal:resource"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6">
             <!-- the following assertion recapitulates the XML Schema constraint -->
             <sch:assert
                 diagnostics="resource-has-uuid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 id="resource-has-uuid"
                 role="warning"
                 test="@uuid">Every supporting artifact found in a citation must have a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="resource-has-title-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="resource-has-title"
                 role="warning"
@@ -988,7 +988,7 @@
             <sch:assert
                 diagnostics="resource-has-rlink-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="resource-has-rlink"
                 role="warning"
@@ -996,7 +996,7 @@
             <sch:assert
                 diagnostics="resource-is-referenced-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="resource-is-referenced"
                 role="information"
@@ -1009,7 +1009,7 @@
             <sch:assert
                 diagnostics="attachment-type-is-valid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="attachment-type-is-valid"
                 role="warning"
@@ -1020,14 +1020,14 @@
             <sch:assert
                 diagnostics="rlink-has-href-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 id="rlink-has-href"
                 role="warning"
                 test="@href">Every supporting artifact found in a citation rlink must have a reference.</sch:assert>
             <sch:assert
                 diagnostics="rlink-href-is-available-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 id="rlink-href-is-available"
                 role="warning"
                 test="not($use-remote-resources) or unparsed-text-available(@href)"
@@ -1049,7 +1049,7 @@
             <sch:assert
                 diagnostics="has-allowed-media-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="has-allowed-media-type"
                 role="error"
@@ -1067,7 +1067,7 @@
             <sch:assert
                 diagnostics="resource-has-base64-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="resource-has-base64"
                 role="warning"
@@ -1075,7 +1075,7 @@
             <sch:assert
                 diagnostics="resource-base64-cardinality-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 id="resource-has-base64-cardinality"
                 role="warning"
                 test="not(oscal:base64[2])">A supporting artifact found in a citation must have only one embedded attachment element.</sch:assert>
@@ -1086,7 +1086,7 @@
             <sch:assert
                 diagnostics="base64-has-filename-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="base64-has-filename"
                 role="error"
@@ -1094,7 +1094,7 @@
             <sch:assert
                 diagnostics="base64-has-media-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="base64-has-media-type"
                 role="error"
@@ -1102,7 +1102,7 @@
             <sch:assert
                 diagnostics="base64-has-content-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 id="base64-has-content"
                 role="error"
                 test="matches(normalize-space(), '^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/][AQgw]==|[A-Za-z0-9+/]{2}[AEIMQUYcgkosw048]=)?$')"> Every
@@ -1130,7 +1130,7 @@
                 diagnostics="has-user-guide-diagnostic"
                 doc:checklist-reference="Section B Check 3.2"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 2"
+                doc:template-reference="System Security Plan Template Appendix D"
                 fedramp:specific="true"
                 id="has-user-guide"
                 role="warning"
@@ -1139,7 +1139,7 @@
                 diagnostics="has-rules-of-behavior-diagnostic"
                 doc:checklist-reference="Section B Check 3.5"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 5"
+                doc:template-reference="System Security Plan Template Appendix F"
                 fedramp:specific="true"
                 id="has-rules-of-behavior"
                 role="warning"
@@ -1148,7 +1148,7 @@
                 diagnostics="has-information-system-contingency-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.6"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 6"
+                doc:template-reference="System Security Plan Template Appendix G"
                 fedramp:specific="true"
                 id="has-information-system-contingency-plan"
                 role="warning"
@@ -1158,7 +1158,7 @@
                 diagnostics="has-configuration-management-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.7"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 7"
+                doc:template-reference="System Security Plan Template Appendix H"
                 fedramp:specific="true"
                 id="has-configuration-management-plan"
                 role="warning"
@@ -1168,7 +1168,7 @@
                 diagnostics="has-incident-response-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.8"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 8"
+                doc:template-reference="System Security Plan Template Appendix I"
                 fedramp:specific="true"
                 id="has-incident-response-plan"
                 role="warning"
@@ -1180,7 +1180,7 @@
                 diagnostics="has-separation-of-duties-matrix-diagnostic"
                 doc:checklist-reference="Section B Check 3.11"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 11"
+                doc:template-reference="System Security Plan Template §11"
                 fedramp:specific="true"
                 id="has-separation-of-duties-matrix"
                 role="warning"
@@ -1191,7 +1191,7 @@
 
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-        doc:template-reference="System Security Plan Template §15"
+        doc:template-reference="System Security Plan Template §12"
         id="policy-and-procedure">
         <sch:title>Policy and Procedure attachments</sch:title>
         <sch:title>A FedRAMP SSP must incorporate one policy document and one procedure document for each NIST SP 800-53 control family</sch:title>
@@ -1202,14 +1202,14 @@
         <sch:rule
             context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-            doc:template-reference="System Security Plan Template §15 Attachment 1"
+            doc:template-reference="System Security Plan Template Appendix C"
             see="Guide to OSCAL-based FedRAMP System Security Plans §5">
 
             <sch:assert
                 diagnostics="has-policy-link-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 1"
+                doc:template-reference="System Security Plan Template Appendix C"
                 fedramp:specific="true"
                 id="has-policy-link"
                 role="warning"
@@ -1231,7 +1231,7 @@
                 diagnostics="has-policy-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 1"
+                doc:template-reference="System Security Plan Template Appendix C"
                 fedramp:specific="true"
                 id="has-policy-attachment-resource"
                 role="warning"
@@ -1245,7 +1245,7 @@
                 diagnostics="has-procedure-link-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15"
+                doc:template-reference="System Security Plan Template §12"
                 fedramp:specific="true"
                 id="has-procedure-link"
                 role="warning"
@@ -1267,7 +1267,7 @@
                 diagnostics="has-procedure-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 1"
+                doc:template-reference="System Security Plan Template Appendix C"
                 fedramp:specific="true"
                 id="has-procedure-attachment-resource"
                 role="warning"
@@ -1282,7 +1282,7 @@
             context="oscal:by-component/oscal:link[@rel = ('policy', 'procedure')]"
             doc:checklist-reference="Section B Check 3.1"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-            doc:template-reference="System Security Plan Template §15 Attachment 1">
+            doc:template-reference="System Security Plan Template Appendix C">
             <sch:let
                 name="ir"
                 value="ancestor::oscal:implemented-requirement" />
@@ -1290,7 +1290,7 @@
                 diagnostics="has-unique-policy-and-procedure-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §15 Attachment 1"
+                doc:template-reference="System Security Plan Template Appendix C"
                 fedramp:specific="true"
                 id="has-unique-policy-and-procedure"
                 role="error"
@@ -1863,7 +1863,7 @@
             <sch:assert
                 diagnostics="has-inventory-items-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-inventory-items"
                 role="error"
@@ -1876,7 +1876,7 @@
             <sch:assert
                 diagnostics="has-unique-asset-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-unique-asset-id"
                 role="error"
@@ -1891,7 +1891,7 @@
             <sch:assert
                 diagnostics="has-allowed-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-allowed-asset-type"
                 role="information"
@@ -1906,7 +1906,7 @@
             <sch:assert
                 diagnostics="has-allowed-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-allowed-virtual"
                 role="error"
@@ -1921,7 +1921,7 @@
             <sch:assert
                 diagnostics="has-allowed-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-allowed-public"
                 role="error"
@@ -1936,7 +1936,7 @@
             <sch:assert
                 diagnostics="has-allowed-allows-authenticated-scan-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-allowed-allows-authenticated-scan"
                 role="error"
@@ -1951,7 +1951,7 @@
             <sch:assert
                 diagnostics="has-allowed-is-scanned-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-allowed-is-scanned"
                 role="error"
@@ -1966,7 +1966,7 @@
             <sch:assert
                 diagnostics="has-allowed-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-allowed-scan-type"
                 role="error"
@@ -1983,7 +1983,7 @@
             <sch:assert
                 diagnostics="component-has-allowed-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="component-has-allowed-type"
                 role="error"
@@ -1991,7 +1991,7 @@
             <sch:assert
                 diagnostics="component-has-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="component-has-asset-type"
                 role="error"
@@ -2001,7 +2001,7 @@
             <sch:assert
                 diagnostics="component-has-one-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="component-has-one-asset-type"
                 role="error"
@@ -2016,14 +2016,14 @@
             <sch:assert
                 diagnostics="inventory-item-has-uuid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 id="inventory-item-has-uuid"
                 role="error"
                 test="@uuid">An inventory item has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-asset-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-asset-id"
                 role="error"
@@ -2031,7 +2031,7 @@
             <sch:assert
                 diagnostics="has-one-asset-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="has-one-asset-id"
                 role="error"
@@ -2039,7 +2039,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-asset-type"
                 role="error"
@@ -2047,7 +2047,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-asset-type"
                 role="error"
@@ -2055,7 +2055,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-virtual"
                 role="error"
@@ -2063,7 +2063,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-virtual"
                 role="error"
@@ -2071,7 +2071,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-public"
                 role="error"
@@ -2079,7 +2079,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-public"
                 role="error"
@@ -2087,7 +2087,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-scan-type"
                 role="error"
@@ -2095,7 +2095,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-scan-type"
                 role="error"
@@ -2107,7 +2107,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-allows-authenticated-scan-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-allows-authenticated-scan"
                 role="error"
@@ -2116,7 +2116,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-allows-authenticated-scan-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-allows-authenticated-scan"
                 role="error"
@@ -2125,7 +2125,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-baseline-configuration-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-baseline-configuration-name"
                 role="error"
@@ -2134,7 +2134,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-baseline-configuration-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-baseline-configuration-name"
                 role="error"
@@ -2144,7 +2144,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-vendor-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-vendor-name"
                 role="error"
@@ -2154,7 +2154,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-vendor-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-vendor-name"
                 role="error"
@@ -2186,7 +2186,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-hardware-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-hardware-model"
                 role="error"
@@ -2195,7 +2195,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-hardware-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-hardware-model"
                 role="error"
@@ -2204,7 +2204,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-is-scanned-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-is-scanned"
                 role="error"
@@ -2213,7 +2213,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-is-scanned-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-is-scanned"
                 role="error"
@@ -2227,7 +2227,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-software-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-software-name"
                 role="error"
@@ -2236,7 +2236,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-software-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-software-name"
                 role="error"
@@ -2246,7 +2246,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-software-version-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-software-version"
                 role="error"
@@ -2255,7 +2255,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-software-version-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-software-version"
                 role="error"
@@ -2265,7 +2265,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-function-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-function"
                 role="error"
@@ -2274,7 +2274,7 @@
             <sch:assert
                 diagnostics="inventory-item-has-one-function-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                doc:template-reference="System Security Plan Template Appendix M"
                 fedramp:specific="true"
                 id="inventory-item-has-one-function"
                 role="error"
