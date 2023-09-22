@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?xml-model href="https://github.com/usnistgov/OSCAL/releases/download/v1.1.1/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="f8eb47a7-026d-4619-9b4c-ee8e98a76054">
     <metadata>
