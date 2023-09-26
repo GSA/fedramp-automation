@@ -556,6 +556,9 @@
             <enum
                 short-label="Int"
                 value="interconnection">Interconnection</enum>
+            <enum
+                short-label="Ls"
+                value="leveraged-system">Leveraged System</enum>
         </allowed-values>
     </value-set>
 
