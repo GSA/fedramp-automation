@@ -6399,22 +6399,6 @@
                         </description>
                     </system-characteristics>
                     <system-implementation>
-                        <prop
-                            name="users-internal"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
-                        <prop
-                            name="users-external"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
-                        <prop
-                            name="users-internal-future"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
-                        <prop
-                            name="users-external-future"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
                         <component
                             type="this-system" />
                     </system-implementation>
@@ -6636,22 +6620,6 @@
                             <system-name-short>System's Short Name or Acronym</system-name-short>
                         </system-characteristics>
                         <system-implementation>
-                            <prop
-                                name="users-internal"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
-                            <prop
-                                name="users-external"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
-                            <prop
-                                name="users-internal-future"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
-                            <prop
-                                name="users-external-future"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
                             <component
                                 type="this-system" />
                         </system-implementation>
