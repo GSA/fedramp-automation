@@ -2549,7 +2549,7 @@
             <sch:assert
                 diagnostics="role-defined-information-system-security-officer-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
-                doc:template-reference="System Security Plan Template §6"
+                doc:template-reference="System Security Plan Template §5"
                 fedramp:specific="true"
                 id="role-defined-information-system-security-officer"
                 role="error"
@@ -2558,7 +2558,7 @@
             <sch:assert
                 diagnostics="role-defined-authorizing-official-poc-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1.7"
-                doc:template-reference="System Security Plan Template §6"
+                doc:template-reference="System Security Plan Template §5"
                 fedramp:specific="true"
                 id="role-defined-authorizing-official-poc"
                 role="error"
@@ -2899,18 +2899,18 @@
     </sch:pattern>
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-        doc:template-reference="System Security Plan Template §9.2"
+        doc:template-reference="System Security Plan Template §8.1"
         id="authorization-boundary"
         see="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1">
         <sch:title>Authorization Boundary Diagram</sch:title>
         <sch:rule
             context="oscal:system-characteristics"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-            doc:template-reference="System Security Plan Template §9.2">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-authorization-boundary-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 id="has-authorization-boundary"
                 role="error"
                 test="oscal:authorization-boundary">An OSCAL SSP document includes an authorization boundary.</sch:assert>
@@ -2918,18 +2918,18 @@
         <sch:rule
             context="oscal:authorization-boundary"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-            doc:template-reference="System Security Plan Template §9.2">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-authorization-boundary-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 id="has-authorization-boundary-description"
                 role="error"
                 test="oscal:description">An OSCAL SSP document has an authorization boundary description.</sch:assert>
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram"
                 role="warning"
@@ -2938,18 +2938,18 @@
         <sch:rule
             context="oscal:authorization-boundary/oscal:diagram"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-            doc:template-reference="System Security Plan Template §9.2">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-uuid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 id="has-authorization-boundary-diagram-uuid"
                 role="error"
                 test="@uuid">Each OSCAL SSP authorization boundary diagram has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram-description"
                 role="error"
@@ -2957,7 +2957,7 @@
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-link-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram-link"
                 role="error"
@@ -2965,7 +2965,7 @@
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-caption-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram-caption"
                 role="error"
@@ -2974,11 +2974,11 @@
         <sch:rule
             context="oscal:authorization-boundary/oscal:diagram/oscal:link"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-            doc:template-reference="System Security Plan Template §9.2">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-link-rel-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram-link-rel"
                 role="error"
@@ -2986,7 +2986,7 @@
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-link-rel-allowed-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram-link-rel-allowed-value"
                 role="error"
@@ -2995,7 +2995,7 @@
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-link-href-target-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.1"
-                doc:template-reference="System Security Plan Template §9.2"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram-link-href-target"
                 role="error"
@@ -3006,18 +3006,18 @@
 
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-        doc:template-reference="System Security Plan Template §9.4"
+        doc:template-reference="System Security Plan Template §8.1"
         id="network-architecture"
         see="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2">
         <sch:title>Network Architecture Diagram</sch:title>
         <sch:rule
             context="oscal:system-characteristics"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-            doc:template-reference="System Security Plan Template §9.4">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-network-architecture-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture"
                 role="error"
@@ -3026,11 +3026,11 @@
         <sch:rule
             context="oscal:network-architecture"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-            doc:template-reference="System Security Plan Template §9.4">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-network-architecture-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-description"
                 role="error"
@@ -3038,7 +3038,7 @@
             <sch:assert
                 diagnostics="has-network-architecture-diagram-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram"
                 role="warning"
@@ -3047,11 +3047,11 @@
         <sch:rule
             context="oscal:network-architecture/oscal:diagram"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-            doc:template-reference="System Security Plan Template §9.4">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-network-architecture-diagram-uuid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-uuid"
                 role="error"
@@ -3059,7 +3059,7 @@
             <sch:assert
                 diagnostics="has-network-architecture-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-description"
                 role="error"
@@ -3067,7 +3067,7 @@
             <sch:assert
                 diagnostics="has-network-architecture-diagram-link-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-link"
                 role="error"
@@ -3075,7 +3075,7 @@
             <sch:assert
                 diagnostics="has-network-architecture-diagram-caption-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-caption"
                 role="error"
@@ -3084,11 +3084,11 @@
         <sch:rule
             context="oscal:network-architecture/oscal:diagram/oscal:link"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-            doc:template-reference="System Security Plan Template §9.4">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-network-architecture-diagram-link-rel-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-link-rel"
                 role="error"
@@ -3096,7 +3096,7 @@
             <sch:assert
                 diagnostics="has-network-architecture-diagram-link-rel-allowed-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-link-rel-allowed-value"
                 role="error"
@@ -3104,7 +3104,7 @@
             <sch:assert
                 diagnostics="has-network-architecture-diagram-link-href-target-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.2"
-                doc:template-reference="System Security Plan Template §9.4"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-link-href-target"
                 role="warning"
@@ -3115,18 +3115,18 @@
 
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-        doc:template-reference="System Security Plan Template §10.1"
+        doc:template-reference="System Security Plan Template §8.1"
         id="data-flow"
         see="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3">
         <sch:title>Data Flow Diagram</sch:title>
         <sch:rule
             context="oscal:system-characteristics"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-            doc:template-reference="System Security Plan Template §10.1">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-data-flow-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow"
                 role="warning"
@@ -3135,18 +3135,18 @@
         <sch:rule
             context="oscal:data-flow"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-            doc:template-reference="System Security Plan Template §10.1">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-data-flow-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 id="has-data-flow-description"
                 role="error"
                 test="oscal:description">An OSCAL SSP document with a data flow has a description.</sch:assert>
             <sch:assert
                 diagnostics="has-data-flow-diagram-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram"
                 role="warning"
@@ -3155,18 +3155,18 @@
         <sch:rule
             context="oscal:data-flow/oscal:diagram"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-            doc:template-reference="System Security Plan Template §10.1">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-data-flow-diagram-uuid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 id="has-data-flow-diagram-uuid"
                 role="error"
                 test="@uuid">An OSCAL SSP document with a data flow diagram has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-data-flow-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram-description"
                 role="error"
@@ -3174,7 +3174,7 @@
             <sch:assert
                 diagnostics="has-data-flow-diagram-link-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram-link"
                 role="error"
@@ -3182,7 +3182,7 @@
             <sch:assert
                 diagnostics="has-data-flow-diagram-caption-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram-caption"
                 role="error"
@@ -3191,11 +3191,11 @@
         <sch:rule
             context="oscal:data-flow/oscal:diagram/oscal:link"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-            doc:template-reference="System Security Plan Template §10.1">
+            doc:template-reference="System Security Plan Template §8.1">
             <sch:assert
                 diagnostics="has-data-flow-diagram-link-rel-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram-link-rel"
                 role="error"
@@ -3203,7 +3203,7 @@
             <sch:assert
                 diagnostics="has-data-flow-diagram-link-rel-allowed-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram-link-rel-allowed-value"
                 role="error"
@@ -3211,7 +3211,7 @@
             <sch:assert
                 diagnostics="has-data-flow-diagram-link-href-target-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8.3"
-                doc:template-reference="System Security Plan Template §10.1"
+                doc:template-reference="System Security Plan Template §8.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram-link-href-target"
                 role="error"
@@ -3560,7 +3560,7 @@
             <sch:assert
                 diagnostics="has-cloud-service-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1.3"
-                doc:template-reference="System Security Plan Template §8.1"
+                doc:template-reference="System Security Plan Template §3"
                 fedramp:specific="true"
                 id="has-cloud-service-model"
                 role="error"
@@ -3568,7 +3568,7 @@
             <sch:assert
                 diagnostics="has-allowed-cloud-service-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1.3"
-                doc:template-reference="System Security Plan Template §8.1"
+                doc:template-reference="System Security Plan Template §3"
                 fedramp:specific="true"
                 id="has-allowed-cloud-service-model"
                 role="error"
@@ -3577,7 +3577,7 @@
             <sch:assert
                 diagnostics="has-leveraged-authorization-with-cloud-service-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
-                doc:template-reference="System Security Plan Template §8.1"
+                doc:template-reference="System Security Plan Template §3"
                 fedramp:specific="true"
                 id="has-leveraged-authorization-with-cloud-service-model"
                 role="warning"
@@ -3586,7 +3586,7 @@
             <sch:assert
                 diagnostics="has-cloud-service-model-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1.3"
-                doc:template-reference="System Security Plan Template §8.1"
+                doc:template-reference="System Security Plan Template §3"
                 fedramp:specific="true"
                 id="has-cloud-service-model-remarks"
                 role="error"
@@ -3597,7 +3597,7 @@
             <sch:assert
                 diagnostics="has-cloud-deployment-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1.4"
-                doc:template-reference="System Security Plan Template §8.2"
+                doc:template-reference="System Security Plan Template §3"
                 fedramp:specific="true"
                 id="has-cloud-deployment-model"
                 role="error"
@@ -3605,7 +3605,7 @@
             <sch:assert
                 diagnostics="has-allowed-cloud-deployment-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1.4"
-                doc:template-reference="System Security Plan Template §8.2"
+                doc:template-reference="System Security Plan Template §3"
                 fedramp:specific="true"
                 id="has-allowed-cloud-deployment-model"
                 role="error"
@@ -3614,7 +3614,7 @@
             <sch:assert
                 diagnostics="has-cloud-deployment-model-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1.4"
-                doc:template-reference="System Security Plan Template §8.2"
+                doc:template-reference="System Security Plan Template §3"
                 fedramp:specific="true"
                 id="has-cloud-deployment-model-remarks"
                 role="error"
@@ -3652,7 +3652,7 @@
             <sch:assert
                 diagnostics="interconnection-has-allowed-interconnection-direction-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-allowed-interconnection-direction-value"
                 role="error"
@@ -3667,7 +3667,7 @@
             <sch:assert
                 diagnostics="interconnection-has-allowed-interconnection-security-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-allowed-interconnection-security-value"
                 role="error"
@@ -3676,7 +3676,7 @@
             <sch:assert
                 diagnostics="interconnection-has-allowed-interconnection-security-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-interconnection-security-remarks"
                 role="error"
@@ -3688,21 +3688,21 @@
             <sch:assert
                 diagnostics="interconnection-has-title-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 id="interconnection-has-title"
                 role="error"
                 test="oscal:title">A system interconnection must provide a remote system name.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 id="interconnection-has-description"
                 role="error"
                 test="oscal:description">A system interconnection must provide a remote system description.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-direction-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-direction"
                 role="error"
@@ -3711,7 +3711,7 @@
             <sch:assert
                 diagnostics="interconnection-has-information-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-information"
                 role="error"
@@ -3720,7 +3720,7 @@
             <sch:assert
                 diagnostics="interconnection-has-protocol-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-protocol"
                 role="error"
@@ -3728,7 +3728,7 @@
             <sch:assert
                 diagnostics="interconnection-has-service-processor-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-service-processor"
                 role="error"
@@ -3737,7 +3737,7 @@
             <sch:assert
                 diagnostics="interconnection-has-local-and-remote-addresses-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-local-and-remote-addresses"
                 role="error"
@@ -3749,7 +3749,7 @@
             <sch:assert
                 diagnostics="interconnection-has-interconnection-security-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-interconnection-security"
                 role="error"
@@ -3758,7 +3758,7 @@
             <sch:assert
                 diagnostics="interconnection-has-circuit-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-circuit"
                 role="information"
@@ -3767,7 +3767,7 @@
             <sch:assert
                 diagnostics="interconnection-has-isa-poc-local-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-isa-poc-local"
                 role="error"
@@ -3776,7 +3776,7 @@
             <sch:assert
                 diagnostics="interconnection-has-isa-poc-remote-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-isa-poc-remote"
                 role="error"
@@ -3785,7 +3785,7 @@
             <sch:assert
                 diagnostics="interconnection-has-isa-authorizing-official-local-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-isa-authorizing-official-local"
                 role="error"
@@ -3794,7 +3794,7 @@
             <sch:assert
                 diagnostics="interconnection-has-isa-authorizing-official-remote-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-isa-authorizing-official-remote"
                 role="error"
@@ -3813,7 +3813,7 @@
             <sch:assert
                 diagnostics="interconnection-has-distinct-isa-local-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-distinct-isa-local"
                 role="error"
@@ -3825,7 +3825,7 @@
             <sch:assert
                 diagnostics="interconnection-has-distinct-isa-remote-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-has-distinct-isa-remote"
                 role="error"
@@ -3836,7 +3836,7 @@
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-cites-interconnection-agreement"
                 role="error"
@@ -3844,7 +3844,7 @@
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-href-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-cites-interconnection-agreement-href"
                 role="error"
@@ -3853,7 +3853,7 @@
             <sch:assert
                 diagnostics="interconnection-cites-attached-interconnection-agreement-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-cites-attached-interconnection-agreement"
                 role="error"
@@ -3868,14 +3868,14 @@
             <sch:assert
                 diagnostics="interconnection-protocol-has-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 id="interconnection-protocol-has-name"
                 role="error"
                 test="@name">A system interconnection protocol must have a name.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-protocol-has-port-range-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-protocol-has-port-range"
                 role="warning"
@@ -3887,7 +3887,7 @@
             <sch:assert
                 diagnostics="interconnection-protocol-port-range-has-transport-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-protocol-port-range-has-transport"
                 role="error"
@@ -3895,7 +3895,7 @@
             <sch:assert
                 diagnostics="interconnection-protocol-port-range-has-start-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-protocol-port-range-has-start"
                 role="error"
@@ -3903,7 +3903,7 @@
             <sch:assert
                 diagnostics="interconnection-protocol-port-range-has-end-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
-                doc:template-reference="System Security Plan Template §11"
+                doc:template-reference="System Security Plan Template §7"
                 fedramp:specific="true"
                 id="interconnection-protocol-port-range-has-end"
                 role="error"
