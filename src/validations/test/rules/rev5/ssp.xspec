@@ -2869,7 +2869,7 @@
                     </x:context>
                     <x:expect-assert
                         id="resource-has-base64"
-                        label="that is a warning" />
+                        label="this is informational" />
                 </x:scenario>
                 <x:scenario
                     label="is duplicative"
