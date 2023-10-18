@@ -2620,8 +2620,6 @@
                     'authorizing-official',
                     'system-poc-management',
                     'system-poc-technical',
-                    'system-poc-other',
-                    'information-system-security-officer',
                     'authorizing-official-poc'
                     )
                     )
