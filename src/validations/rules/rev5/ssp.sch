@@ -1070,7 +1070,7 @@
                 doc:template-reference="System Security Plan Template Appendices A, L"
                 fedramp:specific="true"
                 id="resource-has-base64"
-                role="warning"
+                role="information"
                 test="oscal:base64">A supporting artifact found in a citation should have an embedded attachment element.</sch:assert>
             <sch:assert
                 diagnostics="resource-base64-cardinality-diagnostic"
