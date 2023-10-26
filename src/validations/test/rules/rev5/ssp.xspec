@@ -2869,7 +2869,7 @@
                     </x:context>
                     <x:expect-assert
                         id="resource-has-base64"
-                        label="that is a warning" />
+                        label="this is informational" />
                 </x:scenario>
                 <x:scenario
                     label="is duplicative"
@@ -4862,7 +4862,7 @@
                             class="identity-assurance"
                             name="identity-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="IAL2" />
+                            value="2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -4897,7 +4897,7 @@
                             class="authenticator-assurance"
                             name="authenticator-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="AAL2" />
+                            value="2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -4932,7 +4932,7 @@
                             class="federation-assurance"
                             name="federation-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="FAL2" />
+                            value="2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -6288,7 +6288,7 @@
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop
                                 name="ipv4-address"
-                                value="0.0.0.0" />
+                                value="10.2.2.2" />
                         </inventory-item>
                     </x:context>
                     <x:expect-not-assert
@@ -6303,7 +6303,7 @@
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop
                                 name="ipv4-address"
-                                value="10.2.2.2" />
+                                value="0.0.0.0" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
@@ -6399,22 +6399,6 @@
                         </description>
                     </system-characteristics>
                     <system-implementation>
-                        <prop
-                            name="users-internal"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
-                        <prop
-                            name="users-external"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
-                        <prop
-                            name="users-internal-future"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
-                        <prop
-                            name="users-external-future"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1" />
                         <component
                             type="this-system" />
                     </system-implementation>
@@ -6474,47 +6458,6 @@
                         label="that is correct" />
                 </x:scenario>
             </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of current internal users.">
-                <x:scenario
-                    label="When it does">
-                    <x:expect-not-assert
-                        id="has-users-internal"
-                        label="that is correct" />
-                </x:scenario>
-            </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of current external users.">
-                <x:scenario
-                    label="When it does">
-                    <x:expect-not-assert
-                        id="has-users-external"
-                        label="that is correct" />
-                </x:scenario>
-            </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of future internal users.">
-                <x:scenario
-                    label="When it does">
-                    <x:expect-not-assert
-                        id="has-users-internal-future"
-                        label="that is correct" />
-                </x:scenario>
-            </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of future external users.">
-                <x:scenario
-                    label="When it does">
-                    <x:expect-not-assert
-                        id="has-users-external-future"
-                        label="that is correct" />
-                </x:scenario>
-            </x:scenario>
-
             <x:scenario
                 label="A FedRAMP SSP component must contain a description with content">
                 <x:scenario
@@ -6661,47 +6604,6 @@
                         label="that is an error" />
                 </x:scenario>
             </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of current internal users.">
-                <x:scenario
-                    label="When it does not">
-                    <x:expect-assert
-                        id="has-users-internal"
-                        label="that is an error" />
-                </x:scenario>
-            </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of current external users.">
-                <x:scenario
-                    label="When it does not">
-                    <x:expect-assert
-                        id="has-users-external"
-                        label="that is an error" />
-                </x:scenario>
-            </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of future internal users.">
-                <x:scenario
-                    label="When it does not">
-                    <x:expect-assert
-                        id="has-users-internal-future"
-                        label="that is an error" />
-                </x:scenario>
-            </x:scenario>
-
-            <x:scenario
-                label="A FedRAMP SSP must specify the number of future external users.">
-                <x:scenario
-                    label="When it does not">
-                    <x:expect-assert
-                        id="has-users-external-future"
-                        label="that is an error" />
-                </x:scenario>
-            </x:scenario>
-
             <x:scenario
                 label="Non-negative number tests">
                 <x:context>
@@ -6718,68 +6620,12 @@
                             <system-name-short>System's Short Name or Acronym</system-name-short>
                         </system-characteristics>
                         <system-implementation>
-                            <prop
-                                name="users-internal"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
-                            <prop
-                                name="users-external"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
-                            <prop
-                                name="users-internal-future"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
-                            <prop
-                                name="users-external-future"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="-1" />
                             <component
                                 type="this-system" />
                         </system-implementation>
                     </system-security-plan>
                 </x:context>
-
-                <x:scenario
-                    label="A FedRAMP SSP must specify a non-negative number of current internal users.">
-                    <x:scenario
-                        label="When it does not">
-                        <x:expect-assert
-                            id="has-users-internal"
-                            label="that is an error" />
-                    </x:scenario>
-                </x:scenario>
-
-                <x:scenario
-                    label="A FedRAMP SSP must specify a non-negative number of current external users.">
-                    <x:scenario
-                        label="When it does not">
-                        <x:expect-assert
-                            id="has-users-external"
-                            label="that is an error" />
-                    </x:scenario>
-                </x:scenario>
-
-                <x:scenario
-                    label="A FedRAMP SSP must specify a non-negative number of future internal users.">
-                    <x:scenario
-                        label="When it does not">
-                        <x:expect-assert
-                            id="has-users-internal-future"
-                            label="that is an error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario
-                    label="A FedRAMP SSP must specify a non-negative number of future external users.">
-                    <x:scenario
-                        label="When it does not">
-                        <x:expect-assert
-                            id="has-users-external-future"
-                            label="that is an error" />
-                    </x:scenario>
-                </x:scenario>
             </x:scenario>
-
             <x:scenario
                 label="A FedRAMP SSP component must contain a description with content">
                 <x:scenario
@@ -10387,28 +10233,36 @@
                                     param-id="ac-1_prm_1">
                                     <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.01">
+                                <set-parameter 
+                                    param-id="ac-01_odp.01">
                                     <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.02">
+                                <set-parameter 
+                                    param-id="ac-01_odp.02">
                                     <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.03">
+                                <set-parameter 
+                                    param-id="ac-01_odp.03">
                                     <value>organization-level, mission/business process-level, or system-level</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.04">
+                                <set-parameter 
+                                    param-id="ac-01_odp.04">
                                     <value>official</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.05">
+                                <set-parameter 
+                                    param-id="ac-01_odp.05">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.06">
+                                <set-parameter 
+                                    param-id="ac-01_odp.06">
                                     <value>events</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.07">
+                                <set-parameter 
+                                    param-id="ac-01_odp.07">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.08">
+                                <set-parameter 
+                                    param-id="ac-01_odp.08">
                                     <value>events</value>
                                 </set-parameter>
                             </implemented-requirement>
@@ -10499,25 +10353,32 @@
                                     param-id="ac-1_prm_1">
                                     <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.02">
+                                <set-parameter 
+                                    param-id="ac-01_odp.02">
                                     <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.03">
+                                <set-parameter 
+                                    param-id="ac-01_odp.03">
                                     <value>organization-level, mission/business process-level, or system-level</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.04">
+                                <set-parameter 
+                                    param-id="ac-01_odp.04">
                                     <value>official</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.05">
+                                <set-parameter 
+                                    param-id="ac-01_odp.05">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.06">
+                                <set-parameter 
+                                    param-id="ac-01_odp.06">
                                     <value>events</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.07">
+                                <set-parameter 
+                                    param-id="ac-01_odp.07">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.08">
+                                <set-parameter 
+                                    param-id="ac-01_odp.08">
                                     <value>events</value>
                                 </set-parameter>
                             </implemented-requirement>
@@ -10609,11 +10470,11 @@
                                                 <value>organization-defined personnel or roles</value>
                                             </set-parameter>
                                             <set-parameter
-                                                param-id="ac-1_prm_2">
+                                                param-id="ac-01_odp.05">
                                                 <value>at least every 3 years</value>
                                             </set-parameter>
                                             <set-parameter
-                                                param-id="ac-1_prm_3">
+                                                param-id="ac-01_odp.07">
                                                 <value>at least annually</value>
                                             </set-parameter>
                                         </by-component>
@@ -10647,15 +10508,15 @@
                                             </description>
                                             <set-parameter
                                                 param-id="ac-1_prm_1">
-                                                <value>organization-defined personnel or roles</value>
+                                                <value>organization-defined personnel or roles </value>
                                             </set-parameter>
                                             <set-parameter
                                                 param-id="ac-01_odp.05">
-                                                <value>at least every 3 years</value>
+                                                <value>at least every three (3) years </value>
                                             </set-parameter>
                                             <set-parameter
                                                 param-id="ac-01_odp.07">
-                                                <value>at least annually</value>
+                                                <value>at least annually </value>
                                             </set-parameter>
                                         </by-component>
                                     </statement>
@@ -10688,11 +10549,11 @@
                                         <value>organization-defined personnel or roles</value>
                                     </set-parameter>
                                     <set-parameter
-                                        param-id="ac-1_prm_2">
+                                        param-id="ac-01_odp.05">
                                         <value>at least every 3 years</value>
                                     </set-parameter>
                                     <set-parameter
-                                        param-id="ac-1_prm_3">
+                                        param-id="ac-01_odp.07">
                                         <value>at least annually</value>
                                     </set-parameter>
                                 </implemented-requirement>
@@ -10718,15 +10579,15 @@
                                     control-id="ac-1">
                                     <set-parameter
                                         param-id="ac-1_prm_1">
-                                        <value>organization-defined personnel or roles</value>
+                                        <value>organization-defined personnel or roles </value>
                                     </set-parameter>
                                     <set-parameter
                                         param-id="ac-01_odp.05">
-                                        <value>at least every 3 years</value>
+                                        <value>at least every three (3) years </value>
                                     </set-parameter>
                                     <set-parameter
                                         param-id="ac-01_odp.07">
-                                        <value>at least annually</value>
+                                        <value>at least annually </value>
                                     </set-parameter>
                                 </implemented-requirement>
                             </control-implementation>
@@ -10755,11 +10616,11 @@
                                     <value>organization-defined personnel or roles</value>
                                 </set-parameter>
                                 <set-parameter
-                                    param-id="ac-1_prm_2">
+                                    param-id="ac-01_odp.05">
                                     <value>at least every 3 years</value>
                                 </set-parameter>
                                 <set-parameter
-                                    param-id="ac-1_prm_3">
+                                    param-id="ac-01_odp.07">
                                     <value>at least annually</value>
                                 </set-parameter>
                             </control-implementation>
@@ -10782,15 +10643,15 @@
                                 <description />
                                 <set-parameter
                                     param-id="ac-1_prm_1">
-                                    <value>organization-defined personnel or roles</value>
+                                    <value>organization-defined personnel or roles </value>
                                 </set-parameter>
                                 <set-parameter
                                     param-id="ac-01_odp.05">
-                                    <value>at least every 3 years</value>
+                                    <value>at least every three (3) years </value>
                                 </set-parameter>
                                 <set-parameter
                                     param-id="ac-01_odp.07">
-                                    <value>at least annually</value>
+                                    <value>at least annually </value>
                                 </set-parameter>
                             </control-implementation>
                         </system-security-plan>

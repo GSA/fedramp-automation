@@ -169,7 +169,7 @@
                 diagnostics="import-ssp-has-available-document-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="import-ssp-has-available-document"
-                role="fatal"
+                role="warning"
                 test="$ssp-available = true()"
                 unit:override-xspec="both">The import-ssp element href attribute references an available document.</sch:assert>
 
@@ -177,7 +177,7 @@
                 diagnostics="import-ssp-resolves-to-ssp-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="import-ssp-resolves-to-ssp"
-                role="fatal"
+                role="warning"
                 test="$ssp-doc/oscal:system-security-plan"
                 unit:override-xspec="both">The import-ssp element href attribute references an available OSCAL system security plan
                 document.</sch:assert>

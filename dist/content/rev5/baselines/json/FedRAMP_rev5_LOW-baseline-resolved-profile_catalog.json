@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "4d584e27-7da9-48e8-9aca-9e8068de0c20",
+    "uuid": "68b35e2c-18df-4096-8c0c-07911d959dec",
     "metadata": {
       "title": "FedRAMP Rev 5 Low Baseline",
-      "published": "2023-06-15T00:00:00Z",
-      "last-modified": "2023-08-16T16:51:01.458771-04:00",
+      "published": "2023-08-31T00:00:00Z",
+      "last-modified": "2023-10-18T16:20:04.164284-04:00",
       "version": "fedramp-2.0.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "links": [
@@ -180,7 +180,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -4448,7 +4448,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -6436,7 +6436,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -9459,7 +9459,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -10020,7 +10020,7 @@
                 "label": "assessment frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -11072,7 +11072,7 @@
                     "title": "CA-5 Additional FedRAMP Requirements and Guidance",
                     "parts": [
                       {
-                        "id": "ca-5_fr_smt.1",
+                        "id": "ca-5_fr_gdn.1",
                         "name": "item",
                         "props": [
                           {
@@ -13041,7 +13041,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -16202,7 +16202,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -19048,7 +19048,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -22885,7 +22885,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -25663,7 +25663,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -27315,7 +27315,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -28763,7 +28763,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -29635,7 +29635,7 @@
                 "label": "organization-defined frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ]
               },
@@ -31914,7 +31914,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -35144,7 +35144,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -37802,7 +37802,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -40494,7 +40494,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -44201,7 +44201,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -48059,7 +48059,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [

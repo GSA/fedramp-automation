@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="33d855ad-5242-4aaa-9e6f-1e25701f56ca">
+         uuid="10577b47-29db-46b7-aa49-669516375628">
    <metadata>
       <title>FedRAMP Rev 5 High Baseline</title>
-      <published>2023-06-15T00:00:00Z</published>
-      <last-modified>2023-08-16T16:49:36.581312-04:00</last-modified>
+      <published>2023-08-31T00:00:00Z</published>
+      <last-modified>2023-10-18T16:18:37.763628-04:00</last-modified>
       <version>fedramp-2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev5_HIGH-baseline_profile.xml"/>
@@ -102,7 +102,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -726,7 +726,7 @@
             <param id="ac-02.02_odp.01">
                <constraint>
                   <description>
-                     <p>Selection: disables </p>
+                     <p>Selection: disables</p>
                   </description>
                </constraint>
                <select>
@@ -2668,7 +2668,7 @@
                </part>
                <part id="ac-8_fr_gdn.1" name="guidance">
                   <prop name="label" value="Guidance:"/>
-                  <p>If performed as part of a Configuration Baseline check, then the % of items requiring setting that are checked and that pass (or fail) check can be provided. </p>
+                  <p>If performed as part of a Configuration Baseline check, then the % of items requiring setting that are checked and that pass (or fail) check can be provided.</p>
                </part>
             </part>
          </part>
@@ -4345,7 +4345,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -4362,7 +4362,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -5147,7 +5147,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -5164,7 +5164,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -7406,7 +7406,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -7423,7 +7423,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -7613,7 +7613,7 @@
             <label>assessment frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -8935,7 +8935,7 @@
                   <title>CM-2 Additional FedRAMP Requirements and Guidance</title>
                   <part id="ca-8.2_fr_gdn.1" name="guidance">
                      <prop name="label" value="Guidance:"/>
-                     <p>See the FedRAMP Documents page&gt; Penetration Test Guidance </p>
+                     <p>See the FedRAMP Documents page&gt; Penetration Test Guidance</p>
                      <p>https://www.FedRAMP.gov/documents/</p>
                   </part>
                </part>
@@ -9148,7 +9148,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -9165,7 +9165,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -9930,7 +9930,7 @@
                <label>time period</label>
                <constraint>
                   <description>
-                     <p>organization agreed upon time period </p>
+                     <p>organization agreed upon time period</p>
                   </description>
                </constraint>
                <guideline>
@@ -12803,7 +12803,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -15571,7 +15571,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -15588,7 +15588,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -16373,7 +16373,7 @@
             <label>personnel or roles</label>
             <constraint>
                <description>
-                  <p>at a minimum, the ISSO (or similar role within the organization) </p>
+                  <p>at a minimum, the ISSO (or similar role within the organization)</p>
                </description>
             </constraint>
             <guideline>
@@ -17950,7 +17950,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -17967,7 +17967,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -20020,7 +20020,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -21234,7 +21234,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -21251,7 +21251,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -21808,7 +21808,7 @@
             <label>types of system media</label>
             <constraint>
                <description>
-                  <p>all media with sensitive information </p>
+                  <p>all media with sensitive information</p>
                </description>
             </constraint>
             <guideline>
@@ -22449,7 +22449,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -22466,7 +22466,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -24749,7 +24749,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -24766,7 +24766,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -25918,7 +25918,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -25935,7 +25935,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -26574,7 +26574,7 @@
             <label>time period following the formal transfer action</label>
             <constraint>
                <description>
-                  <p>twenty-four (24) hours </p>
+                  <p>twenty-four (24) hours</p>
                </description>
             </constraint>
             <guideline>
@@ -27108,7 +27108,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -27125,7 +27125,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -28487,7 +28487,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -28504,7 +28504,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -29216,7 +29216,7 @@
             <param id="sa-04.02_odp.01">
                <constraint>
                   <description>
-                     <p>at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram; </p>
+                     <p>at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram;</p>
                      <p>organization-defined design/implementation information</p>
                   </description>
                </constraint>
@@ -31450,7 +31450,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -31467,7 +31467,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -32795,7 +32795,7 @@
                <part id="sc-8_fr_gdn.1" name="guidance">
                   <prop name="label" value="Guidance:"/>
                   <p>For each instance of data in transit, confidentiality AND integrity should be through cryptography as specified in SC-8 (1), physical means as specified in SC-8 (5), or in combination.</p>
-                  <p> </p>
+                  <p/>
                   <p>For clarity, this control applies to all data in transit. Examples include the following data flows:</p>
                   <ul>
                      <li> Crossing the system boundary</li>
@@ -32806,27 +32806,27 @@
                      <li> From a load balancer to a compute instance</li>
                      <li> Flows from management tools required for their work – e.g. log collection, scanning, etc.</li>
                   </ul>
-                  <p> </p>
+                  <p/>
                   <p>The following applies only when choosing SC-8 (5) in lieu of SC-8 (1).</p>
-                  <p>FedRAMP-Defined Assignment / Selection Parameters </p>
+                  <p>FedRAMP-Defined Assignment / Selection Parameters</p>
                   <p>SC-8 (5)-1 [a hardened or alarmed carrier Protective Distribution System (PDS) when outside of Controlled Access Area (CAA)]</p>
-                  <p>SC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information] </p>
+                  <p>SC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information]</p>
                </part>
                <part id="sc-8_fr_gdn.2" name="guidance">
                   <prop name="label" value="Guidance:"/>
                   <p>SC-8 (5) applies when physical protection has been selected as the method to protect confidentiality and integrity. For physical protection, data in transit must be in either a Controlled Access Area (CAA), or a Hardened or alarmed PDS.</p>
-                  <p> </p>
+                  <p/>
                   <p>Hardened or alarmed PDS: Shall be as defined in SECTION X - CATEGORY 2 PDS INSTALLATION GUIDANCE of CNSSI No.7003, titled PROTECTED DISTRIBUTION SYSTEMS (PDS). Per the CNSSI No. 7003 Section VIII, PDS must originate and terminate in a Controlled Access Area (CAA).</p>
-                  <p> </p>
+                  <p/>
                   <p>Controlled Access Area (CAA): Data will be considered physically protected, and in a CAA if it meets Section 2.3 of the DHS’s Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies. CSPs can meet Section 2.3 of the DHS’ recommended practice by satisfactory implementation of the following controls PE-2 (1), PE-2 (2), PE-2 (3), PE-3 (2), PE-3 (3), PE-6 (2), and PE-6 (3).</p>
-                  <p> </p>
+                  <p/>
                   <p>Note: When selecting SC-8 (5), the above SC-8(5), and the above referenced PE controls must be added to the SSP.</p>
-                  <p> </p>
+                  <p/>
                   <p>CNSSI No.7003 can be accessed here:</p>
                   <p>https://www.dcsa.mil/Portals/91/documents/ctp/nao/CNSSI_7003_PDS_September_2015.pdf</p>
-                  <p> </p>
+                  <p/>
                   <p>DHS Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies can be accessed here:</p>
-                  <p>https://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf </p>
+                  <p>https://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf</p>
                </part>
             </part>
          </part>
@@ -33233,7 +33233,7 @@
                      <li>Generation of one time passwords (OTPs) for MFA</li>
                      <li>Protocols such as TLS, SSH, and HTTPS</li>
                   </ul>
-                  <p> </p>
+                  <p/>
                   <p>The requirement for FIPS 140 validation, as well as timelines for acceptance of FIPS 140-2, and 140-3 can be found at the NIST Cryptographic Module Validation Program (CMVP).</p>
                   <p>https://csrc.nist.gov/projects/cryptographic-module-validation-program</p>
                </part>
@@ -34384,7 +34384,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -34401,7 +34401,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -34742,7 +34742,7 @@
                <label>frequency</label>
                <constraint>
                   <description>
-                     <p>at least monthly </p>
+                     <p>at least monthly</p>
                   </description>
                </constraint>
                <guideline>
@@ -37334,7 +37334,7 @@
                <part id="si-8_fr_gdn.1" name="guidance">
                   <prop name="label" value="Guidance:"/>
                   <p>When CSO sends email on behalf of the government as part of the business offering, Control Description should include implementation of Domain-based Message Authentication, Reporting &amp; Conformance (DMARC) on the sending domain for outgoing messages as described in DHS Binding Operational Directive (BOD) 18-01.</p>
-                  <p>https://cyber.dhs.gov/bod/18-01/ </p>
+                  <p>https://cyber.dhs.gov/bod/18-01/</p>
                </part>
                <part id="si-8_fr_gdn.2" name="guidance">
                   <prop name="label" value="Guidance:"/>
@@ -37813,7 +37813,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -37830,7 +37830,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>

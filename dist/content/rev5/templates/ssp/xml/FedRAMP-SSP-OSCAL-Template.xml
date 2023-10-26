@@ -3,8 +3,8 @@
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="9809eddf-2cd5-468f-97c5-9769905d0629">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
-      <published>2023-07-06T00:00:00Z</published>
-      <last-modified>2023-07-06T00:00:00Z</last-modified>
+      <published>2023-08-31T00:00:00Z</published>
+      <last-modified>2023-08-31T00:00:00Z</last-modified>
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <revisions>
@@ -1367,10 +1367,10 @@
                <set-parameter param-id="ac-1_prm_1">
                   <value>organization-defined personnel or roles</value>
                </set-parameter>
-               <set-parameter param-id="ac-1_prm_2">
+               <set-parameter param-id="ac-01_odp.05">
                   <value>at least every 3 years</value>
                </set-parameter>
-               <set-parameter param-id="ac-1_prm_3">
+               <set-parameter param-id="ac-01_odp.07">
                   <value>at least annually</value>
                </set-parameter>
             </by-component>

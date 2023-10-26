@@ -3,8 +3,8 @@ profile:
   uuid: 71ba09a5-97a8-483f-92bd-3db6358f005d
   metadata:
     title: FedRAMP Rev 5 Low Baseline
-    published: 2023-06-15T00:00:00Z
-    last-modified: 2023-06-15T00:00:00Z
+    published: 2023-08-31T00:00:00Z
+    last-modified: 2023-08-31T00:00:00Z
     version: fedramp-2.0.0-oscal1.0.4
     oscal-version: 1.0.4
     roles:
@@ -226,7 +226,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: ac-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ac-01_odp.08
         constraints:
           - description: significant changes
@@ -256,7 +256,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: at-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: at-01_odp.08
         constraints:
           - description: significant changes
@@ -281,7 +281,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: au-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: au-01_odp.08
         constraints:
           - description: significant changes
@@ -320,13 +320,13 @@ profile:
           - description: "at least every 3 years "
       - param-id: ca-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ca-01_odp.08
         constraints:
           - description: significant changes
       - param-id: ca-02_odp.01
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ca-02_odp.02
         constraints:
           - description: individuals or roles to include FedRAMP PMO
@@ -351,7 +351,7 @@ profile:
           - description: at least every 3 years
       - param-id: cm-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: cm-01_odp.08
         constraints:
           - description: significant changes
@@ -372,7 +372,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: cp-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: cp-01_odp.08
         constraints:
           - description: significant changes
@@ -408,7 +408,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: ia-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ia-01_odp.08
         constraints:
           - description: significant changes
@@ -423,7 +423,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: ir-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ir-01_odp.08
         constraints:
           - description: significant changes
@@ -455,7 +455,7 @@ profile:
           - description: at least every 3 years
       - param-id: ma-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ma-01_odp.08
         constraints:
           - description: significant changes
@@ -464,7 +464,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: mp-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: mp-01_odp.08
         constraints:
           - description: significant changes
@@ -477,7 +477,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: pe-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pe-01_odp.08
         constraints:
           - description: significant changes
@@ -496,7 +496,7 @@ profile:
           - description: at least annually
       - param-id: pe-3_prm_9
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pe-06_odp.01
         constraints:
           - description: at least monthly
@@ -522,7 +522,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: pl-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pl-01_odp.08
         constraints:
           - description: significant changes
@@ -543,7 +543,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: ps-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ps-01_odp.08
         constraints:
           - description: significant changes
@@ -594,7 +594,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: ra-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ra-01_odp.08
         constraints:
           - description: significant changes
@@ -626,7 +626,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: sa-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sa-01_odp.08
         constraints:
           - description: significant changes
@@ -646,7 +646,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: sc-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sc-01_odp.08
         constraints:
           - description: significant changes
@@ -675,7 +675,7 @@ profile:
           - description: "at least every 3 years "
       - param-id: si-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: si-01_odp.08
         constraints:
           - description: significant changes
@@ -916,7 +916,7 @@ profile:
                 name: item
                 title: CA-5 Additional FedRAMP Requirements and Guidance
                 parts:
-                  - id: ca-5_fr_smt.1
+                  - id: ca-5_fr_gdn.1
                     name: item
                     props:
                       - name: label

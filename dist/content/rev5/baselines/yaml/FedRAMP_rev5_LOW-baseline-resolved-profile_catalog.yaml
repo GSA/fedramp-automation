@@ -1,10 +1,10 @@
 ---
 catalog:
-  uuid: 4d584e27-7da9-48e8-9aca-9e8068de0c20
+  uuid: 68b35e2c-18df-4096-8c0c-07911d959dec
   metadata:
     title: FedRAMP Rev 5 Low Baseline
-    published: 2023-06-15T00:00:00Z
-    last-modified: 2023-08-16T16:51:01.458771-04:00
+    published: 2023-08-31T00:00:00Z
+    last-modified: 2023-10-18T16:20:04.164284-04:00
     version: fedramp-2.0.0-oscal1.0.4
     oscal-version: 1.0.4
     links:
@@ -108,7 +108,7 @@ catalog:
             - id: ac-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current access control procedures
                     are reviewed and updated is defined;
@@ -3275,7 +3275,7 @@ catalog:
             - id: at-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current awareness and training
                     procedures are reviewed and updated is defined;
@@ -4687,7 +4687,7 @@ catalog:
             - id: au-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current audit and accountability
                     procedures are reviewed and updated is defined;
@@ -6869,7 +6869,7 @@ catalog:
             - id: ca-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current assessment, authorization,
                     and monitoring procedures are reviewed and updated is defined;
@@ -7263,7 +7263,7 @@ catalog:
             - id: ca-02_odp.01
               label: assessment frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which to assess controls in the system and
                     its environment of operation is defined;
@@ -8134,7 +8134,7 @@ catalog:
                   name: item
                   title: CA-5 Additional FedRAMP Requirements and Guidance
                   parts:
-                    - id: ca-5_fr_smt.1
+                    - id: ca-5_fr_gdn.1
                       name: item
                       props:
                         - name: label
@@ -9622,7 +9622,7 @@ catalog:
             - id: cm-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current configuration management
                     procedures are reviewed and updated is defined;
@@ -12039,7 +12039,7 @@ catalog:
             - id: cp-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current contingency planning procedures
                     are reviewed and updated is defined;
@@ -13976,7 +13976,7 @@ catalog:
             - id: ia-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current identification and authentication
                     procedures are reviewed and updated is defined;
@@ -17022,7 +17022,7 @@ catalog:
             - id: ir-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current incident response procedures
                     are reviewed and updated is defined;
@@ -18925,7 +18925,7 @@ catalog:
             - id: ma-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency with which the current maintenance procedures
                     are reviewed and updated is defined;
@@ -20096,7 +20096,7 @@ catalog:
             - id: mp-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency with which the current media protection procedures
                     are reviewed and updated is defined;
@@ -21137,7 +21137,7 @@ catalog:
             - id: pe-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current physical and environmental
                     protection procedures are reviewed and updated is defined;
@@ -21743,7 +21743,7 @@ catalog:
             - id: pe-3_prm_9
               label: organization-defined frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
             - id: pe-03_odp.01
               label: entry and exit points
               guidelines:
@@ -23344,7 +23344,7 @@ catalog:
             - id: pl-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency with which the current planning procedures
                     are reviewed and updated is defined;
@@ -25807,7 +25807,7 @@ catalog:
             - id: ps-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current personnel security procedures
                     are reviewed and updated is defined;
@@ -27746,7 +27746,7 @@ catalog:
             - id: ra-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current risk assessment procedures
                     are reviewed and updated is defined;
@@ -29825,7 +29825,7 @@ catalog:
             - id: sa-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current system and services acquisition
                     procedures are reviewed and updated is defined;
@@ -32742,7 +32742,7 @@ catalog:
             - id: sc-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current system and communications
                     protection procedures are reviewed and updated is defined;
@@ -35757,7 +35757,7 @@ catalog:
             - id: si-01_odp.07
               label: frequency
               constraints:
-                - description: "at least annually "
+                - description: at least annually
               guidelines:
                 - prose: the frequency at which the current system and information
                     integrity procedures are reviewed and updated is defined;

@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "1cc14914-18ce-46ce-9dbb-7d0e18630703",
+    "uuid": "68ebd779-0e4c-4999-abc5-6f00ecf4aca0",
     "metadata": {
       "title": "FedRAMP Rev 5 Moderate Baseline",
-      "published": "2023-06-15T00:00:00Z",
-      "last-modified": "2023-08-16T16:51:38.306585-04:00",
+      "published": "2023-08-31T00:00:00Z",
+      "last-modified": "2023-10-18T16:20:40.046526-04:00",
       "version": "fedramp-2.0.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "links": [
@@ -180,7 +180,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -1862,7 +1862,7 @@
                     "id": "ac-02.02_odp.01",
                     "constraints": [
                       {
-                        "description": "Selection: disables "
+                        "description": "Selection: disables"
                       }
                     ],
                     "select": {
@@ -5996,7 +5996,7 @@
                             "value": "Guidance:"
                           }
                         ],
-                        "prose": "If performed as part of a Configuration Baseline check, then the % of items requiring setting that are checked and that pass (or fail) check can be provided. "
+                        "prose": "If performed as part of a Configuration Baseline check, then the % of items requiring setting that are checked and that pass (or fail) check can be provided."
                       }
                     ]
                   }
@@ -9977,7 +9977,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -12108,7 +12108,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -16092,7 +16092,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -16653,7 +16653,7 @@
                 "label": "assessment frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -19673,7 +19673,7 @@
                                 "value": "Guidance:"
                               }
                             ],
-                            "prose": "See the FedRAMP Documents page> Penetration Test Guidance \n\nhttps://www.FedRAMP.gov/documents/"
+                            "prose": "See the FedRAMP Documents page> Penetration Test Guidance\n\nhttps://www.FedRAMP.gov/documents/"
                           }
                         ]
                       }
@@ -20177,7 +20177,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -27769,7 +27769,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -33080,7 +33080,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -35113,7 +35113,7 @@
                 "label": "personnel or roles",
                 "constraints": [
                   {
-                    "description": "at a minimum, the ISSO (or similar role within the organization) "
+                    "description": "at a minimum, the ISSO (or similar role within the organization)"
                   }
                 ],
                 "guidelines": [
@@ -35826,7 +35826,7 @@
                             "value": "Requirement:"
                           }
                         ],
-                        "prose": "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 3. Link https://pages.nist.gov/800-63-3"
+                        "prose": "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 2. Link https://pages.nist.gov/800-63-3"
                       },
                       {
                         "id": "ia-5_fr_gdn.1",
@@ -38803,7 +38803,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -43078,7 +43078,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -45853,7 +45853,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -47288,7 +47288,7 @@
                 "label": "types of system media",
                 "constraints": [
                   {
-                    "description": "all media with sensitive information "
+                    "description": "all media with sensitive information"
                   }
                 ],
                 "guidelines": [
@@ -48312,7 +48312,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -53057,7 +53057,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -56297,7 +56297,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -57838,7 +57838,7 @@
                 "label": "time period following the formal transfer action",
                 "constraints": [
                   {
-                    "description": "twenty-four (24) hours "
+                    "description": "twenty-four (24) hours"
                   }
                 ],
                 "guidelines": [
@@ -59148,7 +59148,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -62282,7 +62282,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -64311,7 +64311,7 @@
                     "id": "sa-04.02_odp.01",
                     "constraints": [
                       {
-                        "description": "at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram; "
+                        "description": "at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram;"
                       }
                     ],
                     "select": {
@@ -69037,7 +69037,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -71849,7 +71849,7 @@
                             "value": "Guidance:"
                           }
                         ],
-                        "prose": "For each instance of data in transit, confidentiality AND integrity should be through cryptography as specified in SC-8 (1), physical means as specified in SC-8 (5), or in combination.\n\n \n\nFor clarity, this control applies to all data in transit. Examples include the following data flows:\n\n* Crossing the system boundary\n* Between compute instances - including containers\n* From a compute instance to storage\n* Replication between availability zones\n* Transmission of backups to storage\n* From a load balancer to a compute instance\n* Flows from management tools required for their work \u2013 e.g. log collection, scanning, etc.\n\n\n \n\nThe following applies only when choosing SC-8 (5) in lieu of SC-8 (1).\n\nFedRAMP-Defined Assignment / Selection Parameters \n\nSC-8 (5)-1 [a hardened or alarmed carrier Protective Distribution System (PDS) when outside of Controlled Access Area (CAA)]\n\nSC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information] "
+                        "prose": "For each instance of data in transit, confidentiality AND integrity should be through cryptography as specified in SC-8 (1), physical means as specified in SC-8 (5), or in combination.\n\n\n\nFor clarity, this control applies to all data in transit. Examples include the following data flows:\n\n* Crossing the system boundary\n* Between compute instances - including containers\n* From a compute instance to storage\n* Replication between availability zones\n* Transmission of backups to storage\n* From a load balancer to a compute instance\n* Flows from management tools required for their work \u2013 e.g. log collection, scanning, etc.\n\n\n\n\nThe following applies only when choosing SC-8 (5) in lieu of SC-8 (1).\n\nFedRAMP-Defined Assignment / Selection Parameters\n\nSC-8 (5)-1 [a hardened or alarmed carrier Protective Distribution System (PDS) when outside of Controlled Access Area (CAA)]\n\nSC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information]"
                       },
                       {
                         "id": "sc-8_fr_gdn.2",
@@ -71860,7 +71860,7 @@
                             "value": "Guidance:"
                           }
                         ],
-                        "prose": "SC-8 (5) applies when physical protection has been selected as the method to protect confidentiality and integrity. For physical protection, data in transit must be in either a Controlled Access Area (CAA), or a Hardened or alarmed PDS.\n\n \n\nHardened or alarmed PDS: Shall be as defined in SECTION X - CATEGORY 2 PDS INSTALLATION GUIDANCE of CNSSI No.7003, titled PROTECTED DISTRIBUTION SYSTEMS (PDS). Per the CNSSI No. 7003 Section VIII, PDS must originate and terminate in a Controlled Access Area (CAA).\n\n \n\nControlled Access Area (CAA): Data will be considered physically protected, and in a CAA if it meets Section 2.3 of the DHS\u2019s Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies. CSPs can meet Section 2.3 of the DHS\u2019 recommended practice by satisfactory implementation of the following controls PE-2 (1), PE-2 (2), PE-2 (3), PE-3 (2), PE-3 (3), PE-6 (2), and PE-6 (3).\n\n \n\nNote: When selecting SC-8 (5), the above SC-8(5), and the above referenced PE controls must be added to the SSP.\n\n \n\nCNSSI No.7003 can be accessed here:\n\nhttps://www.dcsa.mil/Portals/91/documents/ctp/nao/CNSSI_7003_PDS_September_2015.pdf\n\n \n\nDHS Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies can be accessed here:\n\nhttps://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf "
+                        "prose": "SC-8 (5) applies when physical protection has been selected as the method to protect confidentiality and integrity. For physical protection, data in transit must be in either a Controlled Access Area (CAA), or a Hardened or alarmed PDS.\n\n\n\nHardened or alarmed PDS: Shall be as defined in SECTION X - CATEGORY 2 PDS INSTALLATION GUIDANCE of CNSSI No.7003, titled PROTECTED DISTRIBUTION SYSTEMS (PDS). Per the CNSSI No. 7003 Section VIII, PDS must originate and terminate in a Controlled Access Area (CAA).\n\n\n\nControlled Access Area (CAA): Data will be considered physically protected, and in a CAA if it meets Section 2.3 of the DHS\u2019s Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies. CSPs can meet Section 2.3 of the DHS\u2019 recommended practice by satisfactory implementation of the following controls PE-2 (1), PE-2 (2), PE-2 (3), PE-3 (2), PE-3 (3), PE-6 (2), and PE-6 (3).\n\n\n\nNote: When selecting SC-8 (5), the above SC-8(5), and the above referenced PE controls must be added to the SSP.\n\n\n\nCNSSI No.7003 can be accessed here:\n\nhttps://www.dcsa.mil/Portals/91/documents/ctp/nao/CNSSI_7003_PDS_September_2015.pdf\n\n\n\nDHS Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies can be accessed here:\n\nhttps://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf"
                       }
                     ]
                   }
@@ -72797,7 +72797,7 @@
                             "value": "Guidance:"
                           }
                         ],
-                        "prose": "This control applies to all use of cryptography. In addition to encryption, this includes functions such as hashing, random number generation, and key generation. Examples include the following:\n\n* Encryption of data\n* Decryption of data\n* Generation of one time passwords (OTPs) for MFA\n* Protocols such as TLS, SSH, and HTTPS\n\n\n \n\nThe requirement for FIPS 140 validation, as well as timelines for acceptance of FIPS 140-2, and 140-3 can be found at the NIST Cryptographic Module Validation Program (CMVP).\n\nhttps://csrc.nist.gov/projects/cryptographic-module-validation-program"
+                        "prose": "This control applies to all use of cryptography. In addition to encryption, this includes functions such as hashing, random number generation, and key generation. Examples include the following:\n\n* Encryption of data\n* Decryption of data\n* Generation of one time passwords (OTPs) for MFA\n* Protocols such as TLS, SSH, and HTTPS\n\n\n\n\nThe requirement for FIPS 140 validation, as well as timelines for acceptance of FIPS 140-2, and 140-3 can be found at the NIST Cryptographic Module Validation Program (CMVP).\n\nhttps://csrc.nist.gov/projects/cryptographic-module-validation-program"
                       },
                       {
                         "id": "sc-13_fr_gdn.2",
@@ -75572,7 +75572,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -76539,7 +76539,7 @@
                     "label": "frequency",
                     "constraints": [
                       {
-                        "description": "at least monthly "
+                        "description": "at least monthly"
                       }
                     ],
                     "guidelines": [
@@ -80813,7 +80813,7 @@
                             "value": "Guidance:"
                           }
                         ],
-                        "prose": "When CSO sends email on behalf of the government as part of the business offering, Control Description should include implementation of Domain-based Message Authentication, Reporting & Conformance (DMARC) on the sending domain for outgoing messages as described in DHS Binding Operational Directive (BOD) 18-01.\n\nhttps://cyber.dhs.gov/bod/18-01/ "
+                        "prose": "When CSO sends email on behalf of the government as part of the business offering, Control Description should include implementation of Domain-based Message Authentication, Reporting & Conformance (DMARC) on the sending domain for outgoing messages as described in DHS Binding Operational Directive (BOD) 18-01.\n\nhttps://cyber.dhs.gov/bod/18-01/"
                       },
                       {
                         "id": "si-8_fr_gdn.2",

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="4d584e27-7da9-48e8-9aca-9e8068de0c20">
+         uuid="68b35e2c-18df-4096-8c0c-07911d959dec">
    <metadata>
       <title>FedRAMP Rev 5 Low Baseline</title>
-      <published>2023-06-15T00:00:00Z</published>
-      <last-modified>2023-08-16T16:51:01.458771-04:00</last-modified>
+      <published>2023-08-31T00:00:00Z</published>
+      <last-modified>2023-10-18T16:20:04.164284-04:00</last-modified>
       <version>fedramp-2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev5_LOW-baseline_profile.xml"/>
@@ -102,7 +102,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -1690,7 +1690,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -2438,7 +2438,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -3588,7 +3588,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -3778,7 +3778,7 @@
             <label>assessment frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -4175,7 +4175,7 @@
             </part>
             <part id="ca-5_fr" name="item">
                <title>CA-5 Additional FedRAMP Requirements and Guidance</title>
-               <part id="ca-5_fr_smt.1" name="item">
+               <part id="ca-5_fr_gdn.1" name="item">
                   <prop name="label" value="Requirement:"/>
                   <p>POA&amp;Ms must be provided at least monthly.</p>
                </part>
@@ -4944,7 +4944,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -6152,7 +6152,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -7231,7 +7231,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -8696,7 +8696,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -9722,7 +9722,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -10323,7 +10323,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -10902,7 +10902,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -11205,7 +11205,7 @@
             <label>organization-defined frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
          </param>
@@ -12126,7 +12126,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -13285,7 +13285,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -14322,7 +14322,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -15354,7 +15354,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -16712,7 +16712,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -18197,7 +18197,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>

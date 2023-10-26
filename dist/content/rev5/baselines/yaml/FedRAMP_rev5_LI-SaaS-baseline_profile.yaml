@@ -3,8 +3,8 @@ profile:
   uuid: 2b515da9-8a5e-4b7c-9cce-6451e70ca75d
   metadata:
     title: FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
-    published: 2023-06-15T00:00:00Z
-    last-modified: 2023-06-15T00:00:00Z
+    published: 2023-08-31T00:00:00Z
+    last-modified: 2023-08-31T00:00:00Z
     version: fedramp-2.0.0-oscal1.0.4
     oscal-version: 1.0.4
     roles:
@@ -223,10 +223,10 @@ profile:
     set-parameters:
       - param-id: ac-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: ac-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ac-01_odp.08
         constraints:
           - description: significant changes
@@ -253,10 +253,10 @@ profile:
           - description: at least quarterly
       - param-id: at-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: at-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: at-01_odp.08
         constraints:
           - description: significant changes
@@ -278,10 +278,10 @@ profile:
               training program
       - param-id: au-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: au-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: au-01_odp.08
         constraints:
           - description: significant changes
@@ -317,16 +317,16 @@ profile:
               capability is deployed/available
       - param-id: ca-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: ca-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ca-01_odp.08
         constraints:
           - description: significant changes
       - param-id: ca-02_odp.01
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ca-02_odp.02
         constraints:
           - description: individuals or roles to include FedRAMP PMO
@@ -351,7 +351,7 @@ profile:
           - description: at least every 3 years
       - param-id: cm-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: cm-01_odp.08
         constraints:
           - description: significant changes
@@ -369,10 +369,10 @@ profile:
           - description: Continuously (via CM-7 (5))
       - param-id: cp-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: cp-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: cp-01_odp.08
         constraints:
           - description: significant changes
@@ -405,25 +405,25 @@ profile:
           - description: daily incremental; weekly full
       - param-id: ia-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: ia-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ia-01_odp.08
         constraints:
           - description: significant changes
       - param-id: ia-04_odp.01
         constraints:
-          - description: "at a minimum, the ISSO (or similar role within the organization) "
+          - description: at a minimum, the ISSO (or similar role within the organization)
       - param-id: ia-04_odp.02
         constraints:
           - description: at least two (2) years
       - param-id: ir-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: ir-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ir-01_odp.08
         constraints:
           - description: significant changes
@@ -455,16 +455,16 @@ profile:
           - description: at least every 3 years
       - param-id: ma-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ma-01_odp.08
         constraints:
           - description: significant changes
       - param-id: mp-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: mp-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: mp-01_odp.08
         constraints:
           - description: significant changes
@@ -474,10 +474,10 @@ profile:
               \ Reuse and Disposal of Storage Media and Hardware"
       - param-id: pe-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: pe-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pe-01_odp.08
         constraints:
           - description: significant changes
@@ -496,7 +496,7 @@ profile:
           - description: at least annually
       - param-id: pe-3_prm_9
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pe-06_odp.01
         constraints:
           - description: at least monthly
@@ -519,10 +519,10 @@ profile:
           - description: all information system components
       - param-id: pl-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: pl-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pl-01_odp.08
         constraints:
           - description: significant changes
@@ -540,10 +540,10 @@ profile:
           - description: at least annually and when a significant change occurs
       - param-id: ps-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: ps-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ps-01_odp.08
         constraints:
           - description: significant changes
@@ -568,7 +568,7 @@ profile:
           - description: four (4) hours
       - param-id: ps-05_odp.02
         constraints:
-          - description: "twenty-four (24) hours "
+          - description: twenty-four (24) hours
       - param-id: ps-05_odp.04
         constraints:
           - description: twenty-four (24) hours
@@ -591,10 +591,10 @@ profile:
           - description: at a minimum, the ISSO and/or similar role within the organization
       - param-id: ra-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: ra-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ra-01_odp.08
         constraints:
           - description: significant changes
@@ -623,10 +623,10 @@ profile:
           - description: prior to a new scan
       - param-id: sa-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: sa-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sa-01_odp.08
         constraints:
           - description: significant changes
@@ -643,10 +643,10 @@ profile:
               met for external systems where Federal information is processed or stored
       - param-id: sc-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: sc-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sc-01_odp.08
         constraints:
           - description: significant changes
@@ -672,10 +672,10 @@ profile:
               system data that must be protected at the High or Moderate impact levels
       - param-id: si-01_odp.05
         constraints:
-          - description: "at least every 3 years "
+          - description: at least every 3 years
       - param-id: si-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: si-01_odp.08
         constraints:
           - description: significant changes
@@ -1396,10 +1396,10 @@ profile:
                     props:
                       - name: label
                         value: "Requirement 1:"
-                    prose: "The service provider shall use the Center for Internet\
-                      \ Security guidelines (Level 1) to establish configuration settings\
-                      \ or establishes its own configuration settings if USGCB is\
-                      \ not available. "
+                    prose: The service provider shall use the Center for Internet
+                      Security guidelines (Level 1) to establish configuration settings
+                      or establishes its own configuration settings if USGCB is not
+                      available.
                   - id: cm-6_fr_smt.2
                     name: item
                     props:

@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "8d8990c0-d639-44c0-b158-c90eaf23835c",
+    "uuid": "874bac69-c5eb-4905-8b74-3d6473e2387a",
     "metadata": {
       "title": "FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
-      "published": "2023-06-15T00:00:00Z",
-      "last-modified": "2023-08-16T16:50:31.260898-04:00",
+      "published": "2023-08-31T00:00:00Z",
+      "last-modified": "2023-10-18T16:19:35.494849-04:00",
       "version": "fedramp-2.0.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "links": [
@@ -157,7 +157,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -180,7 +180,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -2843,7 +2843,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -2866,7 +2866,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -3823,7 +3823,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -3846,7 +3846,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -5890,7 +5890,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -5913,7 +5913,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -6141,7 +6141,7 @@
                 "label": "assessment frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -9008,7 +9008,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -10321,7 +10321,7 @@
                         "value": "Requirement 1:"
                       }
                     ],
-                    "prose": "The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available. "
+                    "prose": "The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available."
                   },
                   {
                     "id": "cm-6_fr_smt.2",
@@ -11291,7 +11291,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -11314,7 +11314,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -12830,7 +12830,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -12853,7 +12853,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -13781,7 +13781,7 @@
                 "label": "personnel or roles",
                 "constraints": [
                   {
-                    "description": "at a minimum, the ISSO (or similar role within the organization) "
+                    "description": "at a minimum, the ISSO (or similar role within the organization)"
                   }
                 ],
                 "guidelines": [
@@ -15294,7 +15294,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -15317,7 +15317,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -17057,7 +17057,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -18193,7 +18193,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -18216,7 +18216,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -19380,7 +19380,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -19403,7 +19403,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -19966,7 +19966,7 @@
                 "label": "organization-defined frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ]
               },
@@ -22414,7 +22414,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -22437,7 +22437,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -24944,7 +24944,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -24967,7 +24967,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -25763,7 +25763,7 @@
                 "label": "time period following the formal transfer action",
                 "constraints": [
                   {
-                    "description": "twenty-four (24) hours "
+                    "description": "twenty-four (24) hours"
                   }
                 ],
                 "guidelines": [
@@ -26463,7 +26463,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -26486,7 +26486,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -28597,7 +28597,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -28620,7 +28620,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -30525,7 +30525,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -30548,7 +30548,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
@@ -33245,7 +33245,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least every 3 years "
+                    "description": "at least every 3 years"
                   }
                 ],
                 "guidelines": [
@@ -33268,7 +33268,7 @@
                 "label": "frequency",
                 "constraints": [
                   {
-                    "description": "at least annually "
+                    "description": "at least annually"
                   }
                 ],
                 "guidelines": [
