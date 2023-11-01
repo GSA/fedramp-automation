@@ -1648,7 +1648,7 @@
          <enum value="isa-agreement" short-label="Agreement">Interconnection Security Agreement</enum>
          <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
          <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
-         <enum value="user-guide" short-label="User Guide">User Guide</enum>
+         <enum value="users-guide" short-label="User Guide">User Guide</enum>
          <enum value="privacy-impact-analysis" short-label="PIA">Privacy Impact Assessment</enum>
          <enum value="information-system-contingency-plan" short-label="ISCP">Information System Contingency Plan</enum>
          <enum value="configuration-management-plan" short-label="CMP">configuration-management-plan</enum>

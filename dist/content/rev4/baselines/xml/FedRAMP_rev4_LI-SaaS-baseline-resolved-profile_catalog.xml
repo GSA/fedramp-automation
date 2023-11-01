@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="a4d57bb4-f7e4-436c-8e08-6f711d16ad8a">
+         uuid="9856da79-4887-474e-ac5f-a85bc66581e3">
    <metadata>
       <title>FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2023-10-18T16:16:12.413993-04:00</last-modified>
+      <last-modified>2023-11-01T16:54:48.592239-04:00</last-modified>
       <version>fedramp1.1.1-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source"
