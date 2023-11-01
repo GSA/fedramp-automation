@@ -879,7 +879,7 @@
                 value="information-security-policies-and-procedures">Incident Security Policies and Procedures</enum>
             <enum
                 short-label="User Guide"
-                value="user-guide">User Guide</enum>
+                value="users-guide">User Guide</enum>
             <enum
                 short-label="PIA"
                 value="privacy-impact-assessment">Privacy Impact Assessment</enum>
