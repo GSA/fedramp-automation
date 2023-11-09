@@ -6,8 +6,8 @@
         <title-short>FedRAMP Data Values (Experimental)</title-short>
         <published>2023-06-30T00:00:00Z</published>
         <last-modified>2023-06-30T00:00:00Z</last-modified>
-        <version>fedramp2.0.0-oscal1.0.4</version>
-        <oscal-version>1.0.4</oscal-version>
+        <version>fedramp-2.0.0-oscal-1.1.1</version>
+        <oscal-version>1.1.1</oscal-version>
         <revisions>
             <revision>
                 <published>2023-06-30T00:00:00Z</published>
@@ -17,7 +17,7 @@
                     ns="https://fedramp.gov/ns/oscal"
                     value="b6a86c7d-4883-4ff8-9bcf-632b72ac3b80"/>
                 <remarks>
-                    <p>Initial draft for fedramp2.0.0-oscal1.0.4 release. Subject to change.</p>
+                    <p>Initial draft for fedramp-2.0.0-oscal-1.1.1 release. Subject to change.</p>
                 </remarks>
             </revision>
         </revisions>

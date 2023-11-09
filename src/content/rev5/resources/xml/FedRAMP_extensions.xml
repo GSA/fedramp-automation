@@ -4,15 +4,15 @@
       <title>[EXPERIMENTAL] FedRAMP Extensions</title>
       <published>2023-06-30T00:00:00Z</published>
       <last-modified>2023-07-05T00:00:00Z</last-modified>
-      <version>fedramp2.0.0-oscal1.0.4</version>
-      <oscal-version>1.0.4</oscal-version>
+      <version>fedramp-2.0.0-oscal-1.1.1</version>
+      <oscal-version>1.1.1</oscal-version>
       <revisions>
          <revision>
             <published>2023-06-30T00:00:00Z</published>
             <version>DRAFT-01</version>
             <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal" value="9505ecff-86c4-42ad-aeb9-e6b0f8eacb69"/>
             <remarks>
-               <p>Initial draft for fedramp2.0.0-oscal1.0.4 release. Subject to change.</p>
+               <p>Initial draft for fedramp-2.0.0-oscal-1.1.1 release. Subject to change.</p>
             </remarks>
          </revision>
          <revision>
