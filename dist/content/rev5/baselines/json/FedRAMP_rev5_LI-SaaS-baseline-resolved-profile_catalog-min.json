@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "56e8b69a-93b0-4fd1-a3b0-d7fb1135d4cd",
+    "uuid": "5a9e1462-43d7-4135-8c85-8fe541fd2ee3",
     "metadata": {
       "title": "FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2023-08-31T00:00:00Z",
-      "last-modified": "2023-11-01T16:57:33.12211-04:00",
+      "last-modified": "2023-11-09T13:57:27.103514-05:00",
       "version": "fedramp-2.0.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "links": [
@@ -217,6 +217,16 @@
               {
                 "name": "sort-id",
                 "value": "ac-01"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -519,6 +529,11 @@
               {
                 "name": "sort-id",
                 "value": "ac-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -851,6 +866,11 @@
               {
                 "name": "sort-id",
                 "value": "ac-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -1242,6 +1262,11 @@
                 "value": "ac-07"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -1484,6 +1509,16 @@
                 "value": "ac-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "FED",
@@ -1667,6 +1702,11 @@
                 "value": "ac-14"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "FED",
@@ -1745,6 +1785,11 @@
               {
                 "name": "sort-id",
                 "value": "ac-17"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -2057,6 +2102,11 @@
                 "value": "ac-18"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -2183,6 +2233,11 @@
               {
                 "name": "sort-id",
                 "value": "ac-19"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -2388,6 +2443,11 @@
                 "value": "ac-20"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -2537,6 +2597,11 @@
               {
                 "name": "sort-id",
                 "value": "ac-22"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -2905,6 +2970,16 @@
                 "value": "at-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -3170,6 +3245,16 @@
                 "value": "at-02"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -3367,6 +3452,16 @@
                     "value": "at-02.02"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -3476,6 +3571,16 @@
               {
                 "name": "sort-id",
                 "value": "at-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -3692,6 +3797,16 @@
                 "value": "at-04"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -3883,6 +3998,16 @@
               {
                 "name": "sort-id",
                 "value": "au-01"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -4114,6 +4239,11 @@
               {
                 "name": "sort-id",
                 "value": "au-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -4354,6 +4484,11 @@
               {
                 "name": "sort-id",
                 "value": "au-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -4677,6 +4812,16 @@
                 "value": "au-04"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -4790,6 +4935,11 @@
               {
                 "name": "sort-id",
                 "value": "au-05"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -5033,6 +5183,16 @@
               {
                 "name": "sort-id",
                 "value": "au-06"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -5353,6 +5513,11 @@
                 "value": "au-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -5441,6 +5606,11 @@
               {
                 "name": "sort-id",
                 "value": "au-09"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -5590,6 +5760,11 @@
                 "value": "au-11"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -5698,6 +5873,11 @@
               {
                 "name": "sort-id",
                 "value": "au-12"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -5952,6 +6132,16 @@
                 "value": "ca-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -6178,6 +6368,16 @@
               {
                 "name": "sort-id",
                 "value": "ca-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -6671,6 +6871,16 @@
                     "value": "ca-02.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -6755,6 +6965,16 @@
               {
                 "name": "sort-id",
                 "value": "ca-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -7091,6 +7311,16 @@
                 "value": "ca-05"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -7209,6 +7439,16 @@
               {
                 "name": "sort-id",
                 "value": "ca-06"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -7622,6 +7862,16 @@
               {
                 "name": "sort-id",
                 "value": "ca-07"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -8223,6 +8473,21 @@
                     "value": "ca-07.04"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
@@ -8452,6 +8717,16 @@
                 "value": "ca-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -8624,6 +8899,16 @@
               {
                 "name": "sort-id",
                 "value": "ca-09"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -9047,6 +9332,16 @@
                 "value": "cm-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -9259,6 +9554,16 @@
                 "value": "cm-02"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -9439,6 +9744,16 @@
               {
                 "name": "sort-id",
                 "value": "cm-04"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -9641,6 +9956,11 @@
               {
                 "name": "sort-id",
                 "value": "cm-05"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -9916,6 +10236,16 @@
               {
                 "name": "sort-id",
                 "value": "cm-06"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -10428,6 +10758,16 @@
                 "value": "cm-07"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -10602,6 +10942,16 @@
               {
                 "name": "sort-id",
                 "value": "cm-08"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -10991,6 +11341,11 @@
                 "value": "cm-10"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -11126,6 +11481,11 @@
               {
                 "name": "sort-id",
                 "value": "cm-11"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -11351,6 +11711,16 @@
               {
                 "name": "sort-id",
                 "value": "cp-01"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -11615,6 +11985,11 @@
               {
                 "name": "sort-id",
                 "value": "cp-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -11991,6 +12366,16 @@
                 "value": "cp-03"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -12175,6 +12560,16 @@
               {
                 "name": "sort-id",
                 "value": "cp-04"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -12363,6 +12758,11 @@
               {
                 "name": "sort-id",
                 "value": "cp-09"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -12705,6 +13105,11 @@
                 "value": "cp-10"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -12890,6 +13295,16 @@
               {
                 "name": "sort-id",
                 "value": "ia-01"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -13098,6 +13513,16 @@
                 "value": "ia-02"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -13285,6 +13710,11 @@
                     "value": "ia-02.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
@@ -13434,6 +13864,11 @@
                     "value": "ia-02.02"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
@@ -13492,6 +13927,11 @@
                   {
                     "name": "sort-id",
                     "value": "ia-02.08"
+                  },
+                  {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
                   },
                   {
                     "name": "method",
@@ -13621,6 +14061,11 @@
                   {
                     "name": "sort-id",
                     "value": "ia-02.12"
+                  },
+                  {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
                   },
                   {
                     "name": "method",
@@ -13820,6 +14265,11 @@
                 "value": "ia-04"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -14012,6 +14462,16 @@
               {
                 "name": "sort-id",
                 "value": "ia-05"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -14279,6 +14739,16 @@
                     "value": "ia-05.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -14419,6 +14889,11 @@
                 "value": "ia-06"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -14548,6 +15023,11 @@
                 "value": "ia-07"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -14610,6 +15090,11 @@
               {
                 "name": "sort-id",
                 "value": "ia-08"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -14738,6 +15223,11 @@
                   {
                     "name": "sort-id",
                     "value": "ia-08.01"
+                  },
+                  {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
                   },
                   {
                     "name": "method",
@@ -14907,6 +15397,11 @@
                   {
                     "name": "sort-id",
                     "value": "ia-08.02"
+                  },
+                  {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
                   },
                   {
                     "name": "method",
@@ -15133,6 +15628,11 @@
                     "value": "ia-08.04"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -15188,6 +15688,16 @@
               {
                 "name": "sort-id",
                 "value": "ia-11"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -15354,6 +15864,16 @@
               {
                 "name": "sort-id",
                 "value": "ir-01"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -15599,6 +16119,16 @@
                 "value": "ir-02"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -15735,6 +16265,11 @@
               {
                 "name": "sort-id",
                 "value": "ir-04"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -16227,6 +16762,16 @@
                 "value": "ir-05"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -16342,6 +16887,11 @@
               {
                 "name": "sort-id",
                 "value": "ir-06"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -16557,6 +17107,11 @@
                 "value": "ir-07"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -16723,6 +17278,11 @@
               {
                 "name": "sort-id",
                 "value": "ir-08"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -17096,6 +17656,16 @@
                 "value": "ma-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -17301,6 +17871,11 @@
               {
                 "name": "sort-id",
                 "value": "ma-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -17697,6 +18272,11 @@
                 "value": "ma-04"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -17871,6 +18451,11 @@
               {
                 "name": "sort-id",
                 "value": "ma-05"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -18255,6 +18840,16 @@
                 "value": "mp-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -18477,6 +19072,11 @@
               {
                 "name": "sort-id",
                 "value": "mp-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -18775,6 +19375,11 @@
               {
                 "name": "sort-id",
                 "value": "mp-06"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -19124,6 +19729,11 @@
                 "value": "mp-07"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -19442,6 +20052,16 @@
                 "value": "pe-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -19634,6 +20254,11 @@
               {
                 "name": "sort-id",
                 "value": "pe-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -20090,6 +20715,11 @@
               {
                 "name": "sort-id",
                 "value": "pe-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -20664,6 +21294,16 @@
                 "value": "pe-06"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -20992,6 +21632,16 @@
                 "value": "pe-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -21211,6 +21861,11 @@
                 "value": "pe-12"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -21402,6 +22057,11 @@
               {
                 "name": "sort-id",
                 "value": "pe-13"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -21669,6 +22329,11 @@
                 "value": "pe-14"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -21877,6 +22542,11 @@
               {
                 "name": "sort-id",
                 "value": "pe-15"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -22099,6 +22769,11 @@
               {
                 "name": "sort-id",
                 "value": "pe-16"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -22476,6 +23151,16 @@
                 "value": "pl-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -22690,6 +23375,16 @@
               {
                 "name": "sort-id",
                 "value": "pl-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -23952,6 +24647,16 @@
                 "value": "pl-04"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -24121,6 +24826,16 @@
                     "value": "pl-04.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -24224,6 +24939,16 @@
               {
                 "name": "sort-id",
                 "value": "pl-08"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -24704,6 +25429,11 @@
                 "value": "pl-10"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -24802,6 +25532,11 @@
               {
                 "name": "sort-id",
                 "value": "pl-11"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -25006,6 +25741,16 @@
                 "value": "ps-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -25196,6 +25941,11 @@
                 "value": "ps-02"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "FED",
@@ -25345,6 +26095,11 @@
               {
                 "name": "sort-id",
                 "value": "ps-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -25642,6 +26397,11 @@
                 "value": "ps-04"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -25811,6 +26571,11 @@
                 "value": "ps-05"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -25948,6 +26713,16 @@
               {
                 "name": "sort-id",
                 "value": "ps-06"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -26116,6 +26891,16 @@
               {
                 "name": "sort-id",
                 "value": "ps-07"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -26300,6 +27085,11 @@
                 "value": "ps-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -26377,6 +27167,11 @@
               {
                 "name": "sort-id",
                 "value": "ps-09"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -26523,6 +27318,16 @@
               {
                 "name": "sort-id",
                 "value": "ra-01"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -26701,6 +27506,11 @@
               {
                 "name": "sort-id",
                 "value": "ra-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -26941,6 +27751,16 @@
               {
                 "name": "sort-id",
                 "value": "ra-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -27432,6 +28252,16 @@
                     "value": "ra-03.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -27571,6 +28401,16 @@
               {
                 "name": "sort-id",
                 "value": "ra-05"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -28067,6 +28907,16 @@
                     "value": "ra-05.02"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
@@ -28200,6 +29050,16 @@
                     "value": "ra-05.11"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
@@ -28329,6 +29189,16 @@
               {
                 "name": "sort-id",
                 "value": "ra-07"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -28659,6 +29529,16 @@
                 "value": "sa-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -28845,6 +29725,16 @@
                 "value": "sa-02"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -28964,6 +29854,16 @@
               {
                 "name": "sort-id",
                 "value": "sa-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -29150,6 +30050,16 @@
               {
                 "name": "sort-id",
                 "value": "sa-04"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -29433,6 +30343,16 @@
                     "value": "sa-04.10"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -29514,6 +30434,16 @@
               {
                 "name": "sort-id",
                 "value": "sa-05"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -29775,6 +30705,16 @@
                 "value": "sa-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -29955,6 +30895,16 @@
               {
                 "name": "sort-id",
                 "value": "sa-09"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -30304,6 +31254,16 @@
                 "value": "sa-22"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -30587,6 +31547,16 @@
                 "value": "sc-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -30798,6 +31768,11 @@
               {
                 "name": "sort-id",
                 "value": "sc-05"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -31017,6 +31992,11 @@
               {
                 "name": "sort-id",
                 "value": "sc-07"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -31400,6 +32380,11 @@
                 "value": "sc-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -31629,6 +32614,11 @@
                     "value": "sc-08.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
@@ -31782,6 +32772,16 @@
               {
                 "name": "sort-id",
                 "value": "sc-12"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -32073,6 +33073,11 @@
               {
                 "name": "sort-id",
                 "value": "sc-13"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -32391,6 +33396,11 @@
                 "value": "sc-15"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
@@ -32465,6 +33475,11 @@
               {
                 "name": "sort-id",
                 "value": "sc-20"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -32566,6 +33581,11 @@
                 "value": "sc-21"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -32616,6 +33636,11 @@
               {
                 "name": "sort-id",
                 "value": "sc-22"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -32697,6 +33722,11 @@
               {
                 "name": "sort-id",
                 "value": "sc-28"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
               },
               {
                 "name": "method",
@@ -32961,6 +33991,11 @@
                     "value": "sc-28.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "system"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
@@ -33127,6 +34162,16 @@
               {
                 "name": "sort-id",
                 "value": "sc-39"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -33305,6 +34350,16 @@
               {
                 "name": "sort-id",
                 "value": "si-01"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -33495,6 +34550,11 @@
               {
                 "name": "sort-id",
                 "value": "si-02"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -34000,6 +35060,16 @@
                 "value": "si-03"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
@@ -34486,6 +35556,21 @@
               {
                 "name": "sort-id",
                 "value": "si-04"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -35179,6 +36264,16 @@
                 "value": "si-05"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -35278,6 +36373,11 @@
               {
                 "name": "sort-id",
                 "value": "si-12"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
               },
               {
                 "name": "method",
@@ -35564,6 +36664,16 @@
                 "value": "sr-01"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -35787,6 +36897,16 @@
                 "value": "sr-02"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -35977,6 +37097,16 @@
                     "value": "sr-02.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -36070,6 +37200,21 @@
               {
                 "name": "sort-id",
                 "value": "sr-03"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "system"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",
@@ -36277,6 +37422,16 @@
                 "value": "sr-05"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -36431,6 +37586,16 @@
                 "value": "sr-08"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -36551,6 +37716,16 @@
                 "value": "sr-10"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -36662,6 +37837,16 @@
                 "value": "sr-11"
               },
               {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
+              },
+              {
                 "name": "method",
                 "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
@@ -36760,6 +37945,16 @@
                     "value": "sr-11.01"
                   },
                   {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
+                  },
+                  {
                     "name": "method",
                     "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
@@ -36822,6 +38017,16 @@
                   {
                     "name": "sort-id",
                     "value": "sr-11.02"
+                  },
+                  {
+                    "name": "implementation-level",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "organization"
+                  },
+                  {
+                    "name": "contributes-to-assurance",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
+                    "value": "true"
                   },
                   {
                     "name": "method",
@@ -36904,6 +38109,16 @@
               {
                 "name": "sort-id",
                 "value": "sr-12"
+              },
+              {
+                "name": "implementation-level",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "organization"
+              },
+              {
+                "name": "contributes-to-assurance",
+                "ns": "http://csrc.nist.gov/ns/rmf",
+                "value": "true"
               },
               {
                 "name": "method",

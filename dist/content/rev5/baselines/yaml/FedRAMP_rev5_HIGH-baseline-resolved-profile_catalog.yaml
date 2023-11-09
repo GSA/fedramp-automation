@@ -1,10 +1,10 @@
 ---
 catalog:
-  uuid: 28f81b7f-cb1c-4f7b-8fea-a435d5d09f32
+  uuid: ee7b984c-5c8c-4bfc-b218-b648ce830684
   metadata:
     title: FedRAMP Rev 5 High Baseline
     published: 2023-08-31T00:00:00Z
-    last-modified: 2023-11-01T16:56:47.991941-04:00
+    last-modified: 2023-11-09T13:56:55.772974-05:00
     version: fedramp-2.0.0-oscal1.0.4
     oscal-version: 1.0.4
     links:
@@ -127,6 +127,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -542,6 +548,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#2956e175-f674-43f4-b1b9-e074ad9fc39c"
               rel: reference
@@ -1195,6 +1204,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-2"
                   rel: required
@@ -1314,6 +1326,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-2"
                   rel: required
@@ -1441,6 +1456,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-2"
                   rel: required
@@ -1636,6 +1654,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-2"
                   rel: required
@@ -1784,6 +1805,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-2"
                   rel: required
@@ -1893,6 +1920,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.07
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-2"
                   rel: required
@@ -2074,6 +2104,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.09
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-2"
                   rel: required
@@ -2195,6 +2228,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.11
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-2"
                   rel: required
@@ -2315,6 +2351,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.12
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-2"
                   rel: required
@@ -2496,6 +2538,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-02.13
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-2"
                   rel: required
@@ -2610,6 +2655,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#18e71fec-c6fd-475a-925a-5d8495cf8455"
               rel: reference
@@ -2823,6 +2871,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#e3cc0520-a366-4fc9-abc2-5272db7e3564"
               rel: reference
@@ -3039,6 +3090,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-04.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-4"
                   rel: required
@@ -3172,6 +3226,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-04.21
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-4"
                   rel: required
@@ -3311,6 +3371,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-2"
               rel: related
@@ -3488,6 +3551,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-2"
               rel: related
@@ -3641,6 +3707,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-6"
                   rel: required
@@ -3815,6 +3884,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-6"
                   rel: required
@@ -3957,6 +4029,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-6"
                   rel: required
@@ -4080,6 +4155,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-6"
                   rel: required
@@ -4207,6 +4285,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.07
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-6"
                   rel: required
@@ -4359,6 +4440,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.08
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-6"
                   rel: required
@@ -4468,6 +4552,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.09
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-6"
                   rel: required
@@ -4582,6 +4669,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-06.10
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-6"
                   rel: required
@@ -4723,6 +4813,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#737513fa-6758-403f-831d-5ddab5e23cb3"
               rel: reference
@@ -4904,6 +4997,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-14"
               rel: related
@@ -5250,6 +5349,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#sc-23"
               rel: related
@@ -5360,6 +5462,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-2"
               rel: related
@@ -5494,6 +5599,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-11.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-11"
                   rel: required
@@ -5596,6 +5704,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ma-4"
               rel: related
@@ -5714,6 +5825,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-14
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-8"
               rel: related
@@ -5865,6 +5979,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-17
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#83b9d63b-66b1-467c-9f3b-3a0b108771e9"
               rel: reference
@@ -6083,6 +6200,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-17.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-17"
                   rel: required
@@ -6208,6 +6331,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-17.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-17"
                   rel: required
@@ -6314,6 +6440,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-17.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-17"
                   rel: required
@@ -6425,6 +6554,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-17.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-17"
                   rel: required
@@ -6590,6 +6722,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-18
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#25e3e57b-dc2f-4934-af9b-050b020c6f0e"
               rel: reference
@@ -6778,6 +6913,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-18.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-18"
                   rel: required
@@ -6896,6 +7034,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-18.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ac-18"
                   rel: required
@@ -6993,6 +7137,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-18.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-18"
                   rel: required
@@ -7106,6 +7253,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-18.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-18"
                   rel: required
@@ -7236,6 +7386,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-19
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#42e37e51-7cc0-4ffa-81c9-0ac942da7e99"
               rel: reference
@@ -7497,6 +7650,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-19.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-19"
                   rel: required
@@ -7629,6 +7785,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-20
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -7891,6 +8050,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-20.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-20"
                   rel: required
@@ -8028,6 +8190,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ac-20.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ac-20"
                   rel: required
@@ -8146,6 +8311,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-21
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -8337,6 +8505,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ac-22
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#18e71fec-c6fd-475a-925a-5d8495cf8455"
               rel: reference
@@ -8591,6 +8762,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: at-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -8993,6 +9170,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: at-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -9327,6 +9510,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: at-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#at-2"
                   rel: required
@@ -9440,6 +9629,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: at-02.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#at-2"
                   rel: required
@@ -9597,6 +9792,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: at-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -9932,6 +10133,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: at-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -10127,6 +10334,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"
               rel: reference
@@ -10520,6 +10733,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -10842,6 +11058,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -11067,6 +11286,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-03.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#au-3"
                   rel: required
@@ -11199,6 +11421,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#au-2"
               rel: related
@@ -11334,6 +11562,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#au-2"
               rel: related
@@ -11521,6 +11752,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-05.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#au-5"
                   rel: required
@@ -11649,6 +11883,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-05.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#au-5"
                   rel: required
@@ -11760,6 +11997,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#cfdb1858-c473-46b3-89f9-a700308d0be2"
               rel: reference
@@ -11988,6 +12231,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-06.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#au-6"
                   rel: required
@@ -12092,6 +12341,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-06.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#au-6"
                   rel: required
@@ -12194,6 +12449,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-06.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#au-6"
                   rel: required
@@ -12331,6 +12592,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-06.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#au-6"
                   rel: required
@@ -12452,6 +12719,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-06.06
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#au-6"
                   rel: required
@@ -12588,6 +12861,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-06.07
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#au-6"
                   rel: required
@@ -12683,6 +12962,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#ac-2"
               rel: related
@@ -12879,6 +13164,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-07.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#au-7"
                   rel: required
@@ -13014,6 +13305,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#au-3"
               rel: related
@@ -13157,6 +13451,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -13331,6 +13628,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-09.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#au-9"
                   rel: required
@@ -13448,6 +13748,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-09.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#au-9"
                   rel: required
@@ -13585,6 +13888,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-09.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#au-9"
                   rel: required
@@ -13710,6 +14016,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -13846,6 +14158,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -13999,6 +14314,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: au-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-6"
               rel: related
@@ -14195,6 +14513,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-12.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#au-12"
                   rel: required
@@ -14335,6 +14656,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: au-12.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#au-12"
                   rel: required
@@ -14526,6 +14850,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -14730,9 +15060,7 @@ catalog:
                                   value: CA-01a.01(a)[02]
                                   class: sp800-53a
                               prose: "the {{ insert: param, ca-01_odp.03 }} assessment,\
-                                \ authorization, and monitoring policy addresses scope;[03]\
-                                \ SELECTED PARAMETER(S)> assessment, authorization,\
-                                \ and monitoring policy addresses scope;"
+                                \ authorization, and monitoring policy addresses scope;"
                             - id: ca-1_obj.a.1.a-3
                               name: assessment-objective
                               props:
@@ -14740,9 +15068,7 @@ catalog:
                                   value: CA-01a.01(a)[03]
                                   class: sp800-53a
                               prose: "the {{ insert: param, ca-01_odp.03 }} assessment,\
-                                \ authorization, and monitoring policy addresses roles;[03]\
-                                \ SELECTED PARAMETER(S)> assessment, authorization,\
-                                \ and monitoring policy addresses roles;"
+                                \ authorization, and monitoring policy addresses roles;"
                             - id: ca-1_obj.a.1.a-4
                               name: assessment-objective
                               props:
@@ -14920,6 +15246,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -15317,6 +15649,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-02.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-2"
                   rel: required
@@ -15478,6 +15816,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-2"
                   rel: required
@@ -15615,6 +15959,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-02.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-2"
                   rel: required
@@ -15745,6 +16095,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -16002,6 +16358,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-03.06
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-3"
                   rel: required
@@ -16145,6 +16510,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -16314,6 +16685,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -16610,6 +16987,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -17081,6 +17464,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-07.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-7"
                   rel: required
@@ -17185,6 +17574,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-07.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-7"
                   rel: required
@@ -17352,6 +17750,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#ra-5"
               rel: related
@@ -17500,6 +17904,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-08.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-8"
                   rel: required
@@ -17592,6 +18002,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ca-08.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ca-8"
                   rel: required
@@ -17746,6 +18162,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ca-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#0f66be67-85e7-4ca6-bd19-39453e9f4394"
               rel: reference
@@ -18030,6 +18452,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -18411,6 +18839,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#0f66be67-85e7-4ca6-bd19-39453e9f4394"
               rel: reference
@@ -18679,6 +19113,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-2"
                   rel: required
@@ -18847,6 +19287,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-02.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-2"
                   rel: required
@@ -18962,6 +19408,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-02.07
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-2"
                   rel: required
@@ -19149,6 +19601,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#0f66be67-85e7-4ca6-bd19-39453e9f4394"
               rel: reference
@@ -19532,6 +19990,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-03.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-3"
                   rel: required
@@ -19747,6 +20211,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-03.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-3"
                   rel: required
@@ -19925,6 +20395,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-03.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cm-3"
                   rel: required
@@ -20050,6 +20523,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-03.06
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cm-3"
                   rel: required
@@ -20166,6 +20642,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#20db4e66-e257-450c-b2e4-2bb9a62a2c88"
               rel: reference
@@ -20349,6 +20831,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-04.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-4"
                   rel: required
@@ -20570,6 +21058,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-04.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-4"
                   rel: required
@@ -20762,6 +21256,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -20967,6 +21464,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-05.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#cm-5"
                   rel: required
@@ -21137,6 +21637,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-05.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cm-5"
                   rel: required
@@ -21336,6 +21839,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#4895b4cd-34c5-4667-bf8a-27d443c12047"
               rel: reference
@@ -21743,6 +22252,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-06.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cm-6"
                   rel: required
@@ -21903,6 +22415,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-06.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cm-6"
                   rel: required
@@ -22061,6 +22576,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -22341,6 +22862,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-07.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#cm-7"
                   rel: required
@@ -22554,6 +23081,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-07.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#cm-7"
                   rel: required
@@ -22722,6 +23252,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-07.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#cm-7"
                   rel: required
@@ -22932,6 +23468,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -23222,6 +23764,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-08.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-8"
                   rel: required
@@ -23377,6 +23925,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-08.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-8"
                   rel: required
@@ -23561,6 +24115,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-08.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-8"
                   rel: required
@@ -23817,6 +24377,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-08.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-8"
                   rel: required
@@ -23926,6 +24492,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#20db4e66-e257-450c-b2e4-2bb9a62a2c88"
               rel: reference
@@ -24262,6 +24831,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-17"
               rel: related
@@ -24447,6 +25019,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-3"
               rel: related
@@ -24640,6 +25215,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -24940,6 +25521,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cm-12.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cm-12"
                   rel: required
@@ -25091,6 +25678,15 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cm-14
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#98d415ca-7281-4064-9931-0c366637e324"
               rel: reference
@@ -25304,6 +25900,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"
               rel: reference
@@ -25702,6 +26304,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#bc39f179-c735-4da2-b7a7-b2b622119755"
               rel: reference
@@ -26257,6 +26862,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-02.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-2"
                   rel: required
@@ -26361,6 +26969,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-2"
                   rel: required
@@ -26503,6 +27114,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-02.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-2"
                   rel: required
@@ -26621,6 +27235,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-02.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-2"
                   rel: required
@@ -26760,6 +27377,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-02.08
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-2"
                   rel: required
@@ -26887,6 +27507,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#511f6832-23ca-49a3-8c0f-ce493373cab8"
               rel: reference
@@ -27120,6 +27746,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-03.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cp-3"
                   rel: required
@@ -27233,6 +27865,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -27442,6 +28080,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-04.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cp-4"
                   rel: required
@@ -27544,6 +28188,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-04.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#cp-4"
                   rel: required
@@ -27677,6 +28327,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#bc39f179-c735-4da2-b7a7-b2b622119755"
               rel: reference
@@ -27847,6 +28500,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-06.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-6"
                   rel: required
@@ -27935,6 +28591,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-06.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-6"
                   rel: required
@@ -28048,6 +28707,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-06.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-6"
                   rel: required
@@ -28174,6 +28836,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#bc39f179-c735-4da2-b7a7-b2b622119755"
               rel: reference
@@ -28400,6 +29065,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-07.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-7"
                   rel: required
@@ -28504,6 +29172,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-07.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-7"
                   rel: required
@@ -28602,6 +29273,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-07.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-7"
                   rel: required
@@ -28688,6 +29362,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-07.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-7"
                   rel: required
@@ -28801,6 +29478,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#bc39f179-c735-4da2-b7a7-b2b622119755"
               rel: reference
@@ -28935,6 +29615,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-08.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-8"
                   rel: required
@@ -29099,6 +29782,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-08.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-8"
                   rel: required
@@ -29187,6 +29873,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-08.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-8"
                   rel: required
@@ -29298,6 +29987,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-08.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-8"
                   rel: required
@@ -29502,6 +30194,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -29768,6 +30463,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-09.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-9"
                   rel: required
@@ -29883,6 +30581,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-09.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-9"
                   rel: required
@@ -29991,6 +30692,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-09.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-9"
                   rel: required
@@ -30112,6 +30816,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-09.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-9"
                   rel: required
@@ -30248,6 +30955,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-09.08
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-9"
                   rel: required
@@ -30382,6 +31092,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: cp-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#bc39f179-c735-4da2-b7a7-b2b622119755"
               rel: reference
@@ -30530,6 +31243,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-10.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-10"
                   rel: required
@@ -30643,6 +31359,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: cp-10.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#cp-10"
                   rel: required
@@ -30807,6 +31526,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -31189,6 +31914,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -31443,6 +32174,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-02.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-2"
                   rel: required
@@ -31593,6 +32327,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-2"
                   rel: required
@@ -31741,6 +32478,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-02.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-2"
                   rel: required
@@ -31873,6 +32616,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-02.06
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-2"
                   rel: required
@@ -32048,6 +32794,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-02.08
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-2"
                   rel: required
@@ -32160,6 +32909,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-02.12
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-2"
                   rel: required
@@ -32303,6 +33055,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-17"
               rel: related
@@ -32454,6 +33209,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#7ba1d91c-3934-4d5a-8532-b32f864ad34c"
               rel: reference
@@ -32679,6 +33437,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-04.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-4"
                   rel: required
@@ -32782,6 +33543,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -33151,6 +33918,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-05.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-5"
                   rel: required
@@ -33436,6 +34209,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-05.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-5"
                   rel: required
@@ -33639,6 +34415,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-05.06
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-5"
                   rel: required
@@ -33743,6 +34522,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-05.07
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-5"
                   rel: required
@@ -33877,6 +34659,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-05.08
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-5"
                   rel: required
@@ -34000,6 +34785,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-05.13
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-5"
                   rel: required
@@ -34113,6 +34901,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-3"
               rel: related
@@ -34214,6 +35005,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -34320,6 +35114,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -34469,6 +35266,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-08.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-8"
                   rel: required
@@ -34604,6 +35404,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-08.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-8"
                   rel: required
@@ -34775,6 +35578,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-08.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#ia-8"
                   rel: required
@@ -34889,6 +35695,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-3"
               rel: related
@@ -35025,6 +35837,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ia-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#7ba1d91c-3934-4d5a-8532-b32f864ad34c"
               rel: reference
@@ -35227,6 +36042,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-12.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-12"
                   rel: required
@@ -35328,6 +36146,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-12.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-12"
                   rel: required
@@ -35427,6 +36248,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-12.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-12"
                   rel: required
@@ -35526,6 +36350,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ia-12.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ia-12"
                   rel: required
@@ -35695,6 +36522,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -36082,6 +36915,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#5f4705ac-8d17-438c-b23a-ac7f12362ae4"
               rel: reference
@@ -36287,6 +37126,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-02.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ir-2"
                   rel: required
@@ -36386,6 +37231,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ir-2"
                   rel: required
@@ -36502,6 +37353,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -36628,6 +37485,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-03.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ir-3"
                   rel: required
@@ -36724,6 +37587,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -37082,6 +37948,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-04.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-4"
                   rel: required
@@ -37195,6 +38064,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-04.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-4"
                   rel: required
@@ -37313,6 +38185,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-04.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-4"
                   rel: required
@@ -37449,6 +38324,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-04.06
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-4"
                   rel: required
@@ -37554,6 +38432,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-04.11
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-4"
                   rel: required
@@ -37679,6 +38560,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#49b8aa2d-a88c-4bff-9f20-876ccb8f7dcb"
               rel: reference
@@ -37831,6 +38718,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-05.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ir-5"
                   rel: required
@@ -37958,6 +38851,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -38127,6 +39023,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-06.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-6"
                   rel: required
@@ -38229,6 +39128,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-06.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-6"
                   rel: required
@@ -38363,6 +39265,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -38502,6 +39407,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-07.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-7"
                   rel: required
@@ -38659,6 +39567,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -39092,6 +40003,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ir-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#cp-2"
               rel: related
@@ -39331,6 +40245,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-09.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-9"
                   rel: required
@@ -39432,6 +40349,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-09.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-9"
                   rel: required
@@ -39528,6 +40448,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ir-09.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ir-9"
                   rel: required
@@ -39685,6 +40608,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ma-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -40055,6 +40984,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ma-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -40355,6 +41287,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ma-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ma-2"
                   rel: required
@@ -40548,6 +41483,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ma-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#a5b1d18d-e670-4586-9e6d-4a88b7ba3df6"
               rel: reference
@@ -40707,6 +41645,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ma-03.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ma-3"
                   rel: required
@@ -40804,6 +41745,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ma-03.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ma-3"
                   rel: required
@@ -40905,6 +41849,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ma-03.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ma-3"
                   rel: required
@@ -41073,6 +42020,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ma-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -41348,6 +42298,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ma-04.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ma-4"
                   rel: required
@@ -41553,6 +42506,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ma-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-2"
               rel: related
@@ -41752,6 +42708,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ma-05.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ma-5"
                   rel: required
@@ -41972,6 +42931,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ma-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#cm-8"
               rel: related
@@ -42139,6 +43101,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: mp-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -42520,6 +43488,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: mp-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -42684,6 +43655,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: mp-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#34a5571f-e252-4309-a8a1-2fdb2faefbcd"
               rel: reference
@@ -42878,6 +43852,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: mp-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -43123,6 +44100,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: mp-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -43409,6 +44389,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: mp-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#91f992fb-f668-4c91-a50f-0f05b95ccee3"
               rel: reference
@@ -43648,6 +44631,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: mp-06.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#mp-6"
                   rel: required
@@ -43841,6 +44827,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: mp-06.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#mp-6"
                   rel: required
@@ -43994,6 +44983,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: mp-06.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#mp-6"
                   rel: required
@@ -44140,6 +45132,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: mp-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -44357,6 +45352,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"
               rel: reference
@@ -44727,6 +45728,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#7ba1d91c-3934-4d5a-8532-b32f864ad34c"
               rel: reference
@@ -45010,6 +46014,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#7ba1d91c-3934-4d5a-8532-b32f864ad34c"
               rel: reference
@@ -45386,6 +46393,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-03.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#pe-3"
                   rel: required
@@ -45418,7 +46428,7 @@ catalog:
                       name: assessment-objective
                       props:
                         - name: label
-                          value: PE-03(01)02]
+                          value: PE-03(01)[02]
                           class: sp800-53a
                       prose: "physical access controls are enforced for the facility\
                         \ at {{ insert: param, pe-03.01_odp }}."
@@ -45522,6 +46532,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#at-3"
               rel: related
@@ -45651,6 +46664,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#4c501da5-9d79-4cb6-ba80-97260e1ce327"
               rel: reference
@@ -45780,6 +46796,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#au-2"
               rel: related
@@ -45976,6 +46998,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-06.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#pe-6"
                   rel: required
@@ -46109,6 +47137,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-06.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#pe-6"
                   rel: required
@@ -46251,6 +47285,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#pe-2"
               rel: related
@@ -46413,6 +47453,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-08.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#pe-8"
                   rel: required
@@ -46531,6 +47574,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#pe-4"
               rel: related
@@ -46649,6 +47695,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#pe-15"
               rel: related
@@ -46795,6 +47844,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#at-3"
               rel: related
@@ -46910,6 +47962,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-11.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#pe-11"
                   rel: required
@@ -47019,6 +48074,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#cp-2"
               rel: related
@@ -47144,6 +48202,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-13
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#at-3"
               rel: related
@@ -47303,6 +48364,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-13.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#pe-13"
                   rel: required
@@ -47455,6 +48519,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-13.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#pe-13"
                   rel: required
@@ -47651,6 +48718,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-14
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#at-3"
               rel: related
@@ -47795,6 +48865,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-14.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#pe-14"
                   rel: required
@@ -47908,6 +48981,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-15
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#at-3"
               rel: related
@@ -48056,6 +49132,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pe-15.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#pe-15"
                   rel: required
@@ -48183,6 +49262,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-16
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#cm-3"
               rel: related
@@ -48366,6 +49448,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-17
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#83b9d63b-66b1-467c-9f3b-3a0b108771e9"
               rel: reference
@@ -48557,6 +49642,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pe-18
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#cp-2"
               rel: related
@@ -48721,6 +49809,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pl-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -49093,6 +50187,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pl-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -49975,6 +51075,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pl-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -50214,6 +51320,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: pl-04.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#pl-4"
                   rel: required
@@ -50379,6 +51491,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pl-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -50780,6 +51898,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pl-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -50966,6 +52087,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: pl-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -51189,6 +52313,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"
               rel: reference
@@ -51552,6 +52682,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#a5ef5e56-5c1a-4911-b419-37dddc1b3581"
               rel: reference
@@ -51750,6 +52883,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#55b0c93a-5e48-457a-baa6-5ce81c239c49"
               rel: reference
@@ -51926,6 +53062,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ps-03.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ps-3"
                   rel: required
@@ -52069,6 +53208,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-2"
               rel: related
@@ -52292,6 +53434,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ps-04.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#ps-4"
                   rel: required
@@ -52429,6 +53574,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#ac-2"
               rel: related
@@ -52623,6 +53771,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#ac-17"
               rel: related
@@ -52856,6 +54010,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#77faf0bc-c394-44ad-9154-bbac3b79c8ad"
               rel: reference
@@ -53089,6 +54249,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#pl-4"
               rel: related
@@ -53244,6 +54407,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ps-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#276bd50a-7e58-48e5-a405-8c8cb91d7a5f"
               rel: reference
@@ -53407,6 +54573,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ra-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -53757,6 +54929,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ra-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -54003,6 +55178,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ra-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -54364,6 +55545,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ra-03.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ra-3"
                   rel: required
@@ -54575,6 +55762,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ra-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#8df72805-2e5c-4731-a73e-81db0f0318d0"
               rel: reference
@@ -55049,6 +56242,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ra-05.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ra-5"
                   rel: required
@@ -55159,6 +56358,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ra-05.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ra-5"
                   rel: required
@@ -55279,6 +56484,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ra-05.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ra-5"
                   rel: required
@@ -55440,6 +56651,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ra-05.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ra-5"
                   rel: required
@@ -55583,6 +56800,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ra-05.08
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ra-5"
                   rel: required
@@ -55716,6 +56939,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: ra-05.11
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#ra-5"
                   rel: required
@@ -55832,6 +57061,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ra-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#628d22a1-6a11-4784-bc59-5cd9497b5445"
               rel: reference
@@ -55999,6 +57234,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: ra-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#d4296805-2dca-4c63-a95f-eeccaa826aec"
               rel: reference
@@ -56219,6 +57457,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -56592,6 +57836,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -56824,6 +58074,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -57157,6 +58413,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#18e71fec-c6fd-475a-925a-5d8495cf8455"
               rel: reference
@@ -57679,6 +58941,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-04.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-4"
                   rel: required
@@ -57824,6 +59092,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-04.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-4"
                   rel: required
@@ -57970,6 +59244,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-04.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-4"
                   rel: required
@@ -58112,6 +59392,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-04.09
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-4"
                   rel: required
@@ -58273,6 +59559,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-04.10
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-4"
                   rel: required
@@ -58409,6 +59701,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#e3cc0520-a366-4fc9-abc2-5272db7e3564"
               rel: reference
@@ -58930,6 +60228,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#18e71fec-c6fd-475a-925a-5d8495cf8455"
               rel: reference
@@ -59237,6 +60541,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -59508,6 +60818,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-09.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-9"
                   rel: required
@@ -59682,6 +60998,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-09.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-9"
                   rel: required
@@ -59800,15 +61122,15 @@ catalog:
                     - description: U.S./U.S. Territories or geographic locations where
                         there is U.S. jurisdiction
                   guidelines:
-                    - prose: locations where <SA-09(05)_ODP[01] SELECTED PARAMETER
-                        VALUE(S)> is/are to be restricted are defined;
+                    - prose: "locations where {{ insert: param, sa-09.05_odp.01 }}\
+                        \ is/are to be restricted are defined;"
                 - id: sa-09.05_odp.03
                   label: requirements
                   constraints:
                     - description: all High impact data, systems, or services
                   guidelines:
-                    - prose: requirements or conditions for restricting the location
-                        of <SA-09(05)_ODP[01] SELECTED PARAMETER VALUE(S)> are defined;
+                    - prose: "requirements or conditions for restricting the location\
+                        \ of {{ insert: param, sa-09.05_odp.01 }} are defined;"
               props:
                 - name: label
                   value: SA-9(5)
@@ -59817,6 +61139,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-09.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-9"
                   rel: required
@@ -59983,6 +61311,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -60338,13 +61672,13 @@ catalog:
             - id: sa-11_odp.02
               label: frequency to conduct
               guidelines:
-                - prose: frequency at which to conduct <SA-11_ODP[01] SELECTED PARAMETER
-                    VALUE(S)> testing/evaluation is defined;
+                - prose: "frequency at which to conduct {{ insert: param, sa-11_odp.01\
+                    \ }} testing/evaluation is defined;"
             - id: sa-11_odp.03
               label: depth and coverage
               guidelines:
-                - prose: depth and coverage of <SA-11_ODP[01] SELECTED PARAMETER VALUE(S)>
-                    testing/evaluation is defined;
+                - prose: "depth and coverage of {{ insert: param, sa-11_odp.01 }}\
+                    \ testing/evaluation is defined;"
           props:
             - name: label
               value: SA-11
@@ -60353,6 +61687,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#4452efc0-e79e-47b8-aa30-b54f3ef61c2f"
               rel: reference
@@ -60699,6 +62039,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-11.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-11"
                   rel: required
@@ -60932,6 +62278,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-11.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-11"
                   rel: required
@@ -61308,6 +62660,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-15
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#e3cc0520-a366-4fc9-abc2-5272db7e3564"
               rel: reference
@@ -61656,6 +63014,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sa-15.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sa-15"
                   rel: required
@@ -61856,6 +63220,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-16
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#at-2"
               rel: related
@@ -61988,6 +63358,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-17
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#87087451-2af5-43d4-88c1-d66ad850f614"
               rel: reference
@@ -62252,6 +63628,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-21
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#ps-2"
               rel: related
@@ -62436,6 +63818,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sa-22
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#pl-2"
               rel: related
@@ -62654,6 +64042,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -63018,6 +64412,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#ac-6"
               rel: related
@@ -63135,6 +64535,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#ac-3"
               rel: related
@@ -63275,6 +64681,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-3"
               rel: related
@@ -63424,6 +64833,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#f5edfe51-d1f2-422e-9b27-5d0e90b49c72"
               rel: reference
@@ -63584,6 +64996,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -63856,6 +65271,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-7"
                   rel: required
@@ -63981,6 +65399,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#sc-7"
                   rel: required
@@ -64286,6 +65707,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-7"
                   rel: required
@@ -64421,6 +65845,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.07
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-7"
                   rel: required
@@ -64560,6 +65987,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.08
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-7"
                   rel: required
@@ -64687,6 +66117,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.10
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-7"
                   rel: required
@@ -64846,6 +66279,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.12
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-7"
                   rel: required
@@ -64948,6 +66384,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.18
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sc-7"
                   rel: required
@@ -65067,6 +66509,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.20
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-7"
                   rel: required
@@ -65191,6 +66636,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-07.21
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sc-7"
                   rel: required
@@ -65322,6 +66776,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -65606,6 +67063,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-08.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-8"
                   rel: required
@@ -65773,6 +67233,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-17"
               rel: related
@@ -65881,6 +67344,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -66091,6 +67560,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-12.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-12"
                   rel: required
@@ -66200,6 +67675,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-13
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -66481,6 +67959,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-15
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#ac-21"
               rel: related
@@ -66632,6 +68113,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-17
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#8cb338a4-e493-4177-818f-3af18983ddc5"
               rel: reference
@@ -66772,6 +68259,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-18
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#f641309f-a3ad-48be-8c67-2b318648b2f5"
               rel: reference
@@ -66973,6 +68463,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-20
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#678e3d6c-150b-4393-aec5-6e3481eb1e00"
               rel: reference
@@ -67202,6 +68695,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-21
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#fe209006-bfd4-4033-a79a-9fee1adaf372"
               rel: reference
@@ -67394,6 +68890,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-22
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#fe209006-bfd4-4033-a79a-9fee1adaf372"
               rel: reference
@@ -67539,6 +69038,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-23
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#7537638e-2837-407d-844b-40fb3fafdd99"
               rel: reference
@@ -67656,6 +69158,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-24
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#cp-2"
               rel: related
@@ -67790,6 +69298,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-28
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -68003,6 +69514,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-28.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-28"
                   rel: required
@@ -68164,6 +69678,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-39
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#e3cc0520-a366-4fc9-abc2-5272db7e3564"
               rel: reference
@@ -68271,6 +69791,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sc-45
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#e4d37285-1e79-4029-8b6a-42df39cace30"
               rel: reference
@@ -68403,6 +69926,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sc-45.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#sc-45"
                   rel: required
@@ -68615,6 +70141,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -68982,6 +70514,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -69322,6 +70857,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-02.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#si-2"
                   rel: required
@@ -69438,6 +70976,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-02.03
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
               links:
                 - href: "#si-2"
                   rel: required
@@ -69626,6 +71167,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#3dd249b0-f57d-44ba-a03e-c3eab1b835ff"
               rel: reference
@@ -70023,6 +71570,15 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-04
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -70482,6 +72038,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -70613,6 +72178,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -70789,6 +72360,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.04
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -70987,6 +72564,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -71159,6 +72742,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.10
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -71299,6 +72888,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.11
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -71459,6 +73057,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.12
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -71610,6 +73217,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.14
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -71758,6 +73371,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.16
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -71897,6 +73519,15 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.18
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -72050,6 +73681,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.19
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -72184,6 +73821,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.20
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -72322,6 +73965,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.22
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -72491,6 +74140,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-04.23
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-4"
                   rel: required
@@ -72653,6 +74308,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#155f941a-cba9-4afd-9ca6-5d040d697ba9"
               rel: reference
@@ -72856,6 +74517,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-05.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-5"
                   rel: required
@@ -73036,6 +74703,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -73307,6 +74980,15 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-07
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -73647,6 +75329,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-07.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-7"
                   rel: required
@@ -73787,6 +75475,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-07.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-7"
                   rel: required
@@ -73935,6 +75629,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-07.05
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-7"
                   rel: required
@@ -74065,6 +75765,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-07.07
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-7"
                   rel: required
@@ -74206,6 +75912,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-07.15
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#si-7"
                   rel: required
@@ -74322,6 +76034,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#314e33cb-3681-4b50-a2a2-3fae9604accd"
               rel: reference
@@ -74538,6 +76253,9 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: si-08.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: system
               links:
                 - href: "#si-8"
                   rel: required
@@ -74655,6 +76373,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#27847491-5ce1-4f6a-a1e4-9e483782f0ef"
               rel: reference
@@ -74808,6 +76532,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
           links:
             - href: "#au-2"
               rel: related
@@ -74965,6 +76692,9 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
           links:
             - href: "#e922fc50-b1f9-469f-92ef-ed7d9803611c"
               rel: reference
@@ -75223,6 +76953,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: si-16
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#ac-25"
               rel: related
@@ -75394,6 +77130,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-01
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -75785,6 +77527,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-02
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -76175,6 +77923,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sr-02.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sr-2"
                   rel: required
@@ -76317,6 +78071,15 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-03
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: system
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -76600,6 +78363,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-05
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -76822,6 +78591,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-06
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -76999,6 +78774,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-08
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#4ff10ed3-d8fe-4246-99e3-443045e27482"
               rel: reference
@@ -77144,6 +78925,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-09
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#15a95e24-65b6-4686-bc18-90855a10457d"
               rel: reference
@@ -77301,6 +79088,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sr-09.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sr-9"
                   rel: required
@@ -77465,6 +79258,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-10
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#15a95e24-65b6-4686-bc18-90855a10457d"
               rel: reference
@@ -77622,6 +79421,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-11
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#15a95e24-65b6-4686-bc18-90855a10457d"
               rel: reference
@@ -77847,6 +79652,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sr-11.01
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sr-11"
                   rel: required
@@ -77969,6 +79780,12 @@ catalog:
                   class: sp800-53a
                 - name: sort-id
                   value: sr-11.02
+                - name: implementation-level
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: organization
+                - name: contributes-to-assurance
+                  ns: http://csrc.nist.gov/ns/rmf
+                  value: "true"
               links:
                 - href: "#sr-11"
                   rel: required
@@ -78103,6 +79920,12 @@ catalog:
               class: sp800-53a
             - name: sort-id
               value: sr-12
+            - name: implementation-level
+              ns: http://csrc.nist.gov/ns/rmf
+              value: organization
+            - name: contributes-to-assurance
+              ns: http://csrc.nist.gov/ns/rmf
+              value: "true"
           links:
             - href: "#mp-6"
               rel: related
