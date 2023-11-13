@@ -402,9 +402,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -577,9 +577,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -754,9 +754,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -929,9 +929,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -1109,9 +1109,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -1284,9 +1284,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -1462,9 +1462,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -1637,9 +1637,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -1697,9 +1697,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -1872,9 +1872,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -2050,9 +2050,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -2225,9 +2225,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -2403,9 +2403,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -2578,9 +2578,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -2756,9 +2756,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -2931,9 +2931,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -3109,9 +3109,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -3284,9 +3284,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -3462,9 +3462,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -3637,9 +3637,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -3815,9 +3815,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -3990,9 +3990,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -4168,9 +4168,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -4343,9 +4343,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -4521,9 +4521,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -4696,9 +4696,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -4874,9 +4874,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -5050,9 +5050,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -5228,9 +5228,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -5403,9 +5403,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -5581,9 +5581,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -5757,9 +5757,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -5935,9 +5935,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -6111,9 +6111,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -6289,9 +6289,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -6464,9 +6464,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -6642,9 +6642,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -6817,9 +6817,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -6995,9 +6995,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -7170,9 +7170,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -7348,9 +7348,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
@@ -7523,9 +7523,9 @@
                         <!-- The document schema does not declare a milestone element (despite the root element name). -->
                         <metadata>
                             <title>POA&amp;M Unit Test</title>
-                            <last-modified>2022-06-02T11:38:29Z</last-modified>
+                            <last-modified>2023-11-13T11:38:29Z</last-modified>
                             <version>latest</version>
-                            <oscal-version>1.0.4</oscal-version>
+                            <oscal-version>1.1.1</oscal-version>
                             <!-- The cardinality of revisions is {0,1}. -->
                             <revisions>
                                 <!-- The cardinality of revision is {0,∞}. -->
