@@ -1086,7 +1086,7 @@
                                             target-id="pl-2.a.1_obj"
                                             type="objective-id">
                                             <status
-                                                state="other-than-satisfied" />
+                                                state="not-satisfied" />
                                         </target>
                                     </finding>
                                 </result>
@@ -1108,7 +1108,7 @@
                                             target-id="pl-2.a.1_obj"
                                             type="objective-id">
                                             <status
-                                                state="other-than-satisfied" />
+                                                state="not-satisfied" />
                                         </target>
                                     </finding>
                                     <finding
@@ -1117,7 +1117,7 @@
                                             target-id="pl-2.a.2_obj"
                                             type="objective-id">
                                             <status
-                                                state="other-than-satisfied" />
+                                                state="not-satisfied" />
                                         </target>
                                     </finding>
                                 </result>
@@ -1811,7 +1811,7 @@
                                             target-id="ac-1.a.1_obj.1"
                                             type="objective-id">
                                             <status
-                                                state="other-than-satisfied" />
+                                                state="not-satisfied" />
                                         </target>
                                     </finding>
                                 </result>
@@ -1856,7 +1856,7 @@
                                                 target-id="ac-1.a.1_obj.1"
                                                 type="objective-id">
                                                 <status
-                                                    state="other-than-satisfied" />
+                                                    state="satisfied" />
                                             </target>
                                         </finding>
                                     </result>
@@ -1879,7 +1879,7 @@
                                                 target-id="ac-1.a.1_obj.1"
                                                 type="objective-id">
                                                 <status
-                                                    state="not-satisfied" />
+                                                    state="other-than-satisfied" />
                                             </target>
                                         </finding>
                                     </result>
