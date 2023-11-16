@@ -384,7 +384,7 @@
 
             <sch:let
                 name="pl-2-other-than-satisfied-findings"
-                value="oscal:finding/oscal:target[@type = 'objective-id'][oscal:status ne 'satisfied'][matches(@target-id, '^pl-2\.')]/@target-id" />
+                value="oscal:finding/oscal:target[@type = 'objective-id'][oscal:status eq 'not-satisfied'][matches(@target-id, '^pl-2\.')]/@target-id" />
 
             <sch:let
                 name="pl-2-profile-objectives"
@@ -511,7 +511,7 @@
 
             <sch:let
                 name="satisfaction-status"
-                value="'satisfied', 'other-than-satisfied'" />
+                value="'satisfied', 'not-satisfied'" />
             <sch:assert
                 diagnostics="has-satisfaction-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
