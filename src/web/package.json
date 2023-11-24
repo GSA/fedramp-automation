@@ -38,7 +38,7 @@
     "react-dom": "^17.0.2",
     "react-modal": "^3.16.1",
     "reselect": "^4.1.7",
-    "saxon-js": "2.4.0",
+    "saxon-js": "2.6.0",
     "uswds": "^2.13.0",
     "xml-formatter": "^2.6.1",
     "yaml": "^2.3.4"
@@ -62,6 +62,6 @@
     "vite-tsconfig-paths": "^4.0.3",
     "vitest": "^0.25.8",
     "vitest-mock-extended": "^1.0.7",
-    "xslt3": "^2.5.0"
+    "xslt3": "^2.6.0"
   }
 }
