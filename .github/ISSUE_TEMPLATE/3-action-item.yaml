@@ -1,0 +1,82 @@
+name: Request an Action
+description: Request something be done
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Is this report specifically related to [the Word or Excel files from fedramp.gov](fedramp.gov/documents-templates/)? If so, please do not open an issue here. Follow the guidance in [this repository's README](https://github.com/GSA/fedramp-automation#support-and-oscal-deprecation-strategy) and contact [info@fedramp.gov](mailto:info@fedramp.gov).
+  - type: markdown
+    attributes:
+      value: |
+        NOTE: For feedback related to the OSCAL syntax itself, please create or add to an [issue in the NIST OSCAL Repository](https://github.com/usnistgov/OSCAL/issues).
+  - type: dropdown
+    attributes:
+      label: This is a ...
+      options:
+      - fix - something needs to be different
+      - improvement - something could be better
+      - research - something needs to be investigated
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: This relates to ...
+      description: Select all things this feedback relates to.
+      options:
+      - label: the **FedRAMP OSCAL Registry**
+      - label: the **Guide to OSCAL-based FedRAMP Content**
+      - label: the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)**
+      - label: the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)**
+      - label: the **Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)**
+      - label: the **Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)**
+      - label: the **FedRAMP SSP OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP SAP OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP SAR OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP POA&M OSCAL Template** (JSON or XML Format)
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User Story
+      description: Describe why the new feature is needed.
+      placeholder: |
+        As a FedRAMP {*stakeholder*}, I *provide a clear and concise description of what the problem is.* Ex. I need to be able to do
+    validations:
+      required: true
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals
+      description: Describe what needs to be accomplished to address the User Story.
+      placeholder: |
+        A clear and concise description of what you want to happen. This should be outcome focused. Include concise description of any alternative solutions or features you've considered. Feel free to include screenshots or examples about the feature request here.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Describe any previous issues or related work that must be completed to start or complete this issue.
+      placeholder: |
+        Link to any previous issues or related work.
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Describe the artifacts and additional work that must be completed to resolve this issue.
+      placeholder: |
+        The items below are general acceptance criteria for all User Stories. Please describe anything else that must be completed for this issue to be considered resolved.
+      value: |
+        - All FedRAMP Documents Related to OSCAL Adoption (https://github.com/GSA/fedramp-automation) affected by the changes in this issue have been updated.
+        - A Pull Request (PR) is submitted that fully addresses the goals of this User Story. This issue is referenced in the PR.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Other information
+      description: Provide any other relevant information.
+      placeholder: |
+        detailed explanation, suggestions how to fix, reference to related issues, links providing context, etc.
+
