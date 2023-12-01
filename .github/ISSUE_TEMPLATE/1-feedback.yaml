@@ -27,6 +27,7 @@ body:
       description: Select all things this feedback relates to.
       options:
       - label: the **FedRAMP OSCAL Registry**
+      - label: the **FedRAMP OSCAL baselines**
       - label: the **Guide to OSCAL-based FedRAMP Content**
       - label: the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)**
       - label: the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)**
@@ -50,6 +51,7 @@ body:
       label: Where, exactly?
       description: Provide some context about what this feedback relates to.
       placeholder: |
+        - For any resource, please indicate the version number, if applicable.
         - For the registry, please indicate the tab and cell, or other clear identifier
         - For the guide, please indicate the section number and printed page number (lower right corner)
         - For the OSCAL XML or JSON files, please indicate XML or JSON; and indicate the line number, field id, or other clear location identifier

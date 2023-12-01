@@ -25,6 +25,7 @@ body:
       description: Select all things this feedback relates to.
       options:
       - label: the **FedRAMP OSCAL Registry**
+      - label: the **FedRAMP OSCAL baselines**
       - label: the **Guide to OSCAL-based FedRAMP Content**
       - label: the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)**
       - label: the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)**
