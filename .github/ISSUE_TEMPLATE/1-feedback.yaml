@@ -1,0 +1,65 @@
+name: Feedback on FedRAMP OSCAL Resources
+description: Provide feedback, ask a question, or request an enhancement related to any of the OSCAL-based FedRAMP resources.
+title: "[Feedback]: "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Is this report specifically related to [the Word or Excel files from fedramp.gov](fedramp.gov/documents-templates/)? If so, please do not open an issue here. Follow the guidance in [this repository's README](https://github.com/GSA/fedramp-automation#support-and-oscal-deprecation-strategy) and contact [info@fedramp.gov](mailto:info@fedramp.gov).
+  - type: markdown
+    attributes:
+      value: |
+        NOTE: For feedback related to the OSCAL syntax itself, please create or add to an [issue in the NIST OSCAL Repository](https://github.com/usnistgov/OSCAL/issues).
+  - type: dropdown
+    attributes:
+      label: This is a ...
+      options:
+      - request - need something additional provided
+      - concern - something needs to be different
+      - question - need to understand something
+      - kudos - want to encourage something helpful
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: This relates to ...
+      description: Select all things this feedback relates to.
+      options:
+      - label: the **FedRAMP OSCAL Registry**
+      - label: the **FedRAMP OSCAL baselines**
+      - label: the **Guide to OSCAL-based FedRAMP Content**
+      - label: the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)**
+      - label: the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)**
+      - label: the **Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)**
+      - label: the **Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)**
+      - label: the **FedRAMP SSP OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP SAP OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP SAR OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP POA&M OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP OSCAL Validations**
+  - type: textarea
+    attributes:
+      label: What is your feedback?
+      description: What action would you like to see from the FedRAMP PMO? Please provide sufficient detail to make your feedback actionable.
+      placeholder: |
+        Provide your feedback here.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Where, exactly?
+      description: Provide some context about what this feedback relates to.
+      placeholder: |
+        - For any resource, please indicate the version number, if applicable.
+        - For the registry, please indicate the tab and cell, or other clear identifier
+        - For the guide, please indicate the section number and printed page number (lower right corner)
+        - For the OSCAL XML or JSON files, please indicate XML or JSON; and indicate the line number, field id, or other clear location identifier
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Other information
+      description: Provide any other relevant information.
+      placeholder: |
+        detailed explanation, suggestions how to fix, reference to related issues, links providing context, etc.
