@@ -2444,23 +2444,18 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="EXAMINE"/>
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
-			<add position="starting" by-id="ac-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ac-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ac-1_smt.a.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+			<add position="starting" by-id="ac-1_smt.a">
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="ac-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
-			<add position="starting" by-id="ac-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ac-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+			<add position="starting" by-id="ac-1_smt.c">
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="ac-10">
@@ -3514,25 +3509,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="at-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="at-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="at-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="at-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="at-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="at-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="at-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="at-2">
@@ -3698,25 +3685,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="au-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="au-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="au-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="au-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="au-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="au-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="au-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="au-10">
@@ -4262,25 +4241,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="ca-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ca-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ca-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="ca-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="ca-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ca-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ca-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="ca-2">
@@ -4772,25 +4743,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="cm-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cm-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cm-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="cm-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="cm-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cm-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cm-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="cm-10">
@@ -5641,25 +5604,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="cp-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cp-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cp-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="cp-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="cp-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cp-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="cp-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="cp-10">
@@ -6424,25 +6379,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="ia-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ia-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ia-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="ia-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="ia-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ia-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ia-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="ia-12.2">
@@ -7167,25 +7114,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="ir-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ir-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ir-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="ir-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="ir-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ir-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ir-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="ir-2">
@@ -7710,25 +7649,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="ma-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ma-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ma-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="ma-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="ma-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ma-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ma-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="ma-2">
@@ -8038,25 +7969,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="mp-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="mp-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="mp-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="mp-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="mp-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="mp-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="mp-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="mp-2">
@@ -8334,25 +8257,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="pe-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pe-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pe-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="pe-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="pe-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pe-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pe-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="pe-10">
@@ -8940,25 +8855,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="pl-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pl-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pl-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="pl-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="pl-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pl-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="pl-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="pl-11">
@@ -9311,25 +9218,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="ps-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ps-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ps-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="ps-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="ps-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ps-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ps-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="ps-2">
@@ -9618,25 +9517,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="ra-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ra-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ra-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="ra-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="ra-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ra-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="ra-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="ra-2">
@@ -9991,25 +9882,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="sa-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sa-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sa-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="sa-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="sa-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sa-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sa-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="sa-11">
@@ -10908,25 +10791,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="sc-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sc-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sc-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="sc-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="sc-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sc-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sc-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="sc-10">
@@ -11797,25 +11672,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="si-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="si-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="si-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="si-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="si-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="si-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="si-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="si-11">
@@ -12534,25 +12401,17 @@
 				<prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
 			</add>
 			<add position="starting" by-id="sr-1_smt.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sr-1_smt.a.1.a">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sr-1_smt.a.1.b">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 			<add position="starting" by-id="sr-1_smt.b">
 				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
 			</add>
 			<add position="starting" by-id="sr-1_smt.c">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sr-1_smt.c.1">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-			</add>
-			<add position="starting" by-id="sr-1_smt.c.2">
-				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+				<prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point.">
+					<remarks><p>This response must address all control sub-statement requirements.</p></remarks>
+				</prop>		
 			</add>
 		</alter>
 		<alter control-id="sr-10">
