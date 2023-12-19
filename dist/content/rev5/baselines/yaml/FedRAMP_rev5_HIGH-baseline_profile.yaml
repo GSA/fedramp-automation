@@ -1,12 +1,12 @@
 ---
 profile:
-  uuid: 9af0a7d3-252c-4f18-9baf-4f10e82bfac8
+  uuid: b648bee9-ec13-42db-af9d-1d6745f92fab
   metadata:
     title: FedRAMP Rev 5 High Baseline
     published: 2023-08-31T00:00:00Z
-    last-modified: 2023-08-31T00:00:00Z
-    version: fedramp-2.0.0-oscal1.0.4
-    oscal-version: 1.0.4
+    last-modified: 2023-12-18T16:22:48Z
+    version: 5.1.1+fedramp-20231218-0
+    oscal-version: 1.1.1
     roles:
       - id: prepared-by
         title: Document creator
@@ -3780,7 +3780,7 @@ profile:
         title: NIST Special Publication (SP) 800-53
         props:
           - name: version
-            value: Revision 5
+            value: 5.1.1
         rlinks:
-          - href: https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_catalog.yaml
+          - href: https://github.com/usnistgov/oscal-content/blob/v1.2.0/nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_catalog.yaml
             media-type: application/yaml

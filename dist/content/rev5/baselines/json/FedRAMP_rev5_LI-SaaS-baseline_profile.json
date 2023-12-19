@@ -1,12 +1,12 @@
 {
   "profile": {
-    "uuid": "2b515da9-8a5e-4b7c-9cce-6451e70ca75d",
+    "uuid": "f8522b6b-1c71-4471-8be5-e3303319dc88",
     "metadata": {
       "title": "FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2023-08-31T00:00:00Z",
-      "last-modified": "2023-08-31T00:00:00Z",
-      "version": "fedramp-2.0.0-oscal1.0.4",
-      "oscal-version": "1.0.4",
+      "last-modified": "2023-12-18T16:22:48Z",
+      "version": "5.1.1+fedramp-20231218-0",
+      "oscal-version": "1.1.1",
       "roles": [
         {
           "id": "prepared-by",
@@ -6136,13 +6136,13 @@
           "props": [
             {
               "name": "version",
-              "value": "Revision 5"
+              "value": "5.1.1"
             }
           ],
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json",
-              "media-type": "application/oscal.catalog+json"
+              "href": "https://github.com/usnistgov/oscal-content/blob/v1.2.0/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json",
+              "media-type": "application/oscal+json"
             }
           ]
         }
