@@ -60,17 +60,17 @@ landscape orientation.**
 {{<callout>}}
 The **FedRAMP Logo** is a resource in the back-matter section of the OSCAL-based FedRAMP Templates, and can be referenced with the following XPath:
 
-```   /*/metadata/party[@uuid=../responsible-party[@role-id='fedramp-pmo']/party-uuid]/link[@rel='logo']/@href```
+`   /*/metadata/party[@uuid=../responsible-party[@role-id='fedramp-pmo']/party-uuid]/link[@rel='logo']/@href`
 
 As with any href value, this can include a relative or absolute URI external to the OSCAL file, or it can contain a URI fragment, pointing to a resource inside the OSCAL file itself (or other OSCAL files in the stack).
 
 If the above returns an href value beginning with a hashtag (#), the rest of the value is the UUID value for the resource containing the logo. Drop the hashtag and use the remaining value to locate the resource as follows:
 
-```   /*/back-matter/resource[@uuid='[UUID-value-returned-above]']/rlink/@href```
+`   /*/back-matter/resource[@uuid='[UUID-value-returned-above]']/rlink/@href`
 
 OR\
 
-```   /*/back-matter/resource[@uuid='[UUID-value-returned-above]']/base64```
+`   /*/back-matter/resource[@uuid='[UUID-value-returned-above]']/base64`
 {{</callout>}}
 
 #### Representation
@@ -113,7 +113,7 @@ OR\
 {{<callout>}}
 **FedRAMP Allowed Value** \
 Required Role ID:
-- fedramp-pmo
+- `fedramp-pmo`
 {{</callout>}}
 
 #### XPath Queries
@@ -189,7 +189,7 @@ using this Prepared By syntax.
 {{<callout>}}
 **NIST Allowed Value** \
 Required Role ID:
-- prepared-by
+- `prepared-by`
 
 {{</callout>}}
 
@@ -202,7 +202,7 @@ NOTE: Replace "org-name" with "address/addr-line", "address/city", "address/stat
 
 **NOTES:**
 
--   The ```responsible-party``` assembly connects the role to the party and is
+-   The `responsible-party` assembly connects the role to the party and is
     required for compliance.
 
 -   If the content was prepared by an organization other than the CSP,
@@ -250,7 +250,7 @@ content. The FedRAMP SAP and SAR must never be CSP self-prepared.
 {{<callout>}}
 **NIST Allowed Value** \
 Required Role ID:
-- prepared-by
+- `prepared-by`
 
 {{</callout>}}
 
@@ -263,7 +263,7 @@ NOTE: Replace "org-name" with "address/addr-line", "address/city", "address/stat
 
 **NOTES:**
 
--   The ```responsible-party``` assembly connects the role to the party and is
+-   The `responsible-party` assembly connects the role to the party and is
     required for compliance.
 
 ## 4.4. Prepared For (CSP)
@@ -324,9 +324,9 @@ NOTE: Replace "org-name" with "address/addr-line", "address/city", "address/stat
 ![Document Revision History](/img/content-figure-8.png)
 
 {{<callout>}}
-The ```remarks``` field is Markup multiline, which enables the text to be formatted. This requires special handling. See Section 2.5.3 Markup-line and Markup-multiline Fields in OSCAL, or visit: https://pages.nist.gov/OSCAL/documentation/schema/datatypes/#markup-multiline <br/>
+The `remarks` field is Markup multiline, which enables the text to be formatted. This requires special handling. See Section 2.5.3 Markup-line and Markup-multiline Fields in OSCAL, or visit: https://pages.nist.gov/OSCAL/documentation/schema/datatypes/#markup-multiline <br/>
 
-NOTE: At time of publication, NIST is evaluating the possibility of including party-uuid or similar in the revision assembly. This section will be updated if that decision is made.
+NOTE: At time of publication, NIST is evaluating the possibility of including party-uuid or similar in the `revision` assembly. This section will be updated if that decision is made.
 
 {{</callout>}}
 
@@ -391,7 +391,7 @@ Replace XPath predicate "[1]" with "[2]", "[3]", etc.
 **NOTES:**
 
 -   The Revision History\'s Author field is addressed using a FedRAMP
-    extension, which points to a metadata ```party```.
+    extension, which points to a metadata `party`.
 
 -   The published field requires the OSCAL data type,
     [dateTime-with-timezone](https://pages.nist.gov/OSCAL/reference/datatypes/#datetime-with-timezone).
@@ -412,9 +412,9 @@ content for the FedRAMP PMO party. This information already exists in
 OSCAL-based FedRAMP Templates.
 
 There must be a role defined in the file with the ID value set to
-```"fedramp-pmo"```. There must be a ```party``` defined with FedRAMP\'s details,
-and there must be a ```responsible-party``` defined, linking the
-```"fedramp-pmo"``` ```role-id``` to the FedRAMP ```party``` uuid.
+`"fedramp-pmo"`. There must be a `party` defined with FedRAMP\'s details,
+and there must be a `responsible-party` defined, linking the
+`"fedramp-pmo"` `role-id` to the FedRAMP `party` uuid.
 
 #### Representation
 {{< highlight xml "linenos=table" >}}
@@ -451,7 +451,7 @@ and there must be a ```responsible-party``` defined, linking the
 <br />
 {{<callout>}}
 **FedRAMP-Role Identifiers:**
-- fedramp-pmo
+- `fedramp-pmo`
 
 {{</callout>}}
 
@@ -514,12 +514,12 @@ assessor\'s organization.
 
 **Defined Identifiers** \
 Required Role IDs:
-- content-approver
-- cloud-service-provider
+- `content-approver`
+- `cloud-service-provider`
 
 **FedRAMP Extension (Person's Title)** \
 prop (ns="https://fedramp.gov/ns/oscal"):
-- name="title"
+- `name="title"`
 
 {{</callout>}}
 
@@ -538,8 +538,8 @@ CSP Name:
 **NOTES:**
 
 The code above is an SSP example For SAP and SAR, a similar approach is
-used for the assessor, using the ```"assessor"``` role ID instead of the
-```"cloud-service-provider"``` role ID.
+used for the assessor, using the `"assessor"` role ID instead of the
+`"cloud-service-provider"` role ID.
 
 ## 4.8. FedRAMP Standard Attachments (Acronyms, Laws/Regulations)
 
@@ -548,10 +548,10 @@ the FedRAMP Laws and Regulations file, as well as the FedRAMP Acronyms
 file posted on <https://fedramp.gov>.
 
 These are already included in the OSCAL-based FedRAMP templates as
-resources. The ```resource``` linking to the FedRAMP citations file is
-identified with links from the property type, ```"fedramp-citations"```. The
+resources. The `resource` linking to the FedRAMP citations file is
+identified with links from the property type, `"fedramp-citations"`. The
 resource linking to the FedRAMP acronyms file is identified with the
-property type, ```"fedramp-acronyms"```.
+property type, `"fedramp-acronyms"`.
 
 #### Representation
 {{< highlight xml "linenos=table" >}}
@@ -595,14 +595,14 @@ Link to FedRAMP Acronyms and Glossary:
 ![Laws and Regulations](/img/content-figure-11.png)
 
 Additional citations must be represented as
-additional ```resource``` assemblies. One ```resource``` assembly per citation. This
+additional `resource` assemblies. One `resource` assembly per citation. This
 applies to applicable laws, regulations, standards, or guidance beyond
 FedRAMP\'s predefined set.
 
 Each must have a type defined. The value of the type filed must be set
 to \"law\", \"regulation\", \"standard\", or \"guidance\" as
 appropriate. There may be more than one type defined. FedRAMP tools use
-the ```type``` property to differentiate these resource assemblies from
+the `type` property to differentiate these resource assemblies from
 others.
 
 #### Representation
@@ -711,9 +711,9 @@ Publication Date of PIA:
 
 {{</ highlight >}}
 
-Tools creating OSCAL content should include a ```media-type``` for all ```rlink```
-and ```base64``` fields, as well as a ```filename``` for all ```base64``` fields.
+Tools creating OSCAL content should include a `media-type` for all `rlink`
+and `base64` fields, as well as a `filename` for all `base64` fields.
 
-Tools should process ```rlink``` and ```base64``` content with or without these
+Tools should process `rlink` and `base64` content with or without these
 fields. Where present they should be used when validating or rendering
 the linked or embedded content.
