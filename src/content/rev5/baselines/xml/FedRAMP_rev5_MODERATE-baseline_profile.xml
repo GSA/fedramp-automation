@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="10215c56-5207-48f0-9f91-08994e7dc5d1">
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="b3d53132-0160-417a-ae1b-c9da8385d698">
 	<metadata>
 		<title>FedRAMP Rev 5 Moderate Baseline</title>
 		<published>2023-08-31T00:00:00Z</published>
-		<last-modified>2023-12-18T16:22:48Z</last-modified>
-		<version>5.1.1+fedramp-20231218-0</version>
+		<last-modified>2024-01-11T23:40:17Z</last-modified>
+		<version>5.1.1+fedramp-20240111-0</version>
 		<oscal-version>1.1.1</oscal-version>
 		<role id="prepared-by">
 			<title>Document creator</title>
@@ -3481,7 +3481,7 @@
 		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
 			<title>NIST Special Publication (SP) 800-53</title>
 			<prop name="version" value="5.1.1"/>
-			<rlink media-type="application/xml" href="https://github.com/usnistgov/oscal-content/blob/v1.2.0/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
+			<rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
 		</resource>
 	</back-matter>
 </profile>
