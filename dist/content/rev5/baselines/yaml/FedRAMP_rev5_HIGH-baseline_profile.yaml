@@ -3782,5 +3782,5 @@ profile:
           - name: version
             value: 5.1.1
         rlinks:
-          - href: https://github.com/usnistgov/oscal-content/blob/v1.2.0/nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_catalog.yaml
+          - href: https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_catalog.yaml
             media-type: application/yaml
