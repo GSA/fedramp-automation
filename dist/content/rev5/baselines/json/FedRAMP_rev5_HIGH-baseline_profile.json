@@ -1,11 +1,11 @@
 {
   "profile": {
-    "uuid": "b648bee9-ec13-42db-af9d-1d6745f92fab",
+    "uuid": "2ef3cdd1-6928-494b-b2ef-593e774fae38",
     "metadata": {
       "title": "FedRAMP Rev 5 High Baseline",
       "published": "2023-08-31T00:00:00Z",
-      "last-modified": "2023-12-18T16:22:48Z",
-      "version": "5.1.1+fedramp-20231218-0",
+      "last-modified": "2024-01-11T23:40:17Z",
+      "version": "5.1.1+fedramp-20240111-0",
       "oscal-version": "1.1.1",
       "roles": [
         {
