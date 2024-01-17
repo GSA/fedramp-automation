@@ -182,6 +182,40 @@
             <p>This is a sample role.</p>
          </description>
       </role>
+
+      <!-- SEPARATION OF DUTIES EXAMPLE -->
+      <role id="hr">
+         <title>Human Resources (HR)</title>
+         <description>
+            <p>Sample role for HR personnel that access the CSO.</p>
+         </description>
+      </role>
+      <role id="accounting">
+         <title>Accounting</title>
+         <description>
+            <p>Sample role for accounting and procurement personnel that access the CSO.</p>
+         </description>
+      </role>
+      <role id="director">
+         <title>Director</title>
+         <description>
+            <p>Sample for senior managers and division directors that access the CSO.</p>
+         </description>
+      </role>
+      <role id="manager">
+         <title>Manager</title>
+         <description>
+            <p>Sample role for managers that access the CSO.</p>
+         </description>
+      </role>
+      <role id="employee">
+         <title>Employee</title>
+         <description>
+            <p>Sample role for any personnel that access the CSO</p>
+         </description>
+      </role>
+      <!-- SEPARATION OF DUTIES EXAMPLE -->
+
       <location uuid="27b78960-59ef-4619-82b0-ae20b9c709ac">
          <title>CSP HQ</title>
          <address type="work">
@@ -726,6 +760,63 @@
             <function-performed>Authorizes access to external interconnected system.</function-performed>
          </authorized-privilege>
       </user>
+
+      <!-- SEPARATION OF DUTIES EXAMPLE-->
+      <user uuid="06034aae-d58a-4b1a-a615-35bc61e274bd">
+         <title>Customer agency users</title>
+         <prop name="type" value="external" />
+         <prop name="privilege-level" value="non-privileged" />
+         <!-- use of prop to reference authorized-privileges-->
+         <authorized-privilege>
+            <title>Request New Training - for self</title>
+            <function-performed>Authorizes access to request training (for self) from the catalog.</function-performed>
+            <responsible-role role-id="employee" />
+         </authorized-privilege>
+         <authorized-privilege>
+            <title>Request New Training - for employee</title>
+            <function-performed>Authorizes access to request training (for employee) from the catalog.</function-performed>
+            <responsible-role role-id="manager" />
+            <responsible-role role-id="director" />
+            <responsible-role role-id="hr" />
+         </authorized-privilege>
+         <authorized-privilege>
+            <title>Approve Employee Training Request</title>
+            <function-performed>Authorizes access to approve employee training requests</function-performed>
+            <responsible-role role-id="manager" />
+            <responsible-role role-id="director" />
+         </authorized-privilege>
+         <authorized-privilege>
+            <title>Approve Manager Training Request</title>
+            <function-performed>Authorizes access to approve manager training requests</function-performed>
+            <responsible-role role-id="director" />
+         </authorized-privilege>
+         <authorized-privilege>
+            <title>Procure Training</title>
+            <function-performed>Authorizes access to set billing information</function-performed>
+            <function-performed>Authorizes access to execute purchase of training modules</function-performed>
+            <responsible-role role-id="accounting" />
+         </authorized-privilege>
+         <authorized-privilege>
+            <title>Configure Training</title>
+            <function-performed>Authorizes access to configure any purchased training modules in the system.</function-performed>
+            <responsible-role role-id="hr" />
+         </authorized-privilege>
+         <authorized-privilege>
+            <title>Register for Approved Training</title>
+            <function-performed>Authorizes access to sign up for and take approved training modules.</function-performed>
+            <responsible-role role-id="employee" />
+            <responsible-role role-id="manager" />
+         </authorized-privilege>
+         <authorized-privilege>
+            <title>View Employee Training Records</title>
+            <function-performed>Authorizes access to view employee training records.</function-performed>
+            <responsible-role role-id="manager" />
+            <responsible-role role-id="director" />
+            <responsible-role role-id="hr" />
+         </authorized-privilege>
+      </user>
+      <!-- SEPARATION OF DUTIES EXAMPLE-->
+
       <!-- Components -->
       <!-- OSCAL requires existance of a "this-system" component -->
       <component uuid="60f92bcf-f353-4236-9803-2a5d417555f4" type="this-system">
@@ -3552,21 +3643,8 @@
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser via HTML5.</p>
          </remarks>
       </resource>
-      <!-- Section 11 - Separation of Duties -->
-      <resource uuid="49fb4631-1da2-41ca-b0b3-e1b1006d4025">
-         <title>Separation of Duties Matrix</title>
-         <description>
-            <p>Separation of Duties Matrix</p>
-         </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
-         <prop name="published" value="2023-01-01T00:00:00Z"/>
-         <!-- document date -->
-         <prop name="version" value="Document Version"/>
-         <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
-         <base64 filename="Sep_Matrix.docx" media-type="application/msword">00000000</base64>
-         <remarks>
-            <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-         </remarks>
-      </resource>
+
+      <!-- Section 11 - Removed back-matter resource for Separation of Duties -->
+
    </back-matter>
 </system-security-plan>
