@@ -1,10 +1,10 @@
 ---
 catalog:
-  uuid: ce6ccc82-3a58-41f9-954a-7f608073ef64
+  uuid: e249b8e3-3b57-4c43-ba88-046fa2e34be8
   metadata:
     title: FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
     published: 2023-08-31T00:00:00Z
-    last-modified: 2024-01-12T10:06:22.801184-05:00
+    last-modified: 2024-01-19T10:45:27.445106-05:00
     version: 5.1.1+fedramp-20240111-0
     oscal-version: 1.1.1
     links:
@@ -134,7 +134,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -328,7 +328,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -510,15 +510,15 @@ catalog:
                   ns: https://fedramp.gov/ns/oscal
                   value: Required
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: EXAMINE
                   class: fedramp
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: INTERVIEW
                   class: fedramp
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: TEST
                   class: fedramp
               prose: Determine if the organization defines information system account
@@ -528,7 +528,7 @@ catalog:
               name: assessment-method
               props:
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: EXAMINE
               parts:
                 - name: assessment-objects
@@ -548,7 +548,7 @@ catalog:
               name: assessment-method
               props:
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: INTERVIEW
               parts:
                 - name: assessment-objects
@@ -559,7 +559,7 @@ catalog:
               name: assessment-method
               props:
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: TEST
               parts:
                 - name: assessment-objects
@@ -580,7 +580,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -838,11 +838,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1040,7 +1040,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: FED
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1168,7 +1168,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: FED
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1237,7 +1237,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1483,7 +1483,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1565,7 +1565,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1729,7 +1729,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1866,7 +1866,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2155,7 +2155,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2338,7 +2338,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2487,7 +2487,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -2567,7 +2567,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2732,7 +2732,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2848,7 +2848,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3017,7 +3017,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3202,7 +3202,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3453,7 +3453,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3524,7 +3524,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3729,7 +3729,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3967,7 +3967,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4033,7 +4033,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4123,7 +4123,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4198,7 +4198,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4346,7 +4346,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4509,7 +4509,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4955,7 +4955,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -5054,11 +5054,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -5375,7 +5375,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -5455,7 +5455,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -5774,7 +5774,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -6271,7 +6271,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -6464,7 +6464,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -6633,11 +6633,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -6969,7 +6969,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7122,7 +7122,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7236,7 +7236,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7438,7 +7438,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7687,7 +7687,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8116,7 +8116,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8234,7 +8234,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8547,7 +8547,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8630,7 +8630,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8774,7 +8774,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8950,7 +8950,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9198,7 +9198,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9328,7 +9328,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9444,7 +9444,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9704,7 +9704,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9829,7 +9829,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9979,11 +9979,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -10122,7 +10122,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10272,7 +10272,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10283,6 +10283,10 @@ catalog:
               parts:
                 - id: ia-2.2_smt
                   name: statement
+                  props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: Required
                   prose: Implement multi-factor authentication for access to non-privileged
                     accounts.
                 - id: ia-2.2_gdn
@@ -10328,7 +10332,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10454,11 +10458,11 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: CONDITIONAL
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10582,15 +10586,15 @@ catalog:
                       ns: https://fedramp.gov/ns/oscal
                       value: Required
                     - name: method
-                      ns: http://csrc.nist.gov/ns/rmf
+                      ns: https://fedramp.gov/ns/oscal
                       value: EXAMINE
                       class: fedramp
                     - name: method
-                      ns: http://csrc.nist.gov/ns/rmf
+                      ns: https://fedramp.gov/ns/oscal
                       value: INTERVIEW
                       class: fedramp
                     - name: method
-                      ns: http://csrc.nist.gov/ns/rmf
+                      ns: https://fedramp.gov/ns/oscal
                       value: TEST
                       class: fedramp
                   prose: |
@@ -10628,7 +10632,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -10753,7 +10757,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -10941,7 +10945,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11045,7 +11049,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11160,7 +11164,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11179,6 +11183,10 @@ catalog:
           parts:
             - id: ia-7_smt
               name: statement
+              props:
+                - name: response-point
+                  ns: https://fedramp.gov/ns/oscal
+                  value: Required
               prose: Implement mechanisms for authentication to a cryptographic module
                 that meet the requirements of applicable laws, executive orders, directives,
                 policies, regulations, standards, and guidelines for such authentication.
@@ -11203,7 +11211,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11287,11 +11295,11 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: CONDITIONAL
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11454,11 +11462,11 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: CONDITIONAL
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11663,7 +11671,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11707,7 +11715,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11809,7 +11817,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11978,7 +11986,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12075,7 +12083,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12467,7 +12475,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12541,7 +12549,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12712,7 +12720,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12813,7 +12821,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13041,7 +13049,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13190,11 +13198,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13526,7 +13534,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13639,11 +13647,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13925,7 +13933,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14081,11 +14089,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14296,11 +14304,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14592,11 +14600,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14840,7 +14848,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14982,11 +14990,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -15307,11 +15315,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -15762,11 +15770,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16023,11 +16031,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16202,11 +16210,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16361,11 +16369,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16573,11 +16581,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16737,11 +16745,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16919,11 +16927,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -17191,7 +17199,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -17344,7 +17352,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -18414,7 +18422,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -18537,7 +18545,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -18614,7 +18622,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19069,7 +19077,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19151,7 +19159,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19288,7 +19296,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19425,7 +19433,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: FED
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19541,7 +19549,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19743,7 +19751,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19858,7 +19866,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19956,7 +19964,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20068,7 +20076,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20190,7 +20198,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20246,7 +20254,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20336,7 +20344,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20467,7 +20475,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20634,7 +20642,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -21021,7 +21029,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -21127,7 +21135,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -21579,7 +21587,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -21706,7 +21714,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -21839,7 +21847,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22079,7 +22087,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22219,7 +22227,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22296,7 +22304,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22440,7 +22448,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22643,7 +22651,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -22700,7 +22708,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22873,7 +22881,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23013,7 +23021,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23329,7 +23337,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23570,7 +23578,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23723,11 +23731,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23911,7 +23919,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24206,7 +24214,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24391,7 +24399,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -24528,7 +24536,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24745,11 +24753,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24972,7 +24980,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25023,7 +25031,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25098,7 +25106,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25141,7 +25149,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25203,7 +25211,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25401,7 +25409,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -25551,7 +25559,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25666,7 +25674,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25805,7 +25813,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -26230,7 +26238,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -26683,7 +26691,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27232,7 +27240,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27305,7 +27313,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27488,7 +27496,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27648,7 +27656,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27806,7 +27814,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -27892,7 +27900,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28029,7 +28037,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28139,7 +28147,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28221,7 +28229,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28295,7 +28303,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28363,7 +28371,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -28405,7 +28413,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: http://csrc.nist.gov/ns/rmf
+                  ns: https://fedramp.gov/ns/oscal
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -28458,7 +28466,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: http://csrc.nist.gov/ns/rmf
+              ns: https://fedramp.gov/ns/oscal
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
