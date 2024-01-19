@@ -1,10 +1,10 @@
 ---
 catalog:
-  uuid: 553a4a88-103e-48be-be2c-f5a02894dbb9
+  uuid: 6bf8df58-1df7-4e50-8801-4563aee859b8
   metadata:
     title: FedRAMP Rev 4 High Baseline
     published: 2021-02-05T00:00:00.000-04:00
-    last-modified: 2024-01-19T10:42:42.27758-05:00
+    last-modified: 2024-01-19T14:47:40.579972-05:00
     version: fedramp1.1.1-oscal1.0.4
     oscal-version: 1.0.4
     links:

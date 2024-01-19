@@ -4647,7 +4647,7 @@
 		<alter control-id="ca-8.2">
 			<add position="ending" by-id="ca-8.2_smt">
 				<part id="ca-8.2_fr" name="item">
-					<title>CM-2 Additional FedRAMP Requirements and Guidance</title>
+					<title>CA-8(2) Additional FedRAMP Requirements and Guidance</title>
 					<part id="ca-8.2_fr_gdn.1" name="guidance">
 						<prop name="label" value="Guidance:"/>
 						<p>See the FedRAMP Documents page&gt; Penetration Test Guidance</p>

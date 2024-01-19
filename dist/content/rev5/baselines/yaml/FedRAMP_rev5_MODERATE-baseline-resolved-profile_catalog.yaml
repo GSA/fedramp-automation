@@ -1,10 +1,10 @@
 ---
 catalog:
-  uuid: 972902c5-30a4-44a1-8601-f780cee5cdde
+  uuid: eb6bef32-6355-473b-bda6-410c70d50797
   metadata:
     title: FedRAMP Rev 5 Moderate Baseline
     published: 2023-08-31T00:00:00Z
-    last-modified: 2024-01-19T10:46:14.879618-05:00
+    last-modified: 2024-01-19T14:51:19.392491-05:00
     version: 5.1.1+fedramp-20240111-0
     oscal-version: 1.1.1
     links:
@@ -19348,7 +19348,7 @@ catalog:
                   parts:
                     - id: ca-8.2_fr
                       name: item
-                      title: CM-2 Additional FedRAMP Requirements and Guidance
+                      title: CA-8(2) Additional FedRAMP Requirements and Guidance
                       parts:
                         - id: ca-8.2_fr_gdn.1
                           name: guidance

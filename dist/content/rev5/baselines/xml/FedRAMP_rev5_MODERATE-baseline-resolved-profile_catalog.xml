@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="972902c5-30a4-44a1-8601-f780cee5cdde">
+         uuid="eb6bef32-6355-473b-bda6-410c70d50797">
    <metadata>
       <title>FedRAMP Rev 5 Moderate Baseline</title>
       <published>2023-08-31T00:00:00Z</published>
-      <last-modified>2024-01-19T10:46:14.879618-05:00</last-modified>
+      <last-modified>2024-01-19T14:51:19.392491-05:00</last-modified>
       <version>5.1.1+fedramp-20240111-0</version>
       <oscal-version>1.1.1</oscal-version>
       <link rel="resolution-source"
@@ -11008,7 +11008,7 @@
                      value="You must fill in this response point."/>
                <p>Employ the following red-team exercises to simulate attempts by adversaries to compromise organizational systems in accordance with applicable rules of engagement: <insert type="param" id-ref="ca-08.02_odp"/>.</p>
                <part id="ca-8.2_fr" name="item">
-                  <title>CM-2 Additional FedRAMP Requirements and Guidance</title>
+                  <title>CA-8(2) Additional FedRAMP Requirements and Guidance</title>
                   <part id="ca-8.2_fr_gdn.1" name="guidance">
                      <prop name="label" value="Guidance:"/>
                      <p>See the FedRAMP Documents page&gt; Penetration Test Guidance</p>
