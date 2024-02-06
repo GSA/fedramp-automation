@@ -1,11 +1,11 @@
 ---
 profile:
-  uuid: ece2fd2d-87f7-476a-a295-6e1ec8153771
+  uuid: dca43377-cc54-408c-8902-1c971fde0aec
   metadata:
     title: FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
     published: 2023-08-31T00:00:00Z
-    last-modified: 2024-01-11T23:40:17Z
-    version: 5.1.1+fedramp-20240111-0
+    last-modified: 2023-12-18T15:22:59Z
+    version: 5.1.1+20231218-1
     oscal-version: 1.1.1
     roles:
       - id: prepared-by
@@ -737,7 +737,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ac-2
@@ -762,7 +762,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -773,15 +773,15 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: Required
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: EXAMINE
                     class: fedramp
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: INTERVIEW
                     class: fedramp
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: TEST
                     class: fedramp
                 prose: Determine if the organization defines information system account
@@ -791,7 +791,7 @@ profile:
                 name: assessment-method
                 props:
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: EXAMINE
                 parts:
                   - name: assessment-objects
@@ -811,7 +811,7 @@ profile:
                 name: assessment-method
                 props:
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: INTERVIEW
                 parts:
                   - name: assessment-objects
@@ -822,7 +822,7 @@ profile:
                 name: assessment-method
                 props:
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: TEST
                 parts:
                   - name: assessment-objects
@@ -840,7 +840,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ac-7
@@ -854,11 +854,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -874,7 +874,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: FED
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -889,7 +889,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: FED
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -907,7 +907,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ac-18
@@ -918,7 +918,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -938,7 +938,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -958,7 +958,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ac-22
@@ -972,7 +972,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-1
@@ -983,7 +983,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-2
@@ -994,7 +994,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-2.2
@@ -1005,7 +1005,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-3
@@ -1016,7 +1016,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-4
@@ -1027,7 +1027,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-1
@@ -1038,7 +1038,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-2
@@ -1049,7 +1049,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-3
@@ -1063,7 +1063,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-4
@@ -1074,7 +1074,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1093,7 +1093,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-6
@@ -1107,7 +1107,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-8
@@ -1118,7 +1118,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-9
@@ -1129,7 +1129,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-11
@@ -1140,7 +1140,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1156,7 +1156,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-1
@@ -1167,7 +1167,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-2
@@ -1181,7 +1181,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-2.1
@@ -1192,7 +1192,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-3
@@ -1206,11 +1206,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1229,7 +1229,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1248,7 +1248,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-7
@@ -1262,7 +1262,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-7.4
@@ -1276,7 +1276,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-8
@@ -1290,7 +1290,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-9
@@ -1304,11 +1304,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1327,7 +1327,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-2
@@ -1338,7 +1338,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-4
@@ -1352,7 +1352,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-5
@@ -1366,7 +1366,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-6
@@ -1380,7 +1380,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1423,7 +1423,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-8
@@ -1437,7 +1437,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-10
@@ -1448,7 +1448,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1463,7 +1463,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1482,7 +1482,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cp-2
@@ -1493,7 +1493,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1509,7 +1509,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1525,7 +1525,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1544,7 +1544,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: cp-10
@@ -1555,7 +1555,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1571,7 +1571,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-2
@@ -1582,11 +1582,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1606,7 +1606,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1625,16 +1625,10 @@ profile:
           - by-name: assessment-objective
           - by-name: assessment-method
         adds:
-          - position: starting
-            by-id: ia-2.2_smt
-            props:
-              - name: response-point
-                ns: https://fedramp.gov/ns/oscal
-                value: Required
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-2.8
@@ -1648,7 +1642,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-2.12
@@ -1662,11 +1656,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1677,15 +1671,15 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: Required
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: EXAMINE
                     class: fedramp
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: INTERVIEW
                     class: fedramp
                   - name: method
-                    ns: https://fedramp.gov/ns/oscal
+                    ns: http://csrc.nist.gov/ns/rmf
                     value: TEST
                     class: fedramp
                 prose: |
@@ -1701,7 +1695,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-5
@@ -1712,7 +1706,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-5.1
@@ -1723,7 +1717,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-6
@@ -1737,7 +1731,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-7
@@ -1745,16 +1739,10 @@ profile:
           - by-name: assessment-objective
           - by-name: assessment-method
         adds:
-          - position: starting
-            by-id: ia-7_smt
-            props:
-              - name: response-point
-                ns: https://fedramp.gov/ns/oscal
-                value: Required
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-8
@@ -1765,7 +1753,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-8.1
@@ -1779,11 +1767,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1806,11 +1794,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1830,7 +1818,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-11
@@ -1841,7 +1829,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-1
@@ -1852,7 +1840,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-2
@@ -1863,7 +1851,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-4
@@ -1877,7 +1865,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-5
@@ -1888,7 +1876,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-6
@@ -1902,7 +1890,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-7
@@ -1913,7 +1901,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-8
@@ -1924,7 +1912,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1939,7 +1927,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ma-2
@@ -1953,11 +1941,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -1973,7 +1961,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ma-5
@@ -1987,11 +1975,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2007,7 +1995,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: mp-2
@@ -2021,11 +2009,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2044,11 +2032,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2067,11 +2055,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2087,7 +2075,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: pe-2
@@ -2101,11 +2089,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2124,11 +2112,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2147,11 +2135,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2170,11 +2158,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2193,11 +2181,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2216,11 +2204,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2239,11 +2227,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2276,11 +2264,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2299,11 +2287,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2319,7 +2307,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: pl-2
@@ -2333,7 +2321,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: pl-4
@@ -2344,7 +2332,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: pl-4.1
@@ -2355,7 +2343,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: pl-8
@@ -2369,7 +2357,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: pl-10
@@ -2380,7 +2368,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: pl-11
@@ -2391,7 +2379,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-1
@@ -2402,7 +2390,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-2
@@ -2413,7 +2401,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: FED
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-3
@@ -2427,7 +2415,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-4
@@ -2438,7 +2426,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-5
@@ -2449,7 +2437,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-6
@@ -2460,7 +2448,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-7
@@ -2471,7 +2459,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2487,7 +2475,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-9
@@ -2498,7 +2486,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-1
@@ -2509,7 +2497,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-2
@@ -2526,7 +2514,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-3
@@ -2540,7 +2528,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-3.1
@@ -2551,7 +2539,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-5
@@ -2565,7 +2553,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-5.2
@@ -2579,7 +2567,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-5.11
@@ -2593,7 +2581,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-7
@@ -2607,7 +2595,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-1
@@ -2618,7 +2606,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-2
@@ -2629,7 +2617,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-3
@@ -2640,7 +2628,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-4
@@ -2651,7 +2639,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-4.10
@@ -2662,7 +2650,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-5
@@ -2673,7 +2661,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-8
@@ -2684,7 +2672,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-9
@@ -2698,7 +2686,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-22
@@ -2712,7 +2700,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-1
@@ -2723,7 +2711,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-5
@@ -2737,11 +2725,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2760,7 +2748,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-8
@@ -2774,7 +2762,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-8.1
@@ -2788,7 +2776,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-12
@@ -2802,7 +2790,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-13
@@ -2816,11 +2804,11 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: CONDITIONAL
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2836,7 +2824,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: NSO
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -2851,7 +2839,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-21
@@ -2862,7 +2850,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-22
@@ -2873,7 +2861,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-28
@@ -2887,7 +2875,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-28.1
@@ -2901,7 +2889,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-39
@@ -2912,7 +2900,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-1
@@ -2923,7 +2911,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-2
@@ -2937,7 +2925,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-3
@@ -2951,7 +2939,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-4
@@ -2965,7 +2953,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ASSESS
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-5
@@ -2976,7 +2964,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-12
@@ -2987,7 +2975,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
             parts:
@@ -3003,7 +2991,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-2
@@ -3014,7 +3002,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-2.1
@@ -3025,7 +3013,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-3
@@ -3036,7 +3024,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-5
@@ -3047,7 +3035,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-8
@@ -3058,7 +3046,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-10
@@ -3069,7 +3057,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-11
@@ -3080,7 +3068,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-11.1
@@ -3091,7 +3079,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-11.2
@@ -3102,7 +3090,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
       - control-id: sr-12
@@ -3113,7 +3101,7 @@ profile:
           - position: ending
             props:
               - name: method
-                ns: https://fedramp.gov/ns/oscal
+                ns: http://csrc.nist.gov/ns/rmf
                 value: ATTEST
                 class: FedRAMP-Tailored-LI-SaaS
   back-matter:
@@ -3130,10 +3118,10 @@ profile:
         rlinks:
           - href: https://www.fedramp.gov/assets/img/logo-main-fedramp.png
       - uuid: 051a77c1-b61d-4995-8275-dacfe688d510
-        title: NIST Special Publication (SP) 800-53
+        title: NIST Special Publication (SP) 800-53 revision 5
         props:
           - name: version
             value: 5.1.1
         rlinks:
-          - href: https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_catalog.yaml
+          - href: NIST_SP-800-53_rev5_catalog.yaml
             media-type: application/oscal+yaml
