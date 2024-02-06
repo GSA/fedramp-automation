@@ -1,11 +1,11 @@
 {
   "catalog": {
-    "uuid": "f851c7cc-dd32-4233-b0a2-9fd83f561e67",
+    "uuid": "1f13921f-e208-46d9-9506-2a14e20bbb0a",
     "metadata": {
       "title": "FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2023-08-31T00:00:00Z",
-      "last-modified": "2024-01-19T14:50:30.575664-05:00",
-      "version": "5.1.1+fedramp-20240111-0",
+      "last-modified": "2024-02-06T11:18:05.811433-05:00",
+      "version": "5.1.1+20231218-1",
       "oscal-version": "1.1.1",
       "links": [
         {
@@ -207,6 +207,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-1"
               },
               {
@@ -230,7 +235,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -519,6 +524,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-2"
               },
               {
@@ -537,7 +547,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -777,19 +787,19 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "EXAMINE",
                     "class": "fedramp"
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "INTERVIEW",
                     "class": "fedramp"
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "TEST",
                     "class": "fedramp"
                   }
@@ -802,7 +812,7 @@
                 "props": [
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "EXAMINE"
                   }
                 ],
@@ -819,7 +829,7 @@
                 "props": [
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "INTERVIEW"
                   }
                 ],
@@ -836,7 +846,7 @@
                 "props": [
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "TEST"
                   }
                 ],
@@ -854,6 +864,11 @@
             "class": "SP800-53",
             "title": "Access Enforcement",
             "props": [
+              {
+                "name": "label",
+                "value": "AC-03",
+                "class": "zero-padded"
+              },
               {
                 "name": "label",
                 "value": "AC-3"
@@ -874,7 +889,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -1260,6 +1275,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-7"
               },
               {
@@ -1278,13 +1298,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -1525,6 +1545,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-8"
               },
               {
@@ -1548,7 +1573,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "FED",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -1718,6 +1743,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-14",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-14"
               },
               {
@@ -1736,7 +1766,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "FED",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -1803,6 +1833,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-17",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-17"
               },
               {
@@ -1821,7 +1856,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -2154,6 +2189,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-18",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-18"
               },
               {
@@ -2172,7 +2212,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -2287,6 +2327,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-19",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-19"
               },
               {
@@ -2305,7 +2350,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -2495,6 +2540,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-20",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-20"
               },
               {
@@ -2513,7 +2563,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -2651,6 +2701,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AC-22",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AC-22"
               },
               {
@@ -2669,7 +2724,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -3064,6 +3119,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AT-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AT-1"
               },
               {
@@ -3087,7 +3147,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -3339,6 +3399,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AT-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AT-2"
               },
               {
@@ -3362,7 +3427,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -3546,6 +3611,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "AT-02(02)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "AT-2(2)"
                   },
                   {
@@ -3569,7 +3639,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -3667,6 +3737,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AT-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AT-3"
               },
               {
@@ -3690,7 +3765,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -3891,6 +3966,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AT-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AT-4"
               },
               {
@@ -3914,7 +3994,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -4094,6 +4174,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-1"
               },
               {
@@ -4117,7 +4202,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -4335,6 +4420,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-2"
               },
               {
@@ -4353,7 +4443,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -4580,6 +4670,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-3"
               },
               {
@@ -4598,7 +4693,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -4948,6 +5043,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-4"
               },
               {
@@ -4971,7 +5071,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -5073,6 +5173,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-5"
               },
               {
@@ -5091,7 +5196,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -5339,6 +5444,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-6"
               },
               {
@@ -5362,7 +5472,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -5691,6 +5801,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-8"
               },
               {
@@ -5709,7 +5824,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -5786,6 +5901,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-09",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-9"
               },
               {
@@ -5804,7 +5924,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -5938,6 +6058,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-11",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-11"
               },
               {
@@ -5956,7 +6081,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -6053,6 +6178,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "AU-12",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "AU-12"
               },
               {
@@ -6071,7 +6201,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -6310,6 +6440,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-1"
               },
               {
@@ -6333,7 +6468,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -6548,6 +6683,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-2"
               },
               {
@@ -6571,7 +6711,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -7139,6 +7279,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "CA-02(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "CA-2(1)"
                   },
                   {
@@ -7162,7 +7307,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -7235,6 +7380,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-3"
               },
               {
@@ -7258,13 +7408,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -7639,6 +7789,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-5"
               },
               {
@@ -7662,7 +7817,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -7769,6 +7924,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-6"
               },
               {
@@ -7792,7 +7952,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -8240,6 +8400,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-7"
               },
               {
@@ -8263,7 +8428,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -8933,6 +9098,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "CA-07(04)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "CA-7(4)"
                   },
                   {
@@ -8961,7 +9131,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -9201,6 +9371,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-8"
               },
               {
@@ -9224,7 +9399,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -9391,6 +9566,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CA-09",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CA-9"
               },
               {
@@ -9414,13 +9594,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -9876,6 +10056,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-1"
               },
               {
@@ -9899,7 +10084,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -10098,6 +10283,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-2"
               },
               {
@@ -10121,7 +10311,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -10290,6 +10480,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-4"
               },
               {
@@ -10313,7 +10508,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -10520,6 +10715,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-5"
               },
               {
@@ -10538,7 +10738,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -10842,6 +11042,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-6"
               },
               {
@@ -10865,7 +11070,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -11416,6 +11621,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-7"
               },
               {
@@ -11439,7 +11649,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -11602,6 +11812,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-8"
               },
               {
@@ -11625,7 +11840,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -12047,6 +12262,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-10",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-10"
               },
               {
@@ -12065,7 +12285,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -12189,6 +12409,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CM-11",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CM-11"
               },
               {
@@ -12207,7 +12432,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -12419,6 +12644,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CP-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CP-1"
               },
               {
@@ -12442,7 +12672,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -12693,6 +12923,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CP-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CP-2"
               },
               {
@@ -12711,7 +12946,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -13072,6 +13307,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CP-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CP-3"
               },
               {
@@ -13095,7 +13335,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -13268,6 +13508,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CP-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CP-4"
               },
               {
@@ -13291,7 +13536,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -13466,6 +13711,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CP-09",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CP-9"
               },
               {
@@ -13484,7 +13734,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -13859,6 +14109,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "CP-10",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "CP-10"
               },
               {
@@ -13877,7 +14132,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -14051,6 +14306,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IA-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IA-1"
               },
               {
@@ -14074,7 +14334,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -14267,6 +14527,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IA-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IA-2"
               },
               {
@@ -14290,13 +14555,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -14468,6 +14733,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-02(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-2(1)"
                   },
                   {
@@ -14486,7 +14756,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -14628,6 +14898,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-02(02)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-2(2)"
                   },
                   {
@@ -14646,7 +14921,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -14665,13 +14940,6 @@
                   {
                     "id": "ia-2.2_smt",
                     "name": "statement",
-                    "props": [
-                      {
-                        "name": "response-point",
-                        "ns": "https://fedramp.gov/ns/oscal",
-                        "value": "Required"
-                      }
-                    ],
                     "prose": "Implement multi-factor authentication for access to non-privileged accounts."
                   },
                   {
@@ -14700,6 +14968,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-02(08)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-2(8)"
                   },
                   {
@@ -14718,7 +14991,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -14840,6 +15113,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-02(12)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-2(12)"
                   },
                   {
@@ -14858,13 +15136,13 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "CONDITIONAL",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -14988,19 +15266,19 @@
                       },
                       {
                         "name": "method",
-                        "ns": "https://fedramp.gov/ns/oscal",
+                        "ns": "http://csrc.nist.gov/ns/rmf",
                         "value": "EXAMINE",
                         "class": "fedramp"
                       },
                       {
                         "name": "method",
-                        "ns": "https://fedramp.gov/ns/oscal",
+                        "ns": "http://csrc.nist.gov/ns/rmf",
                         "value": "INTERVIEW",
                         "class": "fedramp"
                       },
                       {
                         "name": "method",
-                        "ns": "https://fedramp.gov/ns/oscal",
+                        "ns": "http://csrc.nist.gov/ns/rmf",
                         "value": "TEST",
                         "class": "fedramp"
                       }
@@ -15048,6 +15326,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IA-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IA-4"
               },
               {
@@ -15066,7 +15349,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -15247,6 +15530,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IA-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IA-5"
               },
               {
@@ -15270,7 +15558,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -15522,6 +15810,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-05(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-5(1)"
                   },
                   {
@@ -15545,7 +15838,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -15672,6 +15965,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IA-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IA-6"
               },
               {
@@ -15690,7 +15988,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -15812,6 +16110,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IA-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IA-7"
               },
               {
@@ -15830,7 +16133,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -15865,13 +16168,6 @@
               {
                 "id": "ia-7_smt",
                 "name": "statement",
-                "props": [
-                  {
-                    "name": "response-point",
-                    "ns": "https://fedramp.gov/ns/oscal",
-                    "value": "Required"
-                  }
-                ],
                 "prose": "Implement mechanisms for authentication to a cryptographic module that meet the requirements of applicable laws, executive orders, directives, policies, regulations, standards, and guidelines for such authentication."
               },
               {
@@ -15886,6 +16182,11 @@
             "class": "SP800-53",
             "title": "Identification and Authentication (Non-organizational Users)",
             "props": [
+              {
+                "name": "label",
+                "value": "IA-08",
+                "class": "zero-padded"
+              },
               {
                 "name": "label",
                 "value": "IA-8"
@@ -15906,7 +16207,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -16025,6 +16326,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-08(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-8(1)"
                   },
                   {
@@ -16043,13 +16349,13 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "CONDITIONAL",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -16217,6 +16523,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-08(02)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-8(2)"
                   },
                   {
@@ -16235,13 +16546,13 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "CONDITIONAL",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -16476,6 +16787,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "IA-08(04)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "IA-8(4)"
                   },
                   {
@@ -16494,7 +16810,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -16538,6 +16854,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IA-11",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IA-11"
               },
               {
@@ -16561,7 +16882,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -16714,6 +17035,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IR-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IR-1"
               },
               {
@@ -16737,7 +17063,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -16967,6 +17293,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IR-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IR-2"
               },
               {
@@ -16990,7 +17321,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -17115,6 +17446,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IR-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IR-4"
               },
               {
@@ -17133,7 +17469,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -17712,6 +18048,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IR-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IR-5"
               },
               {
@@ -17735,7 +18076,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -17839,6 +18180,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IR-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IR-6"
               },
               {
@@ -17857,7 +18203,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -18075,6 +18421,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IR-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IR-7"
               },
               {
@@ -18093,7 +18444,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -18248,6 +18599,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "IR-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "IR-8"
               },
               {
@@ -18266,7 +18622,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -18624,6 +18980,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MA-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MA-1"
               },
               {
@@ -18647,7 +19008,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -18841,6 +19202,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MA-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MA-2"
               },
               {
@@ -18859,13 +19225,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -19312,6 +19678,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MA-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MA-4"
               },
               {
@@ -19330,7 +19701,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -19493,6 +19864,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MA-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MA-5"
               },
               {
@@ -19511,13 +19887,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -19916,6 +20292,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MP-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MP-1"
               },
               {
@@ -19939,7 +20320,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -20150,6 +20531,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MP-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MP-2"
               },
               {
@@ -20168,13 +20554,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -20471,6 +20857,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MP-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MP-6"
               },
               {
@@ -20489,13 +20880,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -20859,6 +21250,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "MP-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "MP-7"
               },
               {
@@ -20877,13 +21273,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -21200,6 +21596,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-1"
               },
               {
@@ -21223,7 +21624,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -21404,6 +21805,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-2"
               },
               {
@@ -21422,13 +21828,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -21913,6 +22319,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-3"
               },
               {
@@ -21931,13 +22342,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -22592,6 +23003,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-6"
               },
               {
@@ -22615,13 +23031,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -22978,6 +23394,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-8"
               },
               {
@@ -23001,13 +23422,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -23231,6 +23652,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-12",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-12"
               },
               {
@@ -23249,13 +23675,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -23459,6 +23885,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-13",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-13"
               },
               {
@@ -23477,13 +23908,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -23771,6 +24202,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-14",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-14"
               },
               {
@@ -23789,13 +24225,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -24004,6 +24440,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-15",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-15"
               },
               {
@@ -24022,13 +24463,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -24261,6 +24702,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PE-16",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PE-16"
               },
               {
@@ -24279,13 +24725,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -24683,6 +25129,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PL-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PL-1"
               },
               {
@@ -24706,7 +25157,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -24909,6 +25360,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PL-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PL-2"
               },
               {
@@ -24932,7 +25388,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -26527,6 +26983,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PL-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PL-4"
               },
               {
@@ -26550,7 +27011,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -26706,6 +27167,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "PL-04(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "PL-4(1)"
                   },
                   {
@@ -26729,7 +27195,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -26821,6 +27287,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PL-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PL-8"
               },
               {
@@ -26844,7 +27315,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -27417,6 +27888,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PL-10",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PL-10"
               },
               {
@@ -27435,7 +27911,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -27522,6 +27998,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PL-11",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PL-11"
               },
               {
@@ -27540,7 +28021,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -27729,6 +28210,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-1"
               },
               {
@@ -27752,7 +28238,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -27929,6 +28415,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-2"
               },
               {
@@ -27947,7 +28438,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "FED",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -28085,6 +28576,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-3"
               },
               {
@@ -28103,7 +28599,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -28415,6 +28911,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-4"
               },
               {
@@ -28433,7 +28934,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -28589,6 +29090,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-5"
               },
               {
@@ -28607,7 +29113,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -28733,6 +29239,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-06",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-6"
               },
               {
@@ -28756,7 +29267,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -28911,6 +29422,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-7"
               },
               {
@@ -28934,7 +29450,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -29103,6 +29619,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-8"
               },
               {
@@ -29121,7 +29642,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -29187,6 +29708,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "PS-09",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "PS-9"
               },
               {
@@ -29205,7 +29731,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -29338,6 +29864,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "RA-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "RA-1"
               },
               {
@@ -29361,7 +29892,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -29526,6 +30057,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "RA-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "RA-2"
               },
               {
@@ -29544,7 +30080,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -29771,6 +30307,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "RA-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "RA-3"
               },
               {
@@ -29794,7 +30335,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -30330,6 +30871,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "RA-03(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "RA-3(1)"
                   },
                   {
@@ -30353,7 +30899,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -30481,6 +31027,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "RA-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "RA-5"
               },
               {
@@ -30504,7 +31055,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -31057,6 +31608,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "RA-05(02)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "RA-5(2)"
                   },
                   {
@@ -31080,7 +31636,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -31206,6 +31762,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "RA-05(11)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "RA-5(11)"
                   },
                   {
@@ -31229,7 +31790,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -31353,6 +31914,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "RA-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "RA-7"
               },
               {
@@ -31376,7 +31942,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -31721,6 +32287,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-1"
               },
               {
@@ -31744,7 +32315,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -31917,6 +32488,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-2"
               },
               {
@@ -31940,7 +32516,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -32048,6 +32624,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-3"
               },
               {
@@ -32071,7 +32652,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -32244,6 +32825,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-4"
               },
               {
@@ -32267,7 +32853,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -32535,6 +33121,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "SA-04(10)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "SA-4(10)"
                   },
                   {
@@ -32558,7 +33149,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -32628,6 +33219,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-5"
               },
               {
@@ -32651,7 +33247,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -32897,6 +33493,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-8"
               },
               {
@@ -32920,7 +33521,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -33089,6 +33690,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-09",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-9"
               },
               {
@@ -33112,7 +33718,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -33500,6 +34106,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SA-22",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SA-22"
               },
               {
@@ -33523,7 +34134,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -33811,6 +34422,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-1"
               },
               {
@@ -33834,7 +34450,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -34034,6 +34650,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-5"
               },
               {
@@ -34052,13 +34673,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -34276,6 +34897,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-07",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-7"
               },
               {
@@ -34294,7 +34920,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -34710,6 +35336,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-8"
               },
               {
@@ -34728,7 +35359,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -34950,6 +35581,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "SC-08(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "SC-8(1)"
                   },
                   {
@@ -34968,7 +35604,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -35116,6 +35752,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-12",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-12"
               },
               {
@@ -35139,7 +35780,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -35231,10 +35872,6 @@
               },
               {
                 "href": "#sc-11",
-                "rel": "related"
-              },
-              {
-                "href": "#sc-12",
                 "rel": "related"
               },
               {
@@ -35439,6 +36076,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-13",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-13"
               },
               {
@@ -35457,13 +36099,13 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "CONDITIONAL",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -35782,6 +36424,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-15",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-15"
               },
               {
@@ -35800,7 +36447,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "NSO",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -35863,6 +36510,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-20",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-20"
               },
               {
@@ -35881,7 +36533,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -35967,6 +36619,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-21",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-21"
               },
               {
@@ -35985,7 +36642,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -36024,6 +36681,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-22",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-22"
               },
               {
@@ -36042,7 +36704,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -36110,6 +36772,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-28",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-28"
               },
               {
@@ -36128,7 +36795,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -36383,6 +37050,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "SC-28(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "SC-28(1)"
                   },
                   {
@@ -36401,7 +37073,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ASSESS",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -36574,6 +37246,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SC-39",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SC-39"
               },
               {
@@ -36597,7 +37274,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -36762,6 +37439,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SI-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SI-1"
               },
               {
@@ -36785,7 +37467,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -36962,6 +37644,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SI-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SI-2"
               },
               {
@@ -36980,7 +37667,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -37554,6 +38241,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SI-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SI-3"
               },
               {
@@ -37577,7 +38269,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -38130,6 +38822,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SI-04",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SI-4"
               },
               {
@@ -38158,7 +38855,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ASSESS",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -38938,6 +39635,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SI-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SI-5"
               },
               {
@@ -38961,7 +39663,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -39049,6 +39751,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SI-12",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SI-12"
               },
               {
@@ -39067,7 +39774,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -39338,6 +40045,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-01",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-1"
               },
               {
@@ -39361,7 +40073,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -39571,6 +40283,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-02",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-2"
               },
               {
@@ -39594,7 +40311,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -39771,6 +40488,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "SR-02(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "SR-2(1)"
                   },
                   {
@@ -39794,7 +40516,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -39876,6 +40598,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-03",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-3"
               },
               {
@@ -39904,7 +40631,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -40096,6 +40823,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-05",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-5"
               },
               {
@@ -40119,7 +40851,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -40260,6 +40992,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-08",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-8"
               },
               {
@@ -40283,7 +41020,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -40390,6 +41127,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-10",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-10"
               },
               {
@@ -40413,7 +41155,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -40511,6 +41253,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-11",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-11"
               },
               {
@@ -40534,7 +41281,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
@@ -40619,6 +41366,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "SR-11(01)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "SR-11(1)"
                   },
                   {
@@ -40642,7 +41394,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -40693,6 +41445,11 @@
                 "props": [
                   {
                     "name": "label",
+                    "value": "SR-11(02)",
+                    "class": "zero-padded"
+                  },
+                  {
+                    "name": "label",
                     "value": "SR-11(2)"
                   },
                   {
@@ -40716,7 +41473,7 @@
                   },
                   {
                     "name": "method",
-                    "ns": "https://fedramp.gov/ns/oscal",
+                    "ns": "http://csrc.nist.gov/ns/rmf",
                     "value": "ATTEST",
                     "class": "FedRAMP-Tailored-LI-SaaS"
                   }
@@ -40785,6 +41542,11 @@
             "props": [
               {
                 "name": "label",
+                "value": "SR-12",
+                "class": "zero-padded"
+              },
+              {
+                "name": "label",
                 "value": "SR-12"
               },
               {
@@ -40808,7 +41570,7 @@
               },
               {
                 "name": "method",
-                "ns": "https://fedramp.gov/ns/oscal",
+                "ns": "http://csrc.nist.gov/ns/rmf",
                 "value": "ATTEST",
                 "class": "FedRAMP-Tailored-LI-SaaS"
               }
