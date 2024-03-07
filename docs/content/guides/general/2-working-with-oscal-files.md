@@ -14,10 +14,10 @@ OSCAL-based FedRAMP files.
 Unlike the traditional MS Word-based SSP, SAP, and SAR, the OSCAL-based
 versions of these files are designed to make information available
 through linkages, rather than duplicating information. In OSCAL, these
-linkages are established through ```import``` commands.
+linkages are established through `import` commands.
 
 ![OSCAL File Imports](/img/content-figure-1.png)
-***Each OSCAL file imports information from the one before it.***
+*Each OSCAL file imports information from the one before it.*
 
 \
 For example, the assessment objectives and actions that appear in a
@@ -26,7 +26,7 @@ simply referenced by the SAP and SAR. Only deviations from the TCW are
 captured in the SAP or SAR.
 
 ![Baseline and SSP Info](/img/content-figure-2.png)
-***Baseline and SSP Information is referenced instead of duplicated.***
+*Baseline and SSP Information is referenced instead of duplicated.*
 
 \
 For this reason, an OSCAL-based SAP points to the OSCAL-based SSP of the
@@ -64,8 +64,7 @@ functionality later for the separate profile and catalog handling later
 in their product roadmap.
 
 ![Resolved Profile Catalog](/img/content-figure-3.png)
-***The Resolved Profile Catalog for each FedRAMP Baseline reduce tool
-processing.***
+*The Resolved Profile Catalog for each FedRAMP Baseline reduce tool processing.*
 
 \
 For more information about resolved profile catalogs, see *Appendix C,
@@ -74,24 +73,24 @@ Profile Resolution*.
 ## 2.2. Hierarchy and Sequence
 
 For both XML and JSON, the hierarchy of syntax is important and must be
-followed. For example, the metadata assembly must be at the top level of
+followed. For example, the `metadata` assembly must be at the top level of
 the OSCAL file, just below its root. If it appears within any other
 assembly, it is invalid.
 
 The same field name is interpreted differently in different assemblies.
-For example, the title field under metadata is the document title, while
-the title field under role gives a human-friendly name to that role.
+For example, the `title` field under metadata is the document title, while
+the `title` field under role gives a human-friendly name to that role.
 
 For XML, the sequence of fields and assemblies (elements) is also
 important. JSON typically does not require a specific sequence fields
 and assemblies (objects). Where sequence is important, OSCAL uses array
 objects in JSON.
 
-For example, within the metadata assembly, XML must find title,
-published, last-modified, version, and oscal-version in exactly that
-order. The published field is optional and may be omitted, but if
+For example, within the `metadata` assembly, XML must find `title`,
+`published`, `last-modified`, `version`, and `oscal-version` in exactly that
+order. The `published` field is optional and may be omitted, but if
 present, it must be in that position relative to the other fields. When
-using JSON, these fields are allowed in any order within the metadata
+using JSON, these fields are allowed in any order within the `metadata`
 assembly.
 
 Tools must ensure this sequence is maintained when creating or modifying
@@ -116,36 +115,36 @@ Always use the hierarchy found here:
 
 Most assemblies in OSCAL follow a general pattern as follows:
 
--   title (field): Typically only one title is allowed. Sometimes it is
+-   `title` (field): Typically only one `title` is allowed. Sometimes it is
     optional. This is a *markup-line* datatype.
 
--   description (field): Typically only one description field is
+-   `description` (field): Typically only one `description` field is
     allowed. Sometimes it is optional. This is a *markup-multiline*
     datatype.
 
--   prop (fields): There may be many prop fields. The name flag
-    identifies the specific annotation. The value flag is a string
-    datatype and holds the intended value. The prop field includes an
-    optional uuid flag to give a globally unique identifier, an optional
-    ns field to allow for namespacing the prop and indicate it is
-    optional information that is not of core OSCAL syntax and a class
-    flag to sub-class one or more instances of the prop into specific
+-   `prop` (fields): There may be many `prop` fields. The `name` flag
+    identifies the specific annotation. The `value` flag is a string
+    datatype and holds the intended value. The `prop` field includes an
+    optional `uuid` flag to give a globally unique identifier, an optional
+    `ns` field to allow for namespacing the `prop` and indicate it is
+    optional information that is not of core OSCAL syntax and a `class`
+    flag to sub-class one or more instances of the `prop` into specific
     sub-groups.
 
--   link (fields): There may be many link fields. The href flag allows a
+-   `link` (fields): There may be many `link` fields. The `href` flag allows a
     uniform resource identifier (URI) or URI fragment to a related item.
-    Often, href fields point to a resource in back matter using its UUID
+    Often, `href` fields point to a `resource` in back matter using its UUID
     value in the form of href="#[uuid-value]".
 
 -   ***assembly-specific fields***
 
--   remarks (field): Typically only one remarks field is allowed. It is
+-   `remarks` (field): Typically only one `remarks` field is allowed. It is
     always optional. This is a *markup-multiline* datatype.
 
 While this is not universal in OSCAL, when any of these fields are
 present, they follow this pattern.
 
-The prop field is present to allow OSCAL extensions within each
+The `prop` field is present to allow OSCAL extensions within each
 assembly. See *Section 3, FedRAMP Extensions and Accepted Values* for
 more information on FedRAMP's use of OSCAL extensions.
 
@@ -159,8 +158,8 @@ valid.
 | :-- | :-- |
 |**Well-Formed**|The XML or JSON file follows the rules defined for that format. <br /> Any tool that processes the format will recognize it as "well-formed," which means the tool can proceed with processing the XML or JSON. <br /> XML: [https://www.w3.org/TR/REC-xml/](https://www.w3.org/TR/REC-xml/) <br /> JSON: [https://json.org/](https://json.org/)|
 |**OSCAL Syntax**|The XML or JSON file only uses names and values defined by NIST for OSCAL.  NIST publishes schema validation tools to verify syntax compliance based on the following standards: <br /> XML Syntax Validation: [XML Schema Definition Language (XSD) 1.1](https://www.w3.org/TR/xmlschema11-1/) <br /> JSON Syntax Validation: [JSON Schema, draft 07](https://json-schema.org/)|
-|**OSCAL Content**| For certain OSCAL fields, the NIST syntax validation tools also enforce content - allowing only a pre-defined set of values to be used in certain fields. <br /><br /> For example, Within the SSP model, impact levels within the information type assemblies only allow the following values: fips-199-low, fips-199-moderate, and fips-199-high. Any other value will cause an error when validating the file. <br /><br /> In the future, NIST intends to publish more robust content enforcement mechanisms, such as [Schematron](http://schematron.com/). This enables more complex rules such as, "If field A is marked 'true', field B must have a value." FedRAMP is also exploring the use of Schematron for enhanced validation and may publish these in the future.|
-|**FedRAMP Syntax Extensions**    | NIST designed OSCAL to represents the commonality of most cybersecurity frameworks and provided the ability to extend the language for framework-specific needs. FedRAMP makes use of these extensions. <br /><br />NIST provides prop fields throughout most of its assemblies, always with a name, class, and ns (namespace) flag: <br /> <pr\op name="" class="" ns="">Data</prop> <br /><br /> In the core OSCAL syntax, the ns flag is never used. Where FedRAMP extends OSCAL, the value for ns is always: <br /><br />https://fedramp.gov/ns/oscal (case sensitive). <br /><br /> When ns='https://fedramp.gov/ns/oscal' the name flag is as defined by FedRAMP. If the class flag is present, that is also defined by FedRAMP.|
+|**OSCAL Content**| For certain OSCAL fields, the NIST syntax validation tools also enforce content - allowing only a pre-defined set of values to be used in certain fields. <br /><br /> For example, Within the SSP model, impact levels within the information type assemblies only allow the following values: `fips-199-low`, `fips-199-moderate`, and `fips-199-high`. Any other value will cause an error when validating the file. <br /><br /> In the future, NIST intends to publish more robust content enforcement mechanisms, such as [Schematron](http://schematron.com/). This enables more complex rules such as, "If field A is marked 'true', field B must have a value." FedRAMP is also exploring the use of Schematron for enhanced validation and may publish these in the future.|
+|**FedRAMP Syntax Extensions**    | NIST designed OSCAL to represents the commonality of most cybersecurity frameworks and provided the ability to extend the language for framework-specific needs. FedRAMP makes use of these extensions. <br /><br />NIST provides `prop` fields throughout most of its assemblies, always with a `name`, `class`, and `ns` (namespace) flag: <br /> `<prop name="" class="" ns="">Data</prop>` <br /><br /> In the core OSCAL syntax, the `ns` flag is never used. Where FedRAMP extends OSCAL, the value for `ns` is always: <br /><br />`https://fedramp.gov/ns/oscal` (case sensitive). <br /><br /> When `ns='https://fedramp.gov/ns/oscal'` the `name` flag is as defined by FedRAMP. If the `class` flag is present, that is also defined by FedRAMP.|
 |**FedRAMP Content**| Today, FedRAMP content is enforced programmatically. FedRAMP intends to publish automated validation rules, which may be adopted by tool developers to verify OSCAL-based FedRAMP content is acceptable before submission. <br /><br />Initial validation rules ensure a package has all required elements and will evolve to perform more detailed validation. Separate details will be published about this in the near future.|
 
 ##  2.4. OSCAL's Minimum File Requirements
@@ -168,6 +167,7 @@ valid.
 Every OSCAL-based FedRAMP file must have a minimum set of required
 fields/assemblies, and must follow the core OSCAL syntax found here:
 ![Anatomy of an OSCAL File](/img/content-figure-4.png)
+*Anatomy of an OSCAL file*
 
 In addition to the core OSCAL syntax, the following FedRAMP-specific
 implementation applies:
@@ -248,11 +248,11 @@ used. Other encoding options will create unpredictable results.
 
 ### 2.4.2. OSCAL Syntax Version
 
-Tools designed to read an OSCAL file must verify the ```oscal-version``` field
+Tools designed to read an OSCAL file must verify the `oscal-version` field
 to determine which published syntax is used.
 
 Tools designed to create or manipulate an OSCAL file must specify the
-syntax version of OSCAL used in the file in the ```oscal-version``` field.
+syntax version of OSCAL used in the file in the `oscal-version` field.
 
 NIST ensures backward compatibility of syntax where practical; however,
 this is not always possible. Some syntax changes between milestone
@@ -268,12 +268,12 @@ utilities. See [the OSCAL Support and Deprecation Policy in the FedRAMP Automati
 
 Any time a tool changes the contents of an OSCAL file, it must also:
 
--   update the file's ```uuid flag``` (```/*/@uuid```) with a new UUID; and
+-   update the file's `uuid flag` (`/*/@uuid`) with a new UUID; and
 
--   update the ```last-modified``` field (```/*/metadata/last-modified```) with the current date and time. (Using the OSCAL date/time format, as described in *Section 2.6.1 [Date and Time in OSCAL Files](#date-and-time-in-oscal-files)*)
+-   update the `last-modified` field (`/*/metadata/last-modified`) with the current date and time. (Using the OSCAL date/time format, as described in *Section 2.6.1 [Date and Time in OSCAL Files](#date-and-time-in-oscal-files)*)
 
 Tools that open or import OSCAL files should rely on the UUID value
-provided by the ```uuid``` flag, and ```last-modified``` field as easy methods of
+provided by the `uuid` flag, and `last-modified` field as easy methods of
 knowing the file has changed.
 
 See the following for more information:
@@ -349,9 +349,9 @@ There are four ways identifiers are typically used in OSCAL:
 **Identifiers** appear as an "**id**" or "**uuid**" flag to a data
 field or assembly. Examples include:
 
--   ```<control id="ac-1">```: Uniquely identifies the control.
+-   `<control id="ac-1">`: Uniquely identifies the control.
 
--   ```<party uuid="8e83458e-dde5-4ee2-88bc-152f8da3fc31">```:
+-   `<party uuid="8e83458e-dde5-4ee2-88bc-152f8da3fc31">`:
     Uniquely identifies the party.
 
 **An ID reference** typically appears with a name and hyphen in front of
@@ -366,10 +366,10 @@ _IDs and UUIDs are intended to be managed by tools "behind the scenes," and shou
 
 Examples include:
 
--   ```<responsible-party role-id="prepared-by">```: points to a role
+-   `<responsible-party role-id="prepared-by">`: points to a role
     identified by "prepared-by".
 
--   ```<implemented-requirement id="imp-req-01" control-id="ac-2">```: points to the control identified by
+-   `<implemented-requirement id="imp-req-01" control-id="ac-2">`: points to the control identified by
     "ac-2".
 
 NIST provides some standard identifiers. Where appropriate, FedRAMP has
@@ -380,7 +380,7 @@ Deviation is likely to result in processing errors.
 
 ### 2.5.1. Uniqueness of Identifiers
 
-Within FedRAMP deliverables, only ```roles``` in the ```metadata``` assembly have ID
+Within FedRAMP deliverables, only `roles` in the `metadata` assembly have ID
 flags. All other OSCAL identifiers are UUID.
 
 Some role ID values are prescribed by NIST, and others by FedRAMP. These
@@ -478,14 +478,14 @@ types that directly impact FedRAMP content in OSCAL.
 
 Except where noted, all dates and times in the OSCAL-based content must
 be in an OSCAL
-```dateTime-with-timezone``` format as documented here:
+`dateTime-with-timezone` format as documented here:
 
 [[https://pages.nist.gov/OSCAL/reference/datatypes/#datetime-with-timezone]](https://pages.nist.gov/OSCAL/reference/datatypes/#datetime-with-timezone)
 
 This means all dates and times must be represented in the OSCAL file
 using following format, unless otherwise noted:
 
-```"Y-m-dTH:i:s.uP"``` (See
+`"Y-m-dTH:i:s.uP"` (See
 [HERE](https://www.php.net/manual/en/class.datetime.php) for formatting
 codes.)
 
@@ -541,7 +541,7 @@ verification tools will generate an error if this format is not found.
 
 Tool developers are encouraged to *present* dates as they have
 historically appeared in FedRAMP documents. In other words, tools should
-convert ```"2020-03-04T00:00:00.00-05:00"``` to ```"March 4, 2020"``` when
+convert `"2020-03-04T00:00:00.00-05:00"` to `"March 4, 2020"` when
 presenting the publication date to the user.
 
 Please use the appropriate UTC offset in your region. If you are storing
@@ -558,7 +558,7 @@ information: <https://pages.nist.gov/OSCAL/reference/datatypes/#uuid>
 Version 4 UUIDs are 128-bit numbers, represented as 32 hexadecimal
 (base-16) digits in the pattern:
 
-```xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx```
+`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
 
 All alphabetic characters (a-f) representing hexadecimal values must be
 lower case.
@@ -581,7 +581,7 @@ non-compliant or erroneous algorithms.
 ### 2.6.3. ID Datatypes
 
 NIST typically uses ID flags in OSCAL where the identifier is intended
-to be canonical, such as the identifiers for ```role``` IDs or NIST SP 800-53
+to be canonical, such as the identifiers for `role` IDs or NIST SP 800-53
 controls.
 
 Any place an ID flag or ID reference exits, the datatype is
@@ -598,7 +598,7 @@ spaces. The allowable values of an NCName are limited as follows:
 
 -   Spaces are not allowed.
 
-```Token``` values are case sensitive. ```"This"``` does not match ```"this"``` in searches.
+`Token` values are case sensitive. `"This"` does not match `"this"` in searches.
 
 A tool developer may wish to assign UUID values to ID flags. UUIDs may
 start with a numeric character, which is invalid for NCName. To ensure a
@@ -610,7 +610,7 @@ prepending "uuid-" to the UUID value.
 
 ### 2.6.4. Working With href Flags
 
-All OSCAL-based ```href``` flags are URIs formatted according to [section 4.1
+All OSCAL-based `href` flags are URIs formatted according to [section 4.1
 of RFC3986](https://tools.ietf.org/html/rfc3986#section-4.1). When
 assembling or processing an OSCAL-based FedRAMP file, please consider
 the following:
@@ -630,9 +630,9 @@ handling. Sensitive external documents should travel with the OSCAL file
 and be linked using a relative path.
 
 **Internal Locations**: These URI fragments appear as just a hashtag (#)
-followed by a name, such as #a3e9f988-2db7-4a14-9859-0a0f5b0eebee. This
+followed by a name, such as `#a3e9f988-2db7-4a14-9859-0a0f5b0eebee`. This
 notation points to a location internal to the OSCAL content. Typically,
-this references to a resource assembly, but may reference to any field
+this references to a `resource` assembly, but may reference to any field
 or assembly with a unique ID or UUID.
 
 If only a URI fragment (internal location) is present, the OSCAL tool
@@ -641,7 +641,7 @@ reference to a resource. The resource may exist in the current OSCAL
 file, or one of the imported OSCAL files in the stack as described in
 *Section 2.1, File Content Concepts*.
 
-For example, the following OSCAL content contains a href flag with a URI
+For example, the following OSCAL content contains a `href` flag with a URI
 fragment:
 
 #### URI Fragment Example
@@ -658,7 +658,7 @@ fragment:
 
 When a tool processes the above example, it should look inside the
 document for a field or assembly with a UUID of
-"a3e9f988-2db7-4a14-9859-0a0f5b0eebee". This can be accomplished with
+`"a3e9f988-2db7-4a14-9859-0a0f5b0eebee"`. This can be accomplished with
 the following XPath query:
 {{< highlight xml "linenos=table" >}}
 //*[@uuid="a3e9f988-2db7-4a14-9859-0a0f5b0eebee"]
@@ -676,7 +676,7 @@ To express this in XPath 1.0, you must use the following:
 name(//*[@uuid="uri-fragment" | @id="uri-fragment"])
 {{< /highlight >}}
 The above query will return "resource", if the URI Fragment references
-the UUID of a resource assembly.
+the UUID of a `resource` assembly.
 
 ### 2.6.5. Markup-line and Markup-multiline Fields in OSCAL
 
@@ -736,8 +736,8 @@ visit:
 
 In JSON, markup-multiline is based on Markdown syntax and requires no
 special handling. XML-based markup-multiline fields require all content
-to be enclosed in one of the following tags: \<p>, \<h1> - \<h6>,
-\<ol>, \<ul>, \<pre>, or \<table>. At least one of these tags must
+to be enclosed in one of the following tags: `<p>`, `<h1>` - `<h6>`,
+`<ol>`, `<ul>`, `<pre>`, or `<table>`. At least one of these tags must
 be present. More than one may be present. All text must be enclosed
 within one of these tags.
 
@@ -757,7 +757,7 @@ schema.
   
 
 The simplest way to correct the error is to enclose the text in
-\<p>\</p> tags, within the ```description``` field.
+`<p></p>` tags, within the `description` field.
 
 #### Correct Markup-multiline Representation
 {{< highlight xml "linenos=table" >}}
@@ -771,9 +771,9 @@ The simplest way to correct the error is to enclose the text in
   
 
 The example below demonstrates a correct use of markup-multiline in XML.
-Please note, the inclusion of a \<p /> tag on a line by itself inserts
+Please note, the inclusion of a `<p />` tag on a line by itself inserts
 an empty paragraph. Within XML and HTML, this is treated as a shortcut,
-and is interpreted as "\<p>\</p>"
+and is interpreted as `"<p></p>"`.
 
 #### Correct Markup-multiline Representation
 {{< highlight xml "linenos=table" >}}
@@ -816,12 +816,12 @@ please visit:
 ## 2.7. Citations and Attachments in OSCAL Files
 
 OSCAL is designed so that all citations and attachments are defined once
-at the end of the file as a resource, and then referenced as needed
+at the end of the file as a `resource`, and then referenced as needed
 throughout the file. This includes logos, diagrams, policies,
 procedures, plans, evidence, and interconnection security agreements
 (ICAs).
 
-Each resource may be referenced from anywhere in the OSCAL file, using
+Each `resource` may be referenced from anywhere in the OSCAL file, using
 its resource UUID.
 {{< highlight xml "linenos=table" >}}
   <back-matter>
@@ -839,7 +839,7 @@ its resource UUID.
   </back-matter>
 {{< /highlight >}}
 
-The ```media-type``` flag should be present and must be set to an [Internet
+The `media-type` flag should be present and must be set to an [Internet
 Assigned Numbers Authority (IANA) Media
 Type](http://www.iana.org/assignments/media-types/media-types.xhtml).
 
@@ -848,7 +848,7 @@ Type](http://www.iana.org/assignments/media-types/media-types.xhtml).
 Citations are for reference. The content is not included with the
 authorization package.
 
-Citations use an ```rlink``` field with an *absolute path* to content that is
+Citations use an `rlink` field with an *absolute path* to content that is
 accessible by FedRAMP and Agency reviewers from government systems.
 
 Examples include links to publicly available laws such as FISMA, and
@@ -859,8 +859,8 @@ applicable standards, such NIST SP 800 series documents.
 Unlike citations, attachments are included with the authorization
 package when submitted.
 
-Tools may either embed an attachment using the ```base64``` field, or point to an attachment using an ```rlink``` field. If no base64 embedded content is
-present, at least one rlink field must exist with either an *absolute
+Tools may either embed an attachment using the `base64` field, or point to an attachment using an `rlink` field. If no base64 embedded content is
+present, at least one `rlink` field must exist with either an *absolute
 path* to content that is accessible by FedRAMP and Agency reviewers from
 government systems, or a relative path.
 
@@ -873,34 +873,34 @@ diagrams, policies, process, plans, raw scanner output, assessment
 evidence, and POA&M deviation request evidence.
 
 Tools should embed (base64) or link to (rlink) an attachment once as a
-```resource``` in ```back-matter```, then use URI fragments to reference the
+`resource` in `back-matter`, then use URI fragments to reference the
 attachment anyplace it is needed within the body of the OSCAL file, as
 described in *Section 2.5, Assigning Identifiers* or *Section 2.6.2,
 Working With href Flags*.
 
 For example, a policy document that satisfies several control families
-is attached as a ```resource``` in the ```back-matter```, with a UUID of
-```"3df7eeea-421b-459d-98cf-3d972bec610a"```. Each control satisfied by that
+is attached as a `resource` in the `back-matter`, with a UUID of
+`"3df7eeea-421b-459d-98cf-3d972bec610a"`. Each control satisfied by that
 policy, links to the policy using a URI fragment as follows:
 {{< highlight xml "linenos=table" >}}
 <link href="#3df7eeea-421b-459d-98cf-3d972bec610a" rel="policy" />
 {{< /highlight >}}
 
 As described in *Section 2.6.2, Working With href Flags*, when a tool
-identifies a URI fragment in an href value, the leading hashtag (#) must
+identifies a URI fragment in an `href` value, the leading hashtag (#) must
 be dropped and the remaining value is expected to reference an OSCAL
 addressable ID or UUID. This ID/UUID may be either within the OSCAL file
-itself, or within other OSCAL documents linked via the ```import``` field.
+itself, or within other OSCAL documents linked via the `import` field.
 
 The policy's title, version, publication date and other details are
 defined once in the resource and are displayed anyplace the policy is
 referenced. If a newer policy is published, only the one resource in
 needs to be updated.
 
-If the policy's location is identified as ```="./policies/doc.pdf"```, the
+If the policy's location is identified as `="./policies/doc.pdf"`, the
 OSCAL file and the doc.pdf file should be delivered together and
 packaged such that the folder containing the OSCAL file includes a
-sub-folder named ```"policies"```, which contains the ```"doc.pdf"``` file.
+sub-folder named `"policies"`, which contains the `"doc.pdf"` file.
 
 When using attachments with relative paths, consider using a technology
 such as a ZIP archive to package and deliver attachments while
@@ -908,34 +908,34 @@ maintaining their relative position to the OSCAL file.
 
 ### 2.7.3. Including Multiple rlink and base64 Fields
 
-Within a ```resource```, there may be:
+Within a `resource`, there may be:
 
--   no ```rlink``` nor ```base64``` fields;
+-   no `rlink` nor `base64` fields;
 
--   one or more ```rlink``` fields;
+-   one or more `rlink` fields;
 
 -   one or more base64-encoded data fields within the OSCAL file; or
 
--   any combination of ```rlink``` and ```base64``` fields.
+-   any combination of `rlink` and `base64` fields.
 
-OSCAL allows multiple ```rlink``` and ```base64``` fields to exist within the same ```resource```. This provides the flexibility to identify multiple locations or multiple formats of the same resource. Some examples of using
-multiple rlink and/or base64 fields within the same resource include:
+OSCAL allows multiple `rlink` and `base64` fields to exist within the same `resource`. This provides the flexibility to identify multiple locations or multiple formats of the same resource. Some examples of using
+multiple `rlink` and/or `base64` fields within the same resource include:
 
--   **Multiple Locations**: Multiple ```rlink``` fields allow an OSCAL tool to
-    include one ```rlink``` field with an *absolute* path to the authoritative
+-   **Multiple Locations**: Multiple `rlink` fields allow an OSCAL tool to
+    include one `rlink` field with an *absolute* path to the authoritative
     location of a policy document within the CSP's intranet. The same
-    ```resource``` could have a second ```rlink``` field with a *relative* path to
+    `resource` could have a second `rlink` field with a *relative* path to
     the same policy document. Having both allows the CSP to maintain the
     link to authoritative location of the policy when working with the
     OSCAL file internally, while allowing a cached, local copy to travel
     with the OSCAL file when delivered to FedRAMP for review.
 
--   **Multiple Quality Levels**: Multiple ```rlink``` or ```base64``` fields allow
+-   **Multiple Quality Levels**: Multiple `rlink` or `base64` fields allow
     both low-resolution and high-resolution versions of the same image,
     which is sometimes used to boost the performance of web-based
     applications.
 
--   **Multiple Formats**: Multiple ```rlink``` or ```base64``` fields allow a
+-   **Multiple Formats**: Multiple `rlink` or `base64` fields allow a
     portable network graphic (PNG) version of an image may be provided
     for presentation by a web application, and a more detailed portable
     document format (PDF) version of the same image for download by
@@ -943,17 +943,17 @@ multiple rlink and/or base64 fields within the same resource include:
 
 ### 2.7.4. Handling Multiple rlink and base64 Fields
 
-NIST designed ```resource``` assemblies to be flexible and wanted to offer
-developers the flexibility to implement handling of multiple ```rlink``` and
-```base64``` fields on a case-by-case basis.
+NIST designed `resource` assemblies to be flexible and wanted to offer
+developers the flexibility to implement handling of multiple `rlink` and
+`base64` fields on a case-by-case basis.
 
-This section describes FedRAMP's processing of multiple ```rlink``` and
-```base64``` fields, which will be used by default unless a compelling
+This section describes FedRAMP's processing of multiple `rlink` and
+`base64` fields, which will be used by default unless a compelling
 circumstance requires otherwise.
 
-FedRAMP accepts both ```base64``` and ```rlink``` option content for diagrams and
+FedRAMP accepts both `base64` and `rlink` option content for diagrams and
 graphics. FedRAMP prefers documents, such as policies and plans, are
-attached using rlink fields and relative paths.
+attached using `rlink` fields and relative paths.
 
 If the tool is designed to work interactively with a user, the tool
 developer should consider designing the tool to make intelligent choices
@@ -961,38 +961,38 @@ based on context and circumstances where practical. The tool could also
 present valid choices to the user where the correct choice is ambiguous
 to the tool.
 
-When more than one rlink and/or base64 field is present in a resource,
+When more than one `rlink` and/or `base64` field is present in a resource,
 FedRAMP's automated processing tools will attempt to find valid content
 using the following priority, unless specified otherwise:
 
-1.  FedRAMP tools will look first in ```base64``` fields
+1.  FedRAMP tools will look first in `base64` fields
 
-    a.  Start with the first ```base64``` field in the resource.
+    a.  Start with the first `base64` field in the resource.
 
-    b.  Check each ```base64``` field in the sequence in which they appear in
-        the ```resource```.
+    b.  Check each `base64` field in the sequence in which they appear in
+        the `resource`.
 
     c.  If valid content is found, stop looking and use the content.
 
-    d.  If no valid content is found after checking all ```base64``` fields in
+    d.  If no valid content is found after checking all `base64` fields in
         the resource, proceed to step #2.
 
-2.  If no valid base64 content is found, look in ```rlink``` fields.
+2.  If no valid base64 content is found, look in `rlink` fields.
 
-    a.  Start with the first ```rlink``` field in the resource.
+    a.  Start with the first `rlink` field in the resource.
 
-    b.  Check each ```rlink``` field in the sequence in which they appear in
-        the ```resource```.
+    b.  Check each `rlink` field in the sequence in which they appear in
+        the `resource`.
 
     c.  If valid content is found, stop looking and use the content.
 
-    d.  If no valid content is found after checking all ```rlink``` fields,
+    d.  If no valid content is found after checking all `rlink` fields,
         treat the resource as invalid, which may include raising a
         warning or error message.
 
 ### 2.7.5. Citation and Attachment Details
 
-IMPORTANT: As of 1.0.0, NIST includes ```type```, ```version```, and ```published```
+IMPORTANT: As of 1.0.0, NIST includes `type`, `version`, and `published`
 properties as part of core OSCAL, eliminating the requirement to treat
 this content as FedRAMP Extensions.
 

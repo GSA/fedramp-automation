@@ -35,7 +35,7 @@ syntax below.
     /*/system-characteristics/security-sensitivity-level
 {{</ highlight >}}
 
-This determines which URL should be entered for the import-profile field
+This determines which URL should be entered for the `import-profile` field
 in an OSCAL-based FedRAMP SSP.
 
 #### Baseline Representation
@@ -114,20 +114,20 @@ follows:
 1.  **Create a new, blank OSCAL Profile.**
 
 2.  **Point to the FedRAMP Baseline**: Point it to the appropriate
-    FedRAMP baseline using an ```import``` field.
+    FedRAMP baseline using an `import` field.
 
-3.  **Select the Relevant Controls**: Use the ```include``` and ```exclude``` fields
+3.  **Select the Relevant Controls**: Use the `include` and `exclude` fields
     to identify the controls to include or exclude from the FedRAMP
     baseline.
 
-    a.  For example, if you need all but one control, you can ```include all```, then ```exclude``` the one.
+    a.  For example, if you need all but one control, you can `include all`, then `exclude` the one.
 
 4.  **Specify How Controls Are Organized**: FedRAMP prefers you merge
     \"as-is\" using those merge fields. This is relevant when resolving
     the profile. See the *Profile Resolution* section of this appendix
     for more information.
 
-5.  **Modify the Selected Controls**: Use the ```modify``` assembly to make modifications to parameters and control definitions.
+5.  **Modify the Selected Controls**: Use the `modify` assembly to make modifications to parameters and control definitions.
 
 {{< callout >}}
 Create a new profile, importing to the appropriate FedRAMP profile, then use profile syntax to make necessary changes.
@@ -238,10 +238,10 @@ Each FedRAMP XML and JSON baseline profile has a resolved profile
 catalog in the same location as the pre-processed profile. Where
 available, these may be used by tools to save processing time.
 
-The ```merge``` assembly within an OSCAL profile offers a profile resolver
+The `merge` assembly within an OSCAL profile offers a profile resolver
 control over how the final file is organized. To maintain the same
-organization as within the catalog, simply use the ```as-is``` field and set
-it to ```"yes"```.
+organization as within the catalog, simply use the `as-is` field and set
+it to `"yes"`.
 
 The complete profile syntax is available here:
 
@@ -287,19 +287,19 @@ NIST at <oscal@nist.gov> or by submitting an issue here:
 An OSCAL file defines roles, people, and organizations within the
 metadata as part of three separate assemblies:
 
--   **role**: A role ID and role title are required. Other content, such
-    as a short-name, description, or remarks are optional.
+-   **role**: A role ID and role `title` are required. Other content, such
+    as a `short-name`, `description`, or `remarks` are optional.
 
 -   **location**: Locations, such as corporate offices and data center
-    addresses, are defined as location assemblies
+    addresses, are defined as `location` assemblies
 
--   **party**: People and organizations are defined as party assemblies.
+-   **party**: People and organizations are defined as `party` assemblies.
     An organization is any collection of people, and can represent a
     company, agency, department, or team.
 
--   **responsible-party**: Links roles to parties. The same role can
-    have more than one party assigned to it. Also a party can be
-    assigned to more than one role.
+-   **responsible-party**: Links roles to parties. The same `role` can
+    have more than one `party` assigned to it. Also a `party` can be
+    assigned to more than one `role`.
 
 ### *FedRAMP Defined Party Identifiers*
 
@@ -349,16 +349,16 @@ Registry.**
 
 ### *Working with Location Assemblies*
 
-The ```location``` assembly is intended to represent the address of a location
+The `location` assembly is intended to represent the address of a location
 such as the HQ of a CSP or 3PAO, a data center, or an Agency.
 
 Some locations are required. For example, the SSP must contain the at
-least one ```location``` assembly with the primary business address of the
-CSP. The SAP and SAR must contain at least one ```location``` assembly with
+least one `location` assembly with the primary business address of the
+CSP. The SAP and SAR must contain at least one `location` assembly with
 the primary business address of the assessor.
 
-OSCAL allows the ```title``` field to be optional. FedRAMP strongly encourages
-its use. If the ```country``` field is missing, FedRAMP tools will assume the
+OSCAL allows the `title` field to be optional. FedRAMP strongly encourages
+its use. If the `country` field is missing, FedRAMP tools will assume the
 address is within the United States of America.
 
 {{< highlight xml "linenos=table" >}}
@@ -381,22 +381,22 @@ address is within the United States of America.
 
 Some locations require type properties to ensure FedRAMP tools can
 accurately identify required content. For example, the location assembly
-for a data center must include a ```type``` property with a value of
-```"data-center"```. The class may be used to indicate whether the data
+for a data center must include a `type` property with a value of
+`"data-center"`. The class may be used to indicate whether the data
 center is \"primary\" or \"alternate\".
 
 ### *Working with Party Assemblies*
 
 Party assemblies may be used to represent individuals, teams, or an
-entire company/agency. When representing an individual, the ```type``` flag
-must have a value of ```"person"```. When representing a team, company or
-agency, the ```type``` flag must have a value of ```"organization"```. FedRAMP
+entire company/agency. When representing an individual, the `type` flag
+must have a value of `"person"`. When representing a team, company or
+agency, the `type` flag must have a value of `"organization"`. FedRAMP
 artifacts typically require an individual\'s title to be identified, the
-```prop``` ```"job-title"``` is designated for this purpose.
+`prop` `"job-title"` is designated for this purpose.
 
 Contact details, such as an individual\'s email address and phone
 number, or a business web site, may be included and are often required
-within FedRAMP artifacts. A short-name filed provides an ability to
+within FedRAMP artifacts. A `short-name` field provides an ability to
 define an organization\'s acronym or desired abbreviation. This is
 required for the CSP, assessor, and any Agency.
 
@@ -423,7 +423,7 @@ required for the CSP, assessor, and any Agency.
 ### *Identifying Organizational Membership of Individuals*
 
 An individual may be affiliated with one or more teams/organizations.\
-Use one ```member-of-organization``` field for each team, and one to link the
+Use one `member-of-organization` field for each team, and one to link the
 individual to their employer.
 
 {{< highlight xml "linenos=table" >}}
@@ -452,18 +452,18 @@ accomplished with one of three approaches:
 
 **Preferred Approach**: When multiple parties share the same address,
 such as multiple staff members at a company HQ, define the address once
-as a ```location``` assembly, then use the ```location-uuid``` field within each
-```party``` assembly to identify the location of that individual or team.
+as a `location` assembly, then use the `location-uuid` field within each
+`party` assembly to identify the location of that individual or team.
 
 **Alternate Approach**: If the address is unique to this individual, it
-may be included in the ```party``` assembly itself.
+may be included in the `party` assembly itself.
 
-**Hybrid Approach**: It is possible to include both a ```location-uuid``` and
-an ```address``` assembly within a ```party``` assembly. This may be used where
+**Hybrid Approach**: It is possible to include both a `location-uuid` and
+an `address` assembly within a `party` assembly. This may be used where
 multiple staff are in the same building, yet have different office
-numbers or mail stops. Use the ```location-uuid``` to identify the shared
-building, and only include a single ```addr-line``` field within the party\'s
-```address``` assembly.
+numbers or mail stops. Use the `location-uuid` to identify the shared
+building, and only include a single `addr-line` field within the party\'s
+`address` assembly.
 
 A tool developer may elect to always create a location assembly, even
 when only used once; however, tools must recognize and handle all of the

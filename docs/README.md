@@ -8,7 +8,7 @@ The website is built using the [Hugo](https://gohugo.io/) static site generator 
 
 If using Docker:
 
-- [Docker 20.10+](https://docs.docker.com/install/)
+- [Docker 23.0+](https://docs.docker.com/get-docker/)
 
 If not using Docker:
 
@@ -70,17 +70,14 @@ Whenever you make any changes to the content with the Hugo server running, you'l
 
 ## Developing with Docker
 
-Coming soon:  The site will be available as a Docker container.  
-
-<!--
 The website can also be developed and built using the included Docker resources.
 
-Assuming you've [installed Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) for your system, you can build and serve the site using Docker Compose as follows:
+Assuming you've [installed Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) for your system, you can build and serve the site using Docker Compose as follows:
 
 ```
 docker-compose build
 docker-compose up
 ```
 
-Once the site is running, it can be accessed at http://localhost:1313/fedramp-automation. 
--->
+Once the site is running, it can be accessed at [http://localhost:1313/](http://localhost:1313/). 
+

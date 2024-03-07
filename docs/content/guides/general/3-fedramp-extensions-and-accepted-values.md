@@ -38,21 +38,21 @@ unique needs existed.
 _All FedRAMP extensions include a namespace (ns) flag set to "https://fedramp.gov/ns/oscal"._
 {{</callout>}}
 
-NIST allows organizations to extend OSCAL anyplace ```prop``` fields or ```part```
+NIST allows organizations to extend OSCAL anyplace `prop` fields or `part`
 assemblies exist in the core syntax. (Please note, there are currently
 no part assemblies in the SSP, SAP, SAR, or POA&M.) There are two
 fundamental requirements for extending OSCAL:
 
--   The organization must establish a unique namespace (```ns```) identifier,
-    such as (```ns="http://domain.tld/ns/oscal"```), and use it to
-    consistently tag all ```prop``` and ```part``` extensions from that
+-   The organization must establish a unique namespace (`ns`) identifier,
+    such as (`ns="http://domain.tld/ns/oscal"`), and use it to
+    consistently tag all `prop` and `part` extensions from that
     organization.
 
 -   The organization is responsible for defining, managing, and
-    communicating all names (```name="scan-type"```) defined and tagged with
+    communicating all names (`name="scan-type"`) defined and tagged with
     the above name space identifier.
 
-NIST\'s core OSCAL ```prop``` assemblies have no ```ns``` flag. If an ```ns``` flag is
+NIST\'s core OSCAL `prop` assemblies have no `ns` flag. If an `ns` flag is
 present, it is an organization-defined extension. This allows each
 industry standards body or organization to create their own extensions
 in their own name space without concern for overlapping names.
@@ -63,12 +63,12 @@ point in the future, NIST may provide a registry for organizational
 extensions. For now, FedRAMP is publishing its own registry to document
 its extensions.
 
-All FedRAMP extensions must have a namespace (```ns```) flag set to ```"https://fedramp.gov/ns/oscal"```.
+All FedRAMP extensions must have a namespace (`ns`) flag set to `"https://fedramp.gov/ns/oscal"`.
 
-For example, if the core OSCAL syntax has a ```status``` field, but both
+For example, if the core OSCAL syntax has a `status` field, but both
 FedRAMP and the payment card industry (PCI) require their own
 framework-specific status field, each may define an extension with the
-```name="status"``` and assign their own ```ns``` flag. This results in three
+`name="status"` and assign their own `ns` flag. This results in three
 possible status fields as follows:
 
 #### NIST OSCAL User Representation
@@ -109,15 +109,15 @@ flag using the syntax above.**
 \* This is an example, and is not intended to represent an actual PCI
 extension.
 
-Tool developers must always refer to extensions using **both** the name
-and ns flags as a pair.
+Tool developers must always refer to extensions using **both** the `name`
+and `ns` flags as a pair.
 
 All FedRAMP extensions will appear as:
 {{< highlight xml "linenos=table" >}}
   <prop name="____" ns="https://fedramp.gov/ns/oscal" value="Value"/>
 {{< /highlight >}}
 
-**NOTE:** The catalog and profile OSCAL models also allow the ```part```
+**NOTE:** The catalog and profile OSCAL models also allow the `part`
 assembly to be used for extensions. This is not currently the case for
 the OSCAL SSP, SAP, SAR, or POA&M.
 
