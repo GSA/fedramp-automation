@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="1f13921f-e208-46d9-9506-2a14e20bbb0a">
+         uuid="c82aaef5-4ec7-48bc-830c-222910423aeb">
    <metadata>
       <title>FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
       <published>2023-08-31T00:00:00Z</published>
-      <last-modified>2024-02-06T11:18:05.811433-05:00</last-modified>
-      <version>5.1.1+20231218-1</version>
+      <last-modified>2024-03-07T07:56:24.04219-05:00</last-modified>
+      <version>5.1.1+fedramp-20240111-0</version>
       <oscal-version>1.1.1</oscal-version>
       <link rel="resolution-source"
             href="FedRAMP_rev5_LI-SaaS-baseline_profile.xml"/>
@@ -131,8 +131,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -278,8 +278,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#2956e175-f674-43f4-b1b9-e074ad9fc39c"/>
@@ -358,34 +358,34 @@
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="response-point"
                   value="Required"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="fedramp"
                   value="EXAMINE"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="fedramp"
                   value="INTERVIEW"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="fedramp"
                   value="TEST"/>
             <p>Determine if the organization defines information system account types to be identified and selected to support organizational missions/business functions.</p>
          </part>
          <part id="ac-2_asmt_fr.1" name="assessment-method">
-            <prop name="method" ns="http://csrc.nist.gov/ns/rmf" value="EXAMINE"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="method" value="EXAMINE"/>
             <part name="assessment-objects">
                <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records.</p>
             </part>
          </part>
          <part id="ac-2_asmt_fr.2" name="assessment-method">
-            <prop name="method" ns="http://csrc.nist.gov/ns/rmf" value="INTERVIEW"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="method" value="INTERVIEW"/>
             <part name="assessment-objects">
                <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities.</p>
             </part>
          </part>
          <part id="ac-2_asmt_fr.3" name="assessment-method">
-            <prop name="method" ns="http://csrc.nist.gov/ns/rmf" value="TEST"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="method" value="TEST"/>
             <part name="assessment-objects">
                <p>Organizational processes for account management on the information system; automated mechanisms for implementing account management.</p>
             </part>
@@ -400,8 +400,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#18e71fec-c6fd-475a-925a-5d8495cf8455"/>
@@ -554,12 +554,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#737513fa-6758-403f-831d-5ddab5e23cb3"/>
@@ -666,8 +666,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="FED"/>
          <link rel="related" href="#ac-14"/>
@@ -737,8 +737,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="FED"/>
          <link rel="related" href="#ac-8"/>
@@ -771,8 +771,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#83b9d63b-66b1-467c-9f3b-3a0b108771e9"/>
@@ -884,8 +884,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="reference" href="#25e3e57b-dc2f-4934-af9b-050b020c6f0e"/>
@@ -929,8 +929,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="reference" href="#42e37e51-7cc0-4ffa-81c9-0ac942da7e99"/>
@@ -1011,8 +1011,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#628d22a1-6a11-4784-bc59-5cd9497b5445"/>
@@ -1072,8 +1072,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#18e71fec-c6fd-475a-925a-5d8495cf8455"/>
@@ -1252,8 +1252,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -1378,8 +1378,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -1446,8 +1446,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#at-2"/>
@@ -1515,8 +1515,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -1594,8 +1594,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -1701,8 +1701,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"/>
@@ -1806,8 +1806,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -1883,8 +1883,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -2016,8 +2016,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="related" href="#au-2"/>
@@ -2071,8 +2071,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="related" href="#au-2"/>
@@ -2184,8 +2184,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#cfdb1858-c473-46b3-89f9-a700308d0be2"/>
@@ -2301,8 +2301,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#au-3"/>
@@ -2338,8 +2338,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -2393,8 +2393,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -2443,8 +2443,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#ac-6"/>
@@ -2566,8 +2566,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -2660,8 +2660,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -2847,8 +2847,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#ca-2"/>
@@ -2904,12 +2904,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -3053,8 +3053,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -3106,8 +3106,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -3288,8 +3288,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -3512,8 +3512,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#ca-7"/>
@@ -3622,8 +3622,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="related" href="#ra-5"/>
@@ -3708,12 +3708,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#0f66be67-85e7-4ca6-bd19-39453e9f4394"/>
@@ -3912,8 +3912,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -4002,8 +4002,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#0f66be67-85e7-4ca6-bd19-39453e9f4394"/>
@@ -4066,8 +4066,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#20db4e66-e257-450c-b2e4-2bb9a62a2c88"/>
@@ -4156,8 +4156,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -4283,8 +4283,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#4895b4cd-34c5-4667-bf8a-27d443c12047"/>
@@ -4498,8 +4498,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -4567,8 +4567,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -4712,8 +4712,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="related" href="#ac-17"/>
@@ -4775,8 +4775,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="related" href="#ac-3"/>
@@ -4893,8 +4893,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"/>
@@ -5014,8 +5014,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="reference" href="#bc39f179-c735-4da2-b7a7-b2b622119755"/>
@@ -5166,8 +5166,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="reference" href="#511f6832-23ca-49a3-8c0f-ce493373cab8"/>
@@ -5253,8 +5253,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="reference" href="#628d22a1-6a11-4784-bc59-5cd9497b5445"/>
@@ -5340,8 +5340,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -5477,8 +5477,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="reference" href="#bc39f179-c735-4da2-b7a7-b2b622119755"/>
@@ -5583,8 +5583,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -5657,12 +5657,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -5720,8 +5720,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#ia-2"/>
@@ -5789,13 +5789,16 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#ia-2"/>
             <link rel="related" href="#ac-5"/>
             <part name="statement" id="ia-2.2_smt">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="Required"/>
                <p>Implement multi-factor authentication for access to non-privileged accounts.</p>
             </part>
             <part name="guidance" id="ia-2.2_gdn">
@@ -5817,8 +5820,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#ia-2"/>
@@ -5879,12 +5882,12 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="CONDITIONAL"/>
             <link rel="required" href="#ia-2"/>
@@ -5940,16 +5943,16 @@
                <prop ns="https://fedramp.gov/ns/oscal"
                      name="response-point"
                      value="Required"/>
-               <prop name="method"
-                     ns="http://csrc.nist.gov/ns/rmf"
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="method"
                      class="fedramp"
                      value="EXAMINE"/>
-               <prop name="method"
-                     ns="http://csrc.nist.gov/ns/rmf"
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="method"
                      class="fedramp"
                      value="INTERVIEW"/>
-               <prop name="method"
-                     ns="http://csrc.nist.gov/ns/rmf"
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="method"
                      class="fedramp"
                      value="TEST"/>
                <p>Determine if the information system:</p>
@@ -5991,8 +5994,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#7ba1d91c-3934-4d5a-8532-b32f864ad34c"/>
@@ -6064,8 +6067,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -6161,8 +6164,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#ia-5"/>
@@ -6216,8 +6219,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="related" href="#ac-3"/>
@@ -6274,8 +6277,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -6285,6 +6288,9 @@
          <link rel="related" href="#sc-12"/>
          <link rel="related" href="#sc-13"/>
          <part name="statement" id="ia-7_smt">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="Required"/>
             <p>Implement mechanisms for authentication to a cryptographic module that meet the requirements of applicable laws, executive orders, directives, policies, regulations, standards, and guidelines for such authentication.</p>
          </part>
          <part name="guidance" id="ia-7_gdn">
@@ -6300,8 +6306,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -6342,12 +6348,12 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="CONDITIONAL"/>
             <link rel="required" href="#ia-8"/>
@@ -6423,12 +6429,12 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="CONDITIONAL"/>
             <link rel="required" href="#ia-8"/>
@@ -6526,8 +6532,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#ia-8"/>
@@ -6557,8 +6563,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#ac-3"/>
@@ -6656,8 +6662,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -6765,8 +6771,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#5f4705ac-8d17-438c-b23a-ac7f12362ae4"/>
@@ -6815,8 +6821,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#4ff10ed3-d8fe-4246-99e3-443045e27482"/>
@@ -6998,8 +7004,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#49b8aa2d-a88c-4bff-9f20-876ccb8f7dcb"/>
@@ -7048,8 +7054,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#4ff10ed3-d8fe-4246-99e3-443045e27482"/>
@@ -7134,8 +7140,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -7225,8 +7231,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -7395,8 +7401,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -7477,12 +7483,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -7637,8 +7643,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -7696,12 +7702,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#ac-2"/>
@@ -7881,8 +7887,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -7975,12 +7981,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -8114,12 +8120,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#91f992fb-f668-4c91-a50f-0f05b95ccee3"/>
@@ -8264,12 +8270,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#628d22a1-6a11-4784-bc59-5cd9497b5445"/>
@@ -8429,8 +8435,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"/>
@@ -8504,12 +8510,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#7ba1d91c-3934-4d5a-8532-b32f864ad34c"/>
@@ -8721,12 +8727,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#7ba1d91c-3934-4d5a-8532-b32f864ad34c"/>
@@ -8949,12 +8955,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#au-2"/>
@@ -9097,12 +9103,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#pe-2"/>
@@ -9191,12 +9197,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#cp-2"/>
@@ -9275,12 +9281,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#at-3"/>
@@ -9407,12 +9413,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#at-3"/>
@@ -9497,12 +9503,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#at-3"/>
@@ -9603,12 +9609,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="related" href="#cm-3"/>
@@ -9788,8 +9794,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -9879,8 +9885,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -10364,8 +10370,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -10422,8 +10428,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#pl-4"/>
@@ -10472,8 +10478,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -10661,8 +10667,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#628d22a1-6a11-4784-bc59-5cd9497b5445"/>
@@ -10696,8 +10702,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#628d22a1-6a11-4784-bc59-5cd9497b5445"/>
@@ -10804,8 +10810,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0"/>
@@ -10878,8 +10884,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="FED"/>
          <link rel="reference" href="#a5ef5e56-5c1a-4911-b419-37dddc1b3581"/>
@@ -10942,8 +10948,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#55b0c93a-5e48-457a-baa6-5ce81c239c49"/>
@@ -11056,8 +11062,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#ac-2"/>
@@ -11136,8 +11142,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#ac-2"/>
@@ -11202,8 +11208,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#ac-17"/>
@@ -11276,8 +11282,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#77faf0bc-c394-44ad-9154-bbac3b79c8ad"/>
@@ -11349,8 +11355,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#pl-4"/>
@@ -11380,8 +11386,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#276bd50a-7e58-48e5-a405-8c8cb91d7a5f"/>
@@ -11474,8 +11480,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -11538,8 +11544,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#628d22a1-6a11-4784-bc59-5cd9497b5445"/>
@@ -11649,8 +11655,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -11837,8 +11843,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#ra-3"/>
@@ -11911,8 +11917,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#8df72805-2e5c-4731-a73e-81db0f0318d0"/>
@@ -12112,8 +12118,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#ra-5"/>
@@ -12176,8 +12182,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#ra-5"/>
@@ -12243,8 +12249,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#628d22a1-6a11-4784-bc59-5cd9497b5445"/>
@@ -12405,8 +12411,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -12474,8 +12480,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -12523,8 +12529,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -12596,8 +12602,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#18e71fec-c6fd-475a-925a-5d8495cf8455"/>
@@ -12691,8 +12697,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#sa-4"/>
@@ -12736,8 +12742,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#e3cc0520-a366-4fc9-abc2-5272db7e3564"/>
@@ -12833,8 +12839,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#18e71fec-c6fd-475a-925a-5d8495cf8455"/>
@@ -12908,8 +12914,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -13057,8 +13063,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="related" href="#pl-2"/>
@@ -13209,8 +13215,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -13300,12 +13306,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#f5edfe51-d1f2-422e-9b27-5d0e90b49c72"/>
@@ -13397,8 +13403,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -13539,8 +13545,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -13625,8 +13631,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#sc-8"/>
@@ -13702,8 +13708,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -13815,12 +13821,12 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="CONDITIONAL"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -13941,8 +13947,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="NSO"/>
          <link rel="related" href="#ac-21"/>
@@ -13973,8 +13979,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#678e3d6c-150b-4393-aec5-6e3481eb1e00"/>
@@ -14009,8 +14015,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#fe209006-bfd4-4033-a79a-9fee1adaf372"/>
@@ -14032,8 +14038,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#fe209006-bfd4-4033-a79a-9fee1adaf372"/>
@@ -14069,8 +14075,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -14171,8 +14177,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="implementation-level"
                   value="system"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ASSESS"/>
             <link rel="required" href="#sc-28"/>
@@ -14246,8 +14252,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#e3cc0520-a366-4fc9-abc2-5272db7e3564"/>
@@ -14348,8 +14354,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -14422,8 +14428,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -14653,8 +14659,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="system"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#3dd249b0-f57d-44ba-a03e-c3eab1b835ff"/>
@@ -14870,8 +14876,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ASSESS"/>
          <link rel="reference" href="#27847491-5ce1-4f6a-a1e4-9e483782f0ef"/>
@@ -15151,8 +15157,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#155f941a-cba9-4afd-9ca6-5d040d697ba9"/>
@@ -15190,8 +15196,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="implementation-level"
                value="organization"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#e922fc50-b1f9-469f-92ef-ed7d9803611c"/>
@@ -15324,8 +15330,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#4ff10ed3-d8fe-4246-99e3-443045e27482"/>
@@ -15413,8 +15419,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#4ff10ed3-d8fe-4246-99e3-443045e27482"/>
@@ -15483,8 +15489,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#sr-2"/>
@@ -15544,8 +15550,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#4ff10ed3-d8fe-4246-99e3-443045e27482"/>
@@ -15614,8 +15620,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#4ff10ed3-d8fe-4246-99e3-443045e27482"/>
@@ -15678,8 +15684,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#4ff10ed3-d8fe-4246-99e3-443045e27482"/>
@@ -15738,8 +15744,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#15a95e24-65b6-4686-bc18-90855a10457d"/>
@@ -15794,8 +15800,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="reference" href="#15a95e24-65b6-4686-bc18-90855a10457d"/>
@@ -15835,8 +15841,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#sr-11"/>
@@ -15871,8 +15877,8 @@
             <prop ns="http://csrc.nist.gov/ns/rmf"
                   name="contributes-to-assurance"
                   value="true"/>
-            <prop name="method"
-                  ns="http://csrc.nist.gov/ns/rmf"
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="method"
                   class="FedRAMP-Tailored-LI-SaaS"
                   value="ATTEST"/>
             <link rel="required" href="#sr-11"/>
@@ -15912,8 +15918,8 @@
          <prop ns="http://csrc.nist.gov/ns/rmf"
                name="contributes-to-assurance"
                value="true"/>
-         <prop name="method"
-               ns="http://csrc.nist.gov/ns/rmf"
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="method"
                class="FedRAMP-Tailored-LI-SaaS"
                value="ATTEST"/>
          <link rel="related" href="#mp-6"/>
