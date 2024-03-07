@@ -83,11 +83,11 @@ FedRAMP prefers the component-based approach but accepts the flat-file approach 
 
 ![Flat-File Inventory Approach](/img/ssp-figure-25.png)
 
-With the **flat-file approach**, all content on a spreadsheet row appears in a single OSCAL inventory-item assembly. This results in a great deal of redundant information but is a simple transition from the current spreadsheet approach.
+With the **flat-file approach**, all content on a spreadsheet row appears in a single OSCAL `inventory-item` assembly. This results in a great deal of redundant information but is a simple transition from the current spreadsheet approach.
 
 ![Flat-File Inventory Approach](/img/ssp-figure-26.png)
 
-With the **component-based approach**, common information is captured once in a component assembly. Each instance of that component has its own inventory-item assembly, which cites the relevant component and only includes information unique to that instance.
+With the **component-based approach**, common information is captured once in a `component` assembly. Each instance of that component has its own `inventory-item` assembly, which cites the relevant component and only includes information unique to that instance.
 
 For example, if the same Linux operating system is used as the platform for all database and web servers, most of the details about the Linux operating system can be captured once as a component. This includes information such as vendor name, version number, and patch level. If four Linux instances are used, each instance is an inventory item with a unique IP address and MAC address. Only those unique pieces are captured at the inventory level. All four inventory-items point back to the component for vendor name, version number, and patch level.
 
@@ -206,7 +206,7 @@ asset-administrator is managing a system or an application. Currently, any FedRA
 
 **Notes:**
 
--   If component-sample is an image of a Linux virtual machine (VM), and 10 instances of that VM are in use, there would be one (1) component assembly and ten (10) inventory-item assemblies, all referencing the same component.
+-   If component-sample is an image of a Linux virtual machine (VM), and 10 instances of that VM are in use, there would be one (1) `component` assembly and ten (10) `inventory-item` assemblies, all referencing the same component.
 
 ---
 ### 5.2.3. Inventory Data Locations and XPath Queries
