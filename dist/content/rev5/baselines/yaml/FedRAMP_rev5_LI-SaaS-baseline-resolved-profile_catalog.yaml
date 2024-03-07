@@ -1,11 +1,11 @@
 ---
 catalog:
-  uuid: f851c7cc-dd32-4233-b0a2-9fd83f561e67
+  uuid: 1f13921f-e208-46d9-9506-2a14e20bbb0a
   metadata:
     title: FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
     published: 2023-08-31T00:00:00Z
-    last-modified: 2024-01-19T14:50:30.575664-05:00
-    version: 5.1.1+fedramp-20240111-0
+    last-modified: 2024-02-06T11:18:05.811433-05:00
+    version: 5.1.1+20231218-1
     oscal-version: 1.1.1
     links:
       - href: FedRAMP_rev5_LI-SaaS-baseline_profile.yaml
@@ -121,6 +121,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: AC-01
+              class: zero-padded
+            - name: label
               value: AC-1
             - name: label
               value: AC-01
@@ -134,7 +137,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -318,6 +321,9 @@ catalog:
                 - prose: the frequency of account review is defined;
           props:
             - name: label
+              value: AC-02
+              class: zero-padded
+            - name: label
               value: AC-2
             - name: label
               value: AC-02
@@ -328,7 +334,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -510,15 +516,15 @@ catalog:
                   ns: https://fedramp.gov/ns/oscal
                   value: Required
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: EXAMINE
                   class: fedramp
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: INTERVIEW
                   class: fedramp
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: TEST
                   class: fedramp
               prose: Determine if the organization defines information system account
@@ -528,7 +534,7 @@ catalog:
               name: assessment-method
               props:
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: EXAMINE
               parts:
                 - name: assessment-objects
@@ -548,7 +554,7 @@ catalog:
               name: assessment-method
               props:
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: INTERVIEW
               parts:
                 - name: assessment-objects
@@ -559,7 +565,7 @@ catalog:
               name: assessment-method
               props:
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: TEST
               parts:
                 - name: assessment-objects
@@ -569,6 +575,9 @@ catalog:
           class: SP800-53
           title: Access Enforcement
           props:
+            - name: label
+              value: AC-03
+              class: zero-padded
             - name: label
               value: AC-3
             - name: label
@@ -580,7 +589,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -828,6 +837,9 @@ catalog:
                     attempts is exceeded is defined (if selected);
           props:
             - name: label
+              value: AC-07
+              class: zero-padded
+            - name: label
               value: AC-7
             - name: label
               value: AC-07
@@ -838,11 +850,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1027,6 +1039,9 @@ catalog:
                     granting further access are defined;
           props:
             - name: label
+              value: AC-08
+              class: zero-padded
+            - name: label
               value: AC-8
             - name: label
               value: AC-08
@@ -1040,7 +1055,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: FED
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1159,6 +1174,9 @@ catalog:
           props:
             - name: label
               value: AC-14
+              class: zero-padded
+            - name: label
+              value: AC-14
             - name: label
               value: AC-14
               class: sp800-53a
@@ -1168,7 +1186,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: FED
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1228,6 +1246,9 @@ catalog:
           props:
             - name: label
               value: AC-17
+              class: zero-padded
+            - name: label
+              value: AC-17
             - name: label
               value: AC-17
               class: sp800-53a
@@ -1237,7 +1258,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1474,6 +1495,9 @@ catalog:
           props:
             - name: label
               value: AC-18
+              class: zero-padded
+            - name: label
+              value: AC-18
             - name: label
               value: AC-18
               class: sp800-53a
@@ -1483,7 +1507,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1556,6 +1580,9 @@ catalog:
           props:
             - name: label
               value: AC-19
+              class: zero-padded
+            - name: label
+              value: AC-19
             - name: label
               value: AC-19
               class: sp800-53a
@@ -1565,7 +1592,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1720,6 +1747,9 @@ catalog:
           props:
             - name: label
               value: AC-20
+              class: zero-padded
+            - name: label
+              value: AC-20
             - name: label
               value: AC-20
               class: sp800-53a
@@ -1729,7 +1759,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -1857,6 +1887,9 @@ catalog:
           props:
             - name: label
               value: AC-22
+              class: zero-padded
+            - name: label
+              value: AC-22
             - name: label
               value: AC-22
               class: sp800-53a
@@ -1866,7 +1899,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2142,6 +2175,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: AT-01
+              class: zero-padded
+            - name: label
               value: AT-1
             - name: label
               value: AT-01
@@ -2155,7 +2191,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2325,6 +2361,9 @@ catalog:
                     content to be updated are defined;
           props:
             - name: label
+              value: AT-02
+              class: zero-padded
+            - name: label
               value: AT-2
             - name: label
               value: AT-02
@@ -2338,7 +2377,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2474,6 +2513,9 @@ catalog:
               title: Insider Threat
               props:
                 - name: label
+                  value: AT-02(02)
+                  class: zero-padded
+                - name: label
                   value: AT-2(2)
                 - name: label
                   value: AT-02(02)
@@ -2487,7 +2529,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -2554,6 +2596,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: AT-03
+              class: zero-padded
+            - name: label
               value: AT-3
             - name: label
               value: AT-03
@@ -2567,7 +2612,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2719,6 +2764,9 @@ catalog:
                     defined;
           props:
             - name: label
+              value: AT-04
+              class: zero-padded
+            - name: label
               value: AT-4
             - name: label
               value: AT-04
@@ -2732,7 +2780,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -2835,6 +2883,9 @@ catalog:
                     to be reviewed and updated are defined;
           props:
             - name: label
+              value: AU-01
+              class: zero-padded
+            - name: label
               value: AU-1
             - name: label
               value: AU-01
@@ -2848,7 +2899,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3007,6 +3058,9 @@ catalog:
                     and updated;
           props:
             - name: label
+              value: AU-02
+              class: zero-padded
+            - name: label
               value: AU-2
             - name: label
               value: AU-02
@@ -3017,7 +3071,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3192,6 +3246,9 @@ catalog:
           title: Content of Audit Records
           props:
             - name: label
+              value: AU-03
+              class: zero-padded
+            - name: label
               value: AU-3
             - name: label
               value: AU-03
@@ -3202,7 +3259,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3440,6 +3497,9 @@ catalog:
                 - prose: audit log retention requirements are defined;
           props:
             - name: label
+              value: AU-04
+              class: zero-padded
+            - name: label
               value: AU-4
             - name: label
               value: AU-04
@@ -3453,7 +3513,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3514,6 +3574,9 @@ catalog:
                     process failure are defined;
           props:
             - name: label
+              value: AU-05
+              class: zero-padded
+            - name: label
               value: AU-5
             - name: label
               value: AU-05
@@ -3524,7 +3587,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3716,6 +3779,9 @@ catalog:
                     of system records is/are defined;
           props:
             - name: label
+              value: AU-06
+              class: zero-padded
+            - name: label
               value: AU-6
             - name: label
               value: AU-06
@@ -3729,7 +3795,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -3957,6 +4023,9 @@ catalog:
                     is defined;
           props:
             - name: label
+              value: AU-08
+              class: zero-padded
+            - name: label
               value: AU-8
             - name: label
               value: AU-08
@@ -3967,7 +4036,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4023,6 +4092,9 @@ catalog:
                     defined;
           props:
             - name: label
+              value: AU-09
+              class: zero-padded
+            - name: label
               value: AU-9
             - name: label
               value: AU-09
@@ -4033,7 +4105,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4114,6 +4186,9 @@ catalog:
           props:
             - name: label
               value: AU-11
+              class: zero-padded
+            - name: label
+              value: AU-11
             - name: label
               value: AU-11
               class: sp800-53a
@@ -4123,7 +4198,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4189,6 +4264,9 @@ catalog:
           props:
             - name: label
               value: AU-12
+              class: zero-padded
+            - name: label
+              value: AU-12
             - name: label
               value: AU-12
               class: sp800-53a
@@ -4198,7 +4276,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4333,6 +4411,9 @@ catalog:
                     monitoring procedures to be reviewed and updated are defined;
           props:
             - name: label
+              value: CA-01
+              class: zero-padded
+            - name: label
               value: CA-1
             - name: label
               value: CA-01
@@ -4346,7 +4427,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4496,6 +4577,9 @@ catalog:
                     to be provided are defined;
           props:
             - name: label
+              value: CA-02
+              class: zero-padded
+            - name: label
               value: CA-2
             - name: label
               value: CA-02
@@ -4509,7 +4593,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -4942,6 +5026,9 @@ catalog:
               title: Independent Assessors
               props:
                 - name: label
+                  value: CA-02(01)
+                  class: zero-padded
+                - name: label
                   value: CA-2(1)
                 - name: label
                   value: CA-02(01)
@@ -4955,7 +5042,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -5041,6 +5128,9 @@ catalog:
                     defined;
           props:
             - name: label
+              value: CA-03
+              class: zero-padded
+            - name: label
               value: CA-3
             - name: label
               value: CA-03
@@ -5054,11 +5144,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -5362,6 +5452,9 @@ catalog:
                     is defined;
           props:
             - name: label
+              value: CA-05
+              class: zero-padded
+            - name: label
               value: CA-5
             - name: label
               value: CA-05
@@ -5375,7 +5468,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -5442,6 +5535,9 @@ catalog:
                 - prose: frequency at which to update the authorizations is defined;
           props:
             - name: label
+              value: CA-06
+              class: zero-padded
+            - name: label
               value: CA-6
             - name: label
               value: CA-06
@@ -5455,7 +5551,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -5761,6 +5857,9 @@ catalog:
                     is defined;
           props:
             - name: label
+              value: CA-07
+              class: zero-padded
+            - name: label
               value: CA-7
             - name: label
               value: CA-07
@@ -5774,7 +5873,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -6255,6 +6354,9 @@ catalog:
               title: Risk Monitoring
               props:
                 - name: label
+                  value: CA-07(04)
+                  class: zero-padded
+                - name: label
                   value: CA-7(4)
                 - name: label
                   value: CA-07(04)
@@ -6271,7 +6373,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -6451,6 +6553,9 @@ catalog:
                     is to be conducted are defined;
           props:
             - name: label
+              value: CA-08
+              class: zero-padded
+            - name: label
               value: CA-8
             - name: label
               value: CA-08
@@ -6464,7 +6569,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -6620,6 +6725,9 @@ catalog:
                     internal connection is defined;
           props:
             - name: label
+              value: CA-09
+              class: zero-padded
+            - name: label
               value: CA-9
             - name: label
               value: CA-09
@@ -6633,11 +6741,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -6956,6 +7064,9 @@ catalog:
                     to be reviewed and updated are defined;
           props:
             - name: label
+              value: CM-01
+              class: zero-padded
+            - name: label
               value: CM-1
             - name: label
               value: CM-01
@@ -6969,7 +7080,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7109,6 +7220,9 @@ catalog:
                     and update are defined;
           props:
             - name: label
+              value: CM-02
+              class: zero-padded
+            - name: label
               value: CM-2
             - name: label
               value: CM-02
@@ -7122,7 +7236,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7223,6 +7337,9 @@ catalog:
           title: Impact Analyses
           props:
             - name: label
+              value: CM-04
+              class: zero-padded
+            - name: label
               value: CM-4
             - name: label
               value: CM-04
@@ -7236,7 +7353,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7428,6 +7545,9 @@ catalog:
           title: Access Restrictions for Change
           props:
             - name: label
+              value: CM-05
+              class: zero-padded
+            - name: label
               value: CM-5
             - name: label
               value: CM-05
@@ -7438,7 +7558,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -7674,6 +7794,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: CM-06
+              class: zero-padded
+            - name: label
               value: CM-6
             - name: label
               value: CM-06
@@ -7687,7 +7810,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8103,6 +8226,9 @@ catalog:
                 - prose: services to be prohibited or restricted are defined;
           props:
             - name: label
+              value: CM-07
+              class: zero-padded
+            - name: label
               value: CM-7
             - name: label
               value: CM-07
@@ -8116,7 +8242,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8221,6 +8347,9 @@ catalog:
                     inventory is defined;
           props:
             - name: label
+              value: CM-08
+              class: zero-padded
+            - name: label
               value: CM-8
             - name: label
               value: CM-08
@@ -8234,7 +8363,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8538,6 +8667,9 @@ catalog:
           props:
             - name: label
               value: CM-10
+              class: zero-padded
+            - name: label
+              value: CM-10
             - name: label
               value: CM-10
               class: sp800-53a
@@ -8547,7 +8679,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8621,6 +8753,9 @@ catalog:
           props:
             - name: label
               value: CM-11
+              class: zero-padded
+            - name: label
+              value: CM-11
             - name: label
               value: CM-11
               class: sp800-53a
@@ -8630,7 +8765,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8761,6 +8896,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: CP-01
+              class: zero-padded
+            - name: label
               value: CP-1
             - name: label
               value: CP-01
@@ -8774,7 +8912,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -8940,6 +9078,9 @@ catalog:
                     to are defined;
           props:
             - name: label
+              value: CP-02
+              class: zero-padded
+            - name: label
               value: CP-2
             - name: label
               value: CP-02
@@ -8950,7 +9091,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9185,6 +9326,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: CP-03
+              class: zero-padded
+            - name: label
               value: CP-3
             - name: label
               value: CP-03
@@ -9198,7 +9342,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9315,6 +9459,9 @@ catalog:
                     plan are defined;
           props:
             - name: label
+              value: CP-04
+              class: zero-padded
+            - name: label
               value: CP-4
             - name: label
               value: CP-04
@@ -9328,7 +9475,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9434,6 +9581,9 @@ catalog:
                     defined;
           props:
             - name: label
+              value: CP-09
+              class: zero-padded
+            - name: label
               value: CP-9
             - name: label
               value: CP-09
@@ -9444,7 +9594,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9695,6 +9845,9 @@ catalog:
           props:
             - name: label
               value: CP-10
+              class: zero-padded
+            - name: label
+              value: CP-10
             - name: label
               value: CP-10
               class: sp800-53a
@@ -9704,7 +9857,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9816,6 +9969,9 @@ catalog:
                     procedures to be reviewed and updated are defined;
           props:
             - name: label
+              value: IA-01
+              class: zero-padded
+            - name: label
               value: IA-1
             - name: label
               value: IA-01
@@ -9829,7 +9985,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -9966,6 +10122,9 @@ catalog:
           title: Identification and Authentication (Organizational Users)
           props:
             - name: label
+              value: IA-02
+              class: zero-padded
+            - name: label
               value: IA-2
             - name: label
               value: IA-02
@@ -9979,11 +10138,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -10112,6 +10271,9 @@ catalog:
               title: Multi-factor Authentication to Privileged Accounts
               props:
                 - name: label
+                  value: IA-02(01)
+                  class: zero-padded
+                - name: label
                   value: IA-2(1)
                 - name: label
                   value: IA-02(01)
@@ -10122,7 +10284,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10262,6 +10424,9 @@ catalog:
               title: Multi-factor Authentication to Non-privileged Accounts
               props:
                 - name: label
+                  value: IA-02(02)
+                  class: zero-padded
+                - name: label
                   value: IA-2(2)
                 - name: label
                   value: IA-02(02)
@@ -10272,7 +10437,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10283,10 +10448,6 @@ catalog:
               parts:
                 - id: ia-2.2_smt
                   name: statement
-                  props:
-                    - name: response-point
-                      ns: https://fedramp.gov/ns/oscal
-                      value: Required
                   prose: Implement multi-factor authentication for access to non-privileged
                     accounts.
                 - id: ia-2.2_gdn
@@ -10322,6 +10483,9 @@ catalog:
                       - non-privileged accounts
               props:
                 - name: label
+                  value: IA-02(08)
+                  class: zero-padded
+                - name: label
                   value: IA-2(8)
                 - name: label
                   value: IA-02(08)
@@ -10332,7 +10496,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10448,6 +10612,9 @@ catalog:
               title: Acceptance of PIV Credentials
               props:
                 - name: label
+                  value: IA-02(12)
+                  class: zero-padded
+                - name: label
                   value: IA-2(12)
                 - name: label
                   value: IA-02(12)
@@ -10458,11 +10625,11 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: CONDITIONAL
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -10586,15 +10753,15 @@ catalog:
                       ns: https://fedramp.gov/ns/oscal
                       value: Required
                     - name: method
-                      ns: https://fedramp.gov/ns/oscal
+                      ns: http://csrc.nist.gov/ns/rmf
                       value: EXAMINE
                       class: fedramp
                     - name: method
-                      ns: https://fedramp.gov/ns/oscal
+                      ns: http://csrc.nist.gov/ns/rmf
                       value: INTERVIEW
                       class: fedramp
                     - name: method
-                      ns: https://fedramp.gov/ns/oscal
+                      ns: http://csrc.nist.gov/ns/rmf
                       value: TEST
                       class: fedramp
                   prose: |
@@ -10622,6 +10789,9 @@ catalog:
                 - prose: a time period for preventing reuse of identifiers is defined;
           props:
             - name: label
+              value: IA-04
+              class: zero-padded
+            - name: label
               value: IA-4
             - name: label
               value: IA-04
@@ -10632,7 +10802,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -10744,6 +10914,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: IA-05
+              class: zero-padded
+            - name: label
               value: IA-5
             - name: label
               value: IA-05
@@ -10757,7 +10930,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -10932,6 +11105,9 @@ catalog:
                     - prose: authenticator composition and complexity rules are defined;
               props:
                 - name: label
+                  value: IA-05(01)
+                  class: zero-padded
+                - name: label
                   value: IA-5(1)
                 - name: label
                   value: IA-05(01)
@@ -10945,7 +11121,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11039,6 +11215,9 @@ catalog:
           title: Authentication Feedback
           props:
             - name: label
+              value: IA-06
+              class: zero-padded
+            - name: label
               value: IA-6
             - name: label
               value: IA-06
@@ -11049,7 +11228,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11154,6 +11333,9 @@ catalog:
           title: Cryptographic Module Authentication
           props:
             - name: label
+              value: IA-07
+              class: zero-padded
+            - name: label
               value: IA-7
             - name: label
               value: IA-07
@@ -11164,7 +11346,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11183,10 +11365,6 @@ catalog:
           parts:
             - id: ia-7_smt
               name: statement
-              props:
-                - name: response-point
-                  ns: https://fedramp.gov/ns/oscal
-                  value: Required
               prose: Implement mechanisms for authentication to a cryptographic module
                 that meet the requirements of applicable laws, executive orders, directives,
                 policies, regulations, standards, and guidelines for such authentication.
@@ -11201,6 +11379,9 @@ catalog:
           title: Identification and Authentication (Non-organizational Users)
           props:
             - name: label
+              value: IA-08
+              class: zero-padded
+            - name: label
               value: IA-8
             - name: label
               value: IA-08
@@ -11211,7 +11392,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11285,6 +11466,9 @@ catalog:
               title: Acceptance of PIV Credentials from Other Agencies
               props:
                 - name: label
+                  value: IA-08(01)
+                  class: zero-padded
+                - name: label
                   value: IA-8(1)
                 - name: label
                   value: IA-08(01)
@@ -11295,11 +11479,11 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: CONDITIONAL
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11452,6 +11636,9 @@ catalog:
               title: Acceptance of External Authenticators
               props:
                 - name: label
+                  value: IA-08(02)
+                  class: zero-padded
+                - name: label
                   value: IA-8(2)
                 - name: label
                   value: IA-08(02)
@@ -11462,11 +11649,11 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: CONDITIONAL
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11661,6 +11848,9 @@ catalog:
                     - prose: identity management profiles are defined;
               props:
                 - name: label
+                  value: IA-08(04)
+                  class: zero-padded
+                - name: label
                   value: IA-8(4)
                 - name: label
                   value: IA-08(04)
@@ -11671,7 +11861,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -11703,6 +11893,9 @@ catalog:
           props:
             - name: label
               value: IA-11
+              class: zero-padded
+            - name: label
+              value: IA-11
             - name: label
               value: IA-11
               class: sp800-53a
@@ -11715,7 +11908,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11804,6 +11997,9 @@ catalog:
                     to be reviewed and updated are defined;
           props:
             - name: label
+              value: IR-01
+              class: zero-padded
+            - name: label
               value: IR-1
             - name: label
               value: IR-01
@@ -11817,7 +12013,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -11973,6 +12169,9 @@ catalog:
                     content are defined;
           props:
             - name: label
+              value: IR-02
+              class: zero-padded
+            - name: label
               value: IR-2
             - name: label
               value: IR-02
@@ -11986,7 +12185,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12073,6 +12272,9 @@ catalog:
           title: Incident Handling
           props:
             - name: label
+              value: IR-04
+              class: zero-padded
+            - name: label
               value: IR-4
             - name: label
               value: IR-04
@@ -12083,7 +12285,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12462,6 +12664,9 @@ catalog:
           title: Incident Monitoring
           props:
             - name: label
+              value: IR-05
+              class: zero-padded
+            - name: label
               value: IR-5
             - name: label
               value: IR-05
@@ -12475,7 +12680,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12539,6 +12744,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: IR-06
+              class: zero-padded
+            - name: label
               value: IR-6
             - name: label
               value: IR-06
@@ -12549,7 +12757,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12710,6 +12918,9 @@ catalog:
           title: Incident Response Assistance
           props:
             - name: label
+              value: IR-07
+              class: zero-padded
+            - name: label
               value: IR-7
             - name: label
               value: IR-07
@@ -12720,7 +12931,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -12811,6 +13022,9 @@ catalog:
                     response plan are communicated are defined;
           props:
             - name: label
+              value: IR-08
+              class: zero-padded
+            - name: label
               value: IR-8
             - name: label
               value: IR-08
@@ -12821,7 +13035,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13036,6 +13250,9 @@ catalog:
                     reviewed and updated are defined;
           props:
             - name: label
+              value: MA-01
+              class: zero-padded
+            - name: label
               value: MA-1
             - name: label
               value: MA-01
@@ -13049,7 +13266,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13188,6 +13405,9 @@ catalog:
                     records is defined;
           props:
             - name: label
+              value: MA-02
+              class: zero-padded
+            - name: label
               value: MA-2
             - name: label
               value: MA-02
@@ -13198,11 +13418,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13524,6 +13744,9 @@ catalog:
           title: Nonlocal Maintenance
           props:
             - name: label
+              value: MA-04
+              class: zero-padded
+            - name: label
               value: MA-4
             - name: label
               value: MA-04
@@ -13534,7 +13757,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13637,6 +13860,9 @@ catalog:
           title: Maintenance Personnel
           props:
             - name: label
+              value: MA-05
+              class: zero-padded
+            - name: label
               value: MA-5
             - name: label
               value: MA-05
@@ -13647,11 +13873,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -13920,6 +14146,9 @@ catalog:
                     be reviewed and updated are defined;
           props:
             - name: label
+              value: MP-01
+              class: zero-padded
+            - name: label
               value: MP-1
             - name: label
               value: MP-01
@@ -13933,7 +14162,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14079,6 +14308,9 @@ catalog:
                     is/are defined;
           props:
             - name: label
+              value: MP-02
+              class: zero-padded
+            - name: label
               value: MP-2
             - name: label
               value: MP-02
@@ -14089,11 +14321,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14294,6 +14526,9 @@ catalog:
                     prior to release for reuse are defined;
           props:
             - name: label
+              value: MP-06
+              class: zero-padded
+            - name: label
               value: MP-6
             - name: label
               value: MP-06
@@ -14304,11 +14539,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14590,6 +14825,9 @@ catalog:
                     of system media on systems or system components are defined;
           props:
             - name: label
+              value: MP-07
+              class: zero-padded
+            - name: label
               value: MP-7
             - name: label
               value: MP-07
@@ -14600,11 +14838,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14835,6 +15073,9 @@ catalog:
                     protection procedures to be reviewed and updated are defined;
           props:
             - name: label
+              value: PE-01
+              class: zero-padded
+            - name: label
               value: PE-1
             - name: label
               value: PE-01
@@ -14848,7 +15089,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -14980,6 +15221,9 @@ catalog:
                     facility access by individuals is defined;
           props:
             - name: label
+              value: PE-02
+              class: zero-padded
+            - name: label
               value: PE-2
             - name: label
               value: PE-02
@@ -14990,11 +15234,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -15305,6 +15549,9 @@ catalog:
                 - prose: frequency at which to change keys is defined;
           props:
             - name: label
+              value: PE-03
+              class: zero-padded
+            - name: label
               value: PE-3
             - name: label
               value: PE-03
@@ -15315,11 +15562,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -15757,6 +16004,9 @@ catalog:
                     access logs to be reviewed are defined;
           props:
             - name: label
+              value: PE-06
+              class: zero-padded
+            - name: label
               value: PE-6
             - name: label
               value: PE-06
@@ -15770,11 +16020,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16018,6 +16268,9 @@ catalog:
                     to is/are defined;
           props:
             - name: label
+              value: PE-08
+              class: zero-padded
+            - name: label
               value: PE-8
             - name: label
               value: PE-08
@@ -16031,11 +16284,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16201,6 +16454,9 @@ catalog:
           props:
             - name: label
               value: PE-12
+              class: zero-padded
+            - name: label
+              value: PE-12
             - name: label
               value: PE-12
               class: sp800-53a
@@ -16210,11 +16466,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16360,6 +16616,9 @@ catalog:
           props:
             - name: label
               value: PE-13
+              class: zero-padded
+            - name: label
+              value: PE-13
             - name: label
               value: PE-13
               class: sp800-53a
@@ -16369,11 +16628,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16572,6 +16831,9 @@ catalog:
           props:
             - name: label
               value: PE-14
+              class: zero-padded
+            - name: label
+              value: PE-14
             - name: label
               value: PE-14
               class: sp800-53a
@@ -16581,11 +16843,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16736,6 +16998,9 @@ catalog:
           props:
             - name: label
               value: PE-15
+              class: zero-padded
+            - name: label
+              value: PE-15
             - name: label
               value: PE-15
               class: sp800-53a
@@ -16745,11 +17010,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -16918,6 +17183,9 @@ catalog:
           props:
             - name: label
               value: PE-16
+              class: zero-padded
+            - name: label
+              value: PE-16
             - name: label
               value: PE-16
               class: sp800-53a
@@ -16927,11 +17195,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -17186,6 +17454,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: PL-01
+              class: zero-padded
+            - name: label
               value: PL-1
             - name: label
               value: PL-01
@@ -17199,7 +17470,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -17339,6 +17610,9 @@ catalog:
                     defined;
           props:
             - name: label
+              value: PL-02
+              class: zero-padded
+            - name: label
               value: PL-2
             - name: label
               value: PL-02
@@ -17352,7 +17626,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -18409,6 +18683,9 @@ catalog:
                     rules of behavior is defined (if selected);
           props:
             - name: label
+              value: PL-04
+              class: zero-padded
+            - name: label
               value: PL-4
             - name: label
               value: PL-04
@@ -18422,7 +18699,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -18532,6 +18809,9 @@ catalog:
               title: Social Media and External Site/Application Usage Restrictions
               props:
                 - name: label
+                  value: PL-04(01)
+                  class: zero-padded
+                - name: label
                   value: PL-4(1)
                 - name: label
                   value: PL-04(01)
@@ -18545,7 +18825,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -18609,6 +18889,9 @@ catalog:
                     enterprise architecture;
           props:
             - name: label
+              value: PL-08
+              class: zero-padded
+            - name: label
               value: PL-8
             - name: label
               value: PL-08
@@ -18622,7 +18905,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19068,6 +19351,9 @@ catalog:
           props:
             - name: label
               value: PL-10
+              class: zero-padded
+            - name: label
+              value: PL-10
             - name: label
               value: PL-10
               class: sp800-53a
@@ -19077,7 +19363,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19150,6 +19436,9 @@ catalog:
           props:
             - name: label
               value: PL-11
+              class: zero-padded
+            - name: label
+              value: PL-11
             - name: label
               value: PL-11
               class: sp800-53a
@@ -19159,7 +19448,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19283,6 +19572,9 @@ catalog:
                     to be reviewed and updated are defined;
           props:
             - name: label
+              value: PS-01
+              class: zero-padded
+            - name: label
               value: PS-1
             - name: label
               value: PS-01
@@ -19296,7 +19588,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19423,6 +19715,9 @@ catalog:
                     designations is defined;
           props:
             - name: label
+              value: PS-02
+              class: zero-padded
+            - name: label
               value: PS-2
             - name: label
               value: PS-02
@@ -19433,7 +19728,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: FED
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19539,6 +19834,9 @@ catalog:
                     is defined;
           props:
             - name: label
+              value: PS-03
+              class: zero-padded
+            - name: label
               value: PS-3
             - name: label
               value: PS-03
@@ -19549,7 +19847,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19741,6 +20039,9 @@ catalog:
                     exit interviews are defined;
           props:
             - name: label
+              value: PS-04
+              class: zero-padded
+            - name: label
               value: PS-4
             - name: label
               value: PS-04
@@ -19751,7 +20052,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19856,6 +20157,9 @@ catalog:
                     positions within the organization is defined;
           props:
             - name: label
+              value: PS-05
+              class: zero-padded
+            - name: label
               value: PS-5
             - name: label
               value: PS-05
@@ -19866,7 +20170,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -19951,6 +20255,9 @@ catalog:
                     access to organizational information is defined;
           props:
             - name: label
+              value: PS-06
+              class: zero-padded
+            - name: label
               value: PS-6
             - name: label
               value: PS-06
@@ -19964,7 +20271,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20063,6 +20370,9 @@ catalog:
                     credentials and/or badges or who have system privileges is defined;
           props:
             - name: label
+              value: PS-07
+              class: zero-padded
+            - name: label
               value: PS-7
             - name: label
               value: PS-07
@@ -20076,7 +20386,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20188,6 +20498,9 @@ catalog:
                     is initiated is defined;
           props:
             - name: label
+              value: PS-08
+              class: zero-padded
+            - name: label
               value: PS-8
             - name: label
               value: PS-08
@@ -20198,7 +20511,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20244,6 +20557,9 @@ catalog:
           title: Position Descriptions
           props:
             - name: label
+              value: PS-09
+              class: zero-padded
+            - name: label
               value: PS-9
             - name: label
               value: PS-09
@@ -20254,7 +20570,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20331,6 +20647,9 @@ catalog:
                     reviewed and updated are defined;
           props:
             - name: label
+              value: RA-01
+              class: zero-padded
+            - name: label
               value: RA-1
             - name: label
               value: RA-01
@@ -20344,7 +20663,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20465,6 +20784,9 @@ catalog:
           title: Security Categorization
           props:
             - name: label
+              value: RA-02
+              class: zero-padded
+            - name: label
               value: RA-2
             - name: label
               value: RA-02
@@ -20475,7 +20797,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -20629,6 +20951,9 @@ catalog:
                 - prose: the frequency to update the risk assessment is defined;
           props:
             - name: label
+              value: RA-03
+              class: zero-padded
+            - name: label
               value: RA-3
             - name: label
               value: RA-03
@@ -20642,7 +20967,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -21016,6 +21341,9 @@ catalog:
                         assessment is defined;
               props:
                 - name: label
+                  value: RA-03(01)
+                  class: zero-padded
+                - name: label
                   value: RA-3(1)
                 - name: label
                   value: RA-03(01)
@@ -21029,7 +21357,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -21122,6 +21450,9 @@ catalog:
                     shared;
           props:
             - name: label
+              value: RA-05
+              class: zero-padded
+            - name: label
               value: RA-5
             - name: label
               value: RA-05
@@ -21135,7 +21466,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -21574,6 +21905,9 @@ catalog:
                         to be scanned is defined (if selected);
               props:
                 - name: label
+                  value: RA-05(02)
+                  class: zero-padded
+                - name: label
                   value: RA-5(2)
                 - name: label
                   value: RA-05(02)
@@ -21587,7 +21921,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -21701,6 +22035,9 @@ catalog:
               title: Public Disclosure Program
               props:
                 - name: label
+                  value: RA-05(11)
+                  class: zero-padded
+                - name: label
                   value: RA-5(11)
                 - name: label
                   value: RA-05(11)
@@ -21714,7 +22051,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -21834,6 +22171,9 @@ catalog:
           title: Risk Response
           props:
             - name: label
+              value: RA-07
+              class: zero-padded
+            - name: label
               value: RA-7
             - name: label
               value: RA-07
@@ -21847,7 +22187,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22074,6 +22414,9 @@ catalog:
                     procedures to be reviewed and updated are defined;
           props:
             - name: label
+              value: SA-01
+              class: zero-padded
+            - name: label
               value: SA-1
             - name: label
               value: SA-01
@@ -22087,7 +22430,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22214,6 +22557,9 @@ catalog:
           title: Allocation of Resources
           props:
             - name: label
+              value: SA-02
+              class: zero-padded
+            - name: label
               value: SA-2
             - name: label
               value: SA-02
@@ -22227,7 +22573,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22291,6 +22637,9 @@ catalog:
                 - prose: system development life cycle is defined;
           props:
             - name: label
+              value: SA-03
+              class: zero-padded
+            - name: label
               value: SA-3
             - name: label
               value: SA-03
@@ -22304,7 +22653,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22435,6 +22784,9 @@ catalog:
                 - prose: contract language is defined (if selected);
           props:
             - name: label
+              value: SA-04
+              class: zero-padded
+            - name: label
               value: SA-4
             - name: label
               value: SA-04
@@ -22448,7 +22800,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22638,6 +22990,9 @@ catalog:
               title: Use of Approved PIV Products
               props:
                 - name: label
+                  value: SA-04(10)
+                  class: zero-padded
+                - name: label
                   value: SA-4(10)
                 - name: label
                   value: SA-04(10)
@@ -22651,7 +23006,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -22695,6 +23050,9 @@ catalog:
                     is/are defined;
           props:
             - name: label
+              value: SA-05
+              class: zero-padded
+            - name: label
               value: SA-5
             - name: label
               value: SA-05
@@ -22708,7 +23066,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -22868,6 +23226,9 @@ catalog:
                 - prose: privacy engineering principles are defined;
           props:
             - name: label
+              value: SA-08
+              class: zero-padded
+            - name: label
               value: SA-8
             - name: label
               value: SA-08
@@ -22881,7 +23242,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23008,6 +23369,9 @@ catalog:
                     compliance by external service providers are defined;
           props:
             - name: label
+              value: SA-09
+              class: zero-padded
+            - name: label
               value: SA-9
             - name: label
               value: SA-09
@@ -23021,7 +23385,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23325,6 +23689,9 @@ catalog:
           props:
             - name: label
               value: SA-22
+              class: zero-padded
+            - name: label
+              value: SA-22
             - name: label
               value: SA-22
               class: sp800-53a
@@ -23337,7 +23704,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23565,6 +23932,9 @@ catalog:
                     procedures to be reviewed and updated are defined;
           props:
             - name: label
+              value: SC-01
+              class: zero-padded
+            - name: label
               value: SC-1
             - name: label
               value: SC-01
@@ -23578,7 +23948,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23721,6 +24091,9 @@ catalog:
                     of denial-of-service event are defined;
           props:
             - name: label
+              value: SC-05
+              class: zero-padded
+            - name: label
               value: SC-5
             - name: label
               value: SC-05
@@ -23731,11 +24104,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -23909,6 +24282,9 @@ catalog:
                   - logically
           props:
             - name: label
+              value: SC-07
+              class: zero-padded
+            - name: label
               value: SC-7
             - name: label
               value: SC-07
@@ -23919,7 +24295,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24204,6 +24580,9 @@ catalog:
                   - integrity
           props:
             - name: label
+              value: SC-08
+              class: zero-padded
+            - name: label
               value: SC-8
             - name: label
               value: SC-08
@@ -24214,7 +24593,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24389,6 +24768,9 @@ catalog:
                       - detect changes to information
               props:
                 - name: label
+                  value: SC-08(01)
+                  class: zero-padded
+                - name: label
                   value: SC-8(1)
                 - name: label
                   value: SC-08(01)
@@ -24399,7 +24781,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -24524,6 +24906,9 @@ catalog:
           props:
             - name: label
               value: SC-12
+              class: zero-padded
+            - name: label
+              value: SC-12
             - name: label
               value: SC-12
               class: sp800-53a
@@ -24536,7 +24921,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24583,8 +24968,6 @@ catalog:
             - href: "#sc-8"
               rel: related
             - href: "#sc-11"
-              rel: related
-            - href: "#sc-12"
               rel: related
             - href: "#sc-13"
               rel: related
@@ -24744,6 +25127,9 @@ catalog:
           props:
             - name: label
               value: SC-13
+              class: zero-padded
+            - name: label
+              value: SC-13
             - name: label
               value: SC-13
               class: sp800-53a
@@ -24753,11 +25139,11 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: CONDITIONAL
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -24971,6 +25357,9 @@ catalog:
           props:
             - name: label
               value: SC-15
+              class: zero-padded
+            - name: label
+              value: SC-15
             - name: label
               value: SC-15
               class: sp800-53a
@@ -24980,7 +25369,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: NSO
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25022,6 +25411,9 @@ catalog:
           props:
             - name: label
               value: SC-20
+              class: zero-padded
+            - name: label
+              value: SC-20
             - name: label
               value: SC-20
               class: sp800-53a
@@ -25031,7 +25423,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25097,6 +25489,9 @@ catalog:
           props:
             - name: label
               value: SC-21
+              class: zero-padded
+            - name: label
+              value: SC-21
             - name: label
               value: SC-21
               class: sp800-53a
@@ -25106,7 +25501,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25140,6 +25535,9 @@ catalog:
           props:
             - name: label
               value: SC-22
+              class: zero-padded
+            - name: label
+              value: SC-22
             - name: label
               value: SC-22
               class: sp800-53a
@@ -25149,7 +25547,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25202,6 +25600,9 @@ catalog:
           props:
             - name: label
               value: SC-28
+              class: zero-padded
+            - name: label
+              value: SC-28
             - name: label
               value: SC-28
               class: sp800-53a
@@ -25211,7 +25612,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25399,6 +25800,9 @@ catalog:
                         is/are defined;
               props:
                 - name: label
+                  value: SC-28(01)
+                  class: zero-padded
+                - name: label
                   value: SC-28(1)
                 - name: label
                   value: SC-28(01)
@@ -25409,7 +25813,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: system
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ASSESS
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -25547,6 +25951,9 @@ catalog:
           props:
             - name: label
               value: SC-39
+              class: zero-padded
+            - name: label
+              value: SC-39
             - name: label
               value: SC-39
               class: sp800-53a
@@ -25559,7 +25966,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25661,6 +26068,9 @@ catalog:
                     procedures to be reviewed and updated are defined;
           props:
             - name: label
+              value: SI-01
+              class: zero-padded
+            - name: label
               value: SI-1
             - name: label
               value: SI-01
@@ -25674,7 +26084,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -25803,6 +26213,9 @@ catalog:
                     updates after the release of the updates is defined;
           props:
             - name: label
+              value: SI-02
+              class: zero-padded
+            - name: label
               value: SI-2
             - name: label
               value: SI-02
@@ -25813,7 +26226,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -26225,6 +26638,9 @@ catalog:
                     is/are defined;
           props:
             - name: label
+              value: SI-03
+              class: zero-padded
+            - name: label
               value: SI-3
             - name: label
               value: SI-03
@@ -26238,7 +26654,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: system
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -26675,6 +27091,9 @@ catalog:
                     or roles is defined (if selected);
           props:
             - name: label
+              value: SI-04
+              class: zero-padded
+            - name: label
               value: SI-4
             - name: label
               value: SI-04
@@ -26691,7 +27110,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ASSESS
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27227,6 +27646,9 @@ catalog:
                     and directives are to be disseminated are defined (if selected);
           props:
             - name: label
+              value: SI-05
+              class: zero-padded
+            - name: label
               value: SI-5
             - name: label
               value: SI-05
@@ -27240,7 +27662,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27304,6 +27726,9 @@ catalog:
           props:
             - name: label
               value: SI-12
+              class: zero-padded
+            - name: label
+              value: SI-12
             - name: label
               value: SI-12
               class: sp800-53a
@@ -27313,7 +27738,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: organization
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27483,6 +27908,9 @@ catalog:
                     to be reviewed and updated are defined;
           props:
             - name: label
+              value: SR-01
+              class: zero-padded
+            - name: label
               value: SR-1
             - name: label
               value: SR-01
@@ -27496,7 +27924,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27643,6 +28071,9 @@ catalog:
                     risk management plan is defined;
           props:
             - name: label
+              value: SR-02
+              class: zero-padded
+            - name: label
               value: SR-2
             - name: label
               value: SR-02
@@ -27656,7 +28087,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -27801,6 +28232,9 @@ catalog:
                     - prose: supply chain risk management activities are defined;
               props:
                 - name: label
+                  value: SR-02(01)
+                  class: zero-padded
+                - name: label
                   value: SR-2(1)
                 - name: label
                   value: SR-02(01)
@@ -27814,7 +28248,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -27884,6 +28318,9 @@ catalog:
                     chain processes and controls is defined (if selected);
           props:
             - name: label
+              value: SR-03
+              class: zero-padded
+            - name: label
               value: SR-3
             - name: label
               value: SR-03
@@ -27900,7 +28337,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28024,6 +28461,9 @@ catalog:
                     are defined;
           props:
             - name: label
+              value: SR-05
+              class: zero-padded
+            - name: label
               value: SR-5
             - name: label
               value: SR-05
@@ -28037,7 +28477,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28134,6 +28574,9 @@ catalog:
                     established are defined (if selected);
           props:
             - name: label
+              value: SR-08
+              class: zero-padded
+            - name: label
               value: SR-8
             - name: label
               value: SR-08
@@ -28147,7 +28590,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28217,6 +28660,9 @@ catalog:
           props:
             - name: label
               value: SR-10
+              class: zero-padded
+            - name: label
+              value: SR-10
             - name: label
               value: SR-10
               class: sp800-53a
@@ -28229,7 +28675,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28291,6 +28737,9 @@ catalog:
           props:
             - name: label
               value: SR-11
+              class: zero-padded
+            - name: label
+              value: SR-11
             - name: label
               value: SR-11
               class: sp800-53a
@@ -28303,7 +28752,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
@@ -28358,6 +28807,9 @@ catalog:
                         is/are defined;
               props:
                 - name: label
+                  value: SR-11(01)
+                  class: zero-padded
+                - name: label
                   value: SR-11(1)
                 - name: label
                   value: SR-11(01)
@@ -28371,7 +28823,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -28400,6 +28852,9 @@ catalog:
                         defined;
               props:
                 - name: label
+                  value: SR-11(02)
+                  class: zero-padded
+                - name: label
                   value: SR-11(2)
                 - name: label
                   value: SR-11(02)
@@ -28413,7 +28868,7 @@ catalog:
                   ns: http://csrc.nist.gov/ns/rmf
                   value: "true"
                 - name: method
-                  ns: https://fedramp.gov/ns/oscal
+                  ns: http://csrc.nist.gov/ns/rmf
                   value: ATTEST
                   class: FedRAMP-Tailored-LI-SaaS
               links:
@@ -28454,6 +28909,9 @@ catalog:
           props:
             - name: label
               value: SR-12
+              class: zero-padded
+            - name: label
+              value: SR-12
             - name: label
               value: SR-12
               class: sp800-53a
@@ -28466,7 +28924,7 @@ catalog:
               ns: http://csrc.nist.gov/ns/rmf
               value: "true"
             - name: method
-              ns: https://fedramp.gov/ns/oscal
+              ns: http://csrc.nist.gov/ns/rmf
               value: ATTEST
               class: FedRAMP-Tailored-LI-SaaS
           links:
