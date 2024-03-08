@@ -44,7 +44,7 @@ The OSCAL syntax in this guide may be used to represent the High, Moderate, and 
 
 ### 4.1.1. Cloud Service Provider (CSP) Name
 
-The cloud service provider (CSP) must be provided as one of the party assemblies within the metadata.
+The cloud service provider (CSP) must be provided as one of the `party` assemblies within the metadata.
 
 ![System Information](/img/ssp-figure-4.png)
 
@@ -69,12 +69,11 @@ Cloud Service Provider (CSP) Name:
 ---
 ### 4.1.2. System Name, Abbreviation, and FedRAMP Unique Identifier
 
-The remainder of the system information is provided in the
-system-characteristics assembly.
+The remainder of the system information is provided in the `system-characteristics` assembly.
 
 The FedRAMP-assigned application number is the unique ID for a FedRAMP system. OSCAL supports several system identifiers, which may be assigned by different organizations.
 
-For this reason, OSCAL requires the identifier-type flag be present and have a value that uniquely identifies the issuing organization. FedRAMP requires its value to be "https://fedramp.gov" for all FedRAMP-issued application numbers.
+For this reason, OSCAL requires the `identifier-type` flag be present and have a value that uniquely identifies the issuing organization. FedRAMP requires its value to be "https://fedramp.gov" for all FedRAMP-issued application numbers.
 
 ![System Information](/img/ssp-figure-5.png)
 
@@ -122,7 +121,7 @@ Required Identifier Type:
 ---
 ### 4.1.3. Service Model
 
-The core-OSCAL system-characteristics assembly has a property for the cloud service model.
+The core-OSCAL `system-characteristics` assembly has a property for the cloud service model.
 
 ![System Information](/img/ssp-figure-6.png)
 
@@ -177,12 +176,12 @@ Valid Service Model values:
 **NOTE:**
 
 -   A cloud service provider may define two or more cloud service models for the cloud service offering defined in the system security plan if applicable for customer use (IaaS and PaaS; IaaS and PaaS and SaaS; PaaS and SaaS). Cloud service providers may use a "cloud-service-model" prop for each applicable cloud service model.
--   If the service model is "other", the remarks field is required. Otherwise, it is optional.
+-   If the service model is "other", the `remarks` field is required. Otherwise, it is optional.
 
 ---
 ### 4.1.4. Deployment Model
 
-The core-OSCAL system-characteristics assembly has a property for the cloud deployment model.
+The core-OSCAL `system-characteristics` assembly has a property for the cloud deployment model.
 
 ![System Information](/img/ssp-figure-7.png)
 
@@ -242,7 +241,7 @@ The core-OSCAL system-characteristics assembly has a property for the cloud depl
 -   A cloud service provider may define one and only one cloud deployment model in the system security plan for a cloud service offering.
 
 -   OSCAL 1.0.0 permits a cloud-deployment-model of value community-cloud, but FedRAMP does not permit such a deployment model for cloud service offerings and is not permitted for a FedRAMP OSCAL-based system security plan.
--   If the deployment model is \"hybrid\", the remarks field is required. Otherwise, it is optional.
+-   If the deployment model is \"hybrid\", the `remarks` field is required. Otherwise, it is optional.
 
 ---
 ### 4.1.5. Digital Identity Level (DIL) Determination
@@ -420,7 +419,7 @@ FedRAMP only accepts those in bold:
 
 **NOTE:**
 
--   If the status is "other", the remarks field is required. Otherwise, it is optional.
+-   If the status is "other", the `remarks` field is required. Otherwise, it is optional.
 
 -   While under-development, and disposition are valid OSCAL values, systems with either of these operational status values are not eligible for a FedRAMP Authorization.
 
@@ -471,7 +470,7 @@ FedRAMP only accepts those in bold:
 ---
 ## 4.2. Information System Owner
 
-A role with an ID value of \"system-owner\" is required. Use the responsible-party assembly to associate this role with the party assembly containing the System Owner\'s information.
+A role with an ID value of \"system-owner\" is required. Use the `responsible-party` assembly to associate this `role` with the `party` assembly containing the System Owner\'s information.
 
 ![System Information](/img/ssp-figure-12.png)
 
@@ -538,7 +537,7 @@ If no country is provided, FedRAMP tools will assume a US address.
 ---
 ## 4.3. Federal Authorizing Officials
 
-A role with an ID value of "authorizing-official" is required. Use the responsible-party assembly to associate this role with the party assembly containing the Authorizing Official\'s information.
+A role with an ID value of "authorizing-official" is required. Use the `responsible-party` assembly to associate this `role` with the `party` assembly containing the Authorizing Official\'s information.
 
 ![System Information](/img/ssp-figure-13.png)
 
@@ -587,7 +586,7 @@ A role with an ID value of "authorizing-official" is required. Use the responsib
 
 **NOTE:**
 
-If the authorization-type field is "fedramp-jab", the responsible-party/party-uuid field must be the uuid value for the FedRAMP JAB.
+If the `authorization-type` field is "fedramp-jab", the `responsible-party/party-uuid` field must be the uuid value for the FedRAMP JAB.
 
 ---
 #### Federal JAB P-ATO Authorization Representation
@@ -647,7 +646,7 @@ Required Role ID:
 ## 4.4. Assignment of Security Responsibilities
 
 A role with an ID value of information-system-security-officer" is
-required. Use the responsible-party assembly to associate this role with the party assembly containing the Information 
+required. Use the `responsible-party` assembly to associate this `role` with the `party` assembly containing the Information 
 System Security Officer\'s information.
 
 ![System Information](/img/ssp-figure-14.png)
@@ -656,13 +655,13 @@ System Security Officer\'s information.
 {{<callout>}}
 **NOTES ON ADDRESSES**
 
-**Preferred Approach:** When multiple parties share the same address, such as multiple staff members at a company HQ, define the location once as a location assembly, then use the location-uuid field within each party assembly to identify the location of that individual or team.
+**Preferred Approach:** When multiple parties share the same address, such as multiple staff members at a company HQ, define the location once as a `location` assembly, then use the `location-uuid` field within each `party` assembly to identify the location of that individual or team.
 
-**Alternate Approach:** If the address is unique to this individual, it may be included in the party assembly itself. 
+**Alternate Approach:** If the address is unique to this individual, it may be included in the `party` assembly itself. 
 
-**Hybrid Approach:** It is possible to include both a location-uuid and an address assembly within a party assembly. This may be used where multiple staff are in the same building but have different office numbers or mail stops. Use the location-uuid to identify the shared building, and only include a single addr-line field within the party's address assembly.
+**Hybrid Approach:** It is possible to include both a `location-uuid` and an `address` assembly within a `party` assembly. This may be used where multiple staff are in the same building but have different office numbers or mail stops. Use the `location-uuid` to identify the shared building, and only include a single `addr-line` field within the party's `address` assembly.
 
-A tool developer may elect to always create a location assembly, even when only used once; however, tools must recognize and handle all of the approaches above when processing OSCAL files.
+A tool developer may elect to always create a `location` assembly, even when only used once; however, tools must recognize and handle all of the approaches above when processing OSCAL files.
 
 {{</callout>}}
 
@@ -726,10 +725,9 @@ Required Role ID:
 ---
 ## 4.5. Leveraged FedRAMP-authorized Services
 
-If this system is leveraging the authorization of one or more systems, such as a SaaS running on an IaaS, each leveraged system must be represented within the system-implementation assembly. There must be one leveraged-authorization assembly and one matching component assembly for each leveraged authorization.
+If this system is leveraging the authorization of one or more systems, such as a SaaS running on an IaaS, each leveraged system must be represented within the `system-implementation` assembly. There must be one `leveraged-authorization` assembly and one matching `component` assembly for each leveraged authorization.
 
-The leveraged-authorization assembly includes the leveraged system\'s name, point of contact (POC), and authorization date. The component assembly must be linked to the leveraged-authorization assembly using a property (prop) field with the name leveraged-authorization-uuid and the
-UUID value of its associated leveraged-authorization assembly. The component assembly enables controls to reference it with the by-component responses described in *Section 6.4, Control Implementation Descriptions*. The implementation-point property value must be set to "external".
+The `leveraged-authorization` assembly includes the leveraged system\'s name, point of contact (POC), and authorization date. The `component` assembly must be linked to the `leveraged-authorization` assembly using a property (prop) field with the name `leveraged-authorization-uuid` and the UUID value of its associated `leveraged-authorization` assembly. The `component` assembly enables controls to reference it with the `by-component` responses described in *Section 6.4, Control Implementation Descriptions*. The `implementation-point` property value must be set to "external".
 
 If the leveraged system owner provides a UUID for their system, such as in an OSCAL-based Inheritance and Responsibility document (similar to a CRM), it should be provided as the inherited-uuid property value.
 
@@ -788,9 +786,9 @@ While a leveraged system has no need to represent content here, its SSP must inc
 <br />
 {{<callout>}}
 
-The title field must match an existing [FedRAMP authorized Cloud_Service_Provider_Package](https://raw.githubusercontent.com/18F/fedramp-data/master/data/data.json) property value.
+The `title` field must match an existing [FedRAMP authorized Cloud_Service_Provider_Package](https://raw.githubusercontent.com/18F/fedramp-data/master/data/data.json) property value.
 
-A leveraged-system-identifier property must be provided within each leveraged-authorization field.  The value of this property must be from the same Cloud Service Provider as identified in the title field.
+A `leveraged-system-identifier` property must be provided within each `leveraged-authorization` field.  The value of this property must be from the same Cloud Service Provider as identified in the `title` field.
 
 
 {{</callout>}}
@@ -933,7 +931,7 @@ Replace XPath predicate "[1]" with "[2]", "[3]", etc.
 
 ### 4.8.1. Authorization Boundary
 
-The OSCAL approach to this type of diagram is to treat the image data as either a linked or base64-encoded resource in the back-matter section of the OSCAL file, then reference the diagram using the link field.
+The OSCAL approach to this type of diagram is to treat the image data as either a linked or base64-encoded resource in the back-matter section of the OSCAL file, then reference the diagram using the `link` field.
 
 ![System Information](/img/ssp-figure-19.png)
 
@@ -1117,7 +1115,7 @@ Replace XPath predicate "[1]" with "[2]", "[3]", etc.
 ---
 ## 4.9. Ports, Protocols and Services
 
-Entries in the ports, protocols, and services table are represented as component assemblies, with the component-type flag set to "service". Use a protocol assembly for each protocol associated with the service. For a single port, set the port-range start flag and end flag to the same value.
+Entries in the ports, protocols, and services table are represented as `component` assemblies, with the `component-type` flag set to "service". Use a `protocol` assembly for each protocol associated with the service. For a single port, set the `port-range` `start` flag and `end` flag to the same value.
 
 ![System Information](/img/ssp-figure-20.png)
 
@@ -1171,16 +1169,16 @@ Replace XPath predicate "[1]" with "[2]", "[3]", etc.
 ---
 ## 4.10. Cryptographic Modules Implemented for Data-in-Transit (DIT) 
 
-NIST\'s component model treats independent validation of products and services as if that validation were a separate component. This means when using components with FIPS 140 validated cryptographic modules, there must be two component assemblies:
+NIST\'s component model treats independent validation of products and services as if that validation were a separate component. This means when using components with FIPS 140 validated cryptographic modules, there must be two `component` assemblies:
 
 -   **The Validation Definition**: A component definition that provides details about the validation.
 
 -   **The Product Definition**: A component definition that describes the hardware or software product.
 
-The validation definition is a component definition that provides details about the independent validation. Its type must have a value of "validation". In the case of FIPS 140 validation, this must include a link field with a rel value set to "validation-details". This link must point to the cryptographic module\'s entry in the NIST Computer Security
+The validation definition is a component definition that provides details about the independent validation. Its type must have a value of "validation". In the case of FIPS 140 validation, this must include a `link` field with a rel value set to "validation-details". This link must point to the cryptographic module\'s entry in the NIST Computer Security
 Resource Center (CSRC) [Cryptographic Module Validation Program Database](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search).
 
-The product definition is a product with a cryptographic module. It must contain all of the typical component information suitable for reference by inventory-items and control statements. It must also include a link field with a rel value set to "validation" and an href value containing
+The product definition is a product with a cryptographic module. It must contain all of the typical component information suitable for reference by inventory-items and control statements. It must also include a `link` field with a rel value set to "validation" and an href value containing
 a URI fragment. The Fragment must start with a hashtag (#) and include the UUID value of the validation component. This links the two together.
 
 ![System Information](/img/ssp-figure-21.png)

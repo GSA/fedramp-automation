@@ -85,7 +85,7 @@ OSCAL syntax requires the POA&M to import an OSCAL-based SSP, even if no OSCAL-b
 FedRAMP recognizes some system owners may adopt OSCAL for the POA&M before adopting it for their SSP. Similarly, FedRAMP does not currently require monthly delivery of the SSP with the monthly Continuous Monitoring POA&M delivery.
 {{</callout>}}
 
-Use the import-ssp field to specify an existing OSCAL-based SSP. The href flag may include any valid uniform resource identifier (URI), including a relative path, absolute path, or URI fragment.
+Use the `import-ssp` field to specify an existing OSCAL-based SSP. The `href` flag may include any valid uniform resource identifier (URI), including a relative path, absolute path, or URI fragment.
 
 ####  SSP Import Representation
 {{< highlight xml "linenos=table" >}}
@@ -147,18 +147,18 @@ Tool designers should ensure their tools can cite the relevant OSCAL-based SSP i
 {{<callout>}}
 ***Monthly Continuous Monitoring (ConMon) Delivery***
 
-For monthly ConMon deliveries, the CSP may duplicate the component and inventory-item content from their SSP into the POA&M's local-definitions section. Delivering an OSCAL POA&M with all inventory in this way satisfies both the POA&M and System Inventory deliverables.
+For monthly ConMon deliveries, the CSP may duplicate the `component` and `inventory-item` content from their SSP into the POA&M's `local-definitions` section. Delivering an OSCAL POA&M with all inventory in this way satisfies both the POA&M and System Inventory deliverables.
 {{</callout>}}
 
 ### 3.5.2. Delivering the POA&M and Inventory Without the SSP 
 
 FedRAMP currently requires CSPs to deliver their POA&M, system inventory, and raw scanner tool output each month. OSCAL enables the delivery of POA&M and inventory without delivering the linked SSP.
 
-In this instance, the OSCAL allows the import-ssp syntax to be omitted; however, FedRAMP still requires the system-id content containing the system\'s FedRAMP-assigned unique identifier.
+In this instance, the OSCAL allows the `import-ssp` syntax to be omitted; however, FedRAMP still requires the `system-id` content containing the system\'s FedRAMP-assigned unique identifier.
 
-All SSP inventory-item assemblies must be duplicated into the POA&M local-definitions assembly. Any SSP component cited by an inventory-item must also be duplicated to the POA&M\'s local-definitions assembly.
+All SSP `inventory-item` assemblies must be duplicated into the POA&M `local-definitions` assembly. Any SSP component cited by an `inventory-item` must also be duplicated to the POA&M\'s `local-definitions` assembly.
 
-Finally, any SSP component referenced by POA&M data must be duplicated, whether it is referenced by an inventory-item or not.
+Finally, any SSP component referenced by POA&M data must be duplicated, whether it is referenced by an `inventory-item` or not.
 
 #### POA&M Representation                                      
 {{< highlight xml "linenos=table" >}}
