@@ -1,0 +1,9 @@
+version : '3'
+services:
+  hugo:
+      image: klakegg/hugo:0.107.0-ext-alpine
+      command: server -s /fedramp-automation/docs --enableGitInfo=false --minify
+      volumes:
+        - ".:/fedramp-automation"
+      ports:
+        - "1313:1313"
