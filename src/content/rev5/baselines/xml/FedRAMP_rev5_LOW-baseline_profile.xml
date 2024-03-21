@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="512149a6-7f04-4c01-bb1b-78eafd6a950d">
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="09ab3289-b652-4969-98ee-41b2ed6dcdb7">
     <metadata>
         <title>FedRAMP Rev 5 Low Baseline</title>
-        <published>2023-08-31T00:00:00Z</published>
-        <last-modified>2024-01-11T23:40:17Z</last-modified>
-        <version>5.1.1+fedramp-20240111-0</version>
-        <oscal-version>1.1.1</oscal-version>
+        <last-modified>2024-03-21T20:30:00Z</last-modified>
+        <version>5.1.1+fedramp-20240321-0</version>
+        <oscal-version>1.1.2</oscal-version>
         <role id="prepared-by">
             <title>Document creator</title>
         </role>
@@ -304,7 +303,16 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="at-2_prm_1">
+        <!-- at-02_odp.01 - frequency of security literacy training -->
+        <set-parameter param-id="at-02_odp.01">
+            <constraint>
+                <description>
+                    <p>at least annually</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- at-02_odp.02 - frequency of privacy literacy training -->
+        <set-parameter param-id="at-02_odp.02">
             <constraint>
                 <description>
                     <p>at least annually</p>
@@ -367,7 +375,16 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="au-2_prm_2">
+        <!-- au-02_odp.02 Event types -->
+        <set-parameter param-id="au-02_odp.02">
+            <constraint>
+                <description>
+                    <p>organization-defined subset of the auditable events defined in AU-2a to be audited continually for each identified event.</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- au-02_odp.03 Frequency or situations -->
+        <set-parameter param-id="au-02_odp.03">
             <constraint>
                 <description>
                     <p>organization-defined subset of the auditable events defined in AU-2a to be audited continually for each identified event.</p>
@@ -472,7 +489,16 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="ca-7_prm_4">
+        <!-- ca-07_odp.04 security -->
+        <set-parameter param-id="ca-07_odp.04">
+            <constraint>
+                <description>
+                    <p>to include JAB/AO</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- ca-07_odp.06 privacy -->
+        <set-parameter param-id="ca-07_odp.06">
             <constraint>
                 <description>
                     <p>to include JAB/AO</p>
@@ -593,7 +619,16 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="cp-4_prm_2">
+        <!-- cp-04_odp.02 tests for determining the effectiveness of the contingency plan -->
+        <set-parameter param-id="cp-04_odp.02">
+            <constraint>
+                <description>
+                    <p>classroom exercise/table top written tests</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- cp-04_odp.03 tests for determining readiness to execute the contingency plan -->
+        <set-parameter param-id="cp-04_odp.03">
             <constraint>
                 <description>
                     <p>classroom exercise/table top written tests</p>
@@ -720,7 +755,24 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="ir-8_prm_5">
+        <!-- ir-08_odp.05 -->
+        <set-parameter param-id="ir-08_odp.05">
+            <constraint>
+                <description>
+                    <p>see additional FedRAMP Requirements and Guidance</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- ir-08_odp.06 -->
+        <set-parameter param-id="ir-08_odp.06">
+            <constraint>
+                <description>
+                    <p>see additional FedRAMP Requirements and Guidance</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- ir-08_odp.07 -->
+        <set-parameter param-id="ir-08_odp.07">
             <constraint>
                 <description>
                     <p>see additional FedRAMP Requirements and Guidance</p>
@@ -769,7 +821,24 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="mp-6_prm_1">
+        <!-- mp-06_odp.01 disposal -->
+        <set-parameter param-id="mp-06_odp.01">
+            <constraint>
+                <description>
+                    <p>techniques and procedures IAW NIST SP 800-88 Section 4: Reuse and Disposal of Storage Media and Hardware</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- mp-06_odp.02 release from organizational control -->
+        <set-parameter param-id="mp-06_odp.02">
+            <constraint>
+                <description>
+                    <p>techniques and procedures IAW NIST SP 800-88 Section 4: Reuse and Disposal of Storage Media and Hardware</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- mp-06_odp.03 release for reuse -->
+        <set-parameter param-id="mp-06_odp.03">
             <constraint>
                 <description>
                     <p>techniques and procedures IAW NIST SP 800-88 Section 4: Reuse and Disposal of Storage Media and Hardware</p>
@@ -825,7 +894,16 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="pe-3_prm_9">
+        <!-- pe-03_odp.09 change combinations -->
+        <set-parameter param-id="pe-03_odp.09">
+            <constraint>
+                <description>
+                    <p>at least annually</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- pe-03_odp.10 change combinations -->
+        <set-parameter param-id="pe-03_odp.10">
             <constraint>
                 <description>
                     <p>at least annually</p>
@@ -867,7 +945,16 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="pe-16_prm_1">
+        <!-- pe-16_odp.01 when entering the facility -->
+        <set-parameter param-id="pe-16_odp.01">
+            <constraint>
+                <description>
+                    <p>all information system components</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- pe-16_odp.02 when exiting the facility -->
+        <set-parameter param-id="pe-16_odp.02">
             <constraint>
                 <description>
                     <p>all information system components</p>
@@ -951,7 +1038,17 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="ps-3_prm_1">
+        <!-- ps-03_odp.01 conditions requiring rescreening -->
+        <set-parameter param-id="ps-03_odp.01">
+            <constraint>
+                <description>
+                    <p>for national security clearances; a reinvestigation is required during the fifth (5th) year for top secret security clearance, the tenth (10th) year for secret security clearance, and fifteenth (15th) year for confidential security clearance.</p>
+                    <p>For moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the fifth (5th) year. There is no reinvestigation for other moderate risk positions or any low risk positions</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- ps-03_odp.02 frequency -->
+        <set-parameter param-id="ps-03_odp.02">
             <constraint>
                 <description>
                     <p>for national security clearances; a reinvestigation is required during the fifth (5th) year for top secret security clearance, the tenth (10th) year for secret security clearance, and fifteenth (15th) year for confidential security clearance.</p>
@@ -1057,7 +1154,16 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="ra-5_prm_1">
+        <!-- ra-05_odp.01 monitoring -->
+        <set-parameter param-id="ra-05_odp.01">
+            <constraint>
+                <description>
+                    <p>monthly operating system/infrastructure; monthly web applications (including APIs) and databases</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <!-- ra-05_odp.02 scanning -->
+        <set-parameter param-id="ra-05_odp.02">
             <constraint>
                 <description>
                     <p>monthly operating system/infrastructure; monthly web applications (including APIs) and databases</p>
