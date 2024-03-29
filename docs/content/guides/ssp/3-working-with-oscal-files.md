@@ -1,14 +1,11 @@
 ---
 title: Working with OSCAL Files
-section: /ssp/
-toc:
-  enabled: true
 weight: 101
 ---
 
 This section provides a summary of several important concepts and details that apply to OSCAL-based FedRAMP SSP files.
 
-The [*Guide to OSCAL-based FedRAMP Content*](/guides/general/) provides important concepts necessary for working with any OSCAL-based FedRAMP file. Familiarization with those concepts is important to understanding this guide.
+The [*Guide to OSCAL-based FedRAMP Content*](/guides) provides important concepts necessary for working with any OSCAL-based FedRAMP file. Familiarization with those concepts is important to understanding this guide.
 
 ## 3.1. XML and JSON Formats
 
@@ -42,7 +39,7 @@ Developers should be aware that at this time, catalogs and profiles remain relat
 ![Baseline Information](/img/ssp-figure-3.png) \
 *The Resolved Profile Catalog for each FedRAMP Baseline reduces tool processing.*
 
-For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](/guides/general/5-appendices/#profile-resolution) *Appendix, Profile Resolution*.
+For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](/guides/5-appendices/#profile-resolution) *Appendix, Profile Resolution*.
 
 ## 3.3. OSCAL-based FedRAMP SSP Template
 
@@ -91,7 +88,7 @@ including a relative path, absolute path, or URI fragment.
 If the value is a URI fragment, such as
 #96445439-6ce1-4e22-beae-aa72cfe173d0, the value to the right of the
 hashtag (#) is the universally unique identifier (UUID) value of a
-resource in the SSP file\'s back-matter. Refer to the *[Guide to OSCAL-based FedRAMP Content](/guides/general/2-working-with-oscal-files/#citations-and-attachments-in-oscal-files), Section 2.6, Citations, Attachments and Embedded Content in OSCAL Files* for guidance on handling.
+resource in the SSP file\'s back-matter. Refer to the *[Guide to OSCAL-based FedRAMP Content](/guides/2-working-with-oscal-files/#citations-and-attachments-in-oscal-files), Section 2.6, Citations, Attachments and Embedded Content in OSCAL Files* for guidance on handling.
 
 #### SSP Back Matter Representation
 {{< highlight xml "linenos=table" >}}

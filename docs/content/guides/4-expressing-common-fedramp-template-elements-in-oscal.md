@@ -1,10 +1,9 @@
 ---
-title: Expressing Common FedRAMP Template Elements In OSCAL
-section: /general/
-toc:
-  enabled: true
-weight: 103
+title: Expressing FedRAMP Template Metadata
+weight: 40
 ---
+
+# Expressing FedRAMP Package Data in OSCAL
 
 While each FedRAMP template has a unique purpose, they share common
 information elements, such as title and publication date. These common

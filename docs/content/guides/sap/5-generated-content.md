@@ -1,8 +1,5 @@
 ---
 title: Generated Content
-section: /sap/
-toc:
-  enabled: true
 weight: 103
 ---
 

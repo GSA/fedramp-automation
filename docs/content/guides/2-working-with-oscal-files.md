@@ -1,10 +1,9 @@
 ---
-title: Working with OSCAL Files
-section: /general/
-toc:
-  enabled: true
-weight: 101
+title: Key OSCAL Concepts
+weight: 20
 ---
+
+# Working with OSCAL Files
 
 This section covers several important concepts and details that apply to
 OSCAL-based FedRAMP files.

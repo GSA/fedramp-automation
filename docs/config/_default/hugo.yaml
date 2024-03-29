@@ -1,0 +1,48 @@
+title: "FedRAMP Automation"
+baseURL: https://automate.fedramp.gov/
+defaultContentLanguage: en
+languageCode: "en-us"
+MetaDataFormat: "yaml"
+#googleAnalytics: UA-
+enableGitInfo: true
+enableRobotsTXT: true
+menu:
+  secondary:
+  - name: FedRAMP
+    url: https://fedramp.gov/
+    weight: 10
+  - name: Marketplace
+    url: https://marketplace.fedramp.gov/
+    weight: 10
+  - name: Github
+    url: https://github.com/GSA/fedramp-automation
+    weight: 90
+# Configuration for hugo-uswds
+#
+module:
+  mounts:
+  - source: static
+    target: static
+  - source: static/img
+    target: assets/img
+  - source: ../examples
+    target: static/examples
+  imports:
+  - path: github.com/usnistgov/hugo-uswds
+params:
+  header:
+    project_shortname: "FedRAMP Automation"
+    project_name: "FedRAMP Automation"
+  page_repo_path: https://github.com/GSA/fedramp-automation/tree/feature-guides-updates/docs
+  contentRepoPath: https://github.com/usnistgov/oscal-content/tree/master
+  # searchAffiliate: fedramp
+  usabanner: true
+  sidenav:
+#    debug: true
+markup:
+  goldmark: # Markdown Rendering
+    renderer:
+      unsafe: true # required for the Hugo USWDS theme
+  highlight: # Code Highlighting
+    guessSyntax: true
+    noClasses: false # enables USWDS styled syntax highlighting

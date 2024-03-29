@@ -1,8 +1,5 @@
 ---
 title: Generated Content
-section: /sar/
-toc:
-  enabled: true
 weight: 104
 ---
 
