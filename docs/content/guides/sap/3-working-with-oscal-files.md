@@ -113,8 +113,8 @@ duplicating content from the SSP, the SAP is intended to reference the
 SSP content itself. **If a system security plan is available in OSCAL
 format, it must be used with the OSCAL-based security assessment plan.**
 
-Use the import-ssp field to specify an existing OSCAL-based SSP. The
-href flag may include any valid uniform resource identifier (URI),
+Use the `import-ssp` field to specify an existing OSCAL-based SSP. The
+`href` flag may include any valid uniform resource identifier (URI),
 including a relative path, absolute path, or URI fragment.
 
 #### SAP Import Representation
@@ -134,10 +134,8 @@ including a relative path, absolute path, or URI fragment.
 
 {{</ highlight >}}
 
-If the value is a URI fragment, such as
-#96445439-6ce1-4e22-beae-aa72cfe173d0, the value to the right of the
-hashtag (#) is the universally unique identifier (UUID) value of a
-resource in the SAP file\'s back-matter. Refer to the *[Guide to OSCAL-based FedRAMP Content](/guides/2-working-with-oscal-files/#citations-and-attachments-in-oscal-files), Section 2.7, Citations and Attachments in OSCAL Files* for guidance on handling.
+If the value is a URI fragment, such as *#96445439-6ce1-4e22-beae-aa72cfe173d0*, the value to the right of the
+hashtag (#) is the universally unique identifier (UUID) value of a resource in the SAP file\'s back-matter. Refer to the *[Guide to OSCAL-based FedRAMP Content](/guides/general/2-working-with-oscal-files/#citations-and-attachments-in-oscal-files), Section 2.7, Citations and Attachments in OSCAL Files* for guidance on handling.
 
 #### SAP Back Matter Representation 
 {{< highlight xml "linenos=table" >}}
@@ -191,7 +189,7 @@ represent inaccurate SSP information in the SAP when needed.
 
 ### 3.5.2. If No OSCAL-based SSP Exists (General)
 
-The OSCAL-based SAP must always have an import-ssp field, even if no
+The OSCAL-based SAP must always have an `import-ssp` field, even if no
 OSCAL-based SSP is available. To compensate for this, use a URI fragment
 that points to a resource in the back-matter. The resource must have a
 \"type\" property with the value of **no-oscal-ssp**
@@ -238,8 +236,8 @@ The system\'s authorization date, purpose, and description have not
 historically been displayed in the SAP but must be present in the SAP
 for the SAR to reference.
 
-Include the system name in the title field, and the system description
-in the description field. Add FedRAMP Extension properties to capture
+Include the system name in the `title` field, and the system description
+in the `description` field. Add FedRAMP Extension properties to capture
 the system\'s short name as \"title-short\", FedRAMP-assigned system
 identifier as \"system-id" and describe the system\'s purpose in
 \"purpose\".

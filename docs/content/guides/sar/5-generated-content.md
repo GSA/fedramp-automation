@@ -39,11 +39,11 @@ There are many ways a tool developer can generate these artifacts. FedRAMP is de
 
 ###### ![CVSS Scoring](/img/sar-figure-cvss.png)
 
-Common Vulnerability Scoring System (CVSS) metrics may be added to any risk assembly using facet fields.
+Common Vulnerability Scoring System (CVSS) metrics may be added to any `risk` assembly using `facet` fields.
 
 Tools should accept either the upper-case abbreviation or the lower-case name on a field-by-field basis. For example, it should be acceptable to use \"AV\" for access vector, and \"privileges-required\" for privileges required, provided both have a system value of \"http://www.first.org/cvss/v3.1\".
 
-All CVSS metrics must be in the same CVSS version, as identified by the system flag, for successful computation. Tool developers should ensure the tool performs CVSS calculations as defined by the Forum of Incident Response and Security Teams (FIRST) at [https://www.first.org/cvss/](https://www.first.org/cvss/).
+All CVSS metrics must be in the same CVSS version, as identified by the `system` flag, for successful computation. Tool developers should ensure the tool performs CVSS calculations as defined by the Forum of Incident Response and Security Teams (FIRST) at [https://www.first.org/cvss/](https://www.first.org/cvss/).
 
 #### Representation
 {{< highlight xml "linenos=table" >}}

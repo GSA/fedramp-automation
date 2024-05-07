@@ -125,7 +125,7 @@ For example, if an open-source operating system (OS) is used in many places thro
 ![Components and Inventory](/img/ssp-figure-42.png)\
 *Relationship of Components and Inventory*
 
-FedRAMP requires a component assembly for each model of infrastructure device used, and each version of software and database used within the system. FedRAMP is not asking for more detail than provided in the legacy inventory workbook. Only that the information is organized differently.
+FedRAMP requires a `component` assembly for each model of infrastructure device used, and each version of software and database used within the system. FedRAMP is not asking for more detail than provided in the legacy inventory workbook. Only that the information is organized differently.
 
 As NIST continues to evolve its component approach, FedRAMP will re-evaluate its approach to system inventory representation.
 

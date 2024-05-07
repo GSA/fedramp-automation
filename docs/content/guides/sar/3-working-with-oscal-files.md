@@ -71,9 +71,9 @@ differences automatically.
 
 ### 3.2.3. Copying SAR Residual Risks to the POA&M
 
-FedRAMP requires residual risks from an initial or annual assessment to be reflected in the POA&M. The observation and risk assemblies syntax of the SAR and POA&M are identical to facilitate ease of transfer. The SAR finding assembly and POA&M poam-item assembly are also as similar as possible to further facilitate this transfer.
+FedRAMP requires residual risks from an initial or annual assessment to be reflected in the POA&M. The `observation` and `risk` assemblies syntax of the SAR and POA&M are identical to facilitate ease of transfer. The SAR `finding` assembly and POA&M `poam-item` assembly are also as similar as possible to further facilitate this transfer.
 
-At the end of an assessment, copy all \"open\" risks from the SAR to POA&M. For every copied risk, also copy all related observations. Risks are linked to observations in the finding assembly.
+At the end of an assessment, copy all \"open\" risks from the SAR to POA&M. For every copied `risk`, also copy all related observations. Risks are linked to observations in the `finding` assembly.
 
 If available, use the finding/target citation in the SAR to determine the impacted control and set the value in the risk section of the POA&M using the \"impacted-control\" FedRAMP Extension. If the identified SAR risk is not associated with a specific control, the SAR tool should prompt the assessor to assign a value for the risk in the resulting POA&M export.
 
@@ -85,9 +85,9 @@ A SAR tool can transfer residual risks to a POA&M using the same OSCAL syntax.
 
 Ideally, tools will automatically detect potential duplicate risks between a new SAR and existing POA&M. In any case, tools should offer a mode for manual review and merging of duplicate risks from different sources.
 
-A SAR tool should collect Test Case Workbook, Automated Tool Output, Manual Test Results, and Penetration Test Results as a series of individual finding assemblies.
+A SAR tool should collect Test Case Workbook, Automated Tool Output, Manual Test Results, and Penetration Test Results as a series of individual `finding` assemblies.
 
-As these findings become risks, the SAR tool should allow the risk information to be added to the finding.
+As these findings become risks, the SAR tool should allow the `risk` information to be added to the `finding`.
 
 As risks are closed during testing, the SAR tool should allow the assessor to mark the status as closed. Likewise, as a risk is found to be a false positive or operationally required, the tool should allow the assessor to make these changes as well. The tool should also provide for risk adjustments, by preserving the initial risk information and adding mitigating factors and adjusted risk values.
 
@@ -99,9 +99,9 @@ A SAR allows the assessor to update finding and risk information during the asse
 
 ### 3.2.4. Previous Assessment Results
 
-The OSCAL assessment results model is designed to support both continuous assessment as well as snapshot in time assessments. Currently, FedRAMP assessments represent a snapshot in time. This means a single result assembly should be used for all of the current assessment findings.
+The OSCAL assessment results model is designed to support both continuous assessment as well as snapshot in time assessments. Currently, FedRAMP assessments represent a snapshot in time. This means a single `result` assembly should be used for all of the current assessment findings.
 
-Any findings from previous assessments may be included in the SAR by including each in its own result assembly. In this way, the assessor can include the \"snapshot\" of each previous assessment with the current assessment, eliminating the need to manually copy past findings into that portion of the TCW.
+Any findings from previous assessments may be included in the SAR by including each in its own `result` assembly. In this way, the assessor can include the \"snapshot\" of each previous assessment with the current assessment, eliminating the need to manually copy past findings into that portion of the TCW.
 
 #### SAR Representation
 {{< highlight xml "linenos=table" >}}
@@ -168,7 +168,7 @@ OSCAL is designed for traceability. Because of this, the assessment report is de
 *SAR tools must search both the SSP (if any) and the SAP for any SSP-related references. If an ID in the SAR references content in both the SSP and the SAP, the tool should treat the SAP content as an update to the SSP content. See the [Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)](/guides/sap/4-sap-template-to-oscal-mapping/) for more details.*
 {{</callout>}}
 
-Use the import-ap field to specify an existing OSCAL-based SAP. The href flag may include any valid uniform resource identifier (URI), including a relative path, absolute path, or URI fragment.
+Use the `import-ap` field to specify an existing OSCAL-based SAP. The `href` flag may include any valid uniform resource identifier (URI), including a relative path, absolute path, or URI fragment.
 
 #### SAR Import Representation
 {{< highlight xml "linenos=table" >}}

@@ -54,7 +54,7 @@ template.**
 The *Background*, *Purpose*, and *Applicable Laws* sections of the
 FedRAMP SAP template contain references to the CSP name, the CSO name,
 and the independent assessor (IA) name. The information in these
-sections may be represented as a part assembly within the
+sections may be represented as a `part` assembly within the
 terms-and-conditions element of an OSCAL SSP. This approach is optional
 as the specific data items can simply be queried from an OSCAL SAP and
 its associated documents.
@@ -214,7 +214,7 @@ SSP does not enumerate subnets in this way, the SAP tool should allow
 the assessor to add them to the SAP\'s local-definitions as components.
 
 Beyond subnets, this section is an enumeration of the SSP\'s
-inventory-item assemblies, which always contain the hostname and IP
+`inventory-item` assemblies, which always contain the hostname and IP
 address of the item. Other details, such as the software and version
 information, may be found in the inventory item itself or the SSP
 inventory item may be linked to an SSP component containing those
@@ -228,9 +228,9 @@ local-definitions.
 
 See the [*Guide to OSCAL-based FedRAMP System Security Plans*](/guides/ssp/)
 to learn more about legacy (flat-file) and component-based inventory
-approaches. Use a combination of include-subject and exclude-subject
-assemblies to specify the SSP IDs of all in-scope components and
-inventory-items. Excluding items is typically used in association with
+approaches. Use a combination of `include-subject` and `exclude-subject`
+assemblies to specify the SSP IDs of all in-scope `components` and
+`inventory-items`. Excluding items is typically used in association with
 the rules of engagement.
 
 If an inventory-item is linked to a component in the SSP, the component
@@ -461,13 +461,13 @@ should allow the assessor to easily identify roles that are excluded.
 Section 6.2 of the [*Guide to OSCAL-based System Security Plans (SSP)*](/guides/ssp/6-security-controls/#responsible-roles-and-parameter-assignments) describes personnel roles and privileges with examples illustrating how
 to identify them in an OSCAL SSP. If the \"roles\" slated for testing
 exist in the SSP, the SSP roles are referenced from the SAP using their
-SSP IDs as defined in the SSP user assemblies in the system-implementation section of the OSCAL-based SSP file. **Note that in this case, the SAP role must actually map to the uuid of the user assembly in the SSP**.
+SSP IDs as defined in the SSP `user` assemblies in the `system-implementation` section of the OSCAL-based SSP file. **Note that in this case, the SAP role must actually map to the uuid of the user assembly in the SSP**.
 
 Assessors should ensure the selection of at least one SSP-defined role
 from each of the common generalized role categories ("internal",
 "external", and "privileged"). If the assessor elects to reference more
 generic roles, the SAP tool should enable the assessor to create these
-generic roles locally in the SAP local-definitions assembly.
+generic roles locally in the SAP `local-definitions` assembly.
 
 ![Role Testing Exclusions](/img/sap-figure-8.png)
 
@@ -611,7 +611,7 @@ NOTE: Replace '001' with '002', '003', etc. for each sort-id based on desired or
 ---
 ## 4.4. SAP Methodology
 
-In general, the methodology is simply a single markup multiline field, which enables the assessor to modify the content using rich text formatting. The FedRAMP SAP template includes subsections for *Control Testing, Data Gathering, Sampling,* and *Penetration Test*. Each of these sections must be present in the FedRAMP OSCAL SAP terms-and-condition assembly, within part named "methodology" as sub-parts. The subparts are specifically defined for FedRAMP SAP, so they have namespace "https://fedramp.gov/ns/oscal" and attributes are named "control-testing", "data-gathering", "sampling", and "pen-testing".
+In general, the methodology is simply a single markup multiline field, which enables the assessor to modify the content using rich text formatting. The FedRAMP SAP template includes subsections for *Control Testing, Data Gathering, Sampling,* and *Penetration Test*. Each of these sections must be present in the FedRAMP OSCAL SAP `terms-and-condition` assembly, within `part` named "methodology" as sub-parts. The subparts are specifically defined for FedRAMP SAP, so they have namespace "https://fedramp.gov/ns/oscal" and attributes are named "control-testing", "data-gathering", "sampling", and "pen-testing".
 
 ![SAP Methodology](/img/sap-figure-10.png)
 
@@ -761,10 +761,10 @@ NOTE: Replace "exclude-control" with "include-control" above for any explicitly 
 ### 4.6.1. Assessor\'s Name, Address, and URL
 
 The SAP\'s metadata is used to represent
-the assessor\'s name address and URL. This uses the OSCAL common role,
-party, and responsible-party assemblies. Some roles are specific to the
-SAP. In the responsible-party assembly, the party-uuid may point to a
-party in the SSP or SAP. The SAP tool must not assign a role ID or party
+the assessor\'s name address and URL. This uses the OSCAL common `role`,
+`party`, and `responsible-party` assemblies. Some roles are specific to the
+SAP. In the `responsible-party` assembly, the `party-uuid` may point to a
+`party` in the SSP or SAP. The SAP tool must not assign a role ID or party
 ID that duplicates one used in the SSP.
 
 ![Test Plan](/img/sap-figure-13.png)
@@ -819,8 +819,8 @@ ID that duplicates one used in the SSP.
 ### 4.6.2. Security Assessment Team
 
 The SAP\'s metadata is used to represent the assessment team and
-assessment lead. This uses the OSCAL common role, party, and
-responsible-party assemblies. Some roles are specific to the SAP. The
+assessment lead. This uses the OSCAL common `role`, `party`, and
+`responsible-party` assemblies. Some roles are specific to the SAP. The
 SAP tool must not assign a role ID or party ID that duplicates one used
 in the SSP.
 
@@ -871,11 +871,11 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 ### 4.6.3. CSP Testing Points of Contact
 
 The SAP\'s metadata is used to represent the CSP\'s points of contact.
-This uses the OSCAL common role, party, and responsible-party
-assemblies. In the responsible-party assembly, the party-uuid may point
-to a party in the SSP or SAP. The SAP tool must not assign a role ID or
+This uses the OSCAL common `role`, `party`, and `responsible-party`
+assemblies. In the `responsible-party` assembly, the `party-uuid` may point
+to a `party` in the SSP or SAP. The SAP tool must not assign a role ID or
 party ID that duplicates one used in the SSP. If an individual is
-already identified via a party assembly in the SSP, that individual\'s
+already identified via a `party` assembly in the SSP, that individual\'s
 information should not be duplicated in the SAP. Instead, the SAP should
 reference the SSP party ID for that individual.
 
@@ -931,7 +931,7 @@ NOTE: Replace 'person-1' with each party-uuid found in the responsible role.
 ### 4.6.4. Testing Performed Using Automated Tools
 
 Automated tools are enumerated in the assets section of the SAP using
-the tools assembly. Each tool is listed using the same component syntax
+the `component` assembly. Each tool is listed using the same component syntax
 available in the SSP.
 
 ![Test Plan](/img/sap-figure-16.png)
@@ -984,14 +984,14 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 
 **NOTES:**
 
--   OSCAL syntax requires a status field within each component assembly.
-    For FedRAMP, assessment tools state should typically be
+-   OSCAL syntax requires a `status` field within each `component` assembly.
+    For FedRAMP, assessment tools `state` should typically be
     \'operational\', otherwise a remark must be provided.
 
 ---
 ### 4.6.5. Testing Performed Through Manual Methods
 
-In OSCAL, the manual assessment methods are described in the activity
+In OSCAL, the manual assessment methods are described in the `activity`
 assembly as shown below:
 
 ![Test Plan](/img/sap-figure-17.png)
@@ -1054,12 +1054,12 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 ---
 #### Including Manual Test Methods in the OSCAL SAP Test Plan Section
 
-The FedRAMP OSCAL SAP terms-and-condition assembly, should contain a
-part with ns=\"https://fedramp.gov/ns/oscal\" name=\"manual-methods-testing\" when needed to facilitate rending of
+The FedRAMP OSCAL SAP `terms-and-condition` assembly, should contain a
+`part` with ns=\"https://fedramp.gov/ns/oscal\" name=\"manual-methods-testing\" when needed to facilitate rending of
 OSCAL SAP by tools. The insert elements can be used by tool developers
 as insertion points for data items such as test ID, test name, and test
 description if the tool is able manage them as parameters. The use of
-insert within an OSCAL part is described on the [NIST OSCAL Concepts page](https://pages.nist.gov/OSCAL/concepts/layer/control/catalog/sp800-53rev5-example/#parts). The XPath queries below show how to identify manual test information within the OSCAL SAP.
+`insert` within an OSCAL part is described on the [NIST OSCAL Concepts page](https://pages.nist.gov/OSCAL/concepts/layer/control/catalog/sp800-53rev5-example/#parts). The XPath queries below show how to identify manual test information within the OSCAL SAP.
 
 #### Representation 
 {{< highlight xml "linenos=table" >}}
@@ -1107,7 +1107,7 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 ---
 ### 4.6.6. Schedule
 
-In OSCAL, the assessment schedule is described using an array of task
+In OSCAL, the assessment schedule is described using an array of `task`
 assemblies as shown below:
 
 ![Test Plan](/img/sap-figure-18.png)
@@ -1153,7 +1153,7 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 
 **NOTES:**
 
--   In the OSCAL file, the start and end fields must use the OSCAL data
+-   In the OSCAL file, the `start` and `end` fields must use the OSCAL data
     type
     [dateTime-with-timezone](https://pages.nist.gov/OSCAL/reference/datatypes/#date-with-timezone).
 
@@ -1169,7 +1169,7 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 ### 4.7.1. Origination Addresses
 
 The scan origination IP address(es) are included in the
-assessment-platform assembly. See the next page for other disclosures.
+`assessment-platform` assembly. See the next page for other disclosures.
 
 #### Representation 
 {{< highlight xml "linenos=table" >}}
@@ -1226,7 +1226,7 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 ### 4.7.2. Disclosures
 
 The scan origination IP address(es) are included in the
-assessment-platform assembly. See the next page for other disclosures\`.
+`assessment-platform` assembly. See the next page for other disclosures\`.
 
 ![Test Plan](/img/sap-figure-19.png)
 
@@ -1270,8 +1270,8 @@ NOTE: Replace '001' with '002', '003', etc. for each sort-id based on desired or
 ### 4.7.3. Security Testing May Include 
 
 SAP authors should describe the security testing that may be included
-within the terms-and-conditions assembly, in the "included-activities"
-part and its "included-activity" sub-parts.
+within the `terms-and-conditions` assembly, in the "included-activities"
+`part` and its "included-activity" sub-parts.
 
 ![Test Plan](/img/sap-figure-20.png)
 
@@ -1323,7 +1323,7 @@ NOTE: Replace [1] as needed with [2], [3], etc.
 ### 4.7.4. Security Testing Will Not Include
 
 SAP authors should describe exclusive disclosures within the
-terms-and-conditions assembly, in the "excluded-activities" part and its
+`terms-and-conditions` assembly, in the "excluded-activities" `part` and its
 "included-activity" sub-parts.
 
 ![Test Plan](/img/sap-figure-21.png)
