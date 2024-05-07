@@ -1,6 +1,5 @@
 ---
 title: FAQs
-heading: Frequently Asked Questions
 menu:
   primary:
     name: FAQs
@@ -10,5 +9,6 @@ toc:
   enabled: true
 ---
 
-Coming Soon: List of FAQs and answers
+# Frequently Asked Questions
 
+Coming Soon: List of FAQs and answers

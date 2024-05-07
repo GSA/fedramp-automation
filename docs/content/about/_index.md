@@ -1,6 +1,5 @@
 ---
 title: More about FedRAMP OSCAL
-heading: Learn more about FedRAMP OSCAL
 menu:
   primary:
     name: About
@@ -9,9 +8,10 @@ toc:
   enabled: true
 ---
 
+# Learn more about FedRAMP OSCAL
+
 Coming Soon: Overview of FedRAMP OSCAL...
 
-# Why OSCAL at FedRAMP?
+## Why OSCAL at FedRAMP?
 
 Coming Soon: Description of FedRAMP's OSCAL adoption program
-

@@ -1,13 +1,11 @@
 ---
-title: FedRAMP OSCAL SAP Guide
-heading: FedRAMP OSCAL SAP Guide
+title: FedRAMP SAP OSCAL Guide
+weight: 60
 menu:
   primary:
     name: SAP
     parent: Documentation
     weight: 200
-toc:
-  enabled: true
 ---
 
 ## 2. FedRAMP Extensions and Allowed Values
@@ -22,7 +20,7 @@ unique needs, NIST provided designed OSCAL with the ability to be
 extended.
 
 As a result, FedRAMP-compliant OSCAL files are a combination of the core
-OSCAL syntax and extensions defined by FedRAMP. The [*Guide to OSCAL-Based FedRAMP Content*](/guides/general/)
+OSCAL syntax and extensions defined by FedRAMP. The [*Guide to OSCAL-Based FedRAMP Content*](/guides)
 describes the concepts behind FedRAMP extensions and allowed values. The
 extensions related to the Security Assessment Plan (SAP) are cited in
 this document in context of their use.

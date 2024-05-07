@@ -1,8 +1,5 @@
 ---
 title: POA&M Template to OSCAL Mapping
-section: /poam/
-toc:
-  enabled: true
 weight: 102
 ---
 
@@ -21,7 +18,7 @@ includes:
     Findings syntax in the SAR.
 
 {{<callout>}}
-This guide assumes tool developers are already familiar with the [Guide to OSCAL-based FedRAMP Content](/guides/general/).
+This guide assumes tool developers are already familiar with the [Guide to OSCAL-based FedRAMP Content](/guides).
 Instead of duplicating content from that guide, this document refers to them and only adds details that are unique to the POA&M.
 {{</callout>}}
 
@@ -30,20 +27,20 @@ Instead of duplicating content from that guide, this document refers to them and
 This is based on the Excel-based [FedRAMP POA&M Template.](https://www.fedramp.gov/assets/resources/templates/FedRAMP-POAM-Template.xlsm)
 
 Content that is common across OSCAL file types is described in the
-*[Guide to OSCAL-based FedRAMP Content](/guides/general/).*
+*[Guide to OSCAL-based FedRAMP Content](/guides).*
 This includes the following:
 
 | Topic                                         | Location                                                                                                                                                                                                                          |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Title Page**                                | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#title-page)_, Section 4.1_                                                        |
-| **Prepared By/For**                           | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-third-party)_, Section 4.2 - 4.4_                                                  |
-| **Record of Template Changes**                | Not Applicable. Instead follow [_Guide to OSCAL-based FedRAMP Content_](/guides/general/2-working-with-oscal-files/#oscal-syntax-version)_, Section 2.3.2, OSCAL Syntax Version_ |
-| **Revision History**                          | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#document-revision-history)_, Section 4.5_                                                        |
-| **How to Contact Us**                         | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#how-to-contact-us)_, Section 4.6_                                                        |
-| **Document Approvers**                        | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#document-approvals)_, Section 4.7_                                                        |
-| **Acronyms and Glossary**                     | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-standard-attachments-acronyms-lawsregulations)_, Section 4.8_                                                        |
-| **Laws, Regulations, Standards and Guidance** | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#additional-laws-regulations-standards-or-guidance)_, Section 4.9_                                                        |
-| **Attachments and Citations**                 | [_Guide to OSCAL-based FedRAMP Content_](/guides/general/4-expressing-common-fedramp-template-elements-in-oscal/#attachments-and-embedded-content)_, Section 4.10_ 
+| **Title Page**                                | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#title-page)_, Section 4.1_                                                        |
+| **Prepared By/For**                           | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-third-party)_, Section 4.2 - 4.4_                                                  |
+| **Record of Template Changes**                | Not Applicable. Instead follow [_Guide to OSCAL-based FedRAMP Content_](/guides/2-working-with-oscal-files/#oscal-syntax-version)_, Section 2.3.2, OSCAL Syntax Version_ |
+| **Revision History**                          | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#document-revision-history)_, Section 4.5_                                                        |
+| **How to Contact Us**                         | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#how-to-contact-us)_, Section 4.6_                                                        |
+| **Document Approvers**                        | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#document-approvals)_, Section 4.7_                                                        |
+| **Acronyms and Glossary**                     | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-standard-attachments-acronyms-lawsregulations)_, Section 4.8_                                                        |
+| **Laws, Regulations, Standards and Guidance** | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#additional-laws-regulations-standards-or-guidance)_, Section 4.9_                                                        |
+| **Attachments and Citations**                 | [_Guide to OSCAL-based FedRAMP Content_](/guides/4-expressing-common-fedramp-template-elements-in-oscal/#attachments-and-embedded-content)_, Section 4.10_ 
 
 **The following pages are intended to be printed landscape on tabloid (11" x 17") paper.**
 
@@ -978,7 +975,7 @@ reflecting the date the resolution was published.
 ### 4.5.5. Evidence and Artifacts
 
 All evidence collected must be attached (by relative URI path or
-embedded Base64) as a resource in the back-matter. See the [*Guide to OSCAL-based FedRAMP Content*](/guides/general/2-working-with-oscal-files/#27-citations-and-attachments-in-oscal-files),
+embedded Base64) as a resource in the back-matter. See the [*Guide to OSCAL-based FedRAMP Content*](/guides/2-working-with-oscal-files/#27-citations-and-attachments-in-oscal-files),
 *Section 2.7, Citations and Attachments in OSCAL
 Files* for more information.
 

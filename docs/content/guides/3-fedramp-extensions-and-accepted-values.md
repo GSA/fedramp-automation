@@ -1,10 +1,9 @@
 ---
 title: FedRAMP Extensions and Accepted Values
-section: /general/
-toc:
-  enabled: true
-weight: 102
+weight: 30
 ---
+
+# FedRAMP Extensions and Accepted Values
 
 NIST designed the core OSCAL syntax to meet model cybersecurity
 information that is common to any organization and compliance framework.
@@ -35,7 +34,7 @@ cybersecurity frameworks. They designed OSCAL to be extended where
 unique needs existed.
 
 {{<callout>}}
-_All FedRAMP extensions include a namespace (ns) flag set to "https://fedramp.gov/ns/oscal"._
+_All FedRAMP extensions include a namespace (ns) flag set to `https://fedramp.gov/ns/oscal`._
 {{</callout>}}
 
 NIST allows organizations to extend OSCAL anyplace `prop` fields or `part`
@@ -63,7 +62,7 @@ point in the future, NIST may provide a registry for organizational
 extensions. For now, FedRAMP is publishing its own registry to document
 its extensions.
 
-All FedRAMP extensions must have a namespace (`ns`) flag set to `"https://fedramp.gov/ns/oscal"`.
+All FedRAMP extensions must have a namespace (`ns`) flag set to `https://fedramp.gov/ns/oscal`.
 
 For example, if the core OSCAL syntax has a `status` field, but both
 FedRAMP and the payment card industry (PCI) require their own

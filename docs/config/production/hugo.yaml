@@ -1,0 +1,3 @@
+build:
+  buildStats:
+    enable: true

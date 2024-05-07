@@ -1,8 +1,5 @@
 ---
 title: Security controls
-section: /ssp/
-toc:
-  enabled: true
 weight: 105
 ---
 
