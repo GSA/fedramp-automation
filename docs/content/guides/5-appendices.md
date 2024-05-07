@@ -1,10 +1,9 @@
 ---
 title: Appendices
-section: /general/
-toc:
-  enabled: true
-weight: 104
+weight: 90
 ---
+
+# Appendices
 
 ## Appendix A. OSCAL-Based FedRAMP Baselines
 
@@ -247,7 +246,7 @@ The complete profile syntax is available here:
 
 <https://pages.nist.gov/OSCAL/concepts/layer/control/profile/>
 
-### *NIST\'s Profile Resolution Tool* 
+### *NIST\'s Profile Resolution Tool*
 
 NIST created a profile resolution specification, and built a profile
 resolution capability based on that specification. The specification can

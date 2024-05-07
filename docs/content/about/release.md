@@ -1,6 +1,5 @@
 ---
 title: Release Strategy
-heading: Release Strategy
 menu:
   primary:
     name: Release Strategy
@@ -10,5 +9,6 @@ toc:
   enabled: true
 ---
 
-Coming Soon: Description of FedRAMP's OSCAL release strategy
+# Release Strategy
 
+Coming Soon: Description of FedRAMP's OSCAL release strategy

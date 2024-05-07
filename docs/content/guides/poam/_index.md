@@ -1,13 +1,11 @@
 ---
-title: FedRAMP OSCAL POA&M Guide
-heading: FedRAMP OSCAL POA&M Guide
+title: FedRAMP POA&M OSCAL Guide
+weight: 80
 menu:
   primary:
     name: POA&M
     parent: Documentation
     weight: 500
-toc:
-  enabled: true
 ---
 
 ## 2. FedRAMP Extensions and Allowed Values
@@ -22,7 +20,7 @@ unique needs, NIST provided designed OSCAL with the ability to be
 extended.
 
 As a result, FedRAMP-compliant OSCAL files are a combination of the core
-OSCAL syntax and extensions defined by FedRAMP. The [*Guide to OSCAL-Based FedRAMP Content*](/guides/general/)
+OSCAL syntax and extensions defined by FedRAMP. The [*Guide to OSCAL-Based FedRAMP Content*](/guides)
 describes the concepts behind FedRAMP extensions and allowed values. The
 extensions related to the Plan of Action and Milestones (POA&M) are
 cited in this document in context of their use.

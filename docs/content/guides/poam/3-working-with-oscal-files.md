@@ -1,15 +1,13 @@
 ---
 title: Working with OSCAL Files
 section: /poam/
-toc:
-  enabled: true
 weight: 101
 ---
 
 This section provides a summary of several important concepts and
 details that apply to OSCAL-based FedRAMP POA&M files.
 
-The [*Guide to OSCAL-based FedRAMP Content*](/guides/general/) provides important concepts necessary for working with any OSCAL-based
+The [*Guide to OSCAL-based FedRAMP Content*](/guides) provides important concepts necessary for working with any OSCAL-based
 FedRAMP file. Familiarization with those concepts is important to understanding this guide.
 
 ## 3.1. XML and JSON Formats
@@ -52,7 +50,7 @@ in their product roadmap.
 
 _The Resolved Profile Catalog for each FedRAMP Baseline reduces tool processing._
 
-For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](guides/general/5-appendices/#appendix-c-profile-resolution) *Appendix C, Profile Resolution*.
+For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](guides/5-appendices/#appendix-c-profile-resolution) *Appendix C, Profile Resolution*.
 
 ## 3.3. OSCAL-based FedRAMP POA&M Template
 

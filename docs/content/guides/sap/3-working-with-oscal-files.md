@@ -1,15 +1,12 @@
 ---
 title: Working with OSCAL Files
-section: /sap/
-toc:
-  enabled: true
 weight: 101
 ---
 
 This section provides a summary of several important concepts and
 details that apply to OSCAL-based FedRAMP SAP files.
 
-The [*Guide to OSCAL-based FedRAMP Content*](/guides/general/)
+The [*Guide to OSCAL-based FedRAMP Content*](/guides)
 provides important concepts necessary for working with any OSCAL-based
 FedRAMP file. Familiarization with those concepts is important to
 understanding this guide.
@@ -83,7 +80,7 @@ in their product roadmap.
 *The Resolved Profile Catalog for each FedRAMP Baseline reduces tool
 processing.*
 
-For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](/guides/general/5-appendices/#profile-resolution) *Appendix C, Profile Resolution*.
+For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](/guides/5-appendices/#profile-resolution) *Appendix C, Profile Resolution*.
 
 ## 3.3. OSCAL-based FedRAMP SAP Template
 

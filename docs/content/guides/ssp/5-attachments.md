@@ -1,8 +1,5 @@
 ---
 title: Attachments
-section: /ssp/
-toc:
-  enabled: true
 weight: 104
 ---
 

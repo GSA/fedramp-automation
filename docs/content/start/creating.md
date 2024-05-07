@@ -10,7 +10,7 @@ toc:
   enabled: true
 ---
 
-The [*Guide to OSCAL-based FedRAMP Content*](/guides/general/) provides important concepts necessary for working with any OSCAL-based FedRAMP file. Familiarization with those concepts is important to understanding this guide.
+The [*Guide to OSCAL-based FedRAMP Content*](/guides) provides important concepts necessary for working with any OSCAL-based FedRAMP file. Familiarization with those concepts is important to understanding this guide.
 
 ## **XML and JSON Formats**
 The examples provided here are in XML; however, FedRAMP accepts XML or JSON formatted OSCAL-based SSP files. NIST offers a utility that provides lossless conversion of OSCAL-compliant files between XML and JSON in either direction.
@@ -42,7 +42,7 @@ Developers should be aware that at this time, catalogs and profiles remain relat
 _The Resolved Profile Catalog for each FedRAMP Baseline reduces tool processing_
 
 
-For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](/guides/general/5-appendices/#appendix-c-profile-resolution) *Appendix C, Profile Resolution*.
+For more information about resolved profile catalogs, see the [*Guide to OSCAL-based FedRAMP Content*](/guides/5-appendices/#appendix-c-profile-resolution) *Appendix C, Profile Resolution*.
 
 ## **OSCAL-based FedRAMP SSP Template**
 FedRAMP offers an OSCAL-based SSP shell file in both XML and JSON formats. This shell contains many of the FedRAMP required standards to help get you started. This document is intended to work in concert with that shell file. The OSCAL-based FedRAMP SSP Template is available in XML and JSON formats here:
@@ -78,7 +78,7 @@ Use the import-profile field to specify an existing OSCAL-based SSP. The href fl
 {{< /highlight >}}
 
 
-If the value is a URI fragment, such as #96445439-6ce1-4e22-beae-aa72cfe173d0, the value to the right of the hashtag (#) is the UUID value of a resource in the SSP file's back-matter. Refer to the [*Guide to OSCAL-based FedRAMP Content](/guides/general/2-working-with-oscal-files/#27-citations-and-attachments-in-oscal-files)*, Section 2.7, Citations and Attachments in OSCAL Files*, for guidance on handling.
+If the value is a URI fragment, such as #96445439-6ce1-4e22-beae-aa72cfe173d0, the value to the right of the hashtag (#) is the UUID value of a resource in the SSP file's back-matter. Refer to the [*Guide to OSCAL-based FedRAMP Content](/guides/2-working-with-oscal-files/#27-citations-and-attachments-in-oscal-files)*, Section 2.7, Citations and Attachments in OSCAL Files*, for guidance on handling.
 
 **SSP Back Matter Representation**
 {{< highlight xml "linenos=table" >}}

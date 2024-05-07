@@ -1,8 +1,5 @@
 ---
 title: Generated Content
-section: /ssp/
-toc:
-  enabled: true
 weight: 106
 ---
 
