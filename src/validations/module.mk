@@ -43,3 +43,35 @@ $(VALIDATIONS_DIR)/report/test/%-junit.xml: $(VALIDATIONS_DIR)/test/%.xspec
 	$(EVAL_XSPEC) $<
 
 build-validations: $(SAXON_CP) $(XSL_SCH)
+
+
+
+
+OSCAL_CLI_VERSION:=1.0.3
+OSCAL_CLI_BIN:=oscal-cli
+OSCAL_CLI_INSTALL_URL:=https://repo1.maven.org/maven2/gov/nist/secauto/oscal/tools/oscal-cli/cli-core/$(OSCAL_CLI_VERSION)/cli-core-$(OSCAL_CLI_VERSION)-oscal-cli.zip
+OSCAL_CLI_INSTALL_PATH:=./oscal-cli/bin
+OSCAL_CLI_PATH:=$(shell which $(OSCAL_CLI_BIN) > /dev/null && dirname `which $(OSCAL_CLI_BIN)` || echo $(OSCAL_CLI_INSTALL_PATH))
+SRC_DIR=./src
+
+$(OSCAL_CLI_INSTALL_PATH):
+	@echo Downloading OSCAL CLI Tool...
+	@mkdir -p $(OSCAL_CLI_INSTALL_PATH)
+	@curl $(CURL_INSTALL_OPTS) -o $(OSCAL_CLI_INSTALL_PATH)/oscal-cli.zip $(OSCAL_CLI_INSTALL_URL)
+	@unzip -o $(OSCAL_CLI_INSTALL_PATH)/oscal-cli.zip -d $(OSCAL_CLI_INSTALL_PATH)
+	@chmod +x $(OSCAL_CLI_INSTALL_PATH)/$(OSCAL_CLI_BIN)
+
+
+#
+# Validate XML with oscal-cli
+#
+.PHONY: validate-xml-by-cli
+validate-xml-by-cli: $(OSCAL_CLI_PATH) ## Validate XML files by directory using OSCAL CLI Tool
+	@find $(SRC_DIR)/content -mindepth 1 -maxdepth 1 -type d | while read example_dir; do \
+		example_type='profile'; \
+		echo "Processing content type: $$example_type"; \
+		find "$$example_dir" -name '*.xml' | while read xml_file; do \
+			echo "Validating $$xml_file with OSCAL CLI as $$example_type"; \
+			$(OSCAL_CLI_PATH)/oscal-cli "$$example_type" validate "$$xml_file"; \
+		done \
+	done
