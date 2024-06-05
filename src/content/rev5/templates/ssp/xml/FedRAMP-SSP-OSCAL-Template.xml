@@ -762,12 +762,12 @@
             <p>Email is employed</p>
          </description>
          <status state="operational"/>
-         <authorized-privilege>
+         <authorized-privilege-v2>
             <title>Request New Training - for self</title>
             <function-performed>Authorizes access to request training (for self) from the catalog.</function-performed>
             <role-id>"employee"</role-id>
-         </authorized-privilege>
-         <authorized-privilege>
+         </authorized-privilege-v2>
+         <authorized-privilege-v2>
             <title>Request New Training - for employee</title>
             <function-performed>Authorizes access to request training (for employee) from the catalog.</function-performed>
             <role-id>"manager"</role-id>
@@ -775,40 +775,40 @@
             <role-id>"hr"</role-id>
             <!-- alternatively, can associate with director user instead of role -->
             <user-uuid>ba7708c1-4041-48ab-9b7b-1ddb5e175fe0</user-uuid>
-         </authorized-privilege>
-         <authorized-privilege>
+         </authorized-privilege-v2>
+         <authorized-privilege-v2>
             <title>Approve Employee Training Request</title>
             <function-performed>Authorizes access to approve employee training requests</function-performed>
             <role-id>"manager"</role-id>
             <role-id>"director"</role-id>
             <!-- alternatively, can associate with director user instead of role -->
             <user-uuid>ba7708c1-4041-48ab-9b7b-1ddb5e175fe0</user-uuid>
-         </authorized-privilege>
-         <authorized-privilege>
+         </authorized-privilege-v2>
+         <authorized-privilege-v2>
             <title>Approve Manager Training Request</title>
             <function-performed>Authorizes access to approve manager training requests</function-performed>
             <role-id>"director"</role-id>
             <!-- alternatively, can associate with director user instead of role -->
             <user-uuid>ba7708c1-4041-48ab-9b7b-1ddb5e175fe0</user-uuid>
-         </authorized-privilege>
-         <authorized-privilege>
+         </authorized-privilege-v2>
+         <authorized-privilege-v2>
             <title>Procure Training</title>
             <function-performed>Authorizes access to set billing information</function-performed>
             <function-performed>Authorizes access to execute purchase of training modules</function-performed>
             <role-id>"accounting"</role-id>
-         </authorized-privilege>
-         <authorized-privilege>
+         </authorized-privilege-v2>
+         <authorized-privilege-v2>
             <title>Configure Training</title>
             <function-performed>Authorizes access to configure any purchased training modules in the system.</function-performed>
             <role-id>"hr"</role-id>
-         </authorized-privilege>
-         <authorized-privilege>
+         </authorized-privilege-v2>
+         <authorized-privilege-v2>
             <title>Register for Approved Training</title>
             <function-performed>Authorizes access to sign up for and take approved training modules.</function-performed>
             <role-id>"employee"</role-id>
             <role-id>"manager"</role-id>
-         </authorized-privilege>
-         <authorized-privilege>
+         </authorized-privilege-v2>
+         <authorized-privilege-v2>
             <title>View Employee Training Records</title>
             <function-performed>Authorizes access to view employee training records.</function-performed>
             <role-id>"manager"</role-id>
@@ -816,7 +816,7 @@
             <role-id>"hr"</role-id>
             <!-- alternatively, can associate with director user instead of role -->
             <user-uuid>ba7708c1-4041-48ab-9b7b-1ddb5e175fe0</user-uuid>
-         </authorized-privilege>
+         </authorized-privilege-v2>
       </component>
       <!-- SEPARATION OF DUTIES EXAMPLE-->
 
