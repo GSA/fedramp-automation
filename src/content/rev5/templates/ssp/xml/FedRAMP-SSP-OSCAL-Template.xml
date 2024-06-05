@@ -762,12 +762,12 @@
             <p>Email is employed</p>
          </description>
          <status state="operational"/>
-         <authorized-privilege uuid="c37542b9-71a5-4a69-b9f4-1c2eec5927f2">
+         <authorized-privilege>
             <title>Request New Training - for self</title>
             <function-performed>Authorizes access to request training (for self) from the catalog.</function-performed>
             <role-id>"employee"</role-id>
          </authorized-privilege>
-         <authorized-privilege uuid="db931c28-fc83-4a4d-8df6-cdbd5cb845aa">
+         <authorized-privilege>
             <title>Request New Training - for employee</title>
             <function-performed>Authorizes access to request training (for employee) from the catalog.</function-performed>
             <role-id>"manager"</role-id>
@@ -776,7 +776,7 @@
             <!-- alternatively, can associate with director user instead of role -->
             <user-uuid>ba7708c1-4041-48ab-9b7b-1ddb5e175fe0</user-uuid>
          </authorized-privilege>
-         <authorized-privilege uuid="8d04d2aa-3324-4dc7-8763-ebb9a1e1c622">
+         <authorized-privilege>
             <title>Approve Employee Training Request</title>
             <function-performed>Authorizes access to approve employee training requests</function-performed>
             <role-id>"manager"</role-id>
@@ -784,31 +784,31 @@
             <!-- alternatively, can associate with director user instead of role -->
             <user-uuid>ba7708c1-4041-48ab-9b7b-1ddb5e175fe0</user-uuid>
          </authorized-privilege>
-         <authorized-privilege uuid="14f926b9-1ea1-47ba-934e-cae36f7a2edf">
+         <authorized-privilege>
             <title>Approve Manager Training Request</title>
             <function-performed>Authorizes access to approve manager training requests</function-performed>
             <role-id>"director"</role-id>
             <!-- alternatively, can associate with director user instead of role -->
             <user-uuid>ba7708c1-4041-48ab-9b7b-1ddb5e175fe0</user-uuid>
          </authorized-privilege>
-         <authorized-privilege uuid="d99e91af-7840-4dd2-ad49-fa2c0df664b6">
+         <authorized-privilege>
             <title>Procure Training</title>
             <function-performed>Authorizes access to set billing information</function-performed>
             <function-performed>Authorizes access to execute purchase of training modules</function-performed>
             <role-id>"accounting"</role-id>
          </authorized-privilege>
-         <authorized-privilege uuid="89754c98-167c-4ec5-986c-7f1b26db772f">
+         <authorized-privilege>
             <title>Configure Training</title>
             <function-performed>Authorizes access to configure any purchased training modules in the system.</function-performed>
             <role-id>"hr"</role-id>
          </authorized-privilege>
-         <authorized-privilege uuid="5d8da3bf-6a83-4969-9af0-abfc7e94fa26">
+         <authorized-privilege>
             <title>Register for Approved Training</title>
             <function-performed>Authorizes access to sign up for and take approved training modules.</function-performed>
             <role-id>"employee"</role-id>
             <role-id>"manager"</role-id>
          </authorized-privilege>
-         <authorized-privilege uuid="924b7a37-566b-40d0-8d26-9f17ea2c33a0">
+         <authorized-privilege>
             <title>View Employee Training Records</title>
             <function-performed>Authorizes access to view employee training records.</function-performed>
             <role-id>"manager"</role-id>
