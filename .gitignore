@@ -13,6 +13,7 @@ src/validations/lib/**.jar
 src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
+oscal-cli
 utils
 /node_modules
 
