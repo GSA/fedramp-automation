@@ -8,5 +8,7 @@
     "federalist": "make init-repo && npm run build:validation-ui && npm run link:validation-ui",
     "link:validation-ui": "ln -sf ./src/web/dist _site"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
 }
