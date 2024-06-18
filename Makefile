@@ -5,7 +5,6 @@ help:
 
 # Most of the real work of the build is in sub-project Makefiles.
 include src/content/module.mk
-include src/examples/module.mk
 include src/validations/module.mk
 include src/web/module.mk
 
@@ -24,7 +23,7 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 	@echo "Cleaning dist..."
 	git clean -xfd dist
 
-test: test-validations test-web test-examples validate-xml-by-cli ## Test all
+test: test-validations test-web validate-xml-by-cli ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
 	# Copy validations
