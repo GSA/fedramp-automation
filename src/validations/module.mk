@@ -53,7 +53,7 @@ OSCAL_CLI_VERSION:=1.0.3
 OSCAL_CLI_BIN:=oscal-cli
 OSCAL_CLI_INSTALL_URL:=https://repo1.maven.org/maven2/gov/nist/secauto/oscal/tools/oscal-cli/cli-core/$(OSCAL_CLI_VERSION)/cli-core-$(OSCAL_CLI_VERSION)-oscal-cli.zip
 OSCAL_CLI_INSTALL_PATH:=./oscal-cli/
-OSCAL_CLI_PATH:=$(shell which $(OSCAL_CLI_BIN) > /dev/null && dirname `which $(OSCAL_CLI_BIN)` || echo $(OSCAL_CLI_INSTALL_PATH))
+OSCAL_CLI_PATH:=$(shell which $(OSCAL_CLI_BIN) > /dev/null && dirname `dirname \`which $(OSCAL_CLI_BIN)\`` || echo $(OSCAL_CLI_INSTALL_PATH))
 SRC_DIR=./src
 
 $(OSCAL_CLI_INSTALL_PATH):
@@ -73,6 +73,6 @@ validate-xml-by-cli: $(OSCAL_CLI_PATH) ## Validate XML files by directory using 
 			example_type=$$(echo "$$(basename $$xml_file)" | awk -F'[_.]' '{print $$(NF-1)}'); \
 			echo "Processing content type: $$example_type"; \
 			echo "Validating $$xml_file with OSCAL CLI as $$example_type"; \
-			$(OSCAL_CLI_PATH)/bin/oscal-cli "$$example_type" validate "$$xml_file"; \
+			$(OSCAL_CLI_PATH)/bin/$(OSCAL_CLI_BIN) "$$example_type" validate "$$xml_file"; \
 		done \
 	done
