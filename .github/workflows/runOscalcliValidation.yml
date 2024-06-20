@@ -24,22 +24,50 @@ jobs:
       - name: Validate XML SRC files
         uses: oscal-club/oscal-cli-action@v1.0.4
         with:
-          args: profile validate src/content/rev5/baselines/xml/*.xml
+          args: |
+            for file in src/content/rev5/baselines/xml/*.xml; do
+              filename=$(basename "$file")
+              example_type=$(echo "$filename" | sed -E 's/.*[-_](profile|catalog)(-min)?\.xml/\1/')
+              echo "Processing content type: $example_type"
+              echo "Validating $file with OSCAL CLI as $example_type (XML format)"
+              oscal-cli "$example_type" validate "$file"
+            done
 
       - name: Validate XML DIST files
         uses: oscal-club/oscal-cli-action@v1.0.4
         with:
-          args: profile validate dist/content/rev5/baselines/xml/*.xml
+          args: |
+            for file in dist/content/rev5/baselines/xml/*.xml; do
+              filename=$(basename "$file")
+              example_type=$(echo "$filename" | sed -E 's/.*[-_](profile|catalog)(-min)?\.xml/\1/')
+              echo "Processing content type: $example_type"
+              echo "Validating $file with OSCAL CLI as $example_type (XML format)"
+              oscal-cli "$example_type" validate "$file"
+            done
 
       - name: Validate JSON files
         uses: oscal-club/oscal-cli-action@v1.0.4
         with:
-          args: profile validate dist/content/rev5/baselines/json/*.json
+          args: |
+            for file in dist/content/rev5/baselines/json/*.json; do
+              filename=$(basename "$file")
+              example_type=$(echo "$filename" | sed -E 's/.*[-_](profile|catalog)(-min)?\.json/\1/')
+              echo "Processing content type: $example_type"
+              echo "Validating $file with OSCAL CLI as $example_type (JSON format)"
+              oscal-cli "$example_type" validate "$file"
+            done
 
       - name: Validate YAML files
         uses: oscal-club/oscal-cli-action@v1.0.4
         with:
-          args: profile validate dist/content/rev5/baselines/yaml/*.yaml
+          args: |
+            for file in dist/content/rev5/baselines/yaml/*.yaml; do
+              filename=$(basename "$file")
+              example_type=$(echo "$filename" | sed -E 's/.*[-_](profile|catalog)(-min)?\.ya?ml/\1/')
+              echo "Processing content type: $example_type"
+              echo "Validating $file with OSCAL CLI as $example_type (YAML format)"
+              oscal-cli "$example_type" validate "$file"
+            done
 
       - name: Upload Validation Report
         uses: actions/upload-artifact@v3
