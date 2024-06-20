@@ -23,7 +23,7 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 	@echo "Cleaning dist..."
 	git clean -xfd dist
 
-test: test-validations test-webv ## Test all
+test: test-validations test-web ## Test all
 
 validate-content: validate-by-cli FORMAT=all # Validate Content
 
