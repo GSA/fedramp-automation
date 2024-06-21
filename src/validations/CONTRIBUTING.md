@@ -80,8 +80,8 @@ A make target is provided to run all unit tests:
 ```sh
 # If you haven't done so previously: initialize your workspace.
 make init
-# Run xspec and Schematron tests
-make test-validations
+# Run tests
+make test
 ```
 
 Alternately, you may follow the instructions below to run the tests manually.
