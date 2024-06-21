@@ -2,7 +2,11 @@ name: Run OSCAL CLI Validation
 
 on:
   pull_request:
-    branches: [ main, master ]  # Adjust these branch names as needed
+    branches:
+    - main
+    - develop
+    - release/* # for gitflow
+    - feature/* # also for gitflow
   workflow_dispatch:  # Keeps the manual trigger option
  
 jobs:
