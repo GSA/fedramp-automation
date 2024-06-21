@@ -26,7 +26,7 @@ jobs:
           java-version: '11'
 
       - name: Validate XML SRC files
-        run: make validate-by-cli FORMAT=src-xml
+        run: make validate-by-cli
 
       # - name: Validate XML DIST files
       #   run: make validate-by-cli FORMAT=xml

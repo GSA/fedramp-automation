@@ -79,8 +79,7 @@ validate-by-cli: $(OSCAL_CLI_PATH) ## Validate files using OSCAL CLI Tool. Usage
 		$(MAKE) validate-content-yaml-by-cli; \
 	fi
 	@if [ "$(FORMAT)" = "" ]; then \
-		echo "Please specify a FORMAT: json, xml, yaml,src-xml, or all"; \
-		exit 1; \
+		$(MAKE) validate-src-xml-by-cli; \
 	fi
 
 .PHONY: validate-content-json-by-cli
