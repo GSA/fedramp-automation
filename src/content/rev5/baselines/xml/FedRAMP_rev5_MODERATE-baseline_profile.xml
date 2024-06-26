@@ -2414,15 +2414,9 @@
 	</modify>
 	<back-matter>
 		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
-<<<<<<< HEAD
-			<title>NIST Special Publication (SP) 800-53</title>
-			<prop name="version" value="5.1.1"/>
-			<rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
-=======
 			<title>FedRAMP Modified NIST Special Publication (SP) 800-53 revision 5</title>
 			<prop name="version" value="5.1.1"/>
 			<rlink media-type="application/oscal+xml" href="FedRAMP_rev5_catalog_tailoring_profile.xml"/>
->>>>>>> 090975a4 (Fix high, moderate, and low profile issues)
 		</resource>
 	</back-matter>
 </profile>
