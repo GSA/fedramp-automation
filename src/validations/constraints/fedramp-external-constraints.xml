@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <!-- ================== -->
+    <!-- FedRAMP Extensions -->
+    <!-- ================== -->
+    <context>
+        <metapath target="/catalog//control"/>
+        <metapath target="/assessment-plan/local-definitions/objectives-and-methods"/>
+        <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
+
+        <constraints>
+            <matches id="prop-response-point-matches-string" target=".//part/prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']/@value" datatype="string"/>
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+                <message>Duplicate reponse point at '{ path(.) }'.</message>
+            </expect>
+            <remarks>
+                <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
+                <p>For control statements, it signals to the CSP which statements require a response in the SSP.</p>
+                <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
+             </remarks>
+        </constraints>
+</context>
+</metaschema-meta-constraints>
