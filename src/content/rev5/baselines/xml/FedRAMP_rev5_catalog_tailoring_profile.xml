@@ -2,7 +2,7 @@
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="2ef3cdd1-6928-494b-b2ef-593e774fae38">
 	<metadata>
-		<title>FedRAMP Rev 5 High Baseline</title>
+		<title>FedRAMP tailoring of NIST Special Publication (SP) 800-53 revision 5</title>
 		<published>2024-06-24T00:00:00Z</published>
 		<last-modified>2024-06-24T00:00:00Z</last-modified>
 		<version>5.1.1+fedramp-20240624-0</version>
