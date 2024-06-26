@@ -15,13 +15,13 @@
         <metapath target="/plan-of-action-and-milestones"/>
 
         <constraints>
-            <is-unique target="document-id">
+            <is-unique id="unique-document-id" target="document-id">
             	<formal-name>Unique Document Identifier</formal-name>
             	<description>Ensure all document identifiers have a unique combination of @scheme and value.</description>
                 <key-field target="@scheme"/>
                 <key-field target="."/>
             </is-unique>
-            <is-unique target="//prop">
+            <is-unique id="unique-property-in-context-location" target="//prop">
             	<formal-name>Unique Properties</formal-name>
             	<description>Ensure all properties are unique for a given location using a unique combination of @ns, @name, @class. @group. and @value.</description>
                 <key-field target="path(..)"/>
@@ -31,7 +31,7 @@
                 <key-field target="@group"/>
                 <key-field target="@value"/>
             </is-unique>
-            <is-unique target="//link">
+            <is-unique id="unique-link-in-context-location" target="//link">
             	<formal-name>Unique Links</formal-name>
             	<description>Ensure all links are unique for a given location using a unique combination of @href, @rel, and @media-type.</description>
                 <key-field target="path(..)"/>
@@ -39,8 +39,8 @@
                 <key-field target="@rel"/>
                 <key-field target="@media-type"/>
             </is-unique>
-            <is-unique target="//(responsible-party|responsible-role)">
-            	<formal-name>Unique Links</formal-name>
+            <is-unique id="unique-responsibility-in-context-location" target="//(responsible-party|responsible-role)">
+            	<formal-name>Unique Responsibilities</formal-name>
             	<description>Ensure all responsible-roles and responsible-parties are unique for a given location using a unique combination of @role-id and the combination of @party-uuid values.</description>
                 <key-field target="path(..)"/>
                 <key-field target="@role-id"/>
