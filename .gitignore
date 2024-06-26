@@ -5,6 +5,7 @@ _site
 .vscode
 *.DS_Store
 *.code-workspace
+node_modules/
 dist/validations
 dist/web
 documents/source
@@ -14,6 +15,9 @@ src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
 utils
+
+# Hugo Files
+/docs/public
 
 # XSpec reports (from OxygenXML XSpec use)
 src/validations/test/rules/poam-result.html
