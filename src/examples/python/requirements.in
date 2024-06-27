@@ -1,4 +1,0 @@
-black
-mypy
-pip-tools
-pytest

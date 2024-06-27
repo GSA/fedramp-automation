@@ -1,0 +1,38 @@
+name: Run OSCAL CLI Validation
+
+on:
+  pull_request:
+    branches:
+    - main
+    - develop
+    - release/* # for gitflow
+    - feature/* # also for gitflow
+  workflow_dispatch:  # Keeps the manual trigger option
+ 
+jobs:
+  run-oscal-cli-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Validate XML SRC files
+        run: make validate-by-cli
+
+      - name: Validate XML DIST files
+        run: make validate-by-cli FORMAT=xml
+
+      # - name: Validate JSON files
+      #   run: make validate-by-cli FORMAT=json
+
+      # - name: Validate YAML files
+      #   run: make validate-by-cli FORMAT=yaml

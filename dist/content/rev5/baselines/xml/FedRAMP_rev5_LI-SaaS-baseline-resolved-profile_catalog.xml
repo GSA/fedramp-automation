@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="f851c7cc-dd32-4233-b0a2-9fd83f561e67">
+         uuid="c82aaef5-4ec7-48bc-830c-222910423aeb">
    <metadata>
       <title>FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
       <published>2023-08-31T00:00:00Z</published>
-      <last-modified>2024-01-19T14:50:30.575664-05:00</last-modified>
+      <last-modified>2024-03-07T07:56:24.04219-05:00</last-modified>
       <version>5.1.1+fedramp-20240111-0</version>
       <oscal-version>1.1.1</oscal-version>
       <link rel="resolution-source"
@@ -121,6 +121,7 @@
                <p>events that would require procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AC-01"/>
          <prop name="label" value="AC-1"/>
          <prop name="label" class="sp800-53a" value="AC-01"/>
          <prop name="sort-id" value="ac-01"/>
@@ -270,6 +271,7 @@
                <p>the frequency of account review is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AC-02"/>
          <prop name="label" value="AC-2"/>
          <prop name="label" class="sp800-53a" value="AC-02"/>
          <prop name="sort-id" value="ac-02"/>
@@ -391,6 +393,7 @@
       </control>
       <control class="SP800-53" id="ac-3">
          <title>Access Enforcement</title>
+         <prop name="label" class="zero-padded" value="AC-03"/>
          <prop name="label" value="AC-3"/>
          <prop name="label" class="sp800-53a" value="AC-03"/>
          <prop name="sort-id" value="ac-03"/>
@@ -544,6 +547,7 @@
                <p>other action to be taken when the maximum number of unsuccessful attempts is exceeded is defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AC-07"/>
          <prop name="label" value="AC-7"/>
          <prop name="label" class="sp800-53a" value="AC-07"/>
          <prop name="sort-id" value="ac-07"/>
@@ -652,6 +656,7 @@
                <p>conditions for system use to be displayed by the system before granting further access are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AC-08"/>
          <prop name="label" value="AC-8"/>
          <prop name="label" class="sp800-53a" value="AC-08"/>
          <prop name="sort-id" value="ac-08"/>
@@ -725,6 +730,7 @@
                <p>user actions that can be performed on the system without identification or authentication are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AC-14"/>
          <prop name="label" value="AC-14"/>
          <prop name="label" class="sp800-53a" value="AC-14"/>
          <prop name="sort-id" value="ac-14"/>
@@ -758,6 +764,7 @@
       </control>
       <control class="SP800-53" id="ac-17">
          <title>Remote Access</title>
+         <prop name="label" class="zero-padded" value="AC-17"/>
          <prop name="label" value="AC-17"/>
          <prop name="label" class="sp800-53a" value="AC-17"/>
          <prop name="sort-id" value="ac-17"/>
@@ -870,6 +877,7 @@
       </control>
       <control class="SP800-53" id="ac-18">
          <title>Wireless Access</title>
+         <prop name="label" class="zero-padded" value="AC-18"/>
          <prop name="label" value="AC-18"/>
          <prop name="label" class="sp800-53a" value="AC-18"/>
          <prop name="sort-id" value="ac-18"/>
@@ -914,6 +922,7 @@
       </control>
       <control class="SP800-53" id="ac-19">
          <title>Access Control for Mobile Devices</title>
+         <prop name="label" class="zero-padded" value="AC-19"/>
          <prop name="label" value="AC-19"/>
          <prop name="label" class="sp800-53a" value="AC-19"/>
          <prop name="sort-id" value="ac-19"/>
@@ -995,6 +1004,7 @@
                <p>types of external systems prohibited from use are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AC-20"/>
          <prop name="label" value="AC-20"/>
          <prop name="label" class="sp800-53a" value="AC-20"/>
          <prop name="sort-id" value="ac-20"/>
@@ -1055,6 +1065,7 @@
                <p>the frequency at which to review the content on the publicly accessible system for non-public information is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AC-22"/>
          <prop name="label" value="AC-22"/>
          <prop name="label" class="sp800-53a" value="AC-22"/>
          <prop name="sort-id" value="ac-22"/>
@@ -1231,6 +1242,7 @@
                <p>events that would require procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AT-01"/>
          <prop name="label" value="AT-1"/>
          <prop name="label" class="sp800-53a" value="AT-01"/>
          <prop name="sort-id" value="at-01"/>
@@ -1356,6 +1368,7 @@
                <p>events that would require literacy training and awareness content to be updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AT-02"/>
          <prop name="label" value="AT-2"/>
          <prop name="label" class="sp800-53a" value="AT-02"/>
          <prop name="sort-id" value="at-02"/>
@@ -1423,6 +1436,7 @@
          </part>
          <control class="SP800-53-enhancement" id="at-2.2">
             <title>Insider Threat</title>
+            <prop name="label" class="zero-padded" value="AT-02(02)"/>
             <prop name="label" value="AT-2(2)"/>
             <prop name="label" class="sp800-53a" value="AT-02(02)"/>
             <prop name="sort-id" value="at-02.02"/>
@@ -1491,6 +1505,7 @@
                <p>events that require role-based training content to be updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AT-03"/>
          <prop name="label" value="AT-3"/>
          <prop name="label" class="sp800-53a" value="AT-03"/>
          <prop name="sort-id" value="at-03"/>
@@ -1569,6 +1584,7 @@
                <p>time period for retaining individual training records is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AT-04"/>
          <prop name="label" value="AT-4"/>
          <prop name="label" class="sp800-53a" value="AT-04"/>
          <prop name="sort-id" value="at-04"/>
@@ -1675,6 +1691,7 @@
                <p>events that would require audit and accountability procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-01"/>
          <prop name="label" value="AU-1"/>
          <prop name="label" class="sp800-53a" value="AU-01"/>
          <prop name="sort-id" value="au-01"/>
@@ -1782,6 +1799,7 @@
                <p>the frequency of event types selected for logging are reviewed and updated;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-02"/>
          <prop name="label" value="AU-2"/>
          <prop name="label" class="sp800-53a" value="AU-02"/>
          <prop name="sort-id" value="au-02"/>
@@ -1858,6 +1876,7 @@
       </control>
       <control class="SP800-53" id="au-3">
          <title>Content of Audit Records</title>
+         <prop name="label" class="zero-padded" value="AU-03"/>
          <prop name="label" value="AU-3"/>
          <prop name="label" class="sp800-53a" value="AU-03"/>
          <prop name="sort-id" value="au-03"/>
@@ -1987,6 +2006,7 @@
                <p>audit log retention requirements are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-04"/>
          <prop name="label" value="AU-4"/>
          <prop name="label" class="sp800-53a" value="AU-04"/>
          <prop name="sort-id" value="au-04"/>
@@ -2044,6 +2064,7 @@
                <p>additional actions to be taken in the event of an audit logging process failure are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-05"/>
          <prop name="label" value="AU-5"/>
          <prop name="label" class="sp800-53a" value="AU-05"/>
          <prop name="sort-id" value="au-05"/>
@@ -2153,6 +2174,7 @@
                <p>personnel or roles to receive findings from reviews and analyses of system records is/are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-06"/>
          <prop name="label" value="AU-6"/>
          <prop name="label" class="sp800-53a" value="AU-06"/>
          <prop name="sort-id" value="au-06"/>
@@ -2272,6 +2294,7 @@
                <p>granularity of time measurement for audit record timestamps is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-08"/>
          <prop name="label" value="AU-8"/>
          <prop name="label" class="sp800-53a" value="AU-08"/>
          <prop name="sort-id" value="au-08"/>
@@ -2308,6 +2331,7 @@
                <p>personnel or roles to be alerted upon detection of unauthorized access, modification, or deletion of audit information is/are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-09"/>
          <prop name="label" value="AU-9"/>
          <prop name="label" class="sp800-53a" value="AU-09"/>
          <prop name="sort-id" value="au-09"/>
@@ -2362,6 +2386,7 @@
                <p>a time period to retain audit records that is consistent with the records retention policy is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-11"/>
          <prop name="label" value="AU-11"/>
          <prop name="label" class="sp800-53a" value="AU-11"/>
          <prop name="sort-id" value="au-11"/>
@@ -2411,6 +2436,7 @@
                <p>personnel or roles allowed to select the event types that are to be logged by specific components of the system is/are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="AU-12"/>
          <prop name="label" value="AU-12"/>
          <prop name="label" class="sp800-53a" value="AU-12"/>
          <prop name="sort-id" value="au-12"/>
@@ -2530,6 +2556,7 @@
                <p>events that would require assessment, authorization, and monitoring procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-01"/>
          <prop name="label" value="CA-1"/>
          <prop name="label" class="sp800-53a" value="CA-01"/>
          <prop name="sort-id" value="ca-01"/>
@@ -2623,6 +2650,7 @@
                <p>individuals or roles to whom control assessment results are to be provided are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-02"/>
          <prop name="label" value="CA-2"/>
          <prop name="label" class="sp800-53a" value="CA-02"/>
          <prop name="sort-id" value="ca-02"/>
@@ -2809,6 +2837,7 @@
          </part>
          <control class="SP800-53-enhancement" id="ca-2.1">
             <title>Independent Assessors</title>
+            <prop name="label" class="zero-padded" value="CA-02(01)"/>
             <prop name="label" value="CA-2(1)"/>
             <prop name="label" class="sp800-53a" value="CA-02(01)"/>
             <prop name="sort-id" value="ca-02.01"/>
@@ -2865,6 +2894,7 @@
                <p>the frequency at which to review and update agreements is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-03"/>
          <prop name="label" value="CA-3"/>
          <prop name="label" class="sp800-53a" value="CA-03"/>
          <prop name="sort-id" value="ca-03"/>
@@ -3013,6 +3043,7 @@
                <p>the frequency at which to update an existing plan of action and milestones based on the findings from control assessments, independent audits or reviews, and continuous monitoring activities is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-05"/>
          <prop name="label" value="CA-5"/>
          <prop name="label" class="sp800-53a" value="CA-05"/>
          <prop name="sort-id" value="ca-05"/>
@@ -3065,6 +3096,7 @@
                <p>frequency at which to update the authorizations is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-06"/>
          <prop name="label" value="CA-6"/>
          <prop name="label" class="sp800-53a" value="CA-06"/>
          <prop name="sort-id" value="ca-06"/>
@@ -3246,6 +3278,7 @@
                <p>frequency at which the privacy status of the system is reported is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-07"/>
          <prop name="label" value="CA-7"/>
          <prop name="label" class="sp800-53a" value="CA-07"/>
          <prop name="sort-id" value="ca-07"/>
@@ -3466,6 +3499,7 @@
          </part>
          <control class="SP800-53-enhancement" id="ca-7.4">
             <title>Risk Monitoring</title>
+            <prop name="label" class="zero-padded" value="CA-07(04)"/>
             <prop name="label" value="CA-7(4)"/>
             <prop name="label" class="sp800-53a" value="CA-07(04)"/>
             <prop name="sort-id" value="ca-07.04"/>
@@ -3578,6 +3612,7 @@
                <p>systems or system components on which penetration testing is to be conducted are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-08"/>
          <prop name="label" value="CA-8"/>
          <prop name="label" class="sp800-53a" value="CA-08"/>
          <prop name="sort-id" value="ca-08"/>
@@ -3663,6 +3698,7 @@
                <p>frequency at which to review the continued need for each internal connection is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CA-09"/>
          <prop name="label" value="CA-9"/>
          <prop name="label" class="sp800-53a" value="CA-09"/>
          <prop name="sort-id" value="ca-09"/>
@@ -3866,6 +3902,7 @@
                <p>events that would require configuration management procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CM-01"/>
          <prop name="label" value="CM-1"/>
          <prop name="label" class="sp800-53a" value="CM-01"/>
          <prop name="sort-id" value="cm-01"/>
@@ -3955,6 +3992,7 @@
                <p>the circumstances requiring baseline configuration review and update are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CM-02"/>
          <prop name="label" value="CM-2"/>
          <prop name="label" class="sp800-53a" value="CM-02"/>
          <prop name="sort-id" value="cm-02"/>
@@ -4018,6 +4056,7 @@
       </control>
       <control class="SP800-53" id="cm-4">
          <title>Impact Analyses</title>
+         <prop name="label" class="zero-padded" value="CM-04"/>
          <prop name="label" value="CM-4"/>
          <prop name="label" class="sp800-53a" value="CM-04"/>
          <prop name="sort-id" value="cm-04"/>
@@ -4110,6 +4149,7 @@
       </control>
       <control class="SP800-53" id="cm-5">
          <title>Access Restrictions for Change</title>
+         <prop name="label" class="zero-padded" value="CM-05"/>
          <prop name="label" value="CM-5"/>
          <prop name="label" class="sp800-53a" value="CM-05"/>
          <prop name="sort-id" value="cm-05"/>
@@ -4233,6 +4273,7 @@
                <p>operational requirements necessitating approval of deviations are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CM-06"/>
          <prop name="label" value="CM-6"/>
          <prop name="label" class="sp800-53a" value="CM-06"/>
          <prop name="sort-id" value="cm-06"/>
@@ -4447,6 +4488,7 @@
                <p>services to be prohibited or restricted are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CM-07"/>
          <prop name="label" value="CM-7"/>
          <prop name="label" class="sp800-53a" value="CM-07"/>
          <prop name="sort-id" value="cm-07"/>
@@ -4515,6 +4557,7 @@
                <p>frequency at which to review and update the system component inventory is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CM-08"/>
          <prop name="label" value="CM-8"/>
          <prop name="label" class="sp800-53a" value="CM-08"/>
          <prop name="sort-id" value="cm-08"/>
@@ -4662,6 +4705,7 @@
       </control>
       <control class="SP800-53" id="cm-10">
          <title>Software Usage Restrictions</title>
+         <prop name="label" class="zero-padded" value="CM-10"/>
          <prop name="label" value="CM-10"/>
          <prop name="label" class="sp800-53a" value="CM-10"/>
          <prop name="sort-id" value="cm-10"/>
@@ -4724,6 +4768,7 @@
                <p>frequency with which to monitor compliance is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CM-11"/>
          <prop name="label" value="CM-11"/>
          <prop name="label" class="sp800-53a" value="CM-11"/>
          <prop name="sort-id" value="cm-11"/>
@@ -4838,6 +4883,7 @@
                <p>events that would require procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CP-01"/>
          <prop name="label" value="CP-1"/>
          <prop name="label" class="sp800-53a" value="CP-01"/>
          <prop name="sort-id" value="cp-01"/>
@@ -4961,6 +5007,7 @@
                <p>key contingency organizational elements to communicate changes to are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CP-02"/>
          <prop name="label" value="CP-2"/>
          <prop name="label" class="sp800-53a" value="CP-02"/>
          <prop name="sort-id" value="cp-02"/>
@@ -5109,6 +5156,7 @@
                <p>events necessitating review and update of contingency training are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CP-03"/>
          <prop name="label" value="CP-3"/>
          <prop name="label" class="sp800-53a" value="CP-03"/>
          <prop name="sort-id" value="cp-03"/>
@@ -5195,6 +5243,7 @@
                <p>tests for determining readiness to execute the contingency plan are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CP-04"/>
          <prop name="label" value="CP-4"/>
          <prop name="label" class="sp800-53a" value="CP-04"/>
          <prop name="sort-id" value="cp-04"/>
@@ -5284,6 +5333,7 @@
                <p>frequency at which to conduct backups of system documentation consistent with recovery time and recovery point objectives is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CP-09"/>
          <prop name="label" value="CP-9"/>
          <prop name="label" class="sp800-53a" value="CP-09"/>
          <prop name="sort-id" value="cp-09"/>
@@ -5420,6 +5470,7 @@
                <p>time period consistent with recovery time and recovery point objectives for the reconstitution of the system is determined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="CP-10"/>
          <prop name="label" value="CP-10"/>
          <prop name="label" class="sp800-53a" value="CP-10"/>
          <prop name="sort-id" value="cp-10"/>
@@ -5522,6 +5573,7 @@
                <p>events that would require identification and authentication procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IA-01"/>
          <prop name="label" value="IA-1"/>
          <prop name="label" class="sp800-53a" value="IA-01"/>
          <prop name="sort-id" value="ia-01"/>
@@ -5595,6 +5647,7 @@
       </control>
       <control class="SP800-53" id="ia-2">
          <title>Identification and Authentication (Organizational Users)</title>
+         <prop name="label" class="zero-padded" value="IA-02"/>
          <prop name="label" value="IA-2"/>
          <prop name="label" class="sp800-53a" value="IA-02"/>
          <prop name="sort-id" value="ia-02"/>
@@ -5660,6 +5713,7 @@
          </part>
          <control class="SP800-53-enhancement" id="ia-2.1">
             <title>Multi-factor Authentication to Privileged Accounts</title>
+            <prop name="label" class="zero-padded" value="IA-02(01)"/>
             <prop name="label" value="IA-2(1)"/>
             <prop name="label" class="sp800-53a" value="IA-02(01)"/>
             <prop name="sort-id" value="ia-02.01"/>
@@ -5728,6 +5782,7 @@
          </control>
          <control class="SP800-53-enhancement" id="ia-2.2">
             <title>Multi-factor Authentication to Non-privileged Accounts</title>
+            <prop name="label" class="zero-padded" value="IA-02(02)"/>
             <prop name="label" value="IA-2(2)"/>
             <prop name="label" class="sp800-53a" value="IA-02(02)"/>
             <prop name="sort-id" value="ia-02.02"/>
@@ -5758,6 +5813,7 @@
                   <choice>non-privileged accounts</choice>
                </select>
             </param>
+            <prop name="label" class="zero-padded" value="IA-02(08)"/>
             <prop name="label" value="IA-2(8)"/>
             <prop name="label" class="sp800-53a" value="IA-02(08)"/>
             <prop name="sort-id" value="ia-02.08"/>
@@ -5819,6 +5875,7 @@
          </control>
          <control class="SP800-53-enhancement" id="ia-2.12">
             <title>Acceptance of PIV Credentials</title>
+            <prop name="label" class="zero-padded" value="IA-02(12)"/>
             <prop name="label" value="IA-2(12)"/>
             <prop name="label" class="sp800-53a" value="IA-02(12)"/>
             <prop name="sort-id" value="ia-02.12"/>
@@ -5930,6 +5987,7 @@
                <p>a time period for preventing reuse of identifiers is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IA-04"/>
          <prop name="label" value="IA-4"/>
          <prop name="label" class="sp800-53a" value="IA-04"/>
          <prop name="sort-id" value="ia-04"/>
@@ -5999,6 +6057,7 @@
                <p>events that trigger the change or refreshment of authenticators are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IA-05"/>
          <prop name="label" value="IA-5"/>
          <prop name="label" class="sp800-53a" value="IA-05"/>
          <prop name="sort-id" value="ia-05"/>
@@ -6095,6 +6154,7 @@
                   <p>authenticator composition and complexity rules are defined;</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="IA-05(01)"/>
             <prop name="label" value="IA-5(1)"/>
             <prop name="label" class="sp800-53a" value="IA-05(01)"/>
             <prop name="sort-id" value="ia-05.01"/>
@@ -6152,6 +6212,7 @@
       </control>
       <control class="SP800-53" id="ia-6">
          <title>Authentication Feedback</title>
+         <prop name="label" class="zero-padded" value="IA-06"/>
          <prop name="label" value="IA-6"/>
          <prop name="label" class="sp800-53a" value="IA-06"/>
          <prop name="sort-id" value="ia-06"/>
@@ -6209,6 +6270,7 @@
       </control>
       <control class="SP800-53" id="ia-7">
          <title>Cryptographic Module Authentication</title>
+         <prop name="label" class="zero-padded" value="IA-07"/>
          <prop name="label" value="IA-7"/>
          <prop name="label" class="sp800-53a" value="IA-07"/>
          <prop name="sort-id" value="ia-07"/>
@@ -6237,6 +6299,7 @@
       </control>
       <control class="SP800-53" id="ia-8">
          <title>Identification and Authentication (Non-organizational Users)</title>
+         <prop name="label" class="zero-padded" value="IA-08"/>
          <prop name="label" value="IA-8"/>
          <prop name="label" class="sp800-53a" value="IA-08"/>
          <prop name="sort-id" value="ia-08"/>
@@ -6278,6 +6341,7 @@
          </part>
          <control class="SP800-53-enhancement" id="ia-8.1">
             <title>Acceptance of PIV Credentials from Other Agencies</title>
+            <prop name="label" class="zero-padded" value="IA-08(01)"/>
             <prop name="label" value="IA-8(1)"/>
             <prop name="label" class="sp800-53a" value="IA-08(01)"/>
             <prop name="sort-id" value="ia-08.01"/>
@@ -6358,6 +6422,7 @@
          </control>
          <control class="SP800-53-enhancement" id="ia-8.2">
             <title>Acceptance of External Authenticators</title>
+            <prop name="label" class="zero-padded" value="IA-08(02)"/>
             <prop name="label" value="IA-8(2)"/>
             <prop name="label" class="sp800-53a" value="IA-08(02)"/>
             <prop name="sort-id" value="ia-08.02"/>
@@ -6460,6 +6525,7 @@
                   <p>identity management profiles are defined;</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="IA-08(04)"/>
             <prop name="label" value="IA-8(4)"/>
             <prop name="label" class="sp800-53a" value="IA-08(04)"/>
             <prop name="sort-id" value="ia-08.04"/>
@@ -6487,6 +6553,7 @@
                <p>circumstances or situations requiring re-authentication are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IA-11"/>
          <prop name="label" value="IA-11"/>
          <prop name="label" class="sp800-53a" value="IA-11"/>
          <prop name="sort-id" value="ia-11"/>
@@ -6585,6 +6652,7 @@
                <p>events that would require the incident response procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IR-01"/>
          <prop name="label" value="IR-1"/>
          <prop name="label" class="sp800-53a" value="IR-01"/>
          <prop name="sort-id" value="ir-01"/>
@@ -6693,6 +6761,7 @@
                <p>events that initiate a review of the incident response training content are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IR-02"/>
          <prop name="label" value="IR-2"/>
          <prop name="label" class="sp800-53a" value="IR-02"/>
          <prop name="sort-id" value="ir-02"/>
@@ -6745,6 +6814,7 @@
       </control>
       <control class="SP800-53" id="ir-4">
          <title>Incident Handling</title>
+         <prop name="label" class="zero-padded" value="IR-04"/>
          <prop name="label" value="IR-4"/>
          <prop name="label" class="sp800-53a" value="IR-04"/>
          <prop name="sort-id" value="ir-04"/>
@@ -6924,6 +6994,7 @@
       </control>
       <control class="SP800-53" id="ir-5">
          <title>Incident Monitoring</title>
+         <prop name="label" class="zero-padded" value="IR-05"/>
          <prop name="label" value="IR-5"/>
          <prop name="label" class="sp800-53a" value="IR-05"/>
          <prop name="sort-id" value="ir-05"/>
@@ -6976,6 +7047,7 @@
                <p>authorities to whom incident information is to be reported are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IR-06"/>
          <prop name="label" value="IR-6"/>
          <prop name="label" class="sp800-53a" value="IR-06"/>
          <prop name="sort-id" value="ir-06"/>
@@ -7061,6 +7133,7 @@
       </control>
       <control class="SP800-53" id="ir-7">
          <title>Incident Response Assistance</title>
+         <prop name="label" class="zero-padded" value="IR-07"/>
          <prop name="label" value="IR-7"/>
          <prop name="label" class="sp800-53a" value="IR-07"/>
          <prop name="sort-id" value="ir-07"/>
@@ -7151,6 +7224,7 @@
                <p>organizational elements to which changes to the incident response plan are communicated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="IR-08"/>
          <prop name="label" value="IR-8"/>
          <prop name="label" class="sp800-53a" value="IR-08"/>
          <prop name="sort-id" value="ir-08"/>
@@ -7317,6 +7391,7 @@
                <p>events that would require the maintenance procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="MA-01"/>
          <prop name="label" value="MA-1"/>
          <prop name="label" class="sp800-53a" value="MA-01"/>
          <prop name="sort-id" value="ma-01"/>
@@ -7401,6 +7476,7 @@
                <p>information to be included in organizational maintenance records is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="MA-02"/>
          <prop name="label" value="MA-2"/>
          <prop name="label" class="sp800-53a" value="MA-02"/>
          <prop name="sort-id" value="ma-02"/>
@@ -7560,6 +7636,7 @@
       </control>
       <control class="SP800-53" id="ma-4">
          <title>Nonlocal Maintenance</title>
+         <prop name="label" class="zero-padded" value="MA-04"/>
          <prop name="label" value="MA-4"/>
          <prop name="label" class="sp800-53a" value="MA-04"/>
          <prop name="sort-id" value="ma-04"/>
@@ -7618,6 +7695,7 @@
       </control>
       <control class="SP800-53" id="ma-5">
          <title>Maintenance Personnel</title>
+         <prop name="label" class="zero-padded" value="MA-05"/>
          <prop name="label" value="MA-5"/>
          <prop name="label" class="sp800-53a" value="MA-05"/>
          <prop name="sort-id" value="ma-05"/>
@@ -7799,6 +7877,7 @@
                <p>events that would require media protection procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="MP-01"/>
          <prop name="label" value="MP-1"/>
          <prop name="label" class="sp800-53a" value="MP-01"/>
          <prop name="sort-id" value="mp-01"/>
@@ -7895,6 +7974,7 @@
                <p>personnel or roles authorized to access non-digital media is/are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="MP-02"/>
          <prop name="label" value="MP-2"/>
          <prop name="label" class="sp800-53a" value="MP-02"/>
          <prop name="sort-id" value="mp-02"/>
@@ -8033,6 +8113,7 @@
                <p>sanitization techniques and procedures to be used for sanitization prior to release for reuse are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="MP-06"/>
          <prop name="label" value="MP-6"/>
          <prop name="label" class="sp800-53a" value="MP-06"/>
          <prop name="sort-id" value="mp-06"/>
@@ -8182,6 +8263,7 @@
                <p>controls to restrict or prohibit the use of specific types of system media on systems or system components are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="MP-07"/>
          <prop name="label" value="MP-7"/>
          <prop name="label" class="sp800-53a" value="MP-07"/>
          <prop name="sort-id" value="mp-07"/>
@@ -8343,6 +8425,7 @@
                <p>events that would require the physical and environmental protection procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PE-01"/>
          <prop name="label" value="PE-1"/>
          <prop name="label" class="sp800-53a" value="PE-01"/>
          <prop name="sort-id" value="pe-01"/>
@@ -8420,6 +8503,7 @@
                <p>frequency at which to review the access list detailing authorized facility access by individuals is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PE-02"/>
          <prop name="label" value="PE-2"/>
          <prop name="label" class="sp800-53a" value="PE-02"/>
          <prop name="sort-id" value="pe-02"/>
@@ -8636,6 +8720,7 @@
                <p>frequency at which to change keys is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PE-03"/>
          <prop name="label" value="PE-3"/>
          <prop name="label" class="sp800-53a" value="PE-03"/>
          <prop name="sort-id" value="pe-03"/>
@@ -8860,6 +8945,7 @@
                <p>events or potential indication of events requiring physical access logs to be reviewed are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PE-06"/>
          <prop name="label" value="PE-6"/>
          <prop name="label" class="sp800-53a" value="PE-06"/>
          <prop name="sort-id" value="pe-06"/>
@@ -9007,6 +9093,7 @@
                <p>personnel to whom visitor access records anomalies are reported to is/are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PE-08"/>
          <prop name="label" value="PE-8"/>
          <prop name="label" class="sp800-53a" value="PE-08"/>
          <prop name="sort-id" value="pe-08"/>
@@ -9103,6 +9190,7 @@
       </control>
       <control class="SP800-53" id="pe-12">
          <title>Emergency Lighting</title>
+         <prop name="label" class="zero-padded" value="PE-12"/>
          <prop name="label" value="PE-12"/>
          <prop name="label" class="sp800-53a" value="PE-12"/>
          <prop name="sort-id" value="pe-12"/>
@@ -9186,6 +9274,7 @@
       </control>
       <control class="SP800-53" id="pe-13">
          <title>Fire Protection</title>
+         <prop name="label" class="zero-padded" value="PE-13"/>
          <prop name="label" value="PE-13"/>
          <prop name="label" class="sp800-53a" value="PE-13"/>
          <prop name="sort-id" value="pe-13"/>
@@ -9317,6 +9406,7 @@
                <p>frequency at which to monitor environmental control levels is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PE-14"/>
          <prop name="label" value="PE-14"/>
          <prop name="label" class="sp800-53a" value="PE-14"/>
          <prop name="sort-id" value="pe-14"/>
@@ -9406,6 +9496,7 @@
       </control>
       <control class="SP800-53" id="pe-15">
          <title>Water Damage Protection</title>
+         <prop name="label" class="zero-padded" value="PE-15"/>
          <prop name="label" value="PE-15"/>
          <prop name="label" class="sp800-53a" value="PE-15"/>
          <prop name="sort-id" value="pe-15"/>
@@ -9511,6 +9602,7 @@
                <p>types of system components to be authorized and controlled when exiting the facility are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PE-16"/>
          <prop name="label" value="PE-16"/>
          <prop name="label" class="sp800-53a" value="PE-16"/>
          <prop name="sort-id" value="pe-16"/>
@@ -9692,6 +9784,7 @@
                <p>events that would require procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PL-01"/>
          <prop name="label" value="PL-1"/>
          <prop name="label" class="sp800-53a" value="PL-01"/>
          <prop name="sort-id" value="pl-01"/>
@@ -9782,6 +9875,7 @@
                <p>frequency to review system security and privacy plans is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PL-02"/>
          <prop name="label" value="PL-2"/>
          <prop name="label" class="sp800-53a" value="PL-02"/>
          <prop name="sort-id" value="pl-02"/>
@@ -10266,6 +10360,7 @@
                <p>frequency for individuals to read and re-acknowledge the rules of behavior is defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PL-04"/>
          <prop name="label" value="PL-4"/>
          <prop name="label" class="sp800-53a" value="PL-04"/>
          <prop name="sort-id" value="pl-04"/>
@@ -10323,6 +10418,7 @@
          </part>
          <control class="SP800-53-enhancement" id="pl-4.1">
             <title>Social Media and External Site/Application Usage Restrictions</title>
+            <prop name="label" class="zero-padded" value="PL-04(01)"/>
             <prop name="label" value="PL-4(1)"/>
             <prop name="label" class="sp800-53a" value="PL-04(01)"/>
             <prop name="sort-id" value="pl-04.01"/>
@@ -10372,6 +10468,7 @@
                <p>frequency for review and update to reflect changes in the enterprise architecture;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PL-08"/>
          <prop name="label" value="PL-8"/>
          <prop name="label" class="sp800-53a" value="PL-08"/>
          <prop name="sort-id" value="pl-08"/>
@@ -10563,6 +10660,7 @@
       </control>
       <control class="SP800-53" id="pl-10">
          <title>Baseline Selection</title>
+         <prop name="label" class="zero-padded" value="PL-10"/>
          <prop name="label" value="PL-10"/>
          <prop name="label" class="sp800-53a" value="PL-10"/>
          <prop name="sort-id" value="pl-10"/>
@@ -10597,6 +10695,7 @@
       </control>
       <control class="SP800-53" id="pl-11">
          <title>Baseline Tailoring</title>
+         <prop name="label" class="zero-padded" value="PL-11"/>
          <prop name="label" value="PL-11"/>
          <prop name="label" class="sp800-53a" value="PL-11"/>
          <prop name="sort-id" value="pl-11"/>
@@ -10701,6 +10800,7 @@
                <p>events that would require the personnel security procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-01"/>
          <prop name="label" value="PS-1"/>
          <prop name="label" class="sp800-53a" value="PS-01"/>
          <prop name="sort-id" value="ps-01"/>
@@ -10777,6 +10877,7 @@
                <p>the frequency at which to review and update position risk designations is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-02"/>
          <prop name="label" value="PS-2"/>
          <prop name="label" class="sp800-53a" value="PS-02"/>
          <prop name="sort-id" value="ps-02"/>
@@ -10840,6 +10941,7 @@
                <p>the frequency of rescreening individuals where it is so indicated is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-03"/>
          <prop name="label" value="PS-3"/>
          <prop name="label" class="sp800-53a" value="PS-03"/>
          <prop name="sort-id" value="ps-03"/>
@@ -10953,6 +11055,7 @@
                <p>information security topics to be discussed when conducting exit interviews are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-04"/>
          <prop name="label" value="PS-4"/>
          <prop name="label" class="sp800-53a" value="PS-04"/>
          <prop name="sort-id" value="ps-04"/>
@@ -11032,6 +11135,7 @@
                <p>time period within which to notify organization-defined personnel or roles when individuals are reassigned or transferred to other positions within the organization is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-05"/>
          <prop name="label" value="PS-5"/>
          <prop name="label" class="sp800-53a" value="PS-05"/>
          <prop name="sort-id" value="ps-05"/>
@@ -11094,6 +11198,7 @@
                <p>the frequency at which to re-sign access agreements to maintain access to organizational information is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-06"/>
          <prop name="label" value="PS-6"/>
          <prop name="label" class="sp800-53a" value="PS-06"/>
          <prop name="sort-id" value="ps-06"/>
@@ -11167,6 +11272,7 @@
                <p>time period within which third-party providers are required to notify organization-defined personnel or roles of any personnel transfers or terminations of external personnel who possess organizational credentials and/or badges or who have system privileges is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-07"/>
          <prop name="label" value="PS-7"/>
          <prop name="label" class="sp800-53a" value="PS-07"/>
          <prop name="sort-id" value="ps-07"/>
@@ -11242,6 +11348,7 @@
                <p>the time period within which organization-defined personnel or roles must be notified when a formal employee sanctions process is initiated is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="PS-08"/>
          <prop name="label" value="PS-8"/>
          <prop name="label" class="sp800-53a" value="PS-08"/>
          <prop name="sort-id" value="ps-08"/>
@@ -11272,6 +11379,7 @@
       </control>
       <control class="SP800-53" id="ps-9">
          <title>Position Descriptions</title>
+         <prop name="label" class="zero-padded" value="PS-09"/>
          <prop name="label" value="PS-9"/>
          <prop name="label" class="sp800-53a" value="PS-09"/>
          <prop name="sort-id" value="ps-09"/>
@@ -11362,6 +11470,7 @@
                <p>events that would require risk assessment procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="RA-01"/>
          <prop name="label" value="RA-1"/>
          <prop name="label" class="sp800-53a" value="RA-01"/>
          <prop name="sort-id" value="ra-01"/>
@@ -11428,6 +11537,7 @@
       </control>
       <control class="SP800-53" id="ra-2">
          <title>Security Categorization</title>
+         <prop name="label" class="zero-padded" value="RA-02"/>
          <prop name="label" value="RA-2"/>
          <prop name="label" class="sp800-53a" value="RA-02"/>
          <prop name="sort-id" value="ra-02"/>
@@ -11535,6 +11645,7 @@
                <p>the frequency to update the risk assessment is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="RA-03"/>
          <prop name="label" value="RA-3"/>
          <prop name="label" class="sp800-53a" value="RA-03"/>
          <prop name="sort-id" value="ra-03"/>
@@ -11722,6 +11833,7 @@
                   <p>the frequency at which to update the supply chain risk assessment is defined;</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="RA-03(01)"/>
             <prop name="label" value="RA-3(1)"/>
             <prop name="label" class="sp800-53a" value="RA-03(01)"/>
             <prop name="sort-id" value="ra-03.01"/>
@@ -11795,6 +11907,7 @@
                <p>personnel or roles with whom information obtained from the vulnerability scanning process and control assessments is to be shared;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="RA-05"/>
          <prop name="label" value="RA-5"/>
          <prop name="label" class="sp800-53a" value="RA-05"/>
          <prop name="sort-id" value="ra-05"/>
@@ -11995,6 +12108,7 @@
                   <p>the frequency for updating the system vulnerabilities to be scanned is defined (if selected);</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="RA-05(02)"/>
             <prop name="label" value="RA-5(2)"/>
             <prop name="label" class="sp800-53a" value="RA-05(02)"/>
             <prop name="sort-id" value="ra-05.02"/>
@@ -12058,6 +12172,7 @@
          </control>
          <control class="SP800-53-enhancement" id="ra-5.11">
             <title>Public Disclosure Program</title>
+            <prop name="label" class="zero-padded" value="RA-05(11)"/>
             <prop name="label" value="RA-5(11)"/>
             <prop name="label" class="sp800-53a" value="RA-05(11)"/>
             <prop name="sort-id" value="ra-05.11"/>
@@ -12124,6 +12239,7 @@
       </control>
       <control class="SP800-53" id="ra-7">
          <title>Risk Response</title>
+         <prop name="label" class="zero-padded" value="RA-07"/>
          <prop name="label" value="RA-7"/>
          <prop name="label" class="sp800-53a" value="RA-07"/>
          <prop name="sort-id" value="ra-07"/>
@@ -12285,6 +12401,7 @@
                <p>events that would require the system and services acquisition procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SA-01"/>
          <prop name="label" value="SA-1"/>
          <prop name="label" class="sp800-53a" value="SA-01"/>
          <prop name="sort-id" value="sa-01"/>
@@ -12353,6 +12470,7 @@
       </control>
       <control class="SP800-53" id="sa-2">
          <title>Allocation of Resources</title>
+         <prop name="label" class="zero-padded" value="SA-02"/>
          <prop name="label" value="SA-2"/>
          <prop name="label" class="sp800-53a" value="SA-02"/>
          <prop name="sort-id" value="sa-02"/>
@@ -12401,6 +12519,7 @@
                <p>system development life cycle is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SA-03"/>
          <prop name="label" value="SA-3"/>
          <prop name="label" class="sp800-53a" value="SA-03"/>
          <prop name="sort-id" value="sa-03"/>
@@ -12473,6 +12592,7 @@
                <p>contract language is defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SA-04"/>
          <prop name="label" value="SA-4"/>
          <prop name="label" class="sp800-53a" value="SA-04"/>
          <prop name="sort-id" value="sa-04"/>
@@ -12567,6 +12687,7 @@
          </part>
          <control class="SP800-53-enhancement" id="sa-4.10">
             <title>Use of Approved PIV Products</title>
+            <prop name="label" class="zero-padded" value="SA-04(10)"/>
             <prop name="label" value="SA-4(10)"/>
             <prop name="label" class="sp800-53a" value="SA-04(10)"/>
             <prop name="sort-id" value="sa-04.10"/>
@@ -12611,6 +12732,7 @@
                <p>personnel or roles to distribute system documentation to is/are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SA-05"/>
          <prop name="label" value="SA-5"/>
          <prop name="label" class="sp800-53a" value="SA-05"/>
          <prop name="sort-id" value="sa-05"/>
@@ -12707,6 +12829,7 @@
                <p>privacy engineering principles are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SA-08"/>
          <prop name="label" value="SA-8"/>
          <prop name="label" class="sp800-53a" value="SA-08"/>
          <prop name="sort-id" value="sa-08"/>
@@ -12781,6 +12904,7 @@
                <p>processes, methods, and techniques employed to monitor control compliance by external service providers are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SA-09"/>
          <prop name="label" value="SA-9"/>
          <prop name="label" class="sp800-53a" value="SA-09"/>
          <prop name="sort-id" value="sa-09"/>
@@ -12929,6 +13053,7 @@
                <p>support from external providers is defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SA-22"/>
          <prop name="label" value="SA-22"/>
          <prop name="label" class="sp800-53a" value="SA-22"/>
          <prop name="sort-id" value="sa-22"/>
@@ -13080,6 +13205,7 @@
                <p>events that would require the system and communications protection procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SC-01"/>
          <prop name="label" value="SC-1"/>
          <prop name="label" class="sp800-53a" value="SC-01"/>
          <prop name="sort-id" value="sc-01"/>
@@ -13173,6 +13299,7 @@
                <p>controls to achieve the denial-of-service objective by type of denial-of-service event are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SC-05"/>
          <prop name="label" value="SC-5"/>
          <prop name="label" class="sp800-53a" value="SC-05"/>
          <prop name="sort-id" value="sc-05"/>
@@ -13269,6 +13396,7 @@
                <choice>logically</choice>
             </select>
          </param>
+         <prop name="label" class="zero-padded" value="SC-07"/>
          <prop name="label" value="SC-7"/>
          <prop name="label" class="sp800-53a" value="SC-07"/>
          <prop name="sort-id" value="sc-07"/>
@@ -13410,6 +13538,7 @@
                <choice>integrity</choice>
             </select>
          </param>
+         <prop name="label" class="zero-padded" value="SC-08"/>
          <prop name="label" value="SC-8"/>
          <prop name="label" class="sp800-53a" value="SC-08"/>
          <prop name="sort-id" value="sc-08"/>
@@ -13495,6 +13624,7 @@
                   <choice>detect changes to information</choice>
                </select>
             </param>
+            <prop name="label" class="zero-padded" value="SC-08(01)"/>
             <prop name="label" value="SC-8(1)"/>
             <prop name="label" class="sp800-53a" value="SC-08(01)"/>
             <prop name="sort-id" value="sc-08.01"/>
@@ -13568,6 +13698,7 @@
                <p>requirements for key generation, distribution, storage, access, and destruction are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SC-12"/>
          <prop name="label" value="SC-12"/>
          <prop name="label" class="sp800-53a" value="SC-12"/>
          <prop name="sort-id" value="sc-12"/>
@@ -13603,7 +13734,6 @@
          <link rel="related" href="#sa-9"/>
          <link rel="related" href="#sc-8"/>
          <link rel="related" href="#sc-11"/>
-         <link rel="related" href="#sc-12"/>
          <link rel="related" href="#sc-13"/>
          <link rel="related" href="#sc-17"/>
          <link rel="related" href="#sc-20"/>
@@ -13684,6 +13814,7 @@
                <p>types of cryptography for each specified cryptographic use are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SC-13"/>
          <prop name="label" value="SC-13"/>
          <prop name="label" class="sp800-53a" value="SC-13"/>
          <prop name="sort-id" value="sc-13"/>
@@ -13809,6 +13940,7 @@
                <p>exceptions where remote activation is to be allowed are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SC-15"/>
          <prop name="label" value="SC-15"/>
          <prop name="label" class="sp800-53a" value="SC-15"/>
          <prop name="sort-id" value="sc-15"/>
@@ -13840,6 +13972,7 @@
       </control>
       <control class="SP800-53" id="sc-20">
          <title>Secure Name/Address Resolution Service (Authoritative Source)</title>
+         <prop name="label" class="zero-padded" value="SC-20"/>
          <prop name="label" value="SC-20"/>
          <prop name="label" class="sp800-53a" value="SC-20"/>
          <prop name="sort-id" value="sc-20"/>
@@ -13875,6 +14008,7 @@
       </control>
       <control class="SP800-53" id="sc-21">
          <title>Secure Name/Address Resolution Service (Recursive or Caching Resolver)</title>
+         <prop name="label" class="zero-padded" value="SC-21"/>
          <prop name="label" value="SC-21"/>
          <prop name="label" class="sp800-53a" value="SC-21"/>
          <prop name="sort-id" value="sc-21"/>
@@ -13897,6 +14031,7 @@
       </control>
       <control class="SP800-53" id="sc-22">
          <title>Architecture and Provisioning for Name/Address Resolution Service</title>
+         <prop name="label" class="zero-padded" value="SC-22"/>
          <prop name="label" value="SC-22"/>
          <prop name="label" class="sp800-53a" value="SC-22"/>
          <prop name="sort-id" value="sc-22"/>
@@ -13933,6 +14068,7 @@
                <p>information at rest requiring protection is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SC-28"/>
          <prop name="label" value="SC-28"/>
          <prop name="label" class="sp800-53a" value="SC-28"/>
          <prop name="sort-id" value="sc-28"/>
@@ -14034,6 +14170,7 @@
                   <p>system components or media requiring cryptographic protection is/are defined;</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="SC-28(01)"/>
             <prop name="label" value="SC-28(1)"/>
             <prop name="label" class="sp800-53a" value="SC-28(01)"/>
             <prop name="sort-id" value="sc-28.01"/>
@@ -14105,6 +14242,7 @@
       </control>
       <control class="SP800-53" id="sc-39">
          <title>Process Isolation</title>
+         <prop name="label" class="zero-padded" value="SC-39"/>
          <prop name="label" value="SC-39"/>
          <prop name="label" class="sp800-53a" value="SC-39"/>
          <prop name="sort-id" value="sc-39"/>
@@ -14206,6 +14344,7 @@
                <p>events that would require the system and information integrity procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SI-01"/>
          <prop name="label" value="SI-1"/>
          <prop name="label" class="sp800-53a" value="SI-01"/>
          <prop name="sort-id" value="si-01"/>
@@ -14282,6 +14421,7 @@
                <p>time period within which to install security-relevant software updates after the release of the updates is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SI-02"/>
          <prop name="label" value="SI-2"/>
          <prop name="label" class="sp800-53a" value="SI-02"/>
          <prop name="sort-id" value="si-02"/>
@@ -14509,6 +14649,7 @@
                <p>personnel or roles to be alerted when malicious code is detected is/are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SI-03"/>
          <prop name="label" value="SI-3"/>
          <prop name="label" class="sp800-53a" value="SI-03"/>
          <prop name="sort-id" value="si-03"/>
@@ -14722,6 +14863,7 @@
                <p>a frequency for providing system monitoring to personnel or roles is defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SI-04"/>
          <prop name="label" value="SI-4"/>
          <prop name="label" class="sp800-53a" value="SI-04"/>
          <prop name="sort-id" value="si-04"/>
@@ -15005,6 +15147,7 @@
                <p>external organizations to whom security alerts, advisories, and directives are to be disseminated are defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SI-05"/>
          <prop name="label" value="SI-5"/>
          <prop name="label" class="sp800-53a" value="SI-05"/>
          <prop name="sort-id" value="si-05"/>
@@ -15046,6 +15189,7 @@
       </control>
       <control class="SP800-53" id="si-12">
          <title>Information Management and Retention</title>
+         <prop name="label" class="zero-padded" value="SI-12"/>
          <prop name="label" value="SI-12"/>
          <prop name="label" class="sp800-53a" value="SI-12"/>
          <prop name="sort-id" value="si-12"/>
@@ -15176,6 +15320,7 @@
                <p>events that require the supply chain risk management procedures to be reviewed and updated are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-01"/>
          <prop name="label" value="SR-1"/>
          <prop name="label" class="sp800-53a" value="SR-01"/>
          <prop name="sort-id" value="sr-01"/>
@@ -15264,6 +15409,7 @@
                <p>the frequency at which to review and update the supply chain risk management plan is defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-02"/>
          <prop name="label" value="SR-2"/>
          <prop name="label" class="sp800-53a" value="SR-02"/>
          <prop name="sort-id" value="sr-02"/>
@@ -15333,6 +15479,7 @@
                   <p>supply chain risk management activities are defined;</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="SR-02(01)"/>
             <prop name="label" value="SR-2(1)"/>
             <prop name="label" class="sp800-53a" value="SR-02(01)"/>
             <prop name="sort-id" value="sr-02.01"/>
@@ -15390,6 +15537,7 @@
                <p>the document identifying the selected and implemented supply chain processes and controls is defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-03"/>
          <prop name="label" value="SR-3"/>
          <prop name="label" class="sp800-53a" value="SR-03"/>
          <prop name="sort-id" value="sr-03"/>
@@ -15462,6 +15610,7 @@
                <p>acquisition strategies, contract tools, and procurement methods to protect against, identify, and mitigate supply chain risks are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-05"/>
          <prop name="label" value="SR-5"/>
          <prop name="label" class="sp800-53a" value="SR-05"/>
          <prop name="sort-id" value="sr-05"/>
@@ -15525,6 +15674,7 @@
                <p>information for which agreements and procedures are to be established are defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-08"/>
          <prop name="label" value="SR-8"/>
          <prop name="label" class="sp800-53a" value="SR-08"/>
          <prop name="sort-id" value="sr-08"/>
@@ -15584,6 +15734,7 @@
                <p>indications of the need for an inspection of systems or system components are defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-10"/>
          <prop name="label" value="SR-10"/>
          <prop name="label" class="sp800-53a" value="SR-10"/>
          <prop name="sort-id" value="sr-10"/>
@@ -15639,6 +15790,7 @@
                <p>personnel or roles to whom counterfeit system components are to be reported is/are defined (if selected);</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-11"/>
          <prop name="label" value="SR-11"/>
          <prop name="label" class="sp800-53a" value="SR-11"/>
          <prop name="sort-id" value="sr-11"/>
@@ -15679,6 +15831,7 @@
                   <p>personnel or roles requiring training to detect counterfeit system components (including hardware, software, and firmware) is/are defined;</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="SR-11(01)"/>
             <prop name="label" value="SR-11(1)"/>
             <prop name="label" class="sp800-53a" value="SR-11(01)"/>
             <prop name="sort-id" value="sr-11.01"/>
@@ -15714,6 +15867,7 @@
                   <p>system components requiring configuration control are defined;</p>
                </guideline>
             </param>
+            <prop name="label" class="zero-padded" value="SR-11(02)"/>
             <prop name="label" value="SR-11(2)"/>
             <prop name="label" class="sp800-53a" value="SR-11(02)"/>
             <prop name="sort-id" value="sr-11.02"/>
@@ -15754,6 +15908,7 @@
                <p>techniques and methods for disposing of data, documentation, tools, or system components are defined;</p>
             </guideline>
          </param>
+         <prop name="label" class="zero-padded" value="SR-12"/>
          <prop name="label" value="SR-12"/>
          <prop name="label" class="sp800-53a" value="SR-12"/>
          <prop name="sort-id" value="sr-12"/>

@@ -14,7 +14,9 @@ src/validations/lib/**.jar
 src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
+oscal-cli
 utils
+/node_modules
 
 # Hugo Files
 /docs/public
@@ -35,3 +37,4 @@ src/validations/test/rules/rev5/ssp-result.html
 src/validations/test/rules/rev4/ssp-result.html
 src/validations/test/rules/rev5/poam-result.html
 src/validations/test/rules/rev5/sar-result.html
+
