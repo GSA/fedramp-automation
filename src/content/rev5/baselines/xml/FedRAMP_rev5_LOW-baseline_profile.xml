@@ -1489,8 +1489,8 @@
         </alter>
     </modify>
 	<back-matter>
-		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
-			<title>FedRAMP Modified NIST Special Publication (SP) 800-53 revision 5</title>
+	    <resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
+	        <title>FedRAMP Modified NIST Special Publication (SP) 800-53 revision 5</title>
 			<prop name="version" value="5.1.1"/>
 			<rlink media-type="application/oscal+xml" href="FedRAMP_rev5_catalog_tailoring_profile.xml"/>
 		</resource>
