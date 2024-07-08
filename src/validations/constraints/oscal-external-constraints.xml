@@ -114,22 +114,22 @@
     <context>
         <metapath target="/profile"/>
         <constraints>
-            <let var="all-imports" expression="resolve-profile(doc(resolve-uri(import/@href)))/catalog"/>
-            <index id="profile-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge(recurse-depth($all-imports)/metadata/role ! map:entry(@id,.))?*">
+            <let var="resolved-profile" expression="resolve-profile(doc(resolve-uri(import/@href)))/catalog"/>
+            <index id="profile-metadata-role-id" name="index-imports-metadata-role-id" target="$resolved-profile/metadata/role">
             	<formal-name>In-Scope Role Identifiers</formal-name>
             	<description>An index of role identifiers that are in-scope for the profile model. Roles are collected from imported catalogs and profiles. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
                 <key-field target="@id"/>
             </index>
-            <index id="profile-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge(recurse-depth($all-imports)/metadata/location ! map:entry(@uuid,.))?*">
+            <index id="profile-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="$resolved-profile/metadata/location">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="$resolved-profile/metadata/party">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="$resolved-profile/metadata/party[@type='organization']">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge(recurse-depth($all-imports)//prop[@uuid] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="$resolved-profile//prop[@uuid]">
                 <key-field target="@uuid"/>
             </index>
         </constraints>
@@ -159,22 +159,22 @@
     <context>
         <metapath target="/component-definition"/>
         <constraints>
-            <let var="all-imports" expression="'doc(resolve-uri(import-component-definition/@href))/component-definition'"/>
-            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge(recurse-depth($all-imports)/metadata/role ! map:entry(@id,.))?*">
+            <let var="all-imports" expression="recurse-depth('doc(resolve-uri(import-component-definition/@href))/component-definition')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
             	<formal-name>In-Scope Role Identifiers</formal-name>
             	<description>An index of role identifiers that are in-scope for the component-definition model. Roles are collected from imported component-definition. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
                 <key-field target="@id"/>
             </index>
-            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="recurse-depth($all-imports)/metadata/location">
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="recurse-depth($all-imports)/metadata/party">
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="recurse-depth($all-imports)/metadata/party[@type='organization']">
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="recurse-depth($all-imports)//prop[@uuid]">
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
         </constraints>
@@ -182,22 +182,22 @@
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
-            <let var="all-imports" expression="'resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog'"/>
-            <index id="index-imports-metadata-roles" name="index-imports-metadata-role-id" target="map:merge(recurse-depth($all-imports)/metadata/role ! map:entry(@id,.))?*">
+            <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-roles" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
             	<formal-name>In-Scope Role Identifiers</formal-name>
             	<description>An index of role identifiers that are in-scope for the system-securtity-plan model. Roles are collected from imported profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
                 <key-field target="@id"/>
             </index>
-            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge(recurse-depth($all-imports)/metadata/location ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge(recurse-depth($all-imports)//prop[@uuid] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
         </constraints>
@@ -205,22 +205,22 @@
     <context>
         <metapath target="/assessment-plan"/>
         <constraints>
-            <let var="all-imports" expression="'.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog'"/>
-            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge(recurse-depth($all-imports)/metadata/role ! map:entry(@id,.))?*">
+            <let var="all-imports" expression="recurse-depth('.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
             	<formal-name>In-Scope Role Identifiers</formal-name>
             	<description>An index of role identifiers that are in-scope for the assessment-plan model. Roles are collected from imported system-securtity-plans, which in turn includes referenced profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
                 <key-field target="@id"/>
             </index>
-            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge(recurse-depth($all-imports)/metadata/location ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge(recurse-depth($all-imports)//prop[@uuid] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
         </constraints>
@@ -228,22 +228,22 @@
     <context>
         <metapath target="/assessment-results"/>
         <constraints>
-            <let var="all-imports" expression="'.[import-ap]/doc(resolve-uri(import-ap/@href))/assessment-plan|.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog'"/>
-            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge(recurse-depth($all-imports)/metadata/role ! map:entry(@id,.))?*">
+            <let var="all-imports" expression="recurse-depth('.[import-ap]/doc(resolve-uri(import-ap/@href))/assessment-plan|.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
             	<formal-name>In-Scope Role Identifiers</formal-name>
             	<description>An index of role identifiers that are in-scope for the assessment-result model. Roles are collected from imported assessment-plans, which in turn includes referenced system-securtity-plans, which in turn includes referenced profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
                 <key-field target="@id"/>
             </index>
-            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge(recurse-depth($all-imports)/metadata/location ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge(recurse-depth($all-imports)//prop[@uuid] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
         </constraints>
@@ -251,22 +251,22 @@
     <context>
         <metapath target="/plan-of-action-and-milestones"/>
         <constraints>
-            <let var="all-imports" expression="'.[import-ap]/doc(resolve-uri(import-ap/@href))/assessment-plan|.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog'"/>
-            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge(recurse-depth($all-imports)/metadata/role ! map:entry(@id,.))?*">
+            <let var="all-imports" expression="recurse-depth('.[import-ap]/doc(resolve-uri(import-ap/@href))/assessment-plan|.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
             	<formal-name>In-Scope Role Identifiers</formal-name>
             	<description>An index of role identifiers that are in-scope for the plan-of-action-and-milestones model. Roles are collected from imported system-securtity-plans, which in turn includes referenced profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
                 <key-field target="@id"/>
             </index>
-            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge(recurse-depth($all-imports)/metadata/location ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge(recurse-depth($all-imports)/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
-            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge(recurse-depth($all-imports)//prop[@uuid] ! map:entry(@uuid,.))?*">
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
             </index>
         </constraints>
