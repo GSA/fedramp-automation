@@ -31,19 +31,19 @@ jobs:
       run: npm install oscal -g
 
     - name: Produce artifacts baselines in all formats
-      run: oscal convert -f ./src/content/rev5/baselines/xml -o artifacts/content/rev5/baselines/
+      run: oscal convert -f ./src/content/rev5/baselines/xml -o ./dist/content/rev5/baselines/
 
     - name: Produce artifacts for ssp
-      run: oscal convert -f ./src/content/rev5/templates/ssp/xml -o artifacts/content/rev5/templates/ssp
+      run: oscal convert -f ./src/content/rev5/templates/ssp/xml -o ./dist/content/rev5/templates/ssp
 
     - name: Produce artifacts for poam
-      run: oscal convert -f ./src/content/rev5/templates/poam/xml -o artifacts/content/rev5/templates/poam
+      run: oscal convert -f ./src/content/rev5/templates/poam/xml -o ./dist/content/rev5/templates/poam
 
     - name: Produce artifacts for sap
-      run: oscal convert -f ./src/content/rev5/templates/sap/xml -o artifacts/content/rev5/templates/sap
+      run: oscal convert -f ./src/content/rev5/templates/sap/xml -o ./dist/content/rev5/templates/sap
 
     - name: Produce artifacts for sar
-      run: oscal convert -f ./src/content/rev5/templates/sar/xml -o artifacts/content/rev5/templates/sar
+      run: oscal convert -f ./src/content/rev5/templates/sar/xml -o ./dist/content/rev5/templates/sar
 
     - name: Resolve FedRAMP HIGH baseline profile
       run: oscal resolve -f ./src/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml -o ./dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml
@@ -72,7 +72,7 @@ jobs:
       run: |
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
-    - name: Publish Artifacts
+    - name: Publish Artifacts (gsa/Master)
       # Only do this on GSA/master
       if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
       uses: stefanzweifel/git-auto-commit-action@v4.4.1
@@ -82,7 +82,7 @@ jobs:
         commit_user_name: OSCAL GitHub Actions Bot
         commit_user_email: oscal@nist.gov
         commit_author: OSCAL GitHub Actions Bot <oscal@nist.gov>
-    - name: Publish Artifacts
+    - name: Publish Artifacts (fork/master)
       # If we are not on GSA/master publish to gh-pages to view results
       if: github.repository != env.HOME_REPO && github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v3
