@@ -63,8 +63,8 @@ jobs:
     - name: Convert Profiles to YAML
       run: oscal convert -f ./dist/content/rev5/baselines/xml/ -o ./dist/content/rev5/baselines/yaml/ -t YAML
 
-    - name: Validate xml baselines
-      run: oscal validate -f ./dist/content/rev5/baselines/xml/ -e fedramp
+    - name: Validate artifacts recursively
+      run: oscal validate -f ./dist/ -e fedramp -r
 
     - name: Setup SSH key
       # Only do this on GSA/master
