@@ -7,15 +7,13 @@ import { existsSync, readFile, readFileSync } from 'fs';
 import path, { dirname } from 'path';
 import { Log } from 'sarif';
 import { fileURLToPath } from 'url';
-import { convert } from 'oscal';
+import { convert, validateSarif } from 'oscal';
 import {
   detectOscalDocumentType,
   executeOscalCliCommand,
   installOscalCli,
   isOscalCliInstalled,
-  validateWithSarif
 } from 'oscal';
-import { sarifSchema } from 'oscal/src/schema/sarif.js';
 import { parseSarifToErrorStrings, validate, validateDefinition, validateFile } from 'oscal';
 import { parseString } from 'xml2js';
 import { setDefaultTimeout } from '@cucumber/cucumber';
@@ -97,10 +95,6 @@ When('I execute the OSCAL CLI command {string} on the document', async function 
   args.push(documentPath);
   [executionResult,executionErrors] = await executeOscalCliCommand(cmd, args);
 });
-When('I validate with sarif output on the document', async function () {
-  sarifResult = await validateWithSarif([documentPath]);
-  validateResult = parseSarifToErrorStrings(sarifResult)
-});
 
 Then('I should receive the execution result', function () {
   expect(executionResult).to.exist;
@@ -117,9 +111,6 @@ Then('I should receive the conversion result', function () {
 });
 
 
-When('I validate with metaschema extensions and sarif output on the document', async () => {
-  sarifResult = await validateWithSarif([documentPath,"-c",metaschemaDocumentPath]);
-})
 
 Then('I should receive the sarif output', () => {
  const isValid=ajv.validate(sarifSchema,sarifResult)
