@@ -7,11 +7,7 @@
     "build:validation-ui": "cd src/web && npm install && npm run build && cd ../..",
     "federalist": "make init-repo && npm run build:validation-ui && npm run link:validation-ui",
     "link:validation-ui": "ln -sf ./src/web/dist _site",
-    "test": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js",
-    "test:lib": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @lib",
-    "test:constraints": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @lib",
-    "test:ssp": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @ssp",
-    "test:common": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @common"
+    "test": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js"
   },
   "type": "module",
   "dependencies": {
