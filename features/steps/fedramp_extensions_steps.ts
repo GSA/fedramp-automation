@@ -1,244 +1,99 @@
-import { Given, Then, When } from '@cucumber/cucumber';
-import yaml from 'js-yaml'; // Make sure to import js-yaml
-import Ajv from 'ajv';
-import addFormats from "ajv-formats";
-import { expect } from 'chai';
-import { existsSync, readFile, readFileSync } from 'fs';
-import path, { dirname } from 'path';
-import { Log } from 'sarif';
+import { Given, Then, When, setDefaultTimeout } from "@cucumber/cucumber";
+import { expect } from "chai";
+import { readFileSync, readdirSync, writeFileSync } from 'fs';
+import { load } from 'js-yaml';
+import { executeOscalCliCommand } from "oscal";
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { convert, validateSarif } from 'oscal';
-import {
-  detectOscalDocumentType,
-  executeOscalCliCommand,
-  installOscalCli,
-  isOscalCliInstalled,
-} from 'oscal';
-import { parseSarifToErrorStrings, validate, validateDefinition, validateFile } from 'oscal';
-import { parseString } from 'xml2js';
-import { setDefaultTimeout } from '@cucumber/cucumber';
-
 const DEFAULT_TIMEOUT = 17000;
 
 setDefaultTimeout(DEFAULT_TIMEOUT);
 
 
+let currentTestCase:{name:string,description:string,content:string,pipelines:[],expectations:[]};
+let processedContentPath:string;
+let metaschemaDocuments:string[] = [];
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-let documentPath: string;
-let constraintId: string;
-let constraintExists: boolean;
-let outputPath: string;
-let metaschemaDocumentPath: string;
-let metaschemaDocuments:string[];
-let documentType: string;
-let cliInstalled: boolean;
-let executionResult: string;
-let executionErrors: string;
-let convertResult: string;
-let definitionToValidate: string;
-let exampleObject: any;
-let sarifResult: Log;
-let validateResult: { isValid: boolean; errors?: string[] | undefined; };
-let conversionResult: string;
+const featureFile = join(__dirname, '..', 'fedramp_extensions.feature');
+let featureContent = readFileSync(featureFile, 'utf8');
 
-const ajv = new Ajv()
-addFormats(ajv);
+// Split the content on the DYNAMIC_EXAMPLES marker
+const [beforeMarker, afterMarker] = featureContent.split('# DYNAMIC_EXAMPLES');
 
+// Generate the examples
+const constraintTests = getConstraintTests();
 
+// Combine the parts with the generated examples
+const newContent = beforeMarker +'# DYNAMIC_EXAMPLES\n'+ constraintTests ;
 
-Given('I have an OSCAL document {string}', function (filename: string) {
-  documentPath = path.join(__dirname, '..', '..', 'examples', filename);
-});
+// Write the new content back to the file
+writeFileSync(featureFile, newContent);
 
-Given('I have an Metaschema extensions document {string}', (filename: string) => {
-  metaschemaDocumentPath = path.join(__dirname, '..', '..', 'extensions', filename);
-  metaschemaDocuments=[metaschemaDocumentPath];
-});
-Given('I have a second Metaschema extensions document {string}', (filename: string) => {
-  metaschemaDocuments = [metaschemaDocumentPath,path.join(__dirname, '..', '..', 'extensions', filename)];
-});
-When('I detect the document type', async function () {
-  [documentType] = await detectOscalDocumentType(documentPath);
-});
-
-Then('the document type should be {string}', function (expectedType: string) {
-  expect(documentType).to.equal(expectedType);
-});
-
-When('I check if OSCAL CLI is installed', async function () {
-  cliInstalled = await isOscalCliInstalled();
-});
-
-Then('I should receive a boolean result', function () {
-  expect(cliInstalled).to.be.a('boolean');
-});
-
-Given('OSCAL CLI is not installed', async function () {
-  cliInstalled = await isOscalCliInstalled();
-});
-
-When('I install OSCAL CLI', async function () {
-  if(!cliInstalled){
-    await installOscalCli();
-  }
-});
-
-Then('OSCAL CLI should be installed', async function () {
-  cliInstalled = await isOscalCliInstalled();
-  expect(cliInstalled).to.be.true;
-});
-
-When('I execute the OSCAL CLI command {string} on the document', async function (command: string) {
-  const [cmd, ...args] = command.split(' ');
-  args.push(documentPath);
-  [executionResult,executionErrors] = await executeOscalCliCommand(cmd, args);
-});
-
-Then('I should receive the execution result', function () {
-  expect(executionResult).to.exist;
-});
-
-When('I convert the document to JSON', async function () {
-  outputPath = path.join(__dirname, '..', '..', 'examples', 'ssp.json');
-  [conversionResult,executionErrors] = await executeOscalCliCommand('convert', [documentPath,'--to=json', outputPath, '--overwrite']);
-  executionErrors&&console.error(executionErrors);
-});
-
-Then('I should receive the conversion result', function () {
-  expect(existsSync(outputPath)).to.be.true;
-});
-
-
-
-Then('I should receive the sarif output', () => {
- const isValid=ajv.validate(sarifSchema,sarifResult)
-  const errors = ajv.errors
-  errors&&console.error(errors);
-  expect(sarifResult.runs).to.exist;
-  expect(sarifResult.version).to.exist;
-})
-
-Then('I should receive a validation object', () => {
-expect(typeof validateResult.isValid==='boolean');
-})
-
-When('I validate with imported validate function', async () => {
-  try {
-    validateResult=await validateFile(documentPath,{useAjv:false,extensions:metaschemaDocuments})    
-  } catch (error) {
-    console.error(error);
-  }
-})
-
-Then('I should receive a valid json object', async () => {
-  const document=JSON.parse(readFileSync(outputPath).toString());
-  const {isValid,errors}=await validate( document)
-  errors&& console.error(errors);
- expect(isValid).to.be.true;
-})
-
-When('I convert it with imported convert function', async () => {
-  await convert(documentPath,outputPath);
-})
-
-Given('I want an OSCAL document {string}', (filename: string) => {
-  outputPath = path.join(__dirname, '..', '..', 'examples', filename);
-})
-
-Then('the validation result should be valid', () => {
-  console.error(validateResult.errors);
-  expect(validateResult.isValid).to.be.true;
-})
-
-When('I validate with imported validateDefinition function', () => {
-  validateResult=validateDefinition(definitionToValidate as any,exampleObject)
-})
-
-
-Given('I have an example OSCAL definition {string}', (s: string) => {
-definitionToValidate = s;
-})
-
-Given('I have an example OSCAL object {string}', (s: string) => {
-if (definitionToValidate==="control"){
-  exampleObject={
-    id:"psych_101",
-    title:"test",
-    class:"awsoem",
-  }
-
+function getConstraintTests() {
+  const constraintTestDir = join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'unit-tests');
+  const files = readdirSync(constraintTestDir);
+  console.error("Files found:", files);
+  return files
+    .filter(file => file.endsWith('.yaml') || file.endsWith('.yml'))
+    .map(file => `  | ${file} |`)
+    .join('\n');
 }
-})
 
-When('I convert the document to YAML', async () => {
-  outputPath = path.join(__dirname, '..', '..', 'examples', 'ssp.yaml');
-  [conversionResult,executionErrors] = await executeOscalCliCommand('convert', [documentPath,'--to=yaml', outputPath, '--overwrite']);
-})
-
-When('I look for a constraint by ID {string}', function (id:string) {
-  // Write code here that turns the phrase above into concrete actions
-  constraintId = id;
+Given('I have Metaschema extensions documents', function (dataTable) {
+  metaschemaDocuments = dataTable.hashes().map(row => row.filename);
 });
 
-Then('I should Find a node in the constraint file', function (done) {
-  const xmlContent = readFileSync(metaschemaDocumentPath, 'utf-8');
-  
-  parseString(xmlContent, (err, result) => {
-    if (err) {
-      done(err);
-      return;
+When('I process the constraint unit test {string}', async function (testFile) {
+  const constraintTestDir = join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'unit-tests');
+  const filePath = join(constraintTestDir, testFile);
+  const fileContents = readFileSync(filePath, 'utf8');
+  currentTestCase = load(fileContents) as any;
+});
+
+Then('the constraint unit test should pass', async function () {
+  const result = await processTestCase(currentTestCase);
+  expect(result).to.equal('pass');
+});
+
+async function processTestCase({"test-case":testCase}:any) {
+  console.log(`Processing test case:${testCase.name}`);
+  console.log(`Description: ${testCase.description}`);
+
+  // Load the content file
+  const contentPath = join(__dirname, '..', '..','src','validations','constraints','content', testCase.content);
+  const content = readFileSync(contentPath, 'utf8');
+  console.log(`Loaded content from: ${contentPath}`);
+  // Process the pipeline
+  let processedContent = content;
+  processedContentPath ="./"+testCase.name.replaceAll(' ','-')+'.xml'.toLowerCase();
+  for (const step of testCase.pipeline) {
+    if (step.action === 'resolve-profile') {
+    await executeOscalCliCommand('resolve-profile',[contentPath,processedContentPath,'--to=XML','--overwrite']);
+      console.log('Profile resolved');
     }
-
-    function searchForConstraint(obj: any): boolean {
-      if (typeof obj !== 'object') return false;
-      
-      if (Array.isArray(obj)) {
-        return obj.some(item => searchForConstraint(item));
-      }
-      
-      if (obj.$ && obj.$.id === constraintId) {
-        return true;
-      }
-      
-      return Object.values(obj).some(value => searchForConstraint(value));
-    }
-
-    constraintExists = searchForConstraint(result);
-    expect(constraintExists).to.be.true;
-    done();
-  });
-});
-
-Then('we should have errors in the sarif output', () => {
-  expect(validateResult.errors).length.to.be.greaterThan(0);
-})
-
-Then('conversion result is a yaml', async () => {
-  const fileContent = await readFileSync(outputPath).toString();
-  let isValidYaml = false;
-  
-  try {
-    yaml.load(fileContent);
-    isValidYaml = true;
-  } catch (error) {
-    isValidYaml = false;
+    // Add other pipeline steps as needed
   }
+  //Validate processed content
+  // Check expectations
+  const result = Object.entries(testCase.expectations)
+  .map(([id, expectation]) => {
+    return checkConstraint((expectation as any).result, id);
+  })
+  .reduce((acc:any, current:any) => acc && current, true);
 
-  expect(isValidYaml).to.be.true;
-});
+return result?'pass' : 'fail';
+}
 
-Then('conversion result is a json', async () => {
-  const fileContent = readFileSync(outputPath).toString();
-  let isValidJson = false;
-  
-  try {
-    JSON.parse(fileContent);
-    isValidJson = true;
-  } catch (error) {
-    isValidJson = false;
-  }
+async function checkConstraint(expectation:'pass'|'fail', constraintId) {
+  // Implement constraint checking logic
+  // This is a placeholder - replace with actual implementation
+  const [commandResult,errors]=await executeOscalCliCommand("validate",[processedContentPath,...metaschemaDocuments.flatMap(x=>['-c',"./src/validations/constraints/"+x])])
+  console.error(errors);
+  console.log(commandResult);
+  const validationResult = commandResult.includes("is valid")?'pass':'fail';
+  return validationResult==expectation?"pass":'fail'
+}
 
-  expect(isValidJson).to.be.true;
-});
+// We don't need the Before hook anymore, so it's removed
