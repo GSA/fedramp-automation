@@ -1,6 +1,6 @@
 import { Given, Then, When, setDefaultTimeout } from "@cucumber/cucumber";
 import { expect } from "chai";
-import { readFileSync, readdirSync, writeFileSync } from 'fs';
+import { readFileSync, readdirSync, writeFileSync,unlinkSync } from 'fs';
 import { load } from 'js-yaml';
 import { executeOscalCliCommand } from "oscal";
 import { dirname, join } from 'path';
@@ -63,11 +63,9 @@ async function processTestCase({"test-case":testCase}:any) {
 
   // Load the content file
   const contentPath = join(__dirname, '..', '..','src','validations','constraints','content', testCase.content);
-  const content = readFileSync(contentPath, 'utf8');
   console.log(`Loaded content from: ${contentPath}`);
   // Process the pipeline
-  let processedContent = content;
-  processedContentPath ="./"+testCase.name.replaceAll(' ','-')+'.xml'.toLowerCase();
+  processedContentPath =("./"+testCase.name.replaceAll(' ','-')+'.xml').toLowerCase();
   for (const step of testCase.pipeline) {
     if (step.action === 'resolve-profile') {
     await executeOscalCliCommand('resolve-profile',[contentPath,processedContentPath,'--to=XML','--overwrite']);
@@ -77,12 +75,12 @@ async function processTestCase({"test-case":testCase}:any) {
   }
   //Validate processed content
   // Check expectations
-  const result = Object.entries(testCase.expectations)
-  .map(([id, expectation]) => {
+  const result =await Object.entries(testCase.expectations)
+  .map(async ([id, expectation]) => {
     return checkConstraint((expectation as any).result, id);
   })
   .reduce((acc:any, current:any) => acc && current, true);
-
+unlinkSync(processedContentPath);
 return result?'pass' : 'fail';
 }
 
