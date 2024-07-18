@@ -2,7 +2,8 @@ import { Given, Then, When, setDefaultTimeout } from "@cucumber/cucumber";
 import { expect } from "chai";
 import { readFileSync, readdirSync, writeFileSync,unlinkSync } from 'fs';
 import { load } from 'js-yaml';
-import { executeOscalCliCommand } from "oscal";
+import { executeOscalCliCommand, validateFileSarif } from "oscal";
+import { validateWithSarif } from "oscal/dist/commands";
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 const DEFAULT_TIMEOUT = 17000;
@@ -66,6 +67,8 @@ async function processTestCase({"test-case":testCase}:any) {
   console.log(`Loaded content from: ${contentPath}`);
   // Process the pipeline
   processedContentPath =("./"+testCase.name.replaceAll(' ','-')+'.xml').toLowerCase();
+  if(testCase.pipeline){
+
   for (const step of testCase.pipeline) {
     if (step.action === 'resolve-profile') {
     await executeOscalCliCommand('resolve-profile',[contentPath,processedContentPath,'--to=XML','--overwrite']);
@@ -73,25 +76,49 @@ async function processTestCase({"test-case":testCase}:any) {
     }
     // Add other pipeline steps as needed
   }
+}else{
+  processedContentPath = contentPath;
+}
+
   //Validate processed content
   // Check expectations
   const result =await Object.entries(testCase.expectations)
-  .map(async ([id, expectation]) => {
-    return checkConstraint((expectation as any).result, id);
-  })
-  .reduce((acc:any, current:any) => acc && current, true);
-unlinkSync(processedContentPath);
-return result?'pass' : 'fail';
+  const sarifResponse=await validateWithSarif([processedContentPath,"--sarif-include-pass",...metaschemaDocuments.flatMap(x=>['-c',"./src/validations/constraints/"+x])])
+  if(processedContentPath!=contentPath){
+    unlinkSync(processedContentPath);
+  }
+  return checkConstraints(sarifResponse,testCase.expectations);
 }
 
-async function checkConstraint(expectation:'pass'|'fail', constraintId) {
-  // Implement constraint checking logic
-  // This is a placeholder - replace with actual implementation
-  const [commandResult,errors]=await executeOscalCliCommand("validate",[processedContentPath,...metaschemaDocuments.flatMap(x=>['-c',"./src/validations/constraints/"+x])])
-  console.error(errors);
-  console.log(commandResult);
-  const validationResult = commandResult.includes("is valid")?'pass':'fail';
-  return validationResult==expectation?"pass":'fail'
+async function checkConstraints(sarifOutput:Log,constraints:Record<string,boolean>) {
+  const {runs} = sarifOutput;
+  const [run]=runs;
+  const {results,tool}=run;
+  if(!results){
+    return 'no results in sarif output';
+  }
+  const {driver}=tool;
+  if(runs.length!=1){
+    throw ("no runs found in sarif");
+  }
+  const {rules} = runs[0].tool.driver
+  let constraintResults=[];
+  for (const {"constraint-id":constraint_id} in Object.values(constraints)){
+    const id=rules.find(x=>x.name===constraint_id).id
+    if(!id){
+      throw(id+ " rule not defined in sarif results")
+    }
+    const constraintResult=results.find(x=>x.ruleId===id);
+    
+    constraintResults.push(constraintResult.kind)
+    if(constraintResult.kind==='fail'){
+      console.error(id,"Failed")
+    }
+  }
+  if(constraintResults.includes('fail')){
+    return 'fail'
+  }
+  return 'pass'
 }
 
 // We don't need the Before hook anymore, so it's removed
