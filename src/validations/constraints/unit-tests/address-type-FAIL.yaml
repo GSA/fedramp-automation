@@ -6,3 +6,4 @@ test-case:
   expectations: # check the constraint result
   - constraint-id: address-type
     result: fail
+
