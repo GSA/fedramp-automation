@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="ece2fd2d-87f7-476a-a295-6e1ec8153771">
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="256a0381-7580-47b5-8eed-2b2a3eb59996">
     <metadata>
         <title>FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
         <published>2023-08-31T00:00:00Z</published>
-        <last-modified>2024-01-11T23:40:17Z</last-modified>
-        <version>5.1.1+fedramp-20240111-0</version>
+        <last-modified>2024-07-02T20:00:00Z</last-modified>
+        <version>5.1.1+fedramp-20240702-0</version>
         <oscal-version>1.1.1</oscal-version>
         <role id="prepared-by">
             <title>Document creator</title>
@@ -48,7 +48,7 @@
             <party-uuid>ca9ba80e-1342-4bfd-b32a-abac468c24b4</party-uuid>
         </responsible-party>
     </metadata>
-    <import href="#051a77c1-b61d-4995-8275-dacfe688d510">
+    <import href="#023794ee-3e2a-4700-ada3-e6ed14a30e1b">
         <include-controls>
             <with-id>ac-1</with-id>
             <with-id>ac-2</with-id>
@@ -1337,28 +1337,28 @@
             </add>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
-                <part id="ac-2_obj_fr" name="assessment-objective">
+                <part id="ac-2_fr_obj" name="assessment-objective" ns="https://fedramp.gov/ns/oscal">
                     <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="EXAMINE"/>
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="TEST"/>
                     <p>Determine if the organization defines information system account types to be identified and selected to support organizational missions/business functions.</p>
                 </part>
-                <part id="ac-2_asmt_fr.1" name="assessment-method">
+                <part id="ac-2_asmt_fr.1" name="assessment-method" ns="https://fedramp.gov/ns/oscal">
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" value="EXAMINE"/>
-                    <part name="assessment-objects">
+                    <part name="assessment-objects" ns="https://fedramp.gov/ns/oscal">
                         <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records.</p>
                     </part>
                 </part>
-                <part id="ac-2_asmt_fr.2" name="assessment-method">
+                <part id="ac-2_asmt_fr.2" name="assessment-method" ns="https://fedramp.gov/ns/oscal">
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" value="INTERVIEW"/>
-                    <part name="assessment-objects">
+                    <part name="assessment-objects" ns="https://fedramp.gov/ns/oscal">
                         <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities.</p>
                     </part>
                 </part>
-                <part id="ac-2_asmt_fr.3" name="assessment-method">
+                <part id="ac-2_asmt_fr.3" name="assessment-method" ns="https://fedramp.gov/ns/oscal">
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" value="TEST"/>
-                    <part name="assessment-objects">
+                    <part name="assessment-objects" ns="https://fedramp.gov/ns/oscal">
                         <p>Organizational processes for account management on the information system; automated mechanisms for implementing account management.</p>
                     </part>
                 </part>
@@ -1375,14 +1375,13 @@
         </alter>
         <!-- - - AC-7 - -  -->
         <alter control-id="ac-7">
-
             <add by-id="ac-7_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO for non-privileged users. Attestation for privileged users related to multi-factor identification and authentication.</p>
                 </part>
             </add>
@@ -1393,7 +1392,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="FED"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>FED - This is related to agency data and agency policy solution.</p>
                 </part>
             </add>
@@ -1404,7 +1403,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="FED"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>FED - This is related to agency data and agency policy solution.</p>
                 </part>
             </add>
@@ -1425,7 +1424,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - All access to Cloud SaaS are via web services and/or API. The device accessed from or whether via wired or wireless connection is out of scope. Regardless of device accessed from, must utilize approved remote access methods (AC-17), secure communication with strong encryption (SC-13), key management (SC-12), and multi-factor authentication for privileged access (IA-2[1]).</p>
                 </part>
             </add>
@@ -1437,7 +1436,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - All access to Cloud SaaS are via web service and/or API. The device accessed from is out of the scope. Regardless of device accessed from, must utilize approved remote access methods (AC-17), secure communication with strong encryption (SC-13), key management (SC-12), and multi-factor authentication for privileged access (IA-2 [1]).</p>
                 </part>
             </add>
@@ -1538,7 +1537,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Loss of availability of the audit data has been determined to have little or no impact to government business/mission needs.</p>
                 </part>
             </add>
@@ -1585,7 +1584,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Loss of availability of the audit data has been determined as little or no impact to government business/mission needs.</p>
                 </part>
             </add>
@@ -1634,7 +1633,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: There are connection(s) to external systems. Connections (if any) shall be authorized and must: 1) Identify the interface/connection. 2) Detail what data is involved and its sensitivity. 3) Determine whether the connection is one-way or bi-directional. 4) Identify how the connection is secured.</p>
                 </part>
             </add>
@@ -1646,7 +1645,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Attestation - for compliance with FedRAMP Tailored LI-SaaS Continuous Monitoring Requirements.</p>
                 </part>
             </add>
@@ -1699,7 +1698,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: There are connection(s) to external systems. Connections (if any) shall be authorized and must: 1) Identify the interface/connection. 2) Detail what data is involved and its sensitivity. 3) Determine whether the connection is one-way or bi-directional. 4) Identify how the connection is secured.</p>
                 </part>
             </add>
@@ -1742,26 +1741,26 @@
         </alter>
         <!-- - - CM-6 - -  -->
         <alter control-id="cm-6">
-
+            <remove by-id="cm-6_fr"/>
             <add by-id="cm-6_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Required - Specifically include details of least functionality.</p>
                 </part>
-                <part id="cm-6_fr" name="item">
+                <part id="cm-6_fr" name="item" ns="https://fedramp.gov/ns/oscal">
                     <title>CM-6(a) Additional FedRAMP Requirements and Guidance</title>
-                    <part id="cm-6_fr_smt.1" name="item">
+                    <part id="cm-6_fr_smt.1" name="item" ns="https://fedramp.gov/ns/oscal">
                         <prop name="label" value="Requirement 1:"/>
                         <p>The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available.</p>
                     </part>
-                    <part id="cm-6_fr_smt.2" name="item">
+                    <part id="cm-6_fr_smt.2" name="item" ns="https://fedramp.gov/ns/oscal">
                         <prop name="label" value="Requirement 2:"/>
                         <p>The service provider shall ensure that checklists for configuration settings are Security Content Automation Protocol (SCAP) (<a href="http://scap.nist.gov/">http://scap.nist.gov/</a>) validated or SCAP compatible (if validated checklists are not available).</p>
                     </part>
-                    <part id="cm-6_fr_gdn.1" name="guidance">
+                    <part id="cm-6_fr_gdn.1" name="guidance" ns="https://fedramp.gov/ns/oscal">
                         <prop name="label" value="Guidance:"/>
                         <p>Information on the USGCB checklists can be found at: <a href="https://csrc.nist.gov/Projects/United-States-Government-Configuration-Baseline">https://csrc.nist.gov/Projects/United-States-Government-Configuration-Baseline</a>.</p>
                     </part>
@@ -1792,7 +1791,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO- Not directly related to protection of the data.</p>
                 </part>
             </add>
@@ -1803,7 +1802,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Boundary is specific to SaaS environment; all access is via web services; users' machine or internal network are not contemplated. External services (SA-9), internal connection (CA-9), remote access (AC-17), and secure access (SC-12 and SC-13), and privileged authentication (IA-2[1]) are considerations.</p>
                 </part>
             </add>
@@ -1824,7 +1823,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Loss of availability of the SaaS has been determined as little or no impact to government business/mission needs.</p>
                 </part>
             </add>
@@ -1836,7 +1835,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Loss of availability of the SaaS has been determined as little or no impact to government business/mission needs.</p>
                 </part>
             </add>
@@ -1848,7 +1847,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Loss of availability of the SaaS has been determined as little or no impact to government business/mission needs.</p>
                 </part>
             </add>
@@ -1868,7 +1867,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Loss of availability of the SaaS has been determined as little or no impact to government business/mission needs.</p>
                 </part>
             </add>
@@ -1889,21 +1888,22 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO for non-privileged users. Attestation for privileged users related to multi-factor identification and authentication - specifically include description of management of service accounts.</p>
                 </part>
             </add>
         </alter>
         <!-- - - IA-2 (1) - -  -->
         <alter control-id="ia-2.1">
+            <remove by-id="ia-2.1_fr"/>
             <add by-id="ia-2.1_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
-                <part id="ia-2.1_fr" name="item">
+                <part id="ia-2.1_fr" name="item" ns="https://fedramp.gov/ns/oscal">
                     <title>IA-2(1) Additional FedRAMP Requirements and Guidance</title>
-                    <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                    <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                         <p>FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported. The implementation status and details of how this control is implemented must be clearly defined by the CSP.</p>
                     </part>
                 </part>
@@ -1939,7 +1939,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part id="ia-2.12_obj_fr" name="objective">
+                <part id="ia-2.12_fr_obj" name="assessment-objective" ns="https://fedramp.gov/ns/oscal">
                     <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="EXAMINE"/>
                     <prop ns="https://fedramp.gov/ns/oscal" name="method" class="fedramp" value="INTERVIEW"/>
@@ -2015,7 +2015,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported. The implementation status and details of how this control is implemented must be clearly defined by the CSP.</p>
                 </part>
             </add>
@@ -2028,7 +2028,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported. The implementation status and details of how this control is implemented must be clearly defined by the CSP.</p>
                 </part>
             </add>
@@ -2110,7 +2110,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Attestation - Specifically attest to US-CERT compliance.</p>
                 </part>
             </add>
@@ -2132,7 +2132,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2154,7 +2154,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2176,7 +2176,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2189,7 +2189,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2202,7 +2202,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2225,7 +2225,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2239,21 +2239,20 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
         </alter>
         <!-- - - PE-6 - -  -->
         <alter control-id="pe-6">
-
             <add by-id="pe-6_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2267,7 +2266,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2280,7 +2279,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2293,27 +2292,28 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
         </alter>
         <!-- - - PE-14 - -  -->
         <alter control-id="pe-14">
+            <remove by-id="pe-14_fr"/>
             <add by-id="pe-14_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
             <add by-id="pe-14_smt" position="ending">
-                <part id="pe-14_fr" name="item">
+                <part id="pe-14_fr" name="item" ns="https://fedramp.gov/ns/oscal">
                     <title>PE-14(a) Additional FedRAMP Requirements and Guidance</title>
-                    <part id="pe-14_fr_smt.a" name="item">
+                    <part id="pe-14_fr_smt.a" name="item" ns="https://fedramp.gov/ns/oscal">
                         <prop name="label" value="(a) Requirement:"/>
                         <p>The service provider measures temperature at server inlets and humidity levels by dew point.</p>
                     </part>
@@ -2328,7 +2328,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2341,7 +2341,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
                 </part>
             </add>
@@ -2470,7 +2470,7 @@
 
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Attestation - Specifically stating that any third-party security personnel are treated as CSP employees.</p>
                 </part>
             </add>
@@ -2665,7 +2665,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: If availability is a requirement, define protections in place as per control requirement.</p>
                 </part>
             </add>
@@ -2717,7 +2717,7 @@
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Condition: If implementing need to detail how they meet it or don't meet it.</p>
                 </part>
             </add>
@@ -2728,7 +2728,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>NSO - Not directly related to the security of the SaaS.</p>
                 </part>
             </add>
@@ -2838,7 +2838,7 @@
             <remove by-name="assessment-method"/>
             <add position="ending">
                 <prop ns="https://fedramp.gov/ns/oscal" name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
-                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
+                <part name="guidance" class="FedRAMP-Tailored-LI-SaaS"  ns="https://fedramp.gov/ns/oscal">
                     <p>Attestation - Specifically related to US-CERT and FedRAMP communications procedures.</p>
                 </part>
             </add>
@@ -2955,10 +2955,17 @@
             <prop name="type" value="logo"/>
             <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
         </resource>
-        <resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
+        <!-- 
+        <resource uuid="023794ee-3e2a-4700-ada3-e6ed14a30e1b">
             <title>NIST Special Publication (SP) 800-53</title>
             <prop name="version" value="5.1.1"/>
             <rlink media-type="application/oscal+xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
+        </resource>
+        -->
+        <resource uuid="023794ee-3e2a-4700-ada3-e6ed14a30e1b">
+            <title>NIST Special Publication (SP) 800-53</title>
+            <prop name="version" value="5.1.1"/>
+            <rlink media-type="application/oscal+xml" href="FedRAMP_rev5_catalog_tailoring_profile.xml"/>
         </resource>
     </back-matter>
 </profile>
