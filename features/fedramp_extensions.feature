@@ -12,3 +12,4 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
 Examples:
   | test_file |
 # DYNAMIC_EXAMPLES
+  | response-point-PASS.yaml |

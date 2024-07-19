@@ -11,7 +11,7 @@ const DEFAULT_TIMEOUT = 17000;
 setDefaultTimeout(DEFAULT_TIMEOUT);
 
 
-let currentTestCase:{name:string,description:string,content:string,pipelines:[],expectations:[]};
+let currentTestCase:{name:string,description:string,content:string,pipelines:[],expectations:[{"constraint-id":string,result:string}]};
 let processedContentPath:string;
 let metaschemaDocuments:string[] = [];
 const __filename = fileURLToPath(import.meta.url);
@@ -35,11 +35,12 @@ writeFileSync(featureFile, newContent);
 function getConstraintTests() {
   const constraintTestDir = join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'unit-tests');
   const files = readdirSync(constraintTestDir);
-  console.error("Files found:", files);
-  return files
-    .filter(file => file.endsWith('.yaml') || file.endsWith('.yml'))
-    .map(file => `  | ${file} |`)
-    .join('\n');
+  const filteredFiles = files
+  .filter(file => file.endsWith('.yaml') || file.endsWith('.yml'))
+  .map(file => `  | ${file} |`)
+  .join('\n');  
+  console.log("Processing ",filteredFiles);
+  return filteredFiles
 }
 
 Given('I have Metaschema extensions documents', function (dataTable) {
@@ -82,7 +83,6 @@ async function processTestCase({"test-case":testCase}:any) {
 
   //Validate processed content
   // Check expectations
-  const result =await Object.entries(testCase.expectations)
   const sarifResponse=await validateWithSarif([processedContentPath,"--sarif-include-pass",...metaschemaDocuments.flatMap(x=>['-c',"./src/validations/constraints/"+x])])
   if(processedContentPath!=contentPath){
     unlinkSync(processedContentPath);
@@ -90,7 +90,7 @@ async function processTestCase({"test-case":testCase}:any) {
   return checkConstraints(sarifResponse,testCase.expectations);
 }
 
-async function checkConstraints(sarifOutput:Log,constraints:Record<string,boolean>) {
+async function checkConstraints(sarifOutput:Log,constraints:[{"constraint-id":string,result:'pass'|'fail'}]) {
   const {runs} = sarifOutput;
   const [run]=runs;
   const {results,tool}=run;
@@ -103,16 +103,23 @@ async function checkConstraints(sarifOutput:Log,constraints:Record<string,boolea
   }
   const {rules} = runs[0].tool.driver
   let constraintResults=[];
-  for (const {"constraint-id":constraint_id} in Object.values(constraints)){
-    const id=rules.find(x=>x.name===constraint_id).id
+  console.log(constraints,"C");
+  for (const expectation of constraints){
+    const constraint_id = expectation["constraint-id"];
+    const expectedResult = expectation.result;
+    const constraintMatch=rules.find(x=>x.name===constraint_id)
+    const {id}=constraintMatch||{id:undefined};
     if(!id){
-      throw(id+ " rule not defined in sarif results")
+      writeFileSync("./error.sarif.json",JSON.stringify(sarifOutput));
+      console.error("Sarif results written to file: ./error.sarif.json")
+      throw(constraint_id+ " rule not defined in sarif results")
     }
     const constraintResult=results.find(x=>x.ruleId===id);
     
-    constraintResults.push(constraintResult.kind)
-    if(constraintResult.kind==='fail'){
-      console.error(id,"Failed")
+    const constraintMatchesExpectation=constraintResult.kind==result
+    constraintResults.push(constraintResult?'pass':'fail')
+    if(!constraintMatchesExpectation){
+      console.error(constraint_id +" Did not match expected "+result+" recieved "+constraintResult.kind)
     }
   }
   if(constraintResults.includes('fail')){
