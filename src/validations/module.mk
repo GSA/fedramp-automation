@@ -9,7 +9,7 @@ REV5_TEMPLATES = ./dist/content/rev5/templates
 .PHONY: init-validations
 prepare:
 	@echo "Installing OSCAL CLI..."
-	npm install oscal -g
+	npm install oscal cross-env -g
 
 # Validation
 .PHONY: build-validations
