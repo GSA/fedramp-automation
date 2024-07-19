@@ -13,7 +13,7 @@ include src/web/module.mk
 
 all: clean build test  ## Complete clean build with tests
 
-init: init-repo init-validations init-web  ## Initialize project dependencies
+init: init-repo init-validations init-content init-web  ## Initialize project dependencies
 
 init-repo:
 	git submodule update --init --recursive
