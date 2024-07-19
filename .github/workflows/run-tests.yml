@@ -41,13 +41,11 @@ jobs:
         with:
           python-version: "3.10"
 
-      # Initialize the workspace with submodules and dependencies.
       - name: Initialize workspace
         shell: bash
         run: make init
 
-      # Compile Schematron to XSL.
-      - name: Compile Schematron
+      - name: Run Cucumber Tests
         shell: bash
         run: make build-validations
 

@@ -14,10 +14,10 @@ prepare:
 # Validation
 .PHONY: build-validations
 build-validations:
+	@echo "Running Cucumber Tests"
+	@npm run test
+
+test-validations:
 	@echo "Validating rev5 artifacts recursively..."
 	$(OSCAL_CLI) validate -f $(REV5_BASELINES) -e ./src/validations/constraints/fedramp-external-constraints.xml -r
 	$(OSCAL_CLI) validate -f $(REV5_TEMPLATES) -e ./src/validations/constraints/fedramp-external-constraints.xml -r
-
-test-validations:
-	@echo "Running Cucumber Tests"
-	@npm run test
