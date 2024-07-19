@@ -11,6 +11,7 @@ init-validations:
 	@echo "Installing OSCAL CLI..."
 	npm install oscal -g
 	npm install --only=dev
+	oscal -V
 
 # Validation
 .PHONY: build-validations
