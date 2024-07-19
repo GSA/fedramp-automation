@@ -47,7 +47,3 @@ test-content:
 test-legacy-content:
 	@echo "Validating Source files"
 	@$(OSCAL_CLI) validate -f  $(SRC_DIR)/content/rev4/baselines/ -r
-
-.PHONY: all
-all: generate-content
-	@echo "Content generation and conversion completed successfully."

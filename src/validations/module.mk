@@ -17,6 +17,9 @@ build-validations:
 	@echo "Running Cucumber Tests"
 	@npm run test
 
+clean-validations:
+	@echo "Nothing to clean"
+
 test-validations:
 	@echo "Validating rev5 artifacts recursively..."
 	$(OSCAL_CLI) validate -f $(REV5_BASELINES) -e ./src/validations/constraints/fedramp-external-constraints.xml -r
