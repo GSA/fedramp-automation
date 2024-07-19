@@ -1,23 +1,24 @@
 {
-    "compilerOptions": {
-      "module": "ESNext",
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "strict": true,
-      "target": "ES2015",
-      "outDir": "./dist",
-      "resolveJsonModule": true,
-      "rootDir": "./src/",
-      "allowJs": true,
-      "noImplicitAny": false,
-      "declaration": true,
-      "declarationDir": "./dist",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "strict": true,
+    "target": "ES2015",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "rootDir": "./",
+    "allowJs": true,
+    "noImplicitAny": false,
+    "declaration": true,
+    "declarationDir": "./dist",
     "strictNullChecks": false
-    },
-    "ts-node": {
-      "esm": true,
-      "transpileOnly": true,
-      "experimentalSpecifierResolution": "node"
-    },
-    "exclude": ["node_modules", "features/", "examples", "dist"]
-  }
+  },
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["src/**/*", "features/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
