@@ -10,6 +10,7 @@ REV5_TEMPLATES = ./dist/content/rev5/templates
 prepare:
 	@echo "Installing OSCAL CLI..."
 	npm install oscal -g
+	npm install --only=dev
 
 # Validation
 .PHONY: build-validations
