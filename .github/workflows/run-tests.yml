@@ -36,14 +36,9 @@ jobs:
         with:
           node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
 
-      - name: Install required Python version
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
       - name: Initialize workspace
         shell: bash
-        run: make init
+        run: make init-validations
 
       - name: Run Cucumber Tests
         shell: bash
