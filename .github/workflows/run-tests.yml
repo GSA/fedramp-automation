@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - master
+      - develop
   pull_request:
 
 # the job requires some dependencies to be installed (including submodules), runs the tests, and then reports results
@@ -39,9 +40,3 @@ jobs:
         shell: bash
         run: |
           make build-validations
-
-      - name: Build all
-        shell: bash
-        if: runner.os == 'Windows' || runner.os == 'macOS'
-        run: |
-          make build
