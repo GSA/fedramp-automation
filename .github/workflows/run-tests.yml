@@ -30,7 +30,7 @@ jobs:
         run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
 
       - name: Install required node.js version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b
         with:
           node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
       - name: Install OSCAL CLI
