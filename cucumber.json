@@ -1,0 +1,11 @@
+{
+    "default": {
+      "requireModule": ["ts-node/register"],
+      "import": ["features/**/*.ts"],
+      "format": [
+        ["html", "reports/constraints.html"]
+      ],
+      "retry": 2,
+      "retryTagFilter": "@flaky"
+    }
+  }
