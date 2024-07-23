@@ -1,55 +1,55 @@
 ---
-# yamllint disable-line rule:truthy
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - "src/**"
-      - "oscal"
-  pull_request:
-    types: [opened, synchronize, reopened]
-  workflow_dispatch:
-    branches:
-      - master
-name: Process Content
-env:
-  HOME_REPO: GSA/fedramp-automation
-jobs:
-  validate-and-publish-content:
-    name: Content Validation Checking, Conversion and Validation
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          path: git-content
-          submodules: recursive
-          # Only update `fetch-depth` for debugging on branches. If not, this
-          # action cannot see other branches for names for the PR to push back
-          # changes. So, on PR branches without this, you will have errors.
-          # fetch-depth: 0
-      - name: Build content generator
-        run: make init-content
-        working-directory: git-content
-      - name: Validate Content
-        run: make test-content
-        working-directory: git-content
-      - name: Auto-convert Content
-        run: make build-content
-        working-directory: git-content
-      - name: Setup SSH key
-        # Only do this on GSA/master
-        if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
-        run: |
-          eval "$(ssh-agent -s)"
-          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
-      - name: Publish Artifacts
-        # Only do this on GSA/master
-        if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
-        uses: stefanzweifel/git-auto-commit-action@v4.4.1
-        with:
-          repository: git-content
-          commit_message: Publishing auto-converted artifacts
-          commit_user_name: OSCAL GitHub Actions Bot
-          commit_user_email: oscal@nist.gov
-          commit_author: OSCAL GitHub Actions Bot <oscal@nist.gov>
+  # yamllint disable-line rule:truthy
+  on:
+    push:
+      branches:
+        - master
+      paths:
+        - "src/**"
+        - "oscal"
+    pull_request:
+      types: [opened, synchronize, reopened]
+    workflow_dispatch:
+      branches:
+        - master
+  name: Process Content
+  env:
+    HOME_REPO: GSA/fedramp-automation
+  jobs:
+    validate-and-publish-content:
+      name: Content Validation Checking, Conversion and Validation
+      runs-on: ubuntu-20.04
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            path: git-content
+            submodules: recursive
+            # Only update `fetch-depth` for debugging on branches. If not, this
+            # action cannot see other branches for names for the PR to push back
+            # changes. So, on PR branches without this, you will have errors.
+            # fetch-depth: 0
+        - name: Build content generator
+          run: make init-content
+          working-directory: git-content
+        - name: Validate Content
+          run: make test-content
+          working-directory: git-content
+        - name: Auto-convert Content
+          run: make build-content
+          working-directory: git-content
+        - name: Setup SSH key
+          # Only do this on GSA/master
+          if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
+          run: |
+            eval "$(ssh-agent -s)"
+            ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+        - name: Publish Artifacts
+          # Only do this on GSA/master
+          if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
+          uses: stefanzweifel/git-auto-commit-action@v4.4.1
+          with:
+            repository: git-content
+            commit_message: Publishing auto-converted artifacts
+            commit_user_name: OSCAL GitHub Actions Bot
+            commit_user_email: oscal@nist.gov
+            commit_author: OSCAL GitHub Actions Bot <oscal@nist.gov>

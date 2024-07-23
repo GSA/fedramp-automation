@@ -1,26 +1,49 @@
-# These targets will build src/content, using OSCAL's CI/CD build tools.
-# Docker is utilized for a build environment.
-# These build targets are not part of the standard test/build cycle. Instead,
-# they are intended to be run via a Github Action workflow.
+# Variables
+OSCAL_CLI = oscal
+SRC_DIR = ./src
+DIST_DIR = ./dist
+XML_DIR = $(DIST_DIR)/content/rev5/baselines/xml
+JSON_DIR = $(DIST_DIR)/content/rev5/baselines/json
+YAML_DIR = $(DIST_DIR)/content/rev5/baselines/yaml
 
-CONTENT_DIR := src/content
-MNT := /code
-OSCAL_DIR := vendor/oscal
-CICD_DIR_PATH := $(OSCAL_DIR)/build/ci-cd
-CONTENT_CONFIG_PATH := src/config
+.PHONY: init-content
+init-content:
+	@npm install oscal -g
+# Generate content and perform conversions
+.PHONY: build-content
+build-content:
+	@echo "Producing artifacts for baselines..."
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/baselines/xml -o $(DIST_DIR)/content/rev5/baselines/
+	@echo "Producing artifacts for SSP..."
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/ssp/xml -o $(DIST_DIR)/content/rev5/templates/ssp
+	@echo "Producing artifacts for POAM..."
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/poam/xml -o $(DIST_DIR)/content/rev5/templates/poam
+	@echo "Producing artifacts for SAP..."
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/sap/xml -o $(DIST_DIR)/content/rev5/templates/sap
+	@echo "Producing artifacts for SAR..."
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/sar/xml -o $(DIST_DIR)/content/rev5/templates/sar
 
-OSCAL_DOCKER := docker-compose -f $(OSCAL_DIR)/build/docker-compose.yml -f $(CONTENT_DIR)/docker-compose.yml
+	@echo "Resolving FedRAMP HIGH baseline profile..."
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml
+	@echo "Resolving FedRAMP MODERATE baseline profile..."
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.xml
+	@echo "Resolving FedRAMP LOW baseline profile..."
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml
+	@echo "Resolving FedRAMP LI-SaaS baseline profile..."
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_LI-SaaS-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_LI-SaaS-baseline-resolved-profile_catalog.xml
 
-init-content:  ## Initialize content build environment (build Docker image)
-	@echo "Building Docker image for OSCAL content generation..."
-	$(OSCAL_DOCKER) build
+	@echo "Converting Profiles to JSON..."
+	$(OSCAL_CLI) convert -f $(XML_DIR) -o $(JSON_DIR) -t JSON
+	@echo "Converting Profiles to YAML..."
+	$(OSCAL_CLI) convert -f $(XML_DIR) -o $(YAML_DIR) -t YAML
 
-test-content:  ## Test src/content
-	@echo "Testing content..."
-	$(OSCAL_DOCKER) run cli $(MNT)/$(CICD_DIR_PATH)/validate-content.sh -v -o $(MNT)/$(OSCAL_DIR) -a $(MNT) -c $(MNT)/$(CONTENT_CONFIG_PATH)
 
-build-content:  ## Build dist/content
-	@echo "Building content..."
-	$(OSCAL_DOCKER) run cli $(MNT)/$(CICD_DIR_PATH)/copy-and-convert-content.sh -v -o $(MNT)/$(OSCAL_DIR) -a $(MNT) -c $(MNT)/$(CONTENT_CONFIG_PATH) -w $(MNT)/dist --resolve-profiles
-	cp -R $(CONTENT_DIR)/rev4/resources/xml/. dist/content/rev4/resources/xml
-	cp -R $(CONTENT_DIR)/rev5/resources/xml/. dist/content/rev5/resources/xml
+.PHONY: test-content
+test-content:
+	@echo "Validating Source files"
+	@$(OSCAL_CLI) validate -f  $(SRC_DIR)/content/rev5/baselines/ -r
+
+.PHONY: test-legacy-content
+test-legacy-content:
+	@echo "Validating Source files"
+	@$(OSCAL_CLI) validate -f  $(SRC_DIR)/content/rev4/baselines/ -r
