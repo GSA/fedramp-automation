@@ -16,11 +16,7 @@ clean-web:  ## Clean web artifacts
 		npm run clean
 
 build-web: node ## Build web bundle
-	@echo "Building web bundle..."
-	cd src/web && \
-	  npm run build
+	@echo "Deprecated web bundle..."
 
 test-web:  ## Test web codebase
-	@echo "Running web tests..."
-	cd src/web && \
-		npm run test
+	@echo "Deprecated web tests..."

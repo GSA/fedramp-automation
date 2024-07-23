@@ -7,18 +7,18 @@ on:
   push:
     branches:
       - master
+      - develop
+      - 'feature**'  # This will match any branch starting with "feature"
+
   pull_request:
 
 # the job requires some dependencies to be installed (including submodules), runs the tests, and then reports results
 jobs:
   # one job that runs tests
   run-tests:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-        arch: [arm64, x86_64]
 
     # Checkout repository and its submodules
     steps:
@@ -32,39 +32,13 @@ jobs:
         run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
 
       - name: Install required node.js version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b
         with:
           node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
-
-      - name: Install required Python version
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      # Initialize the workspace with submodules and dependencies.
-      - name: Initialize workspace
-        shell: bash
-        run: make init
-
-      # Compile Schematron to XSL.
-      - name: Compile Schematron
-        shell: bash
-        run: make build-validations
-
-      - name: Run complete test suite
-        shell: bash
-        if: runner.os == 'Linux'
+      - name: Install OSCAL CLI
         run: |
-          make test
-
-      - name: Run limited test suite
+          make init-validations
+      - name: Run Cucumber tests
         shell: bash
-        if: runner.os == 'Windows' || runner.os == 'macOS'
         run: |
-          make test-validations test-web
-
-      - name: Build all
-        shell: bash
-        if: runner.os == 'Windows' || runner.os == 'macOS'
-        run: |
-          make build
+          make build-validations

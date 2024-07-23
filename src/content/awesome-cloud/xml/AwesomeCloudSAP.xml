@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessment-plan
+    xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+    uuid="fc42e635-b55a-46d1-9c86-d4e154a01f06">
+    <metadata>
+        <title>AwesomeCloud Security Assessment Plan</title>
+        <last-modified>2023-01-12T12:24:13-05:00</last-modified>
+        <version>1.0</version>
+        <oscal-version>1.0.4</oscal-version>
+    </metadata>
+    <import-ssp href="AwesomeCloudSSP1.xml">
+        <remarks><p>Links AwesomeCloud SAP to the AwesomeCloud SSP</p></remarks>
+    </import-ssp>
+    <reviewed-controls>
+        <control-selection>
+            <description>
+                <h1>Control Scope</h1>
+                <p>Monthly ConMon Assessment</p>
+                <p>Monthly ConMon assessment include a subset of controls as defined by FedRAMP for automated continuos monitoring</p>
+            </description>
+            <include-control control-id="cm-8"/>
+            <include-control control-id="ra-5"/>
+        </control-selection>
+        <control-objective-selection>
+            <!--Control CM-8-->
+            <include-objective objective-id="cm-8.a.1_obj"/>
+            <include-objective objective-id="cm-8.a.2_obj"/>
+            <include-objective objective-id="cm-8.a.3_obj"/>
+            <include-objective objective-id="cm-8.a.4_obj.1"/>
+            <include-objective objective-id="cm-8.a.4_obj.2"/>
+            <include-objective objective-id="cm-8.b_obj.1"/>
+            <include-objective objective-id="cm-8.b_obj.2"/>
+            <!--Control RA-5-->
+            <include-objective objective-id="ra-5.a_obj.1"/>
+            <include-objective objective-id="ra-5.a_obj.2"/>
+            <include-objective objective-id="ra-5.a_obj.3"/>
+            <include-objective objective-id="ra-5.b.1_obj"/>
+            <include-objective objective-id="ra-5.b.2_obj"/>
+            <include-objective objective-id="ra-5.b.3_obj"/>
+            <include-objective objective-id="ra-5.c_obj.1"/>
+            <include-objective objective-id="ra-5.c_obj.2"/>
+            <include-objective objective-id="ra-5.d_obj.1"/>
+            <include-objective objective-id="ra-5.d_obj.2"/>
+            <include-objective objective-id="ra-5.e_obj.1"/>
+            <include-objective objective-id="ra-5.e_obj.2"/>
+            <include-objective objective-id="ra-5.e_obj.3"/>            
+        </control-objective-selection>
+    </reviewed-controls>
+</assessment-plan>

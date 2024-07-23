@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan-of-action-and-milestones
+    xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+    uuid="5f7afa40-3d9d-475b-9e34-47a768371be3">
+    <metadata>
+        <title>AwesomeCloud Plan of Actions and Milestones</title>
+        <last-modified>2023-01-12T12:51:55-05:00</last-modified>
+        <version>1.0</version>
+        <oscal-version>1.0.4</oscal-version>
+    </metadata>
+    
+    <import-ssp href="AwesomeCloudSSP1.xml"/>
+    
+    <observation uuid="727fd8c7-8bb6-4e2d-add2-0cd32b022d17">
+        <description>
+            <p>Examined the AwesomeCloud System Security Plan (SSP) and determined that the inventory of information system components has not been updated within the last 30 days. </p>
+        </description>
+        <method>Examine</method>
+        <collected>2023-01-13T17:41:08-05:00</collected>
+    </observation>
+    <observation uuid="c6d956e2-e6fa-412a-8143-dbc85d56713e">
+        <description>
+            <p>The remote server's SSL certificate has already expired.</p>
+        </description>
+        <method>Test</method>
+        <collected>2023-04-04T11:21:21-04:00</collected>
+    </observation>
+    <observation uuid="5904569a-6efc-4842-ae7c-69199ed7c2bd">
+        <description>
+            <p>The remote host leaks memory in network packets (Etherleak).</p>
+        </description>
+        <method>Test</method>
+        <collected>2023-04-04T12:10:32-06:00</collected>
+    </observation>
+    <observation uuid="82a52a6f-cd50-47ba-837a-fefd455da4e8">
+        <description>
+            <p>The SSL certificate in the certificate chain has been signed using a weak hash algorithm.</p>
+        </description>
+        <method>Test</method>
+        <collected>2023-04-04T13:24:19-06:00</collected>
+    </observation>
+    <observation uuid="7f9cb6de-5c98-4c2b-a433-4759c034f7a0">
+        <description>
+            <p>Signing is not set to "Required" on the remote SMB server.</p>
+        </description>
+        <method>Test</method>
+        <collected>2023-04-04T13:38:35-06:00</collected>
+    </observation>
+    <observation uuid="0f8ae9c9-3355-4d47-bbd2-e4b4cba484d1">
+        <description>
+            <p>The X.509 certificate chain used by this service contains certificates with RSA keys shorter than 2048 bits.</p>
+        </description>
+        <method>Test</method>
+        <collected>2023-04-04T13:45:56-06:00</collected>
+    </observation>
+    <observation uuid="ddec6e55-d009-4491-bd95-f0077957f51b">
+        <description>
+            <p>The remote service encrypts traffic using an older version of TLS.</p>
+        </description>
+        <method>Test</method>
+        <collected>2023-04-04T13:52:08-06:00</collected>
+    </observation>
+    <observation uuid="58e34e49-32bb-4c63-b9e6-158a0620fcd5">
+        <description>
+            <p>Examined the AwesomeCloud Access Control Policy and determined that the procedures have not been update in accordance with the defeined frequency. The document change record indicates that the policy was last updated in February of 2023 which is outside of the annually requirement for the update of procedures.</p>
+        </description>
+        <method>Examine</method>
+        <collected>2023-02-18T10:57:30-09:00</collected>
+    </observation>
+    
+    <risk uuid="0683df1e-880b-469c-a146-2bd8a25019dd">
+        <title>Asset Inventory Out of Date</title>
+        <description>
+            <p>The AwesomeCloud Asset Inventory has not been updated in accordance with the defined FedRAMP frequency (i.e., at least monthly)</p>
+        </description>
+        <statement>
+            <p>Failure to maintain a current inventory of information system components could cause degradation of other security cabalities (e.g. vulnerability management, configutation settings management)</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="0e4cdd8b-b973-49fb-bb67-0f7b90b2ae0d"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="moderate"/>
+            <facet name="impact" system="https://awesomecloud.com" value="moderate"/>
+        </characterization>
+        <related-observation observation-uuid="727fd8c7-8bb6-4e2d-add2-0cd32b022d17"/>
+    </risk>
+    <risk uuid="5811184c-af7c-46fa-aaef-c9eef1a043ac">
+        <title>SSL Certificate Expiry</title>
+        <description>
+            <p>The remote server's SSL certificate has already expired.</p>
+        </description>
+        <statement>
+            <p>SSL certificates grant authentication to your websites or domains and are critical for ensuring proper encryption of internet traffic and verified server identity. Without these certificates, end users will have no way of knowing if the website they are currently browsing is what it claims to be.</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="ddb1bf31-810f-44e4-93aa-44fcf33030c2"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="moderate"/>
+            <facet name="impact" system="https://awesomecloud.com" value="moderate"/>
+        </characterization>
+        <related-observation observation-uuid="c6d956e2-e6fa-412a-8143-dbc85d56713e"/>
+    </risk>
+    <risk uuid="2eb9e124-1997-4806-8a39-50903bce2c94">
+        <title>Ethernet Driver Information Disclosure</title>
+        <description>
+            <p>The remote host leaks memory in network packets (Etherleak).</p>
+        </description>
+        <statement>
+            <p>The remote host uses a network device driver that pads ethernet frames with data which vary from one packet to another, likely taken from kernel memory, system memory allocated to the device driver, or a hardware buffer on its network interface card. Known as 'Etherleak', this information disclosure vulnerability may allow an attacker to collect sensitive information from the affected host provided he is on the same physical subnet as that host.</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="8a5f01fe-5331-426a-a374-e6f7304f968a"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="low"/>
+            <facet name="impact" system="https://awesomecloud.com" value="low"/>
+        </characterization>
+        <related-observation observation-uuid="5904569a-6efc-4842-ae7c-69199ed7c2bd"/>
+    </risk>
+    <risk uuid="2a59c148-5c5d-4905-852c-fe5ac19850aa">
+        <title>Weak hash algorithm of the SSL certificate</title>
+        <description>
+            <p>The SSL certificate in the certificate chain has been signed using a weak hash algorithm.</p>
+        </description>
+        <statement>
+            <p>The remote service uses an SSL certificate chain that has been signed using a cryptographically weak hashing algorithm (e.g. MD2, MD4, MD5, or SHA1). These signature algorithms are known to be vulnerable to collision attacks. An attacker can exploit this to generate another certificate with the same digital signature, allowing an attacker to masquerade as the affected service. Note that this plugin reports all SSL certificate chains signed with SHA-1 that expire after January 1, 2017 as vulnerable. This is in accordance with Google's gradual sunsetting of the SHA-1 cryptographic hash algorithm. Note that certificates in the chain that are contained in the Nessus CA database (known_CA.inc) have been ignored.</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="c16ce8fa-18ae-4597-a1c4-b5f561a9f134"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="high"/>
+            <facet name="impact" system="https://awesomecloud.com" value="high"/>
+        </characterization>
+        <related-observation observation-uuid="82a52a6f-cd50-47ba-837a-fefd455da4e8"/>
+    </risk>
+    <risk uuid="df607526-c3b5-4891-857f-e6f2956b7410">
+        <title>SMB Signing Enforcement</title>
+        <description>
+            <p>Signing is not set to "Required" on the remote SMB server.</p>
+        </description>
+        <statement>
+            <p>Signing is not required on the remote SMB server. An unauthenticated, remote attacker can exploit this to conduct man-in-the-middle attacks against the SMB server.</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="56eec14e-cf74-4bea-9e1a-4b95008fc808"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="moderate"/>
+            <facet name="impact" system="https://awesomecloud.com" value="moderate"/>
+        </characterization>
+        <related-observation observation-uuid="7f9cb6de-5c98-4c2b-a433-4759c034f7a0"/>
+    </risk>
+    <risk uuid="f4520307-1f24-4843-999c-ca778bf4c320">
+        <title>RSA Keys Less Than 2048 Bits</title>
+        <description>
+            <p>The X.509 certificate chain used by this service contains certificates with RSA keys shorter than 2048 bits.</p>
+        </description>
+        <statement>
+            <p>At least one of the X.509 certificates sent by the remote host has a key that is shorter than 2048 bits. According to industry standards set by the Certification Authority/Browser (CA/B) Forum, certificates issued after January 1, 2014 must be at least 2048 bits. Some browser SSL implementations may reject keys less than 2048 bits after January 1, 2014. Additionally, some SSL certificate vendors may revoke certificates less than 2048 bits before January 1, 2014. Note that Nessus will not flag root certificates with RSA keys less than 2048 bits if they were issued prior to December 31, 2010, as the standard considers them exempt.</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="0589be87-1120-4125-99c6-a6af0d994c9d"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="low"/>
+            <facet name="impact" system="https://awesomecloud.com" value="low"/>
+        </characterization>
+        <related-observation observation-uuid="0f8ae9c9-3355-4d47-bbd2-e4b4cba484d1"/>
+    </risk>
+    <risk uuid="6b595947-145b-4fbe-9f84-0645a076c859">
+        <title>TLS Version 1.0 Protocol</title>
+        <description>
+            <p>The remote service encrypts traffic using an older version of TLS.</p>
+        </description>
+        <statement>
+            <p>The remote service accepts connections encrypted using TLS 1.0. TLS 1.0 has a number of cryptographic design flaws. Modern implementations of TLS 1.0 mitigate these problems, but newer versions of TLS like 1.2 and 1.3 are designed against these flaws and should be used whenever possible. As of March 31, 2020, Endpoints that arenâ€™t enabled for TLS 1.2 and higher will no longer function properly with major web browsers and major vendors. PCI DSS v3.2 requires that TLS 1.0 be disabled entirely by June 30, 2018, except for POS POI terminals (and the SSL/TLS termination points to which they connect) that can be verified as not being susceptible to any known exploits.</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="474cac17-8e2c-4329-a13e-a74940e4ac8e"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="moderate"/>
+            <facet name="impact" system="https://awesomecloud.com" value="moderate"/>
+        </characterization>
+        <related-observation observation-uuid="ddec6e55-d009-4491-bd95-f0077957f51b"/>
+    </risk>
+    <risk uuid="56aff720-e21a-4def-8ea6-e91388c1d96f">
+        <title>AwesomeCloud Procedures Out of Date</title>
+        <description>
+            <p>The AwesomeCloud access controls procedures are out of date.</p>
+        </description>
+        <statement>
+            <p>The AwesomeCloud access control procedures have not been updated in accordance with the defined frequency (i.e., at least annually)</p>
+        </statement>
+        <status>open</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="bffe1fab-9dd8-476e-af68-6a1b97e20451"/>
+            </origin>
+            <facet name="likelihood" system="https://awesomecloud.com" value="low"/>
+            <facet name="impact" system="https://awesomecloud.com" value="moderate"/>
+        </characterization>
+        <related-observation observation-uuid="58e34e49-32bb-4c63-b9e6-158a0620fcd5"/>
+    </risk>
+    
+    <poam-item uuid="a908cb44-446a-450d-970d-73c968fd5389">
+        <title>Asset Inventory Out of Date</title>
+        <description>
+            <h1>AwesomeCloud asset inventory is out of date.</h1>
+        </description>    
+        <related-observation observation-uuid="727fd8c7-8bb6-4e2d-add2-0cd32b022d17"/>
+        <associated-risk risk-uuid="0683df1e-880b-469c-a146-2bd8a25019dd"/>
+    </poam-item>
+    <poam-item uuid="7b3a39fb-3450-4230-8c34-70d3d8a4f8b5">
+        <title>SSL Certificate Expiry</title>
+        <description>
+            <h1>AwesomeCloud is utilize an expired SSL certificate</h1>
+        </description>        
+        <related-observation observation-uuid="c6d956e2-e6fa-412a-8143-dbc85d56713e"/>
+        <associated-risk risk-uuid="5811184c-af7c-46fa-aaef-c9eef1a043ac"/>
+    </poam-item>
+    <poam-item uuid="19343c6e-742d-43e0-9f47-133eba174f00">
+        <title>Ethernet Driver Information Disclosure</title>
+        <description>
+            <h1>Vulnerabilty Ehternet Driver</h1>
+        </description>        
+        <related-observation observation-uuid="5904569a-6efc-4842-ae7c-69199ed7c2bd"/>
+        <associated-risk risk-uuid="2eb9e124-1997-4806-8a39-50903bce2c94"/>
+    </poam-item>
+    <poam-item uuid="52b2726f-8cf9-4773-befe-2c1c412b1712">
+        <title>Weak hash algorithm of the SSL certificate</title>
+        <description>
+            <h1>Weak hashing algorithims are utilized</h1>
+        </description>        
+        <related-observation observation-uuid="82a52a6f-cd50-47ba-837a-fefd455da4e8"/>
+        <associated-risk risk-uuid="2a59c148-5c5d-4905-852c-fe5ac19850aa"/>
+    </poam-item>
+    <poam-item uuid="fc16a330-a930-4dc5-a473-089a1da2e81c">
+        <title>SMB Signing Enforcement</title>
+        <description>
+            <h1>SMB Sigining is not enforced</h1>
+        </description>        
+        <related-observation observation-uuid="7f9cb6de-5c98-4c2b-a433-4759c034f7a0"/>
+        <associated-risk risk-uuid="df607526-c3b5-4891-857f-e6f2956b7410"/>
+    </poam-item>
+    <poam-item uuid="fc16a330-a930-4dc5-a473-089a1da2e81c">
+        <title>RSA Keys Less Than 2048 Bits</title>
+        <description>
+            <h1>Certificate key length does not meet industry standards.</h1>
+        </description>        
+        <related-observation observation-uuid="0f8ae9c9-3355-4d47-bbd2-e4b4cba484d1"/>
+        <associated-risk risk-uuid="f4520307-1f24-4843-999c-ca778bf4c320"/>
+    </poam-item>
+    <poam-item uuid="3ef1747e-374c-42f3-a1aa-021cdc2d5271">
+        <title>TLS Version 1.0 Protocol</title>
+        <description>
+            <h1>AwesomeCloud employs a week version of TLS</h1>
+        </description>        
+        <related-observation observation-uuid="ddec6e55-d009-4491-bd95-f0077957f51b"/>
+        <associated-risk risk-uuid="6b595947-145b-4fbe-9f84-0645a076c859"/>
+    </poam-item>
+    <poam-item uuid="9f07e816-388f-4096-b625-58bd462f748d">
+        <title>AwesomeCloud Access Control Procedures Out Of Date</title>
+        <description>
+            <h1>AwesomeCloud has not update its access control procedures in accordance with defined policy.</h1>
+        </description>        
+        <related-observation observation-uuid="58e34e49-32bb-4c63-b9e6-158a0620fcd5"/>
+        <associated-risk risk-uuid="56aff720-e21a-4def-8ea6-e91388c1d96f"/>
+    </poam-item>
+</plan-of-action-and-milestones>

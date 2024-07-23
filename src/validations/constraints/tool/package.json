@@ -1,0 +1,23 @@
+{
+  "name": "validation-driver",
+  "version": "1.0.0",
+  "description": "This tool performs unit testing of Metaschema constraint-based validations.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npm run build && node dist/index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "js-yaml": "^4.1.0",
+    "yaml": "^2.4.5"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/sarif": "^2.1.7",
+    "typescript": "^5.5.2"
+  }
+}

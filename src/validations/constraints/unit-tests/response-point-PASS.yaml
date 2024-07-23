@@ -1,0 +1,11 @@
+# driver for the response-point unit test
+test-case:
+  name: Test Valid Response Point Use
+  description: Test that the resolved profile contains valid response-points.
+  content: ../content/profile-response-point-VALID.xml # the content to run
+  pipeline:
+  - action: resolve-profile # request that the content is resolved first
+  expectations: # check the constraint result
+  - constraint-id: prop-response-point-has-cardinality-one
+    result: pass
+
