@@ -6,6 +6,6 @@ test-case:
   pipeline:
   - action: resolve-profile # request that the content is resolved first
   expectations: # check the constraint result
-  - constraint-id: prop-response-point-matches-string
+  - constraint-id: prop-response-point-has-cardinality-one
     result: pass
 
