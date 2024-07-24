@@ -12,6 +12,13 @@
         <metapath target="/assessment-plan"/>
         <metapath target="/assessment-results"/>
         <metapath target="/plan-of-action-and-milestones"/>
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/component-definition"/>
+        <metapath target="/system-security-plan"/>
+        <metapath target="/assessment-plan"/>
+        <metapath target="/assessment-results"/>
+        <metapath target="/plan-of-action-and-milestones"/>
 
         <constraints>
             <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
@@ -165,6 +172,8 @@
                 <enum value="write">Write</enum>
                 <enum value="no-access">No Access</enum>
               </allowed-values>
+
+            </context>
 
             <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Cloud Service Model</formal-name>
