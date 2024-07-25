@@ -6,6 +6,7 @@
     <last-modified>2024-06-25T00:00:00Z</last-modified>
     <version>2.0</version>
     <oscal-version>1.2.0</oscal-version>
+    <prop ns="https://fedramp.gov/ns/oscal" name='fedramp-version' value="1.0.0"/>
   </metadata>
   <!-- very small valid example of a response point declaration -->
   <import href="fedramp-tailoring-profile.xml">

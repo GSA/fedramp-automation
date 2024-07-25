@@ -12,4 +12,5 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
 Examples:
   | test_file |
 # DYNAMIC_EXAMPLES
+  | fedramp-version-PASS.yaml |
   | response-point-PASS.yaml |
