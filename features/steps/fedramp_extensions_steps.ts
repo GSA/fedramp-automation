@@ -2,7 +2,7 @@ import { Given, Then, When, setDefaultTimeout } from "@cucumber/cucumber";
 import { expect } from "chai";
 import { readFileSync, readdirSync, unlinkSync, writeFileSync } from "fs";
 import { load } from "js-yaml";
-import { executeOscalCliCommand, validateWithSarif } from "oscal";
+import { executeOscalCliCommand, validateFile, validateWithSarif } from "oscal";
 import { dirname, join } from "path";
 import { Exception, Log } from "sarif";
 import { fileURLToPath } from "url";
@@ -130,13 +130,17 @@ async function processTestCase({ "test-case": testCase }: any) {
         "./src/validations/constraints/" + x,
       ]),
     ]);
+    if(typeof sarifResponse.runs[0].tool.driver.rules==='undefined'){
+      const [result,error]=await executeOscalCliCommand("validate",[processedContentPath,...metaschemaDocuments.flatMap((x) => [
+        "-c",
+        "./src/validations/constraints/" + x,
+      ])]);
+    }  
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
     return checkConstraints(sarifResponse, testCase.expectations);
   } catch(e) {
-    console.log("ERROR");
-    console.log(e);
     return { status: "fail", errorMessage: e.toString() };
   }
 }
@@ -145,20 +149,26 @@ async function checkConstraints(
   sarifOutput: Log,
   constraints: [{ "constraint-id": string; result: "pass" | "fail" }],
 ) {
+  console.log(JSON.stringify(constraints),constraints.length);
   const { runs } = sarifOutput;
   const [run] = runs;
   const { results, tool } = run;
   if (!results) {
+    console.error("No Results")
     return { status: "fail", errorMessage: "No results in SARIF output" };
   }
   const { driver } = tool;
   if (runs.length != 1) {
+    console.error("No Runs")
     return { status: "fail", errorMessage: "No runs found in SARIF" };
   }
-  const { rules } = runs[0].tool.driver;
+  const rules  = runs[0].tool.driver.rules;
+  if (typeof rules==='undefined'||rules.length == 0) {
+    return { status: "fail", errorMessage: "No rules found in SARIF" };
+  }
   let constraintResults = [];
   let errors = [];
-
+  console.log
   // List all SARIF outputs with "fail" result
   const failedResults = results.filter(result => result.kind === "fail");
   if (failedResults.length > 0) {
@@ -173,15 +183,18 @@ async function checkConstraints(
   for (const expectation of constraints) {
     const constraint_id = expectation["constraint-id"];
     const expectedResult = expectation.result;
+    console.log("Checking status of constraint: "+constraint_id+" expecting:"+expectedResult);
     const constraintMatch = rules.find((x) => x.name === constraint_id);
     const { id } = constraintMatch || { id: undefined };
     if (!id) {
+      console.log("Recieved: "+id);
       writeFileSync("./" + constraint_id + ".sarif.json", JSON.stringify(sarifOutput));
-      console.error("SARIF results written to file: ./" + constraint_id + ".sarif.json");
+      console.log("SARIF results written to file: ./" + constraint_id + ".sarif.json");
       errors.push(`${constraint_id} rule not defined in SARIF results`);
       continue;
     }
     const constraintResult = results.find((x) => x.ruleId === id);
+    console.log("Recieved: "+constraintResult.kind);
 
     const constraintMatchesExpectation = constraintResult.kind == expectedResult;
     constraintResults.push(constraintMatchesExpectation ? "pass" : "fail");

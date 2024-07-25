@@ -21,13 +21,12 @@
         </constraints>
 </context>
 <context>
-    <metapath target="/profile"/>
+    <metapath target="/system-security-plan"/>
     <constraints>
-        <expect id="fedramp-version" target="metadata" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fedramp-version'])= 1">
+        <expect id="fedramp-version-has-cardinality-of-one" target=".//metadata" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fedramp-version'])= 1">
             <message>FedRAMP version property is missing in the metadata.</message>
         </expect>
     </constraints>
-
 
 </context>
 
