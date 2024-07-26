@@ -3,7 +3,7 @@
     "requireModule": ["ts-node/register"],
     "import": ["features/**/*.ts"],
     "format": [
-      ["junit:reports/junit-{feature}.xml"]
+      ["junit", "reports/constraints.xml"]
     ],
     "retry": 2,
     "retryTagFilter": "@flaky"
