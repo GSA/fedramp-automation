@@ -42,9 +42,9 @@ jobs:
         shell: bash
         run: |
           make build-validations
-      - name: Upload Cucumber Test results
+      - name : Publish all Junit XML tests results in Github Summary
+        uses: test-summary/action@v2
         if: always()
-        uses: actions/upload-artifact@v2
         with:
-          name: cucumber-test-results.html
-          path: ./reports/constraints.html
+            paths: |
+              **/reports/junit-*.xml
