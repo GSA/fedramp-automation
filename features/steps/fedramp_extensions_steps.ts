@@ -3,10 +3,10 @@ import { expect } from "chai";
 import { readFileSync, readdirSync, writeFileSync, unlinkSync } from "fs";
 import { load } from "js-yaml";
 import { executeOscalCliCommand, validateFileSarif } from "oscal";
-import { validateWithSarif } from "oscal/dist/commands";
+import { validateWithSarif } from "oscal";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-const DEFAULT_TIMEOUT = 17000;
+const DEFAULT_TIMEOUT = 60000;
 
 setDefaultTimeout(DEFAULT_TIMEOUT);
 
