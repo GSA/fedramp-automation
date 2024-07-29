@@ -23,19 +23,19 @@
 <context>
     <metapath target="/system-security-plan/system-implementation"/>
     <constraints>
-        <allowed-values id='user-type-allowed-values' target="./prop[@name='type' and @ns='https://fedramp.gov/ns/oscal']/@value">
+        <allowed-values id='user-type-allowed-values' target="./user/prop[@name='type' and @ns='https://fedramp.gov/ns/oscal']/@value">
             <enum value="internal">Internal</enum>
             <enum value="external">External</enum>
             <enum value="general-public">General Public</enum>
         </allowed-values>
         
-        <allowed-values id='user-privilege-allowed-values' target="./prop[@name='privilege-level' and @ns='https://fedramp.gov/ns/oscal']/@value">
+        <allowed-values id='user-privilege-allowed-values' target="./user/prop[@name='privilege-level' and @ns='https://fedramp.gov/ns/oscal']/@value">
             <enum value="privileged">Privileged</enum>
             <enum value="non-privileged">Non-Privileged</enum>
             <enum value="no-logical-access">No Logical Access</enum>
         </allowed-values>
         
-        <allowed-values id="user-sensitivity-allowed-values" target="./prop[@name='sensitivity' and @ns='https://fedramp.gov/ns/oscal']/@value">
+        <allowed-values id="user-sensitivity-allowed-values" target="./user/prop[@name='sensitivity' and @ns='https://fedramp.gov/ns/oscal']/@value">
             <enum value="high-risk">High Risk</enum>
             <enum value="severe">Severe</enum>
             <enum value="moderate">Moderate</enum>
