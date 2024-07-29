@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:fedramp="https://fedramp.gov/ns/oscal"
+                      uuid="831e074c-557e-4dac-8b6c-53f4c3cf976f">
+  <metadata>
+    <title>Example System Security Plan</title>
+    <last-modified>2023-07-29T12:00:00Z</last-modified>
+    <version>1.0</version>
+    <oscal-version>1.0.0</oscal-version>
+  </metadata>
+  
+  <import-profile href="#"/>
+  
+  <system-characteristics>
+    <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
+    <system-name>Example System</system-name>
+    <description>
+      <p>This is an example system for demonstration purposes.</p>
+    </description>
+    <security-sensitivity-level>moderate</security-sensitivity-level>
+    <system-information>
+      <information-type>
+        <title>Example Information Type</title>
+        <description>
+          <p>Description of the information type.</p>
+        </description>
+        <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+          <information-type-id>C.2.8.12</information-type-id>
+        </categorization>
+      </information-type>
+    </system-information>
+    <security-impact-level>
+      <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
+      <security-objective-integrity>fips-199-moderate</security-objective-integrity>
+      <security-objective-availability>fips-199-moderate</security-objective-availability>
+    </security-impact-level>
+    <status state="operational"/>
+    <authorization-boundary>
+      <description>
+        <p>The authorization boundary for the example system.</p>
+      </description>
+      <diagram uuid="7b0b0821-5527-4bf6-9066-e028af333456">
+        <description>
+          <p>Diagram of the authorization boundary</p>
+        </description>
+      </diagram>
+    </authorization-boundary>
+  </system-characteristics>
+  
+  <system-implementation>
+    <user uuid="12345678-1234-4234-9234-123456789abc">
+      <title>System Administrator</title>
+      <prop name="type" ns="https://fedramp.gov/ns/oscal" value="internal"/>
+      <prop name="privilege-level" ns="https://fedramp.gov/ns/oscal" value="privileged"/>
+      <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="high-risk"/>
+    </user>
+    <user uuid="23456789-2345-4345-a345-234567890bcd">
+      <title>Regular User</title>
+      <prop name="type" ns="https://fedramp.gov/ns/oscal" value="external"/>
+      <prop name="privilege-level" ns="https://fedramp.gov/ns/oscal" value="non-privileged"/>
+      <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="moderate"/>
+    </user>
+    <user uuid="34567890-3456-4456-b456-345678901cde">
+      <title>Public User</title>
+      <prop name="type" ns="https://fedramp.gov/ns/oscal" value="general-public"/>
+      <prop name="privilege-level" ns="https://fedramp.gov/ns/oscal" value="no-logical-access"/>
+      <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+    </user>
+    <component uuid="98765432-9876-4876-a876-987654321fed" type="this-system">
+      <title>Example System Component</title>
+      <description>
+        <p>This is an example system component.</p>
+      </description>
+      <status state="operational"/>
+    </component>
+  </system-implementation>
+  
+  <control-implementation>
+    <description>
+      <p>Control Implementation description for SSP</p>
+    </description>
+    <implemented-requirement uuid="4f7899e5-3f7f-4794-9b16-5eb1d21fedf9" control-id="ac-1">
+      <prop  ns="https://fedramp.gov/ns/oscal"  name="implementation-status" value="implemented"/>
+      <statement statement-id="ac-1_smt" uuid="3d831384-b55e-4634-9f9f-1d3ef8b46ee4">
+      <by-component uuid="98765432-9876-4876-a876-987654321fed" component-uuid="98765432-9876-4876-a876-987654321fed">
+        <description>
+          <p>This is an example of an implemented requirement for AC-1.</p>
+        </description>
+      </by-component>
+      </statement>
+    </implemented-requirement>
+  </control-implementation>
+  
+</system-security-plan>

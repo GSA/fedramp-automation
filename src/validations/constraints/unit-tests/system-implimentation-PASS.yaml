@@ -1,0 +1,13 @@
+# driver for the user-type unit test
+test-case:
+  name: Test Valid User Type
+  description: Test that the SSP contains valid user types privilege and sensitivity.
+  content: ../content/system-implimentation-VALID.xml # the content to run
+  pipeline:
+  expectations: # check the constraint result
+  - constraint-id: user-type-allowed-values
+    result: pass
+  - constraint-id: user-privilege-allowed-values
+    result: pass
+  - constraint-id: user-sensitivity-allowed-values
+    result: pass
