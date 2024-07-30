@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+	<!-- ================== -->
+	<!-- FedRAMP Extensions -->
+	<!-- ================== -->
+
+	<context>
+
+		<metapath target="/catalog"/>
+		<metapath target="/profile"/>
+		<metapath target="/component-definition"/>
+		<metapath target="/system-security-plan"/>
+		<metapath target="/assessment-plan"/>
+		<metapath target="/assessment-results"/>
+		<metapath target="/plan-of-action-and-milestones"/>
+
+		<constraints>
+			<allowed-values id="attachment-type" target="resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']" allow-other="yes" level="ERROR">
+				<formal-name>Attachment Type</formal-name>
+				<description>Identifies the type of attachment.</description>
+				<enum value="law">Law or Statute</enum>
+				<enum value="regulation">Regulation or Directive</enum>
+				<enum value="standard">Industry Standard</enum>
+				<enum value="guidance">Guidance</enum>
+				<enum value="policy">Policy</enum>
+				<enum value="procedure">Procedure</enum>
+				<enum value="guide">Guidance Document</enum>
+				<enum value="rules-of-behavior">Rules of Behavior</enum>
+				<enum value="plan">Plan</enum>
+				<enum value="system-security-plan">System Security Plan</enum>
+				<enum value="artifact">Artifact</enum>
+				<enum value="evidence">Evidence</enum>
+				<enum value="screen-shot">Screen Shot</enum>
+				<enum value="image">Image</enum>
+				<enum value="tool-report">Tool Report</enum>
+				<enum value="raw-tool-output">Raw Tool Output</enum>
+				<enum value="interview-notes">Interview Notes</enum>
+				<enum value="questionnaire">Questions</enum>
+				<enum value="report">Report</enum>
+				<enum value="fedramp-citations">FedRAMP Citations</enum>
+				<enum value="fedramp-acronyms">FedRAMP Acronyms</enum>
+				<enum value="fedramp-logo">FedRAMP Logo</enum>
+				<enum value="separation-of-duties-matrix">Separation of Duties Matrix</enum>
+				<enum value="logo">Logo</enum>
+				<enum value="personally-identifiable-information">Personal Identifiable Information (PII)</enum>
+				<enum value="agreement">Agreement</enum>
+				<enum value="isa-agreement">Interconnection Security Agreement</enum>
+				<enum value="incident-response-plan">Incident Response Plan</enum>
+				<enum value="information-security-policies-and-procedures">Incident Security Policies and Procedures</enum>
+				<enum value="users-guide">User Guide</enum>
+				<enum value="privacy-impact-assessment">Privacy Impact Assessment</enum>
+				<enum value="information-system-contingency-plan">Information System Contingency Plan</enum>
+				<enum value="configuration-management-plan">configuration-management-plan</enum>
+				<remarks>
+					<p>Not all values apply to all FedRAMP artifacts.</p>
+				</remarks>
+			</allowed-values>
+
+			<allowed-values id="component-type" target="component/@component-type" allow-other="yes" level="ERROR">
+				<formal-name>Component Type</formal-name>
+				<description>Identifies the component type.</description>
+				<enum value="software">Software</enum>
+				<enum value="hardware">Hardware</enum>
+				<enum value="service">Service</enum>
+				<enum value="policy">Policy</enum>
+				<enum value="process">Process</enum>
+				<enum value="procedure">Procedure</enum>
+				<enum value="plan">Plan</enum>
+				<enum value="guidance">Guidance</enum>
+				<enum value="standard">Standard</enum>
+				<enum value="validation">Validation</enum>
+				<enum value="this-system">This System</enum>
+				<enum value="interconnection">Interconnection</enum>
+				<enum value="system">Leveraged System</enum>
+			</allowed-values>
+
+			<allowed-values id="control-implementation-status" target="implemented-requirement/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
+				<formal-name>Control Implementation Status</formal-name>
+				<description>The implementation status of the control.</description>
+				<enum value="implemented">Implemented</enum>
+				<enum value="partial">Partially Implemented</enum>
+				<enum value="planned">Planned</enum>
+				<enum value="alternative">Alternative Implementation</enum>
+				<enum value="not-applicable">Not Applicable</enum>
+			</allowed-values>
+
+			<allowed-values id="control-origination" target="implemented-requirement/prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+				<formal-name>Control Origination</formal-name>
+				<description>The point(s) from which the control satisfaction originates.</description>
+				<enum value="sp-corporate">Service Provider (Corporate)</enum>
+				<enum value="sp-system">Service Provider (System Specific)</enum>
+				<enum value="customer-configured">Configured by Customer</enum>
+				<enum value="customer-provided">Provided by Customer</enum>
+				<enum value="inherited">Inherited</enum>
+			</allowed-values>
+
+			<allowed-values id="interconnection-direction" target="component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']" allow-other="no" level="ERROR">
+				<formal-name>Interconnection Direction</formal-name>
+				<description>Identifies the direction of information flow for the interconnection.</description>
+				<enum value="in">Incoming</enum>
+				<enum value="out">Outgoing</enum>
+				<enum value="in/out">Bi-Directional</enum>
+			</allowed-values>
+
+			<allowed-values id="interconnection-security" target="component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+				<formal-name>Interconnection Security</formal-name>
+				<description>Identifies the type of security applied to the interconnection.</description>
+				<enum value="ipsec">IPsec</enum>
+				<enum value="vpn">Virtual Private Network</enum>
+				<enum value="tls">Transport-Layer Security</enum>
+				<enum value="dtls">Transport-Layer Security</enum>
+				<enum value="certificate">Certificate Authentication Security</enum>
+				<enum value="secure-file-transfer">Secure File Transfer</enum>
+				<enum value="other">Other</enum>
+			</allowed-values>
+		</constraints>
+
+
+		<context>
+			<metapath target="component/prop[@name='allows-authenticated-scan']/@value"/>
+			<constraints>
+				<allowed-values id="allows-authenticated-scan" target="inventory-item/prop[@name='allows-authenticated-scan']/@value" allow-other="no" level="ERROR">
+					<formal-name>Allows Authenticated Scan</formal-name>
+					<description>Indicates if the asset is capable of having an authenticated scan.</description>
+					<enum value="yes">Yes</enum>
+					<enum value="no">No</enum>
+					<remarks>
+						<p>If the value is "no", the prop remarks must contain the reason why.</p>
+					</remarks>
+				</allowed-values>
+			</constraints>
+		</context>
+
+
+		<context>
+			<metapath target="component/prop[@name='public']"/>
+			<constraints>
+			<allowed-values id="public" target="inventory-item/prop[@name='public']" allow-other="no" level="ERROR">
+				<formal-name>Public</formal-name>
+				<description>Indicates if the asset is exposed to the public Internet.</description>
+				<enum value="yes">Yes</enum>
+				<enum value="no">No</enum>
+			</allowed-values>
+			</constraints>
+		</context>
+
+
+		<context>
+			<metapath target="component/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"/>
+			<constraints>
+				<allowed-values id="scan-type" target="inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']" allow-other="no" level="ERROR">
+					<formal-name>Scan Type</formal-name>
+					<description>Identifies the type of scan.</description>
+					<enum value="infrastructure">Infrastructure and Operating System Scan</enum>
+					<enum value="database">Database Scan</enum>
+					<enum value="web">Web Scan</enum>
+					<enum value="other">Web Scan</enum>
+				</allowed-values>
+			</constraints>
+		</context>
+
+
+		<context>
+			<metapath target="component/prop[@name='virtual']"/>
+			<constraints>
+			<allowed-values id="virtual" target="inventory-item/prop[@name='virtual']" allow-other="no" level="ERROR">
+				<formal-name>Virtual</formal-name>
+				<description>Indicates if the asset is virtual.</description>
+				<enum value="yes">Yes</enum>
+				<enum value="no">No</enum>
+			</allowed-values>
+			</constraints>
+		</context>
+
+	</context>
+
+</metaschema-meta-constraints>

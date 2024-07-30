@@ -1,0 +1,8 @@
+# Driver for the valid public constraint unit test.
+test-case:
+  name: The valid public asset test.
+  description: Test that the specified public asset is valid.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: public
+    result: pass
