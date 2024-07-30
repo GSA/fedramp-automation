@@ -1,0 +1,8 @@
+# Driver for the valid interconnection-direction constraint unit test.
+test-case:
+  name: The valid interconnection direction test.
+  description: Test that the specified interconnection direction is valid.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: interconnection-direction
+    result: pass

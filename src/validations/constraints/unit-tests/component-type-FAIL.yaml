@@ -1,0 +1,8 @@
+# Driver for the invalid component-type constraint unit test.
+test-case:
+  name: The invalid component type test.
+  description: Test that the specified component type is invalid.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: component-type
+    result: fail
