@@ -1,0 +1,8 @@
+# Driver for the valid interconnection-security constraint unit test.
+test-case:
+  name: The valid interconnection security test.
+  description: Test that the specified interconnection security is valid.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: interconnection-security
+    result: pass

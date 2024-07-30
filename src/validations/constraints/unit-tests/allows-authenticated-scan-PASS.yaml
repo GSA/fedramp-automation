@@ -1,0 +1,8 @@
+# Driver for the valid allows-authenticated-scan constraint unit test.
+test-case:
+  name: The valid authenticated scan test.
+  description: Test that the specified authenticated scan is valid.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: allows-authenticated-scan
+    result: pass
