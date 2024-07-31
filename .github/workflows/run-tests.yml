@@ -8,7 +8,7 @@ on:
     branches:
       - master
       - develop
-      - 'feature**'  # This will match any branch starting with "feature"
+      - 'feature/**'  # This will match any branch starting with "feature"
 
   pull_request:
 
@@ -43,7 +43,7 @@ jobs:
         run: |
           make build-validations
       - name : Publish all Junit XML tests results in Github Summary
-        uses: test-summary/action@v2
+        uses: test-summary/action@31493c76ec9e7aa675f1585d3ed6f1da69269a86
         if: always()
         with:
             paths: |

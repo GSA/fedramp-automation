@@ -1,0 +1,8 @@
+# Driver for the valid control-origination constraint unit test.
+test-case:
+  name: The valid control origination test.
+  description: Test that the specified control origination is valid.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: control-origination
+    result: pass
