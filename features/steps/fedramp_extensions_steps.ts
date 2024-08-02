@@ -35,7 +35,7 @@ const constraintTests = getConstraintTests();
 const newContent = beforeMarker + "# DYNAMIC_EXAMPLES\n" + constraintTests;
 
 // Write the new content back to the file
-writeFileSync(featureFile, newContent);
+// writeFileSync(featureFile, newContent);
 
 function getConstraintTests() {
   const constraintTestDir = join(
@@ -208,7 +208,7 @@ async function checkConstraints(
       const constraintResult = results.find((x) => x.ruleId === id);
       
       if (!constraintResult) {
-        errors.push(`No result found for constraint: ${constraint_id}. The constraint may not be applicable to this content.`);
+        errors.push(`Rule exists for constraint: ${constraint_id}, but no result was found. The content may not trigger this constraint.`);
         continue;
       }
 
@@ -216,10 +216,9 @@ async function checkConstraints(
 
       const constraintMatchesExpectation = constraintResult.kind === expectedResult;
       constraintResults.push(constraintMatchesExpectation ? "pass" : "fail");
-      
       if (!constraintMatchesExpectation) {
         errors.push(
-          `${constraint_id}: Expected ${expectedResult}, received ${constraintResult.kind}`
+          `${constraint_id}: Rule exists, but expected ${expectedResult}, received ${constraintResult.kind}. The content may need adjustment to properly test this constraint.`
         );
         errors.push(`  Message: ${constraintResult.message.text}`);
         if (constraintResult.locations && constraintResult.locations.length > 0) {
@@ -231,14 +230,14 @@ async function checkConstraints(
         }
         errors.push(''); // Add a blank line for readability
       }
+      if (!constraintMatchesExpectation) {
+        return {
+          status: "fail",
+          errorMessage: "Test failed with the following errors:\n" + errors.join("\n")
+        };
+      }  
     }
 
-    if (errors.length > 0) {
-      return {
-        status: "fail",
-        errorMessage: "Test failed with the following errors:\n" + errors.join("\n")
-      };
-    }
     return { status: "pass", errorMessage: "" };
   } catch (error) {
     console.error("Error in checkConstraints:", error);
