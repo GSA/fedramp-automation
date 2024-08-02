@@ -15,7 +15,7 @@ src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
 utils
-
+/sarif/
 # Hugo Files
 /docs/public
 
