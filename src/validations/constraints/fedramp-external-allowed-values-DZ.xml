@@ -15,7 +15,7 @@
 		<metapath target="/plan-of-action-and-milestones"/>
 
 		<constraints>
-			<allowed-values id="attachment-type" target="resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']" allow-other="yes" level="ERROR">
+			<allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type']/@value" allow-other="yes" level="ERROR">
 				<formal-name>Attachment Type</formal-name>
 				<description>Identifies the type of attachment.</description>
 				<enum value="law">Law or Statute</enum>
@@ -56,7 +56,7 @@
 				</remarks>
 			</allowed-values>
 
-			<allowed-values id="component-type" target="component/@component-type" allow-other="yes" level="ERROR">
+			<allowed-values id="component-type" target="system-implementation/component/@type" allow-other="yes" level="ERROR">
 				<formal-name>Component Type</formal-name>
 				<description>Identifies the component type.</description>
 				<enum value="software">Software</enum>
@@ -74,7 +74,7 @@
 				<enum value="system">Leveraged System</enum>
 			</allowed-values>
 
-			<allowed-values id="control-implementation-status" target="implemented-requirement/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
+			<allowed-values id="control-implementation-status" target="control-implementation/implemented-requirement/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
 				<formal-name>Control Implementation Status</formal-name>
 				<description>The implementation status of the control.</description>
 				<enum value="implemented">Implemented</enum>
@@ -113,65 +113,39 @@
 				<enum value="secure-file-transfer">Secure File Transfer</enum>
 				<enum value="other">Other</enum>
 			</allowed-values>
-		</constraints>
+			<allowed-values id="allows-authenticated-scan" target="system-implementation/*/prop[@name='allows-authenticated-scan']/@value" allow-other="no" level="ERROR">
+				<formal-name>Allows Authenticated Scan</formal-name>
+				<description>Indicates if the asset is capable of having an authenticated scan.</description>
+				<enum value="yes">Yes</enum>
+				<enum value="no">No</enum>
+				<remarks>
+					<p>If the value is "no", the prop remarks must contain the reason why.</p>
+				</remarks>
+			</allowed-values>
 
-
-		<context>
-			<metapath target="component/prop[@name='allows-authenticated-scan']/@value"/>
-			<constraints>
-				<allowed-values id="allows-authenticated-scan" target="inventory-item/prop[@name='allows-authenticated-scan']/@value" allow-other="no" level="ERROR">
-					<formal-name>Allows Authenticated Scan</formal-name>
-					<description>Indicates if the asset is capable of having an authenticated scan.</description>
-					<enum value="yes">Yes</enum>
-					<enum value="no">No</enum>
-					<remarks>
-						<p>If the value is "no", the prop remarks must contain the reason why.</p>
-					</remarks>
-				</allowed-values>
-			</constraints>
-		</context>
-
-
-		<context>
-			<metapath target="component/prop[@name='public']"/>
-			<constraints>
 			<allowed-values id="public" target="inventory-item/prop[@name='public']" allow-other="no" level="ERROR">
 				<formal-name>Public</formal-name>
 				<description>Indicates if the asset is exposed to the public Internet.</description>
 				<enum value="yes">Yes</enum>
 				<enum value="no">No</enum>
 			</allowed-values>
-			</constraints>
-		</context>
-
-
-		<context>
-			<metapath target="component/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"/>
-			<constraints>
-				<allowed-values id="scan-type" target="inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']" allow-other="no" level="ERROR">
-					<formal-name>Scan Type</formal-name>
-					<description>Identifies the type of scan.</description>
-					<enum value="infrastructure">Infrastructure and Operating System Scan</enum>
-					<enum value="database">Database Scan</enum>
-					<enum value="web">Web Scan</enum>
-					<enum value="other">Web Scan</enum>
-				</allowed-values>
-			</constraints>
-		</context>
-
-
-		<context>
-			<metapath target="component/prop[@name='virtual']"/>
-			<constraints>
+			<allowed-values id="scan-type" target="inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']" allow-other="no" level="ERROR">
+				<formal-name>Scan Type</formal-name>
+				<description>Identifies the type of scan.</description>
+				<enum value="infrastructure">Infrastructure and Operating System Scan</enum>
+				<enum value="database">Database Scan</enum>
+				<enum value="web">Web Scan</enum>
+				<enum value="other">Web Scan</enum>
+			</allowed-values>
 			<allowed-values id="virtual" target="inventory-item/prop[@name='virtual']" allow-other="no" level="ERROR">
 				<formal-name>Virtual</formal-name>
 				<description>Indicates if the asset is virtual.</description>
 				<enum value="yes">Yes</enum>
 				<enum value="no">No</enum>
 			</allowed-values>
-			</constraints>
-		</context>
 
+		</constraints>
 	</context>
+
 
 </metaschema-meta-constraints>

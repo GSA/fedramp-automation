@@ -101,7 +101,6 @@
         <p>Main application server hosting the core system functionality.</p>
       </description>
       <purpose>main line</purpose>
-      <prop name='allows-authenticated-scan' value="yes" />
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
@@ -150,6 +149,7 @@
     </description>
     <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
       <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
       </statement>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
