@@ -78,16 +78,6 @@
                 <enum value="not-applicable">Not Applicable</enum>
             </allowed-values>
 
-            <allowed-values id="control-origination" target="control-implementation/implemented-requirement/prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Control Origination</formal-name>
-                <description>The point(s) from which the control satisfaction originates.</description>
-                <enum value="sp-corporate">Service Provider (Corporate)</enum>
-                <enum value="sp-system">Service Provider (System Specific)</enum>
-                <enum value="customer-configured">Configured by Customer</enum>
-                <enum value="customer-provided">Provided by Customer</enum>
-                <enum value="inherited">Inherited</enum>
-            </allowed-values>
-
             <allowed-values id="interconnection-direction" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Interconnection Direction</formal-name>
                 <description>Identifies the direction of information flow for the interconnection.</description>
