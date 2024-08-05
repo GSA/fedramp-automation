@@ -116,14 +116,6 @@
                 <enum value="web">Web Scan</enum>
                 <enum value="other">Other</enum>
             </allowed-values>
-
-            <allowed-values id="virtual" target="system-implementation/inventory-item/prop[@name='virtual']/@value" allow-other="no" level="ERROR">
-                <formal-name>Virtual</formal-name>
-                <description>Indicates if the asset is virtual.</description>
-                <enum value="yes">Yes</enum>
-                <enum value="no">No</enum>
-            </allowed-values>
-
         </constraints>
     </context>
 
