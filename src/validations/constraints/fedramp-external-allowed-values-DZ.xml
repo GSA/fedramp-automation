@@ -108,13 +108,6 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
-            <allowed-values id="public" target="system-implementation//prop[@name='public']/@value" allow-other="no" level="ERROR">
-                <formal-name>Public</formal-name>
-                <description>Indicates if the asset is exposed to the public Internet.</description>
-                <enum value="yes">Yes</enum>
-                <enum value="no">No</enum>
-            </allowed-values>
-
             <allowed-values id="scan-type" target="system-implementation//prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Scan Type</formal-name>
                 <description>Identifies the type of scan.</description>
