@@ -52,19 +52,20 @@
             <allowed-values id="component-type" target="system-implementation/component/@type" allow-other="no" level="ERROR">
                 <formal-name>Component Type</formal-name>
                 <description>Identifies the component type.</description>
-                <enum value="software">Software</enum>
-                <enum value="hardware">Hardware</enum>
-                <enum value="service">Service</enum>
-                <enum value="policy">Policy</enum>
-                <enum value="process">Process</enum>
-                <enum value="procedure">Procedure</enum>
-                <enum value="plan">Plan</enum>
-                <enum value="guidance">Guidance</enum>
-                <enum value="standard">Standard</enum>
-                <enum value="validation">Validation</enum>
-                <enum value="this-system">This System</enum>
-                <enum value="interconnection">Interconnection</enum>
-                <enum value="system">Leveraged System</enum>
+                <enum value="interconnection">A connection to something outside this system.</enum>
+                <enum value="software">Any software, operating system, or firmware.</enum>
+                <enum value="hardware">A physical device.</enum>
+                <enum value="service">A service that may provide APIs.</enum>
+                <enum value="policy">An enforceable policy.</enum>
+                <enum value="physical">A tangible asset used to provide physical protections or countermeasures.</enum>
+                <enum value="process-procedure">A list of steps or actions to take to achieve some end result.</enum>
+                <enum value="plan">An applicable plan.</enum>
+                <enum value="guidance">Any guideline or recommendation.</enum>
+                <enum value="standard">Any organizational or industry standard.</enum>
+                <enum value="validation">An external assessment performed on some other component, that has been validated by a third-party.</enum>
+                <enum value="this-system">The system as a whole.</enum>
+                <enum value="system">An external system, which may be a leveraged system or the other side of an interconnection.</enum>
+                <enum value="network">A physical or virtual network.</enum>
             </allowed-values>
 
             <allowed-values id="control-implementation-status" target="control-implementation/implemented-requirement/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
