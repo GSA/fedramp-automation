@@ -1,0 +1,8 @@
+# Driver for the invalid has-security-objective-availability constraint unit test.
+test-case:
+  name: The invalid has-security-objective-availability constraint test.
+  description: Test that SSP does not specify a security availability objective.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: has-security-objective-availability
+    result: fail

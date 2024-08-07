@@ -1,0 +1,8 @@
+# Driver for the valid extraneous-response-description constraint unit test.
+test-case:
+  name: The valid extraneous-response-description constraint test.
+  description: Test that the by-component element contains a description child element.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: extraneous-response-description
+    result: pass

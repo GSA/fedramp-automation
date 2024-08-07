@@ -1,0 +1,8 @@
+# Driver for the valid incorrect-role-association constraint unit test.
+test-case:
+  name: The valid incorrect-role-association constraint test.
+  description: Test that responsible parties do not contain extraneous roles.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: incorrect-role-association
+    result: pass

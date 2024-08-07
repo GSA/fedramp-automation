@@ -1,0 +1,8 @@
+# Driver for the valid has-consonant-CMVP-validation-details constraint unit test.
+test-case:
+  name: The valid has-consonant-CMVP-validation-details constraint test.
+  description: Test that Validation details links are in sync with their sibling validation references.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-consonant-CMVP-validation-details
+    result: pass

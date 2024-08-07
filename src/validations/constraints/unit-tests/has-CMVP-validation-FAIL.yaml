@@ -1,0 +1,8 @@
+# Driver for the invalid has-CMVP-validation constraint unit test.
+test-case:
+  name: The invalid has-CMVP-validation constraint test.
+  description: Test that an SSP does not contain a FIPS 140 validated module.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: has-CMVP-validation
+    result: fail

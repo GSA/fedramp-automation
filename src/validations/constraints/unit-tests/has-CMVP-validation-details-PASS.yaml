@@ -1,0 +1,8 @@
+# Driver for the valid has-CMVP-validation-details constraint unit test.
+test-case:
+  name: The valid has-CMVP-validation-details constraint test.
+  description: Test that FIPS 140 validation citations have validation details.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-CMVP-validation-details
+    result: pass

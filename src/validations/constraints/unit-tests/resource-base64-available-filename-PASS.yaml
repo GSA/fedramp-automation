@@ -1,0 +1,8 @@
+# Driver for the valid resource-base64-available-filename constraint unit test.
+test-case:
+  name: The valid resource-base64-available-filename constraint test.
+  description: Test that embedded attachments have filename attributes.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: resource-base64-available-filename
+    result: pass

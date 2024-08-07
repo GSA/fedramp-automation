@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+	<!-- ================== -->
+	<!-- FedRAMP Extensions -->
+	<!-- ================== -->
+	<context>
+		<metapath target="/system-security-plan"/>
+
+		<constraints>
+			<expect id="import-profile-has-href-attribute" target="import-profile" test="@href => exists()" level="CRITICAL">
+				<message>The import-profile element must have a reference.</message>
+			</expect>
+		</constraints>
+
+		<context>
+			<metapath target="system-implementation"/>
+			<constraints>
+				<expect id="no-description-text-in-component" target="component/description" test="p => exists()" level="ERROR">
+					<message>A component must have a description with content.</message>
+				</expect>
+
+				<expect id="has-CMVP-validation" target="component" test="@type eq 'validation'" level="ERROR">
+					<message>A FedRAMP SSP must incorporate one or more FIPS 140 validated modules.</message>
+				</expect>
+
+				<expect id="has-CMVP-validation-reference" target="component[@type eq 'validation']" test="prop[@name eq 'validation-reference']" level="ERROR">
+					<message>FIPS 140 validation citations must have validation references.</message>
+				</expect>
+
+				<expect id="has-CMVP-validation-details" target="component" test="link[@rel eq 'validation-details']" level="ERROR">
+					<message>FIPS 140 validation citations must have validation details.</message>
+				</expect>
+
+				<expect id="has-credible-CMVP-validation-reference" target="component/prop[@name eq 'validation-reference']" test="matches(@value, '^\d{3,4}$')" level="ERROR">
+					<message>Validation references must have NIST Cryptographic Module Validation Program (CMVP) certificate numbers.</message>
+				</expect>
+
+				<expect id="has-consonant-CMVP-validation-reference" target="component/prop[@name eq 'validation-reference']" test="@value = tokenize(following-sibling::link[@rel eq 'validation-details']/@href, '/')[last()]" level="ERROR">
+					<message>Validation references must be in sync with link validation details.</message>
+				</expect>
+
+				<expect id="has-consonant-CMVP-validation-details" target="component/link[@rel eq 'validation-details']" test="tokenize(@href, '/')[last()] = preceding-sibling::prop[@name eq 'validation-reference']/@value" level="ERROR">
+					<message>Validation details links must be in sync with their sibling validation references.</message>
+				</expect>
+			</constraints>
+		</context>
+
+		<context>
+			<metapath target="system-characteristics"/>
+			<constraints>
+				<let var="security-level-string"
+					expression="string-join(../security-impact-level//.)"/>
+				<let var="security-impact-level"
+					expression="if (matches($security-level-string, 'high'))
+							then
+								('fips-199-high')
+							else
+								(if (matches($security-level-string, 'moderate'))
+								then
+									('fips-199-moderate')
+								else
+									('fips-199-low'))"/>
+
+				<expect id="has-security-sensitivity-level" target="security-sensitivity-level" test="text()" level="ERROR">
+					<message>SSP must specify a FIPS 199 categorization.</message>
+				</expect>
+
+				<expect id="has-security-impact-level" target="security-impact-level" test="exists()" level="ERROR">
+					<message>SSP must specify a security impact level.</message>
+				</expect>
+
+				<expect id="security-sensitivity-level-matches-security-impact-level" target="security-sensitivity-level" test=". eq $security-impact-level" level="ERROR">
+					<message>SSP security sensitivity level must match the highest security impact level.</message>
+				</expect>
+
+				<expect id="has-security-objective-confidentiality" target="security-impact-level" test="security-objective-confidentiality" level="ERROR">
+					<message>SSP must specify a confidentiality security objective.</message>
+				</expect>
+
+				<expect id="has-security-objective-integrity" target="security-impact-level" test="security-objective-integrity" level="ERROR">
+					<message>SSP must specify an integrity security objective.</message>
+				</expect>
+
+				<expect id="has-security-objective-availability" target="security-impact-level" test="security-objective-availability" level="ERROR">
+					<message>SSP must specify a security availability objective.</message>
+				</expect>
+
+				<expect id="system-information-has-information-type" target="system-information" test="information-type" level="ERROR">
+					<message>SSP must define at least one information type.</message>
+				</expect>
+
+				<expect id="information-type-has-title" target="system-information" test="information-type/title" level="ERROR">
+					<message>SSP information type must have a title.</message>
+				</expect>
+
+				<expect id="information-type-has-description" target="system-information" test="information-type/description" level="ERROR">
+					<message>SSP information type must have a description.</message>
+				</expect>
+
+				<expect id="information-type-has-categorization" target="system-information" test="information-type/categorization" level="ERROR">
+					<message>SSP information type must have at least one categorization.</message>
+				</expect>
+
+				<expect id="information-type-has-confidentiality-impact" target="system-information" test="information-type/confidentiality-impact" level="ERROR">
+					<message>SSP information type must have a confidentiality impact.</message>
+				</expect>
+			</constraints>
+		</context>
+
+		<context>
+			<metapath target="control-implementation/implemented-requirement"/>
+			<constraints>
+				<expect id="missing-response-components" target="statement" test="by-component => exists()" level="ERROR">
+					<message>Response statements must have one or more components.</message>
+				</expect>
+	
+				<expect id="extraneous-response-description" target="statement" test="description => exists() => not()" level="ERROR">
+					<message>Response statements should not have a description.</message>
+				</expect>
+	
+				<expect id="extraneous-response-remarks" target="statement" test="remarks => exists()" level="ERROR">
+					<message>Response statements have remarks outside a component.</message>
+				</expect>
+
+				<expect id="has-unique-policy-and-procedure" target="statement/by-component/link[@rel = ('policy', 'procedure')]" test="not(@href=(//implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except ancestor::implemented-requirement)/descendant::by-component/link[@rel eq 'policy']/@href)" level="ERROR">
+					<message>Policy and procedure documents must have unique per-control-family associations.</message>
+				</expect>
+			</constraints>
+		</context>
+
+		<context>
+			<metapath target="metadata"/>
+			<constraints>
+				<expect id="incorrect-role-association" target="responsible-party" test="not(exists(responsible-party[not(@role-id = role/@id)]))" level="ERROR">
+					<message>A FedRAMP SSP must define a responsible party with no extraneous roles.</message>
+				</expect>
+
+				<expect id="incorrect-party-association" target="responsible-party" test="not(exists(responsible-party[not(party-uuid = party/@uuid)]))" level="ERROR">
+					<message>A FedRAMP SSP must define a responsible party with no extraneous parties.</message>
+				</expect>
+			</constraints>
+		</context>
+
+		<context>
+			<metapath target="back-matter"/>
+			<constraints>
+				<expect id="resource-base64-available-filename" target="resource" test="base64/@filename" level="ERROR">
+					<message>Every declared embedded attachment must have a filename attribute.</message>
+				</expect>
+
+				<expect id="resource-base64-available-media-type" target="resource" test="base64/@media-type" level="ERROR">
+					<message>Every declared embedded attachment must have a media type.</message>
+				</expect>
+
+				<expect id="base64-has-content" target="resource/base64" test="matches(normalize-space(), '^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/][AQgw]==|[A-Za-z0-9+/]{2}[AEIMQUYcgkosw048]=)?$')" level="ERROR">
+					<message>Every embedded attachment element must have content.</message>
+					</expect>
+			</constraints>
+		</context>
+
+	</context>
+
+</metaschema-meta-constraints>

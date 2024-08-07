@@ -1,0 +1,8 @@
+# Driver for the valid system-information-has-information-type constraint unit test.
+test-case:
+  name: The valid system-information-has-information-type constraint test.
+  description: Test that SSP defines at least one information type.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: system-information-has-information-type
+    result: pass

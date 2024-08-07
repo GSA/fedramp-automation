@@ -1,0 +1,8 @@
+# Driver for the invalid base64-has-content constraint unit test.
+test-case:
+  name: The invalid base64-has-content constraint test.
+  description: Test that base64 attachment elements do not have textual content.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: base64-has-content
+    result: fail

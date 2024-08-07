@@ -1,0 +1,8 @@
+# Driver for the valid no-description-text-in-component constraint unit test.
+test-case:
+  name: The valid no-description-text-in-component constraint test.
+  description: Test that the component contains a description.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: no-description-text-in-component
+    result: pass

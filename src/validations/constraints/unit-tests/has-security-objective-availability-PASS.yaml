@@ -1,0 +1,8 @@
+# Driver for the valid has-security-objective-availability constraint unit test.
+test-case:
+  name: The valid has-security-objective-availability constraint test.
+  description: Test that SSP specifies a security availability objective.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-security-objective-availability
+    result: pass

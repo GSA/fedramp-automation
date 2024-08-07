@@ -1,0 +1,8 @@
+# Driver for the valid has-unique-policy-and-procedure constraint unit test.
+test-case:
+  name: The valid has-unique-policy-and-procedure constraint test.
+  description: Test that policy and procedure documents have unique per-control-family associations.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-unique-policy-and-procedure
+    result: pass

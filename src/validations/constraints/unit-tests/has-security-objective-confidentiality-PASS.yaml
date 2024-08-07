@@ -1,0 +1,8 @@
+# Driver for the valid has-security-objective-confidentiality constraint unit test.
+test-case:
+  name: The valid has-security-objective-confidentiality constraint test.
+  description: Test that SSP specifies a confidentiality security objective.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-security-objective-confidentiality
+    result: pass

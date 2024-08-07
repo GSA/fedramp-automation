@@ -1,0 +1,8 @@
+# Driver for the valid has-security-objective-integrity constraint unit test.
+test-case:
+  name: The valid has-security-objective-integrity constraint test.
+  description: Test that SSP specifies an integrity security objective.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-security-objective-integrity
+    result: pass

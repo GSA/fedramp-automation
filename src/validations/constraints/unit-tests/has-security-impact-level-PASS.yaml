@@ -1,0 +1,8 @@
+# Driver for the valid has-security-impact-level constraint unit test.
+test-case:
+  name: The valid has-security-impact-level constraint test.
+  description: Test that an SSP specifies a security impact level.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-security-impact-level
+    result: pass

@@ -1,0 +1,8 @@
+# Driver for the invalid has-security-objective-confidentiality constraint unit test.
+test-case:
+  name: The invalid has-security-objective-confidentiality constraint test.
+  description: Test that SSP does not specify a confidentiality security objective.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: has-security-objective-confidentiality
+    result: fail

@@ -1,0 +1,8 @@
+# Driver for the valid has-credible-CMVP-validation-reference constraint unit test.
+test-case:
+  name: The valid has-credible-CMVP-validation-reference constraint test.
+  description: Test that validation references have NIST Cryptographic Module Validation Program (CMVP) certificate numbers.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-credible-CMVP-validation-reference
+    result: pass

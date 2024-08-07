@@ -1,0 +1,8 @@
+# Driver for the valid information-type-has-description constraint unit test.
+test-case:
+  name: The valid information-type-has-description constraint test.
+  description: Test that SSP information type has a description.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: information-type-has-description
+    result: pass

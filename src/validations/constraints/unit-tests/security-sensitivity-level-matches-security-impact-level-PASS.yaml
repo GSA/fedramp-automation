@@ -1,0 +1,8 @@
+# Driver for the valid security-sensitivity-level-matches-security-impact-level constraint unit test.
+test-case:
+  name: The valid security-sensitivity-level-matches-security-impact-level constraint test.
+  description: Test that SSP security sensitivity level matches the highest security impact level.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: security-sensitivity-level-matches-security-impact-level
+    result: pass

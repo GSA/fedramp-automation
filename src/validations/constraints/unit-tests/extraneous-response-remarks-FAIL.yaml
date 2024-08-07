@@ -1,0 +1,8 @@
+# Driver for the invalid extraneous-response-remarks constraint unit test.
+test-case:
+  name: The invalid extraneous-response-remarks constraint test.
+  description: Test that the implemented requirement statement contains remarks.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: extraneous-response-remarks
+    result: fail

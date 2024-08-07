@@ -1,0 +1,8 @@
+# Driver for the invalid incorrect-party-association unit test.
+test-case:
+  name: The invalid incorrect-party-association constraint test.
+  description: Test that responsible parties contain extraneous parties.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: incorrect-party-association
+    result: fail

@@ -1,0 +1,8 @@
+# Driver for the valid missing-response-components constraint unit test.
+test-case:
+  name: The valid missing-response-components constraint test.
+  description: Test that implemented requirements contain descriptions for each component.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: missing-response-components
+    result: pass

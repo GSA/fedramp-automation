@@ -1,0 +1,8 @@
+# Driver for the invalid information-type-has-categorization constraint unit test.
+test-case:
+  name: The invalid information-type-has-categorization constraint test.
+  description: Test that SSP information type does not have categorizations.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: information-type-has-categorization
+    result: fail

@@ -1,0 +1,8 @@
+# Driver for the valid information-type-has-title constraint unit test.
+test-case:
+  name: The valid information-type-has-title constraint test.
+  description: Test that SSP information type has a title.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: information-type-has-title
+    result: pass

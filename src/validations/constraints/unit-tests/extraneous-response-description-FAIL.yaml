@@ -1,0 +1,8 @@
+# Driver for the invalid extraneous-response-description constraint unit test.
+test-case:
+  name: The invalid extraneous-response-description constraint test.
+  description: Test that the by-component element does not contain a description child element.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: extraneous-response-description
+    result: fail
