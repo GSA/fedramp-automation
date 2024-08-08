@@ -205,6 +205,8 @@ async function processTestCase({ "test-case": testCase }: any) {
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
+    writeFileSync(join(__dirname, "../../sarif/", testCase.name.replaceAll(" ",'-')+"json")
+    ,JSON.stringify(sarifResponse));
     return checkConstraints(sarifResponse, testCase.expectations);
   } catch(e) {
     return { status: "fail", errorMessage: e.toString() };
@@ -223,7 +225,6 @@ async function checkConstraints(
 
     const [run] = runs;
     const { results, tool } = run;
-    
     if (!results) {
       throw new Error("No results in SARIF output");
     }
@@ -272,7 +273,7 @@ async function checkConstraints(
       const { id } = constraintMatch;
       const constraintResult = results.find((x) => x.ruleId === id);
       
-      if (!constraintResult) {
+      if (typeof constraintResult==="undefined") {
         errors.push(`Rule exists for constraint: ${constraint_id}, but no result was found. The content may not trigger this constraint.`);
         continue;
       }
