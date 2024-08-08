@@ -266,7 +266,7 @@ async function checkConstraints(
       const constraintMatch = rules.find((x) => x.name === constraint_id);
       if (!constraintMatch) {
         errors.push(`Constraint rule not found: ${constraint_id}. The constraint may not be applicable to this content.`);
-        continue;
+        throw new Error("Rule not found: "+constraint_id);
       }
 
       const { id } = constraintMatch;
