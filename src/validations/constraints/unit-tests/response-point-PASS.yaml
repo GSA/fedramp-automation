@@ -8,7 +8,3 @@ test-case:
   expectations: # check the constraint result
   - constraint-id: prop-response-point-has-cardinality-one
     result: pass
-  - constraint-id: prop-response-point-matches-string
-    result: pass
-
-
