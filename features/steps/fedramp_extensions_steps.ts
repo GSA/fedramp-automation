@@ -23,7 +23,7 @@ let currentTestCase: {
   expectations: [{ "constraint-id": string; result: string }];
 };
 let processedContentPath: string;
-let ignoredDocuments: string="oscal-external-constraints.xml";
+let ignoreDocument: string="oscal-external-constraints.xml";
 let metaschemaDocuments: string[] = [];
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -91,7 +91,7 @@ async function getConstraintIds() {
     "constraints",
   );
   const files = readdirSync(constraintDir);
-  const xmlFiles = files.filter((file) => file.endsWith(".xml")).filter(x=>!ignoredDocuments.includes(x));
+  const xmlFiles = files.filter((file) => file.endsWith(".xml")).filter(file=>!file.endsWith(ignoreDocument));
   let allConstraintIds = [];
 
   for (const file of xmlFiles) {
@@ -343,7 +343,7 @@ Given('I have loaded all Metaschema extensions documents', function () {
 
 When('I extract all constraint IDs from the Metaschema extensions', async function () {
   for (const file of metaschemaDocuments) {
-    if(ignoredDocuments.includes(file.split("/").pop())){
+    if(file.endsWith(ignoreDocument)){
       continue;
     }
     const fileContent = readFileSync(file, 'utf8');
@@ -434,7 +434,8 @@ When('I analyze the YAML test files for each constraint ID', function () {
   for (const file of yamlTestFiles) {
     const fileContent = readFileSync(file, 'utf8');
     const testCase = load(fileContent) as any;
-    
+    try{
+
     if (testCase['test-case'] && testCase['test-case'].expectations) {
       for (const expectation of testCase['test-case'].expectations) {
         const constraintId = expectation['constraint-id'];
@@ -453,6 +454,11 @@ When('I analyze the YAML test files for each constraint ID', function () {
         }
       }
     }
+  }catch(error){
+    console.error(error);
+    console.error("error: running"+file);
+    throw error
+  }
   }
   
   console.log(`Analyzed ${yamlTestFiles.length} YAML test files`);

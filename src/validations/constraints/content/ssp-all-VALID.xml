@@ -32,6 +32,7 @@
     <party uuid="22222222-0000-4000-9000-000000000002" type="person">
       <name>Jane Doe</name>
       <email-address>jane.doe@example.com</email-address>
+    <address type="work"  />
     </party>
     
     <responsible-party role-id="creator">
@@ -54,6 +55,8 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
+    <prop name='cloud-deployment-model' value='government-only-cloud' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
     <security-sensitivity-level>moderate</security-sensitivity-level>
     <system-information>
       <information-type uuid="33333333-0000-4000-9000-000000000003">

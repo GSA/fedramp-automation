@@ -1,0 +1,8 @@
+# driver for the address-type unit test
+test-case:
+  name: Test Valid Address Type Use
+  description: Test that the specified address type is valid.
+  content: ../content/ssp-all-VALID.xml # the content to run
+  expectations: # check the constraint result
+  - constraint-id: address-type
+    result: pass
