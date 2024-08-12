@@ -1,0 +1,8 @@
+# Driver for the valid component-has-one-asset-type constraint unit test.
+test-case:
+  name: The valid component-has-one-asset-type constraint unit test.
+  description: Test that each SSP component contains only one asset type.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: component-has-one-asset-type
+    result: pass

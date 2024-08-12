@@ -1,0 +1,8 @@
+# Driver for the invalid has-unique-asset-id constraint unit test.
+test-case:
+  name: The invalid has-unique-asset-id constraint unit test.
+  description: Test that SSP asset identifiers have duplicate values.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: has-unique-asset-id
+    result: fail

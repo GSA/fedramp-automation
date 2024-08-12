@@ -1,0 +1,8 @@
+# Driver for the valid cia-impact-has-base constraint unit test.
+test-case:
+  name: The valid cia-impact-has-base constraint unit test.
+  description: Test that SSP information type confidentiality impact, integrity impact, or availability impact specifies the base impact.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: cia-impact-has-base
+    result: pass

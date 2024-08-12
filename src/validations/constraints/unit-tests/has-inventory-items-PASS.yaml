@@ -1,0 +1,8 @@
+# Driver for the valid has-inventory-items constraint unit test.
+test-case:
+  name: The valid has-inventory-items constraint unit test.
+  description: Test that SSP contains inventory items.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-inventory-items
+    result: pass

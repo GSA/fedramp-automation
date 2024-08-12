@@ -1,0 +1,8 @@
+# Driver for the valid categorization-has-information-type-id constraint unit test.
+test-case:
+  name: The valid categorization-has-information-type-id constraint unit test.
+  description: Test that SSP information type categorization has at least one information type identifier.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: categorization-has-information-type-id
+    result: pass

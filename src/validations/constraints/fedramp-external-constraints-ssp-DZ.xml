@@ -42,6 +42,22 @@
 				<expect id="has-consonant-CMVP-validation-details" target="component/link[@rel eq 'validation-details']" test="tokenize(@href, '/')[last()] = preceding-sibling::prop[@name eq 'validation-reference']/@value" level="ERROR">
 					<message>Validation details links must be in sync with their sibling validation references.</message>
 				</expect>
+
+				<expect id="has-inventory-items" target="inventory-item" test="exists()" level="ERROR">
+					<message>SSP must incorporate inventory items.</message>
+				</expect>
+
+				<expect id="has-unique-asset-id" target="inventory-item" test="count(//prop[@name eq 'asset-id'][@value eq current()/@value]) = 1" level="ERROR">
+					<message>SSP asset identifiers must be unique.</message>
+				</expect>
+
+				<expect id="component-has-asset-type" target="component" test="prop[@name eq 'asset-type']" level="ERROR">
+					<message>A component must have an asset type.</message>
+				</expect>
+
+				<expect id="component-has-one-asset-type" target="component" test="prop[@name eq 'asset-type'][2]" level="ERROR">
+					<message>A component must have only one asset type.</message>
+				</expect>
 			</constraints>
 		</context>
 
@@ -103,6 +119,43 @@
 
 				<expect id="information-type-has-confidentiality-impact" target="system-information" test="information-type/confidentiality-impact" level="ERROR">
 					<message>SSP information type must have a confidentiality impact.</message>
+				</expect>
+
+				<expect id="information-type-has-integrity-impact" target="system-information" test="information-type/integrity-impact" level="ERROR">
+					<message>SSP information type must have an integrity impact.</message>
+				</expect>
+
+				<expect id="information-type-has-availability-impact" target="system-information" test="information-type/availability-impact" level="ERROR">
+					<message>SSP information type must have an availability impact.</message>
+				</expect>
+
+				<expect id="categorization-has-system-attribute" target="system-information" test="information-type/categorization/@system" level="ERROR">
+					<message>SSP information type categorization must have the system attribute.</message>
+				</expect>
+
+				<expect id="categorization-has-correct-system-attribute" target="system-information" test="information-type/categorization/@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'" level="ERROR">
+					<message>SSP information type categorization must have a correct system attribute value.</message>
+				</expect>
+
+				<expect id="categorization-has-information-type-id" target="system-information" test="information-type/categorization/information-type-id" level="ERROR">
+					<message>SSP information type categorization must have at least one information type identifier.</message>
+				</expect>
+
+				<expect id="cia-impact-has-base" target="system-information" test="information-type/(confidentiality-impact | integrity-impact | availability-impact)/base" level="ERROR">
+					<message>SSP information type confidentiality impact, integrity impact, or availability impact must specify the base impact.</message>
+				</expect>
+
+				<expect id="cia-impact-has-selected" target="system-information" test="information-type/(confidentiality-impact | integrity-impact | availability-impact)/selected" level="ERROR">
+					<message>SSP information type confidentiality impact, integrity impact, or availability impact must specify the selected impact.</message>
+				</expect>
+
+				<expect id="cia-impact-has-adjustment-justification" target="system-information/information-type/(confidentiality-impact | integrity-impact | availability-impact)" 
+					test="if (base ne selected) then
+							exists(adjustment-justification)
+						  else
+							true()"
+					level="ERROR">
+					<message>When SP 800-60 base impact and selected impact levels differ for a given information type, SSP must include a justification for the difference.</message>
 				</expect>
 			</constraints>
 		</context>

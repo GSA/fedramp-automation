@@ -1,0 +1,8 @@
+# Driver for the valid information-type-has-integrity-impact unit test.
+test-case:
+  name: The valid information-type-has-integrity-impact constraint test.
+  description: Test that SSP information type has an integrity impact.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: information-type-has-integrity-impact
+    result: pass

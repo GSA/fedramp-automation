@@ -1,0 +1,8 @@
+# Driver for the valid categorization-has-correct-system-attribute constraint unit test.
+test-case:
+  name: The valid categorization-has-correct-system-attribute constraint unit test.
+  description: Test that SSP information type categorization has a correct system attribute value.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: categorization-has-correct-system-attribute
+    result: pass

@@ -1,0 +1,8 @@
+# Driver for the valid has-unique-asset-id constraint unit test.
+test-case:
+  name: The valid has-unique-asset-id constraint unit test.
+  description: Test that SSP asset identifiers are unique.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-unique-asset-id
+    result: pass
