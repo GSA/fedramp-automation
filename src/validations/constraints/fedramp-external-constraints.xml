@@ -9,7 +9,6 @@
         <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
 
         <constraints>
-            <matches id="prop-response-point-matches-string" target=".//part/prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']/@value" datatype="string"/>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
                 <message>Duplicate reponse point at '{ path(.) }'.</message>
             </expect>

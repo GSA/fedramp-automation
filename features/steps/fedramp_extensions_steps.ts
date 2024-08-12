@@ -1,6 +1,6 @@
 import { Given, Then, When, setDefaultTimeout } from "@cucumber/cucumber";
 import { expect } from "chai";
-import { readFileSync, readdirSync, unlinkSync, writeFileSync } from "fs";
+import { readFileSync, readdirSync, unlinkSync, writeFileSync,mkdirSync ,existsSync} from "fs";
 import { load } from "js-yaml";
 import { executeOscalCliCommand, validateFile, validateWithSarif } from "oscal";
 import { dirname, join } from "path";
@@ -23,6 +23,7 @@ let currentTestCase: {
   expectations: [{ "constraint-id": string; result: string }];
 };
 let processedContentPath: string;
+let ignoredDocuments: string="oscal-external-constraints.xml";
 let metaschemaDocuments: string[] = [];
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,8 +38,10 @@ async function updateFeatureFile() {
   // Generate the dynamic content
   const dynamicTestCases = getConstraintTests();
   const dynamicConstraintIds = await getConstraintIds();
+  const dynamicConstraintFiles = getConstraintFiles();
   console.log(dynamicConstraintIds,"STARTCONSTRAINTS");
   console.log(dynamicConstraintIds,"ENDCONSTRAINTS");
+
   // Replace the dynamic sections in the feature file
   featureContent = featureContent.replace(
     /#BEGIN_DYNAMIC_TEST_CASES[\s\S]*?#END_DYNAMIC_TEST_CASES/,
@@ -49,6 +52,12 @@ async function updateFeatureFile() {
     /#BEGIN_DYNAMIC_CONSTRAINT_IDS[\s\S]*?#END_DYNAMIC_CONSTRAINT_IDS/,
     `#BEGIN_DYNAMIC_CONSTRAINT_IDS\n${dynamicConstraintIds}\n#END_DYNAMIC_CONSTRAINT_IDS`
   );
+
+  featureContent = featureContent.replace(
+    /#BEGIN_DYNAMIC_CONSTRAINT_FILES[\s\S]*?#END_DYNAMIC_CONSTRAINT_FILES/,
+    `#BEGIN_DYNAMIC_CONSTRAINT_FILES\n${dynamicConstraintFiles}\n#END_DYNAMIC_CONSTRAINT_FILES`
+  );
+
 
   // Write the updated content back to the file
   writeFileSync(featureFile, featureContent);
@@ -82,7 +91,7 @@ async function getConstraintIds() {
     "constraints",
   );
   const files = readdirSync(constraintDir);
-  const xmlFiles = files.filter((file) => file.endsWith(".xml"));
+  const xmlFiles = files.filter((file) => file.endsWith(".xml")).filter(x=>!ignoredDocuments.includes(x));
   let allConstraintIds = [];
 
   for (const file of xmlFiles) {
@@ -108,6 +117,24 @@ async function getConstraintIds() {
   allConstraintIds = [...new Set(allConstraintIds)].sort();
 
   return allConstraintIds.map(id => `  | ${id} |`).join("\n");
+}
+
+function getConstraintFiles() {
+  const constraintDir = join(
+    __dirname,
+    "..",
+    "..",
+    "src",
+    "validations",
+    "constraints",
+  );
+  const files = readdirSync(constraintDir);
+  const xmlFiles = files
+    .filter((file) => file.endsWith(".xml"))
+    .map((file) => `  | ${file} |`)
+    .join("\n");
+  console.log("Processing constraint files: ", xmlFiles);
+  return xmlFiles;
 }
 
 Given("I have Metaschema extensions documents", function (dataTable) {
@@ -205,6 +232,9 @@ async function processTestCase({ "test-case": testCase }: any) {
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
+    const sarifDir = join(__dirname, "../../sarif/");
+if (!existsSync(sarifDir)) {
+    mkdirSync(sarifDir, { recursive: true });}
     writeFileSync(join(__dirname, "../../sarif/", testCase.name.replaceAll(" ",'-')+"json")
     ,JSON.stringify(sarifResponse));
     return checkConstraints(sarifResponse, testCase.expectations);
@@ -236,64 +266,49 @@ async function checkConstraints(
       throw new Error("No rules found in SARIF output");
     }
 
-    let constraintResults = [];
     let errors = [];
+    let constraintMatchResults = [];
 
-    // Detailed SARIF output for failed results
-    const failedResults = results.filter(result => result.kind === "fail");
-    if (failedResults.length > 0) {
-      errors.push("Failed SARIF outputs:");
-      failedResults.forEach(result => {
-        const rule = rules.find(r => r.id === result.ruleId);
-        const ruleName = rule ? rule.name : result.ruleId;
-        errors.push(`- ${ruleName}:`);
-        errors.push(`  Message: ${result.message.text}`);
-        if (result.locations && result.locations.length > 0) {
-          const location = result.locations[0];
-          if (location.physicalLocation && location.physicalLocation.region) {
-            const region = location.physicalLocation.region;
-            errors.push(`  Location: Line ${region.startLine}, Column ${region.startColumn}`);
-          }
-        }
-        errors.push(''); // Add a blank line for readability
-      });
-    }
 
     for (const expectation of constraints) {
       const constraint_id = expectation["constraint-id"];
       const expectedResult = expectation.result;
       console.log(`Checking status of constraint: ${constraint_id} expecting: ${expectedResult}`);
       
-      const constraintMatch = rules.find((x) => x.name === constraint_id);
-      if (!constraintMatch) {
+      const constraintResults = results.filter((x) => x.ruleId === constraint_id);
+      if (constraintResults.length===0) {
         errors.push(`Constraint rule not found: ${constraint_id}. The constraint may not be applicable to this content.`);
-        throw new Error("Rule not found: "+constraint_id);
+        throw Error("Constraint rule not found "+constraint_id)
       }
 
-      const { id } = constraintMatch;
-      const constraintResult = results.find((x) => x.ruleId === id);
       
-      if (typeof constraintResult==="undefined") {
-        errors.push(`Rule exists for constraint: ${constraint_id}, but no result was found. The content may not trigger this constraint.`);
-        continue;
-      }
 
-      console.log(`Received: ${constraintResult.kind}`);
-
-      const constraintMatchesExpectation = constraintResult.kind === expectedResult;
-      constraintResults.push(constraintMatchesExpectation ? "pass" : "fail");
-      if (!constraintMatchesExpectation) {
-        errors.push(
-          `${constraint_id}: Rule exists, but expected ${expectedResult}, received ${constraintResult.kind}. The content may need adjustment to properly test this constraint.`
-        );
-        errors.push(`  Message: ${constraintResult.message.text}`);
-        if (constraintResult.locations && constraintResult.locations.length > 0) {
-          const location = constraintResult.locations[0];
-          if (location.physicalLocation && location.physicalLocation.region) {
-            const region = location.physicalLocation.region;
-            errors.push(`  Location: Line ${region.startLine}, Column ${region.startColumn}`);
-          }
+      const kinds = constraintResults.map(c => c.kind);
+  
+      const result = kinds.reduce((acc, kind) => {
+        if (acc === 'mixed' || (acc !== kind && acc !== 'initial')) {
+          return 'mixed';
         }
+        return kind;
+      }, 'initial');
+
+      console.log(`Received: ${constraintResults.length} matching ${result} results`);
+      if(result==="mixed"){
+      }
+      if(result==="initial"){
+        throw Error("Unknown Error")
+      }
+      const constraintMatchesExpectation = result === expectedResult;
+      constraintMatchResults.push(constraintMatchesExpectation ? "pass" : "fail");
+      if (!constraintMatchesExpectation) {
+        if(result==="mixed"){
+          const passPercentage=(100*(kinds.filter(x=>x==='pass').length/kinds.length)).toFixed(0)+"% passing"
+          console.error(passPercentage)
+          throw Error(constraint_id+": Mixed results recieved "+passPercentage)
+        }  
+        errors.push(
+          `${constraint_id}: Rule exists, but expected ${expectedResult}, received ${result}. The content may need adjustment to properly test this constraint.`
+        );
         errors.push(''); // Add a blank line for readability
       }
       if (!constraintMatchesExpectation) {
@@ -328,6 +343,9 @@ Given('I have loaded all Metaschema extensions documents', function () {
 
 When('I extract all constraint IDs from the Metaschema extensions', async function () {
   for (const file of metaschemaDocuments) {
+    if(ignoredDocuments.includes(file.split("/").pop())){
+      continue;
+    }
     const fileContent = readFileSync(file, 'utf8');
     const result = await parseXmlString(fileContent);
     
@@ -429,6 +447,8 @@ When('I analyze the YAML test files for each constraint ID', function () {
         if (result === 'pass') {
           testResults[constraintId].pass = true;
         } else if (result === 'fail') {
+          testResults[constraintId].fail = true;
+        } else if (result === 'mixed') {
           testResults[constraintId].fail = true;
         }
       }

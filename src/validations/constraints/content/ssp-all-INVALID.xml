@@ -158,7 +158,7 @@
         <description>
           <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
@@ -173,7 +173,7 @@
         <description>
           <p>Information System Component Inventory (CM-8) is partially implemented.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
