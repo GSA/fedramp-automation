@@ -5,7 +5,13 @@
     <!-- ================== -->
 
     <context>
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/component-definition"/>
         <metapath target="/system-security-plan"/>
+        <metapath target="/assessment-plan"/>
+        <metapath target="/assessment-results"/>
+        <metapath target="/plan-of-action-and-milestones"/>
 
         <constraints>
             <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
@@ -106,7 +112,32 @@
                 <enum value="web">Web Scan</enum>
                 <enum value="other">Other</enum>
             </allowed-values>
-        </constraints>
+                <allowed-values id="address-type" target="metadata/party/address/@type" allow-other="no" level="ERROR">
+                    <formal-name>Address Type</formal-name>
+                    <description>The type of address for the party</description>
+                    <!-- <enum value="home">Home</enum>--><!-- would FedRAMP ever need a "home" address? -->
+                    <enum value="work">Work</enum>
+                    <remarks><p>FedRAMP requires work addresses.</p></remarks>
+                </allowed-values>
+
+                <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                    <formal-name>Authorization Type</formal-name>
+                    <description>The FedRAMP Authorization Type</description>
+                    <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
+                    <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
+                    <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
+                </allowed-values>
+                <allowed-values id="deployment-model" target="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                    <formal-name>Deployment Model</formal-name>
+                    <description>The cloud deployment model.</description>
+                    <enum value="public-cloud">Public Cloud</enum>
+                    <enum value="private-cloud">Private Cloud</enum>
+                    <enum value="government-only-cloud">U.S. Government Only</enum>
+                    <enum value="hybrid-cloud">Hybrid</enum>
+                    <enum value="other">Other</enum>
+                </allowed-values>
+         </constraints>
+
     </context>
 
 </metaschema-meta-constraints>

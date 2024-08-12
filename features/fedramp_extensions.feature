@@ -5,7 +5,7 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
   Given I have Metaschema extensions documents
     | filename                           |
 #BEGIN_DYNAMIC_CONSTRAINT_FILES
-  | fedramp-external-allowed-values-DZ.xml |
+  | fedramp-external-allowed-values.xml |
   | fedramp-external-constraints.xml |
   | oscal-external-constraints.xml |
 #END_DYNAMIC_CONSTRAINT_FILES
@@ -15,12 +15,18 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
 Examples:
   | test_file |
 #BEGIN_DYNAMIC_TEST_CASES
+  | address-type-FAIL.yaml |
+  | address-type-PASS.yaml |
   | attachment-type-FAIL.yaml |
   | attachment-type-PASS.yaml |
+  | authorization-type-FAIL.yaml |
+  | authorization-type-PASS.yaml |
   | component-type-FAIL.yaml |
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
   | control-implementation-status-PASS.yaml |
+  | deployment-mode-FAIL.yaml |
+  | deployment-mode-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
@@ -40,9 +46,12 @@ Scenario: Ensuring full test coverage for each constraint
   Then I should have both FAIL and PASS tests for each constraint ID:
     | Constraint ID  |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
+  | address-type |
   | attachment-type |
+  | authorization-type |
   | component-type |
   | control-implementation-status |
+  | deployment-model |
   | interconnection-direction |
   | interconnection-security |
   | prop-response-point-has-cardinality-one |
