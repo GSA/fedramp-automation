@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <!-- ================== -->
+    <!-- OSCAL Enhancements -->
+    <!-- ================== -->
+    <context>
+        <!-- When you add a new model, be sure to reference it here. -->
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/mapping-collection"/>
+        <metapath target="/component-definition"/>
+        <metapath target="/system-security-plan"/>
+        <metapath target="/assessment-plan"/>
+        <metapath target="/assessment-results"/>
+        <metapath target="/plan-of-action-and-milestones"/>
+
+        <constraints>
+            <is-unique id="unique-document-id" target="document-id">
+            	<formal-name>Unique Document Identifier</formal-name>
+            	<description>Ensure all document identifiers have a unique combination of @scheme and value.</description>
+                <key-field target="@scheme"/>
+                <key-field target="."/>
+            </is-unique>
+            <is-unique id="unique-property-in-context-location" target=".//prop">
+            	<formal-name>Unique Properties</formal-name>
+            	<description>Ensure all properties are unique for a given location using a unique combination of @ns, @name, @class. @group. and @value.</description>
+                <key-field target="path(..)"/>
+                <key-field target="@name"/>
+                <key-field target="@ns"/>
+                <key-field target="@class"/>
+                <key-field target="@group"/>
+                <key-field target="@value"/>
+            </is-unique>
+            <is-unique id="unique-link-in-context-location" target=".//link">
+            	<formal-name>Unique Links</formal-name>
+            	<description>Ensure all links are unique for a given location using a unique combination of @href, @rel, and @media-type.</description>
+                <key-field target="path(..)"/>
+                <key-field target="@href"/>
+                <key-field target="@rel"/>
+                <key-field target="@media-type"/>
+            </is-unique>
+            <is-unique id="unique-responsibility-in-context-location" target=".//(responsible-party|responsible-role)">
+            	<formal-name>Unique Responsibilities</formal-name>
+            	<description>Ensure all responsible-roles and responsible-parties are unique for a given location using a unique combination of @role-id and the combination of @party-uuid values.</description>
+                <key-field target="path(..)"/>
+                <key-field target="@role-id"/>
+                <key-field target="@party-uuid"/>
+                <remarks>
+                    <p>Since <code>responsible-party</code> and <code>responsible-role</code> associate multiple <code>party-uuid</code> entries with a single <code>role-id</code>, each role-id must be referenced only once.</p>
+                </remarks>
+            </is-unique>
+        </constraints>
+        
+        <context>
+            <metapath target="metadata"/>
+			
+            <constraints>
+                <allowed-values target="responsible-party/@role-id" allow-other="yes">
+                	<formal-name>Standard Role Identifiers</formal-name>
+                	<description>The values provided here represent standardized role identifiers for common roles.</description>
+                    <enum value="creator">Indicates the organization that created this content.</enum>
+                    <enum value="prepared-by">Indicates the organization that prepared this content.</enum>
+                    <enum value="prepared-for">Indicates the organization for which this content was created.</enum>
+                    <enum value="content-approver">Indicates the organization responsible for all content represented in the "document".</enum>
+                    <enum value="contact">Indicates the organization to contact for questions or support related to this content.</enum>
+                </allowed-values>
+                <allowed-values target="prop[not(@ns) or @ns='http://csrc.nist.gov/ns/oscal']/@name">
+					<formal-name>Metadata Keywords Property</formal-name>
+                    <enum value="keywords">The value identifies a comma-separated listing of keywords associated with this content. These keywords may be used as search terms for indexing and other applications.</enum>
+                </allowed-values>
+                <allowed-values target="link/@rel" allow-other="yes">
+					<formal-name>Standard Metadata Link Relations</formal-name>
+                    <enum value="canonical">The link identifies the authoritative location for this file. Defined by <a href="https://tools.ietf.org/html/rfc6596">RFC 6596</a>.</enum>
+                    <enum value="alternate">The link identifies an alternative location or format for this file. Defined by <a href="https://html.spec.whatwg.org/multipage/links.html#linkTypes">the HTML Living Standard</a></enum>
+                    <enum value="latest-version">This link identifies a resource containing the latest version in the version history. Defined by <a href="https://tools.ietf.org/html/rfc5829">RFC 5829</a>.</enum>
+                    <enum value="predecessor-version">This link identifies a resource containing the predecessor version in the version history. Defined by  <a href="https://tools.ietf.org/html/rfc5829">RFC 5829</a>.</enum>
+                    <enum value="successor-version">This link identifies a resource containing the predecessor version in the version history. Defined by <a href="https://tools.ietf.org/html/rfc5829">RFC 5829</a>.</enum>
+                </allowed-values>
+                
+                <!--
+                <builtin>
+                    <o:role id="prepared-by">
+                        <o:title>Document Preparer</o:title>
+                    </o:role>
+                </builtin>
+                -->
+            </constraints>
+        </context>
+    </context>
+
+    <context>
+        <metapath target="/catalog"/>
+        <constraints>
+            <index id="catalog-metadata-role-id" name="index-imports-metadata-role-id" target="metadata/role">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the catalog model.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="catalog-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="metadata/location">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="catalog-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="metadata/party">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="catalog-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="metadata/party[@type='organization']">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="catalog-property-uuid" name="index-imports-metadata-property-uuid" target=".//prop[@uuid]">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    
+    <context>
+        <metapath target="/profile"/>
+        <constraints>
+            <let var="resolved-profile" expression="resolve-profile(doc(resolve-uri(import/@href)))/catalog"/>
+            <index id="profile-metadata-role-id" name="index-imports-metadata-role-id" target="$resolved-profile/metadata/role">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the profile model. Roles are collected from imported catalogs and profiles. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="profile-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="$resolved-profile/metadata/location">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="$resolved-profile/metadata/party">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="$resolved-profile/metadata/party[@type='organization']">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="$resolved-profile//prop[@uuid]">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/mapping-collection"/>
+        <constraints>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="metadata/role">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the mapping-collection model.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="metadata/location">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="metadata/party">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="metadata/party[@type='organization']">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target=".//prop[@uuid]">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/component-definition"/>
+        <constraints>
+            <let var="all-imports" expression="recurse-depth('doc(resolve-uri(import-component-definition/@href))/component-definition')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the component-definition model. Roles are collected from imported component-definition. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-roles" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the system-securtity-plan model. Roles are collected from imported profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/assessment-plan"/>
+        <constraints>
+            <let var="all-imports" expression="recurse-depth('.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the assessment-plan model. Roles are collected from imported system-securtity-plans, which in turn includes referenced profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/assessment-results"/>
+        <constraints>
+            <let var="all-imports" expression="recurse-depth('.[import-ap]/doc(resolve-uri(import-ap/@href))/assessment-plan|.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the assessment-result model. Roles are collected from imported assessment-plans, which in turn includes referenced system-securtity-plans, which in turn includes referenced profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/plan-of-action-and-milestones"/>
+        <constraints>
+            <let var="all-imports" expression="recurse-depth('.[import-ap]/doc(resolve-uri(import-ap/@href))/assessment-plan|.[import-ssp]/doc(resolve-uri(import-ssp/@href))/system-security-plan|.[import-profile]/resolve-profile(doc(resolve-uri(import-profile/@href)))/catalog')"/>
+            <index id="index-imports-metadata-role-id" name="index-imports-metadata-role-id" target="map:merge($all-imports/metadata/role ! map:entry(@id,.))?*">
+            	<formal-name>In-Scope Role Identifiers</formal-name>
+            	<description>An index of role identifiers that are in-scope for the plan-of-action-and-milestones model. Roles are collected from imported system-securtity-plans, which in turn includes referenced profiles and catalogs. For a given role @id, a locally declared role takes precedence over a role that is imported, the role that was last imported.</description>
+                <key-field target="@id"/>
+            </index>
+            <index id="index-imports-metadata-location-uuid" name="index-imports-metadata-location-uuid" target="map:merge($all-imports/metadata/location ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-uuid" name="index-imports-metadata-party-uuid" target="map:merge($all-imports/metadata/party ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-party-organization-uuid" name="index-imports-metadata-party-organization-uuid" target="map:merge($all-imports/metadata/party[@type='organization'] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+            <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
+                <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
