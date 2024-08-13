@@ -10,9 +10,7 @@ import { parseString } from 'xml2js';
 import { promisify } from 'util';
 
 const parseXmlString = promisify(parseString);
-
 const DEFAULT_TIMEOUT = 60000;
-
 setDefaultTimeout(DEFAULT_TIMEOUT);
 
 let currentTestCase: {
