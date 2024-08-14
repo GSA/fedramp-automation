@@ -243,7 +243,12 @@ if (!existsSync(sarifDir)) {
 
 async function checkConstraints(
   sarifOutput: Log,
-  constraints: [{ "constraint-id": string; result: "pass" | "fail" }],
+  constraints: Array<{ 
+    "constraint-id": string; 
+    result: "pass" | "fail" | undefined;
+    pass_count?: { type: "exact" | "minimum" | "maximum"; value: number };
+    fail_count?: { type: "exact" | "minimum" | "maximum"; value: number };
+  }>
 ) {
   try {
     const { runs } = sarifOutput;
@@ -265,23 +270,21 @@ async function checkConstraints(
     }
 
     let errors = [];
-    let constraintMatchResults = [];
-
 
     for (const expectation of constraints) {
       const constraint_id = expectation["constraint-id"];
       const expectedResult = expectation.result;
-      console.log(`Checking status of constraint: ${constraint_id} expecting: ${expectedResult}`);
+      console.log(`Checking status of constraint: ${constraint_id} expecting: ${expectedResult || 'mixed'}`);
       
       const constraintResults = results.filter((x) => x.ruleId === constraint_id);
-      if (constraintResults.length===0) {
+      if (constraintResults.length === 0) {
         errors.push(`Constraint rule not found: ${constraint_id}. The constraint may not be applicable to this content.`);
-        throw Error("Constraint rule not found "+constraint_id)
+        continue;
       }
 
-      
-
       const kinds = constraintResults.map(c => c.kind);
+      const passCount = kinds.filter(k => k === 'pass').length;
+      const failCount = kinds.filter(k => k === 'fail').length;
   
       const result = kinds.reduce((acc, kind) => {
         if (acc === 'mixed' || (acc !== kind && acc !== 'initial')) {
@@ -290,35 +293,66 @@ async function checkConstraints(
         return kind;
       }, 'initial');
 
-      console.log(`Received: ${constraintResults.length} matching ${result} results`);
-      if(result==="mixed"){
+      console.log(`Received: ${constraintResults.length} matching ${result} results (${passCount} pass, ${failCount} fail)`);
+
+      if (result === "initial") {
+        throw Error("Unknown Error");
       }
-      if(result==="initial"){
-        throw Error("Unknown Error")
+
+      let constraintMatchesExpectation = false;
+
+      const checkCount = (actual: number, expected: { type: string; value: number } | undefined) => {
+        if (!expected) return true; // If count is not specified, consider it a match
+        switch (expected.type) {
+          case 'exact':
+            return actual === expected.value;
+          case 'minimum':
+            return actual >= expected.value;
+          case 'maximum':
+            return actual <= expected.value;
+          default:
+            return false;
+        }
+      };
+
+      if (expectedResult === undefined) {
+        // For mixed or undefined results, check pass_count and fail_count
+        constraintMatchesExpectation = 
+          checkCount(passCount, expectation.pass_count) && 
+          checkCount(failCount, expectation.fail_count);
+      } else {
+        // For explicit pass/fail expectations
+        constraintMatchesExpectation = result === expectedResult;
       }
-      const constraintMatchesExpectation = result === expectedResult;
-      constraintMatchResults.push(constraintMatchesExpectation ? "pass" : "fail");
+
       if (!constraintMatchesExpectation) {
-        if(result==="mixed"){
-          const passPercentage=(100*(kinds.filter(x=>x==='pass').length/kinds.length)).toFixed(0)+"% passing"
-          console.error(passPercentage)
-          throw Error(constraint_id+": Mixed results recieved "+passPercentage)
-        }  
-        errors.push(
-          `${constraint_id}: Rule exists, but expected ${expectedResult}, received ${result}. The content may need adjustment to properly test this constraint.`
-        );
+        if (result === 'mixed' || expectedResult === undefined) {
+          const passPercentage = (100 * (passCount / constraintResults.length)).toFixed(0) + "% passing";
+          errors.push(
+            `${constraint_id}: Mixed results received. ${passPercentage}. ` +
+            `Expected: pass_count ${JSON.stringify(expectation.pass_count)}, ` +
+            `fail_count ${JSON.stringify(expectation.fail_count)}. ` +
+            `Actual: ${passCount} pass, ${failCount} fail.`
+          );
+        } else {
+          errors.push(
+            `${constraint_id}: Rule exists, but expected ${expectedResult}, received ${result}. ` +
+            `The content may need adjustment to properly test this constraint.`
+          );
+        }
         errors.push(''); // Add a blank line for readability
       }
-      if (!constraintMatchesExpectation) {
-        return {
-          status: "fail",
-          errorMessage: "Test failed with the following errors:\n" + errors.join("\n")
-        };
-      }  
+    }
+
+    if (errors.length > 0) {
+      return {
+        status: "fail",
+        errorMessage: "Test failed with the following errors:\n" + errors.join("\n")
+      };
     }
 
     return { status: "pass", errorMessage: "" };
-  } catch (error:any) {
+  } catch (error: any) {
     console.error("Error in checkConstraints:", error);
     return {
       status: "fail",
@@ -432,31 +466,53 @@ When('I analyze the YAML test files for each constraint ID', function () {
   for (const file of yamlTestFiles) {
     const fileContent = readFileSync(file, 'utf8');
     const testCase = load(fileContent) as any;
-    try{
+    try {
+      if (testCase['test-case'] && testCase['test-case'].expectations) {
+        for (const expectation of testCase['test-case'].expectations) {
+          const constraintId = expectation['constraint-id'];
+          const result = expectation.result;
+          const pass_count = expectation.pass_count;
+          const fail_count = expectation.fail_count;
+          
+          if (!testResults[constraintId]) {
+            testResults[constraintId] = { pass: false, fail: false };
+          }
+          
+          function isPositiveTest(count: { type: string, value: number } | undefined) {
+            return count && (count.type === 'minimum' || (count.type === 'exact' && count.value > 0));
+          }
 
-    if (testCase['test-case'] && testCase['test-case'].expectations) {
-      for (const expectation of testCase['test-case'].expectations) {
-        const constraintId = expectation['constraint-id'];
-        const result = expectation.result;
-        
-        if (!testResults[constraintId]) {
-          testResults[constraintId] = { pass: false, fail: false };
-        }
-        
-        if (result === 'pass') {
-          testResults[constraintId].pass = true;
-        } else if (result === 'fail') {
-          testResults[constraintId].fail = true;
-        } else if (result === 'mixed') {
-          testResults[constraintId].fail = true;
+          function isNegativeTest(count: { type: string, value: number } | undefined) {
+            return count && (count.type === 'maximum' || (count.type === 'exact' && count.value === 0));
+          }
+
+          if (result === 'pass') {
+            testResults[constraintId].pass = true;
+          } else if (result === 'fail') {
+            testResults[constraintId].fail = true;
+          } else if (result === undefined || result === 'mixed') {
+            // Handle cases where only pass_count or fail_count is specified
+            if (pass_count || fail_count) {
+              if (isPositiveTest(pass_count) || isNegativeTest(fail_count)) {
+                testResults[constraintId].pass = true;
+              }
+              if (isNegativeTest(pass_count) || isPositiveTest(fail_count)) {
+                testResults[constraintId].fail = true;
+              }
+            } else {
+              // If neither pass_count nor fail_count is specified for a mixed result,
+              // consider it as both a positive and negative test
+              testResults[constraintId].pass = true;
+              testResults[constraintId].fail = true;
+            }
+          }
         }
       }
+    } catch (error) {
+      console.error(error);
+      console.error("Error running " + file);
+      throw error;
     }
-  }catch(error){
-    console.error(error);
-    console.error("error: running"+file);
-    throw error
-  }
   }
   
   console.log(`Analyzed ${yamlTestFiles.length} YAML test files`);

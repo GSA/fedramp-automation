@@ -5,4 +5,6 @@ test-case:
   content: ../content/test-valid-response-point-use.xml # the content to run
   expectations: # check the constraint result
   - constraint-id: prop-response-point-has-cardinality-one
-    result: mixed
+    fail_count:
+      type: minimum
+      value: 1
