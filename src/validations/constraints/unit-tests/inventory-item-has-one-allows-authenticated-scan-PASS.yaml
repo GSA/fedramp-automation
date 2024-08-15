@@ -1,0 +1,8 @@
+# Driver for the valid inventory-item-has-one-allows-authenticated-scan constraint unit test.
+test-case:
+  name: The valid inventory-item-has-one-allows-authenticated-scan constraint unit test.
+  description: Test that every infrastructure inventory item has only one allows-authenticated-scan property.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-one-allows-authenticated-scan
+    result: pass

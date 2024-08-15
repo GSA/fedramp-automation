@@ -1,0 +1,8 @@
+# Driver for the invalid inventory-item-has-public constraint unit test.
+test-case:
+  name: The invalid inventory-item-has-public constraint unit test.
+  description: Test that an inventory item does not have the public property.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-public
+    result: fail

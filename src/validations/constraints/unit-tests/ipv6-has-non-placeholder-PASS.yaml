@@ -1,0 +1,8 @@
+# Driver for the valid ipv6-has-non-placeholder constraint unit test.
+test-case:
+  name: The valid ipv6-has-non-placeholder constraint unit test.
+  description: Test that ipv6-address properties do not contain empty values.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: ipv6-has-non-placeholder
+    result: pass

@@ -1,0 +1,8 @@
+# Driver for the invalid inventory-item-has-one-baseline-configuration-name constraint unit test.
+test-case:
+  name: The invalid inventory-item-has-one-baseline-configuration-name constraint unit test.
+  description: Test that an infrastructure inventory item has more than one baseline-configuration-name property.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-one-baseline-configuration-name
+    result: fail

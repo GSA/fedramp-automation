@@ -1,0 +1,8 @@
+# Driver for the valid inventory-item-has-public constraint unit test.
+test-case:
+  name: The valid inventory-item-has-public constraint unit test.
+  description: Test that every inventory item has the public property.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-public
+    result: pass

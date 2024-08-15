@@ -1,0 +1,8 @@
+# Driver for the valid has-system-name constraint unit test.
+test-case:
+  name: The valid has-system-name constraint unit test.
+  description: Test that an SSP has a system name listed under system characteristics.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-system-name
+    result: pass

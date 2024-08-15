@@ -6,15 +6,42 @@
 	<context>
 		<metapath target="/system-security-plan"/>
 
+		<!--TODO
+		<constraints>
+			<let var="resolved-profile-import-url" expression="if (starts-with(@href, '#')) then resolve-uri(/system-security-plan/back-matter/resource[substring-after(current()/@href, '#') = @uuid]/rlink[1]/@href, base-uri()) else resolve-uri(@href, base-uri())"/>
+			<let var="resolved-profile-available" expression="doc-available($resolved-profile-import-url)"/>
+			<let var="resolved-profile-doc" expression="if ($resolved-profile-available) then doc($resolved-profile-import-url) else ()"/>
+			<expect id="import-profile-resolves-to-catalog" target="$resolved-profile-doc/catalog" level="CRITICAL">
+				<remarks>
+					<p>The import-profile element has a reference.</p>
+					<p>The import-profile element references an available document.</p>
+					<p>The import-profile element references an available OSCAL resolved baseline profile catalog document.</p>
+				</remarks>
+			</expect>
+		</constraints-->
+
+
 		<constraints>
 			<expect id="import-profile-has-href-attribute" target="import-profile" test="@href => exists()" level="CRITICAL">
 				<message>The import-profile element must have a reference.</message>
 			</expect>
 		</constraints>
 
+
 		<context>
 			<metapath target="system-implementation"/>
 			<constraints>
+				<!-- TODO: Not sure what the @value attribute values can be. There's no "os" value in the ssp-all-VALID.xml file. -->
+				<let var="is-infrastructure" expression="exists(prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')])"/>
+				<let var="prop-ipv4-address" expression="prop[@name eq 'ipv4-address']"/>
+				<let var="prop-ipv6-address" expression="prop[@name eq 'ipv6-address']"/>
+				<let var="ipv4-regex" expression="'(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)'"/>
+				<let var="ipv6-regex" expression="'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:)
+					{1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:)
+					{1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]
+					{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:
+					((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'"/>
+
 				<expect id="no-description-text-in-component" target="component/description" test="p => exists()" level="ERROR">
 					<message>A component must have a description with content.</message>
 				</expect>
@@ -39,8 +66,17 @@
 					<message>Validation references must be in sync with link validation details.</message>
 				</expect>
 
+				<!-- TODO:
+				<expect id="has-accessible-CMVP-validation-details" target="" test="" level="ERROR">
+					<message></message>
+				</expect-->
+
 				<expect id="has-consonant-CMVP-validation-details" target="component/link[@rel eq 'validation-details']" test="tokenize(@href, '/')[last()] = preceding-sibling::prop[@name eq 'validation-reference']/@value" level="ERROR">
 					<message>Validation details links must be in sync with their sibling validation references.</message>
+				</expect>
+
+				<expect id="has-this-system-component" target="component" test="@type eq 'this-system' => exists()" level="ERROR">
+					<message>A FedRAMP SSP must have a self-referential (i.e., to the SSP itself) component.</message>
 				</expect>
 
 				<expect id="has-inventory-items" target="inventory-item" test="exists()" level="ERROR">
@@ -58,8 +94,110 @@
 				<expect id="component-has-one-asset-type" target="component" test="prop[@name eq 'asset-type'][2]" level="ERROR">
 					<message>A component must have only one asset type.</message>
 				</expect>
+
+				<expect id="inventory-item-has-uuid" target="inventory-item" test="@uuid" level="ERROR">
+					<message>An inventory item has a unique identifier.</message>
+				</expect>
+
+				<expect id="has-asset-id" target="inventory-item" test="prop[@name eq 'asset-id']" level="ERROR">
+					<message>An inventory item must have an asset identifier.</message>
+				</expect>
+
+				<expect id="has-one-asset-id" target="inventory-item" test="prop[@name eq 'asset-id'][2]" level="ERROR">
+					<message>An inventory item must have only one asset identifier.</message>
+				</expect>
+
+				<expect id="inventory-item-has-asset-type" target="inventory-item" test="prop[@name eq 'asset-type']" level="ERROR">
+					<message>An inventory item must have an asset type.</message>
+				</expect>
+
+				<expect id="inventory-item-has-one-asset-type" target="inventory-item" test="prop[@name eq 'asset-type'][2]" level="ERROR">
+					<message>An inventory item must have only one asset type.</message>
+				</expect>
+
+				<expect id="inventory-item-has-virtual" target="inventory-item" test="prop[@name eq 'virtual']" level="ERROR">
+					<message>An inventory item must have a virtual property.</message>
+				</expect>
+
+				<expect id="inventory-item-has-one-virtual" target="inventory-item" test="prop[@name eq 'virtual'][2]" level="ERROR">
+					<message>An inventory item must have only one virtual property.</message>
+				</expect>
+
+				<expect id="inventory-item-has-public" target="inventory-item" test="prop[@name eq 'public']" level="ERROR">
+					<message>An inventory item must have a public property.</message>
+				</expect>
+
+				<expect id="inventory-item-has-one-public" target="inventory-item" test="prop[@name eq 'public'][2]" level="ERROR">
+					<message>An inventory item must have only one public property.</message>
+				</expect>
+
+				<expect id="inventory-item-has-scan-type" target="inventory-item" test="prop[@name eq 'scan-type']" level="ERROR">
+					<message>An inventory item must have a scan type property.</message>
+				</expect>
+
+				<expect id="inventory-item-has-one-scan-type" target="inventory-item" test="prop[@name eq 'scan-type'][2]" level="ERROR">
+					<message>An inventory item must have only one scan type property.</message>
+				</expect>
+
+				<!--expect id="inventory-item-has-allows-authenticated-scan" target="inventory-item" test="not(exists(prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')])) or prop[@name eq 'allows-authenticated-scan']" level="ERROR"-->
+				<expect id="inventory-item-has-allows-authenticated-scan" target="inventory-item" test="$is-infrastructure and prop[@name eq 'allows-authenticated-scan']" level="ERROR">
+					<message>An infrastructure inventory item must have the allows-authenticated-scan property.</message>
+				</expect>
+
+				<!--expect id="inventory-item-has-one-allows-authenticated-scan" target="inventory-item" test="not($is-infrastructure) or prop[@name eq 'allows-authenticated-scan'][2]" level="ERROR"-->
+				<expect id="inventory-item-has-one-allows-authenticated-scan" target="inventory-item" test="prop[@name eq 'allows-authenticated-scan'][2]" level="ERROR">
+					<message>An inventory item must have only one allows-authenticated-scan property.</message>
+				</expect>
+
+				<!-- TODO: Investigate XPath.
+				<expect id="inventory-item-has-baseline-configuration-name" target="inventory-item" test="" level="ERROR">
+					<message></message>
+				</expect-->
+
+				<expect id="inventory-item-has-one-baseline-configuration-name" target="inventory-item" test="prop[@name eq 'baseline-configuration-name'][2]" level="ERROR">
+					<message>An inventory item must have only one baseline-configuration-name property.</message>
+				</expect>
+
+				<!-- TODO: Investigate XPath in the following tests:
+						1. 	inventory-item-has-allows-authenticated-scan
+						2. 	inventory-item-has-baseline-configuration-name
+						3. 	inventory-item-has-vendor-name
+						4. 	has-prohibited-vendor-name
+						5. 	inventory-item-has-one-vendor-name
+						6. 	inventory-item-has-hardware-model
+						7. 	inventory-item-has-one-hardware-model
+						8. 	inventory-item-has-is-scanned
+						9. 	inventory-item-has-one-is-scanned
+						10.	inventory-item-has-software-name
+						11.	inventory-item-has-one-software-name
+						12.	inventory-item-has-software-version
+						13.	inventory-item-has-one-software-version
+						14.	inventory-item-has-function
+						15.	inventory-item-has-one-function
+				-->
+
+				<expect id="inventory-item-network-address" target="inventory-item" test="if ($prop-ipv4-address) then ($prop-ipv6-address]) else (true())" level="ERROR">
+					<message>Inventory items that have the ipv4-address prom must also have the ipv6-address prop.</message>
+				</expect>
+
+				<expect id="ipv4-has-content" target="inventory-item" test="if ($prop-ipv4-address) then (prop[matches(@value, $ipv4-regex)]) else (true())" level="ERROR">
+					<message>The ipv4-address property must have a correct IPv4 value.</message>
+				</expect>
+
+				<expect id="ipv4-has-non-placeholder" target="inventory-item" test="$prop-ipv4-address/@value != '0.0.0.0'" level="ERROR">
+					<message>The ipv4-address property must have a correct IPv4 value.</message>
+				</expect>
+
+				<expect id="ipv6-has-content" target="inventory-item" test="if ($prop-ipv6-address) then (prop[matches(@value, $ipv6-regex)]) else (true())" level="ERROR">
+					<message>The ipv6-address property must have a correct IPv6 value.</message>
+				</expect>
+
+				<expect id="ipv6-has-non-placeholder" target="inventory-item" test="if ($prop-ipv6-address/@value eq '::') then (false()) else (true())" level="ERROR">
+					<message>The ipv6-address property must have a correct IPv6 value.</message>
+				</expect>
 			</constraints>
 		</context>
+
 
 		<context>
 			<metapath target="system-characteristics"/>
@@ -157,8 +295,17 @@
 					level="ERROR">
 					<message>When SP 800-60 base impact and selected impact levels differ for a given information type, SSP must include a justification for the difference.</message>
 				</expect>
+
+				<expect id="has-system-name" target="system-name" test="exists()" level="ERROR">
+					<message>A FedRAMP SSP must have a system name under system characteristics.</message>
+				</expect>
+
+				<expect id="has-system-name-short" target="system-name-short" test="exists()" level="ERROR">
+					<message>A FedRAMP SSP must have a short system name under system characteristics.</message>
+				</expect>
 			</constraints>
 		</context>
+
 
 		<context>
 			<metapath target="control-implementation/implemented-requirement"/>
@@ -181,18 +328,41 @@
 			</constraints>
 		</context>
 
+
+		<!-- TODO
+		<context>
+			<metapath target="control-implementation/implemented-requirement/statement"/>
+			<constraints>
+				<let var="required-length" expression="20"/>
+				<let var="description" expression=". => normalize-space()"/>
+				<let var="description-length" expression="$description => string-length()"/>
+				<expect id="incomplete-response-description" target="by-component/p" test="$description-length ge $required-length" level="ERROR">
+					<message>Response statement component description has adequate length.</message>
+				</expect>
+			</constraints>
+		</context-->
+
+
 		<context>
 			<metapath target="metadata"/>
 			<constraints>
+				<!--let var="roles" expression="role"/>
+				<let var="parties" expression="party"/>
+				<let var="responsible-parties" expression="responsible-party"/>
+				<let var="extraneous-roles" expression="$responsible-parties[not(@role-id = $roles/@id)]"/>
+				<let var="extraneous-parties" expression="$responsible-parties[not(party-uuid = $parties/@uuid)]"/>
+				<expect id="incorrect-role-association" target="responsible-party" test="$extraneous-roles => exists() => not()" level="ERROR"-->
 				<expect id="incorrect-role-association" target="responsible-party" test="not(exists(responsible-party[not(@role-id = role/@id)]))" level="ERROR">
 					<message>A FedRAMP SSP must define a responsible party with no extraneous roles.</message>
 				</expect>
 
+				<!--expect id="incorrect-party-association" target="responsible-party" test="$extraneous-parties => exists()" level="ERROR"-->
 				<expect id="incorrect-party-association" target="responsible-party" test="not(exists(responsible-party[not(party-uuid = party/@uuid)]))" level="ERROR">
 					<message>A FedRAMP SSP must define a responsible party with no extraneous parties.</message>
 				</expect>
 			</constraints>
 		</context>
+
 
 		<context>
 			<metapath target="back-matter"/>
@@ -204,6 +374,12 @@
 				<expect id="resource-base64-available-media-type" target="resource" test="base64/@media-type" level="ERROR">
 					<message>Every declared embedded attachment must have a media type.</message>
 				</expect>
+
+				<!-- TODO
+					 NOTE: References fedramp_values.xml. I think we dropped media. Skip this constraint?
+				<expect id="has-allowed-media-type" target="resource" test="" level="ERROR">
+					<message></message>
+				</expect-->
 
 				<expect id="base64-has-content" target="resource/base64" test="matches(normalize-space(), '^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/][AQgw]==|[A-Za-z0-9+/]{2}[AEIMQUYcgkosw048]=)?$')" level="ERROR">
 					<message>Every embedded attachment element must have content.</message>

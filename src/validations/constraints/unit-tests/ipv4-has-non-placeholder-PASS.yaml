@@ -1,0 +1,8 @@
+# Driver for the valid ipv4-has-non-placeholder constraint unit test.
+test-case:
+  name: The valid ipv4-has-non-placeholder constraint unit test.
+  description: Test that ipv4-address properties do not contain the "0.0.0.0" value.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: ipv4-has-non-placeholder
+    result: pass

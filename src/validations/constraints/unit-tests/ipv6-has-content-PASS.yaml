@@ -1,0 +1,8 @@
+# Driver for the valid ipv6-has-content constraint unit test.
+test-case:
+  name: The valid ipv6-has-content constraint unit test.
+  description: Test that all ipv6-address properties have correct IPv6 values.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: ipv6-has-content
+    result: pass

@@ -1,0 +1,8 @@
+# Driver for the valid inventory-item-has-scan-type constraint unit test.
+test-case:
+  name: The valid inventory-item-has-scan-type constraint unit test.
+  description: Test that every inventory item has the scan-type property.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-scan-type
+    result: pass

@@ -1,0 +1,8 @@
+# Driver for the valid inventory-item-has-uuid constraint unit test.
+test-case:
+  name: The valid inventory-item-has-uuid constraint unit test.
+  description: Test that SSP inventory items have unique identifiers.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-uuid
+    result: pass

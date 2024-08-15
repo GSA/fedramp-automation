@@ -1,0 +1,8 @@
+# Driver for the invalid inventory-item-has-uuid constraint unit test.
+test-case:
+  name: The invalid inventory-item-has-uuid constraint unit test.
+  description: Test that SSP inventory items do not have unique identifiers.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-uuid
+    result: fail

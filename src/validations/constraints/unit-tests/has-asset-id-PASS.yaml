@@ -1,0 +1,8 @@
+# Driver for the valid has-asset-id constraint unit test.
+test-case:
+  name: The valid has-asset-id constraint unit test.
+  description: Test that SSP inventory items have asset identifiers.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-asset-id
+    result: pass

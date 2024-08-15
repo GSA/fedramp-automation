@@ -1,0 +1,8 @@
+# Driver for the valid has-this-system-component constraint unit test.
+test-case:
+  name: The valid has-this-system-component constraint unit test.
+  description: Test that an SSP have a component with the this-system type.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: has-this-system-component
+    result: pass

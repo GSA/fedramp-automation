@@ -1,0 +1,8 @@
+# Driver for the valid inventory-item-has-one-virtual constraint unit test.
+test-case:
+  name: The valid inventory-item-has-one-virtual constraint unit test.
+  description: Test that every SSP inventory item has only one virtual property.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-one-virtual
+    result: pass

@@ -1,0 +1,8 @@
+# Driver for the valid inventory-item-has-asset-type constraint unit test.
+test-case:
+  name: The valid inventory-item-has-asset-type constraint unit test.
+  description: Test that every SSP inventory item has an asset type.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-has-asset-type
+    result: pass

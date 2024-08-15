@@ -1,0 +1,8 @@
+# Driver for the valid inventory-item-network-address constraint unit test.
+test-case:
+  name: The valid inventory-item-network-address constraint unit test.
+  description: Test that every inventory item that has the ipv4-address prop also has the ipv6-address prop.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: inventory-item-network-address
+    result: pass

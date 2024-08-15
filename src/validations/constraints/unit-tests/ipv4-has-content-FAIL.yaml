@@ -1,0 +1,8 @@
+# Driver for the invalid ipv4-has-content constraint unit test.
+test-case:
+  name: The invalid ipv4-has-content constraint unit test.
+  description: Test that an ipv4-address property has an incorrect IPv4 value.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: ipv4-has-content
+    result: fail
