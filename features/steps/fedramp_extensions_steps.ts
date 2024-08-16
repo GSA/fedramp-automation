@@ -244,7 +244,7 @@ async function processTestCase({ "test-case": testCase }: any) {
       join(
         __dirname,
         "../../sarif/",
-        testCase.name.replaceAll(" ", "-") + ".sarif"
+        testCase.name.replaceAll(" ", "-").toLowerCase()+"-"+new Date().toLocaleTimeString() + ".sarif"
       ),
       JSON.stringify(sarifResponse, null,"\t")
     );
