@@ -228,17 +228,9 @@ async function runCucumberTest(constraintId, testFiles) {
 
     try {
         for (const line of scenarioLines) {
-            console.log(`Running test for ${constraintId} at line ${line}`);
-            const command = `${cucumberCommand} ${featureFile}:${line} -- --test_file=${passFile}`;
-            console.log(`Executing command: ${command}`);
+            const command = `${cucumberCommand} ${featureFile}:${line}`;
             execSync(command, { stdio: 'inherit' });
-
-            // Run with fail file
-            const failCommand = `${cucumberCommand} ${featureFile}:${line} -- --test_file=${failFile}`;
-            console.log(`Executing command: ${failCommand}`);
-            execSync(failCommand, { stdio: 'inherit' });
         }
-
         console.log(`Cucumber tests for ${constraintId} passed successfully.`);
         return true;
     } catch (error) {

@@ -44,8 +44,6 @@ async function updateFeatureFile() {
   const dynamicTestCases = getConstraintTests();
   const dynamicConstraintIds = await getConstraintIds();
   const dynamicConstraintFiles = getConstraintFiles();
-  console.log(dynamicConstraintIds, "STARTCONSTRAINTS");
-  console.log(dynamicConstraintIds, "ENDCONSTRAINTS");
 
   // Replace the dynamic sections in the feature file
   featureContent = featureContent.replace(
@@ -82,7 +80,6 @@ function getConstraintTests() {
     .filter((file) => file.endsWith(".yaml") || file.endsWith(".yml"))
     .map((file) => `  | ${file} |`)
     .join("\n");
-  console.log("Processing ", filteredFiles);
   return filteredFiles;
 }
 async function getConstraintIds() {
@@ -139,7 +136,6 @@ function getConstraintFiles() {
     .filter((file) => file.endsWith(".xml"))
     .map((file) => `  | ${file} |`)
     .join("\n");
-  console.log("Processing constraint files: ", xmlFiles);
   return xmlFiles;
 }
 
