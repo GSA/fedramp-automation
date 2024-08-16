@@ -150,8 +150,12 @@ async function scaffoldTest(constraintId) {
     console.log(`Scaffolded tests for ${constraintId} at ${filePath}`);
 }
 
-async function selectConstraints(allConstraints) {
-    const { selectedConstraints } = await prompt([
+async function selectConstraints(allConstraints) {    
+    if (process.argv.length > 2) {
+        // If a constraint ID is provided as an argument, use it
+        return [process.argv[2]];
+    }
+     const { selectedConstraints } = await prompt([
         {
             type: 'checkbox',
             name: 'selectedConstraints',
