@@ -35,10 +35,14 @@ Examples:
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
   | interconnection-security-PASS.yaml |
+  | privilege-level-FAIL.yaml |
+  | privilege-level-PASS.yaml |
   | response-point-FAIL.yaml |
   | response-point-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
+  | user-type-FAIL.yaml |
+  | user-type-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
 
 @full-coverage

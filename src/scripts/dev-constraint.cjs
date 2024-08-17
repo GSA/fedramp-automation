@@ -123,9 +123,9 @@ async function scaffoldTest(constraintId) {
 
     const positivetestCase = {
         'test-case': {
-            name: `Test for ${constraintId}`,
+            name: `Positive Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content: model+'-all-VALID.xml',  
+            content:"../content/"+ model+'-all-VALID.xml',  
             expectations: [
                 {
                     'constraint-id': constraintId,
@@ -136,9 +136,9 @@ async function scaffoldTest(constraintId) {
     };
     const negativetestCase = {
         'test-case': {
-            name: `Test for ${constraintId}`,
+            name: `Negative Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content: model+"-all-INVALID.xml",  
+            content:"../content/"+ model+"-all-INVALID.xml",  
             expectations: [
                 {
                     'constraint-id': constraintId,
@@ -233,6 +233,7 @@ async function runCucumberTest(constraintId, testFiles) {
 
     if (scenarioLines.length === 0) {
         console.error(`No scenarios found for constraintId: ${constraintId}`);
+        console.error(`execute npm run test and try again if you haven't already`);        
         return false;
     }
 

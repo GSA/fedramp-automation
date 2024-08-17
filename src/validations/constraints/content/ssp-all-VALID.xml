@@ -60,7 +60,7 @@
     <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
     <security-sensitivity-level>moderate</security-sensitivity-level>
     <system-information>
-      <information-type uuid="33333333-0000-4000-9000-000000000003">
+      <information-type  uuid="33333333-0000-4000-9000-000000000003">
         <title>Financial Information</title>
         <description>
           <p>Contains sensitive financial data related to organizational operations.</p>
@@ -96,6 +96,7 @@
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
+      <prop name="privilege-level" value="read-write"/>
       <role-id>system-admin</role-id>
     </user>
     
