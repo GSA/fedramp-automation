@@ -56,6 +56,7 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
+    <prop name='cloud-service-model' value='unsupported-model' ns="https://fedramp.gov/ns/oscal"/>
     <prop name='cloud-deployment-model' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
     <prop name='authorization-type' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
     <security-sensitivity-level>moderate</security-sensitivity-level>
@@ -65,7 +66,7 @@
         <description>
           <p>Contains sensitive financial data related to organizational operations.</p>
         </description>
-        <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+        <categorization system="https://unsupported-system.com">
           <information-type-id>C.2.8.12</information-type-id>
         </categorization>
         <confidentiality-impact>

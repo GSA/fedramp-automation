@@ -21,12 +21,16 @@ Examples:
   | attachment-type-PASS.yaml |
   | authorization-type-FAIL.yaml |
   | authorization-type-PASS.yaml |
+  | cloud-service-model-FAIL.yaml |
+  | cloud-service-model-PASS.yaml |
   | component-type-FAIL.yaml |
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
   | control-implementation-status-PASS.yaml |
   | deployment-mode-FAIL.yaml |
   | deployment-mode-PASS.yaml |
+  | information-type-system-FAIL.yaml |
+  | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
@@ -49,11 +53,15 @@ Scenario: Ensuring full test coverage for each constraint
   | address-type |
   | attachment-type |
   | authorization-type |
+  | cloud-service-model |
   | component-type |
   | control-implementation-status |
   | deployment-model |
+  | information-type-system |
   | interconnection-direction |
   | interconnection-security |
+  | privilege-level |
   | prop-response-point-has-cardinality-one |
   | scan-type |
+  | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS

@@ -106,6 +106,15 @@ async function scaffoldTest(constraintId) {
             default: false
         }
     ]);
+    const { model } = await prompt([
+        {
+            type: 'string',
+            name: 'model',
+            message: `what is the constraint targeting?`,
+            default: "ssp"
+        }
+    ]);
+
 
     if (!confirm) {
         console.log(`Skipping test scaffolding for ${constraintId}`);
@@ -116,7 +125,7 @@ async function scaffoldTest(constraintId) {
         'test-case': {
             name: `Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content: 'example-content.xml',  // You may need to adjust this
+            content: model+'-all-VALID.xml',  
             expectations: [
                 {
                     'constraint-id': constraintId,
@@ -129,11 +138,11 @@ async function scaffoldTest(constraintId) {
         'test-case': {
             name: `Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content: 'example-content.xml',  // You may need to adjust this
+            content: model+"-all-INVALID.xml",  
             expectations: [
                 {
                     'constraint-id': constraintId,
-                    result: 'pass'
+                    result: 'fail'
                 }
             ]
         }
@@ -147,7 +156,8 @@ async function scaffoldTest(constraintId) {
     const negativefilePath = path.join(testDir,fileNameFAIL)
     fs.writeFileSync(positiveFilePath, positiveYamlContent, 'utf8');
     fs.writeFileSync(negativefilePath, negativeYamlContent, 'utf8');
-    console.log(`Scaffolded tests for ${constraintId} at ${filePath}`);
+    console.log(`Scaffolded test for ${constraintId} at ${positiveFilePath}`);
+    console.log(`Scaffolded test for ${constraintId} at ${negativefilePath}`);
 }
 
 async function selectConstraints(allConstraints) {    
@@ -240,10 +250,6 @@ async function runCucumberTest(constraintId, testFiles) {
 }
 
 
-async function scaffoldTest(constraintId) {
-    console.log(`Scaffolding not implemented for ${constraintId}. Please create test files manually.`);
-    return false;
-}
 
 async function main() {
     const allConstraints = await getAllConstraints();
