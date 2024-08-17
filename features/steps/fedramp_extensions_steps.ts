@@ -30,6 +30,9 @@ let currentTestCase: {
 let processedContentPath: string;
 let ignoreDocument: string = "oscal-external-constraints.xml";
 let metaschemaDocuments: string[] = [];
+const validationCache = new Map<string, Log>();
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -217,12 +220,22 @@ async function processTestCase({ "test-case": testCase }: any) {
   //Validate processed content
   // Check expectations
   try {
-    const sarifResponse = await validateWithSarif([
+    let sarifResponse;
+    const pipeline = JSON.stringify(testCase.pipeline || []);
+    const cacheKey = `${testCase.content}-${pipeline}`;
+
+    if (validationCache.has(cacheKey)) {
+      console.log("Using cached validation result");
+      sarifResponse = validationCache.get(cacheKey)!;
+    }else{
+    sarifResponse = await validateWithSarif([
       processedContentPath,
       "--sarif-include-pass",
       ...metaschemaDocuments.flatMap((x) => ["-c", x]),
     ]);
-    if (typeof sarifResponse.runs[0].tool.driver.rules === "undefined") {
+    validationCache.set(cacheKey,sarifResponse);
+  }
+  if (typeof sarifResponse.runs[0].tool.driver.rules === "undefined") {
       const [result, error] = await executeOscalCliCommand("validate", [
         processedContentPath,
         ...metaschemaDocuments.flatMap((x) => ["-c", x]),
