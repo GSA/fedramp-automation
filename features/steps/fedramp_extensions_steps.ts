@@ -194,6 +194,8 @@ async function processTestCase({ "test-case": testCase }: any) {
     testCase.content
   );
   console.log(`Loaded content from: ${contentPath}`);
+  const cacheKey = (typeof testCase.pipeline==='undefined'?"":"resolved-")+contentPath.split("/").pop().replace(".xml","")
+
   // Process the pipeline
   processedContentPath = (
     "./" +
@@ -221,11 +223,9 @@ async function processTestCase({ "test-case": testCase }: any) {
   // Check expectations
   try {
     let sarifResponse;
-    const pipeline = JSON.stringify(testCase.pipeline || []);
-    const cacheKey = `${testCase.content}-${pipeline}`;
-
+    
     if (validationCache.has(cacheKey)) {
-      console.log("Using cached validation result");
+      console.log("Using cached validation result from "+cacheKey);
       sarifResponse = validationCache.get(cacheKey)!;
     }else{
     sarifResponse = await validateWithSarif([
@@ -253,7 +253,7 @@ async function processTestCase({ "test-case": testCase }: any) {
       join(
         __dirname,
         "../../sarif/",
-        testCase.name.replaceAll(" ", "-").toLowerCase()+"-"+new Date().toLocaleTimeString() + ".sarif"
+        cacheKey.toString()+".sarif"
       ),
       JSON.stringify(sarifResponse, null,"\t")
     );
@@ -368,10 +368,10 @@ async function checkConstraints(
           errors.push(
             `${constraint_id}: Mixed results received. ${passPercentage}. ` +
               `Expected: pass_count ${JSON.stringify(
-                expectation.pass_count
+                expectation.pass_count||expectedResult==="pass"?"all":"none"
               )}, ` +
-              `fail_count ${JSON.stringify(expectation.fail_count)}. ` +
-              `Actual: ${passCount} pass, ${failCount} fail.`
+              `fail_count ${JSON.stringify(expectation.fail_count||expectedResult==="fail"?"all":"none")}. ` +
+              `Actual: ${typeof passCount!=='undefined'?passCount:result==="pass"?"all":"none"} pass, ${failCount?failCount:result==="fail"?"all":"none"} fail.`
           );
         } else {
           errors.push(
