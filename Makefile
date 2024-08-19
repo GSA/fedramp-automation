@@ -15,6 +15,8 @@ all: clean build test  ## Complete clean build with tests
 
 init: init-repo init-validations init-content init-web  ## Initialize project dependencies
 
+configure: init-validations
+
 init-repo:
 	git submodule update --init --recursive
 
