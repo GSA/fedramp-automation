@@ -16,10 +16,11 @@ on:
 jobs:
   # one job that runs tests
   run-tests:
-    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
-
+      matrix:
+        os: [ubuntu-20.04, windows-latest]
+    runs-on: ${{ matrix.os }}
     # Checkout repository and its submodules
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE

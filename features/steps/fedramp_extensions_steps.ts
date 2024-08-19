@@ -10,7 +10,7 @@ import {
 } from "fs";
 import { load } from "js-yaml";
 import { executeOscalCliCommand, validateFile, validateWithSarif } from "oscal";
-import { dirname, join } from "path";
+import { dirname, join,parse } from "path";
 import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
@@ -194,14 +194,15 @@ async function processTestCase({ "test-case": testCase }: any) {
     testCase.content
   );
   console.log(`Loaded content from: ${contentPath}`);
-  const cacheKey = (typeof testCase.pipeline==='undefined'?"":"resolved-")+contentPath.split("/").pop().replace(".xml","")
+  const cacheKey = (typeof testCase.pipeline === 'undefined' ? "" : "resolved-") + parse(contentPath).name;
+
 
   // Process the pipeline
-  processedContentPath = (
-    "./" +
-    testCase.name.replaceAll(" ", "-") +
-    ".xml"
-  ).toLowerCase();
+  processedContentPath = join(
+    ".",
+    `${testCase.name.replace(/\s+/g, "-").toLowerCase()}.xml`
+  );
+  
   if (testCase.pipeline) {
     for (const step of testCase.pipeline) {
       if (step.action === "resolve-profile") {
@@ -245,7 +246,7 @@ async function processTestCase({ "test-case": testCase }: any) {
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
-    const sarifDir = join(__dirname, "../../sarif/");
+    const sarifDir = join(__dirname, "..", "..", "sarif");
     if (!existsSync(sarifDir)) {
       mkdirSync(sarifDir, { recursive: true });
     }
