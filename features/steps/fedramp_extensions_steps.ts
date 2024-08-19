@@ -366,7 +366,7 @@ async function checkConstraints(
             (100 * (passCount / constraintResults.length)).toFixed(0) +
             "% passing";
           errors.push(
-            `${constraint_id}: Mixed results received. ${passPercentage}. ` +
+            `${constraint_id}: invalid results received. ${passPercentage}. ` +
               `Expected: pass_count ${JSON.stringify(
                 expectation.pass_count||expectedResult==="pass"?"all":"none"
               )}, ` +

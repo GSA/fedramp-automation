@@ -5,6 +5,4 @@ test-case:
   content: ../content/profile-response-point-INVALID.xml # the content to run
   expectations: # check the constraint result
   - constraint-id: prop-response-point-has-cardinality-one
-    fail_count:
-      type: minimum
-      value: 1
+    result: fail

@@ -4,6 +4,4 @@ test-case:
   content: ../content/ssp-all-INVALID.xml
   expectations:
     - constraint-id: user-type
-      fail_count:
-        type: minimum
-        value: 1
+      result: fail

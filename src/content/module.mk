@@ -9,6 +9,7 @@ YAML_DIR = $(DIST_DIR)/content/rev5/baselines/yaml
 .PHONY: init-content
 init-content:
 	@npm install oscal -g
+	$(OSCAL_CLI) use oscal-cli-2.0.2.rc1
 # Generate content and perform conversions
 .PHONY: build-content
 build-content:
