@@ -24,7 +24,7 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 	@echo "Cleaning dist..."
 	git clean -xfd dist
 
-test: test-validations test-web test-examples ## Test all
+test: init-validationes build-validations ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
 	# Copy validations
