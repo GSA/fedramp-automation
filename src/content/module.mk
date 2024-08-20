@@ -1,5 +1,5 @@
 # Variables
-OSCAL_CLI = oscal
+OSCAL_CLI = npx oscal@latest
 SRC_DIR = ./src
 DIST_DIR = ./dist
 XML_DIR = $(DIST_DIR)/content/rev5/baselines/xml
@@ -8,7 +8,8 @@ YAML_DIR = $(DIST_DIR)/content/rev5/baselines/yaml
 
 .PHONY: init-content
 init-content:
-	@npm install oscal -g
+	@npm install
+	$(OSCAL_CLI) use latest
 # Generate content and perform conversions
 .PHONY: build-content
 build-content:

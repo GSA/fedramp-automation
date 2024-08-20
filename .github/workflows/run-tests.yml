@@ -16,16 +16,22 @@ on:
 jobs:
   # one job that runs tests
   run-tests:
-    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
-
+      matrix:
+        os: [ubuntu-20.04, windows-2022]
+    runs-on: ${{ matrix.os }}
     # Checkout repository and its submodules
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08
 
+      - name: Set up Java
+        uses: actions/setup-java@67fbd726daaf08212a7b021c1c4d117f94a81dd3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
       - name: Read node version from `.nvmrc` file
         id: nvmrc
         shell: bash
@@ -48,3 +54,4 @@ jobs:
         with:
             paths: |
               **/reports/junit-*.xml
+      

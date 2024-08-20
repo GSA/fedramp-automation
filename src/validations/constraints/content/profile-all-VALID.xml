@@ -1,5 +1,5 @@
 <?xml version="1.0"  encoding="UTF-8"?>
-<profile  xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+<profile  xmlns="http://csrc.nist.gov/ns/oscal/1.0"   uuid="12345678-1234-4321-8765-123456789015">
   <metadata>
     <title>FedRAMP Test Profile</title>
     <published>2024-06-25T00:00:00Z</published>

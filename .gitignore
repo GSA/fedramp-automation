@@ -15,7 +15,8 @@ src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
 utils
-
+sarif/
+dist/
 # Hugo Files
 /docs/public
 
@@ -36,3 +37,4 @@ src/validations/test/rules/rev4/ssp-result.html
 src/validations/test/rules/rev5/poam-result.html
 src/validations/test/rules/rev5/sar-result.html
 /reports
+/sarif
