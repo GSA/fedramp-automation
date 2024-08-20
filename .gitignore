@@ -17,6 +17,9 @@ src/validations/target
 utils/*.xsl
 /node_modules
 
+utils
+sarif/
+dist/
 # Hugo Files
 /docs/public
 
@@ -38,3 +41,4 @@ src/validations/test/rules/rev5/poam-result.html
 src/validations/test/rules/rev5/sar-result.html
 
 /reports
+/sarif

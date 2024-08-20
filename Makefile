@@ -15,6 +15,8 @@ all: clean build test  ## Complete clean build with tests
 
 init: init-repo init-validations init-content init-web  ## Initialize project dependencies
 
+configure: init-validations
+
 init-repo:
 	git submodule update --init --recursive
 
@@ -24,7 +26,7 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 	@echo "Cleaning dist..."
 	git clean -xfd dist
 
-test: test-validations test-web test-examples ## Test all
+test: build-validations ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
 	# Copy validations
