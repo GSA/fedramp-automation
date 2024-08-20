@@ -10,7 +10,7 @@ REV5_TEMPLATES = ./dist/content/rev5/templates
 init-validations:
 	@echo "Installing node modules..."
 	npm install
-	npx oscal@latest use oscal-cli-2.0.2.rc1
+	$(OSCAL_CLI) use latest
 
 # Validation
 .PHONY: build-validations
