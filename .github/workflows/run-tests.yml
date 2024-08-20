@@ -25,7 +25,7 @@ jobs:
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08
 
       - name: Set up Java
         if: runner.os == 'Windows'
