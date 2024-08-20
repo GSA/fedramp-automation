@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <!-- ================== -->
+    <!-- FedRAMP Extensions -->
+    <!-- ================== -->
+
+    <context>
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/component-definition"/>
+        <metapath target="/system-security-plan"/>
+        <metapath target="/assessment-plan"/>
+        <metapath target="/assessment-results"/>
+        <metapath target="/plan-of-action-and-milestones"/>
+
+        <constraints>
+            <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Attachment Type</formal-name>
+                <description>Identifies the type of attachment.</description>
+                <enum value="law">Law or Statute</enum>
+                <enum value="regulation">Regulation or Directive</enum>
+                <enum value="standard">Industry Standard</enum>
+                <enum value="guidance">Guidance</enum>
+                <enum value="policy">Policy</enum>
+                <enum value="procedure">Procedure</enum>
+                <enum value="guide">Guidance Document</enum>
+                <enum value="rules-of-behavior">Rules of Behavior</enum>
+                <enum value="plan">Plan</enum>
+                <enum value="system-security-plan">System Security Plan</enum>
+                <enum value="artifact">Artifact</enum>
+                <enum value="evidence">Evidence</enum>
+                <enum value="screen-shot">Screen Shot</enum>
+                <enum value="image">Image</enum>
+                <enum value="tool-report">Tool Report</enum>
+                <enum value="raw-tool-output">Raw Tool Output</enum>
+                <enum value="interview-notes">Interview Notes</enum>
+                <enum value="questionnaire">Questions</enum>
+                <enum value="report">Report</enum>
+                <enum value="fedramp-citations">FedRAMP Citations</enum>
+                <enum value="fedramp-acronyms">FedRAMP Acronyms</enum>
+                <enum value="fedramp-logo">FedRAMP Logo</enum>
+                <enum value="separation-of-duties-matrix">Separation of Duties Matrix</enum>
+                <enum value="logo">Logo</enum>
+                <enum value="personally-identifiable-information">Personal Identifiable Information (PII)</enum>
+                <enum value="agreement">Agreement</enum>
+                <enum value="isa-agreement">Interconnection Security Agreement</enum>
+                <enum value="incident-response-plan">Incident Response Plan</enum>
+                <enum value="information-security-policies-and-procedures">Incident Security Policies and Procedures</enum>
+                <enum value="users-guide">User Guide</enum>
+                <enum value="privacy-impact-assessment">Privacy Impact Assessment</enum>
+                <enum value="information-system-contingency-plan">Information System Contingency Plan</enum>
+                <enum value="configuration-management-plan">configuration-management-plan</enum>
+                <remarks>
+                    <p>Not all values apply to all FedRAMP artifacts.</p>
+                </remarks>
+            </allowed-values>
+
+            <allowed-values id="component-type" target="system-implementation/component/@type" allow-other="no" level="ERROR">
+                <formal-name>Component Type</formal-name>
+                <description>Identifies the component type.</description>
+                <enum value="interconnection">A connection to something outside this system.</enum>
+                <enum value="software">Any software, operating system, or firmware.</enum>
+                <enum value="hardware">A physical device.</enum>
+                <enum value="service">A service that may provide APIs.</enum>
+                <enum value="policy">An enforceable policy.</enum>
+                <enum value="physical">A tangible asset used to provide physical protections or countermeasures.</enum>
+                <enum value="process-procedure">A list of steps or actions to take to achieve some end result.</enum>
+                <enum value="plan">An applicable plan.</enum>
+                <enum value="guidance">Any guideline or recommendation.</enum>
+                <enum value="standard">Any organizational or industry standard.</enum>
+                <enum value="validation">An external assessment performed on some other component, that has been validated by a third-party.</enum>
+                <enum value="this-system">The system as a whole.</enum>
+                <enum value="system">An external system, which may be a leveraged system or the other side of an interconnection.</enum>
+                <enum value="network">A physical or virtual network.</enum>
+            </allowed-values>
+
+            <allowed-values id="control-implementation-status" target="control-implementation/implemented-requirement/by-component/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
+                <formal-name>Control Implementation Status</formal-name>
+                <description>The implementation status of the control.</description>
+                <enum value="implemented">Implemented</enum>
+                <enum value="partial">Partially Implemented</enum>
+                <enum value="planned">Planned</enum>
+                <enum value="alternative">Alternative Implementation</enum>
+                <enum value="not-applicable">Not Applicable</enum>
+            </allowed-values>
+
+            <allowed-values id="interconnection-direction" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Interconnection Direction</formal-name>
+                <description>Identifies the direction of information flow for the interconnection.</description>
+                <enum value="in">Incoming</enum>
+                <enum value="out">Outgoing</enum>
+                <enum value="in/out">Bi-Directional</enum>
+            </allowed-values>
+
+            <allowed-values id="interconnection-security" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Interconnection Security</formal-name>
+                <description>Identifies the type of security applied to the interconnection.</description>
+                <enum value="ipsec">IPsec</enum>
+                <enum value="vpn">Virtual Private Network</enum>
+                <enum value="tls">Transport-Layer Security</enum>
+                <enum value="dtls">Transport-Layer Security</enum>
+                <enum value="certificate">Certificate Authentication Security</enum>
+                <enum value="secure-file-transfer">Secure File Transfer</enum>
+                <enum value="other">Other</enum>
+            </allowed-values>
+
+            <allowed-values id="scan-type" target="system-implementation//prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Scan Type</formal-name>
+                <description>Identifies the type of scan.</description>
+                <enum value="infrastructure">Infrastructure and Operating System Scan</enum>
+                <enum value="database">Database Scan</enum>
+                <enum value="web">Web Scan</enum>
+                <enum value="other">Other</enum>
+            </allowed-values>
+            <allowed-values id="address-type" target="metadata/party/address/@type" allow-other="no" level="ERROR">
+                <formal-name>Address Type</formal-name>
+                <description>The type of address for the party</description>
+                <!-- <enum value="home">Home</enum>-->                <!-- would FedRAMP ever need a "home" address? -->
+                <enum value="work">Work</enum>
+                <remarks>
+                    <p>FedRAMP requires work addresses.</p>
+                </remarks>
+            </allowed-values>
+
+            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Authorization Type</formal-name>
+                <description>The FedRAMP Authorization Type</description>
+                <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
+                <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
+                <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
+            </allowed-values>
+            <allowed-values id="deployment-model" target="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Deployment Model</formal-name>
+                <description>The cloud deployment model.</description>
+                <enum value="public-cloud">Public Cloud</enum>
+                <enum value="private-cloud">Private Cloud</enum>
+                <enum value="government-only-cloud">U.S. Government Only</enum>
+                <enum value="hybrid-cloud">Hybrid</enum>
+                <enum value="other">Other</enum>
+            </allowed-values>
+            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Authorization Type</formal-name>
+                <description>The FedRAMP Authorization Type</description>
+                <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
+                <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
+                <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
+            </allowed-values>
+            <allowed-values id="user-type" target="system-implementation/user/prop[@name='type']/@value" allow-other="no" level="ERROR">
+                <formal-name>User Type</formal-name>
+                <description>The type of user.</description>
+                <enum value="internal">Internal</enum>
+                <enum value="external">External</enum>
+                <enum value="privileged">Privileged</enum>
+              </allowed-values>
+            <allowed-values id="information-type-system" target="system-characteristics/system-information/information-type/categorization/@system" allow-other="no" level="ERROR">
+                <formal-name>Information Type Categorization System</formal-name>
+                <description>The system used for categorizing information types.</description>
+                <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST SP 800-60 Volume 2 Revision 1</enum>
+              </allowed-values>
+              <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
+                <formal-name>Privilege Level</formal-name>
+                <description>The privilege level of the user.</description>
+                <enum value="read">Read</enum>
+                <enum value="read-write">Read-Write</enum>
+                <enum value="write">Write</enum>
+                <enum value="no-access">No Access</enum>
+              </allowed-values>
+
+            <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Cloud Service Model</formal-name>
+                <description>The cloud service model used by the system.</description>
+                <enum value="iaas">Infrastructure as a Service</enum>
+                <enum value="paas">Platform as a Service</enum>
+                <enum value="saas">Software as a Service</enum>
+                <enum value="other">Other</enum>
+            </allowed-values>
+        </constraints>
+
+    </context>
+
+</metaschema-meta-constraints>

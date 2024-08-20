@@ -16,9 +16,9 @@ test-case: # a specific content testing case
 - `pipeline` identifies extra processing to perform on the `content` before calling oscal-cli - e.g., resolve a profile to produce a catalog for testing
 - `validate/expectations` defines what validation rules are expected to pass or fail based on the oscal-cli results
 
-2. Parse the test-case YAML and produce jest-based assertions based on `validate/expectations` that test the contents of the SARIF results produced by the oscal-cli
+2. Parse the test-case YAML and produce cucumber-based assertions based on `validate/expectations` that test the contents of the SARIF results produced by the oscal-cli
 
 YAML -- driving content used in -> oscal-cli -> SARIF
-  l  -- driving Jest assertions              -> | -> Jest evaluation
+  l  -- driving cucumber assertions              -> | -> Cucumber evaluation
 
 
