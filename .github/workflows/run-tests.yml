@@ -28,7 +28,6 @@ jobs:
         uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08
 
       - name: Set up Java
-        if: runner.os == 'Windows'
         uses: actions/setup-java@67fbd726daaf08212a7b021c1c4d117f94a81dd3
         with:
           distribution: 'adopt'
