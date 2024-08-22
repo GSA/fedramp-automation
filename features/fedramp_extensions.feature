@@ -135,6 +135,8 @@ Examples:
   | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
+  | user-sensitivity-level-FAIL.yaml |
+  | user-sensitivity-level-PASS.yaml |
   | user-type-FAIL.yaml |
   | user-type-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
@@ -212,5 +214,6 @@ Examples:
   | role-defined-information-system-security-officer |
   | role-defined-system-owner |
   | scan-type |
+  | user-sensitivity-level |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS

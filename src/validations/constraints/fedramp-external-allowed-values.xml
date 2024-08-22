@@ -196,6 +196,15 @@
                 <enum value="no">No</enum>
             </allowed-values>
 
+            <allowed-values id="user-sensitivity-level" target="system-implementation/user/prop[@name='sensitivity'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>User Sensitvity Level</formal-name>
+                <description>Sensitivity level of the user.</description>
+                <enum value="high-risk">High Risk</enum>
+                <enum value="severe">Severe</enum>
+                <enum value="moderate">Moderate</enum>
+                <enum value="limited">Limited</enum>
+                <enum value="not-applicable">Not Applicable</enum>
+            </allowed-values>
         </constraints>
 
     </context>

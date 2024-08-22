@@ -78,6 +78,26 @@ Do you want your government agency or operational division to have similar busin
 
 ## Developers: Need Help or Have a Technical Question?
 
+
+### Workflow
+- create a fork
+- branch from feature/external-constraints => feature/external-constraint-{constraint-group}
+    - replace {constraint-group} with a short description of the constraints you will contribute
+- template the constraint in an XML file under <repo-root>/src/validations/constraints/fedramp-external-constraints-<constraint-group>.xml or where it makes sense to place
+    - see fedramp-external-constraints.xml for example
+- create all constraints with well named ids
+- $`npm run constraint <constraint-id>` to scaffold unit tests
+- create or update sample content for your negative and positive unit tests 
+- npm run test to see if your unit tests pass
+- once unit tests are passing submit your PR
+
+
+
+
+
+
+
+
 If you have a technical question or want to recommend and/or submit a PR to our
 project for new features and enhancements, please read the [Contributors' Guide](./CONTRIBUTING.md)
 or [open an issue](https://github.com/18F/fedramp-automation/issues/new/choose).
