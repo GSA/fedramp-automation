@@ -46,13 +46,17 @@ Examples:
 #END_DYNAMIC_TEST_CASES
 
 @full-coverage
-Scenario: Ensuring full test coverage for each constraint
-  Given I have loaded all Metaschema extensions documents
-  And I have collected all YAML test files in the test directory
-  When I extract all constraint IDs from the Metaschema extensions
-  And I analyze the YAML test files for each constraint ID
-  Then I should have both FAIL and PASS tests for each constraint ID:
-    | Constraint ID  |
+Scenario: Preparing constraint coverage analysis
+Given I have loaded all Metaschema extensions documents
+And I have collected all YAML test files in the test directory
+When I extract all constraint IDs from the Metaschema extensions
+And I analyze the YAML test files for each constraint ID
+
+@full-coverage
+Scenario Outline: Ensuring full test coverage for "<constraint_id>"
+Then I should have both FAIL and PASS tests for constraint ID "<constraint_id>"
+Examples:
+| constraint_id |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
   | address-type |
   | attachment-type |

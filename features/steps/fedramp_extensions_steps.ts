@@ -104,21 +104,9 @@ async function getConstraintIds() {
     const filePath = join(constraintDir, file);
     const fileContent = readFileSync(filePath, "utf8");
     const result = (await parseXmlString(fileContent)) as any;
-
-    const contexts = result["metaschema-meta-constraints"]?.context || [];
-    for (const context of contexts) {
-      const constraints = context.constraints?.[0] || {};
-      for (const constraintType in constraints) {
-        if (Array.isArray(constraints[constraintType])) {
-          const ids = constraints[constraintType]
-            .filter((constraint) => constraint.$ && constraint.$.id)
-            .map((constraint) => constraint.$.id);
-          allConstraintIds = [...allConstraintIds, ...ids];
-        }
-      }
-    }
+    const fileConstraints=extractConstraints(result)
+    allConstraintIds=[...allConstraintIds,...fileConstraints];
   }
-
   // Remove duplicates and sort
   allConstraintIds = [...new Set(allConstraintIds)].sort();
 
@@ -437,10 +425,11 @@ When(
       constraintIds = [...constraintIds, ...constraints];
     }
     constraintIds = [...new Set(constraintIds)].sort();
+
+    console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
     console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
   }
 );
-
 function extractConstraints(xmlObject: any): string[] {
   const constraints: string[] = [];
 
@@ -449,19 +438,11 @@ function extractConstraints(xmlObject: any): string[] {
       if (Array.isArray(obj)) {
         obj.forEach(searchForConstraints);
       } else {
-        if (obj.constraints && Array.isArray(obj.constraints)) {
-          obj.constraints.forEach((constraint: any) => {
-            Object.values(constraint).forEach((value: any) => {
-              if (Array.isArray(value)) {
-                value.forEach((item: any) => {
-                  if (item.$ && item.$.id) {
-                    constraints.push(item.$.id);
-                  }
-                });
-              }
-            });
-          });
+        // Check if the current object has an 'id' field
+        if (obj.$ && obj.$.id) {
+          constraints.push(obj.$.id);
         }
+        // Recursively search all object properties
         Object.values(obj).forEach(searchForConstraints);
       }
     }
@@ -610,4 +591,27 @@ When("I analyze the YAML test files for each constraint ID", function () {
 
   console.log(`Analyzed ${yamlTestFiles.length} YAML test files`);
   console.log("Test results:", testResults);
+});
+
+// New step definition for the "Ensuring full test coverage for "<constraint_id>"" scenario
+Then("I should have both FAIL and PASS tests for constraint ID {string}", function (constraintId) {
+  const testCoverage = testResults[constraintId];
+
+  if (!testCoverage) {
+    console.log(`${constraintId}: No tests found`);
+    expect.fail(`Constraint ${constraintId} has no tests`);
+  } else if (!testCoverage.pass) {
+    console.log(`${constraintId}: Missing at least one positive test`);
+    expect.fail(`Constraint ${constraintId} is missing a positive test`);
+  } else if (!testCoverage.fail) {
+    console.log(`${constraintId}: Missing at least one negative test`);
+    expect.fail(`Constraint ${constraintId} is missing a negative test`);
+  } else {
+    console.log(`${constraintId}: Has minimal required coverage`);
+  }
+
+  expect(constraintIds).to.include(
+    constraintId,
+    `Constraint ${constraintId} is not in the extracted constraints list`
+  );
 });
