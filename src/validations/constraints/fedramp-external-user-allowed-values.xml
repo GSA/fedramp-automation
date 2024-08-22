@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <!-- ================================== -->
+    <!-- FedRAMP Extensions User Extensions -->
+    <!-- ================================== -->
+
+    <context>
+        <metapath target="//user"/>
+
+        <constraints>
+            <allowed-values id="user-type" target="prop[@name='type']/@value" allow-other="no" level="ERROR">
+                <formal-name>User Type</formal-name>
+                <description>The type of user.</description>
+                <enum value="internal">Internal</enum>
+                <enum value="external">External</enum>
+                <enum value="privileged">Privileged</enum>
+              </allowed-values>
+              <allowed-values id="privilege-level" target="prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
+                <formal-name>Privilege Level</formal-name>
+                <description>The privilege level of the user.</description>
+                <enum value="read">Read</enum>
+                <enum value="read-write">Read-Write</enum>
+                <enum value="write">Write</enum>
+                <enum value="no-access">No Access</enum>
+              </allowed-values>
+            <allowed-values id="user-sensitivity-level" target="prop/@value"  allow-other="no" level="ERROR">
+                <formal-name>User Sensitvity Level</formal-name>
+                <description>Sensitivity level of the user.</description>
+                <enum value="high-risk">High Risk</enum>
+                <enum value="severe">Severe</enum>
+                <enum value="moderate">Moderate</enum>
+                <enum value="limited">Limited</enum>
+                <enum value="not-applicable">Not Applicable</enum>
+              </allowed-values>
+        </constraints>
+    
+    </context>
+</metaschema-meta-constraints>

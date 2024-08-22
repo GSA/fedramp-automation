@@ -145,25 +145,11 @@
                 <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
                 <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
             </allowed-values>
-            <allowed-values id="user-type" target="system-implementation/user/prop[@name='type']/@value" allow-other="no" level="ERROR">
-                <formal-name>User Type</formal-name>
-                <description>The type of user.</description>
-                <enum value="internal">Internal</enum>
-                <enum value="external">External</enum>
-                <enum value="privileged">Privileged</enum>
-              </allowed-values>
+
             <allowed-values id="information-type-system" target="system-characteristics/system-information/information-type/categorization/@system" allow-other="no" level="ERROR">
                 <formal-name>Information Type Categorization System</formal-name>
                 <description>The system used for categorizing information types.</description>
                 <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST SP 800-60 Volume 2 Revision 1</enum>
-              </allowed-values>
-              <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
-                <formal-name>Privilege Level</formal-name>
-                <description>The privilege level of the user.</description>
-                <enum value="read">Read</enum>
-                <enum value="read-write">Read-Write</enum>
-                <enum value="write">Write</enum>
-                <enum value="no-access">No Access</enum>
               </allowed-values>
 
             <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
@@ -206,7 +192,6 @@
                 <enum value="not-applicable">Not Applicable</enum>
             </allowed-values>
         </constraints>
-
+    
     </context>
-
 </metaschema-meta-constraints>
