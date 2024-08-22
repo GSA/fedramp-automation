@@ -601,7 +601,7 @@ Then("I should have both FAIL and PASS tests for constraint ID {string}", functi
     console.log(`${constraintId}: No tests found`);
     expect.fail(`Constraint ${constraintId} has no tests`);
   } else if (!testCoverage.pass) {
-    console.log(`${constraintId}: Missing positive test`);
+    console.log(`${constraintId}: Missing at least one positive test`);
     expect.fail(`Constraint ${constraintId} is missing a positive test`);
   } else if (!testCoverage.fail) {
     console.log(`${constraintId}: Missing negative test`);
