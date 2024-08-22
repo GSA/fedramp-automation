@@ -103,7 +103,7 @@ async function scaffoldTest(constraintId) {
             type: 'confirm',
             name: 'confirm',
             message: `Do you want to scaffold a test for ${constraintId}?`,
-            default: false
+            default: true
         }
     ]);
     const { model } = await prompt([
@@ -233,7 +233,7 @@ async function runCucumberTest(constraintId, testFiles) {
 
     if (scenarioLines.length === 0) {
         console.error(`No scenarios found for constraintId: ${constraintId}`);
-        console.error(`execute npm run test and try again if you haven't already`);        
+        execSync("npm run test:coverage",{stdio:'inherit'});
         return false;
     }
 
