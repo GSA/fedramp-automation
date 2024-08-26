@@ -175,15 +175,21 @@
 
             </context>
 
-            <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Cloud Service Model</formal-name>
-                <description>The cloud service model used by the system.</description>
-                <enum value="iaas">Infrastructure as a Service</enum>
-                <enum value="paas">Platform as a Service</enum>
-                <enum value="saas">Software as a Service</enum>
-                <enum value="other">Other</enum>
-            </allowed-values>
-        </constraints>
+            <context>
+                <metapath target="security-sensitivity-level"/>
+                <metapath target="security-impact-level"/>
+                <metapath target="(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
+                <metapath target="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"/>
+                <allowed-values id="security-level" target="." allow-other="no" level="ERROR">
+                    <formal-name>Security Impact Level</formal-name>
+                    <description>The security objective level as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v1r1">NIST SP 800-60</a>.</description>
+                    <enum value="fips-199-low">Low</enum>
+                    <enum value="fips-199-moderate">Moderate</enum>
+                    <enum value="fips-199-high">High</enum>
+                </allowed-values>
+            </context>
+
+         </constraints>
 
     </context>
 
