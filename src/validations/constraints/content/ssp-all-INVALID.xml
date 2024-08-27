@@ -105,7 +105,7 @@
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="unsupported-type"/>
-      <prop name='sensitivity' value='unsupported-risk'/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="unsupported-risk" />
       <prop name="privilege-level" value="unsupported-access-type"/>
       <prop name="type" value="unsupported-type"/>
       <prop name='sensitivity' value='unsupported-risk'/>
