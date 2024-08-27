@@ -165,22 +165,6 @@
                 <enum value="no-access">No Access</enum>
               </allowed-values>
 
-            </context>
-
-            <context>
-                <metapath target="security-sensitivity-level"/>
-                <metapath target="security-impact-level"/>
-                <metapath target="(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
-                <metapath target="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"/>
-                <allowed-values id="security-level" target="." allow-other="no" level="ERROR">
-                    <formal-name>Security Impact Level</formal-name>
-                    <description>The security objective level as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v1r1">NIST SP 800-60</a>.</description>
-                    <enum value="fips-199-low">Low</enum>
-                    <enum value="fips-199-moderate">Moderate</enum>
-                    <enum value="fips-199-high">High</enum>
-                </allowed-values>
-            </context>
-
          </constraints>
 
     </context>
@@ -189,10 +173,10 @@
         <metapath target="/system-security-plan/system-characteristics/security-sensitivity-level"/>
         <metapath target="/system-security-plan/system-characteristics/security-impact-level/(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
         <metapath target="/system-security-plan/system-characteristics/system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"/> 
-        <constraints> 
+        <constraints>
             <allowed-values id="security-level" target="." allow-other="no" level="ERROR">
                 <formal-name>Security Impact Level</formal-name>
-                <description>The security objective level as defined by NIST SP 800-60.</description>
+                <description>The security objective level as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v1r1">NIST SP 800-60</a>.</description>
                 <enum value="fips-199-low">Low</enum>
                 <enum value="fips-199-moderate">Moderate</enum>
                 <enum value="fips-199-high">High</enum>
