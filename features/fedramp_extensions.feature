@@ -7,6 +7,7 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
 #BEGIN_DYNAMIC_CONSTRAINT_FILES
   | fedramp-external-allowed-values.xml |
   | fedramp-external-constraints.xml |
+  | fedramp-external-location-constraints.xml |
   | oscal-external-constraints.xml |
 #END_DYNAMIC_CONSTRAINT_FILES
   When I process the constraint unit test "<test_file>"
@@ -27,6 +28,16 @@ Examples:
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
   | control-implementation-status-PASS.yaml |
+  | data-center-alternate-FAIL.yaml |
+  | data-center-alternate-PASS.yaml |
+  | data-center-count-FAIL.yaml |
+  | data-center-count-PASS.yaml |
+  | data-center-country-code-FAIL.yaml |
+  | data-center-country-code-PASS.yaml |
+  | data-center-primary-FAIL.yaml |
+  | data-center-primary-PASS.yaml |
+  | data-center-us-FAIL.yaml |
+  | data-center-us-PASS.yaml |
   | deployment-mode-FAIL.yaml |
   | deployment-mode-PASS.yaml |
   | information-type-system-FAIL.yaml |
@@ -68,6 +79,11 @@ Examples:
   | cloud-service-model |
   | component-type |
   | control-implementation-status |
+  | data-center-US |
+  | data-center-alternate |
+  | data-center-count |
+  | data-center-country-code |
+  | data-center-primary |
   | deployment-model |
   | information-type-system |
   | interconnection-direction |
