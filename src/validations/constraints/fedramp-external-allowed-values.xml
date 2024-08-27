@@ -119,6 +119,7 @@
                 <enum value="web">Web Scan</enum>
                 <enum value="other">Other</enum>
             </allowed-values>
+
             <allowed-values id="address-type" target="metadata/party/address/@type" allow-other="no" level="ERROR">
                 <formal-name>Address Type</formal-name>
                 <description>The type of address for the party</description>
@@ -132,9 +133,7 @@
             <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Authorization Type</formal-name>
                 <description>The FedRAMP Authorization Type</description>
-                <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
-                <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
-                <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
+                <enum value="fedramp">FedRAMP Authorization</enum>
             </allowed-values>
             <allowed-values id="deployment-model" target="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Deployment Model</formal-name>
@@ -144,13 +143,6 @@
                 <enum value="government-only-cloud">U.S. Government Only</enum>
                 <enum value="hybrid-cloud">Hybrid</enum>
                 <enum value="other">Other</enum>
-            </allowed-values>
-            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Authorization Type</formal-name>
-                <description>The FedRAMP Authorization Type</description>
-                <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
-                <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
-                <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
             </allowed-values>
             <allowed-values id="user-type" target="system-implementation/user/prop[@name='type']/@value" allow-other="no" level="ERROR">
                 <formal-name>User Type</formal-name>
@@ -191,6 +183,21 @@
 
          </constraints>
 
+    </context>
+
+    <context>
+        <metapath target="/system-security-plan/system-characteristics/security-sensitivity-level"/>
+        <metapath target="/system-security-plan/system-characteristics/security-impact-level/(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
+        <metapath target="/system-security-plan/system-characteristics/system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"/> 
+        <constraints> 
+            <allowed-values id="security-level" target="." allow-other="no" level="ERROR">
+                <formal-name>Security Impact Level</formal-name>
+                <description>The security objective level as defined by NIST SP 800-60.</description>
+                <enum value="fips-199-low">Low</enum>
+                <enum value="fips-199-moderate">Moderate</enum>
+                <enum value="fips-199-high">High</enum>
+            </allowed-values>
+        </constraints>
     </context>
 
 </metaschema-meta-constraints>

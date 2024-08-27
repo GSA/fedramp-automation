@@ -105,6 +105,8 @@ Examples:
   | has-separation-of-duties-matrix-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
+  | deployment-model-FAIL.yaml |
+  | deployment-model-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -129,6 +131,8 @@ Examples:
   | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
+  | security-level-FAIL.yaml |
+  | security-level-PASS.yaml |
   | user-type-FAIL.yaml |
   | user-type-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
@@ -203,5 +207,6 @@ Examples:
   | role-defined-information-system-security-officer |
   | role-defined-system-owner |
   | scan-type |
+  | security-level |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS
