@@ -108,7 +108,7 @@
       <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="unsupported-risk" />
       <prop name="privilege-level" value="unsupported-access-type"/>
       <prop name="type" value="unsupported-type"/>
-      <prop name='sensitivity' value='unsupported-risk'/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="unsupported-risk" />
       <prop name="privilege-level" value="unsupported-access-type"/>
       <role-id>system-admin</role-id>
     </user>
