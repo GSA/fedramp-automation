@@ -303,7 +303,7 @@ async function checkConstraints(
 
       const kinds = constraintResults.map((c) => c.kind);
       const passCount = kinds.filter((k) => k === "pass").length;
-      const failCount = kinds.filter((k) => k === "fail").length;
+      const failCount = kinds.filter((k) => k === "fail"||k==='informational').length;
 
       const result = kinds.reduce((acc, kind) => {
         if (acc === "mixed" || (acc !== kind && acc !== "initial")) {
@@ -562,7 +562,7 @@ When("I analyze the YAML test files for each constraint ID", function () {
 
           if (result === "pass") {
             testResults[constraintId].pass = true;
-          } else if (result === "fail") {
+          } else if (result === "fail"||result==='informational') {
             testResults[constraintId].fail = true;
           } else if (result === undefined || result === "mixed") {
             // Handle cases where only pass_count or fail_count is specified
