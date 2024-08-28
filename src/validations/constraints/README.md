@@ -15,7 +15,7 @@ This section provides instructions for setting up your local environment to use 
 To use OSCAL CLI, you need the following programs and packages:
 1. *Windows only:* A Linux-like shell terminal (Visual Studio Code, WSL, MSYS2, Cygwin)
 2. JDK version 11 or newer
-3. Git (any Git interface; for example, git bash, GitHub Desktop, Visual Studio Code, Oxygen Editor; for more information about git, visit [https://git-scm.com/](https://git-scm.com/))
+3. Git (any Git interface; for example, git bash, GitHub Desktop, Visual Studio Code, Oxygen Editor; for more information about Git, visit [https://git-scm.com/](https://git-scm.com/))
 
 ## 3.2. Installing OSCAL CLI
 To install OSCAL CLI
@@ -26,11 +26,12 @@ To install OSCAL CLI
 5. If the **opt** directory does not exist in your shell structure, run the following commands:
    a. `$ cd /`
    b. `$ mkdir opt`
-6. To change to the **opt** directory, run the following command:
+6. To navigate to the **opt** directory, run the following command:
    `$ cd opt`
 7. To create the **oscal-cli** directory, run the following command:
    `$ mkdir oscal-cli`
-8. Extract the downloaded ZIP archive into the created **oscal-cli** directory.
+8. To extract the downloaded ZIP archive into the created **oscal-cli** directory, run the following command:
+   `unzip <oscal-cli-file> -d /opt/oscal-cli`
 
 ## 3.3. Adding Java and OSCAL CLI to the PATH variable
 To add Java and OSCAL CLI to the shell’s **PATH** variable
@@ -39,8 +40,8 @@ To add Java and OSCAL CLI to the shell’s **PATH** variable
    `<shell-root>/home/<user>/.bashrc`
 3. Scroll to the bottom of the file.
 4. To add Java and OSCAL CLI to the PATH variable, insert the following lines, replacing **\<jdk-path\>** with the actual Java installation directory path on your system:
-   `export PATH=$PATH:'<jdk-path>/bin'
-   export PATH=$PATH:/opt/oscal-cli/bin`
+   `export PATH=$PATH:<jdk-path>/bin`
+   `export PATH=$PATH:/opt/oscal-cli/bin`
 5. Save and close the **.bashrc** file.
 6. Open the terminal.
 7. To verify that Java is working correctly
@@ -59,7 +60,7 @@ To upgrade OSCAL CLI to a newer version
 1. Go to [https://github.com/metaschema-framework/oscal-cli/releases](https://github.com/metaschema-framework/oscal-cli/releases).
 2. Download the latest ZIP archive.
 3. Delete everything in the following directory:
-   `<shell-root>/opt/oscl-cli`
+   `<shell-root>/opt/oscal-cli`
 4. Extract the downloaded archive into the empty **oscl-cli** directory.
 5. Open the terminal.
 6. To verify that OSCAL CLI is working correctly
@@ -82,7 +83,7 @@ To clone the FedRAMP Automation repository
 ## 4.2. Getting the latest repository updates
 If you have previously cloned the FedRAMP Automation repository, to get the most recent changes
 1. Open the terminal.
-2. To change to the cloned repository directory, run the following command, replacing **\<fedramp-automation-repository\>** with the actual path:
+2. To navigate to the cloned repository directory, run the following command, replacing **\<fedramp-automation-repository\>** with the actual path:
    `$ cd <fedramp-automation-repository>`
 3. To verify that you are on the correct branch
    a. Run the following command:
@@ -117,8 +118,8 @@ If you prefer viewing SARIF reports in a GUI application, Visual Studio Code off
 After validating your FedRAMP OSCAL file, to fix validation errors
 1. Open the generated SARIF validation report file.
 2. Search for **fail**.
-3. In the **text** field for the failed validation, note the message (for example, "The import-profile element must have a reference").
-4. In the **decoratedName** field, note the XPath expression (for example, "/system-security-plan/metadata\[1\]").
+3. In the **text** field for the failed validation, note the message (for example, `"The import-profile element must have a reference"`).
+4. In the **decoratedName** field, note the XPath expression, which points to the location of the failed test in your OSCAL document (for example, `"/system-security-plan/metadata[1]"`).
 5. Open the validated OSCAL file.
 6. Find the location referenced in the **decoratedName** field.
 7. Fix the error.
