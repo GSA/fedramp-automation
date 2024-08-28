@@ -7,7 +7,6 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
 #BEGIN_DYNAMIC_CONSTRAINT_FILES
   | fedramp-external-allowed-values.xml |
   | fedramp-external-constraints.xml |
-  | fedramp-external-location-constraints.xml |
   | oscal-external-constraints.xml |
 #END_DYNAMIC_CONSTRAINT_FILES
   When I process the constraint unit test "<test_file>"
@@ -28,6 +27,8 @@ Examples:
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
   | control-implementation-status-PASS.yaml |
+  | data-center-allowed-country-code-FAIL.yaml |
+  | data-center-allowed-country-code-PASS.yaml |
   | data-center-alternate-FAIL.yaml |
   | data-center-alternate-PASS.yaml |
   | data-center-count-FAIL.yaml |
@@ -80,6 +81,7 @@ Examples:
   | component-type |
   | control-implementation-status |
   | data-center-US |
+  | data-center-allowed-country-code |
   | data-center-alternate |
   | data-center-count |
   | data-center-country-code |

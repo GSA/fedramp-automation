@@ -25,7 +25,6 @@
     </role>
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
-        <country>USA</country>
       </address>
       <prop name='data-center' value='aws-us-east-1' class='tertiary' ns="https://fedramp.gov/ns/oscal"/>
     </location>
@@ -197,12 +196,12 @@
   
   <back-matter>
     <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
-      <!-- There is no <title/> to purposefully to trigger an error for negative testing. -->
+      <title>Access Control Policy</title>
       <description>
         <p>Detailed access control policy document</p>
       </description>
       <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
-      <!-- There is no <rlink/> to purposefully to trigger an error for negative testing. -->
+      <rlink href="https://example.com/policies/access-control.pdf"/>
     </resource>
   </back-matter>
 </system-security-plan>
