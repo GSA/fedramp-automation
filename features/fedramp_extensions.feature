@@ -27,8 +27,6 @@ Examples:
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
   | control-implementation-status-PASS.yaml |
-  | data-center-allowed-country-code-FAIL.yaml |
-  | data-center-allowed-country-code-PASS.yaml |
   | data-center-alternate-FAIL.yaml |
   | data-center-alternate-PASS.yaml |
   | data-center-count-FAIL.yaml |
@@ -81,7 +79,6 @@ Examples:
   | component-type |
   | control-implementation-status |
   | data-center-US |
-  | data-center-allowed-country-code |
   | data-center-alternate |
   | data-center-count |
   | data-center-country-code |
