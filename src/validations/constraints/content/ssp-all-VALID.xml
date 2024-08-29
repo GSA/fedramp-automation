@@ -27,7 +27,7 @@
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='aws-us-east-1' class='primary' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='dc-zone-1' class='primary' ns="https://fedramp.gov/ns/oscal"/>
     </location>
     <location uuid="11111112-0000-4000-9000-000000000003">
       <address >
