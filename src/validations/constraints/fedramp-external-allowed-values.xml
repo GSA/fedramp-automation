@@ -211,7 +211,7 @@
                 <enum value="write">Write</enum>
                 <enum value="no-access">No Access</enum>
               </allowed-values>
-            <allowed-values id="user-sensitivity-level" target="prop[@name='sensitivity']/@value"  allow-other="no" level="ERROR">
+              <allowed-values id="user-sensitivity-level" target="prop[@name='sensitivity']/@value"  allow-other="no" level="ERROR">
                 <formal-name>User Sensitvity Level</formal-name>
                 <description>Sensitivity level of the user.</description>
                 <enum value="high-risk">High Risk</enum>
@@ -219,6 +219,13 @@
                 <enum value="moderate">Moderate</enum>
                 <enum value="limited">Limited</enum>
                 <enum value="not-applicable">Not Applicable</enum>
+              </allowed-values>
+              <allowed-values id="user-user-type-has-allowed-value" target="prop[@name='type']/@value"  allow-other="no" level="ERROR">
+                <formal-name>User Sensitvity Level</formal-name>
+                <description>Sensitivity level of the user.</description>
+                <enum value="internal">Internal</enum>
+                <enum value="external">External</enum>
+                <enum value="general-public">General Public</enum>
               </allowed-values>
 
 
@@ -230,6 +237,12 @@
             </expect>
             <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1">
                 <message>User must have a single sensitivity prop.</message>
+            </expect>
+            <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
+                <message>User must have at least one role id.</message>
+            </expect>
+            <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
+                <message>User must have at least one authorized privilege id.</message>
             </expect>
         </constraints>
     

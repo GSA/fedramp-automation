@@ -153,6 +153,11 @@
       <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk" />
       <prop name="privilege-level" value="read-write"/>
       <role-id>system-admin</role-id>
+      <authorized-privilege>
+        <title>test</title>
+<description><p>test</p></description>
+<function-performed>test</function-performed>
+      </authorized-privilege>
     </user>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">

@@ -110,7 +110,6 @@
       <prop name="type" value="unsupported-type"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="unsupported-risk" />
       <prop name="privilege-level" value="unsupported-access-type"/>
-      <role-id>system-admin</role-id>
     </user>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="unsupported-component-type">
