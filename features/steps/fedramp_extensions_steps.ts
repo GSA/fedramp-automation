@@ -303,7 +303,7 @@ async function checkConstraints(
 
       const kinds = constraintResults.map((c) => c.kind);
       const passCount = kinds.filter((k) => k === "pass").length;
-      const failCount = kinds.filter((k) => k === "fail"||k==='informational').length;
+      const failCount = kinds.filter((k) => k === "fail"||k==="informational").length;
 
       const result = kinds.reduce((acc, kind) => {
         if (acc === "mixed" || (acc !== kind && acc !== "initial")) {
