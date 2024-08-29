@@ -1,9 +1,0 @@
-test-case:
-  name: Positive Test for user-user-type-has-allowed-value
-  description: >-
-    This test case validates the behavior of constraint
-    user-user-type-has-allowed-value
-  content: ../content/ssp-all-VALID.xml
-  expectations:
-    - constraint-id: user-user-type-has-allowed-value
-      result: pass

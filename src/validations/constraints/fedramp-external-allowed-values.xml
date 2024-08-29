@@ -196,13 +196,6 @@
     <context>
         <metapath target="//user"/>
         <constraints>
-            <allowed-values id="user-type" target="prop[@name='type']/@value" allow-other="no" level="ERROR">
-                <formal-name>User Type</formal-name>
-                <description>The type of user.</description>
-                <enum value="internal">Internal</enum>
-                <enum value="external">External</enum>
-                <enum value="privileged">Privileged</enum>
-              </allowed-values>
               <allowed-values id="privilege-level" target="prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
@@ -220,14 +213,6 @@
                 <enum value="limited">Limited</enum>
                 <enum value="not-applicable">Not Applicable</enum>
               </allowed-values>
-              <allowed-values id="user-user-type-has-allowed-value" target="prop[@name='type']/@value"  allow-other="no" level="ERROR">
-                <formal-name>User Sensitvity Level</formal-name>
-                <description>Sensitivity level of the user.</description>
-                <enum value="internal">Internal</enum>
-                <enum value="external">External</enum>
-                <enum value="general-public">General Public</enum>
-              </allowed-values>
-
 
             <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
                 <message>User must have a single type prop.</message>

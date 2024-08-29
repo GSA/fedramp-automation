@@ -147,10 +147,6 @@ Examples:
   | user-has-user-type-PASS.yaml |
   | user-sensitivity-level-FAIL.yaml |
   | user-sensitivity-level-PASS.yaml |
-  | user-type-FAIL.yaml |
-  | user-type-PASS.yaml |
-  | user-user-type-has-allowed-value-FAIL.yaml |
-  | user-user-type-has-allowed-value-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
 
 @full-coverage
@@ -232,6 +228,4 @@ Examples:
   | user-has-sensitivity-level |
   | user-has-user-type |
   | user-sensitivity-level |
-  | user-type |
-  | user-user-type-has-allowed-value |
 #END_DYNAMIC_CONSTRAINT_IDS
