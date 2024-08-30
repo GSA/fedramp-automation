@@ -302,7 +302,7 @@ async function checkConstraints(
       }
 
       const kinds = constraintResults.map((c) => {
-        if(c.level==='warning'){
+        if(c.level==='warning'||c.kind==='informational'){
           return 'fail'
         }else{
           return c.kind
@@ -577,7 +577,7 @@ When("I analyze the YAML test files for each constraint ID", function () {
 
           if (result === "pass") {
             testResults[constraintId].pass = true;
-          } else if (result === "fail"||result==='informational') {
+          } else if (result === "fail") {
             testResults[constraintId].fail = true;
           } else if (result === undefined || result === "mixed") {
             // Handle cases where only pass_count or fail_count is specified
