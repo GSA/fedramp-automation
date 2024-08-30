@@ -21,6 +21,10 @@ build-validations:
 clean-validations:
 	@echo "Nothing to clean"
 
+update:
+	npm install
+	$(OSCAL_CLI) use latest
+
 test-validations:
 	@echo "Validating rev5 artifacts recursively..."
 	$(OSCAL_CLI) validate -f $(REV5_BASELINES) -e ./src/validations/constraints/fedramp-external-constraints.xml -r
