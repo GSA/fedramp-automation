@@ -301,9 +301,16 @@ async function checkConstraints(
         continue;
       }
 
-      const kinds = constraintResults.map((c) => c.kind);
+      const kinds = constraintResults.map((c) => {
+        if(c.level==='warning'){
+          return 'fail'
+        }else{
+          return c.kind
+      }});
       const passCount = kinds.filter((k) => k === "pass").length;
-      const failCount = kinds.filter((k) => k === "fail"||k==="informational").length;
+      const failCount = kinds.filter((k) => k === "fail").length;
+      const warnCount = constraintResults.filter((k) => k.level === "warning").length;
+      const infoCount = constraintResults.filter((k) => k.kind === "informational").length;
 
       const result = kinds.reduce((acc, kind) => {
         if (acc === "mixed" || (acc !== kind && acc !== "initial")) {
@@ -315,7 +322,15 @@ async function checkConstraints(
       console.log(
         `Received: ${constraintResults.length} matching ${result} results (${passCount} pass, ${failCount} fail)`
       );
-
+      if(warnCount>0)
+        console.log(
+          `Received: ${warnCount} warn)`
+        );
+        if(infoCount>0)
+          console.log(
+            `Received: ${infoCount} informational)`
+          );
+      
       if (result === "initial") {
         throw Error("Unknown Error");
       }
