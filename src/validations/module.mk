@@ -24,6 +24,8 @@ clean-validations:
 update:
 	npm install
 	$(OSCAL_CLI) use latest
+constraint:
+	npm run constraint
 
 test-validations:
 	@echo "Validating rev5 artifacts recursively..."
