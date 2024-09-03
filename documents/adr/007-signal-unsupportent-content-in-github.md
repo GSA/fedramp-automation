@@ -35,8 +35,8 @@ The above will be applied to the current repository as follows:
     * **documents/rev5/README.md** \- mark as **OBSOLETE** and remove PDF guides
 * presentations folder  
   * **presentations/data-bites**  
-    * Update with latest Data Bites slides  
-  * Add **presentations/oscal-implementers**
+    * Move to automte.fedramp.gov and update with latest Data Bites slides  
+  * Add **presentations/oscal-implementers** folder in the automate.fedramp.gov repository
     * Update with latest OSCAL Implementers slides
 * **src/examples/README.md** \- **ARCHIVED**
   * Delete all current contents
