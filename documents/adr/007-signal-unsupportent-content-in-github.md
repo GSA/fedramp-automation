@@ -43,7 +43,7 @@ The above will be applied to the current repository as follows:
 * **src/utils/extensions-preview.xsl** \- **ARCHIVED**
   * Delete all current contents
 * **validations** folder \- **ARCHIVED**
-  * Move all current contents to archive subfolder (e.g., **src/validations/archived** )
+  * Delete all current contents
   * Update the README to let community know this is now archived and no longer maintained  
 * **validations/constraints** \- Plan on adding new validation constraints and associated documentation that is currently in the *feature/external-extensions* branch.
   * Once merged from that feature branch and a release is created, it will be available in the master branch for the community. 
