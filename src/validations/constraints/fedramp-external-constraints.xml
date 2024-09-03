@@ -19,4 +19,23 @@
              </remarks>
         </constraints>
 </context>
+
+<context>
+    <metapath target="/catalog"/>
+    <metapath target="/profile"/>
+    <metapath target="/component-definition"/>
+    <metapath target="/system-security-plan"/>
+    <metapath target="/assessment-plan"/>
+    <metapath target="/assessment-results"/>
+    <metapath target="/plan-of-action-and-milestones"/>
+    <constraints>
+        <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
+            <message>Every supporting artifact found in a citation should have a title.</message>
+        </expect>
+        <expect id="resource-has-rlink" target="back-matter/resource" test="rlink" level="WARNING">
+            <message>Every supporting artifact found in a citation must have a rlink element.</message>
+        </expect>
+    </constraints>
+</context>
+
 </metaschema-meta-constraints>

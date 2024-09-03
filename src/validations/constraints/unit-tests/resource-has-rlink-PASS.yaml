@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for resource-has-rlink
+  description: This test case validates the behavior of constraint resource-has-rlink
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: resource-has-rlink
+      result: pass

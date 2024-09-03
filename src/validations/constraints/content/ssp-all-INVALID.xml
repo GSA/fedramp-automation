@@ -192,12 +192,12 @@
   
   <back-matter>
     <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
-      <title>Access Control Policy</title>
+      <!-- <title>Access Control Policy</title> -->
       <description>
         <p>Detailed access control policy document</p>
       </description>
       <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
-      <rlink href="https://example.com/policies/access-control.pdf"/>
+      <!-- <rlink href="https://example.com/policies/access-control.pdf"/> -->
     </resource>
   </back-matter>
 </system-security-plan>
