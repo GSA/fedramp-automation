@@ -39,7 +39,7 @@ The above will be applied to the current repository as follows:
   * Add **presentations/oscal-implementers**
     * Update with latest OSCAL Implementers slides
 * **src/examples/README.md** \- **ARCHIVED**
-  * Move all current contents to archived subfolder (e.g., **src/examples/archived** )
+  * Delete all current contents
 * **src/utils/extensions-preview.xsl** \- **ARCHIVED**
   * Move all current contents to archive subfolder (e.g., **src/examples/archived** )
 * **validations** folder \- **ARCHIVED**
