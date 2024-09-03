@@ -15,7 +15,7 @@ The FedRAMP OSCAL automation team needs to cleanup the repository periodically, 
 Signal unsupported code / content in the repository by:
 1. marking the content as **DEPRECATED** in a README
 2. **OBSOLETE** in a README
- - deleting **OBSOLETE** content after some period of time or at specified release 
+ - deleting **OBSOLETE** content from future releases and leaving archival copies in an archive branch for posterity
 3. marking the content as **ARCHIVED** and moving to an “archived” folder
    
 ## Consequences
