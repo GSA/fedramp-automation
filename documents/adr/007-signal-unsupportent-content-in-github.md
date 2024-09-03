@@ -41,7 +41,7 @@ The above will be applied to the current repository as follows:
 * **src/examples/README.md** \- **ARCHIVED**
   * Delete all current contents
 * **src/utils/extensions-preview.xsl** \- **ARCHIVED**
-  * Move all current contents to archive subfolder (e.g., **src/examples/archived** )
+  * Delete all current contents
 * **validations** folder \- **ARCHIVED**
   * Move all current contents to archive subfolder (e.g., **src/validations/archived** )
   * Update the README to let community know this is now archived and no longer maintained  
