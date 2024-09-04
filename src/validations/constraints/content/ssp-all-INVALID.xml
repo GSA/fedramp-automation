@@ -192,7 +192,7 @@
   
   <back-matter>
     <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
-      <!-- <title>Access Control Policy</title> -->
+      <!-- There is no <title/> to purposefully to trigger an error for negative testing. -->
       <description>
         <p>Detailed access control policy document</p>
       </description>
