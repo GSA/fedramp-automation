@@ -175,7 +175,7 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
-            <allowed-values id="media-types" target="back-matter/resource/@media-type">
+            <allowed-values id="media-type" target="back-matter/resource/(rlink|base64)/@media-type">
                 <enum value="application/gzip">application/gzip</enum>
                 <enum value="application/msword">application/msword</enum>
                 <enum value="application/octet-stream">application/octet-stream</enum>

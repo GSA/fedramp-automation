@@ -197,7 +197,14 @@
         <p>Detailed access control policy document</p>
       </description>
       <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
-      <rlink href="https://example.com/policies/access-control.pdf"/>
+      <rlink media-type="invalid/nosuchtype" href="https://example.com/policies/access-control.pdf"/>
+    </resource>
+    <resource uuid="aaaaaaaa-bbbb-4ccc-9ddd-eeeeeeeeeeee">
+      <title>Embedded content encoded in base64</title>
+      <description>
+        <p>Instead of pointing an external with rlink, the content is embedded and base64 with an invalid media-type.</p>
+      </description>
+      <base64 media-type="invalid/nosuchtype" filename="failure.txt">VGhpcyB3b24ndCB3b3JrIGFueXdheS4K</base64>
     </resource>
   </back-matter>
 </system-security-plan>
