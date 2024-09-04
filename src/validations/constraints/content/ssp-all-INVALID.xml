@@ -197,7 +197,7 @@
         <p>Detailed access control policy document</p>
       </description>
       <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
-      <!-- <rlink href="https://example.com/policies/access-control.pdf"/> -->
+      <!-- There is no <rlink/> to purposefully to trigger an error for negative testing. -->
     </resource>
   </back-matter>
 </system-security-plan>
