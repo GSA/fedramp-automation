@@ -37,6 +37,8 @@ Examples:
   | interconnection-security-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
+  | resource-media-type-FAIL.yaml |
+  | resource-media-type-PASS.yaml |
   | response-point-FAIL.yaml |
   | response-point-PASS.yaml |
   | scan-type-FAIL.yaml |
@@ -68,6 +70,7 @@ Examples:
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
+  | media-type |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
   | scan-type |
