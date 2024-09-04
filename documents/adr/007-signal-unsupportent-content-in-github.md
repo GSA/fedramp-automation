@@ -8,19 +8,24 @@ Pending Community Feedback
 
 ## Context
 
-The FedRAMP OSCAL automation team needs to cleanup the repository periodically, and establish a way to signal to the community areas of the repository that are no longer maintened (e.g., legacy proof-of-concept tools, outdated documentation / guidance, etc.).
+The FedRAMP Automation Team must maintain organization of its repositories, including deprecation and migration information for data, tools, and documentation as part of its release strategy.
 
 ### Possible Solutions
 
-Signal unsupported code / content in the repository by:
-1. marking the content as **DEPRECATED** in a README
-2. **OBSOLETE** in a README
- - deleting **OBSOLETE** content from future releases and leaving archival copies in an archive branch for posterity
-3. marking the content as **ARCHIVED** and moving to an “archived” folder
+Several possible solutions for identifying deprecated and migrated data, tools, and documentation are below.
+
+1. Do nothing, leave all data, tools, and documentation as-is
+1. Marking the content as **DEPRECATED** in the relevant READMEs
+1. Leverage [the current release strategy and semantic versioning](https://github.com/GSA/automate.fedramp.gov/blob/f085168bc485cf764a37c148d3a3109507d4695a/content/about/release.md):
+  - identify deprecation of relevant data, tools, and documentation in README with an **OBSOLETE** label in the relevant READMEs;
+    - make a minor release with deprecation information in those READMEs;
+    - make a major release with deprecated content deleted and new data, tools, and documentation released
+1. Mark deprecated content by labelling relevant READMEs as **ARCHIVED** and move all relevant content to “archive” folder
    
 ## Consequences
 
-The above will be applied to the current repository as follows:  
+For the purposes of this ADR, there is an inventory for this repository of different tools, data, documentation, and their future deprecation below.
+
 * **dist/content/rev4**  
   * Add README \- FR has transitioned to Rev 5\.  Rev 4 baselines, resources, and templates are no longer maintained but will be kept frozen for historical purposes.
   * Mark as **DEPRECATED**
