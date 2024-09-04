@@ -25,7 +25,7 @@ To install OSCAL CLI
 1. Go to [https://github.com/metaschema-framework/oscal-cli/releases](https://github.com/metaschema-framework/oscal-cli/releases).
 2. Under the latest release, click **Download**.
 3. Download the ZIP archive.
-4. Open the terminal.
+4. Open the Linux terminal.
 5. If the **opt** directory does not exist in your shell structure, run the following commands:
    a. `$ cd /`
    b. `$ mkdir opt`
@@ -35,6 +35,8 @@ To install OSCAL CLI
    `$ mkdir oscal-cli`
 8. To extract the downloaded ZIP archive into the created **oscal-cli** directory, run the following command:
    `$ unzip <oscal-cli-zip-file> -d /opt/oscal-cli`
+   For example, if you downloaded the **oscal-cli-enhanced-2.0.2-oscal-cli.zip** file into your **Downloads** directory, run the following command:
+   `$ unzip $USERPROFILE/Downloads/oscal-cli-enhanced-2.0.2-oscal-cli.zip -d /opt/oscal-cli`
 
 ## 3.3. Adding Java and OSCAL CLI to the PATH variable
 To add Java and OSCAL CLI to the shell’s **PATH** variable
@@ -46,7 +48,7 @@ To add Java and OSCAL CLI to the shell’s **PATH** variable
    `export PATH=$PATH:<jdk-path>/bin`
    `export PATH=$PATH:/opt/oscal-cli/bin`
 5. Save and close the **.bashrc** file.
-6. Open the terminal.
+6. Open the Linux terminal.
 7. To verify that Java is working correctly
    a. Run the following command:
       `$ java --version`
@@ -63,11 +65,13 @@ To upgrade OSCAL CLI to a newer version
 1. Go to [https://github.com/metaschema-framework/oscal-cli/releases](https://github.com/metaschema-framework/oscal-cli/releases).
 2. Under the latest release, click **Download**.
 3. Download the ZIP archive.
-4. Delete everything in the following directory:
-   `<shell-root>/opt/oscal-cli`
-5. To extract the downloaded ZIP archive into the empty **oscal-cli** directory, run the following command:
+4. Open the Linux terminal.
+5. To delete everything in the **/opt/oscal-cli** directory, run the following command:
+   `$ rm -rf /opt/oscal-cli/*`
+6. To extract the downloaded ZIP archive into the empty **oscal-cli** directory, run the following command:
    `$ unzip <oscal-cli-zip-file> -d /opt/oscal-cli` 
-6. Open the terminal.
+      For example, if you downloaded the **oscal-cli-enhanced-2.0.2-oscal-cli.zip** file into your **Downloads** directory, run the following command:
+   `$ unzip $USERPROFILE/Downloads/oscal-cli-enhanced-2.0.2-oscal-cli.zip -d /opt/oscal-cli`
 7. To verify that OSCAL CLI is working correctly
    a. Run the following command:
       `$ oscal-cli --help`
@@ -77,17 +81,17 @@ To upgrade OSCAL CLI to a newer version
 This section describes steps for validating FedRAMP OSCAL artifacts (SSP, SAP, SAR, and POA\&M files).
 
 ## 4.1. Cloning the FedRAMP Automation repository
-Cloning the FedRAMP Automation GitHub repository gives you access to the latest FedRAMP-specific OSCAL extensions, making your validations more robust.
+To validate your FedRAMP OSCAL content, you need to clone the FedRAMP Automation GitHub repository, which contains tests for FedRAMP-specific OSCAL extensions.
 
 To clone the FedRAMP Automation repository
-1. Open the terminal.
+1. Open the Linux terminal.
 2. Navigate to the directory where you want to clone the repository.
 3. Run the following command:
    `$ git clone --recurse-submodules https://github.com/GSA/fedramp-automation`
 
 ## 4.2. Getting the latest repository updates
 If you have previously cloned the FedRAMP Automation repository, to get the most recent changes
-1. Open the terminal.
+1. Open the Linux terminal.
 2. To navigate to the cloned repository directory, run the following command, replacing **\<fedramp-automation-repository\>** with the actual path:
    `$ cd <fedramp-automation-repository>`
 3. To switch to the **feature/external-constraints** branch, run the following command:
@@ -101,7 +105,7 @@ If you have previously cloned the FedRAMP Automation repository, to get the most
 
 ## 4.3. Validating FedRAMP OSCAL files
 To validate your FedRAMP OSCAL file, using the FedRAMP external constraints
-1. Open the terminal.
+1. Open the Linux terminal.
 2. Run the following command:
    `$ oscal-cli validate <oscal-artifact> -c <fedramp-external-constraints> -o <sarif-output> --sarif-include-pass`
    where
