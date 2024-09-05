@@ -23,6 +23,15 @@ flowchart TD
     CLIWrapper -->|SARIF in memory| TestRunnerImplementation
 ```
 
+## How do I install tools for development and testing?
+
+After you [install the prerequisites](./README.md#31-prerequisites), you can use `make` to properly configure tools and their dependencies.
+
+```sh
+cd path/to/fedramp-automation
+make init
+```
+
 ## How do I run the tests?
 
 To run the existing tests as-is, you can use `make` or `npm` directly.
@@ -37,3 +46,9 @@ npm test
 cd src/validations/constraints
 npm test
 ```
+
+## How do I modify a test?
+
+## How do I add a constraint and test?
+
+## How do I delete a constraint and test?
