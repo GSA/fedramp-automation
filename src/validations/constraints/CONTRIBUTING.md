@@ -49,6 +49,56 @@ npm test
 
 ## How do I add a constraint and test?
 
+You can add a constraint and test to this repository by following these high-level steps.
+
+1. Create a new constraint in [the appropriate constraints file](#which-constraint-file-do-i-edit). Note the `id`, you will use it later.
+1. Add the necessary, correct data to [`./content/ssp-all-VALID.xml`](./content/ssp-all-VALID.xml) for a positive test of the constraint.
+1. Add the YAML metadata for the positive test in [`./unit-tests`](./unit-tests/). The name of the file should start with the name of the assembly, field, or flag, and end with `-PASS.yaml`. For example, a new constraint and test for a [`//metadata/party/prop`](https://pages.nist.gov/OSCAL-Reference/models/v1.1.2/system-security-plan/json-reference/#/system-security-plan/metadata/parties) assembly should be `party-PASS.yaml`. The content should be like the example below.
+
+```yaml
+# ./unit-tests/party-PASS.yaml
+test-case:
+  name: Positive Test for party
+  description: This test case validates the behavior of constraint party
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: party
+      result: pass
+```
+
+1. Add the necessary, incorrect data to [`./content/ssp-all-INVALID.xml`](./content/ssp-all-INVALID.xml) for a positive test of the constraint.
+1. Add the YAML metadata for the negative test in [`./unit-tests`](./unit-tests/). The name of the file should start with the name of the assembly, field, or flag, and end with `-FAIL.yaml`. For example, a new constraint and test for a `//metadata/party/prop` assembly should be `party-FAIL.yaml`. The content should be like the example below.
+
+```yaml
+# ./unit-tests/party-FAIL.yaml
+test-case:
+  name: Negative Test for party
+  description: This test case validates the behavior of constraint party
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+    - constraint-id: party
+      result: fail
+```
+
+1. Update the test descriptions in [Cucumber feature file](https://cucumber.io/docs/gherkin/reference/), [`../../../features/fedramp_extensions.feature`](../../../features/fedramp_extensions.feature). Add the file names between `#BEGIN_DYNAMIC_TEST_CASES` and `#END_DYNAMIC_TEST_CASES` blocks in alphabetical order so the test runner discovers them. Add the constraint ID between the `#BEGIN_DYNAMIC_CONSTRAINT_IDS` and `#END_DYNAMIC_CONSTRAINT_IDS` in alphabetical order so the test runner can perform code coverage analysis. The updated content should like the example below.
+
+```yaml
+# Beginning of file truncated
+#BEGIN_DYNAMIC_TEST_CASES
+# There will be existing test case files, you are adding these below
+  | party-FAIL.yaml |
+  | party-PASS.yaml |
+#END_DYNAMIC_TEST_CASES
+# Middle of file truncated
+#BEGIN_DYNAMIC_CONSTRAINT_IDS
+# There will be existing constraint IDs, you are adding this one below
+  | party |
+#END_DYNAMIC_CONSTRAINT_IDS
+# End of file truncated
+```
+
+1. You can now [run the test harness](#how-do-i-run-the-tests) and confirm the new tests are correct.
+
 ## How do I modify a test?
 
 ## How do I delete a constraint and test?
