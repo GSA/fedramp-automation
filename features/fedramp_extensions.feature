@@ -37,8 +37,8 @@ Examples:
   | interconnection-security-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
-  | resource-has-rlink-FAIL.yaml |
-  | resource-has-rlink-PASS.yaml |
+  | resource-has-base64-or-rlink-FAIL.yaml |
+  | resource-has-base64-or-rlink-PASS.yaml |
   | resource-has-title-FAIL.yaml |
   | resource-has-title-PASS.yaml |
   | response-point-FAIL.yaml |
@@ -74,7 +74,7 @@ Examples:
   | interconnection-security |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
-  | resource-has-rlink |
+  | resource-has-base64-or-rlink |
   | resource-has-title |
   | scan-type |
   | user-type |
