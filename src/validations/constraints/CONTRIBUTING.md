@@ -47,8 +47,10 @@ cd src/validations/constraints
 npm test
 ```
 
-## How do I modify a test?
-
 ## How do I add a constraint and test?
 
+## How do I modify a test?
+
 ## How do I delete a constraint and test?
+
+## How do I learn more about Metaschema and Metapath?
