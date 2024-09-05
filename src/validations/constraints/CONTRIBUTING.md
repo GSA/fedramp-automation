@@ -98,8 +98,22 @@ test-case:
 ```
 
 7. You can now [run the test harness](#how-do-i-run-the-tests) and confirm the new tests are correct.
+8. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request.
 
 ## How do I modify a test?
+
+To modify a test, you may possibly need to change the constraint, valid test data, invalid test data, the test case YAML file(s), and the Cucumber inventory.
+
+To change the test data for a test developers [previously added with the correct steps](#how-do-i-add-a-constraint-and-test), you only need to modify the valid or invalid data in [`./content`](./content).
+
+To change the `test` or `target` of a constraint developers [previously added with the correct steps](#how-do-i-add-a-constraint-and-test), you may only need to adjust the constraint [in the appropriate constraint file](#which-constraint-file-do-i-edit), the valid data, and/or invalid data, but not other files. What and why you will change determines if some or all those files need a modification.
+
+To change the `id` of a constraint developers [previously added with the correct steps](#how-do-i-add-a-constraint-and-test), you must make more changes.
+
+1. You must update the `id` [in the appropriate constraint file](#which-constraint-file-do-i-edit).
+1. You must use [`git mv`](https://git-scm.com/docs/git-mv) to rename the test case files in [`./unit-tests`](./unit-tests) with relevant changes to the assembly, field, or flag and ID.
+1. You must update the files names and constraint ID in [`../../../features/fedramp_extensions.feature`](../../../features/fedramp_extensions.feature) accordingly.
+8. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request.
 
 ## How do I delete a constraint and test?
 
