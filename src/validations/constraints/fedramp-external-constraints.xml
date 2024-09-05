@@ -27,8 +27,8 @@
         <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
             <message>Every supporting artifact found in a citation should have a title.</message>
         </expect>
-        <expect id="resource-has-rlink" target="back-matter/resource" test="rlink" level="WARNING">
-            <message>Every supporting artifact found in a citation must have a rlink element.</message>
+        <expect id="resource-has-rlink" target="back-matter/resource" test="count(./rlink) >= 1 or count(./base64) >= 1" level="WARNING">
+            <message>Every supporting artifact found in a citation must have a rlink or base64 element.</message>
         </expect>
     </constraints>
     
