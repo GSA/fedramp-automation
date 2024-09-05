@@ -54,3 +54,10 @@ npm test
 ## How do I delete a constraint and test?
 
 ## How do I learn more about Metaschema and Metapath?
+
+To add or modify constraints and their tests, it is important to understand Metaschema syntax, particularly constraint syntax and Metapath syntax for `@test` and `@target` in the constraints. You can review these pages for more information.
+
+- [Metaschema constraint syntax](https://pages.nist.gov/metaschema/specification/syntax/constraints/)
+- [Metapath expression language](https://pages.nist.gov/metaschema/specification/syntax/metapath/)
+- [Metaschema tutorials for modeling and constraints](https://pages.nist.gov/metaschema/tutorials/)
+- [Metaschema complete syntax reference](https://pages.nist.gov/metaschema/specification/syntax/)
