@@ -42,8 +42,8 @@ LABEL org.opencontainers.image.description="FedRAMP's tools for validating OSCAL
 LABEL org.opencontainers.image.licenses="CC0-1.0"
 ARG OSCAL_CLI_INSTALL_PATH
 COPY --from=cli_downloader /opt/oscal-cli /opt/
-RUN mkdir -p /opt/fedramp
-COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/src/validations/constraints/*.xml /opt/fedramp
+RUN mkdir -p /opt/fedramp/constraints
+COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/src/validations/constraints/*.xml /opt/fedramp/constraints
 ENV PATH="$PATH:/opt/oscal-cli/bin"
 WORKDIR /app
 ENTRYPOINT [ "/opt/oscal-cli/bin/oscal-cli" ]
