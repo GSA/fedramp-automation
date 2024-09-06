@@ -29,7 +29,7 @@ RUN apk add --no-cache git && \
     mkdir -p /usr/local/src && \
     cd /usr/local/src && \
     git clone ${FEDRAMP_AUTO_GIT_URL} && \
-    cd fedramp_automation && \
+    cd fedramp-automation && \
     git checkout ${FEDRAMP_AUTO_GIT_REF}
 
 FROM cli_downloader
