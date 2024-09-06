@@ -96,7 +96,7 @@
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
-      <prop name="privilege-level" value="read-write"/>
+      <prop name="privilege-level" value="privileged"/>
       <role-id>system-admin</role-id>
     </user>
     
