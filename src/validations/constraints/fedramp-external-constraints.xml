@@ -40,6 +40,24 @@
         <expect id="resource-has-base64-or-rlink" target="back-matter/resource" test="count(./rlink) >= 1 or count(./base64) >= 1" level="WARNING">
             <message>Every supporting artifact found in a citation must have at least one base64 or rlink element.</message>
         </expect>
+        <expect id="has-user-guide" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'users-guide']]" level="WARNING">
+            <message>A FedRAMP SSP must have a User Guide attached.</message>
+        </expect>
+        <expect id="has-rules-of-behavior" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'rules-of-behavior']]" level="WARNING">
+            <message>A FedRAMP SSP must have Rules of Behavior.</message>
+        </expect>
+        <expect id="has-information-system-contingency-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'information-system-contingency-plan']]" level="WARNING">
+            <message>A FedRAMP SSP must have a Contingency Plan attached.</message>
+        </expect>
+        <expect id="has-configuration-management-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'configuration-management-plan']]" level="WARNING">
+            <message>A FedRAMP SSP must have a Configuration Management Plan attached.</message>
+        </expect>
+        <expect id="has-incident-response-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'incident-response-plan']]" level="WARNING">
+            <message>A FedRAMP SSP must have an Incident Response Plan attached.</message>
+        </expect>
+        <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="WARNING">
+            <message>A FedRAMP SSP must have a Separation of Duties Matrix attached.</message>
+        </expect>
     </constraints>
 </context>
 <context>

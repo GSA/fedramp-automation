@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for has-separation-of-duties-matrix
+  description: >-
+    This test case validates the behavior of constraint
+    has-separation-of-duties-matrix
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-separation-of-duties-matrix
+      result: pass
