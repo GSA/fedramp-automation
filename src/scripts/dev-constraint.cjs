@@ -229,15 +229,12 @@ async function runCucumberTest(constraintId, testFiles) {
     const nodeOptions = '--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node';
     const cucumberCommand = `NODE_OPTIONS="${nodeOptions}" npx cucumber-js`;
 
-    let scenarioLines = getScenarioLineNumbers(featureFile, constraintId,testFiles);
+    const scenarioLines = getScenarioLineNumbers(featureFile, constraintId,testFiles);
 
     if (scenarioLines.length === 0) {
         console.error(`No scenarios found for constraintId: ${constraintId}`);
-        execSync("npm run test:coverage",{stdio:'ignore'});
-        scenarioLines = getScenarioLineNumbers(featureFile, constraintId,testFiles);
-        if(scenarioLines.length===0){
+        execSync("npm run test:coverage",{stdio:'inherit'});
         return false;
-        }
     }
 
     try {
