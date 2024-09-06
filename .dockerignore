@@ -1,0 +1,3 @@
+# Ignore everything
+*
+!/src/validations/constraints
