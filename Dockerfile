@@ -1,19 +1,12 @@
-ARG DEBIAN_FRONTEND=noninteractive
 ARG GIT_IMAGE=bitnami/git:2.46.0
-ARG MAVEN_IMAGE=maven:3.9.8-eclipse-temurin-21
-ARG MAVEN_DEP_PLUGIN_VERSION=3.8.0
-ARG OSCAL_CLI_VERSION=2.0.2
-ARG OSCAL_CLI_INSTALL_PATH=/opt/oscal
+ARG MAVEN_IMAGE=maven:3.9.9-eclipse-temurin-22-alpine
 ARG FEDRAMP_AUTO_GIT_URL=https://github.com/GSA/fedramp-automation.git
 ARG FEDRAMP_AUTO_GIT_REF=feature/external-constraints
 
-FROM ${MAVEN_IMAGE} as cli_downloader
-ARG DEBIAN_FRONTEND=noninteractive
+FROM ${MAVEN_IMAGE} as oscal_cli_downloader
 ARG MAVEN_DEP_PLUGIN_VERSION
 ARG OSCAL_CLI_VERSION
-ARG OSCAL_CLI_INSTALL_PATH
-RUN apt-get update -y && \
-    apt-get install -y unzip && \
+RUN apk add --no-cache unzip &&  \
     mkdir -p /opt/oscal-cli && \
     mvn \
     org.apache.maven.plugins:maven-dependency-plugin:${MAVEN_DEP_PLUGIN_VERSION}:copy \
@@ -32,7 +25,11 @@ RUN apk add --no-cache git && \
     cd fedramp-automation && \
     git checkout ${FEDRAMP_AUTO_GIT_REF}
 
-FROM cli_downloader
+FROM ${NODE_IMAGE} as final
+ARG OSCAL_JS_VERSION
+ARG TEMURIN_APK_KEY_URL
+ARG TEMURIN_APK_REPO_URL
+ARG TEMURIN_APK_VERSION
 LABEL org.opencontainers.image.authors="FedRAMP Automation Team <oscal@fedramp.gov>"
 LABEL org.opencontainers.image.documentation="https://automate.fedramp.gov"
 LABEL org.opencontainers.image.source="https://github.com/GSA/fedramp-automation/tree/main/Dockerfile"
