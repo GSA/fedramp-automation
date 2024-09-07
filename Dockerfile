@@ -30,7 +30,10 @@ RUN apk add --no-cache git && \
     cd /usr/local/src && \
     git clone ${FEDRAMP_AUTO_GIT_URL} && \
     cd fedramp-automation && \
-    git checkout ${FEDRAMP_AUTO_GIT_REF}
+    git checkout ${FEDRAMP_AUTO_GIT_REF} && \
+    echo ${FEDRAMP_AUTO_GIT_URL} >> checkout_data.txt && \
+    echo ${FEDRAMP_AUTO_GIT_REF} >> checkout_data.txt && \
+    git rev-parse HEAD >> checkout_data.txt
 
 FROM ${NODE_IMAGE} as final
 ARG OSCAL_JS_VERSION
@@ -46,6 +49,7 @@ LABEL org.opencontainers.image.description="FedRAMP's tools for validating OSCAL
 LABEL org.opencontainers.image.licenses="CC0-1.0"
 COPY --from=oscal_cli_downloader /opt/oscal-cli /opt/oscal-cli
 COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/src/validations/constraints/*.xml /opt/fedramp/constraints/
+COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/checkout_data.txt /opt/fedramp/constraints/
 RUN wget -O /etc/apk/keys/adoptium.rsa.pub "${TEMURIN_APK_KEY_URL}" && \
     echo "${TEMURIN_APK_REPO_URL}" >> /etc/apk/repositories && \
     apk add --no-cache ${TEMURIN_APK_VERSION} && \
