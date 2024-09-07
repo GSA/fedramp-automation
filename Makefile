@@ -1,4 +1,5 @@
 export BASE_DIR=$(shell pwd)
+OCI_REV_TAG=$(shell git rev-parse HEAD)
 
 help:
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -39,3 +40,10 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 
 	@echo '#/bin/bash\necho "Serving FedRAMP ASAP documentation at http://localhost:8000/..."\npython3 -m http.server 8000 --directory web/' > ./dist/serve-documentation
 	chmod +x ./dist/serve-documentation
+
+build-oci-image:
+	docker build \
+		-t validation-tools:$(OCI_REV_TAG) \
+		-t ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
+		-t  gsatts/validation-tools:$(OCI_REV_TAG) \
+		.
