@@ -6,6 +6,8 @@ ARG TEMURIN_APK_REPO_URL=https://packages.adoptium.net/artifactory/apk/alpine/ma
 ARG TEMURIN_APK_VERSION=temurin-22-jdk
 ARG MAVEN_DEP_PLUGIN_VERSION=3.8.0
 ARG OSCAL_CLI_VERSION=2.0.2
+# Current key ID for maintainers@metaschema.dev releases of oscal-cli
+ARG OSCAL_CLI_GPG_KEY=0127D75951997E00
 ARG OSCAL_JS_VERSION=1.4.4
 ARG FEDRAMP_AUTO_GIT_URL=https://github.com/GSA/fedramp-automation.git
 ARG FEDRAMP_AUTO_GIT_REF=feature/external-constraints
@@ -13,14 +15,26 @@ ARG FEDRAMP_AUTO_GIT_REF=feature/external-constraints
 FROM ${MAVEN_IMAGE} as oscal_cli_downloader
 ARG MAVEN_DEP_PLUGIN_VERSION
 ARG OSCAL_CLI_VERSION
-RUN apk add --no-cache unzip &&  \
+ARG OSCAL_CLI_GPG_KEY
+RUN apk add --no-cache gpg gpg-agent unzip &&  \
     mkdir -p /opt/oscal-cli && \
     mvn \
     org.apache.maven.plugins:maven-dependency-plugin:${MAVEN_DEP_PLUGIN_VERSION}:copy \
     -DoutputDirectory=/opt/oscal-cli \
     -DremoteRepositories=https://repo1.maven.org/maven2 \
     -Dartifact=dev.metaschema.oscal:oscal-cli-enhanced:${OSCAL_CLI_VERSION}:zip:oscal-cli && \
-    cd /opt/oscal-cli && unzip *.zip && rm -f *.zip
+    mvn \
+    org.apache.maven.plugins:maven-dependency-plugin:${MAVEN_DEP_PLUGIN_VERSION}:copy \
+    -DoutputDirectory=/opt/oscal-cli \
+    -DremoteRepositories=https://repo1.maven.org/maven2 \
+    -Dartifact=dev.metaschema.oscal:oscal-cli-enhanced:${OSCAL_CLI_VERSION}:zip.asc:oscal-cli && \
+    gpg --recv-keys ${OSCAL_CLI_GPG_KEY} && \
+    gpg -k ${OSCAL_CLI_GPG_KEY} && \
+    cd /opt/oscal-cli && \
+    gpg --verify *.zip.asc && \
+    unzip *.zip && \
+    rm -f *.zip && \
+    rm -f *.zip.asc
 
 FROM ${GIT_IMAGE} as fedramp_data_downloader
 ARG FEDRAMP_AUTO_GIT_URL
