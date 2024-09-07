@@ -1,4 +1,4 @@
-ARG GIT_IMAGE=bitnami/git:2.46.0
+ARG GIT_IMAGE=alpine:3.20.2
 ARG MAVEN_IMAGE=maven:3.9.9-eclipse-temurin-22-alpine
 ARG NODE_IMAGE=node:22-alpine3.20
 ARG TEMURIN_APK_KEY_URL=https://packages.adoptium.net/artifactory/api/security/keypair/public/repositories/apk
@@ -22,7 +22,7 @@ RUN apk add --no-cache unzip &&  \
     -Dartifact=dev.metaschema.oscal:oscal-cli-enhanced:${OSCAL_CLI_VERSION}:zip:oscal-cli && \
     cd /opt/oscal-cli && unzip *.zip && rm -f *.zip
 
-FROM alpine:3.20.2 as fedramp_data_downloader
+FROM ${GIT_IMAGE} as fedramp_data_downloader
 ARG FEDRAMP_AUTO_GIT_URL
 ARG FEDRAMP_AUTO_GIT_REF
 RUN apk add --no-cache git && \
