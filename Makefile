@@ -27,6 +27,12 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 	@echo "Cleaning dist..."
 	git clean -xfd dist
 
+clean-oci-image:
+	docker rmi -f \
+		validation-tools:$(OCI_REV_TAG) \
+		ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
+		gsatts/validation-tools:$(OCI_REV_TAG) \
+
 test: build-validations ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
