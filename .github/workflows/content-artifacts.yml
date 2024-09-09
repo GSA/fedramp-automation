@@ -23,11 +23,9 @@ jobs:
   validate-and-publish-content:
     name: Content Validation Checking, Conversion and Validation
     runs-on: ubuntu-20.04
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
+    # Permissions from official docs do not work as documented?
+    # See https://github.com/orgs/community/discussions/57724#discussioncomment-7779731.
+    permissions: write-all
     steps:
       - uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08
         with:
