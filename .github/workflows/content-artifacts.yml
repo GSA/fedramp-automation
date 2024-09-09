@@ -19,6 +19,9 @@ jobs:
   validate-and-publish-content:
     name: Content Validation Checking, Conversion and Validation
     runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08
         with:
