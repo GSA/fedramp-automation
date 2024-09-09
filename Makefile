@@ -68,5 +68,5 @@ publish-oci-image:
 		gsatts/validation-tools:$(OCI_REV_TAG) \
 		gsatts/validation-tools:latest
 
-	docker push ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
-		ghcr.io/gsa/fedramp-automation/validation-tools:latest
+	docker push ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG)
+	docker push	ghcr.io/gsa/fedramp-automation/validation-tools:latest
