@@ -125,7 +125,9 @@ To change the `id` of a constraint developers [previously added with the correct
 
 ### `oscal-external-constraints.xml`
 
-The [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file contains [Metaschema constraints](#how-do-i-learn-more-about-metaschema-and-metapath) that can complement the existing constraints [embedded directly into the official upstream NIST OSCAL models](https://github.com/usnistgov/OSCAL/tree/v1.1.2/src/metaschema). The proposed constraints in this file support improved long-term maintenance and extensibility with the intent to merge upstream. The FedRAMP Automation Team will make a best effort attempt to collaborate with NIST maintainers to merge them upstream and deprecate from this repository accordingly. Until further notice, the FedRAMP Automation Team maintains them here for testing and evaluation until they are sufficiently mature to contribute them upstream.
+The [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file contains [Metaschema constraints](#how-do-i-learn-more-about-metaschema-and-metapath) that can complement the existing constraints [embedded directly into the official upstream NIST OSCAL models](https://github.com/usnistgov/OSCAL/tree/v1.1.2/src/metaschema). The proposed constraints in this file support improved long-term maintenance and extensibility with the intent to merge upstream. Therefore, FedRAMP developers do *not* use this file for any constraint specific to FedRAMP use cases or requirements in the OSCAL information model.
+
+**NOTE**: The FedRAMP Automation Team will make a best effort attempt to collaborate with NIST maintainers to merge them upstream and deprecate from this repository accordingly. Until further notice, the FedRAMP Automation Team maintains them here for testing and evaluation until they are sufficiently mature to contribute them upstream.
 
 ## How do I learn more about Metaschema and Metapath?
 
