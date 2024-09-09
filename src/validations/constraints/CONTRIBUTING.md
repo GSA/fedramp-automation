@@ -98,7 +98,7 @@ test-case:
 ```
 
 7. You can now [run the test harness](#how-do-i-run-the-tests) and confirm the new tests are correct.
-8. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request.
+8. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request [that follows our guidance](../../../CONTRIBUTING.md#contributing-to-this-github-repository)..
 
 ## How do I modify a test?
 
@@ -113,9 +113,14 @@ To change the `id` of a constraint developers [previously added with the correct
 1. You must update the `id` [in the appropriate constraint file](#which-constraint-file-do-i-edit).
 1. You must use [`git mv`](https://git-scm.com/docs/git-mv) to rename the test case files in [`./unit-tests`](./unit-tests) with relevant changes to the assembly, field, or flag and ID.
 1. You must update the files names and constraint ID in [`../../../features/fedramp_extensions.feature`](../../../features/fedramp_extensions.feature) accordingly.
-8. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request.
+1. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request [that follows our guidance](../../../CONTRIBUTING.md#contributing-to-this-github-repository)..
 
 ## How do I delete a constraint and test?
+
+1. You must use [`git rm`](https://git-scm.com/docs/git-rm) to delete the relevant test case files in [`./unit-tests`](./unit-tests).
+1. You must remove the relevant files names and constraints by their ID in [`../../../features/fedramp_extensions.feature`](../../../features/fedramp_extensions.feature) accordingly. Use [`git add`](https://git-scm.com/docs/git-add) with this file to record the deleted lines of the file.
+1. You must remove the constraints by their ID in one or more of the relevant [constraint files](#which-constraint-file-do-i-edit) and use [`git add`](https://git-scm.com/docs/git-add) to record the deleted lines of the file.
+1. Update the files with [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request [that follows our guidance](../../../CONTRIBUTING.md#contributing-to-this-github-repository).
 
 ## Which constraint file do I edit?
 
@@ -141,3 +146,5 @@ To add or modify constraints and their tests, it is important to understand Meta
 - [Metapath expression language](https://pages.nist.gov/metaschema/specification/syntax/metapath/)
 - [Metaschema tutorials for modeling and constraints](https://pages.nist.gov/metaschema/tutorials/)
 - [Metaschema complete syntax reference](https://pages.nist.gov/metaschema/specification/syntax/)
+
+## How do 
