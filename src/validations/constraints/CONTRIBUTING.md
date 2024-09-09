@@ -121,7 +121,11 @@ To change the `id` of a constraint developers [previously added with the correct
 
 ### `fedramp-external-allowed-values.xml`
 
+The [`fedramp-external-allowed-values.xml`](./fedramp-external-allowed-values.xml) file contains [Metaschema constraints](#how-do-i-learn-more-about-metaschema-and-metapath) specific to FedRAMP use cases and requirements for data in the OSCAL information model. Specifically, developers only maintain constraints in this file if they are simple [`allowed-values` checks](https://pages.nist.gov/metaschema/specification/syntax/constraints/#allowed-values-constraints). FedRAMP developers maintain constraints of all types in the [`fedramp-external-constraints.xml`](#fedramp-external-constraintsxml) file.
+
 ### `fedramp-external-constraints.xml`
+
+The [`fedramp-external-constraints.xml`](./fedramp-external-constraints.xml) file contains [Metaschema constraints](#how-do-i-learn-more-about-metaschema-and-metapath) specific to FedRAMP use cases and requirements for data in the OSCAL information model. Specifically, developers maintain all constraints in this file that are *not* simple [`allowed-values` checks](https://pages.nist.gov/metaschema/specification/syntax/constraints/#allowed-values-constraints).
 
 ### `oscal-external-constraints.xml`
 
