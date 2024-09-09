@@ -17,7 +17,8 @@ env:
   HOME_REPO: GSA/fedramp-automation
   IMAGE_NAME: GSA/fedramp-automation/validation-tools
   REGISTRY: ghcr.io
-
+  # Docs: github.com/docker/metadata-action/?tab=readme-ov-file#typesha
+  DOCKER_METADATA_PR_HEAD_SHA: true
 jobs:
   validate-and-publish-content:
     name: Content Validation Checking, Conversion and Validation
@@ -73,7 +74,13 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images:
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha
+          # For now, do not auto-tag latest, maintainers will decided what is
+          # release-worthy.
+          flavor: |
+            latest=false
       - name: Container image registry push
         id: image_registry_push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
