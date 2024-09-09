@@ -47,13 +47,6 @@ ARG TEMURIN_APK_REPO_URL
 ARG TEMURIN_APK_VERSION
 ARG APK_EXTRA_ARGS
 ARG WGET_EXTRA_ARGS
-LABEL org.opencontainers.image.authors="FedRAMP Automation Team <oscal@fedramp.gov>"
-LABEL org.opencontainers.image.documentation="https://automate.fedramp.gov"
-LABEL org.opencontainers.image.source="https://github.com/GSA/fedramp-automation"
-LABEL org.opencontainers.image.vendor="GSA Technology Transformation Services"
-LABEL org.opencontainers.image.title="FedRAMP Validation Tools"
-LABEL org.opencontainers.image.description="FedRAMP's tools for validating OSCAL data"
-LABEL org.opencontainers.image.licenses="CC0-1.0"
 COPY --from=oscal_cli_downloader /opt/oscal-cli /opt/oscal-cli
 RUN wget ${WGET_EXTRA_ARGS} -O /etc/apk/keys/adoptium.rsa.pub "${TEMURIN_APK_KEY_URL}" && \
     echo "${TEMURIN_APK_REPO_URL}" >> /etc/apk/repositories && \

@@ -69,7 +69,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Container image metadata extraction
+      - name: Container image metadata and tag generation
         id: image_metadata
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
@@ -81,6 +81,15 @@ jobs:
           # release-worthy.
           flavor: |
             latest=false
+          labels:
+            maintainers="FedRAMP Automation Team <oscal@fedramp.gov>"
+            org.opencontainers.image.authors="FedRAMP Automation Team <oscal@fedramp.gov>"
+            org.opencontainers.image.documentation="https://automate.fedramp.gov"
+            org.opencontainers.image.source="https://github.com/GSA/fedramp-automation"
+            org.opencontainers.image.vendor="GSA Technology Transformation Services"
+            org.opencontainers.image.title="FedRAMP Validation Tools"
+            org.opencontainers.image.description="FedRAMP's tools for validating OSCAL data"
+            org.opencontainers.image.licenses="CC0-1.0"
       - name: Container image registry push
         id: image_registry_push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
