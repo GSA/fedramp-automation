@@ -1,6 +1,8 @@
 ARG GIT_IMAGE=alpine:3.20.2
 ARG MAVEN_IMAGE=maven:3.9.9-eclipse-temurin-22-alpine
 ARG NODE_IMAGE=node:22-alpine3.20
+ARG APK_EXTRA_ARGS
+ARG WGET_EXTRA_ARGS
 ARG TEMURIN_APK_KEY_URL=https://packages.adoptium.net/artifactory/api/security/keypair/public/repositories/apk
 ARG TEMURIN_APK_REPO_URL=https://packages.adoptium.net/artifactory/apk/alpine/main
 ARG TEMURIN_APK_VERSION=temurin-22-jdk
@@ -16,6 +18,8 @@ FROM ${MAVEN_IMAGE} as oscal_cli_downloader
 ARG MAVEN_DEP_PLUGIN_VERSION
 ARG OSCAL_CLI_VERSION
 ARG OSCAL_CLI_GPG_KEY
+ARG APK_EXTRA_ARGS
+ARG WGET_EXTRA_ARGS
 RUN apk add --no-cache gpg gpg-agent unzip &&  \
     mkdir -p /opt/oscal-cli && \
     mvn \
@@ -39,7 +43,9 @@ RUN apk add --no-cache gpg gpg-agent unzip &&  \
 FROM ${GIT_IMAGE} as fedramp_data_downloader
 ARG FEDRAMP_AUTO_GIT_URL
 ARG FEDRAMP_AUTO_GIT_REF
-RUN apk add --no-cache git && \
+ARG APK_EXTRA_ARGS
+ARG WGET_EXTRA_ARGS
+RUN apk add ${APK_EXTRA_ARGS} --no-cache git && \
     mkdir -p /usr/local/src && \
     cd /usr/local/src && \
     git clone ${FEDRAMP_AUTO_GIT_URL} && \
@@ -54,6 +60,8 @@ ARG OSCAL_JS_VERSION
 ARG TEMURIN_APK_KEY_URL
 ARG TEMURIN_APK_REPO_URL
 ARG TEMURIN_APK_VERSION
+ARG APK_EXTRA_ARGS
+ARG WGET_EXTRA_ARGS
 LABEL org.opencontainers.image.authors="FedRAMP Automation Team <oscal@fedramp.gov>"
 LABEL org.opencontainers.image.documentation="https://automate.fedramp.gov"
 LABEL org.opencontainers.image.source="https://github.com/GSA/fedramp-automation/tree/main/Dockerfile"
@@ -64,9 +72,9 @@ LABEL org.opencontainers.image.licenses="CC0-1.0"
 COPY --from=oscal_cli_downloader /opt/oscal-cli /opt/oscal-cli
 COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/src/validations/constraints/*.xml /opt/fedramp/constraints/
 COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/checkout_data.txt /opt/fedramp/constraints/
-RUN wget -O /etc/apk/keys/adoptium.rsa.pub "${TEMURIN_APK_KEY_URL}" && \
+RUN wget ${WGET_EXTRA_ARGS} -O /etc/apk/keys/adoptium.rsa.pub "${TEMURIN_APK_KEY_URL}" && \
     echo "${TEMURIN_APK_REPO_URL}" >> /etc/apk/repositories && \
-    apk add --no-cache ${TEMURIN_APK_VERSION} && \
+    apk add ${APK_EXTRA_ARGS} --no-cache ${TEMURIN_APK_VERSION} && \
     mkdir -p /opt/fedramp/oscaljs && \
     mkdir -p /opt/fedramp/constraints && \
     (cd /opt/fedramp/oscaljs && npm install oscal@${OSCAL_JS_VERSION})

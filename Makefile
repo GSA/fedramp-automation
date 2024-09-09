@@ -49,6 +49,8 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 
 build-oci-image:
 	docker build \
+		--build-arg APK_EXTRA_ARGS="--no-check-certificate" \
+		--build-arg WGET_EXTRA_ARGS="--no-check-certificate" \
 		-t validation-tools:$(OCI_REV_TAG) \
 		-t ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
 		-t  gsatts/validation-tools:$(OCI_REV_TAG) \
