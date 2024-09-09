@@ -76,7 +76,7 @@ jobs:
           images:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha
+            type=sha,format=long,prefix=,suffix=
           # For now, do not auto-tag latest, maintainers will decided what is
           # release-worthy.
           flavor: |
