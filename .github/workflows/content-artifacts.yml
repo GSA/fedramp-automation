@@ -74,7 +74,6 @@ jobs:
         with:
           images:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
       - name: Container image registry push
         id: image_registry_push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
