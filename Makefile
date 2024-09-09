@@ -55,3 +55,18 @@ build-oci-image:
 		-t ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
 		-t  gsatts/validation-tools:$(OCI_REV_TAG) \
 		.
+
+publish-oci-image:
+	docker tag \
+		validation-tools:$(OCI_REV_TAG) validation-tools:latest
+
+	docker tag \
+		ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
+		ghcr.io/gsa/fedramp-automation/validation-tools:latest
+
+	docker tag \
+		gsatts/validation-tools:$(OCI_REV_TAG) \
+		gsatts/validation-tools:latest
+
+	docker push ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
+		ghcr.io/gsa/fedramp-automation/validation-tools:latest
