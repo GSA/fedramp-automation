@@ -15,6 +15,9 @@ on:
 name: Process Content
 env:
   HOME_REPO: GSA/fedramp-automation
+  IMAGE_NAME: GSA/fedramp-automation/validation-tools
+  REGISTRY: ghcr.io
+
 jobs:
   validate-and-publish-content:
     name: Content Validation Checking, Conversion and Validation
@@ -58,3 +61,31 @@ jobs:
           commit_user_name: OSCAL GitHub Actions Bot
           commit_user_email: oscal@nist.gov
           commit_author: OSCAL GitHub Actions Bot <oscal@nist.gov>
+      - name: Container image login
+        id: image_login
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Container image metadata extraction
+        id: image_metadata
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images:
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+      - name: Container image registry push
+        id: image_registry_push
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.image_metadata.outputs.tags }}
+          labels: ${{ steps.image_metadata.outputs.labels }}
+      - name: Container image push attestations
+        uses: actions/attest-build-provenance@1c608d11d69870c2092266b3f9a6f3abbf17002c
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-digest: ${{ steps.image_registry_push.outputs.digest }}
+          push-to-registry: true
