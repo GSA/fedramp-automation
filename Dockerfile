@@ -1,4 +1,3 @@
-ARG GIT_IMAGE=alpine:3.20.2
 ARG MAVEN_IMAGE=maven:3.9.9-eclipse-temurin-22-alpine
 ARG NODE_IMAGE=node:22-alpine3.20
 ARG APK_EXTRA_ARGS
@@ -13,6 +12,7 @@ ARG OSCAL_CLI_GPG_KEY=0127D75951997E00
 ARG OSCAL_JS_VERSION=1.4.4
 ARG FEDRAMP_AUTO_GIT_URL=https://github.com/GSA/fedramp-automation.git
 ARG FEDRAMP_AUTO_GIT_REF=feature/external-constraints
+ARG FEDRAMP_AUTO_GIT_COMMIT
 
 FROM ${MAVEN_IMAGE} as oscal_cli_downloader
 ARG MAVEN_DEP_PLUGIN_VERSION
@@ -40,21 +40,6 @@ RUN apk add --no-cache gpg gpg-agent unzip &&  \
     rm -f *.zip && \
     rm -f *.zip.asc
 
-FROM ${GIT_IMAGE} as fedramp_data_downloader
-ARG FEDRAMP_AUTO_GIT_URL
-ARG FEDRAMP_AUTO_GIT_REF
-ARG APK_EXTRA_ARGS
-ARG WGET_EXTRA_ARGS
-RUN apk add ${APK_EXTRA_ARGS} --no-cache git && \
-    mkdir -p /usr/local/src && \
-    cd /usr/local/src && \
-    git clone ${FEDRAMP_AUTO_GIT_URL} && \
-    cd fedramp-automation && \
-    git checkout ${FEDRAMP_AUTO_GIT_REF} && \
-    echo ${FEDRAMP_AUTO_GIT_URL} >> checkout_data.txt && \
-    echo ${FEDRAMP_AUTO_GIT_REF} >> checkout_data.txt && \
-    git rev-parse HEAD >> checkout_data.txt
-
 FROM ${NODE_IMAGE} as final
 ARG OSCAL_JS_VERSION
 ARG TEMURIN_APK_KEY_URL
@@ -70,14 +55,13 @@ LABEL org.opencontainers.image.title="FedRAMP Validation Tools"
 LABEL org.opencontainers.image.description="FedRAMP's tools for validating OSCAL data"
 LABEL org.opencontainers.image.licenses="CC0-1.0"
 COPY --from=oscal_cli_downloader /opt/oscal-cli /opt/oscal-cli
-COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/src/validations/constraints/*.xml /opt/fedramp/constraints/
-COPY --from=fedramp_data_downloader /usr/local/src/fedramp-automation/checkout_data.txt /opt/fedramp/constraints/
 RUN wget ${WGET_EXTRA_ARGS} -O /etc/apk/keys/adoptium.rsa.pub "${TEMURIN_APK_KEY_URL}" && \
     echo "${TEMURIN_APK_REPO_URL}" >> /etc/apk/repositories && \
     apk add ${APK_EXTRA_ARGS} --no-cache ${TEMURIN_APK_VERSION} && \
     mkdir -p /opt/fedramp/oscaljs && \
     mkdir -p /opt/fedramp/constraints && \
     (cd /opt/fedramp/oscaljs && npm install oscal@${OSCAL_JS_VERSION})
+COPY ./src/validations/constraints/*.xml /opt/fedramp/constraints/
 ENV PATH="$PATH:/opt/oscal-cli/bin:/opt/fedramp/oscaljs/node_modules/.bin"
 WORKDIR /opt/fedramp/constraints
 ENTRYPOINT [ "/opt/oscal-cli/bin/oscal-cli" ]
