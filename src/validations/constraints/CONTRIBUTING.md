@@ -1,10 +1,10 @@
 # Contributing to constraints and tests
 
-This area of the codebase has the constraints to check FedRAMP requirements for OSCAL data and a test harness. The test harness includes unit tests, valid, and invalid OSCAL fixture data for those tests.
+This document guides developers through changing or extending code and data in in this folder and sub-folders. They contain the constraints to check FedRAMP requirements for OSCAL data and a test harness. The test harness includes unit tests, valid, and invalid OSCAL fixture data for those tests.
 
 ## Overview of the constraint and testing infrastructure
 
-The diagram below highlights how different parts of the development and testing infrastructure function to test FedRAMP constraints on valid and invalid OSCAL test data.
+The diagram below highlights how different constraints, tests, fixture data with invalid and valid OSCAL documents, and dependencies function together.
 
 ```mermaid
 flowchart TD
