@@ -21,9 +21,6 @@ The tool
 
 For more information about OSCAL CLI, visit [https://github.com/metaschema-framework/oscal-cli](https://github.com/metaschema-framework/oscal-cli).
 
-# 2. Who should use OSCAL CLI
-This tool is intended for FedRAMP OSCAL implementers, practitioners, and content authors, including cloud service providers (CSPs), OSCAL tool suppliers, assessors, and federal agencies.
-
 # 3. Installing OSCAL CLI
 This section provides instructions for setting up your local environment to run OSCAL CLI validations.
 
