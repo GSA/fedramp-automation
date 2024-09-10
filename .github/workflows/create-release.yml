@@ -9,7 +9,7 @@ jobs:
 
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
       - name: Read Node version from .nvmrc
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
