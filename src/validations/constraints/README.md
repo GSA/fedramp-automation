@@ -1,4 +1,5 @@
-# 1. About OSCAL CLI
+# FedRAMP OSCAL Constraints
+
 OSCAL CLI is a Java-based tool for validating FedRAMP OSCAL documents. It ensures that your OSCAL content meets FedRAMP OSCAL requirements.
 
 The tool
