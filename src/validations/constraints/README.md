@@ -51,7 +51,7 @@ Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [an
 docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
 ```
 
-3. When the download is complete and the terminal prompts you for a new shell command, you can check that you correctly downloaded the image by running your first command to [verify the version of `oscal-cli` in the image].
+4. When the download is complete and the terminal prompts you for a new shell command, you can check that you correctly downloaded the image by running your first command to [verify the version of `oscal-cli` in the image].
 
 ### Upgrading the container image
 
