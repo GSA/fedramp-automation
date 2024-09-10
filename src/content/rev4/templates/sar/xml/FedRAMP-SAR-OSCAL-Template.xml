@@ -1341,8 +1341,8 @@
                <li>Render the OSCAL SAR content as a PDF that is digitally signed and attached.</li>
                <li>Render the OSCAL SAR content as printed pages that are physically signed,
                   scanned, and attached.</li>
-            </ul>
             <p>If your organization prefers another approach, please seek prior approval from the
+            </ul>
                FedRAMP PMO.</p>
          </remarks>
       </resource>
