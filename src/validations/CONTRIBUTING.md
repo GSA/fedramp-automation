@@ -59,10 +59,10 @@ Using the command with a different version of Saxon HE. *Note that you must down
 ./bin/validate_with_schematron.sh -f test/demo/FedRAMP-SSP-OSCAL-Template.xml -o ~/dev/report -v 10.8
 ```
 
-Alternatively, you can also use `docker-compose` to execute the validation script, like so:
+Alternatively, you can also use `docker compose` to execute the validation script, like so:
 
 ```sh
-docker-compose run \
+docker compose run \
   -w /root/src/validations \
   validator \
   ./bin/validate_with_schematron.sh -f ./test/demo/FedRAMP-SSP-OSCAL-Template.xml
@@ -100,10 +100,10 @@ export TEST_DIR=$(pwd)/report/test
 
 The JUnit XML report will be stored in the path set in the `TEST_DIR` environment variable.
 
-Alternatively, you can also use `docker-compose` to execute the test harness, like so:
+Alternatively, you can also use `docker compose` to execute the test harness, like so:
 
 ```sh
-docker-compose run \
+docker compose run \
   -w /root/src/validations \
   validator \
   /root/vendor/xspec/bin/xspec.sh -s -j ./test/test_all.xspec

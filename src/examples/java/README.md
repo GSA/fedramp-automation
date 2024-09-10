@@ -15,14 +15,14 @@ make build-validations
 
 ## Usage
 
-This example uses Maven. You may run directly, or via the provided `docker-compose` configuration.
+This example uses Maven. You may run directly, or via the provided `docker compose` configuration.
 
 ```bash
 mvn --help
 ```
 
 ```bash
-docker-compose run example mvn --help
+docker compose run example mvn --help
 ```
 
 ## Developer notes
@@ -30,11 +30,11 @@ docker-compose run example mvn --help
 To run tests:
 
 ```bash
-docker-compose run example mvn test
+docker compose run example mvn test
 ```
 
 To auto-format code:
 
 ```bash
-docker-compose run example mvn com.coveo:fmt-maven-plugin:format
+docker compose run example mvn com.coveo:fmt-maven-plugin:format
 ```

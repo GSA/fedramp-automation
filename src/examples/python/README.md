@@ -19,7 +19,7 @@ make build-validations
 To get a bash prompt within the container, run:
 
 ```bash
-docker-compose run example bash -l
+docker compose run example bash -l
 ```
 
 You may now run and interact with the example code.
@@ -29,17 +29,17 @@ You may now run and interact with the example code.
 To run tests:
 
 ```bash
-docker-compose run example pytest
+docker compose run example pytest
 ```
 
 To auto-format code:
 
 ```bash
-docker-compose run example black
+docker compose run example black
 ```
 
 To type-check code:
 
 ```bash
-docker-compose run example mypy .
+docker compose run example mypy .
 ```
