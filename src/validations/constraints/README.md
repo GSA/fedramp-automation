@@ -36,7 +36,7 @@ There are multiple ways to install the constraints and the `oscal-cli` tool to c
 
 ### Prerequisites
 
-Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [an alternative](https://hackernoon.com/5-docker-desktop-alternatives). **NOTE:** This application, and popular alternatives, simplify the management of a container engine on your computer with a user-friendly interface. Although Docker Desktop is popular, FedRAMP cannot recommend or endorse one particular container management tool, the license [does not permit free use in many scenarios](https://docs.docker.com/subscription/desktop-license/). Vet Docker Desktop or any alternatives by reading the license and user reviews to make an informed choice.
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [an alternative](https://hackernoon.com/5-docker-desktop-alternatives). (**NOTE:** This application, and popular alternatives, simplify the management of a container engine on your computer with a user-friendly interface. Although Docker Desktop is popular, FedRAMP cannot recommend or endorse one particular container management tool, and Docker Desktop's license [does not permit free use in many scenarios](https://docs.docker.com/subscription/desktop-license/), so you need to _may_ purchase a license. Vet Docker Desktop or any alternatives by reading the license and user reviews to make an informed choice. If you have an employer that manages a computer for you, contact the employer's IT staff, show them this documentation, and consult with them on the best software choice that complies with employer policy.)
 
 ### Installing the container image
 
