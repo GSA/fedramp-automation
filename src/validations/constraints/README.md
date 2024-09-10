@@ -72,7 +72,7 @@ After you [downloaded the image](#download-the-container-image), you can run you
 docker run -it --rm ghcr.io/gsa/fedramp-automation/validation-tools:latest --version
 ```
 
-The command above runs the pre-installed and pre-configured release of `oscal-cli` within the container with the command `oscal-cli --version`. If successful, you will see output like this.
+The command above runs the pre-installed and pre-configured release of `oscal-cli` within the container with the command `oscal-cli --version`. If successful, you will see output like the following.
 
 ```sh
 oscal-cli 2.0.2 built at 2024-08-20 13:19 from branch 7df9154fb123ed6515ea51bacc65b7489da82717 (7df9154) at https://github.com/metaschema-framework/oscal-cli
