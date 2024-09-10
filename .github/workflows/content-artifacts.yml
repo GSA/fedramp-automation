@@ -20,7 +20,7 @@ jobs:
     name: Content Validation Checking, Conversion and Validation
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
         with:
           path: git-content
           submodules: recursive
