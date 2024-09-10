@@ -56,6 +56,12 @@
             <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="ERROR">
                 <message>A FedRAMP SSP must have a Separation of Duties Matrix attached.</message>
             </expect>
+            <expect id="categorization-has-correct-system-attribute" target="//system-characteristics" test="system-information/information-type/categorization/@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'" level="ERROR">
+            <message>A FedRAMP SSP information-type categorization lacks a correct system attribute. The correct value is "https://doi.org/10.6028/NIST.SP.800-60v2r1".</message>
+            </expect>
+            <expect id="categorization-has-information-type-id" target="//system-characteristics" test="system-information/information-type/categorization/information-type-id" level="ERROR">
+            <message>A FedRAMP SSP information type categorization must have at least one information type identifier.</message>
+            </expect>
         </constraints>
     </context>
     <context>
