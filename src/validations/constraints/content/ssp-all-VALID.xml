@@ -23,7 +23,18 @@
     <role id="asset-owner">
       <title>Asset Owner</title>
     </role>
-    
+    <location uuid="11111112-0000-4000-9001-000000000009">
+      <address >
+        <country>US</country>
+      </address>
+      <prop name='data-center' value='dc-zone-1' class='primary' ns="https://fedramp.gov/ns/oscal"/>
+    </location>
+    <location uuid="11111112-0000-4000-9000-000000000003">
+      <address >
+        <country>US</country>
+      </address>
+      <prop name='data-center' value='aws-us-west-1' class='alternate' ns="https://fedramp.gov/ns/oscal"/>
+    </location>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
@@ -34,14 +45,13 @@
       <email-address>jane.doe@example.com</email-address>
     <address type="work"  />
     </party>
-    
+
     <responsible-party role-id="creator">
       <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
     </responsible-party>
     <responsible-party role-id="content-approver">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
-    
     <remarks>
       <p>This SSP is an example for demonstration purposes.</p>
     </remarks>
