@@ -47,6 +47,17 @@ cd src/validations/constraints
 npm test
 ```
 
+## How do I run the tests for a specific constraint?
+
+To run tests for a specific constraint or a selection of several constraints, you can use `npm run` as follows.
+
+```sh
+cd path/to/fedramp-automation
+# to test a constraint with the ID <my-constraint-id>
+npm run constraint <my-constraint-id>
+
+# to get a list of one or more constraints to select for testing
+npm run constraint 
 ## How do I add a constraint and test?
 
 You can add a constraint and test to this repository by following these high-level steps.
