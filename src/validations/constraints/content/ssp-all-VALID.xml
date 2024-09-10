@@ -23,6 +23,15 @@
     <role id="asset-owner">
       <title>Asset Owner</title>
     </role>
+    <role id="authorizing-official-poc">
+      <title>Authorizing Official Point of Contact</title>
+    </role>
+    <role id="information-system-security-officer">
+      <title>Information System Security Officer (or Equivalent)</title>
+    </role>
+    <role id="system-poc-other">
+      <title>Other System Point of Contact</title>
+    </role>
     
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>

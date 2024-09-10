@@ -1,0 +1,8 @@
+# Driver for the invalid role-defined-system-poc-other constraint unit test.
+test-case:
+  name: The invalid role-defined-system-poc-other constraint unit test.
+  description: Test that SSP metadata does not contain the system-poc-other role.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: role-defined-system-poc-other
+    result: fail

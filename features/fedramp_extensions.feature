@@ -39,6 +39,12 @@ Examples:
   | privilege-level-PASS.yaml |
   | response-point-FAIL.yaml |
   | response-point-PASS.yaml |
+  | role-defined-authorizing-official-poc-FAIL.yaml |
+  | role-defined-authorizing-official-poc-PASS.yaml |
+  | role-defined-information-system-security-officer-FAIL.yaml |
+  | role-defined-information-system-security-officer-PASS.yaml |
+  | role-defined-system-poc-other-FAIL.yaml |
+  | role-defined-system-poc-other-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | user-type-FAIL.yaml |
@@ -70,6 +76,9 @@ Examples:
   | interconnection-security |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
+  | role-defined-authorizing-official-poc |
+  | role-defined-information-system-security-officer |
+  | role-defined-system-poc-other |
   | scan-type |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS

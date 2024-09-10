@@ -7,7 +7,7 @@
         <metapath target="/catalog//control"/>
         <metapath target="/assessment-plan/local-definitions/objectives-and-methods"/>
         <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
-
+ 
         <constraints>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
                 <message>Duplicate reponse point at '{ path(.) }'.</message>
@@ -18,5 +18,21 @@
                 <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
              </remarks>
         </constraints>
-</context>
+    </context>
+ 
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+        	<expect id="role-defined-authorizing-official-poc" target="metadata" test="role[@id eq 'authorizing-official-poc']" level="ERROR">
+            	<message>SSP metadata must have the authorizing official POC role.</message>
+            </expect>
+        	<expect id="role-defined-information-system-security-officer" target="metadata" test="role[@id eq 'information-system-security-officer']" level="ERROR">
+                <message>SSP metadata must have the information system security officer POC role.</message>
+            </expect>
+        	<expect id="role-defined-system-poc-other" target="metadata" test="role[@id eq 'system-poc-other']" level="ERROR">
+                <message>SSP metadata must have the system other POC role.</message>
+            </expect>
+        </constraints>
+    </context>
+
 </metaschema-meta-constraints>
