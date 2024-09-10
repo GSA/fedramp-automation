@@ -113,6 +113,12 @@ Examples:
   | import-profile-has-href-attribute-PASS.yaml |
   | import-profile-has-valid-content-FAIL.yaml |
   | import-profile-has-valid-content-PASS.yaml |
+  | information-type-has-availability-impact-FAIL.yaml |
+  | information-type-has-availability-impact-PASS.yaml |
+  | information-type-has-confidentiality-impact-FAIL.yaml |
+  | information-type-has-confidentiality-impact-PASS.yaml |
+  | information-type-has-integrity-impact-FAIL.yaml |
+  | information-type-has-integrity-impact-PASS.yaml |
   | information-type-id-FAIL.yaml |
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
@@ -217,6 +223,9 @@ Examples:
   | has-user-guide |
   | import-profile-has-href-attribute |
   | import-profile-has-valid-content |
+  | information-type-has-availability-impact |
+  | information-type-has-confidentiality-impact |
+  | information-type-has-integrity-impact |
   | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |

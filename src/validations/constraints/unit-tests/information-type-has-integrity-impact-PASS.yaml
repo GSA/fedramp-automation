@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for information-type-has-integrity-impact
+  description: >-
+    This test case validates the behavior of constraint
+    information-type-has-integrity-impact
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: information-type-has-integrity-impact
+      result: pass
