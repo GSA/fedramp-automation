@@ -19,4 +19,18 @@
              </remarks>
         </constraints>
 </context>
+
+<context>
+    <metapath target="/system-security-plan"/>
+
+    <constraints>
+        <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
+            <message>Every supporting artifact found in a citation should have a title.</message>
+        </expect>
+        <expect id="resource-has-base64-or-rlink" target="back-matter/resource" test="count(./rlink) >= 1 or count(./base64) >= 1" level="WARNING">
+            <message>Every supporting artifact found in a citation must have at least one base64 or rlink element.</message>
+        </expect>
+    </constraints>
+    
+</context>
 </metaschema-meta-constraints>

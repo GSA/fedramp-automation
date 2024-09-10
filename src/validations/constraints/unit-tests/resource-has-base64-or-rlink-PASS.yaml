@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for resource-has-base64-or-rlink
+  description: >-
+    This test case validates the behavior of constraint
+    resource-has-base64-or-rlink
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: resource-has-base64-or-rlink
+      result: pass
