@@ -182,19 +182,28 @@ If you have previously cloned the FedRAMP Automation repository, to get the most
 
 This section describes steps for validating FedRAMP OSCAL artifacts (SSP, SAP, SAR, and POA\&M files).
 
+## Understanding the `oscal-cli validate` subcommand
 
+To validate your FedRAMP OSCAL file, you run the oscal-cli via the [the container image](#installing-the-container-image) or directly with [the manual install on your computer](#manual-installation-without-containers-for-advanced-users) with the following arguments.
 
-## Validating FedRAMP OSCAL files
+For the container-based install, the command will resemble the following.
 
-To validate your FedRAMP OSCAL file, using the FedRAMP external constraints
-1. Open the Linux terminal.
-2. Run the following command:
-   `oscal-cli validate <oscal-artifact> -c <fedramp-external-constraints> -o <sarif-output> --sarif-include-pass`
+```bash
+docker run -it --rm -v <host-oscal-artifact-directory>:/data ghcr.io/gsa/fedramp-automation/validation-tools:latest validate <oscal-artifact> -c <fedramp-external-constraints> -o <sarif-output> --sarif-include-pass
+```
+
+For the manual install, the command will resemble the following.
+
+```bash
+oscal-cli validate <oscal-artifact> -c <fedramp-external-constraints> -o <sarif-output> --sarif-include-pass
+```
+
    where
 	* `<oscal-artifact>`is your SSP, SAR, SAP, or POA\&M file
 	* `<fedramp-external-constraints>` is the name of a FedRAMP external constraints file (for example, **fedramp-external-allowed-values.xml**; you may specify more than one file)
 	* `<sarif-output>` is the name of a validation report file that the tool generates in the JSON-based SARIF format (for example, **report.sarif**; for more information about SARIF, visit [https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html))
 	* `--sarif-include-pass` is the option to include passed validation results in the SARIF report (by default, the SARIF output includes only failed validations; if you want only the failed results, omit this option)
+   * <host-oscal-artifact-directory> is *only* for use with the container. It is the directory where store your FedRAMP OSCAL files on the computer. Inside the container, those files are mounted in the `/data` directory, so you will reference the files' location there when using the container.
 
 ## Validation command examples
 
