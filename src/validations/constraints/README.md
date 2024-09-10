@@ -8,7 +8,7 @@ To use these constraints, you must download software that supports processing Fe
 
 ## Who should use FedRAMP OSCAL Constraints?
 
-FedRAMP developers make these constraints and tools for FedRAMP OSCAL implementers, practitioners, and content authors, including cloud service providers (CSPs), OSCAL tool suppliers, assessors, and federal agencies.
+FedRAMP makes these constraints and tools for FedRAMP OSCAL implementers, practitioners, and content authors, including cloud service providers (CSPs), OSCAL tool suppliers, assessors, and federal agencies.
 
 ## Installation
 
