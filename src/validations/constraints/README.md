@@ -2,7 +2,15 @@
 
 ## What are they?
 
-FedRAMP's OSCAL Constraints are machine-readable rules that use the [OSCAL information model](https://pages.nist.gov/OSCAL/) to check [one or more OSCAL documents](https://automate.fedramp.gov/documentation/general-concepts/oscal-file-concepts/) in a digital authorization package for FedRAMP's requirements and recommendations to follow best practices.
+FedRAMP's OSCAL Constraints are machine-readable checks to validate [one or more OSCAL documents](https://automate.fedramp.gov/documentation/general-concepts/oscal-file-concepts/) in a digital authorization package meet FedRAMP's requirements and recommendations to follow best practices.
+
+```mermaid
+flowchart LR
+    OSCALDocument[Your OSCAL SSP] --> OSCALProcessor[oscal-cli]
+    OSCALConstraints[FedRAMP OSCAL Constraints] --> OSCALProcessor
+    ValidationResults[Results from checks]
+    OSCALProcessor --> ValidationResults
+```
 
 To use these constraints, you must download software that supports processing FedRAMP OSCAL Constraints. The [`oscal-cli`](https://github.com/metaschema-framework/oscal-cli/) has the most comprehensive support for the constraint processing and necessary supporting functions. This document will guide you through different ways to install the software and necessary support files. It will also guide you through checking a document with OSCAL constraints, and analyze results to know if the file conforms with FedRAMP's guidelines or changes are necessary. Once you do so, you will increase your confidence in your submission of a digital authorization package before review by FedRAMP's automated systems or reviewers.
 
@@ -26,6 +34,11 @@ There are multiple ways to install the constraints and the `oscal-cli` tool to c
 ## Recommended installation with containers
 
 ### Prerequisites
+
+1. Install 
+
+###
+
 
 ## Manual installation without containers for advanced users
 
