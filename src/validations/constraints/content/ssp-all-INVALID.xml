@@ -192,12 +192,12 @@
   
   <back-matter>
     <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
-      <title>Access Control Policy</title>
+      <!-- There is no <title/> to purposefully to trigger an error for negative testing. -->
       <description>
         <p>Detailed access control policy document</p>
       </description>
       <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
-      <rlink href="https://example.com/policies/access-control.pdf"/>
+      <!-- There is no <rlink/> to purposefully to trigger an error for negative testing. -->
     </resource>
   </back-matter>
 </system-security-plan>
