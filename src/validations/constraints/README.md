@@ -10,7 +10,7 @@ To use these constraints, you must download software that supports processing Fe
 
 FedRAMP makes these constraints and tools for FedRAMP OSCAL implementers, practitioners, and content authors, including cloud service providers (CSPs), OSCAL tool suppliers, assessors, and federal agencies.
 
-## Installation
+## What is `oscal-cli`?
 
 OSCAL CLI is a Java-based tool for validating FedRAMP OSCAL documents. It ensures that your OSCAL content meets FedRAMP OSCAL requirements.
 
@@ -19,18 +19,27 @@ The tool
 2. Identifies areas, where your OSCAL content meets and does not meet FedRAMP OSCAL requirements.
 3. Produces a SARIF report, containing details about passed and failed OSCAL content.
 
-For more information about OSCAL CLI, visit [https://github.com/metaschema-framework/oscal-cli](https://github.com/metaschema-framework/oscal-cli).
+## Installation
 
-# 3. Installing OSCAL CLI
+There are multiple ways to install the constraints and the `oscal-cli` tool to check OSCAL documents with constraints. FedRAMP recommends you use [the Docker container engine](https://docs.docker.com/get-started/), or an alternative [OCI-conformant](https://opencontainers.org/) container runtime, to download the most recent version of the constraint files, `oscal-cli`, and their dependencies. Dockers allows you to download the software pre-compiled and pre-configured without additional manual steps.
+
+## Recommended installation with containers
+
+### Prerequisites
+
+## Manual installation without containers for advanced users
+
 This section provides instructions for setting up your local environment to run OSCAL CLI validations.
 
-## 3.1. Prerequisites
+## Prerequisites
+
 To use OSCAL CLI, you need the following programs:
 1. *Windows only:* A Linux-like shell terminal (for example, MS Visual Studio Code, Windows Subsystem for Linux, MSYS2, Cygwin)
 2. JDK version 11 or newer (you can download JDK from a variety of sources; for example, [https://adoptium.net/](https://adoptium.net/), [https://openjdk.org/](https://openjdk.org/), [https://www.oracle.com/java/technologies/downloads/](https://www.oracle.com/java/technologies/downloads/)) 
 3. Git (any Git interface; for example, Git Bash, GitHub Desktop, Visual Studio Code, Oxygen Editor; for more information about Git, visit [https://git-scm.com/](https://git-scm.com/))
 
-## 3.2. Installing OSCAL CLI
+## Installing OSCAL CLI
+
 To install OSCAL CLI
 1. Go to [https://github.com/metaschema-framework/oscal-cli/releases](https://github.com/metaschema-framework/oscal-cli/releases).
 2. Under the latest release, click **Download**.
@@ -48,7 +57,8 @@ To install OSCAL CLI
    For example, if you downloaded the **oscal-cli-enhanced-2.0.2-oscal-cli.zip** file into your **Downloads** directory, run the following command:
    `unzip $USERPROFILE/Downloads/oscal-cli-enhanced-2.0.2-oscal-cli.zip -d /opt/oscal-cli`
 
-## 3.3. Adding Java and OSCAL CLI to the PATH variable
+## Adding Java and OSCAL CLI to the PATH variable
+
 To add Java and OSCAL CLI to the shell’s **PATH** variable
 1. Install JDK.
 2. Using your preferred text editor, open the following file:
@@ -70,7 +80,8 @@ To add Java and OSCAL CLI to the shell’s **PATH** variable
 
 For more information about installing OSCAL CLI, visit [https://github.com/metaschema-framework/oscal-cli?tab=readme-ov-file\#installing](https://github.com/metaschema-framework/oscal-cli?tab=readme-ov-file\#installing).
 
-## 3.4. Upgrading OSCAL CLI
+## Upgrading OSCAL CLI
+
 To upgrade OSCAL CLI to a newer version
 1. Go to [https://github.com/metaschema-framework/oscal-cli/releases](https://github.com/metaschema-framework/oscal-cli/releases).
 2. Under the latest release, click **Download**.
@@ -87,10 +98,10 @@ To upgrade OSCAL CLI to a newer version
       `oscal-cli --help`
    b. Verify that the command returns OSCAL CLI help.
 
-# 4. Validating FedRAMP OSCAL content
+# Validating FedRAMP OSCAL content
 This section describes steps for validating FedRAMP OSCAL artifacts (SSP, SAP, SAR, and POA\&M files).
 
-## 4.1. Cloning the FedRAMP Automation repository
+## Cloning the FedRAMP Automation repository
 To validate your FedRAMP OSCAL content, you need to clone the FedRAMP Automation GitHub repository, which contains tests for FedRAMP-specific OSCAL extensions.
 
 To clone the FedRAMP Automation repository
@@ -99,7 +110,8 @@ To clone the FedRAMP Automation repository
 3. Run the following command:
    `git clone --recurse-submodules https://github.com/GSA/fedramp-automation.git`
 
-## 4.2. Getting the latest repository updates
+## Getting the latest repository updates
+
 If you have previously cloned the FedRAMP Automation repository, to get the most recent changes
 1. Open the Linux terminal.
 2. To navigate to the cloned repository directory, run the following command, replacing **\<fedramp-automation-repository\>** with the actual path:
@@ -113,7 +125,8 @@ If you have previously cloned the FedRAMP Automation repository, to get the most
 5. To get the latest repository updates, run the following command:
    `git pull`
 
-## 4.3. Validating FedRAMP OSCAL files
+## Validating FedRAMP OSCAL files
+
 To validate your FedRAMP OSCAL file, using the FedRAMP external constraints
 1. Open the Linux terminal.
 2. Run the following command:
@@ -133,7 +146,8 @@ To view a complete list of
   * Specific command options, run the following command:
      `oscal-cli <command> --help`
 
-## 4.4. Fixing validation errors
+## Fixing validation errors
+
 The tool generates validation reports in the JSON-based SARIF format. For more information about SARIF, visit [https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html).
 
 If you prefer viewing SARIF reports in a GUI application, Visual Studio Code offers the **SARIF Viewer** extension. For more information, visit [https://marketplace.visualstudio.com/items?itemName=WDGIS.MicrosoftSarifViewer](https://marketplace.visualstudio.com/items?itemName=WDGIS.MicrosoftSarifViewer).
@@ -148,5 +162,6 @@ After validating your FedRAMP OSCAL file, to fix validation errors
 7. Fix the error.
 8. Re-run the validation.
 
-# 5. Providing feedback
+# Providing feedback
+
 If you encounter a bug or have a feature to request, submit an issue at [https://github.com/GSA/fedramp-automation/issues/new/choose](https://github.com/GSA/fedramp-automation/issues/new/choose).
