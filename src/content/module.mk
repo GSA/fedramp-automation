@@ -9,7 +9,7 @@ OSCAL_DIR := vendor/oscal
 CICD_DIR_PATH := $(OSCAL_DIR)/build/ci-cd
 CONTENT_CONFIG_PATH := src/config
 
-OSCAL_DOCKER := docker-compose -f $(OSCAL_DIR)/build/docker-compose.yml -f $(CONTENT_DIR)/docker-compose.yml
+OSCAL_DOCKER := docker compose -f $(OSCAL_DIR)/build/docker-compose.yml -f $(CONTENT_DIR)/docker-compose.yml
 
 init-content:  ## Initialize content build environment (build Docker image)
 	@echo "Building Docker image for OSCAL content generation..."
