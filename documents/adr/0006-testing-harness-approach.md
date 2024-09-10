@@ -24,7 +24,26 @@ The FedRAMP OSCAL automation team needs a good, light-weight, simple test harnes
 
 ## Decision
 
-TBD
+The FedRAMP OSCAL automation will implement a customized testing harness that features the following components:
+
+- Testing harness is based on [Cucumber](https://cucumber.io/docs/guides/overview/), an open-source software testing tool that helps developers test software by running scenarios to see if they produce the intended results
+- Metaschema-based constraints for FedRAMP validation rules (in the /src/validations/constraints folder)
+- Declarative YAML unit tests to ensure developed constraints yield expected results (in the /src/validations/constraints/unit-tests folder).  The YAML unit tests must use the following structure:
+```
+test-case:
+  name: {name / title for the constraint test scenario}
+  description: {a description of the constraint being tested}
+  content: {path to the OSCAL content the constraint will be tested on}
+  pipeline: {OPTIONAL element if some pipeline action such as profile resolution needs to happen on the specified content before executing the test}
+  - action: {OPTION action such as resolve-profile} 
+  expectations: 
+  - constraint-id: {the ID of the constraint being tested}
+    result: {pass | fail}
+``` 
+- OSCAL content for the unit tests (in the /src/validations/constraints/contents folder)
+- A Node.js script is the test driver, taking the cucumber scenarios & steps, metaschema constraints, their corresponding unit tests, and specified unit test PASS and FAIL content files, and using that to execute OSCAL-CLI validations.  
+
+More details about the test harness, how the components integrate, and how to create or update constraints can be found in the [validations contributing](/src/validations/CONTRIBUTING.md) page.
 
 ## Consequences
 
