@@ -153,10 +153,6 @@ To upgrade `oscal-cli` to a newer version
       `oscal-cli --help`
    b. Verify that the command returns `oscal-cli` help.
 
-# Validating FedRAMP OSCAL content
-
-This section describes steps for validating FedRAMP OSCAL artifacts (SSP, SAP, SAR, and POA\&M files).
-
 ## Cloning the FedRAMP Automation repository
 
 To validate your FedRAMP OSCAL content, you need to clone the FedRAMP Automation GitHub repository, which contains tests for FedRAMP-specific OSCAL extensions.
@@ -181,6 +177,12 @@ If you have previously cloned the FedRAMP Automation repository, to get the most
    b. Make sure that the **feature/external-constraints** branch is green.
 5. To get the latest repository updates, run the following command:
    `git pull`
+
+# Validating FedRAMP OSCAL content
+
+This section describes steps for validating FedRAMP OSCAL artifacts (SSP, SAP, SAR, and POA\&M files).
+
+
 
 ## Validating FedRAMP OSCAL files
 
