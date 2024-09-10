@@ -1,7 +1,7 @@
 # Contributing to constraints and tests
 
 This document guides developers through changing or extending code and data in in this folder and sub-folders. They contain the constraints to check FedRAMP requirements for OSCAL data and a test harness. The test harness includes unit tests, valid, and invalid OSCAL fixture data for those tests.
-
+Before contributing to this portion of the codebase, please review the and follow the guidance in the [project contribution page](../../../CONTRIBUTING.md).
 ## Overview of the constraint and testing infrastructure
 
 The diagram below highlights how different constraints, tests, fixture data with invalid and valid OSCAL documents, and dependencies function together.
@@ -109,7 +109,7 @@ test-case:
 ```
 
 7. You can now [run the test harness](#how-do-i-run-the-tests) and confirm the new tests are correct.
-8. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request [that follows our guidance](../../../CONTRIBUTING.md#contributing-to-this-github-repository)..
+8. Update the files with [`git add`](https://git-scm.com/docs/git-add) and [`git commit`](https://git-scm.com/docs/git-commit) to a branch for a pull request [that follows our guidance](../../../CONTRIBUTING.md#contributing-to-this-github-repository).
 
 ## How do I modify a test?
 
