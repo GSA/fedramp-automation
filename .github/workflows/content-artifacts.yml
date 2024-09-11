@@ -21,6 +21,8 @@ env:
   REGISTRY: ghcr.io
   # Docs: github.com/docker/metadata-action/?tab=readme-ov-file#typesha
   DOCKER_METADATA_PR_HEAD_SHA: true
+  # https://github.com/docker/metadata-action?tab=readme-ov-file#annotations
+  DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
 jobs:
   validate-and-publish-content:
     name: Content Validation Checking, Conversion and Validation
