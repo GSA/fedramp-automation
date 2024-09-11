@@ -203,6 +203,7 @@
       </description>
       <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
       <!-- There is no <rlink/> to purposefully to trigger an error for negative testing. -->
+      <base64>eyJhd2Vzb21lIjoic2F1Y2UifQ==</base64>
     </resource>
   </back-matter>
 </system-security-plan>

@@ -205,5 +205,21 @@
       <prop name="type" value="policy" ns="https://fedramp.gov/ns/oscal"/>
       <rlink href="https://example.com/policies/access-control.pdf"/>
     </resource>
+    <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
+      <title>Access Control Policy</title>
+      <description>
+        <p>Detailed access control policy document</p>
+      </description>
+      <prop name="type" value="policy" ns="https://fedramp.gov/ns/oscal"/>
+      <rlink href="https://example.com/policies/access-control.pdf"/>
+    </resource>
+    <resource uuid="ffffffff-0000-4000-9000-00000000000f">
+    <title>System Diagram</title>
+    <description>
+      <p>High-level diagram of the system architecture</p>
+    </description>
+    <prop name="type" value="diagram" ns="https://fedramp.gov/ns/oscal"/>
+    <base64 filename="sauce.json" media-type="application/json">eyJhd2Vzb21lIjoic2F1Y2UifQ==</base64>
+  </resource>
   </back-matter>
 </system-security-plan>

@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for resource-base64-available-media-type
+  description: >-
+    This test case validates the behavior of constraint
+    resource-base64-available-media-type
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: resource-base64-available-media-type
+      result: pass

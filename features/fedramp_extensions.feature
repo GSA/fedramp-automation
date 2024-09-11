@@ -47,6 +47,10 @@ Examples:
   | interconnection-security-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
+  | resource-base64-available-filename-FAIL.yaml |
+  | resource-base64-available-filename-PASS.yaml |
+  | resource-base64-available-media-type-FAIL.yaml |
+  | resource-base64-available-media-type-PASS.yaml |
   | resource-has-base64-or-rlink-FAIL.yaml |
   | resource-has-base64-or-rlink-PASS.yaml |
   | resource-has-title-FAIL.yaml |
@@ -89,6 +93,8 @@ Examples:
   | interconnection-security |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
+  | resource-base64-available-filename |
+  | resource-base64-available-media-type |
   | resource-has-base64-or-rlink |
   | resource-has-title |
   | scan-type |

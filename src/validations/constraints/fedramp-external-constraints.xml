@@ -57,4 +57,23 @@
         </expect>
     </constraints>
 </context>
+
+
+   <context>
+        <metapath target="//back-matter/resource"/>
+        <constraints>
+            <expect id="resource-base64-available-filename" 
+                    target="base64"
+                    test="@filename"
+                    level="WARNING">
+                <message>This base64 lacks a filename attribute.</message>
+            </expect>
+            <expect id="resource-base64-available-media-type" 
+                    target="base64"
+                    test="@media-type"
+                    level="WARNING">
+                <message>This base64 lacks a media-type attribute.</message>
+            </expect>
+        </constraints>
+    </context>
 </metaschema-meta-constraints>
