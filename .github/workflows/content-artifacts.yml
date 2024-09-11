@@ -115,6 +115,5 @@ jobs:
       - name: Container image push attestations
         uses: actions/attest-build-provenance@1c608d11d69870c2092266b3f9a6f3abbf17002c
         with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}-attestation
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.image_registry_push.outputs.digest }}
-          push-to-registry: true
