@@ -32,6 +32,9 @@
      <role id="information-system-security-officer">
        <title>Information System Security Officer (or Equivalent)</title>
      </role>
+    <role id="system-poc-technical">
+      <title>Technical System Point of Contact</title>
+    </role>
 
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >

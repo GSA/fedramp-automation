@@ -77,6 +77,8 @@ Examples:
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
   | role-defined-information-system-security-officer-PASS.yaml |
+  | role-defined-system-poc-technical-FAIL.yaml |
+  | role-defined-system-poc-technical-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | user-type-FAIL.yaml |
@@ -127,6 +129,7 @@ Examples:
   | role-defined-system-owner |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
+  | role-defined-system-poc-technical |
   | scan-type |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS
