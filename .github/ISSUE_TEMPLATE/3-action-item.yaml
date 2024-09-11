@@ -35,6 +35,7 @@ body:
       - label: the **FedRAMP SAP OSCAL Template** (JSON or XML Format)
       - label: the **FedRAMP SAR OSCAL Template** (JSON or XML Format)
       - label: the **FedRAMP POA&M OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP OSCAL Validations**
   - type: textarea
     id: user-story
     attributes:

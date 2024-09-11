@@ -123,7 +123,7 @@
    <local-definitions>
       <component uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e" type="software">
          <title>XYZ Vulnerability Scanning Tool</title>
-         <description/>
+         <description><p>...</p></description>
          <prop name="vendor" value="Vendor Name"/>
          <prop name="name" value="Tool Name"/>
          <prop name="version" value="1.2.3"/>
@@ -449,7 +449,7 @@
       <risk-log>
          <entry uuid="1b500d56-1936-41eb-8b60-a2984937ab89">
             <title>Activity 1</title>
-            <description/>
+            <description><p>...</p></description>
             <start>2020-07-02T00:00:00Z</start>
             <related-response response-uuid="e9ee6fe2-856f-42c7-8c2e-ff6466d31010">
                <related-task task-uuid="a12dea1d-e4d1-4f09-aacf-1eaf203a3092"/>
@@ -457,7 +457,7 @@
          </entry>
          <entry uuid="316fb3fe-927a-49a1-9a72-a58722862623">
             <title>Activity 2</title>
-            <description/>
+            <description><p>...</p></description>
             <start>2020-07-07T00:00:00Z</start>
          </entry>
          <entry uuid="d084a039-bdd1-4ccd-a06a-53355e07fa2f">
@@ -480,7 +480,7 @@
    </risk>
    <poam-item uuid="6F5FFF73-CAC6-4DA0-A0D9-0F931A5EFAFA">
       <title>[EXAMPLE]POA&amp;M Item</title>
-      <description/>
+      <description><p>...</p></description>
       <prop ns="https://fedramp.gov/ns/oscal" name="POAM-ID" value="V-1"/>
       <related-observation observation-uuid="0aa54106-8a63-4953-ac0d-30ff91f8d4ab"/>
       <associated-risk risk-uuid="9cbd98f3-abcb-4948-ad06-14e0bcba742f"/>

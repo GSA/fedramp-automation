@@ -1176,7 +1176,7 @@
    </result>
    <result uuid="cfa9b157-540e-456b-980d-efa789e50ace">
       <title>2019 Annual Assessment</title>
-      <description/>
+      <description><p>...</p></description>
       <start>2019-03-01T00:00:00Z</start>
       <end>2019-03-12T00:00:00Z</end>
       <reviewed-controls>
@@ -1189,14 +1189,14 @@
          </control-selection>
       </reviewed-controls>
       <observation uuid="EF3A436A-7445-41B7-A980-78E9BAB3B83A">
-         <description/>
+         <description><p>...</p></description>
          <method>EXAMINE</method>
          <collected>2019-03-01T10:11:12Z</collected>
       </observation>
    </result>
    <result uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
       <title>Initial (2018) Assessment</title>
-      <description/>
+      <description><p>...</p></description>
       <start>2018-03-01T00:00:00Z</start>
       <end>2018-03-12T00:00:00Z</end>
       <reviewed-controls>
@@ -1222,7 +1222,7 @@
       </observation>
       <finding uuid="A0A1395D-59CD-46D9-91A2-E6CA62AE9BAB">
          <title/>
-         <description/>
+         <description><p>...</p></description>
          <target target-id="ac-1_smt.a" type="statement-id">
             <status state="not-satisfied"/>
          </target>

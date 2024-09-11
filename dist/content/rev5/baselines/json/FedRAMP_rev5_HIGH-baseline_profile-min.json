@@ -42903,7 +42903,7 @@
         },
         {
           "uuid": "051a77c1-b61d-4995-8275-dacfe688d510",
-          "title": "NIST Special Publication (SP) 800-53",
+          "title": "NIST Special Publication (SP) 800-53 revision 5",
           "props": [
             {
               "name": "version",
@@ -42912,8 +42912,8 @@
           ],
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json",
-              "media-type": "application/json"
+              "href": "NIST_SP-800-53_rev5_catalog.json",
+              "media-type": "application/oscal+json"
             }
           ]
         }

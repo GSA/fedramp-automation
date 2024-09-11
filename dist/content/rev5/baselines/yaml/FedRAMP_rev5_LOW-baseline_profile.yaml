@@ -14483,10 +14483,10 @@ profile:
         rlinks:
           - href: https://www.fedramp.gov/assets/img/logo-main-fedramp.png
       - uuid: 051a77c1-b61d-4995-8275-dacfe688d510
-        title: NIST Special Publication (SP) 800-53
+        title: NIST Special Publication (SP) 800-53 revision 5
         props:
           - name: version
             value: 5.1.1
         rlinks:
-          - href: https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_catalog.yaml
+          - href: NIST_SP-800-53_rev5_catalog.yaml
             media-type: application/oscal+yaml
