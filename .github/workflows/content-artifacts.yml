@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+      - develop
+      - 'feature/**'
     paths:
       - Dockerfile
       - "src/**"
@@ -13,7 +15,6 @@ on:
   workflow_dispatch:
     branches:
       - master
-      - 'feature**'
 name: Process Content
 env:
   HOME_REPO: GSA/fedramp-automation
