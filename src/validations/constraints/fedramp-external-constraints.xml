@@ -78,9 +78,15 @@
     <context>
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
-        <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
-            <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
-        </expect>
+            <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
+                <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
+            </expect>
+            <expect id="role-defined-authorizing-official-poc" target="." test="role[@id eq 'authorizing-official-poc']" level="ERROR">
+                <message>SSP metadata must have the authorizing official POC role.</message>
+            </expect>
+            <expect id="role-defined-information-system-security-officer" target="." test="role[@id eq 'information-system-security-officer']" level="ERROR">
+                <message>SSP metadata must have the information system security officer POC role.</message>
+            </expect>
         </constraints>
     </context>
 </metaschema-meta-constraints>

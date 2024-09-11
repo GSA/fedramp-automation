@@ -69,6 +69,10 @@ Examples:
   | response-point-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
+  | role-defined-authorizing-official-poc-FAIL.yaml |
+  | role-defined-authorizing-official-poc-PASS.yaml |
+  | role-defined-information-system-security-officer-FAIL.yaml |
+  | role-defined-information-system-security-officer-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | user-type-FAIL.yaml |
@@ -115,6 +119,8 @@ Examples:
   | resource-has-base64-or-rlink |
   | resource-has-title |
   | role-defined-system-owner |
+  | role-defined-authorizing-official-poc |
+  | role-defined-information-system-security-officer |
   | scan-type |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS
