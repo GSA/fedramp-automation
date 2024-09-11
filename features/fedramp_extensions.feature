@@ -39,6 +39,18 @@ Examples:
   | data-center-us-PASS.yaml |
   | deployment-mode-FAIL.yaml |
   | deployment-mode-PASS.yaml |
+  | has-configuration-management-plan-FAIL.yaml |
+  | has-configuration-management-plan-PASS.yaml |
+  | has-incident-response-plan-FAIL.yaml |
+  | has-incident-response-plan-PASS.yaml |
+  | has-information-system-contingency-plan-FAIL.yaml |
+  | has-information-system-contingency-plan-PASS.yaml |
+  | has-rules-of-behavior-FAIL.yaml |
+  | has-rules-of-behavior-PASS.yaml |
+  | has-separation-of-duties-matrix-FAIL.yaml |
+  | has-separation-of-duties-matrix-PASS.yaml |
+  | has-user-guide-FAIL.yaml |
+  | has-user-guide-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -84,6 +96,12 @@ Examples:
   | data-center-country-code |
   | data-center-primary |
   | deployment-model |
+  | has-configuration-management-plan |
+  | has-incident-response-plan |
+  | has-information-system-contingency-plan |
+  | has-rules-of-behavior |
+  | has-separation-of-duties-matrix |
+  | has-user-guide |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
