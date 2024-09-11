@@ -1,4 +1,5 @@
 export BASE_DIR=$(shell pwd)
+OCI_REV_TAG=$(shell git rev-parse HEAD)
 
 help:
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -26,6 +27,12 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 	@echo "Cleaning dist..."
 	git clean -xfd dist
 
+clean-oci-image:
+	docker rmi -f \
+		validation-tools:$(OCI_REV_TAG) \
+		ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
+		gsatts/validation-tools:$(OCI_REV_TAG) \
+
 test: build-validations ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
@@ -39,3 +46,27 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 
 	@echo '#/bin/bash\necho "Serving FedRAMP ASAP documentation at http://localhost:8000/..."\npython3 -m http.server 8000 --directory web/' > ./dist/serve-documentation
 	chmod +x ./dist/serve-documentation
+
+build-oci-image:
+	docker build \
+		--build-arg APK_EXTRA_ARGS="--no-check-certificate" \
+		--build-arg WGET_EXTRA_ARGS="--no-check-certificate" \
+		-t validation-tools:$(OCI_REV_TAG) \
+		-t ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
+		-t  gsatts/validation-tools:$(OCI_REV_TAG) \
+		.
+
+publish-oci-image:
+	docker tag \
+		validation-tools:$(OCI_REV_TAG) validation-tools:latest
+
+	docker tag \
+		ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
+		ghcr.io/gsa/fedramp-automation/validation-tools:latest
+
+	docker tag \
+		gsatts/validation-tools:$(OCI_REV_TAG) \
+		gsatts/validation-tools:latest
+
+	docker push ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG)
+	docker push	ghcr.io/gsa/fedramp-automation/validation-tools:latest

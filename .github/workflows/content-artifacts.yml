@@ -15,10 +15,19 @@ on:
 name: Process Content
 env:
   HOME_REPO: GSA/fedramp-automation
+  IMAGE_NAME: GSA/fedramp-automation/validation-tools
+  REGISTRY: ghcr.io
+  # Docs: github.com/docker/metadata-action/?tab=readme-ov-file#typesha
+  DOCKER_METADATA_PR_HEAD_SHA: true
 jobs:
   validate-and-publish-content:
     name: Content Validation Checking, Conversion and Validation
     runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
     steps:
       - uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08
         with:
@@ -53,3 +62,59 @@ jobs:
           commit_user_name: OSCAL GitHub Actions Bot
           commit_user_email: oscal@nist.gov
           commit_author: OSCAL GitHub Actions Bot <oscal@nist.gov>
+      - name: Container image QEMU setup for cross-arch builds
+        id: image_setup_qemu
+        uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf
+      - name: Container image buildx setup for cross-arch builds
+        id: image_setup_buildx
+        with:
+          platforms: linux/amd64,linux/arm64 
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
+      - name: Container image login
+        id: image_login
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Container image metadata and tag generation
+        id: image_metadata
+        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81
+        with:
+          images:
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=,suffix=,format=long
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr            
+          # For now, do not auto-tag latest, maintainers will decided what is
+          # release-worthy.
+          flavor: |
+            latest=false
+          annotations:
+            maintainers="FedRAMP Automation Team <oscal@fedramp.gov>"
+            org.opencontainers.image.authors="FedRAMP Automation Team <oscal@fedramp.gov>"
+            org.opencontainers.image.documentation="https://automate.fedramp.gov"
+            org.opencontainers.image.source="https://github.com/GSA/fedramp-automation"
+            org.opencontainers.image.vendor="GSA Technology Transformation Services"
+            org.opencontainers.image.title="FedRAMP Validation Tools"
+            org.opencontainers.image.description="FedRAMP's tools for validating OSCAL data"
+            org.opencontainers.image.licenses="CC0-1.0"
+      - name: Container image registry push
+        id: image_registry_push
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: git-content
+          push: true
+          tags: ${{ steps.image_metadata.outputs.tags }}
+          labels: ${{ steps.image_metadata.outputs.annotations }}
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Container image push attestations
+        uses: actions/attest-build-provenance@1c608d11d69870c2092266b3f9a6f3abbf17002c
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-digest: ${{ steps.image_registry_push.outputs.digest }}
+          push-to-registry: false
