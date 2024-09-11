@@ -40,7 +40,7 @@ For the purposes of this ADR, there is an inventory for this repository of diffe
     * **documents/rev5/README.md** \- mark as **OBSOLETE** and remove PDF guides
 * presentations folder  
   * **presentations/data-bites**  
-    * Move to automte.fedramp.gov and update with latest Data Bites slides  
+    * Move to [https://automate.fedramp.gov](https://automate.fedramp.gov) and update with latest Data Bites slides  
   * Add **presentations/oscal-implementers** folder in the automate.fedramp.gov repository
     * Update with latest OSCAL Implementers slides
 * **src/examples/README.md** \- **ARCHIVED**
