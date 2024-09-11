@@ -157,6 +157,20 @@
             </expect>
             <expect id="has-data-flow-diagram-link-rel-allowed-value" target="system-characteristics/data-flow/diagram/link" test="@rel eq 'diagram'" level="ERROR">
                 <message>Each FedRAMP SSP data flow diagram must have a link rel attribute with the value "diagram".</message>
+            <expect id="has-security-sensitivity-level" target="./system-characteristics" test="security-sensitivity-level" level="ERROR">
+                <message>An OSCAL SSP document must specify a FIPS 199 categorization.</message>
+            </expect>
+            <expect id="has-security-impact-level" target="./system-characteristics" test="security-impact-level" level="ERROR">
+                <message>An OSCAL SSP document must specify a security impact level.</message>
+            </expect>
+            <expect id="has-security-objective-confidentiality" target="./system-characteristics"  test="security-impact-level/security-objective-confidentiality" level="ERROR">
+                <message>An OSCAL SSP must specify a confidentiality security objective.</message>
+            </expect>
+            <expect id="has-security-objective-integrity" target="./system-characteristics"  test="security-impact-level/security-objective-integrity" level="ERROR">
+                <message>An OSCAL SSP must specify an integrity security objective.</message>
+            </expect>
+            <expect id="has-security-objective-availability" target="./system-characteristics"  test="security-impact-level/security-objective-availability" level="ERROR">
+                <message>An OSCAL SSP must specify an availability security objective.</message>
             </expect>
             <expect id="has-system-id" target="system-characteristics" test="system-id[@identifier-type eq 'https://fedramp.gov']" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
