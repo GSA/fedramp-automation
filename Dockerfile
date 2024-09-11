@@ -2,12 +2,19 @@ ARG MAVEN_IMAGE=maven:3.9.9-eclipse-temurin-22-alpine
 ARG NODE_IMAGE=node:22-alpine3.20
 ARG APK_EXTRA_ARGS
 ARG WGET_EXTRA_ARGS
+# Static analysis from docker build and push warns this is a secret, it is not.
+# Per official developer instructions, it is necessary to verify the APK packages
+# for Alpine or properly signed. This information is inherently public.
+# https://adoptium.net/installation/linux/#_alpine_linux_instructions
 ARG TEMURIN_APK_KEY_URL=https://packages.adoptium.net/artifactory/api/security/keypair/public/repositories/apk
 ARG TEMURIN_APK_REPO_URL=https://packages.adoptium.net/artifactory/apk/alpine/main
 ARG TEMURIN_APK_VERSION=temurin-22-jdk
 ARG MAVEN_DEP_PLUGIN_VERSION=3.8.0
 ARG OSCAL_CLI_VERSION=2.0.2
-# Current key ID for maintainers@metaschema.dev releases of oscal-cli
+# Current public key ID for maintainers@metaschema.dev releases of oscal-cli
+# Static analysis from docker build and push warns this is a secret, it is not
+# and is necessary to cross-ref the Maven GPG key for checking build signatures.
+# https://keyserver.ubuntu.com/pks/lookup?search=0127D75951997E00&fingerprint=on&op=index
 ARG OSCAL_CLI_GPG_KEY=0127D75951997E00
 ARG OSCAL_JS_VERSION=1.4.4
 ARG FEDRAMP_AUTO_GIT_URL=https://github.com/GSA/fedramp-automation.git
