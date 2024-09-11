@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for invalid-security-sensitivity-level
+  description: >-
+    This test case validates the behavior of constraint
+    invalid-security-sensitivity-level
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: invalid-security-sensitivity-level
+      result: pass

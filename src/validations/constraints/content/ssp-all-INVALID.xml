@@ -64,7 +64,7 @@
     <prop name='cloud-service-model' value='unsupported-model' ns="https://fedramp.gov/ns/oscal"/>
     <prop name='cloud-deployment-model' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
     <prop name='authorization-type' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
-    <security-sensitivity-level>moderate</security-sensitivity-level>
+    <security-sensitivity-level>unsupported-security-level</security-sensitivity-level>
     <system-information>
       <information-type uuid="33333333-0000-4000-9000-000000000003">
         <title>Financial Information</title>

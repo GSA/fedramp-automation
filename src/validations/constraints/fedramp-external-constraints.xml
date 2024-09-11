@@ -75,4 +75,11 @@
         </expect>
     </constraints>
 </context>
+<context>
+    <metapath target="/system-security-plan"/>
+        <constraints>
+            <expect id="no-security-sensitivity-level"  target="system-characteristics" test="count(/security-sensitivity-level) eq 1" level='CRITICAL'>
+            </expect>
+        </constraints>
+</context>
 </metaschema-meta-constraints>

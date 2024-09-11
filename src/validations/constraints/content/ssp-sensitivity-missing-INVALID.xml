@@ -25,39 +25,34 @@
     </role>
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
-        <country>US</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='primary' ns="https://fedramp.gov/ns/oscal"/>
-    </location>
-    <location uuid="11111112-0000-4000-9000-000000000003">
-      <address >
-        <country>US</country>
-      </address>
-      <prop name='data-center' value='aws-us-west-1' class='alternate' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='dc-zone-1' class='tertiary' ns="https://fedramp.gov/ns/oscal"/>
     </location>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
       <link rel="website" href="https://example.com"/>
+      <address type="unsupported-type"  />
     </party>
     <party uuid="22222222-0000-4000-9000-000000000002" type="person">
       <name>Jane Doe</name>
       <email-address>jane.doe@example.com</email-address>
-    <address type="work"  />
+      <address type="unsupported-type"  />
     </party>
-
+    
     <responsible-party role-id="creator">
       <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
     </responsible-party>
     <responsible-party role-id="content-approver">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
+    
     <remarks>
       <p>This SSP is an example for demonstration purposes.</p>
     </remarks>
   </metadata>
   
-  <import-profile href="../../../../dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
+  <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
   
   <system-characteristics>
     <system-id identifier-type="https://fedramp.gov">F00000001</system-id>
@@ -65,17 +60,16 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
-    <prop name='cloud-deployment-model' value='government-only-cloud' ns="https://fedramp.gov/ns/oscal"/>
-    <prop name='cloud-service-model' value='other' ns="https://fedramp.gov/ns/oscal"/>
-    <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
-    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
+    <prop name='cloud-service-model' value='unsupported-model' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='cloud-deployment-model' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
     <system-information>
-      <information-type  uuid="33333333-0000-4000-9000-000000000003">
+      <information-type uuid="33333333-0000-4000-9000-000000000003">
         <title>Financial Information</title>
         <description>
           <p>Contains sensitive financial data related to organizational operations.</p>
         </description>
-        <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+        <categorization system="https://unsupported-system.com">
           <information-type-id>C.2.8.12</information-type-id>
         </categorization>
         <confidentiality-impact>
@@ -89,12 +83,15 @@
         </availability-impact>
       </information-type>
     </system-information>
+    
     <security-impact-level>
       <security-objective-confidentiality>moderate</security-objective-confidentiality>
       <security-objective-integrity>moderate</security-objective-integrity>
       <security-objective-availability>moderate</security-objective-availability>
     </security-impact-level>
+    
     <status state="operational"/>
+    
     <authorization-boundary>
       <description>
         <p>The authorization boundary includes all components within the main data center and the disaster recovery site.</p>
@@ -105,12 +102,12 @@
   <system-implementation>
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
-      <prop name="type" value="internal"/>
-      <prop name="privilege-level" value="read-write"/>
+      <prop name="type" value="unsupported-type"/>
+      <prop name="privilege-level" value="unsupported-access-type"/>
       <role-id>system-admin</role-id>
     </user>
     
-    <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
+    <component uuid="55555555-0000-4000-9000-000000000005" type="unsupported-component-type">
       <title>Primary Application Server</title>
       <description>
         <p>Main application server hosting the core system functionality.</p>
@@ -130,8 +127,8 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-direction" value="unsupported-direction" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-security" value="unsupported-security" ns="https://fedramp.gov/ns/oscal"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
@@ -147,10 +144,10 @@
       </description>
       <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
       <prop name="asset-type" value="database"/>
-      <prop name="allows-authenticated-scan" value="yes"/>
-      <prop name="public" value="no"/>
-      <prop name="virtual" value="yes"/>
-      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="allows-authenticated-scan" value="unsupported-scan"/>
+      <prop name="public" value="unsupported-public"/>
+      <prop name="virtual" value="unsupported-virtual"/>
+      <prop name="scan-type" value="unsupported-scan-type" ns="https://fedramp.gov/ns/oscal"/>
       <responsible-party role-id="asset-owner">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>
@@ -165,15 +162,15 @@
       <p>Implementation of controls for the Enhanced Example System</p>
     </description>
     <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
-      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="implementation-status" value="unsupported-status" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
       </statement>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
         <description>
           <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
@@ -181,14 +178,14 @@
     </implemented-requirement>
     
     <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
-      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
       </statement>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000000d">
         <description>
           <p>Information System Component Inventory (CM-8) is partially implemented.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
@@ -202,95 +199,8 @@
       <description>
         <p>Detailed access control policy document</p>
       </description>
-      <prop name="type" value="policy" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
       <rlink href="https://example.com/policies/access-control.pdf"/>
     </resource>
-    <resource uuid="90a128ac-c850-48f6-8fff-a55692f80b41">
-      <title>User's Guide</title>
-      <description>
-         <p>User's Guide</p>
-      </description>
-      <prop name="type" value="users-guide"/>
-      <prop name="published" value="2023-01-01T00:00:00Z"/>
-      <rlink href="./documents/guides/sample_guide.pdf"/>
-      <remarks>
-         <p>Table 12-1 Attachments: User's Guide Attachment</p>
-         <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-      </remarks>
-   </resource>
-   <resource uuid="489112e1-57f2-4c29-8dd0-95b1442fbf3b">
-    <title>Document Title</title>
-    <description>
-       <p>Rules of Behavior</p>
-    </description>
-    <prop name="type" value="rules-of-behavior"/>
-    <prop name="published" value="2023-01-01T00:00:00Z"/>
-    <prop name="version" value="Document Version"/>
-    <rlink href="./documents/rob.docx" media-type="application/msword"/>
-    <base64 filename="rob.docx" media-type="application/msword">00000000</base64>
-    <remarks>
-       <p>Table 12-1 Attachments: Rules of Behavior (ROB)</p>
-       <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-    </remarks>
- </resource>
- <resource uuid="c7860916-f2f4-43aa-b578-d48cf8e6d381">
-  <title>Document Title</title>
-  <description>
-     <p>Contingency Plan (CP)</p>
-  </description>
-  <prop name="type" value="plan" class="information-system-contingency-plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/cp.docx" media-type="application/msword"/>
-  <base64 filename="cp.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>Table 12-1 Attachments: Contingency Plan (CP) Attachment</p>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-<resource uuid="ab56cf27-0dae-40d6-89b7-d750137309af">
-  <title>Document Title</title>
-  <description>
-     <p>Configuration Management (CM) Plan</p>
-  </description>
-  <prop name="type" value="plan" class="configuration-management-plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/CM_Plan.docx" media-type="application/msword"/>
-  <base64 filename="CM_Plan.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>Table 12-1 Attachments: Configuration Management (CM) Plan Attachment</p>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-<resource uuid="3f771ab5-8016-4571-98d1-f0fb962e15e2">
-  <title>Document Title</title>
-  <description>
-     <p>Incident Response (IR) Plan</p>
-  </description>
-  <prop name="type" value="plan" class="incident-response-plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/IR_Plan.docx" media-type="application/msword"/>
-  <base64 filename="IR_Plan.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>Table 12-1 Attachments: Incident Response (IR) Plan Attachment</p>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-<resource uuid="49fb4631-1da2-41ca-b0b3-e1b1006d4025">
-  <title>Separation of Duties Matrix</title>
-  <description>
-     <p>Separation of Duties Matrix</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
-  <base64 filename="Sep_Matrix.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
   </back-matter>
 </system-security-plan>

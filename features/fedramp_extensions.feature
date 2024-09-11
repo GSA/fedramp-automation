@@ -57,6 +57,10 @@ Examples:
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
   | interconnection-security-PASS.yaml |
+  | invalid-security-sensitivity-level-FAIL.yaml |
+  | invalid-security-sensitivity-level-PASS.yaml |
+  | no-security-sensitivity-level-FAIL.yaml |
+  | no-security-sensitivity-level-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
   | resource-has-base64-or-rlink-FAIL.yaml |
@@ -105,6 +109,8 @@ Examples:
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
+  | invalid-security-sensitivity-level |
+  | no-security-sensitivity-level |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |

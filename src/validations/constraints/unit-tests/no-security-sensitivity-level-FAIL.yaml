@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for no-security-sensitivity-level
+  description: >-
+    This test case validates the behavior of constraint
+    no-security-sensitivity-level
+  content: ../content/ssp-sensitivity-missing-INVALID.xml
+  expectations:
+    - constraint-id: no-security-sensitivity-level
+      result: fail
