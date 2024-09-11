@@ -79,17 +79,20 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Container image metadata and tag generation
         id: image_metadata
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81
         with:
           images:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=long
+            type=sha,prefix=,suffix=,format=long
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr            
           # For now, do not auto-tag latest, maintainers will decided what is
           # release-worthy.
           flavor: |
             latest=false
-          labels:
+          annotations:
             maintainers="FedRAMP Automation Team <oscal@fedramp.gov>"
             org.opencontainers.image.authors="FedRAMP Automation Team <oscal@fedramp.gov>"
             org.opencontainers.image.documentation="https://automate.fedramp.gov"
@@ -105,13 +108,13 @@ jobs:
           context: git-content
           push: true
           tags: ${{ steps.image_metadata.outputs.tags }}
-          labels: ${{ steps.image_metadata.outputs.labels }}
+          labels: ${{ steps.image_metadata.outputs.annotations }}
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Container image push attestations
         uses: actions/attest-build-provenance@1c608d11d69870c2092266b3f9a6f3abbf17002c
         with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}-attestation
           subject-digest: ${{ steps.image_registry_push.outputs.digest }}
           push-to-registry: true
