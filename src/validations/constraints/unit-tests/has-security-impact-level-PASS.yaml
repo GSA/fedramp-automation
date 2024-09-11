@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for has-security-impact-level
+  description: >-
+    This test case validates the behavior of constraint
+    has-security-impact-level
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-security-impact-level
+      result: pass

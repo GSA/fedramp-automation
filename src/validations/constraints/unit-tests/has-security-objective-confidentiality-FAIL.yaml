@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-security-objective-confidentiality
+  description: >-
+    This test case validates the behavior of constraint
+    has-security-objective-confidentiality
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+    - constraint-id: has-security-objective-confidentiality
+      result: fail
