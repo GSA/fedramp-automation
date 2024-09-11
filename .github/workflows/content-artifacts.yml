@@ -67,6 +67,8 @@ jobs:
         uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf
       - name: Container image buildx setup for cross-arch builds
         id: image_setup_buildx
+        with:
+          platforms: linux/amd64,linux/arm64 
         uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
       - name: Container image login
         id: image_login
