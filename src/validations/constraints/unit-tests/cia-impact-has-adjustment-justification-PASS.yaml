@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for cia-impact-has-adjustment-justification
+  description: >-
+    This test case validates the behavior of constraint
+    cia-impact-has-adjustment-justification
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: cia-impact-has-adjustment-justification
+      result: pass
