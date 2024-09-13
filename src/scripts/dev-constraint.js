@@ -112,26 +112,49 @@ async function scaffoldTest(constraintId) {
             default: true
         }
     ]);
-    const { model } = await prompt([
-        {
-            type: 'string',
-            name: 'model',
-            message: `what is the constraint targeting?`,
-            default: "ssp"
-        }
-    ]);
-
 
     if (!confirm) {
         console.log(`Skipping test scaffolding for ${constraintId}`);
         return;
     }
 
+    const { model } = await prompt([
+        {
+            type: 'string',
+            name: 'model',
+            message: `What is the constraint targeting?`,
+            default: "ssp"
+        }
+    ]);
+
+    const { useTemplate } = await prompt([
+        {
+            type: 'list',
+            name: 'useTemplate',
+            message: `Do you want to create a new ${constraintId}-INVALID.xml file or use the existing ${model}-all-INVALID.xml?`,
+            choices: [
+                { name: `Create new ${constraintId}-INVALID.xml`, value: 'new' },
+                { name: `Use existing ${model}-all-INVALID.xml`, value: 'existing' }
+            ]
+        }
+    ]);
+
+    let invalidContent;
+    if (useTemplate === 'new') {
+        const templatePath = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content', `${model}-all-INVALID.xml`);
+        const newInvalidPath = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content', `${model}-${constraintId}-INVALID.xml`);
+        fs.copyFileSync(templatePath, newInvalidPath);
+        console.log(`Created new ${model}-${constraintId}-INVALID.xml file`);
+        invalidContent = `../content/${model}-${constraintId}-INVALID.xml`;
+    } else {
+        invalidContent = `../content/${model}-all-INVALID.xml`;
+    }
+
     const positivetestCase = {
         'test-case': {
             name: `Positive Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content:"../content/"+ model+'-all-VALID.xml',  
+            content: `../content/${model}-all-VALID.xml`,  
             expectations: [
                 {
                     'constraint-id': constraintId,
@@ -144,7 +167,7 @@ async function scaffoldTest(constraintId) {
         'test-case': {
             name: `Negative Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content:"../content/"+ model+"-all-INVALID.xml",  
+            content: invalidContent,  
             expectations: [
                 {
                     'constraint-id': constraintId,
@@ -159,7 +182,7 @@ async function scaffoldTest(constraintId) {
     const fileNamePASS = `${constraintId.toLowerCase()}-PASS.yaml`;
     const fileNameFAIL = `${constraintId.toLowerCase()}-FAIL.yaml`;
     const positiveFilePath = path.join(testDir, fileNamePASS);
-    const negativefilePath = path.join(testDir,fileNameFAIL)
+    const negativefilePath = path.join(testDir, fileNameFAIL);
     fs.writeFileSync(positiveFilePath, positiveYamlContent, 'utf8');
     fs.writeFileSync(negativefilePath, negativeYamlContent, 'utf8');
     console.log(`Scaffolded test for ${constraintId} at ${positiveFilePath}`);
