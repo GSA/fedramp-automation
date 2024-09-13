@@ -7,10 +7,9 @@
         <metapath target="/catalog//control"/>
         <metapath target="/assessment-plan/local-definitions/objectives-and-methods"/>
         <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
-
         <constraints>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
-                <message>Duplicate reponse point at '{ path(.) }'.</message>
+                <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
             <remarks>
                 <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
@@ -18,61 +17,62 @@
                 <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
              </remarks>
         </constraints>
-</context>
-<context>
-    <metapath target="/system-security-plan/metadata/location"/>
-    <constraints>
-        <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
-            <message>Each data center address must contain a country code.</message>
-        </expect>
-        <expect id="data-center-US" target="." test="address/country eq 'US'">
-            <message>Each data center must have an address that is within the United States.</message>
-        </expect>
-    </constraints>
-
-</context>
-<context>
-    <metapath target="/system-security-plan"/>
-    <constraints>
-        <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
-            <message>Every supporting artifact found in a citation should have a title.</message>
-        </expect>
-        <expect id="resource-has-base64-or-rlink" target="back-matter/resource" test="count(./rlink) >= 1 or count(./base64) >= 1" level="WARNING">
-            <message>Every supporting artifact found in a citation must have at least one base64 or rlink element.</message>
-        </expect>
-        <expect id="has-user-guide" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'users-guide']]" level="ERROR">
-            <message>A FedRAMP SSP must have a User Guide attached.</message>
-        </expect>
-        <expect id="has-rules-of-behavior" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'rules-of-behavior']]" level="ERROR">
-            <message>A FedRAMP SSP must have Rules of Behavior.</message>
-        </expect>
-        <expect id="has-information-system-contingency-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'information-system-contingency-plan']]" level="ERROR">
-            <message>A FedRAMP SSP must have a Contingency Plan attached.</message>
-        </expect>
-        <expect id="has-configuration-management-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'configuration-management-plan']]" level="ERROR">
-            <message>A FedRAMP SSP must have a Configuration Management Plan attached.</message>
-        </expect>
-        <expect id="has-incident-response-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'incident-response-plan']]" level="ERROR">
-            <message>A FedRAMP SSP must have an Incident Response Plan attached.</message>
-        </expect>
-        <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="ERROR">
-            <message>A FedRAMP SSP must have a Separation of Duties Matrix attached.</message>
-        </expect>
-    </constraints>
-</context>
-<context>
-    <metapath target="/system-security-plan/metadata"/>
-    <constraints>
-        <expect id="data-center-count" target="." test="count(/location/prop[@name eq 'data-center']) &gt; 1">
-            <message>There must be at least two (2) data centers listed.</message>
-        </expect>
-
-        <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'data-center'][@class eq 'primary']) = 1">
-            <message>There must be a single primary data center.</message>
-        </expect>
-        <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'data-center'][@class eq 'alternate']) &gt; 0">
-            <message>There must be one or more alternate data center(s).</message>
-        </expect>
-    </constraints>
-</context>
+    </context>
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <message>Each data center address must contain a country code.</message>
+            </expect>
+            <expect id="data-center-US" target="." test="address/country eq 'US'">
+                <message>Each data center must have an address that is within the United States.</message>
+            </expect>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
+                <message>Every supporting artifact found in a citation should have a title.</message>
+            </expect>
+            <expect id="resource-has-base64-or-rlink" target="back-matter/resource" test="count(./rlink) >= 1 or count(./base64) >= 1" level="WARNING">
+                <message>Every supporting artifact found in a citation must have at least one base64 or rlink element.</message>
+            </expect>
+            <expect id="has-user-guide" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'users-guide']]" level="ERROR">
+                <message>A FedRAMP SSP must have a User Guide attached.</message>
+            </expect>
+            <expect id="has-rules-of-behavior" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'rules-of-behavior']]" level="ERROR">
+                <message>A FedRAMP SSP must have Rules of Behavior.</message>
+            </expect>
+            <expect id="has-information-system-contingency-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'information-system-contingency-plan']]" level="ERROR">
+                <message>A FedRAMP SSP must have a Contingency Plan attached.</message>
+            </expect>
+            <expect id="has-configuration-management-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'configuration-management-plan']]" level="ERROR">
+                <message>A FedRAMP SSP must have a Configuration Management Plan attached.</message>
+            </expect>
+            <expect id="has-incident-response-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'incident-response-plan']]" level="ERROR">
+                <message>A FedRAMP SSP must have an Incident Response Plan attached.</message>
+            </expect>
+            <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="ERROR">
+                <message>A FedRAMP SSP must have a Separation of Duties Matrix attached.</message>
+            </expect>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/system-security-plan/metadata"/>
+        <constraints>
+            <expect id="data-center-count" target="." test="count(/location/prop[@name eq 'data-center']) &gt; 1">
+                <message>There must be at least two (2) data centers listed.</message>
+            </expect>
+            <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'data-center'][@class eq 'primary']) = 1">
+                <message>There must be a single primary data center.</message>
+            </expect>
+            <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'data-center'][@class eq 'alternate']) &gt; 0">
+                <message>There must be one or more alternate data center(s).</message>
+            </expect>
+            <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
+                <message>Metadata must have the system owner role.</message>
+            </expect>
+        </constraints>
+    </context>
 </metaschema-meta-constraints>

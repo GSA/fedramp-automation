@@ -65,6 +65,8 @@ Examples:
   | resource-has-title-PASS.yaml |
   | response-point-FAIL.yaml |
   | response-point-PASS.yaml |
+  | role-defined-system-owner-FAIL.yaml |
+  | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | user-type-FAIL.yaml |
@@ -109,6 +111,7 @@ Examples:
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |
   | resource-has-title |
+  | role-defined-system-owner |
   | scan-type |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS

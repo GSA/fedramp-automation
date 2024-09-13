@@ -23,6 +23,10 @@
     <role id="asset-owner">
       <title>Asset Owner</title>
     </role>
+    <role id="system-owner">
+      <title>System Owner</title>
+    </role>
+
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
         <country>US</country>
