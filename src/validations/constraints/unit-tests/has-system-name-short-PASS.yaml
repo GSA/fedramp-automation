@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for has-system-name-short
+  description: This test case validates the behavior of constraint has-system-name-short
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-system-name-short
+      result: pass
