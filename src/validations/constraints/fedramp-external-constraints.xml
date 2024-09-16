@@ -75,4 +75,12 @@
             </expect>
         </constraints>
     </context>
+    <context>
+        <metapath target="/system-security-plan/control-implementation"/>
+        <constraints>
+        <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
+            <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
+        </expect>
+        </constraints>
+    </context>
 </metaschema-meta-constraints>
