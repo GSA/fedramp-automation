@@ -1,0 +1,8 @@
+# Driver for the valid role-defined-system-owner constraint unit test.
+test-case:
+  name: The valid role-defined-system-owner constraint unit test.
+  description: Test that SSP metadata contains the system-owner role.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: role-defined-system-owner
+    result: pass
