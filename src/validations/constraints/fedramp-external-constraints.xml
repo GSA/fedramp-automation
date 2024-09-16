@@ -71,7 +71,7 @@
                 <message>There must be one or more alternate data center(s).</message>
             </expect>
             <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
-                <message>Metadata must have the system owner role.</message>
+                <message>A FedRAMP SSP must define the system owner role.</message>
             </expect>
         </constraints>
     </context>
