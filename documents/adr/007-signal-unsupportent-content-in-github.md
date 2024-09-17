@@ -1,10 +1,10 @@
 # 7. Signal Unsupported Contents in the Repository
 
-Date: 2024-08-30
+Date: 2024-09-17
 
 ## Status
 
-Pending Community Feedback
+Accepted
 
 ## Context
 
@@ -21,6 +21,9 @@ Several possible solutions for identifying deprecated and migrated data, tools, 
     - make a minor release with deprecation information in those READMEs;
     - make a major release with deprecated content deleted and new data, tools, and documentation released
 1. Mark deprecated content by labelling relevant READMEs as **ARCHIVED** and move all relevant content to “archive” folder
+ ## Decision
+ 
+ The FedRAMP Automation Team will implement Solution 3: identify tools, data, and content for migration, deprecation, remove content accordingly by saving them in an archival minor release and deleting them in a major version release.
    
 ## Consequences
 
