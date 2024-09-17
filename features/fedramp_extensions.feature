@@ -45,6 +45,20 @@ Examples:
   | deployment-mode-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
   | has-authenticator-assurance-level-PASS.yaml |
+  | has-authorization-boundary-diagram-FAIL.yaml |
+  | has-authorization-boundary-diagram-PASS.yaml |
+  | has-authorization-boundary-diagram-caption-FAIL.yaml |
+  | has-authorization-boundary-diagram-caption-PASS.yaml |
+  | has-authorization-boundary-diagram-description-FAIL.yaml |
+  | has-authorization-boundary-diagram-description-PASS.yaml |
+  | has-authorization-boundary-diagram-link-FAIL.yaml |
+  | has-authorization-boundary-diagram-link-PASS.yaml |
+  | has-authorization-boundary-diagram-link-rel-FAIL.yaml |
+  | has-authorization-boundary-diagram-link-rel-PASS.yaml |
+  | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
+  | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-authorization-boundary-diagram-uuid-FAIL.yaml |
+  | has-authorization-boundary-diagram-uuid-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
@@ -117,6 +131,13 @@ Examples:
   | data-center-primary |
   | deployment-model |
   | has-authenticator-assurance-level |
+  | has-authorization-boundary-diagram |
+  | has-authorization-boundary-diagram-caption |
+  | has-authorization-boundary-diagram-description |
+  | has-authorization-boundary-diagram-link |
+  | has-authorization-boundary-diagram-link-rel |
+  | has-authorization-boundary-diagram-link-rel-allowed-value |
+  | has-authorization-boundary-diagram-uuid |
   | has-configuration-management-plan |
   | has-federation-assurance-level |
   | has-identity-assurance-level |
