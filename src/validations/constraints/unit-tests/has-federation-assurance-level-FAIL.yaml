@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-federation-assurance-level
+  description: >-
+    This test case validates the behavior of constraint
+    has-federation-assurance-level
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+    - constraint-id: has-federation-assurance-level
+      result: fail
