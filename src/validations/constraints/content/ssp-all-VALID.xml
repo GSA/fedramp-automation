@@ -26,6 +26,12 @@
     <role id="system-owner">
       <title>System Owner</title>
     </role>
+     <role id="authorizing-official-poc">
+       <title>Authorizing Official Point of Contact</title>
+     </role>
+     <role id="information-system-security-officer">
+       <title>Information System Security Officer (or Equivalent)</title>
+     </role>
 
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >

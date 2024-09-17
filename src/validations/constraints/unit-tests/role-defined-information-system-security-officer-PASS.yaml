@@ -1,0 +1,8 @@
+# Driver for the valid role-defined-information-system-security-officer constraint unit test.
+test-case:
+  name: The valid role-defined-information-system-security-officer constraint unit test.
+  description: Test that SSP metadata contains the information-system-security-officer role.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: role-defined-information-system-security-officer
+    result: pass
