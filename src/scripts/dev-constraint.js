@@ -1,14 +1,20 @@
-const fs = require('fs');
-const path = require('path');
-const xml2js = require('xml2js');
-const yaml = require('js-yaml');
-const {execSync} = require('child_process');
-const inquirer = require('inquirer');
+import fs from 'fs';
+import path from 'path';
+import xml2js from 'xml2js';
+import yaml from 'js-yaml';
+import { execSync } from 'child_process';
+import inquirer from 'inquirer';
+
 const prompt = inquirer.createPromptModule();
+
+const __dirname = new URL('.', import.meta.url).pathname;
+
 const constraintsDir = path.join(__dirname, '../../src', 'validations', 'constraints');
 const testDir = path.join(__dirname, '../../src', 'validations', 'constraints', 'unit-tests');
-const ignoreDocument = "oscal-external-constraints.xml";
 const featureFile = path.join(__dirname,"../../features/", 'fedramp_extensions.feature');
+
+
+const ignoreDocument = "oscal-external-constraints.xml";
 
 async function parseXml(filePath) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
