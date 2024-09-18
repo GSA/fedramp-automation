@@ -151,7 +151,7 @@ The [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file co
 
 
 
-## How do I use the `mq` command?
+## How do I interactively run Metapath queries for constraint development?
 
 The `mq` command is a utility for querying OSCAL content using Metapath expressions. It's useful for testing and debugging Metapath expressions used in constraints. To use the `mq` command:
 
