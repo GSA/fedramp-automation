@@ -43,8 +43,14 @@ Examples:
   | data-center-us-PASS.yaml |
   | deployment-mode-FAIL.yaml |
   | deployment-mode-PASS.yaml |
+  | has-authenticator-assurance-level-FAIL.yaml |
+  | has-authenticator-assurance-level-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
+  | has-federation-assurance-level-FAIL.yaml |
+  | has-federation-assurance-level-PASS.yaml |
+  | has-identity-assurance-level-FAIL.yaml |
+  | has-identity-assurance-level-PASS.yaml |
   | has-incident-response-plan-FAIL.yaml |
   | has-incident-response-plan-PASS.yaml |
   | has-information-system-contingency-plan-FAIL.yaml |
@@ -71,12 +77,12 @@ Examples:
   | resource-has-title-PASS.yaml |
   | response-point-FAIL.yaml |
   | response-point-PASS.yaml |
-  | role-defined-system-owner-FAIL.yaml |
-  | role-defined-system-owner-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
   | role-defined-information-system-security-officer-PASS.yaml |
+  | role-defined-system-owner-FAIL.yaml |
+  | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | user-type-FAIL.yaml |
@@ -110,7 +116,10 @@ Examples:
   | data-center-country-code |
   | data-center-primary |
   | deployment-model |
+  | has-authenticator-assurance-level |
   | has-configuration-management-plan |
+  | has-federation-assurance-level |
+  | has-identity-assurance-level |
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
   | has-rules-of-behavior |
@@ -124,9 +133,9 @@ Examples:
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |
   | resource-has-title |
-  | role-defined-system-owner |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
+  | role-defined-system-owner |
   | scan-type |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS

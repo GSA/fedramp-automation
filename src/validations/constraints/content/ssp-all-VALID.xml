@@ -78,6 +78,9 @@
     <prop name='cloud-deployment-model' value='government-only-cloud' ns="https://fedramp.gov/ns/oscal"/>
     <prop name='cloud-service-model' value='other' ns="https://fedramp.gov/ns/oscal"/>
     <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name="identity-assurance-level" value="2"/>
+    <prop name="authenticator-assurance-level" value="2"/>
+    <prop name="federation-assurance-level" value="2"/>
     <security-sensitivity-level>moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
