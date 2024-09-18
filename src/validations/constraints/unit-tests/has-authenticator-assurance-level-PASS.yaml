@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for has-authenticator-assurance-level
+  description: >-
+    This test case validates the behavior of constraint
+    has-authenticator-assurance-level
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-authenticator-assurance-level
+      result: pass
