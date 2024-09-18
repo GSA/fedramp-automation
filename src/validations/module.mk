@@ -26,6 +26,8 @@ update:
 	$(OSCAL_CLI) use latest
 constraint:
 	npm run constraint
+metaquery:
+	npm run mq
 
 test-validations:
 	@echo "Validating rev5 artifacts recursively..."
