@@ -25,8 +25,6 @@ Examples:
   | categorization-has-correct-system-attribute-PASS.yaml |
   | categorization-has-information-type-id-FAIL.yaml |
   | categorization-has-information-type-id-PASS.yaml |
-  | cloud-service-model-FAIL.yaml |
-  | cloud-service-model-PASS.yaml |
   | component-type-FAIL.yaml |
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
@@ -57,6 +55,10 @@ Examples:
   | has-authorization-boundary-diagram-link-rel-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-authorization-boundary-diagram-uuid-FAIL.yaml |
+  | has-authorization-boundary-diagram-uuid-PASS.yaml |
+  | deployment-model-FAIL.yaml |
+  | deployment-model-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
   | has-data-flow-FAIL.yaml |
@@ -105,8 +107,6 @@ Examples:
   | has-separation-of-duties-matrix-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
-  | deployment-model-FAIL.yaml |
-  | deployment-model-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -155,7 +155,6 @@ Examples:
   | authorization-type |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
-  | cloud-service-model |
   | component-type |
   | control-implementation-status |
   | data-center-US |
