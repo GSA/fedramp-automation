@@ -1,0 +1,8 @@
+# Driver for the invalid role-has-responsible-party constraint unit test.
+test-case:
+  name: The invalid role-has-responsible-party constraint unit test.
+  description: Test that SSP metadata roles do not have responsible parties associated with them.
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+  - constraint-id: role-has-responsible-party
+    result: fail
