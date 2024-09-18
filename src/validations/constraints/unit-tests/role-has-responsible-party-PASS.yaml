@@ -1,0 +1,8 @@
+# Driver for the valid role-has-responsible-party constraint unit test.
+test-case:
+  name: The valid role-has-responsible-party constraint unit test.
+  description: Test that every SSP metadata role has one or more responsible parties associated with it.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: role-has-responsible-party
+    result: pass

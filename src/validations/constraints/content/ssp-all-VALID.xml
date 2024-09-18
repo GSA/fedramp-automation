@@ -26,12 +26,12 @@
     <role id="system-owner">
       <title>System Owner</title>
     </role>
-     <role id="authorizing-official-poc">
-       <title>Authorizing Official Point of Contact</title>
-     </role>
-     <role id="information-system-security-officer">
-       <title>Information System Security Officer (or Equivalent)</title>
-     </role>
+    <role id="authorizing-official-poc">
+      <title>Authorizing Official Point of Contact</title>
+    </role>
+    <role id="information-system-security-officer">
+      <title>Information System Security Officer (or Equivalent)</title>
+    </role>
 
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
@@ -45,6 +45,7 @@
       </address>
       <prop name='data-center' value='aws-us-west-1' class='alternate' ns="https://fedramp.gov/ns/oscal"/>
     </location>
+
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
@@ -53,7 +54,32 @@
     <party uuid="22222222-0000-4000-9000-000000000002" type="person">
       <name>Jane Doe</name>
       <email-address>jane.doe@example.com</email-address>
-    <address type="work"  />
+      <address type="work"  />
+    </party>
+    <party uuid="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" type="person">
+      <name>Tom Doe</name>
+      <email-address>tom.doe@example.com</email-address>
+      <address type="work"/>
+    </party>
+    <party uuid="6b286b5e-8f07-4fa7-8847-1dd0d88f73fb" type="person">
+      <name>Angie Doe</name>
+      <email-address>angie.doe@example.com</email-address>
+      <address type="work"/>
+    </party>
+    <party uuid="7b286b6e-8f07-4fa7-8847-1dd0d88f73fb" type="person">
+      <name>Peter Doe</name>
+      <email-address>peter.doe@example.com</email-address>
+      <address type="work"/>
+    </party>
+    <party uuid="8b286b7e-8f07-4fa7-8847-1dd0d88f73fb" type="person">
+      <name>Mary Doe</name>
+      <email-address>mary.doe@example.com</email-address>
+      <address type="work"/>
+    </party>
+    <party uuid="9b286b8e-8f07-4fa7-8847-1dd0d88f73fb" type="person">
+      <name>Paul Doe</name>
+      <email-address>mary.doe@example.com</email-address>
+      <address type="work"/>
     </party>
 
     <responsible-party role-id="creator">
@@ -62,6 +88,22 @@
     <responsible-party role-id="content-approver">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
+    <responsible-party role-id="system-admin">
+      <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="asset-owner">
+      <party-uuid>6b286b5e-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="system-owner">
+      <party-uuid>7b286b6e-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="authorizing-official-poc">
+      <party-uuid>8b286b7e-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="information-system-security-officer">
+      <party-uuid>9b286b8e-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+    </responsible-party>
+
     <remarks>
       <p>This SSP is an example for demonstration purposes.</p>
     </remarks>
