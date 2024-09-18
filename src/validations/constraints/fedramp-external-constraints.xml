@@ -63,13 +63,13 @@
             <message>A FedRAMP SSP information type categorization must have at least one information type identifier.</message>
             </expect>
             <expect id="has-identity-assurance-level" target="./system-characteristics" test="prop[@name eq 'identity-assurance-level']" level="INFORMATIONAL">
-            <message>A FedRAMP SSP may have a Digital Identity Determination identity assurance level property.</message>
+            <message>This FedRAMP SSP does define its NIST SP 800-63 identity assurance level (IAL).</message>
             </expect>
             <expect id="has-authenticator-assurance-level" target="./system-characteristics" test="prop[@name eq 'authenticator-assurance-level']" level="INFORMATIONAL">
-            <message>A FedRAMP SSP may have a Digital Identity Determination authenticator assurance level property.</message>
+            <message>This FedRAMP SSP does define its NIST SP 800-63 authenticator assurance level (AAL).</message>
             </expect>
             <expect id="has-federation-assurance-level" target="./system-characteristics" test="prop[@name eq 'federation-assurance-level']" level="INFORMATIONAL">
-            <message>A FedRAMP SSP may have a Digital Identity Determination federation assurance level property.</message>
+            <message>This FedRAMP SSP does define its NIST SP 800-63 federation assurance level (IAL).</message>
             </expect>
         </constraints>
     </context>
