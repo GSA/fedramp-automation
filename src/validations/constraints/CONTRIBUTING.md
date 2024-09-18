@@ -149,6 +149,36 @@ The [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file co
 
 **NOTE**: The FedRAMP Automation Team will make a best effort attempt to collaborate with NIST maintainers to merge them upstream and deprecate from this repository accordingly. Until further notice, the FedRAMP Automation Team maintains them here for testing and evaluation until they are sufficiently mature to contribute them upstream.
 
+
+
+## How do I use the `mq` command?
+
+The `mq` command is a utility for querying OSCAL content using Metapath expressions. It's useful for testing and debugging Metapath expressions used in constraints. To use the `mq` command:
+
+1. Navigate to the project root directory.
+2. Run the following npm command:
+
+```sh
+npm run mq
+```
+
+4. You'll be asked to enter the Metapath expression you want to query.
+3. Next, you will be prompted to select an XML file to query against from the `src/validations/constraints/content` directory.
+
+Alternatively, you can provide the Metapath expression and optionally the content file as command-line arguments:
+
+```sh
+npm run mq "<metapath-expression>" [<content-file>]
+```
+
+For example:
+
+```sh
+npm run mq "//party"
+```
+
+This command will evaluate the given Metapath expression against the selected (or specified) OSCAL content file and display the results.
+
 ## How do I learn more about Metaschema and Metapath?
 
 To add or modify constraints and their tests, it is important to understand Metaschema syntax, particularly constraint syntax and Metapath syntax for `@test` and `@target` in the constraints. You can review these pages for more information.
@@ -157,5 +187,3 @@ To add or modify constraints and their tests, it is important to understand Meta
 - [Metapath expression language](https://pages.nist.gov/metaschema/specification/syntax/metapath/)
 - [Metaschema tutorials for modeling and constraints](https://pages.nist.gov/metaschema/tutorials/)
 - [Metaschema complete syntax reference](https://pages.nist.gov/metaschema/specification/syntax/)
-
-## How do 
