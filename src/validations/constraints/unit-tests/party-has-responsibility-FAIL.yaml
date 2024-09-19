@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for party-has-responsibility
+  description: This test case validates the behavior of constraint party-has-responsibility
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+    - constraint-id: party-has-responsibility
+      result: fail

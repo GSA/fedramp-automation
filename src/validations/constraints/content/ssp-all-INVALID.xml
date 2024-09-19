@@ -44,9 +44,6 @@
     <responsible-party role-id="creator">
       <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
     </responsible-party>
-    <responsible-party role-id="content-approver">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
     
     <remarks>
       <p>This SSP is an example for demonstration purposes.</p>
