@@ -1,5 +1,5 @@
 # 6. Test data optimization ADR 
-Date: 2024-09/19
+Date: 2024-09-19
 
 ## Status
 Proposed
