@@ -23,12 +23,17 @@
     <role id="asset-owner">
       <title>Asset Owner</title>
     </role>
+    <role id="role-without-responsible-party">
+      <title>Role not bound to a responsible party</title>
+    </role>
+
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
         <country>WRONG</country>
       </address>
       <prop name='data-center' value='dc-zone-1' class='tertiary' ns="https://fedramp.gov/ns/oscal"/>
     </location>
+
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
