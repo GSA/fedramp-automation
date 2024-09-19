@@ -69,6 +69,8 @@ Examples:
   | interconnection-security-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
+  | party-has-one-responsibility-FAIL.yaml |
+  | party-has-one-responsibility-PASS.yaml |
   | party-has-responsibility-FAIL.yaml |
   | party-has-responsibility-PASS.yaml |
   | privilege-level-FAIL.yaml |
@@ -131,6 +133,7 @@ Examples:
   | interconnection-direction |
   | interconnection-security |
   | missing-response-components |
+  | party-has-one-responsibility |
   | party-has-responsibility |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
