@@ -165,7 +165,13 @@ When("I process the constraint unit test {string}", async function (testFile) {
 
 Then("the constraint unit test should pass", async function () {
   const result = await processTestCase(currentTestCase);
-  expect(result.status).to.equal("pass", result.errorMessage);
+  const testType = currentTestCaseFileName.includes("FAIL") ? "Negative" : "Positive";
+  
+  const errorMessage = result.errorMessage 
+    ? `${testType} test failed: ${result.errorMessage}`
+    : `${testType} test failed without a specific error message`;
+
+  expect(result.status).to.equal("pass", errorMessage);
 });
 
 async function processTestCase({ "test-case": testCase }: any) {
