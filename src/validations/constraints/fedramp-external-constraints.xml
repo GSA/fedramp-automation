@@ -69,7 +69,7 @@
                 <message>This FedRAMP SSP does define its NIST SP 800-63 authenticator assurance level (AAL).</message>
             </expect>
             <expect id="has-federation-assurance-level" target="./system-characteristics" test="prop[@name eq 'federation-assurance-level']" level="INFORMATIONAL">
-                <message>This FedRAMP SSP does define its NIST SP 800-63 federation assurance level (IAL).</message>
+                <message>This FedRAMP SSP does define its NIST SP 800-63 federation assurance level (FAL).</message>
             </expect>
             <expect id="has-authorization-boundary-diagram" target="./system-characteristics/authorization-boundary" test="diagram" level="WARNING">
                 <message>A FedRAMP SSP must have at least one authorization boundary diagram.</message>
