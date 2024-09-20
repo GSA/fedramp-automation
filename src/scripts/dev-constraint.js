@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import xml2js from 'xml2js';
 import yaml from 'js-yaml';
+import {JSDOM} from "jsdom"
 import { execSync } from 'child_process';
 import inquirer from 'inquirer';
 
@@ -12,6 +13,7 @@ const __dirname = new URL('.', import.meta.url).pathname;
 const constraintsDir = path.join(__dirname, '../../src', 'validations', 'constraints');
 const testDir = path.join(__dirname, '../../src', 'validations', 'constraints', 'unit-tests');
 const featureFile = path.join(__dirname,"../../features/", 'fedramp_extensions.feature');
+const constraintContextCache = new Map();
 
 
 const ignoreDocument = "oscal-external-constraints.xml";
@@ -56,20 +58,37 @@ function extractConstraints(xmlObject) {
     return constraints;
 }
 
+
 async function getAllConstraints() {
     const files = fs.readdirSync(constraintsDir).filter(file => file.endsWith('.xml') && file !== ignoreDocument);
     let allConstraints = [];
 
     for (const file of files) {
         const filePath = path.join(constraintsDir, file);
-        const xmlObject = await parseXml(filePath);
-        const constraints = extractConstraints(xmlObject);
-        allConstraints = [...allConstraints, ...constraints];
+        const xmlContent = fs.readFileSync(filePath, 'utf8');
+        const dom = new JSDOM(xmlContent, { contentType: "text/xml" });
+        const document = dom.window.document;
+
+        // Select all 'expect' elements within 'constraints'
+        const expectElements = document.querySelectorAll('constraints expect');
+        expectElements.forEach(expect => {
+            const id = expect.getAttribute('id');
+            if (id) {
+                allConstraints.push(id);
+
+                // Get the context (target) from the parent context element
+                const contextElement = expect.closest('context');
+                const targetElement = contextElement?.querySelector('metapath');
+                const context = targetElement ? targetElement.getAttribute('target') : '';
+                
+                // Store in cache
+                constraintContextCache.set(id, context || '');
+            }
+        });
     }
 
     return [...new Set(allConstraints)].sort();
 }
-
 
 function analyzeTestFiles() {
     const testFiles = fs.readdirSync(testDir).filter(file => file.endsWith('.yaml') || file.endsWith('.yml'));
@@ -103,6 +122,8 @@ function analyzeTestFiles() {
     return testResults;
 }
 
+
+
 async function scaffoldTest(constraintId) {
     const { confirm } = await prompt([
         {
@@ -127,14 +148,18 @@ async function scaffoldTest(constraintId) {
         }
     ]);
 
+    const context = constraintContextCache.get(constraintId) || 'No context available';
+    console.log(`Context for ${constraintId}:\n${context}`);
+
     const { useTemplate } = await prompt([
         {
             type: 'list',
             name: 'useTemplate',
-            message: `Do you want to create a new ${constraintId}-INVALID.xml file or use the existing ${model}-all-INVALID.xml?`,
+            message: `Choose the content for the negative test:`,
             choices: [
                 { name: `Create new ${constraintId}-INVALID.xml`, value: 'new' },
-                { name: `Use existing ${model}-all-INVALID.xml`, value: 'existing' }
+                { name: `Use existing ${model}-all-INVALID.xml`, value: 'existing' },
+                { name: 'Select an existing content file', value: 'select' }
             ]
         }
     ]);
@@ -143,11 +168,61 @@ async function scaffoldTest(constraintId) {
     if (useTemplate === 'new') {
         const templatePath = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content', `${model}-all-INVALID.xml`);
         const newInvalidPath = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content', `${model}-${constraintId}-INVALID.xml`);
-        fs.copyFileSync(templatePath, newInvalidPath);
-        console.log(`Created new ${model}-${constraintId}-INVALID.xml file`);
-        invalidContent = `../content/${model}-${constraintId}-INVALID.xml`;
-    } else {
+        
+        // Read the template XML
+        const templateXml = fs.readFileSync(templatePath, 'utf8');
+        const dom = new JSDOM(templateXml, { contentType: "text/xml" });
+        const document = dom.window.document;
+
+        // Use XPath to select the node specified by the context
+        const xpathResult = document.evaluate(context, document, null, dom.window.XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+        let relevantNode = xpathResult.singleNodeValue;
+
+        if (relevantNode) {
+            // Create a new document
+            const newDoc = document.implementation.createDocument(null, null, null);
+            
+            // Function to recursively clone nodes and their ancestors
+            function cloneWithAncestors(node, newParent) {
+                if (node.parentNode && node.parentNode.nodeType === dom.window.Node.ELEMENT_NODE) {
+                    const parentClone = newDoc.createElement(node.parentNode.nodeName);
+                    cloneWithAncestors(node.parentNode, parentClone);
+                    parentClone.appendChild(newParent);
+                } else {
+                    newDoc.appendChild(newParent);
+                }
+            }
+
+            // Clone the relevant node and its ancestors
+            const relevantClone = newDoc.importNode(relevantNode, true);
+            cloneWithAncestors(relevantNode, relevantClone);
+
+            // Serialize the new document
+            const serializer = new dom.window.XMLSerializer();
+            const filteredXml = serializer.serializeToString(newDoc);
+
+            // Write the new invalid XML file
+            fs.writeFileSync(newInvalidPath, filteredXml, 'utf8');
+            console.log(`Created new ${model}-${constraintId}-INVALID.xml file`);
+            invalidContent = `../content/${model}-${constraintId}-INVALID.xml`;
+        } else {
+            console.log(`Warning: Could not find the specified context in the template. Using the full template.`);
+            invalidContent = `../content/${model}-all-INVALID.xml`;
+        }
+    } else if (useTemplate === 'existing') {
         invalidContent = `../content/${model}-all-INVALID.xml`;
+    } else {
+        const contentDir = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content');
+        const contentFiles = fs.readdirSync(contentDir).filter(file => file.endsWith('.xml'));
+        const { selectedContent } = await prompt([
+            {
+                type: 'list',
+                name: 'selectedContent',
+                message: 'Select an existing content file:',
+                choices: contentFiles
+            }
+        ]);
+        invalidContent = `../content/${selectedContent}`;
     }
 
     const positivetestCase = {
@@ -187,6 +262,8 @@ async function scaffoldTest(constraintId) {
     fs.writeFileSync(negativefilePath, negativeYamlContent, 'utf8');
     console.log(`Scaffolded test for ${constraintId} at ${positiveFilePath}`);
     console.log(`Scaffolded test for ${constraintId} at ${negativefilePath}`);
+
+    return true;
 }
 
 async function selectConstraints(allConstraints) {    
