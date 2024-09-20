@@ -71,25 +71,22 @@
             <expect id="has-federation-assurance-level" target="./system-characteristics" test="prop[@name eq 'federation-assurance-level']" level="INFORMATIONAL">
                 <message>This FedRAMP SSP does define its NIST SP 800-63 federation assurance level (FAL).</message>
             </expect>
-            <expect id="has-authorization-boundary-diagram" target="./system-characteristics/authorization-boundary" test="diagram" level="WARNING">
+            <expect id="has-authorization-boundary-diagram" target="system-characteristics/authorization-boundary" test="diagram" level="WARNING">
                 <message>A FedRAMP SSP must have at least one authorization boundary diagram.</message>
             </expect>
-            <expect id="has-authorization-boundary-diagram-uuid" target="./system-characteristics/authorization-boundary" test="diagram/@uuid" level="ERROR">
-                <message>Each authorization boundary diagram in a FedRAMP SSP must have a unique identifier.</message>
-            </expect>
-            <expect id="has-authorization-boundary-diagram-description" target="./system-characteristics/authorization-boundary" test="diagram/description" level="ERROR">
+            <expect id="has-authorization-boundary-diagram-description" target="system-characteristics/authorization-boundary/diagram" test="description" level="ERROR">
                 <message>A FedRAMP SSP document authorization boundary diagram must have a description.</message>
             </expect>
-            <expect id="has-authorization-boundary-diagram-link" target="./system-characteristics/authorization-boundary" test="diagram/link" level="ERROR">
+            <expect id="has-authorization-boundary-diagram-link" target="system-characteristics/authorization-boundary/diagram" test="link" level="ERROR">
                 <message>Each FedRAMP SSP authorization boundary diagram must have a link.</message>
             </expect>
-            <expect id="has-authorization-boundary-diagram-link-rel" target="./system-characteristics/authorization-boundary" test="diagram/link/@rel" level="ERROR">
+            <expect id="has-authorization-boundary-diagram-link-rel" target="system-characteristics/authorization-boundary/diagram/link" test="@rel" level="ERROR">
                 <message>Each FedRAMP SSP authorization boundary diagram must have a link rel attribute.</message>
             </expect>
-            <expect id="has-authorization-boundary-diagram-link-rel-allowed-value" target="./system-characteristics/authorization-boundary" test="diagram/link/@rel eq 'diagram'" level="ERROR">
+            <expect id="has-authorization-boundary-diagram-link-rel-allowed-value" target="system-characteristics/authorization-boundary/diagram/link" test="@rel eq 'diagram'" level="ERROR">
                 <message>Each FedRAMP SSP authorization boundary diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
-            <expect id="has-authorization-boundary-diagram-caption" target="./system-characteristics/authorization-boundary" test="diagram/caption" level="ERROR">
+            <expect id="has-authorization-boundary-diagram-caption" target="system-characteristics/authorization-boundary/diagram" test="caption" level="ERROR">
                 <message>Each FedRAMP SSP authorization boundary diagram must have a caption.</message>
             </expect>
             <expect id="has-network-architecture" target="system-characteristics" test="network-architecture" level="ERROR">

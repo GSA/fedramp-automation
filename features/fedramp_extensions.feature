@@ -57,8 +57,6 @@ Examples:
   | has-authorization-boundary-diagram-link-rel-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
-  | has-authorization-boundary-diagram-uuid-FAIL.yaml |
-  | has-authorization-boundary-diagram-uuid-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
@@ -151,7 +149,6 @@ Examples:
   | has-authorization-boundary-diagram-link |
   | has-authorization-boundary-diagram-link-rel |
   | has-authorization-boundary-diagram-link-rel-allowed-value |
-  | has-authorization-boundary-diagram-uuid |
   | has-configuration-management-plan |
   | has-federation-assurance-level |
   | has-identity-assurance-level |
