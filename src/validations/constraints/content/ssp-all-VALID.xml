@@ -113,6 +113,18 @@
         <p>The authorization boundary includes all components within the main data center and the disaster recovery site.</p>
       </description>
     </authorization-boundary>
+    <network-architecture>
+         <description>
+            <p>A holistic, top-level explanation of the network architecture.</p>
+         </description>
+         <diagram uuid="e97c3395-433a-48c1-8cc7-dd1e1555941c">
+            <description>
+               <p>A diagram-specific explanation.</p>
+            </description>
+            <link href="#61081e81-850b-43c1-bf43-1ecbddcb9e7f" rel="diagram"/>
+            <caption>Network Diagram</caption>
+         </diagram>
+      </network-architecture>
   </system-characteristics>
   
   <system-implementation>
