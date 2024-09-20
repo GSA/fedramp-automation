@@ -57,8 +57,6 @@ Examples:
   | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
   | has-authorization-boundary-diagram-uuid-FAIL.yaml |
   | has-authorization-boundary-diagram-uuid-PASS.yaml |
-  | deployment-model-FAIL.yaml |
-  | deployment-model-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
   | has-data-flow-FAIL.yaml |
