@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-network-architecture-diagram-uuid
+  description: >-
+    This test case validates the behavior of constraint
+    has-network-architecture-diagram-uuid
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+    - constraint-id: has-network-architecture-diagram-uuid
+      result: fail
