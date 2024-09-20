@@ -105,12 +105,6 @@ Examples:
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |
   | has-security-impact-level-PASS.yaml |
-  | has-security-objective-availability-FAIL.yaml |
-  | has-security-objective-availability-PASS.yaml |
-  | has-security-objective-confidentiality-FAIL.yaml |
-  | has-security-objective-confidentiality-PASS.yaml |
-  | has-security-objective-integrity-FAIL.yaml |
-  | has-security-objective-integrity-PASS.yaml |
   | has-security-sensitivity-level-FAIL.yaml |
   | has-security-sensitivity-level-PASS.yaml |
   | has-separation-of-duties-matrix-FAIL.yaml |
@@ -229,9 +223,6 @@ Examples:
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-rules-of-behavior |
   | has-security-impact-level |
-  | has-security-objective-availability |
-  | has-security-objective-confidentiality |
-  | has-security-objective-integrity |
   | has-security-sensitivity-level |
   | has-separation-of-duties-matrix |
   | has-system-id |

@@ -34,9 +34,6 @@
       </information-type>
     </system-information>
     <!-- security-impact-level was removed to ensure that test fails correctly. -->
-    <!-- security-objective-confidentiality was removed to ensure that test fails correctly. -->
-    <!-- security-objective-integrity was removed to ensure that test fails correctly. -->
-    <!-- security-objective-availability was removed to ensure that test fails correctly. -->
     <status state="operational"/>
     
     <authorization-boundary>
