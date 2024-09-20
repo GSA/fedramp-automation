@@ -109,6 +109,19 @@ docker-compose run \
   /root/vendor/xspec/bin/xspec.sh -s -j ./test/test_all.xspec
 ```
 
+
+### Rerunning Failed Tests
+
+After running the full test suite, you may want to rerun only the failed tests for quicker debugging. To do this, you can use the following npm script:
+
+```sh
+npm run test:failed
+```
+
+This command will rerun only the tests that failed in the previous execution. It's particularly useful when you're fixing issues and want to verify that your changes have resolved the failures without running the entire test suite again.
+
+Note: Make sure you've run the full test suite at least once before using this command, as it relies on the `@rerun.txt` file generated during the initial run.
+
 ## Adding tests to the harness
 
 To add new tests, add an import to the `./test/test_all.xpec` file. For example:
