@@ -71,8 +71,6 @@ Examples:
   | has-information-system-contingency-plan-PASS.yaml |
   | has-network-architecture-FAIL.yaml |
   | has-network-architecture-PASS.yaml |
-  | has-network-architecture-description-FAIL.yaml |
-  | has-network-architecture-description-PASS.yaml |
   | has-network-architecture-diagram-FAIL.yaml |
   | has-network-architecture-diagram-PASS.yaml |
   | has-network-architecture-diagram-caption-FAIL.yaml |
@@ -85,8 +83,6 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
-  | has-network-architecture-diagram-uuid-FAIL.yaml |
-  | has-network-architecture-diagram-uuid-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-separation-of-duties-matrix-FAIL.yaml |
@@ -162,14 +158,12 @@ Examples:
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
   | has-network-architecture |
-  | has-network-architecture-description |
   | has-network-architecture-diagram |
   | has-network-architecture-diagram-caption |
   | has-network-architecture-diagram-description |
   | has-network-architecture-diagram-link |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
-  | has-network-architecture-diagram-uuid |
   | has-rules-of-behavior |
   | has-separation-of-duties-matrix |
   | has-user-guide |

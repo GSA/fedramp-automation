@@ -103,9 +103,6 @@
       <description>
         <p>A holistic, top-level explanation of the network architecture.</p>
       </description>
-      <diagram uuid="e97c3395-433a-48c1-8cc7-dd1e1555941c">
-        <link href="#61081e81-850b-43c1-bf43-1ecbddcb9e7f" rel="not-diagram"/>
-      </diagram>
     </network-architecture>
   </system-characteristics>
   

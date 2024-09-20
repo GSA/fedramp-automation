@@ -92,34 +92,27 @@
             <expect id="has-authorization-boundary-diagram-caption" target="./system-characteristics/authorization-boundary" test="diagram/caption" level="ERROR">
                 <message>Each FedRAMP SSP authorization boundary diagram must have a caption.</message>
             </expect>
-            <expect id="has-network-architecture" target="./system-characteristics" test="network-architecture" level="ERROR">
+            <expect id="has-network-architecture" target="system-characteristics" test="network-architecture" level="ERROR">
                 <message>A FedRAMP SSP must include a network architecture.</message>
             </expect>
-            <expect id="has-network-architecture-diagram" target="./system-characteristics" test="network-architecture/diagram" level="WARNING">
+            <expect id="has-network-architecture-diagram" target="system-characteristics/network-architecture" test="diagram" level="WARNING">
                 <message>A FedRAMP SSP must have at least one network architecture diagram.</message>
             </expect>
-            <expect id="has-network-architecture-diagram-uuid" target="./system-characteristics" test="network-architecture/diagram/@uuid" level="ERROR">
-                <message>Each FedRAMP SSP network architecture diagram must have a unique identifier.</message>
-            </expect>
-            <expect id="has-network-architecture-diagram-description" target="./system-characteristics" test="network-architecture/diagram/description" level="ERROR">
+            <expect id="has-network-architecture-diagram-description" target="system-characteristics/network-architecture/diagram" test="description" level="ERROR">
                 <message>Each FedRAMP SSP network architecture diagram must have a description.</message>
             </expect>
-            <expect id="has-network-architecture-diagram-link" target="./system-characteristics" test="network-architecture/diagram/link" level="ERROR">
+            <expect id="has-network-architecture-diagram-link" target="system-characteristics/network-architecture/diagram" test="link" level="ERROR">
                 <message>Each FedRAMP SSP network architecture diagram must have a link.</message>
             </expect>
-            <expect id="has-network-architecture-diagram-caption" target="./system-characteristics" test="network-architecture/diagram/caption" level="ERROR">
+            <expect id="has-network-architecture-diagram-caption" target="system-characteristics/network-architecture/diagram" test="caption" level="ERROR">
                 <message>Each FedRAMP SSP network architecture diagram must have a caption.</message>
             </expect>
-            <expect id="has-network-architecture-diagram-link-rel" target="./system-characteristics" test="network-architecture/diagram/link/@rel" level="ERROR">
+            <expect id="has-network-architecture-diagram-link-rel" target="system-characteristics/network-architecture/diagram/link" test="@rel" level="ERROR">
                 <message>Each FedRAMP SSP network architecture diagram must have a link rel attribute.</message>
             </expect>
-            <expect id="has-network-architecture-diagram-link-rel-allowed-value" target="./system-characteristics" test="network-architecture/diagram/link/@rel eq 'diagram'" level="ERROR">
+            <expect id="has-network-architecture-diagram-link-rel-allowed-value" target="system-characteristics/network-architecture/diagram/link" test="@rel eq 'diagram'" level="ERROR">
                 <message>Each FedRAMP SSP network architecture diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
-            <expect id="has-network-architecture-description" target="./system-characteristics" test="network-architecture/description" level="ERROR">
-                <message>A FedRAMP SSP must have a network architecture description.</message>
-            </expect>
-
         </constraints>
     </context>
     <context>
