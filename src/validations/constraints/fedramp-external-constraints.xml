@@ -72,7 +72,7 @@
             <message>This FedRAMP SSP does define its NIST SP 800-63 federation assurance level (IAL).</message>
             </expect>
             <expect id="has-network-architecture" target="./system-characteristics" test="network-architecture" level="ERROR">
-                <message>A FedRAMP SSP must include a network architecture diagram.</message>
+                <message>A FedRAMP SSP must include a network architecture.</message>
             </expect>
             <expect id="has-network-architecture-diagram" target="./system-characteristics" test="network-architecture/diagram" level="WARNING">
                 <message>A FedRAMP SSP must have at least one network architecture diagram.</message>
