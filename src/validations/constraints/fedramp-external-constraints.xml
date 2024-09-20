@@ -78,19 +78,19 @@
                 <message>Each authorization boundary diagram in a FedRAMP SSP must have a unique identifier.</message>
             </expect>
             <expect id="has-authorization-boundary-diagram-description" target="./system-characteristics/authorization-boundary" test="diagram/description" level="ERROR">
-                <message>An OSCAL SSP document authorization boundary diagram has a description.</message>
+                <message>A FedRAMP SSP document authorization boundary diagram must have a description.</message>
             </expect>
             <expect id="has-authorization-boundary-diagram-link" target="./system-characteristics/authorization-boundary" test="diagram/link" level="ERROR">
-                <message>Each FedRAMP SSP authorization boundary diagram has a link.</message>
+                <message>Each FedRAMP SSP authorization boundary diagram must have a link.</message>
             </expect>
             <expect id="has-authorization-boundary-diagram-link-rel" target="./system-characteristics/authorization-boundary" test="diagram/link/@rel" level="ERROR">
-                <message>Each FedRAMP SSP authorization boundary diagram has a link rel attribute.</message>
+                <message>Each FedRAMP SSP authorization boundary diagram must have a link rel attribute.</message>
             </expect>
             <expect id="has-authorization-boundary-diagram-link-rel-allowed-value" target="./system-characteristics/authorization-boundary" test="diagram/link/@rel eq 'diagram'" level="ERROR">
-                <message>Each FedRAMP SSP authorization boundary diagram has a link rel attribute with the value "diagram".</message>
+                <message>Each FedRAMP SSP authorization boundary diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
             <expect id="has-authorization-boundary-diagram-caption" target="./system-characteristics/authorization-boundary" test="diagram/caption" level="ERROR">
-                <message>Each FedRAMP SSP authorization boundary diagram has a caption.</message>
+                <message>Each FedRAMP SSP authorization boundary diagram must have a caption.</message>
             </expect>
         </constraints>
     </context>
