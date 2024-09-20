@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-authorization-boundary-diagram-link-rel-allowed-value
+  description: >-
+    This test case validates the behavior of constraint
+    has-authorization-boundary-diagram-link-rel-allowed-value
+  content: ../content/ssp-all-INVALID.xml
+  expectations:
+    - constraint-id: has-authorization-boundary-diagram-link-rel-allowed-value
+      result: fail
