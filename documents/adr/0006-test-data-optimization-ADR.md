@@ -25,7 +25,7 @@ No decision has currently been made.
 Solution 1: 
 - Current average test execution time is maintained.  
 - Test suite cannot be realistically enhanced whenever there is a conflicting requirement, which will be often.  
-- Development and maintenance of individual tests and overall test suite will slow and eventually halt.  
+- Development and maintenance of individual tests and overall test suite will slow and eventually halt. One such example recently occurred and our developers had to apply this approach to resolve test failures in [GSA/fedramp-automation#710](https://github.com/GSA/fedramp-automation/pull/710).
 
 Solution 2:
 - Longer test run time.  
