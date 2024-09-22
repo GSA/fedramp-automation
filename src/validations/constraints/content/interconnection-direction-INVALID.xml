@@ -23,22 +23,15 @@
     <role id="asset-owner">
       <title>Asset Owner</title>
     </role>
-    <location uuid="11111112-0000-4000-9001-000000000009">
-      <address >
-        <country>WRONG</country>
-      </address>
-      <prop name='data-center' value='dc-zone-1' class='tertiary' ns="https://fedramp.gov/ns/oscal"/>
-    </location>
+    
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
       <link rel="website" href="https://example.com"/>
-      <address type="unsupported-type"  />
     </party>
     <party uuid="22222222-0000-4000-9000-000000000002" type="person">
       <name>Jane Doe</name>
       <email-address>jane.doe@example.com</email-address>
-      <address type="unsupported-type"  />
     </party>
     
     <responsible-party role-id="creator">
@@ -53,7 +46,7 @@
     </remarks>
   </metadata>
   
-  <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
+  <import-profile href="../../../../dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
   
   <system-characteristics>
     <system-id identifier-type="https://fedramp.gov">F00000001</system-id>
@@ -61,9 +54,6 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
-    <prop name='cloud-service-model' value='unsupported-model' ns="https://fedramp.gov/ns/oscal"/>
-    <prop name='cloud-deployment-model' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
-    <prop name='authorization-type' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
     <security-sensitivity-level>moderate</security-sensitivity-level>
     <system-information>
       <information-type uuid="33333333-0000-4000-9000-000000000003">
@@ -71,8 +61,8 @@
         <description>
           <p>Contains sensitive financial data related to organizational operations.</p>
         </description>
-        <categorization system="https://unsupported-system.com">
-          <!-- Removed information-type-id to ensure that categorization-has-information-type-id fails correctly. -->
+        <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+          <information-type-id>C.2.8.12</information-type-id>
         </categorization>
         <confidentiality-impact>
           <base>high</base>
@@ -85,42 +75,27 @@
         </availability-impact>
       </information-type>
     </system-information>
-    
     <security-impact-level>
       <security-objective-confidentiality>moderate</security-objective-confidentiality>
       <security-objective-integrity>moderate</security-objective-integrity>
       <security-objective-availability>moderate</security-objective-availability>
     </security-impact-level>
-    
     <status state="operational"/>
-    
     <authorization-boundary>
       <description>
         <p>The authorization boundary includes all components within the main data center and the disaster recovery site.</p>
       </description>
-      <diagram uuid="dbf46c27-52a9-49c4-beb6-b6399cd75497">
-        <link href="#d2eb3c18-6754-4e3a-a933-03d289e3fad5"/>
-      </diagram>
     </authorization-boundary>
-    <network-architecture>
-      <description>
-        <p>A holistic, top-level explanation of the network architecture.</p>
-      </description>
-      <diagram uuid="e97c3395-433a-48c1-8cc7-dd1e1555941c">
-        <link href="#61081e81-850b-43c1-bf43-1ecbddcb9e7f" rel="not-diagram"/>
-      </diagram>
-    </network-architecture>
   </system-characteristics>
   
   <system-implementation>
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
-      <prop name="type" value="unsupported-type"/>
-      <prop name="privilege-level" value="unsupported-access-type"/>
+      <prop name="type" value="internal"/>
       <role-id>system-admin</role-id>
     </user>
     
-    <component uuid="55555555-0000-4000-9000-000000000005" type="unsupported-component-type">
+    <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
       <title>Primary Application Server</title>
       <description>
         <p>Main application server hosting the core system functionality.</p>
@@ -140,8 +115,8 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="interconnection-direction" value="unsupported-direction" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-security" value="unsupported-security" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-direction" value="unsupported-direction" ns="https://fedramp.gov/ns/oscal"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
@@ -157,10 +132,10 @@
       </description>
       <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
       <prop name="asset-type" value="database"/>
-      <prop name="allows-authenticated-scan" value="unsupported-scan"/>
-      <prop name="public" value="unsupported-public"/>
-      <prop name="virtual" value="unsupported-virtual"/>
-      <prop name="scan-type" value="unsupported-scan-type" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="allows-authenticated-scan" value="yes"/>
+      <prop name="public" value="no"/>
+      <prop name="virtual" value="yes"/>
+      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
       <responsible-party role-id="asset-owner">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>
@@ -175,15 +150,15 @@
       <p>Implementation of controls for the Enhanced Example System</p>
     </description>
     <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
-      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="implementation-status" value="unsupported-status" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
       </statement>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
         <description>
           <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
@@ -191,14 +166,14 @@
     </implemented-requirement>
     
     <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
-      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
       </statement>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000000d">
         <description>
           <p>Information System Component Inventory (CM-8) is partially implemented.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
@@ -208,12 +183,12 @@
   
   <back-matter>
     <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
-      <!-- There is no <title/> to purposefully to trigger an error for negative testing. -->
+      <title>Access Control Policy</title>
       <description>
         <p>Detailed access control policy document</p>
       </description>
-      <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
-      <!-- There is no <rlink/> to purposefully to trigger an error for negative testing. -->
+      <prop name="type" value="policy"/>
+      <rlink href="https://example.com/policies/access-control.pdf"/>
     </resource>
   </back-matter>
 </system-security-plan>
