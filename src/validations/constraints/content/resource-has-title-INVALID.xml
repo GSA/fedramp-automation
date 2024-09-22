@@ -72,6 +72,7 @@
           <p>Contains sensitive financial data related to organizational operations.</p>
         </description>
         <categorization system="https://unsupported-system.com">
+          <!-- Removed information-type-id to ensure that categorization-has-information-type-id fails correctly. -->
         </categorization>
         <confidentiality-impact>
           <base>high</base>
@@ -207,10 +208,12 @@
   
   <back-matter>
     <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
+      <!-- There is no <title/> to purposefully to trigger an error for negative testing. -->
       <description>
         <p>Detailed access control policy document</p>
       </description>
       <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
+      <!-- There is no <rlink/> to purposefully to trigger an error for negative testing. -->
     </resource>
   </back-matter>
 </system-security-plan>
