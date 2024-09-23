@@ -1,7 +1,7 @@
 test-case:
   name: Negative Test for user-type
   description: This test case validates the behavior of constraint user-type
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-user-type-INVALID.xml
   expectations:
     - constraint-id: user-type
       result: fail

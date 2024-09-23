@@ -2,7 +2,7 @@
 test-case:
   name: The invalid control implementation status test.
   description: Test that the specified control implementation status is invalid.
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-control-implementation-status-INVALID.xml
   expectations:
   - constraint-id: control-implementation-status
     result: fail

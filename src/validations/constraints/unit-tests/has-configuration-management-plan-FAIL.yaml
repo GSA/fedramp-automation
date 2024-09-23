@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     has-configuration-management-plan
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-has-configuration-management-plan-INVALID.xml
   expectations:
     - constraint-id: has-configuration-management-plan
       result: fail

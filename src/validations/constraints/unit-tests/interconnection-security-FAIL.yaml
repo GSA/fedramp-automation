@@ -2,7 +2,7 @@
 test-case:
   name: The invalid interconnection security test.
   description: Test that the specified interconnection security is invalid.
-  content: ../content/ssp-interconnection-INVALID.xml
+  content: ../content/ssp-interconnection-security-INVALID.xml
   expectations:
   - constraint-id: interconnection-security
     result: fail

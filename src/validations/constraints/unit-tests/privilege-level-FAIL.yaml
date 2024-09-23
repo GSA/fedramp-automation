@@ -1,7 +1,7 @@
 test-case:
   name: Negative Test for privilege-level
   description: This test case validates the behavior of constraint privilege-level
-  content: ssp-all-INVALID.xml
+  content: ssp-privilege-level-INVALID.xml
   expectations:
     - constraint-id: privilege-level
       result: fail

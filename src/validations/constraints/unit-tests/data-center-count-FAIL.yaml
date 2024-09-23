@@ -1,7 +1,7 @@
 test-case:
   name: Negative Test for data-center-count
   description: This test case validates the behavior of constraint data-center-count
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-data-center-count-INVALID.xml
   expectations:
     - constraint-id: data-center-count
       result: fail

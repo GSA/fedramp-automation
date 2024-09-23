@@ -1,7 +1,7 @@
 test-case:
   name: Negative Test for has-network-architecture
   description: This test case validates the behavior of constraint has-network-architecture
-  content: ../content/has-network-architecture-INVALID.xml
+  content: ../content/ssp-has-network-architecture-INVALID.xml
   expectations:
     - constraint-id: has-network-architecture
       result: fail

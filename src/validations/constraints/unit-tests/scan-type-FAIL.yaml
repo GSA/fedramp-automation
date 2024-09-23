@@ -2,7 +2,7 @@
 test-case:
   name: The invalid scan type test.
   description: Test that the specified scan type is invalid.
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-scan-type-INVALID.xml
   expectations:
   - constraint-id: scan-type
     result: fail

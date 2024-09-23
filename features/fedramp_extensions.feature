@@ -41,8 +41,8 @@ Examples:
   | data-center-primary-PASS.yaml |
   | data-center-us-FAIL.yaml |
   | data-center-us-PASS.yaml |
-  | deployment-mode-FAIL.yaml |
-  | deployment-mode-PASS.yaml |
+  | deployment-model-FAIL.yaml |
+  | deployment-model-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
   | has-authenticator-assurance-level-PASS.yaml |
   | has-authorization-boundary-diagram-FAIL.yaml |

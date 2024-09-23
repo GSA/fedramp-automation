@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     has-federation-assurance-level
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-has-federation-assurance-level-INVALID.xml
   expectations:
     - constraint-id: has-federation-assurance-level
       result: fail

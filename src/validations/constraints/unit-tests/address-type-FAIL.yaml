@@ -2,7 +2,7 @@
 test-case:
   name: Test Invalid Address Type Use
   description: Test that the specified address type is invalid.
-  content: ../content/ssp-all-INVALID.xml # the content to run
+  content: ../content/ssp-address-type-INVALID.xml # the content to run
   expectations: # check the constraint result
   - constraint-id: address-type
     result: fail

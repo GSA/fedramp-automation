@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     missing-response-components
-  content: ../content/ssp-missing-by-component-INVALID.xml
+  content: ../content/ssp-missing-response-components-INVALID.xml
   expectations:
     - constraint-id: missing-response-components
       result: fail
