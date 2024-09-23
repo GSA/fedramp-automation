@@ -26,6 +26,6 @@ The experimental FedRAMP OSCAL Registry is no longer being maintained and will b
 - FedRAMP Extensions HTML - ([rev 4 only](./rev4/FedRAMP_extensions.html)) - **DEPRECATED**
 - FedRAMP Extensions PDF - ([rev 4 only](./rev4/FedRAMP_extensions.pdf)) - **DEPRECATED**
 
-**NOTE - DEPRECATED CONTENTS WILL BE REMOVED FROM THE CODEBASE WHEN THE NEXT MAJOR RELEASE IS MADE AVAILABLE**
+**NOTE - CONTENT IN THIS FOLDER OR SUBFOLDER IS DEPRECATED. SUBSEQUENT RELEASES WILL NOT INCLUDE THIS CONTENT.**
 
 ---
