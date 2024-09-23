@@ -204,37 +204,34 @@ async function scaffoldTest(constraintId,context) {
                 // Create a new document
                 const newDoc = document.implementation.createDocument(null, null, null);
                 
-                // Function to recursively clone nodes and their ancestors
-               // Function to recursively clone nodes and their ancestors while preserving namespaces
-function cloneWithAncestors(node, newParent) {
-    if (node.parentNode && node.parentNode.nodeType === dom.window.Node.ELEMENT_NODE) {
-        // Clone the parent node, ensuring we carry over the namespace
-        const parentClone = newDoc.createElementNS(
-            node.parentNode.namespaceURI, 
-            node.parentNode.nodeName
-        );
-        
-        // Clone the attributes (except schema declaration)
-        Array.from(node.parentNode.attributes).forEach(attr => {
-            if (!attr.name.includes('schemaLocation')) {
-                parentClone.setAttributeNS(attr.namespaceURI, attr.name, attr.value);
-            }
-        });
+                // Function to recursively clone nodes and their ancestors while preserving namespaces
+                function cloneWithAncestors(node, newParent) {
+                    if (node.parentNode && node.parentNode.nodeType === dom.window.Node.ELEMENT_NODE) {
+                        // Clone the parent node, ensuring we carry over the namespace
+                        const parentClone = newDoc.createElementNS(
+                            node.parentNode.namespaceURI, 
+                            node.parentNode.nodeName
+                        );
+                        
+                        // Clone the attributes (except schema declaration)
+                        Array.from(node.parentNode.attributes).forEach(attr => {
+                            if (!attr.name.includes('schemaLocation')) {
+                                parentClone.setAttributeNS(attr.namespaceURI, attr.name, attr.value);
+                            }
+                        });
 
-        // Recursively clone its ancestors
-        cloneWithAncestors(node.parentNode, parentClone);
-        parentClone.appendChild(newParent);
-    } else {
-        newDoc.appendChild(newParent);
-    }
-}
-
-                // Clone all matching nodes and their ancestors
-                for (let i = 0; i < xpathResult.snapshotLength; i++) {
-                    const relevantNode = xpathResult.snapshotItem(i);
-                    const relevantClone = newDoc.importNode(relevantNode, true);
-                    cloneWithAncestors(relevantNode, relevantClone);
+                        // Recursively clone its ancestors
+                        cloneWithAncestors(node.parentNode, parentClone);
+                        parentClone.appendChild(newParent);
+                    } else {
+                        newDoc.appendChild(newParent);
+                    }
                 }
+
+                // Clone only the first matching node and its ancestors
+                const relevantNode = xpathResult.snapshotItem(0);
+                const relevantClone = newDoc.importNode(relevantNode, true);
+                cloneWithAncestors(relevantNode, relevantClone);
 
                 // Serialize the new document
                 const serializer = new dom.window.XMLSerializer();
@@ -433,7 +430,6 @@ async function main() {
         if (!testCoverage) {
             console.log(`${constraintId}: No tests found`);
             var context = allContext[constraintId]
-            console.log(allContext);
             console.log(`${context}: constraint context`);
             const scaffold = await scaffoldTest(constraintId,context);
             if (scaffold) {
