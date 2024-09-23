@@ -47,10 +47,6 @@
     <responsible-party role-id="developer">
       <party-uuid>11111111-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
-    
-    <remarks>
-      <p>This SSP is an example for demonstration purposes.</p>
-    </remarks>
   </metadata>
   
 </system-security-plan>
