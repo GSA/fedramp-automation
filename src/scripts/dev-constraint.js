@@ -163,8 +163,7 @@ async function scaffoldTest(constraintId,context) {
             message: `Choose the content for the negative test:`,
             choices: [
                 { name: `Create new ${constraintId}-INVALID.xml`, value: 'new' },
-                { name: `Use existing ${model}-all-INVALID.xml (deprecated)`, value: 'existing' },
-                { name: 'Select an existing content file', value: 'select' }
+                { name: 'Select an existing content file to copy', value: 'select' }
             ]
         }
     ]);
@@ -260,8 +259,6 @@ function cloneWithAncestors(node, newParent) {
             fs.copyFileSync(templatePath, newInvalidPath);
             invalidContent = `../content/${model}-${constraintId}-INVALID.xml`;
         }
-    }  else if (useTemplate === 'existing') {
-        invalidContent = `../content/${model}-all-INVALID.xml`;
     } else {
         const contentDir = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content');
         const contentFiles = fs.readdirSync(contentDir).filter(file => file.endsWith('.xml'));
@@ -269,11 +266,20 @@ function cloneWithAncestors(node, newParent) {
             {
                 type: 'list',
                 name: 'selectedContent',
-                message: 'Select an existing content file:',
+                message: 'Select an existing content file to copy:',
                 choices: contentFiles
             }
         ]);
-        invalidContent = `../content/${selectedContent}`;
+
+        // Create a new invalid XML file based on the selected content
+        const selectedContentPath = path.join(contentDir, selectedContent);
+        const newInvalidPath = path.join(contentDir, `${model}-${constraintId}-INVALID.xml`);
+        
+        // Copy the selected content to the new file
+        fs.copyFileSync(selectedContentPath, newInvalidPath);
+        console.log(`Created new ${model}-${constraintId}-INVALID.xml file based on ${selectedContent}`);
+        
+        invalidContent = `../content/${model}-${constraintId}-INVALID.xml`;
     }
 
     const positivetestCase = {
@@ -415,7 +421,6 @@ async function runCucumberTest(constraintId, testFiles) {
 async function main() {
     const {constraints:allConstraints,allContext} = await getAllConstraints();
     console.log(`Found ${allConstraints.length} constraints.`);
-    console.log(allContext);
     const selectedConstraints = await selectConstraints(allConstraints);
     console.log(`Selected ${selectedConstraints.length} constraints for analysis.`);
 
