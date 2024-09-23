@@ -27,6 +27,7 @@ let currentTestCase: {
   pipelines: [];
   expectations: [{ "constraint-id": string; result: string }];
 };
+let currentTestCaseFileName:string;
 let processedContentPath: string;
 let ignoreDocument: string = "oscal-external-constraints.xml";
 let metaschemaDocuments: string[] = [];
@@ -157,13 +158,20 @@ When("I process the constraint unit test {string}", async function (testFile) {
     "unit-tests"
   );
   const filePath = join(constraintTestDir, testFile);
+  currentTestCaseFileName = testFile;
   const fileContents = readFileSync(filePath, "utf8");
   currentTestCase = load(fileContents) as any;
 });
 
 Then("the constraint unit test should pass", async function () {
   const result = await processTestCase(currentTestCase);
-  expect(result.status).to.equal("pass", result.errorMessage);
+  const testType = currentTestCaseFileName.includes("FAIL") ? "Negative" : "Positive";
+  
+  const errorMessage = result.errorMessage 
+    ? `${testType} test failed: ${result.errorMessage}`
+    : `${testType} test failed without a specific error message`;
+
+  expect(result.status).to.equal("pass", errorMessage);
 });
 
 async function processTestCase({ "test-case": testCase }: any) {
@@ -217,9 +225,13 @@ async function processTestCase({ "test-case": testCase }: any) {
       console.log("Using cached validation result from "+cacheKey);
       sarifResponse = validationCache.get(cacheKey)!;
     }else{
+      let args = [];
+      if(currentTestCaseFileName.includes("FAIL")){
+        args.push("--disable-schema-validation")
+      }
     sarifResponse = await validateWithSarif([
       processedContentPath,
-      "--sarif-include-pass",
+      ...args,
       ...metaschemaDocuments.flatMap((x) => ["-c", x]),
     ]);
     validationCache.set(cacheKey,sarifResponse);
