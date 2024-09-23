@@ -1,12 +1,12 @@
 {
   "catalog": {
-    "uuid": "c82aaef5-4ec7-48bc-830c-222910423aeb",
+    "uuid": "69c30416-200b-4d79-aa9d-60989450a0df",
     "metadata": {
       "title": "FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2023-08-31T00:00:00Z",
-      "last-modified": "2024-03-07T07:56:24.04219-05:00",
-      "version": "5.1.1+fedramp-20240111-0",
-      "oscal-version": "1.1.1",
+      "last-modified": "2024-09-23T17:34:28.746238-04:00",
+      "version": "5.1.1+fedramp-20240510-0",
+      "oscal-version": "1.1.2",
       "links": [
         {
           "href": "FedRAMP_rev5_LI-SaaS-baseline_profile.json",
@@ -38231,11 +38231,6 @@
               {
                 "id": "si-03_odp.05",
                 "label": "action",
-                "constraints": [
-                  {
-                    "description": "administrator or defined security personnel near-realtime"
-                  }
-                ],
                 "guidelines": [
                   {
                     "prose": "action to be taken in response to malicious code detection are defined (if selected);"
@@ -38245,6 +38240,11 @@
               {
                 "id": "si-03_odp.06",
                 "label": "personnel or roles",
+                "constraints": [
+                  {
+                    "description": "administrator or defined security personnel near-realtime"
+                  }
+                ],
                 "guidelines": [
                   {
                     "prose": "personnel or roles to be alerted when malicious code is detected is/are defined;"

@@ -5,8 +5,8 @@ profile:
     title: FedRAMP Rev 5 High Baseline
     published: 2023-08-31T00:00:00Z
     last-modified: 2024-01-11T23:40:17Z
-    version: 5.1.1+fedramp-20240111-0
-    oscal-version: 1.1.1
+    version: 5.1.1+fedramp-20240510-0
+    oscal-version: 1.1.2
     roles:
       - id: prepared-by
         title: Document creator
@@ -1332,7 +1332,7 @@ profile:
       - param-id: si-03_odp.04
         constraints:
           - description: to include blocking and quarantining malicious code
-      - param-id: si-03_odp.05
+      - param-id: si-03_odp.06
         constraints:
           - description: administrator or defined security personnel near-realtime
       - param-id: si-4.4_prm_1

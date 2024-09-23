@@ -1,12 +1,12 @@
 {
   "catalog": {
-    "uuid": "f9f1a510-ecb7-459a-91a5-b16cf59f42a0",
+    "uuid": "171e16e0-f8da-47e9-ac5a-8a61e0a55c5e",
     "metadata": {
       "title": "FedRAMP Rev 5 Low Baseline",
       "published": "2023-08-31T00:00:00Z",
-      "last-modified": "2024-03-07T07:56:42.346347-05:00",
-      "version": "5.1.1+fedramp-20240111-0",
-      "oscal-version": "1.1.1",
+      "last-modified": "2024-09-23T17:34:47.137261-04:00",
+      "version": "5.1.1+fedramp-20240510-0",
+      "oscal-version": "1.1.2",
       "links": [
         {
           "href": "FedRAMP_rev5_LOW-baseline_profile.json",
@@ -70818,11 +70818,6 @@
               {
                 "id": "si-03_odp.05",
                 "label": "action",
-                "constraints": [
-                  {
-                    "description": "administrator or defined security personnel near-realtime"
-                  }
-                ],
                 "guidelines": [
                   {
                     "prose": "action to be taken in response to malicious code detection are defined (if selected);"
@@ -70832,6 +70827,11 @@
               {
                 "id": "si-03_odp.06",
                 "label": "personnel or roles",
+                "constraints": [
+                  {
+                    "description": "administrator or defined security personnel near-realtime"
+                  }
+                ],
                 "guidelines": [
                   {
                     "prose": "personnel or roles to be alerted when malicious code is detected is/are defined;"

@@ -132,7 +132,7 @@ plan-of-action-and-milestones:
       - uuid: 9d194268-a9d1-4c38-839f-9c4aa57bf71e
         type: software
         title: XYZ Vulnerability Scanning Tool
-        description: ""
+        description: '...'
         props:
           - name: vendor
             value: Vendor Name
@@ -490,7 +490,7 @@ plan-of-action-and-milestones:
         entries:
           - uuid: 1b500d56-1936-41eb-8b60-a2984937ab89
             title: Activity 1
-            description: ""
+            description: '...'
             start: 2020-07-02T00:00:00Z
             related-responses:
               - response-uuid: e9ee6fe2-856f-42c7-8c2e-ff6466d31010
@@ -498,7 +498,7 @@ plan-of-action-and-milestones:
                   - task-uuid: a12dea1d-e4d1-4f09-aacf-1eaf203a3092
           - uuid: 316fb3fe-927a-49a1-9a72-a58722862623
             title: Activity 2
-            description: ""
+            description: '...'
             start: 2020-07-07T00:00:00Z
           - uuid: d084a039-bdd1-4ccd-a06a-53355e07fa2f
             title: Vendor Check-in
@@ -517,7 +517,7 @@ plan-of-action-and-milestones:
   poam-items:
     - uuid: 6F5FFF73-CAC6-4DA0-A0D9-0F931A5EFAFA
       title: "[EXAMPLE]POA&M Item"
-      description: ""
+      description: '...'
       props:
         - name: POAM-ID
           ns: https://fedramp.gov/ns/oscal

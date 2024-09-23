@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="45cd23a3-b191-419a-8929-ae94da2e7c85">
+         uuid="f0ed6557-e5a9-487c-a565-f0917705dc32">
    <metadata>
       <title>FedRAMP Rev 5 High Baseline</title>
       <published>2023-08-31T00:00:00Z</published>
-      <last-modified>2024-03-07T07:55:37.00783-05:00</last-modified>
-      <version>5.1.1+fedramp-20240111-0</version>
-      <oscal-version>1.1.1</oscal-version>
+      <last-modified>2024-09-23T17:33:43.054063-04:00</last-modified>
+      <version>5.1.1+fedramp-20240510-0</version>
+      <oscal-version>1.1.2</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev5_HIGH-baseline_profile.xml"/>
       <role id="prepared-by">
          <title>Document creator</title>
@@ -52037,17 +52037,17 @@
          </param>
          <param id="si-03_odp.05">
             <label>action</label>
-            <constraint>
-               <description>
-                  <p>administrator or defined security personnel near-realtime</p>
-               </description>
-            </constraint>
             <guideline>
                <p>action to be taken in response to malicious code detection are defined (if selected);</p>
             </guideline>
          </param>
          <param id="si-03_odp.06">
             <label>personnel or roles</label>
+            <constraint>
+               <description>
+                  <p>administrator or defined security personnel near-realtime</p>
+               </description>
+            </constraint>
             <guideline>
                <p>personnel or roles to be alerted when malicious code is detected is/are defined;</p>
             </guideline>
