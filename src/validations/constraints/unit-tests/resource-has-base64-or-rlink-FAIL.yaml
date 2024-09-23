@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     resource-has-base64-or-rlink
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-resource-has-base64-or-rlink-INVALID.xml
   expectations:
     - constraint-id: resource-has-base64-or-rlink
       result: fail

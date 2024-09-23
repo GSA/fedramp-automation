@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     has-information-system-contingency-plan
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-has-information-system-contingency-plan-INVALID.xml
   expectations:
     - constraint-id: has-information-system-contingency-plan
       result: fail

@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     has-network-architecture-diagram
-  content: ../content/has-network-architecture-diagram-INVALID.xml
+  content: ../content/ssp-has-network-architecture-diagram-INVALID.xml
   expectations:
     - constraint-id: has-network-architecture-diagram
       result: fail

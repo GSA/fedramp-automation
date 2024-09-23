@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     has-authorization-boundary-diagram
-  content: ../content/has-authorization-boundary-diagram-INVALID.xml
+  content: ../content/ssp-has-authorization-boundary-diagram-INVALID.xml
   expectations:
     - constraint-id: has-authorization-boundary-diagram
       result: fail

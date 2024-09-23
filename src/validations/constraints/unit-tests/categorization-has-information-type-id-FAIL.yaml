@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     categorization-has-information-type-id
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-categorization-has-information-type-id-INVALID.xml
   expectations:
     - constraint-id: categorization-has-information-type-id
       result: fail

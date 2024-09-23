@@ -2,7 +2,7 @@
 test-case:
   name: The invalid role-defined-authorizing-official-poc constraint unit test.
   description: Test that SSP metadata does not contain the authorizing-official-poc role.
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-role-defined-authorizing-official-poc-INVALID.xml
   expectations:
   - constraint-id: role-defined-authorizing-official-poc
     result: fail

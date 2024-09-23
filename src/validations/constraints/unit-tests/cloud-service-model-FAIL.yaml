@@ -1,7 +1,7 @@
 test-case:
   name: Test for cloud-service-model
   description: This test case validates the behavior of constraint cloud-service-model
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-cloud-service-model-INVALID.xml
   expectations:
     - constraint-id: cloud-service-model
       result: fail

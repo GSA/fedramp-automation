@@ -1,7 +1,7 @@
 test-case:
   name: Negative Test for has-user-guide
   description: This test case validates the behavior of constraint has-user-guide
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-has-user-guide-INVALID.xml
   expectations:
     - constraint-id: has-user-guide
       result: fail

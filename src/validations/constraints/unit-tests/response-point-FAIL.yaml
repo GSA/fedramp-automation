@@ -2,7 +2,7 @@
 test-case:
   name: Test Valid Response Point Use
   description: Test that the resolved profile contains valid response-points.
-  content: ../content/profile-response-point-INVALID.xml # the content to run
+  content: ../content/ssp-profile-response-point-INVALID.xml # the content to run
   expectations: # check the constraint result
   - constraint-id: prop-response-point-has-cardinality-one
     result: fail

@@ -2,7 +2,7 @@
 test-case:
   name: The invalid interconnection direction test.
   description: Test that the specified interconnection direction is invalid.
-  content: ../content/ssp-interconnection-INVALID.xml
+  content: ../content/ssp-interconnection-direction-INVALID.xml
   expectations:
   - constraint-id: interconnection-direction
     result: fail

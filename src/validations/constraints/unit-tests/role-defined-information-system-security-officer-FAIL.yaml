@@ -2,7 +2,7 @@
 test-case:
   name: The invalid role-defined-information-system-security-officer constraint unit test.
   description: Test that SSP metadata does not contain the information-system-security-officer role.
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-role-defined-information-system-security-officer-INVALID.xml
   expectations:
   - constraint-id: role-defined-information-system-security-officer
     result: fail

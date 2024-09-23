@@ -2,7 +2,7 @@
 test-case:
   name: Test Invalid Deployment Model Use
   description: Test that the specified deployment model is invalid.
-  content: ../content/ssp-all-INVALID.xml # the content to run
+  content: ../content/ssp-deployment-model-INVALID.xml # the content to run
   expectations: # check the constraint result
   - constraint-id: deployment-model
     result: fail

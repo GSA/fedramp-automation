@@ -1,7 +1,7 @@
 test-case:
   name: Negative Test for data-center-country-code
   description: This test case validates the behavior of constraint data-center-country-code
-  content: ../content/ssp-location-INVALID.xml
+  content: ../content/ssp-data-center-country-code-INVALID.xml
   expectations:
     - constraint-id: data-center-country-code
       result: fail
