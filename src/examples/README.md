@@ -1,4 +1,8 @@
-# fedramp-automation usage examples
+# fedramp-automation usage examples - DEPRECATED
+
+**THE EXAMPLES IN THIS FOLDER ARE OBSOLETE AND WILL BE DEPRECATED.**
+
+**NOTE - CONTENT IN THIS FOLDER OR SUBFOLDER IS DEPRECATED. SUBSEQUENT RELEASES WILL NOT INCLUDE THIS CONTENT.**
 
 As a collection of validation rules for FedRAMP OSCAL documents, `fedramp-automation` is intended to be used by FedRAMP reviewers to ensure that the documents meet the requirements of the OSCAL standard with FedRAMP extensions. Additionally, validation rules can be integrated with third-party tools to ensure that documents meet FedRAMP requirements.
 

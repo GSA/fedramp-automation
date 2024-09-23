@@ -13,7 +13,7 @@ src/validations/lib/**.jar
 src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
-utils
+utils/*.xsl
 /node_modules
 
 # XSpec reports (from OxygenXML XSpec use)
