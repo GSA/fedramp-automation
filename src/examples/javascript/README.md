@@ -23,7 +23,7 @@ make build-validations
 To get a bash prompt within the container, run:
 
 ```bash
-docker-compose run example bash -l
+docker compose run example bash -l
 ```
 
 You may now run and interact with the example code.
@@ -33,11 +33,11 @@ You may now run and interact with the example code.
 To run tests, build the required Schematron XSLT to sef.json files and run the test script:
 
 ```bash
-docker-compose run example npm run ./test.sh
+docker compose run example npm run ./test.sh
 ```
 
 To auto-format code:
 
 ```bash
-docker-compose run example npm format
+docker compose run example npm format
 ```
