@@ -42,3 +42,5 @@ src/validations/test/rules/rev5/sar-result.html
 
 /reports
 /sarif
+@rerun.txt
+NUL

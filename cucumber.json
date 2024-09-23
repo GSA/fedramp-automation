@@ -1,12 +1,29 @@
 {
   "default": {
-    "requireModule": ["ts-node/register"],
-    "import": ["features/**/*.ts"],
+    "import": [
+      "import { register } from 'ts-node'",
+      "register({ esm: true, experimentalSpecifierResolution: 'node' })",
+      "features/**/*.ts"
+    ],
     "format": [
       ["junit", "reports/junit-constraints.xml"],
-      ["html", "reports/constraints.html"]
+      ["html", "reports/constraints.html"],
+      ["rerun","@rerun.txt"]
     ],
     "retry": 2,
     "retryTagFilter": "@flaky"
+  },
+  "rerun": {
+    "import": [
+      "import { register } from 'ts-node'",
+      "register({ esm: true, experimentalSpecifierResolution: 'node' })",
+      "features/**/*.ts"
+    ],
+    "format": [
+      ["junit", "reports/junit-constraints-rerun.xml"],
+      ["html", "reports/constraints-rerun.html"]
+    ],
+    "retry": 0,
+    "paths": ["@rerun.txt"]
   }
 }
