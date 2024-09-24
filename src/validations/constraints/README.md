@@ -328,6 +328,69 @@ If 1, 2, or 3 do not help you identify and resolve your issue yourself, we stron
 
 **NOTE:** If you are a member of an organization, please consult your organization's staff and their policies for approved tools when attempting 2 or 3.
 
+## Asking good questions
+
+If you need help after trying to debug, you should [ask for help or report your issue](#providing-feedback). When you do that, it is really helpful to include debugging information so the FedRAMP Automation Team can reproduce your issue and give you the exact help you need. You should include the following.
+
+1. Version information about the constraints and tools you used.
+1. If acceptable, any sample OSCAL data you used when the error or unexpected failure occurred.
+1. What you have tried, what did not work, and how you wanted it to work.
+
+For 1, see below for more information about the versions of constraints and tools you use.
+
+**NOTE:** The FedRAMP Automation Team always welcomes when contributors provide sample data to reproduce an error or unexpected failure, but do not provide any production for a system. In addition, GSA does not authorize FedRAMP staff or community members to store any sensitive data in GitHub. Please coordinate with the team to build an equivalent minimally viable example if requested to do so.
+
+### Container version information
+
+If you are using the container-based tooling, you only need to include the container version information. You can find that information by running the following command and copy-pasting the output.
+
+```sh
+docker image ls ghcr.io/gsa/fedramp-automation/validation-tools
+```
+
+You should see output like the example below, you can copy-paste this into the other details box of the issue template.
+
+```sh
+REPOSITORY                                       TAG         IMAGE ID      CREATED     SIZE
+ghcr.io/gsa/fedramp-automation/validation-tools  latest      d6f1a0a22474  3 days ago  561 MB
+```
+
+### Manual instal version information
+
+If you are using the manually installed tooling, you only need to include a few items of information. You can find that information by running the following commands and copy-pasting the output.
+
+1. Provide the commit ID for the git repository.
+
+```sh
+cd path/to/fedramp-automation
+git branch --show-current
+develop
+git rev-parse HEAD
+35b66c9da08ee125a3366000f9c36a0e74808c9c
+```
+
+2. Provide the version information for oscal-js.
+
+```sh
+cd path/to/fedramp-automation/src/validations/constraints
+make init
+npx oscal --version
+1.4.7
+```
+
+3. Provide the version information for oscal-cli.
+
+```sh
+$(npm config get prefix)/bin/oscal-cli --version 
+oscal-cli 2.1.0 built at 2024-09-16 15:20 from branch 3bf0b77e0dbfbe61988d2635439f691334840e35 (3bf0b77) at https://github.com/metaschema-framework/oscal-cli
+liboscal-java  built at 2024-09-15 17:40 from branch b509fb2c5d933894cef5cd308603784d4494826f (b509fb2) at https://github.com/metaschema-framework/liboscal-java
+oscal v1.1.2 built at 2024-09-15 17:40 from branch 4f02dac6f698efda387cc5f55bc99581eaf494b6 (4f02dac) at https://github.com/usnistgov/OSCAL.git
+metaschema-java 1.1.0 built at 2024-09-14T12:53:54+0000 from branch 874ad2d8d561f9c481208bdf389788313bda343a (874ad2d) at https://github.com/metaschema-framework/metaschema-java
+metaschema  built at 2024-09-14T12:53:54+0000 from branch 894b2238764c8732623a3894f0c236625ca5a686 (894b223) at https://github.com/metaschema-framework/metaschema.git
+```
+
 # Providing feedback
 
 If you encounter a bug or have a feature to request, submit an issue at [https://github.com/GSA/fedramp-automation/issues/new/choose](https://github.com/GSA/fedramp-automation/issues/new/choose).
+
+If you encounter a problem specific to the constraints and tooling described above, you should add information about the constraints and tool versions you used to ask for help, report bugs, or request new features in the other details section of the issue template.
