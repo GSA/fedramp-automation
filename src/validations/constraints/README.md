@@ -260,7 +260,18 @@ When using the `oscal-cli`, you may encounter errors or unexpected failures.
 
 ## Debugging details of errors
 
-When the `oscal-cli` has an error condition, it will continue processing, but also return output to recommend how a user of the tool must change the runtime arguments or edit the OSCAL content to resolve the underlying issue.
+When the `oscal-cli` has an error condition, it will continue processing, but also return output to recommend how a user of the tool must change the runtime arguments or edit the OSCAL content to resolve the underlying issue. An example is below.
+
+```sh
+% docker run --rm -it \
+   -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+   validate '/data/AwesomeCloudSSP1.xml'
+Validating 'file:/data/AwesomeCloudSSP1.xml' as XML.
+Validation identified the following issues:
+[ERROR] # ... Truncated for brevity
+```
+
+In this example, the tool finished processing an OSCAL document and validated it. Despite the tool completing successfully, it did find issues in the content the user should know and possibly correct. These issues are only errors; this output does not state a more serious unexpected failure occurred. Errors are different from unexpected failures, which require more information to get more help.
 
 ## Debugging details of unexpected failures with `--show-stack-trace`
 
