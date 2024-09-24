@@ -252,6 +252,67 @@ After validating your FedRAMP OSCAL file, to fix validation errors
 7. Fix the error.
 8. Re-run the validation.
 
+# Troubleshooting
+
+## Errors versus unexpected failures
+
+When using the `oscal-cli`, you may encounter errors or unexpected failures.
+
+When the `oscal-cli` has an error condition, it will continue processing, but also return output to recommend how a user of the tool must change the runtime arguments or edit the OSCAL content to resolve the underlying issue.
+
+When the `oscal-cli` has an unexpected error condition, the tool must stop processing because it cannot recover. An unexpected error, or an exception, can return detailed technical output for tool maintainers to guide users on how to change runtime arguments or content to resolve the issue. By default, the `oscal-cli` does not show all of the information from an expected error. It will instead show a summary, such as the example below.
+
+## Debugging details of unexpected failures with `--show-stack-trace`
+
+```sh
+docker run --rm -it \
+   -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+   validate '/data/AwesomeCloudSSP1.xml'
+Validating 'file:/data/AwesomeCloudSSP1.xml' as XML.
+Unexpected failure during validation of 'file:/data/AwesomeCloudSSP1.xml'
+```
+
+When the tool reports an unexpected failure, you can rerun the `oscal-cli` tool with a new command to see full details using the stack trace command. An example is below.
+
+```sh
+docker run --rm -it \
+   -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+   validate '/data/AwesomeCloudSSP1.xml' \
+   --show-stack-trace
+Validating 'file:/data/AwesomeCloudSSP1.xml' as XML.
+Unexpected failure during validation of 'file:/data/AwesomeCloudSSP1.xml'
+java.io.IOException: Unexpected failure during validation of 'file:/data/AwesomeCloudSSP1.xml'
+	at gov.nist.secauto.metaschema.core.model.validation.XmlSchemaContentValidator.validate(XmlSchemaContentValidator.java:92) ~[dev.metaschema.java.metaschema-core-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.core.model.validation.AbstractContentValidator.validate(AbstractContentValidator.java:27) ~[dev.metaschema.java.metaschema-core-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.databind.IBindingContext$ISchemaValidationProvider.validateWithSchema(IBindingContext.java:473) ~[dev.metaschema.java.metaschema-databind-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.commands.AbstractValidateContentCommand$AbstractValidationCommandExecutor.execute(AbstractValidateContentCommand.java:250) ~[dev.metaschema.java.metaschema-cli-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor$CallingContext.invokeCommand(CLIProcessor.java:405) ~[dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor$CallingContext.processCommand(CLIProcessor.java:376) [dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor.parseCommand(CLIProcessor.java:175) [dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor.process(CLIProcessor.java:158) [dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.oscal.tools.cli.core.CLI.runCli(CLI.java:67) [dev.metaschema.oscal.oscal-cli-enhanced-2.0.2.jar:?]
+	at gov.nist.secauto.oscal.tools.cli.core.CLI.main(CLI.java:38) [dev.metaschema.oscal.oscal-cli-enhanced-2.0.2.jar:?]
+Caused by: org.xml.sax.SAXParseException: The entity name must immediately follow the '&' in the entity reference.
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.Util.toSAXParseException(Util.java:75) ~[?:?]
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.StreamValidatorHelper.validate(StreamValidatorHelper.java:178) ~[?:?]
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:115) ~[?:?]
+	at java.xml/javax.xml.validation.Validator.validate(Validator.java:124) ~[?:?]
+	at gov.nist.secauto.metaschema.core.model.validation.XmlSchemaContentValidator.validate(XmlSchemaContentValidator.java:90) ~[dev.metaschema.java.metaschema-core-1.0.2.jar:?]
+	... 9 more
+```
+
+This stack trace identifies a problem with the lower-level processing of OSCAL XML content.
+
+## Analyzing and understanding stack traces
+
+Developers use stack traces in their software to identify the order of execution and the error condition. The information helps confirm intended functionality or verify bugs that they must fix. Developer or not, you too can use this information to resolve your own issues with the `oscal-cli`, the FedRAMP constraints, and your content. With the information in a stack trace, you can do the following.
+
+1. Search [the FedRAMP Automation Team's documentation on unexpected failures]() and how to resolve them.
+1. Copy paste part or whole of the exception output into a search engine to identify and resolve common causes of the error.
+1. Use a chatbot or tooling with Large Language Models (LLM) functionality to explain, identify, and resolve common causes of the error. 
+
+**NOTE:** If you are a member of an organization, please consult your organization's staff and their policies for approved tools when attempting 2 or 3.
+
 # Providing feedback
 
 If you encounter a bug or have a feature to request, submit an issue at [https://github.com/GSA/fedramp-automation/issues/new/choose](https://github.com/GSA/fedramp-automation/issues/new/choose).
