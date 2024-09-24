@@ -197,7 +197,7 @@
             <expect id="cia-impact-has-selected" target="system-characteristics/system-information/information-type/confidentiality-impact | //system-characteristics/system-information/information-type/integrity-impact | //system-characteristics/system-information/information-type/availability-impact" test="selected" level="ERROR">
                 <message>A FedRAMP SSP information type confidentiality, integrity, or availability impact must specify the selected impact.</message>
             </expect>
-            <expect id="cia-impact-has-adjustment-justification" target="system-characteristics/system-information/information-type/confidentiality-impact | //system-characteristics/system-information/information-type/integrity-impact | //system-characteristics/system-information/information-type/availability-impact" test="if (base ne selected or not(exists(selected))) then exists(adjustment-justification) else true()" level="ERROR">
+            <expect id="cia-impact-has-adjustment-justification" target="system-characteristics/system-information/information-type/confidentiality-impact | //system-characteristics/system-information/information-type/integrity-impact | //system-characteristics/system-information/information-type/availability-impact" test="if (base ne selected) then exists(adjustment-justification) else true()" level="ERROR">
                 <message>When SP 800-60 base and selected impacts levels differ for a given information type, the SSP must include a justification for the difference.</message>
             </expect>
             <expect id="has-system-name-short" target="system-characteristics" test="system-name-short" level="ERROR">

@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     cia-impact-has-adjustment-justification
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-cia-impact-has-adjustment-justification-INVALID.xml
   expectations:
     - constraint-id: cia-impact-has-adjustment-justification
       result: fail
