@@ -1,7 +1,7 @@
 test-case:
   name: Negative Test for has-system-name-short
   description: This test case validates the behavior of constraint has-system-name-short
-  content: ../content/ssp-all-INVALID.xml
+  content: ../content/ssp-has-system-name-short-INVALID.xml
   expectations:
     - constraint-id: has-system-name-short
       result: fail
