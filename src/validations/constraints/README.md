@@ -309,7 +309,9 @@ Developers use stack traces in their software to identify the order of execution
 
 1. Search [the FedRAMP Automation Team's documentation on unexpected failures]() and how to resolve them.
 1. Copy paste part or whole of the exception output into a search engine to identify and resolve common causes of the error.
-1. Use a chatbot or tooling with Large Language Models (LLM) functionality to explain, identify, and resolve common causes of the error. 
+1. Use a chatbot or tooling with Large Language Models (LLM) functionality to explain, identify, and resolve common causes of the error.
+
+If 1, 2, or 3 do not help you identify and resolve your issue yourself, we strongly encourage you to engage the FedRAMP Automation Team and [provide feedback](#providing-feedback).
 
 **NOTE:** If you are a member of an organization, please consult your organization's staff and their policies for approved tools when attempting 2 or 3.
 
