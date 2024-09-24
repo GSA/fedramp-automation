@@ -320,7 +320,7 @@ This stack trace identifies a problem with the lower-level processing of OSCAL X
 
 Developers use stack traces in their software to identify the order of execution and the error condition. The information helps confirm intended functionality or verify bugs that they must fix. Developer or not, you too can use this information to resolve your own issues with the `oscal-cli`, the FedRAMP constraints, and your content. With the information in a stack trace, you can do the following.
 
-1. Search [the FedRAMP Automation Team's documentation on unexpected failures]() and how to resolve them.
+1. Search [the developer documentation on unexpected failures](./CONTRIBUTING.md#common-causes-and-resolutions-for-unexpected-failures) and how to resolve them.
 1. Copy paste part or whole of the exception output into a search engine to identify and resolve common causes of the error.
 1. Use a chatbot or tooling with Large Language Models (LLM) functionality to explain, identify, and resolve common causes of the error.
 
