@@ -3,9 +3,9 @@
     "uuid": "9809eddf-2cd5-468f-97c5-9769905d0629",
     "metadata": {
       "title": "FedRAMP System Security Plan (SSP)",
-      "published": "2023-08-31T00:00:00Z",
-      "last-modified": "2023-08-31T00:00:00Z",
-      "version": "fedramp2.0.0-oscal1.0.4",
+      "published": "2024-09-24T02:24:00Z",
+      "last-modified": "2024-09-24T02:24:00Z",
+      "version": "fedramp2.1.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "revisions": [
         {

@@ -2,10 +2,9 @@
 <extensions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="bac3886f-deb3-4d9d-a422-b563d906b27c">
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Extensions</title>
-      <published>2023-06-30T00:00:00Z</published>
-      <last-modified>2023-07-05T00:00:00Z</last-modified>
-      <version>fedramp-2.0.0-oscal-1.1.1</version>
-      <oscal-version>1.1.1</oscal-version>
+		<published>2024-09-24T02:24:00Z</published>
+		<last-modified>2024-09-24T02:24:00Z</last-modified>
+		<version>fedramp2.1.0-oscal1.0.4</version>
       <revisions>
          <revision>
             <published>2023-06-30T00:00:00Z</published>

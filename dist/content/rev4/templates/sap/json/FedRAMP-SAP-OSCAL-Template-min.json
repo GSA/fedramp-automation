@@ -3,10 +3,10 @@
     "uuid": "c94691c8-0b83-483c-bc02-f3d3bf026abb",
     "metadata": {
       "title": "[System Name] FedRAMP Security Assessment Plan (SAP)",
-      "published": "2021-02-25T00:00:00.00-04:00",
-      "last-modified": "2021-06-09T14:27:43.166-04:00",
-      "version": "fedramp1.1.0-oscal1.0.0",
-      "oscal-version": "1.0.0",
+      "published": "2024-09-24T02:24:00Z",
+      "last-modified": "2024-09-24T02:24:00Z",
+      "version": "fedramp2.1.0-oscal1.0.4",
+      "oscal-version": "1.0.4",
       "props": [
         {
           "name": "marking",

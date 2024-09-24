@@ -3,10 +3,10 @@
 <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="1a58d031-b0ef-4e3a-9d6f-5c5969bb711e">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
-      <published>2023-07-06T00:00:00Z</published>
-      <last-modified>2023-07-06T00:00:00Z</last-modified>
-      <version>fedramp2.0.0-oscal1.0.4</version>
-      <oscal-version>1.0.4</oscal-version>
+		<published>2024-09-24T02:24:00Z</published>
+		<last-modified>2024-09-24T02:24:00Z</last-modified>
+		<version>fedramp2.1.0-oscal1.0.4</version>
+		<oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
       <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>

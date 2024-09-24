@@ -1,11 +1,11 @@
 ---
 catalog:
-  uuid: d2c7f531-be0c-42d6-a166-8a079ab8043a
+  uuid: e8662937-b342-46c3-a64a-0f7b58aac2ea
   metadata:
     title: FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
-    published: 2021-02-05T00:00:00.000-04:00
-    last-modified: 2024-09-23T17:32:19.034177-04:00
-    version: fedramp1.1.1-oscal1.0.4
+    published: 2024-09-24T02:24:00Z
+    last-modified: 2024-09-23T22:00:55.269735-04:00
+    version: fedramp2.1.0-oscal1.0.4
     oscal-version: 1.0.4
     links:
       - href: FedRAMP_rev4_LI-SaaS-baseline_profile.yaml

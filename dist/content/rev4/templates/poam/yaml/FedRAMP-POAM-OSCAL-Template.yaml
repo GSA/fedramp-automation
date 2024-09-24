@@ -3,10 +3,10 @@ plan-of-action-and-milestones:
   uuid: c9db1389-df23-4118-b1a2-078d33734880
   metadata:
     title: "[System Name] FedRAMP Plan of Action and Milestones (POA&M)"
-    published: 2021-02-25T00:00:00.00-04:00
-    last-modified: 2021-06-09T14:28:10.983-04:00
-    version: fedramp1.1.0-oscal1.0.0
-    oscal-version: 1.0.0
+    published: 2024-09-24T02:24:00Z
+    last-modified: 2024-09-24T02:24:00Z
+    version: fedramp2.1.0-oscal1.0.4
+    oscal-version: 1.0.4
     props:
       - name: marking
         value: Controlled Unclassified Information

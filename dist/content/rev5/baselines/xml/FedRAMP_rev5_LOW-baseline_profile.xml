@@ -3,10 +3,10 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="512149a6-7f04-4c01-bb1b-78eafd6a950d">
     <metadata>
         <title>FedRAMP Rev 5 Low Baseline</title>
-        <published>2023-08-31T00:00:00Z</published>
-        <last-modified>2024-01-11T23:40:17Z</last-modified>
-        <version>5.1.1+fedramp-20240510-0</version>
-        <oscal-version>1.1.2</oscal-version>
+        <published>2024-09-24T02:24:00Z</published>
+        <last-modified>2024-09-24T02:24:00Z</last-modified>
+        <version>fedramp2.1.0-oscal1.0.4</version>
+        <oscal-version>1.0.4</oscal-version>
         <role id="prepared-by">
             <title>Document creator</title>
         </role>

@@ -3,9 +3,9 @@
     "uuid": "26a53d2c-4249-4e0c-9939-410590f3ae9e",
     "metadata": {
       "title": "[System Name] FedRAMP Security Assessment Results (SAR)",
-      "published": "2023-07-06T00:00:00Z",
-      "last-modified": "2023-07-06T00:00:00Z",
-      "version": "fedramp2.0.0-oscal1.0.4",
+      "published": "2024-09-24T02:24:00Z",
+      "last-modified": "2024-09-24T02:24:00Z",
+      "version": "fedramp2.1.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "props": [
         {
