@@ -119,6 +119,10 @@ Examples:
   | inventory-item-virtual-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
+  | party-has-one-responsibility-FAIL.yaml |
+  | party-has-one-responsibility-PASS.yaml |
+  | party-has-responsibility-FAIL.yaml |
+  | party-has-responsibility-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
   | resource-has-base64-or-rlink-FAIL.yaml |
@@ -204,6 +208,8 @@ Examples:
   | inventory-item-public |
   | inventory-item-virtual |
   | missing-response-components |
+  | party-has-one-responsibility |
+  | party-has-responsibility |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |

@@ -1,0 +1,17 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
+  <metadata>
+    <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
+      <name>Example Organization</name>
+      <short-name>ExOrg</short-name>
+      <link rel="website" href="https://example.com"/>
+    </party>
+    <party uuid="22222222-0000-4000-9000-000000000002" type="person">
+      <name>Jane Doe</name>
+      <email-address>jane.doe@example.com</email-address>
+      <address type="work"/>
+    </party>
+    <remarks>
+      <p>This SSP is an example for demonstration purposes.</p>
+    </remarks>
+  </metadata>
+</system-security-plan>
