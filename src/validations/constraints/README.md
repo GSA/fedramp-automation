@@ -258,11 +258,13 @@ After validating your FedRAMP OSCAL file, to fix validation errors
 
 When using the `oscal-cli`, you may encounter errors or unexpected failures.
 
+## Debugging details of errors
+
 When the `oscal-cli` has an error condition, it will continue processing, but also return output to recommend how a user of the tool must change the runtime arguments or edit the OSCAL content to resolve the underlying issue.
 
-When the `oscal-cli` has an unexpected error condition, the tool must stop processing because it cannot recover. An unexpected error, or an exception, can return detailed technical output for tool maintainers to guide users on how to change runtime arguments or content to resolve the issue. By default, the `oscal-cli` does not show all of the information from an expected error. It will instead show a summary, such as the example below.
-
 ## Debugging details of unexpected failures with `--show-stack-trace`
+
+When the `oscal-cli` has an unexpected error condition, the tool must stop processing because it cannot recover. An unexpected error, or an exception, can return detailed technical output for tool maintainers to guide users on how to change runtime arguments or content to resolve the issue. By default, the `oscal-cli` does not show all of the information from an expected error. It will instead show a summary, such as the example below.
 
 ```sh
 docker run --rm -it \
