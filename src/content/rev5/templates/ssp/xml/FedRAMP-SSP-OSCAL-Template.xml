@@ -3,10 +3,10 @@
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="9809eddf-2cd5-468f-97c5-9769905d0629">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
-      <published>2023-08-31T00:00:00Z</published>
-      <last-modified>2023-08-31T00:00:00Z</last-modified>
-      <version>fedramp2.0.0-oscal1.0.4</version>
-      <oscal-version>1.0.4</oscal-version>
+		<published>2024-09-24T02:24:00Z</published>
+		<last-modified>2024-09-24T02:24:00Z</last-modified>
+		<version>fedramp2.1.0-oscal1.0.4</version>
+		<oscal-version>1.0.4</oscal-version>
       <revisions>
          <revision>
             <published>2023-06-30T00:00:00Z</published>

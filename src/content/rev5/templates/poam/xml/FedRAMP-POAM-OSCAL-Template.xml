@@ -3,10 +3,10 @@
 <plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="6d072a8d-9657-446d-a487-4b6984782472">
    <metadata>
       <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
-      <published>2023-07-06T00:00:00Z</published>
-      <last-modified>2023-07-06T00:00:00Z</last-modified>
-      <version>fedramp2.0.0-oscal1.0.4</version>
-      <oscal-version>1.0.4</oscal-version>
+		<published>2024-09-24T02:24:00Z</published>
+		<last-modified>2024-09-24T02:24:00Z</last-modified>
+		<version>fedramp2.1.0-oscal1.0.4</version>
+		<oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
       <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
