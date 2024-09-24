@@ -5,10 +5,10 @@
    uuid="7ea5c269-ee26-48c8-b32c-91aa26339023">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Results (SAR)</title>
-      <published>2021-10-22T02:22:00.000-04:00</published>
-      <last-modified>2021-10-22T02:22:00.000-04:00</last-modified>
-      <version>fedramp1.2.1-oscal1.0.0</version>
-      <oscal-version>1.0.0</oscal-version>
+		<published>2024-09-24T02:24:00Z</published>
+		<last-modified>2024-09-24T02:24:00Z</last-modified>
+		<version>fedramp2.1.0-oscal1.0.4</version>
+		<oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->

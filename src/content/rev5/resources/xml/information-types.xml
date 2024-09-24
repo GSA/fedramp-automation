@@ -2,10 +2,10 @@
 <information-types xmlns="https://fedramp.gov/ns/oscal" uuid="3e1a4c8b-dcf1-405e-9e6f-3448dc60ef0b">
     <metadata>
         <title>FedRAMP Acceptable Information Types (Experimental)</title>
-        <published>2023-06-30T00:00:00Z</published>
-        <last-modified>2023-06-30T00:00:00Z</last-modified>
-        <version>fedramp-2.0.0-oscal-1.1.1</version>
-        <oscal-version>1.1.1</oscal-version>
+		<published>2024-09-24T02:24:00Z</published>
+		<last-modified>2024-09-24T02:24:00Z</last-modified>
+		<version>fedramp2.1.0-oscal1.0.4</version>
+		<oscal-version>1.0.4</oscal-version>
         <revisions>
             <revision>
                 <published>2023-06-30T00:00:00Z</published>
