@@ -32,6 +32,40 @@ cd path/to/fedramp-automation
 make init
 ```
 
+If you prefer container-based development and testing, you can build the container and mount the development data into the container.
+
+```sh
+cd path/to/fedramp-automation
+make build-oci-image
+```
+
+Alternatively, you can download pre-built container images. You can also download the latest stable release with the example command below.
+
+```sh
+docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
+```
+
+Review pre-release builds based on tags with IDs for commits from the `develop` branch or specific pull request branches by checking [image tags of published images](https://github.com/GSA/fedramp-automation/pkgs/container/fedramp-automation%2Fvalidation-tools/versions). For example, you can download the container image with tag `f6d200916d19c87fb56c1d08e905fb9d2c2ced4f`, built from source code changed with [commit `f6d200916d19c87fb56c1d08e905fb9d2c2ced4f`](https://github.com/GSA/fedramp-automation/tree/f6d200916d19c87fb56c1d08e905fb9d2c2ced4f), with the example command below.
+
+```sh
+docker pull ghcr.io/gsa/fedramp-automation/validation-tools:f6d200916d19c87fb56c1d08e905fb9d2c2ced4f
+```
+
+Once you install the container image, you can run the container and mount the local copy of the git repository for new constraints and test infrastructure. An example command using the development version of constraints with the tooling, not the preinstalled ones from a pre-existing container, is below.
+
+```sh
+docker run --rm -it \
+  -v $(PWD):/data \
+  --entrypoint /bin/sh \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
+  validate \
+  '/data/src/content/awesome-cloud/xmlAwesomeCloudSSP1.xml' \
+  -c '/data/src/validations/constraints/fedramp-external-allowed-values.xml' \
+  -c '/data/src/validations/constraints/fedramp-external-constraints.xml'
+```
+
+Observe the full paths to identify the location of pre-release constraint files. This use of a container allows you to use pre-installed utilities and your work in development.
+
 ## How do I run the tests?
 
 To run the existing tests as-is, you can use `make` or `npm` directly.
