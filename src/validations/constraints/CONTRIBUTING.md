@@ -56,7 +56,6 @@ Once you install the container image, you can run the container and mount the lo
 ```sh
 docker run --rm -it \
   -v $(PWD):/data \
-  --entrypoint /bin/sh \
   ghcr.io/gsa/fedramp-automation/validation-tools \
   validate \
   '/data/src/content/awesome-cloud/xmlAwesomeCloudSSP1.xml' \
@@ -65,6 +64,15 @@ docker run --rm -it \
 ```
 
 Observe the full paths to identify the location of pre-release constraint files. This use of a container allows you to use pre-installed utilities and your work in development.
+
+You may also directly run commands in the container by using an explicit entrypoint to the shell `/bin/sh` and not run the default `oscal-cli` entrypoint with your command arguments. An example is below.
+
+```sh
+docker run --rm -it \
+  -v $(PWD):/data \
+  --entrypoint /bin/sh \
+  ghcr.io/gsa/fedramp-automation/validation-tools
+```
 
 ## How do I run the tests?
 
