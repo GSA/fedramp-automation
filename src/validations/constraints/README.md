@@ -252,6 +252,145 @@ After validating your FedRAMP OSCAL file, to fix validation errors
 7. Fix the error.
 8. Re-run the validation.
 
+# Troubleshooting
+
+## Errors versus unexpected failures
+
+When using the `oscal-cli`, you may encounter errors or unexpected failures.
+
+## Debugging details of errors
+
+When the `oscal-cli` has an error condition, it will continue processing, but also return output to recommend how a user of the tool must change the runtime arguments or edit the OSCAL content to resolve the underlying issue. An example is below.
+
+```sh
+% docker run --rm -it \
+   -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+   validate '/data/AwesomeCloudSSP1.xml'
+Validating 'file:/data/AwesomeCloudSSP1.xml' as XML.
+Validation identified the following issues:
+[ERROR] # ... Truncated for brevity
+```
+
+In this example, the tool finished processing an OSCAL document and validated it. Despite the tool completing successfully, it did find issues in the content the user should know and possibly correct. These issues are only errors; this output does not state a more serious unexpected failure occurred. Errors are different from unexpected failures, which require more information to get more help.
+
+## Debugging details of unexpected failures with `--show-stack-trace`
+
+When the `oscal-cli` has an unexpected error condition, the tool must stop processing because it cannot recover. An unexpected error, or an exception, can return detailed technical output for tool maintainers to guide users on how to change runtime arguments or content to resolve the issue. By default, the `oscal-cli` does not show all of the information from an expected error. It will instead show a summary, such as the example below.
+
+```sh
+docker run --rm -it \
+   -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+   validate '/data/AwesomeCloudSSP1.xml'
+Validating 'file:/data/AwesomeCloudSSP1.xml' as XML.
+Unexpected failure during validation of 'file:/data/AwesomeCloudSSP1.xml'
+```
+
+When the tool reports an unexpected failure, you can rerun the `oscal-cli` tool with a new command to see full details using the stack trace command. An example is below.
+
+```sh
+docker run --rm -it \
+   -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+   validate '/data/AwesomeCloudSSP1.xml' \
+   --show-stack-trace
+Validating 'file:/data/AwesomeCloudSSP1.xml' as XML.
+Unexpected failure during validation of 'file:/data/AwesomeCloudSSP1.xml'
+java.io.IOException: Unexpected failure during validation of 'file:/data/AwesomeCloudSSP1.xml'
+	at gov.nist.secauto.metaschema.core.model.validation.XmlSchemaContentValidator.validate(XmlSchemaContentValidator.java:92) ~[dev.metaschema.java.metaschema-core-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.core.model.validation.AbstractContentValidator.validate(AbstractContentValidator.java:27) ~[dev.metaschema.java.metaschema-core-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.databind.IBindingContext$ISchemaValidationProvider.validateWithSchema(IBindingContext.java:473) ~[dev.metaschema.java.metaschema-databind-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.commands.AbstractValidateContentCommand$AbstractValidationCommandExecutor.execute(AbstractValidateContentCommand.java:250) ~[dev.metaschema.java.metaschema-cli-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor$CallingContext.invokeCommand(CLIProcessor.java:405) ~[dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor$CallingContext.processCommand(CLIProcessor.java:376) [dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor.parseCommand(CLIProcessor.java:175) [dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.metaschema.cli.processor.CLIProcessor.process(CLIProcessor.java:158) [dev.metaschema.java.cli-processor-1.0.2.jar:?]
+	at gov.nist.secauto.oscal.tools.cli.core.CLI.runCli(CLI.java:67) [dev.metaschema.oscal.oscal-cli-enhanced-2.0.2.jar:?]
+	at gov.nist.secauto.oscal.tools.cli.core.CLI.main(CLI.java:38) [dev.metaschema.oscal.oscal-cli-enhanced-2.0.2.jar:?]
+Caused by: org.xml.sax.SAXParseException: The entity name must immediately follow the '&' in the entity reference.
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.Util.toSAXParseException(Util.java:75) ~[?:?]
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.StreamValidatorHelper.validate(StreamValidatorHelper.java:178) ~[?:?]
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:115) ~[?:?]
+	at java.xml/javax.xml.validation.Validator.validate(Validator.java:124) ~[?:?]
+	at gov.nist.secauto.metaschema.core.model.validation.XmlSchemaContentValidator.validate(XmlSchemaContentValidator.java:90) ~[dev.metaschema.java.metaschema-core-1.0.2.jar:?]
+	... 9 more
+```
+
+This stack trace identifies a problem with the lower-level processing of OSCAL XML content.
+
+## Analyzing and understanding stack traces
+
+Developers use stack traces in their software to identify the order of execution and the error condition. The information helps confirm intended functionality or verify bugs that they must fix. Developer or not, you too can use this information to resolve your own issues with the `oscal-cli`, the FedRAMP constraints, and your content. With the information in a stack trace, you can do the following.
+
+1. Search [the developer documentation on unexpected failures](./CONTRIBUTING.md#common-causes-and-resolutions-for-unexpected-failures) and how to resolve them.
+1. Copy paste part or whole of the exception output into a search engine to identify and resolve common causes of the error.
+1. Use a chatbot or tooling with Large Language Models (LLM) functionality to explain, identify, and resolve common causes of the error.
+
+If 1, 2, or 3 do not help you identify and resolve your issue yourself, we strongly encourage you to engage the FedRAMP Automation Team and [provide feedback](#providing-feedback).
+
+**NOTE:** If you are a member of an organization, please consult your organization's staff and their policies for approved tools when attempting 2 or 3.
+
+## Asking good questions
+
+If you need help after trying to debug, you should [ask for help or report your issue](#providing-feedback). When you do that, it is really helpful to include debugging information so the FedRAMP Automation Team can reproduce your issue and give you the exact help you need. You should include the following.
+
+1. Version information about the constraints and tools you used.
+1. If acceptable, any sample OSCAL data you used when the error or unexpected failure occurred.
+1. What you have tried, what did not work, and how you wanted it to work.
+
+For 1, see below for more information about the versions of constraints and tools you use.
+
+**NOTE:** The FedRAMP Automation Team always welcomes when contributors provide sample data to reproduce an error or unexpected failure, but do not provide any production for a system. In addition, GSA does not authorize FedRAMP staff or community members to store any sensitive data in GitHub. Please coordinate with the team to build an equivalent minimally viable example if requested to do so.
+
+### Container version information
+
+If you are using the container-based tooling, you only need to include the container version information. You can find that information by running the following command and copy-pasting the output.
+
+```sh
+docker image ls ghcr.io/gsa/fedramp-automation/validation-tools
+```
+
+You should see output like the example below, you can copy-paste this into the other details box of the issue template.
+
+```sh
+REPOSITORY                                       TAG         IMAGE ID      CREATED     SIZE
+ghcr.io/gsa/fedramp-automation/validation-tools  latest      d6f1a0a22474  3 days ago  561 MB
+```
+
+### Manual install version information
+
+If you are using the manually installed tooling, you only need to include a few items of information. You can find that information by running the following commands and copy-pasting the output.
+
+1. Provide the commit ID for the git repository.
+
+```sh
+cd path/to/fedramp-automation
+git branch --show-current
+develop
+git rev-parse HEAD
+35b66c9da08ee125a3366000f9c36a0e74808c9c
+```
+
+2. Provide the version information for oscal-js.
+
+```sh
+cd path/to/fedramp-automation/src/validations/constraints
+make init
+npx oscal --version
+1.4.7
+```
+
+3. Provide the version information for oscal-cli.
+
+```sh
+$(npm config get prefix)/bin/oscal-cli --version 
+oscal-cli 2.1.0 built at 2024-09-16 15:20 from branch 3bf0b77e0dbfbe61988d2635439f691334840e35 (3bf0b77) at https://github.com/metaschema-framework/oscal-cli
+liboscal-java  built at 2024-09-15 17:40 from branch b509fb2c5d933894cef5cd308603784d4494826f (b509fb2) at https://github.com/metaschema-framework/liboscal-java
+oscal v1.1.2 built at 2024-09-15 17:40 from branch 4f02dac6f698efda387cc5f55bc99581eaf494b6 (4f02dac) at https://github.com/usnistgov/OSCAL.git
+metaschema-java 1.1.0 built at 2024-09-14T12:53:54+0000 from branch 874ad2d8d561f9c481208bdf389788313bda343a (874ad2d) at https://github.com/metaschema-framework/metaschema-java
+metaschema  built at 2024-09-14T12:53:54+0000 from branch 894b2238764c8732623a3894f0c236625ca5a686 (894b223) at https://github.com/metaschema-framework/metaschema.git
+```
+
 # Providing feedback
 
 If you encounter a bug or have a feature to request, submit an issue at [https://github.com/GSA/fedramp-automation/issues/new/choose](https://github.com/GSA/fedramp-automation/issues/new/choose).
+
+If you encounter a problem specific to the constraints and tooling described above, you should add information about the constraints and tool versions you used to ask for help, report bugs, or request new features in the other details section of the issue template.
