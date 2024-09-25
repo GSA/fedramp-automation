@@ -4,5 +4,5 @@ test-case:
   description: Test that the specified virtual asset is valid.
   content: ../content/ssp-all-VALID.xml
   expectations:
-  - constraint-id: virtual
+  - constraint-id: inventory-item-virtual
     result: pass

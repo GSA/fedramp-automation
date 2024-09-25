@@ -4,5 +4,5 @@ test-case:
   description: Test that the specified authenticated scan is valid.
   content: ../content/ssp-all-VALID.xml
   expectations:
-  - constraint-id: allows-authenticated-scan
+  - constraint-id: inventory-item-allows-authenticated-scan
     result: pass

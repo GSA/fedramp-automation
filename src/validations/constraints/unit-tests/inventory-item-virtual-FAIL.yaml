@@ -2,7 +2,7 @@
 test-case:
   name: The invalid virtual asset test.
   description: Test that the specified virtual asset is invalid.
-  content: ../content/ssp-virtual-INVALID.xml
+  content: ../content/ssp-inventory-item-virtual-INVALID.xml
   expectations:
-  - constraint-id: virtual
+  - constraint-id: inventory-item-virtual
     result: fail

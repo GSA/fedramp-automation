@@ -4,5 +4,5 @@ test-case:
   description: Test that the specified public asset is valid.
   content: ../content/ssp-all-VALID.xml
   expectations:
-  - constraint-id: public
+  - constraint-id: inventory-item-public
     result: pass

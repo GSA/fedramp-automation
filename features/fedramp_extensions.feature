@@ -17,8 +17,6 @@ Examples:
 #BEGIN_DYNAMIC_TEST_CASES
   | address-type-FAIL.yaml |
   | address-type-PASS.yaml |
-  | allows-authenticated-scan-FAIL.yaml |
-  | allows-authenticated-scan-PASS.yaml |
   | attachment-type-FAIL.yaml |
   | attachment-type-PASS.yaml |
   | authorization-type-FAIL.yaml |
@@ -113,12 +111,16 @@ Examples:
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
   | interconnection-security-PASS.yaml |
+  | inventory-item-allows-authenticated-scan-FAIL.yaml |
+  | inventory-item-allows-authenticated-scan-PASS.yaml |
+  | inventory-item-public-FAIL.yaml |
+  | inventory-item-public-PASS.yaml |
+  | inventory-item-virtual-FAIL.yaml |
+  | inventory-item-virtual-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
-  | public-FAIL.yaml |
-  | public-PASS.yaml |
   | resource-has-base64-or-rlink-FAIL.yaml |
   | resource-has-base64-or-rlink-PASS.yaml |
   | resource-has-title-FAIL.yaml |
@@ -135,8 +137,6 @@ Examples:
   | scan-type-PASS.yaml |
   | user-type-FAIL.yaml |
   | user-type-PASS.yaml |
-  | virtual-FAIL.yaml |
-  | virtual-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
 
 @full-coverage
@@ -153,7 +153,6 @@ Examples:
 | constraint_id |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
   | address-type |
-  | allows-authenticated-scan |
   | attachment-type |
   | authorization-type |
   | categorization-has-correct-system-attribute |
@@ -201,10 +200,12 @@ Examples:
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
+  | inventory-item-allows-authenticated-scan |
+  | inventory-item-public |
+  | inventory-item-virtual |
   | missing-response-components |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
-  | public |
   | resource-has-base64-or-rlink |
   | resource-has-title |
   | role-defined-authorizing-official-poc |
@@ -212,5 +213,4 @@ Examples:
   | role-defined-system-owner |
   | scan-type |
   | user-type |
-  | virtual |
 #END_DYNAMIC_CONSTRAINT_IDS

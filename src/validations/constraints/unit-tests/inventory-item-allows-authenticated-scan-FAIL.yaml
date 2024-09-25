@@ -2,7 +2,7 @@
 test-case:
   name: The invalid authenticated scan test.
   description: Test that the specified authenticated scan is invalid.
-  content: ../content/ssp-allows-authenticated-scan-INVALID.xml
+  content: ../content/ssp-inventory-item-allows-authenticated-scan-INVALID.xml
   expectations:
-  - constraint-id: allows-authenticated-scan
+  - constraint-id: inventory-item-allows-authenticated-scan
     result: fail
