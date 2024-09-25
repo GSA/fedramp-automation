@@ -111,6 +111,12 @@ Examples:
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
   | interconnection-security-PASS.yaml |
+  | inventory-item-allows-authenticated-scan-FAIL.yaml |
+  | inventory-item-allows-authenticated-scan-PASS.yaml |
+  | inventory-item-public-FAIL.yaml |
+  | inventory-item-public-PASS.yaml |
+  | inventory-item-virtual-FAIL.yaml |
+  | inventory-item-virtual-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
   | privilege-level-FAIL.yaml |
@@ -194,6 +200,9 @@ Examples:
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
+  | inventory-item-allows-authenticated-scan |
+  | inventory-item-public |
+  | inventory-item-virtual |
   | missing-response-components |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
