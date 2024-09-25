@@ -157,6 +157,7 @@
             </expect>
             <expect id="has-data-flow-diagram-link-rel-allowed-value" target="system-characteristics/data-flow/diagram/link" test="@rel eq 'diagram'" level="ERROR">
                 <message>Each FedRAMP SSP data flow diagram must have a link rel attribute with the value "diagram".</message>
+            </expect>
             <expect id="has-security-sensitivity-level" target="system-characteristics" test="security-sensitivity-level" level="ERROR">
                 <message>An OSCAL SSP document must specify a FIPS 199 categorization.</message>
             </expect>
