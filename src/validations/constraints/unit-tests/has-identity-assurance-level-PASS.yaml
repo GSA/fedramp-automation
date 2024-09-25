@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for has-identity-assurance-level
-  description: >-
-    This test case validates the behavior of constraint
-    has-identity-assurance-level
+  description: Test that a SSP system-characteristics element has a prop with a name equal to "identity-assurance-level".
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-identity-assurance-level

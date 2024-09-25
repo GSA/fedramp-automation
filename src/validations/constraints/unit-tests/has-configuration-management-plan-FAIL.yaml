@@ -1,8 +1,6 @@
 test-case:
   name: Negative Test for has-configuration-management-plan
-  description: >-
-    This test case validates the behavior of constraint
-    has-configuration-management-plan
+  description: Test that a SSP back-matter resource element does not have a configuration-management-plan element.
   content: ../content/ssp-has-configuration-management-plan-INVALID.xml
   expectations:
     - constraint-id: has-configuration-management-plan

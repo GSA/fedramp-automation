@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for has-information-system-contingency-plan
-  description: >-
-    This test case validates the behavior of constraint
-    has-information-system-contingency-plan
+  description: Test that a SSP back-matter resource element has a information-system-contigency-plan element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-information-system-contingency-plan

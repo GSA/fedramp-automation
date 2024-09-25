@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for has-authenticator-assurance-level
-  description: >-
-    This test case validates the behavior of constraint
-    has-authenticator-assurance-level
+  description: Test that a SSP system-characteristics element does not have a prop with a name equal to "authenticator-assurance-level".
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-authenticator-assurance-level
