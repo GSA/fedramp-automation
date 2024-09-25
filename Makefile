@@ -47,7 +47,7 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 	@echo '#/bin/bash\necho "Serving FedRAMP ASAP documentation at http://localhost:8000/..."\npython3 -m http.server 8000 --directory web/' > ./dist/serve-documentation
 	chmod +x ./dist/serve-documentation
 
-build-oci-image:
+build-oci-image: ## Build OCI image
 	docker build \
 		--build-arg APK_EXTRA_ARGS="--no-check-certificate" \
 		--build-arg WGET_EXTRA_ARGS="--no-check-certificate" \
@@ -56,7 +56,7 @@ build-oci-image:
 		-t  gsatts/validation-tools:$(OCI_REV_TAG) \
 		.
 
-publish-oci-image:
+publish-oci-image: build-oci-image ## Publish OCI image to GitHub Container Registry (ghcr.io)
 	docker tag \
 		validation-tools:$(OCI_REV_TAG) validation-tools:latest
 
