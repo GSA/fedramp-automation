@@ -237,8 +237,9 @@ Below is a list of common cases of unexpected failures. If an unexpected failure
 This unexpected failure or similar ones indicate a case where you used the `oscal-cli` tool and constraints to validate an otherwise valid OSCAL XML document, but did not properly escape special syntax characters in XML as required (i.e. `&`; `<`; `>`). Below is an example.
 
 ```sh
-docker run --rm -it -v \
-  $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+docker run --rm -it \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate \
   '/data/AwesomeCloudSSP1.xml' \
   --show-stack-trace
@@ -272,7 +273,8 @@ This unexpected failure, or similar ones, indicate a case where you used the `os
 
 ```sh
 docker run --rm -it \
-  -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate --as=json \
   '/data/AwesomeCloudSSP1.xml' \
   --show-stack-trace
@@ -298,8 +300,9 @@ To resolve the issue, check the path, content, and schema validity of a file to 
 This unexpected failure or similar ones indicate a DNS resolution error when using the `oscal-cli` tool to validate a remote OSCAL document on a HTTP server. Below is an example.
 
 ```sh
-docker run --rm -it -v \
-  $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+docker run --rm -it \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate \
   'http://doesnotexist.tld/AwesomeCloudSSP1.xml' \
   --show-stack-trace
@@ -338,8 +341,9 @@ Check network and DNS settings to ensure the system where you deployed `oscal-cl
 This unexpected failure, or similar ones, indicate a HTTP error when using the `oscal-cli` tool to validate a remote OSCAL document on a HTTP server. Below is an example.
 
 ```sh
-docker run --rm -it -v \
-  $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+docker run --rm -it \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate \
   'http://example.net/AwesomeCloudSSP1.xml' \
   --show-stack-trace
