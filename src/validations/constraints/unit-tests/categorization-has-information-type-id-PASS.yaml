@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for categorization-has-information-type-id
-  description: >-
-    This test case validates the behavior of constraint
-    categorization-has-information-type-id
+  description: Test that a SSP system-characteristics categorization element has an information-type-id element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: categorization-has-information-type-id

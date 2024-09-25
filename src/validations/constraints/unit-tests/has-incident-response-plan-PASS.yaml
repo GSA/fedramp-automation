@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for has-incident-response-plan
-  description: >-
-    This test case validates the behavior of constraint
-    has-incident-response-plan
+  description: Test that a SSP back-matter resource element has an incident-response-plan element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-incident-response-plan

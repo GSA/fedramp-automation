@@ -113,7 +113,7 @@
             <expect id="has-data-flow" target="system-characteristics" test="data-flow" level="WARNING">
                 <message>A FedRAMP SSP must include a data flow section.</message>
             </expect>
-            <expect id="has-data-flow-diagram" target="system-characteristics/data-flow" test="diagram" level="ERROR">
+            <expect id="has-data-flow-diagram" target="system-characteristics/data-flow" test="diagram" level="WARNING">
                 <message>A FedRAMP SSP must have at least one data flow diagram.</message>
             </expect>
             <expect id="has-data-flow-description" target="system-characteristics/data-flow" test="description" level="ERROR">

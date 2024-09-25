@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for resource-has-title
-  description: This test case validates the behavior of constraint resource-has-title
+  description: Test that a SSP back-matter resource element has a title element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: resource-has-title

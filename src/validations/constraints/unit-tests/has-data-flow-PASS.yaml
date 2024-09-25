@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for has-data-flow
-  description: Test that system-characteristics has a data-flow element.
+  description: Test that a SSP system-characteristics element has a data-flow element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-data-flow

@@ -1,6 +1,6 @@
 test-case:
   name: Negative Test for has-data-flow
-  description: Test that system-characteristics does not have a data-flow element.
+  description: Test that a SSP system-characteristics element does not have a data-flow element.
   content: ../content/ssp-has-data-flow-INVALID.xml
   expectations:
     - constraint-id: has-data-flow

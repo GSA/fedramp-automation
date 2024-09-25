@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for has-network-architecture
-  description: This test case validates the behavior of constraint has-network-architecture
+  description: Test that a SSP system-characteristics element has a network-architecture element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-network-architecture

@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for has-data-flow-diagram-link-rel
-  description: Test that data-flow diagram link has a rel attribute.
+  description: Test that a SSP data-flow diagram link element has a rel attribute.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-data-flow-diagram-link-rel
