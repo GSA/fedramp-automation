@@ -355,7 +355,7 @@ REPOSITORY                                       TAG         IMAGE ID      CREAT
 ghcr.io/gsa/fedramp-automation/validation-tools  latest      d6f1a0a22474  3 days ago  561 MB
 ```
 
-### Manual instal version information
+### Manual install version information
 
 If you are using the manually installed tooling, you only need to include a few items of information. You can find that information by running the following commands and copy-pasting the output.
 
