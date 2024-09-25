@@ -54,6 +54,7 @@ docker pull ghcr.io/gsa/fedramp-automation/validation-tools:f6d200916d19c87fb56c
 Once you install the container image, you can run the container and mount the local copy of the git repository for new constraints and test infrastructure. An example command using the development version of constraints with the tooling, not the preinstalled ones from a pre-existing container, is below.
 
 ```sh
+cd path/to/fedramp-automation
 docker run --rm -it \
   -v $(PWD):/data \
   ghcr.io/gsa/fedramp-automation/validation-tools \
@@ -68,6 +69,7 @@ Observe the full paths to identify the location of pre-release constraint files.
 You may also directly run commands in the container by using an explicit entrypoint to the shell `/bin/sh` and not run the default `oscal-cli` entrypoint with your command arguments. An example is below.
 
 ```sh
+cd path/to/fedramp-automation
 docker run --rm -it \
   -v $(PWD):/data \
   --entrypoint /bin/sh \
