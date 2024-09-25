@@ -59,6 +59,24 @@ Examples:
   | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
+  | has-data-flow-FAIL.yaml |
+  | has-data-flow-PASS.yaml |
+  | has-data-flow-description-FAIL.yaml |
+  | has-data-flow-description-PASS.yaml |
+  | has-data-flow-diagram-FAIL.yaml |
+  | has-data-flow-diagram-PASS.yaml |
+  | has-data-flow-diagram-caption-FAIL.yaml |
+  | has-data-flow-diagram-caption-PASS.yaml |
+  | has-data-flow-diagram-description-FAIL.yaml |
+  | has-data-flow-diagram-description-PASS.yaml |
+  | has-data-flow-diagram-link-FAIL.yaml |
+  | has-data-flow-diagram-link-PASS.yaml |
+  | has-data-flow-diagram-link-rel-FAIL.yaml |
+  | has-data-flow-diagram-link-rel-PASS.yaml |
+  | has-data-flow-diagram-link-rel-allowed-value-FAIL.yaml |
+  | has-data-flow-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-data-flow-diagram-uuid-FAIL.yaml |
+  | has-data-flow-diagram-uuid-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
   | has-federation-assurance-level-PASS.yaml |
   | has-identity-assurance-level-FAIL.yaml |
@@ -150,6 +168,15 @@ Examples:
   | has-authorization-boundary-diagram-link-rel |
   | has-authorization-boundary-diagram-link-rel-allowed-value |
   | has-configuration-management-plan |
+  | has-data-flow |
+  | has-data-flow-description |
+  | has-data-flow-diagram |
+  | has-data-flow-diagram-caption |
+  | has-data-flow-diagram-description |
+  | has-data-flow-diagram-link |
+  | has-data-flow-diagram-link-rel |
+  | has-data-flow-diagram-link-rel-allowed-value |
+  | has-data-flow-diagram-uuid |
   | has-federation-assurance-level |
   | has-identity-assurance-level |
   | has-incident-response-plan |

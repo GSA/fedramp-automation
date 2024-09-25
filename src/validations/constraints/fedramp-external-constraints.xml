@@ -110,6 +110,33 @@
             <expect id="has-network-architecture-diagram-link-rel-allowed-value" target="system-characteristics/network-architecture/diagram/link" test="@rel eq 'diagram'" level="ERROR">
                 <message>Each FedRAMP SSP network architecture diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
+            <expect id="has-data-flow" target="system-characteristics" test="data-flow" level="WARNING">
+                <message>A FedRAMP SSP must include a data flow section.</message>
+            </expect>
+            <expect id="has-data-flow-diagram" target="system-characteristics/data-flow" test="diagram" level="ERROR">
+                <message>A FedRAMP SSP must have at least one data flow diagram.</message>
+            </expect>
+            <expect id="has-data-flow-description" target="system-characteristics/data-flow" test="description" level="ERROR">
+                <message>An OSCAL SSP document with a data flow must have a description.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-uuid" target="system-characteristics/data-flow/diagram" test="@uuid" level="ERROR">
+                <message>An OSCAL SSP document with a data flow diagram must have a unique identifier.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-description" target="system-characteristics/data-flow/diagram" test="description" level="ERROR">
+                <message>Each FedRAMP SSP data flow diagram must have a description.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-link" target="system-characteristics/data-flow/diagram" test="link" level="ERROR">
+                <message>Each FedRAMP SSP data flow diagram must have a link.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-caption" target="system-characteristics/data-flow/diagram" test="caption" level="ERROR">
+                <message>Each FedRAMP SSP data flow diagram must have a caption.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-link-rel" target="system-characteristics/data-flow/diagram/link" test="@rel" level="ERROR">
+                <message>Each FedRAMP SSP data flow diagram must have a link rel attribute.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-link-rel-allowed-value" target="system-characteristics/data-flow/diagram/link" test="@rel eq 'diagram'" level="ERROR">
+                <message>Each FedRAMP SSP data flow diagram must have a link rel attribute with the value "diagram".</message>
+            </expect>
         </constraints>
     </context>
     <context>

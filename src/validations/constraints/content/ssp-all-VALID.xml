@@ -132,6 +132,18 @@
         <caption>Network Diagram</caption>
       </diagram>
     </network-architecture>
+    <data-flow>
+      <description>
+        <p>A holistic, top-level explanation of the system's data flows.</p>
+      </description>
+      <diagram uuid="e3b98448-4219-46a5-b229-412423c566f3">
+        <description>
+          <p>A diagram-specific explanation.</p>
+        </description>
+        <link href="#ac5d7535-f3b8-45d3-bf3b-735c82c64547" rel="diagram"/>
+        <caption>Data Flow Diagram</caption>
+      </diagram>
+    </data-flow>
   </system-characteristics>
   
   <system-implementation>
