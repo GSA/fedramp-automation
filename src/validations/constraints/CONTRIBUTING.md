@@ -32,6 +32,50 @@ cd path/to/fedramp-automation
 make init
 ```
 
+If you prefer container-based development and testing, you can build the container and mount the development data into the container.
+
+```sh
+cd path/to/fedramp-automation
+make build-oci-image
+```
+
+Alternatively, you can download pre-built container images. You can also download the latest stable release with the example command below.
+
+```sh
+docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
+```
+
+Review pre-release builds based on tags with IDs for commits from the `develop` branch or specific pull request branches by checking [image tags of published images](https://github.com/GSA/fedramp-automation/pkgs/container/fedramp-automation%2Fvalidation-tools/versions). For example, you can download the container image with tag `f6d200916d19c87fb56c1d08e905fb9d2c2ced4f`, built from source code changed with [commit `f6d200916d19c87fb56c1d08e905fb9d2c2ced4f`](https://github.com/GSA/fedramp-automation/tree/f6d200916d19c87fb56c1d08e905fb9d2c2ced4f), with the example command below.
+
+```sh
+docker pull ghcr.io/gsa/fedramp-automation/validation-tools:f6d200916d19c87fb56c1d08e905fb9d2c2ced4f
+```
+
+Once you install the container image, you can run the container and mount the local copy of the git repository for new constraints and test infrastructure. An example command using the development version of constraints with the tooling, not the preinstalled ones from a pre-existing container, is below.
+
+```sh
+cd path/to/fedramp-automation
+docker run --rm -it \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
+  validate \
+  '/data/src/content/awesome-cloud/xmlAwesomeCloudSSP1.xml' \
+  -c '/data/src/validations/constraints/fedramp-external-allowed-values.xml' \
+  -c '/data/src/validations/constraints/fedramp-external-constraints.xml'
+```
+
+Observe the full paths to identify the location of pre-release constraint files. This use of a container allows you to use pre-installed utilities and your work in development.
+
+You may also directly run commands in the container by using an explicit entrypoint to the shell `/bin/sh` and not run the default `oscal-cli` entrypoint with your command arguments. An example is below.
+
+```sh
+cd path/to/fedramp-automation
+docker run --rm -it \
+  -v $(PWD):/data \
+  --entrypoint /bin/sh \
+  ghcr.io/gsa/fedramp-automation/validation-tools
+```
+
 ## How do I run the tests?
 
 To run the existing tests as-is, you can use `make` or `npm` directly.
@@ -203,8 +247,9 @@ Below is a list of common cases of unexpected failures. If an unexpected failure
 This unexpected failure or similar ones indicate a case where you used the `oscal-cli` tool and constraints to validate an otherwise valid OSCAL XML document, but did not properly escape special syntax characters in XML as required (i.e. `&`; `<`; `>`). Below is an example.
 
 ```sh
-docker run --rm -it -v \
-  $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+docker run --rm -it \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate \
   '/data/AwesomeCloudSSP1.xml' \
   --show-stack-trace
@@ -238,7 +283,8 @@ This unexpected failure, or similar ones, indicate a case where you used the `os
 
 ```sh
 docker run --rm -it \
-  -v $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate --as=json \
   '/data/AwesomeCloudSSP1.xml' \
   --show-stack-trace
@@ -264,8 +310,9 @@ To resolve the issue, check the path, content, and schema validity of a file to 
 This unexpected failure or similar ones indicate a DNS resolution error when using the `oscal-cli` tool to validate a remote OSCAL document on a HTTP server. Below is an example.
 
 ```sh
-docker run --rm -it -v \
-  $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+docker run --rm -it \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate \
   'http://doesnotexist.tld/AwesomeCloudSSP1.xml' \
   --show-stack-trace
@@ -304,8 +351,9 @@ Check network and DNS settings to ensure the system where you deployed `oscal-cl
 This unexpected failure, or similar ones, indicate a HTTP error when using the `oscal-cli` tool to validate a remote OSCAL document on a HTTP server. Below is an example.
 
 ```sh
-docker run --rm -it -v \
-  $(PWD):/data ghcr.io/gsa/fedramp-automation/validation-tools \
+docker run --rm -it \
+  -v $(PWD):/data \
+  ghcr.io/gsa/fedramp-automation/validation-tools \
   validate \
   'http://example.net/AwesomeCloudSSP1.xml' \
   --show-stack-trace
