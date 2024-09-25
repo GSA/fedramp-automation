@@ -1,6 +1,6 @@
 test-case:
   name: Negative Test for has-data-flow-diagram-caption
-  description: Test that data-flow diagram does not have a caption.
+  description: Test that a SSP data-flow diagram element does not have a caption element.
   content: ../content/ssp-has-data-flow-diagram-caption-INVALID.xml
   expectations:
     - constraint-id: has-data-flow-diagram-caption

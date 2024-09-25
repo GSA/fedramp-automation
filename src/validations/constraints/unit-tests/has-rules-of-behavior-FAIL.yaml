@@ -1,6 +1,6 @@
 test-case:
   name: Negative Test for has-rules-of-behavior
-  description: This test case validates the behavior of constraint has-rules-of-behavior
+  description: Test that a SSP back-matter resource element does not have a rules-of-behavior element.
   content: ../content/ssp-has-rules-of-behavior-INVALID.xml
   expectations:
     - constraint-id: has-rules-of-behavior

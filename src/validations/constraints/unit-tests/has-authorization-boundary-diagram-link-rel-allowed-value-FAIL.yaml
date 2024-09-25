@@ -1,8 +1,6 @@
 test-case:
   name: Negative Test for has-authorization-boundary-diagram-link-rel-allowed-value
-  description: >-
-    This test case validates the behavior of constraint
-    has-authorization-boundary-diagram-link-rel-allowed-value
+  description: Test that a SSP authorization-boundary diagram link rel attribute does not equal "diagram".
   content: ../content/ssp-has-authorization-boundary-diagram-link-rel-allowed-value-INVALID.xml
   expectations:
     - constraint-id: has-authorization-boundary-diagram-link-rel-allowed-value

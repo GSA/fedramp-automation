@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for has-data-flow-diagram-uuid
-  description: Test that data-flow diagram has a uuid attribute.
+  description: Test that a SSP data-flow diagram element has a uuid attribute.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-data-flow-diagram-uuid

@@ -1,6 +1,6 @@
 test-case:
   name: Negative Test for has-data-flow-diagram-uuid
-  description: Test that data-flow diagram does not have a uuid attribute.
+  description: Test that a SSP data-flow diagram element does not have a uuid attribute.
   content: ../content/ssp-has-data-flow-diagram-uuid-INVALID.xml
   expectations:
     - constraint-id: has-data-flow-diagram-uuid

@@ -1,6 +1,6 @@
 test-case:
   name: Negative Test for has-data-flow-description
-  description: Test that data-flow does not have a description.
+  description: Test that a SSP data-flow element does not have a description element.
   content: ../content/ssp-has-data-flow-description-INVALID.xml
   expectations:
     - constraint-id: has-data-flow-description

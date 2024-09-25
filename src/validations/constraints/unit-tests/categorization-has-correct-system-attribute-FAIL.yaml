@@ -1,8 +1,6 @@
 test-case:
   name: Negative Test for categorization-has-correct-system-attribute
-  description: >-
-    This test case validates the behavior of constraint
-    categorization-has-correct-system-attribute
+  description: Test that a SSP system-characteristics categorization element does not have a system attribute equal to "https://doi.org/10.6028/NIST.SP.800-60v2r1".
   content: ../content/ssp-categorization-has-correct-system-attribute-INVALID.xml
   expectations:
     - constraint-id: categorization-has-correct-system-attribute

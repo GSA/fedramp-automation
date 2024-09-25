@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for has-authorization-boundary-diagram-caption
-  description: >-
-    This test case validates the behavior of constraint
-    has-authorization-boundary-diagram-caption
+  description: Test that a SSP authorization-boundary diagram element has a caption element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-authorization-boundary-diagram-caption
