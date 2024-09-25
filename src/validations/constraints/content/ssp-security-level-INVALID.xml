@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+                      
+  <system-characteristics>
+    <system-id identifier-type="https://fedramp.gov">F00000001</system-id>
+    <system-name>Enhanced Example System</system-name>
+    <description>
+      <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
+    </description>
+    <prop name='cloud-deployment-model' value='government-only-cloud' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='cloud-service-model' value='other' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='fedramp' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name="identity-assurance-level" value="2"/>
+    <prop name="authenticator-assurance-level" value="2"/>
+    <prop name="federation-assurance-level" value="2"/>
+    <security-sensitivity-level>INVALID-fips-199-moderate</security-sensitivity-level>
+    <system-information>
+      <information-type  uuid="33333333-0000-4000-9000-000000000003">
+        <title>Financial Information</title>
+        <description>
+          <p>Contains sensitive financial data related to organizational operations.</p>
+        </description>
+        <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+          <information-type-id>C.2.8.12</information-type-id>
+        </categorization>
+        <confidentiality-impact>
+          <base>INVALID-fips-199-high</base>
+        </confidentiality-impact>
+        <integrity-impact>
+          <base>INVALID-fips-199-moderate</base>
+        </integrity-impact>
+        <availability-impact>
+          <base>INVALID-fips-199-low</base>
+        </availability-impact>
+      </information-type>
+    </system-information>
+    <security-impact-level>
+      <security-objective-confidentiality>INVALID-fips-199-moderate</security-objective-confidentiality>
+      <security-objective-integrity>INVALID-fips-199-moderate</security-objective-integrity>
+      <security-objective-availability>INVALID-fips-199-moderate</security-objective-availability>
+    </security-impact-level>
+    <status state="operational"/>
+    <authorization-boundary>
+      <description>
+        <p>The authorization boundary includes all components within the main data center and the disaster recovery site.</p>
+      </description>
+      <diagram uuid="dbf46c27-52a9-49c4-beb6-b6399cd75497">
+            <description>
+               <p>A diagram-specific explanation.</p>
+            </description>
+            <link href="#d2eb3c18-6754-4e3a-a933-03d289e3fad5" rel="diagram"/>
+            <caption>Authorization Boundary Diagram</caption>
+         </diagram>
+    </authorization-boundary>
+    <network-architecture>
+      <description>
+        <p>A holistic, top-level explanation of the network architecture.</p>
+      </description>
+      <diagram uuid="e97c3395-433a-48c1-8cc7-dd1e1555941c">
+        <description>
+          <p>A diagram-specific explanation.</p>
+        </description>
+        <link href="#61081e81-850b-43c1-bf43-1ecbddcb9e7f" rel="diagram"/>
+        <caption>Network Diagram</caption>
+      </diagram>
+    </network-architecture>
+    <data-flow>
+      <description>
+        <p>A holistic, top-level explanation of the system's data flows.</p>
+      </description>
+      <diagram uuid="e3b98448-4219-46a5-b229-412423c566f3">
+        <description>
+          <p>A diagram-specific explanation.</p>
+        </description>
+        <link href="#ac5d7535-f3b8-45d3-bf3b-735c82c64547" rel="diagram"/>
+        <caption>Data Flow Diagram</caption>
+      </diagram>
+    </data-flow>
+  </system-characteristics>
+  
+</system-security-plan>

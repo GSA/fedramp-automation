@@ -1,0 +1,8 @@
+# driver for the security-level unit test
+test-case:
+  name: Test Invalid Security Level Use
+  description: Test that the specified security level is invalid.
+  content: ../content/ssp-security-level-INVALID.xml # the content to run
+  expectations: # check the constraint result
+  - constraint-id: security-level
+    result: fail
