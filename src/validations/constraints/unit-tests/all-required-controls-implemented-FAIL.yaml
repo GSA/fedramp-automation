@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for all-required-controls-implemented
+  description: >-
+    This test case validates the behavior of constraint
+    all-required-controls-implemented
+  content: ../content/ssp-all-required-controls-implemented-INVALID.xml
+  expectations:
+    - constraint-id: all-required-controls-implemented
+      result: fail
