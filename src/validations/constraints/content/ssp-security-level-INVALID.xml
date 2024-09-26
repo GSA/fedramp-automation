@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+  <system-characteristics>
+    <security-sensitivity-level>INVALID-fips-199-moderate</security-sensitivity-level>
+    <system-information>
+      <information-type  uuid="33333333-0000-4000-9000-000000000003">
+        <confidentiality-impact>
+          <base>INVALID-fips-199-high</base>
+        </confidentiality-impact>
+        <integrity-impact>
+          <base>INVALID-fips-199-moderate</base>
+        </integrity-impact>
+        <availability-impact>
+          <base>INVALID-fips-199-low</base>
+        </availability-impact>
+      </information-type>
+    </system-information>
+    <security-impact-level>
+      <security-objective-confidentiality>INVALID-fips-199-moderate</security-objective-confidentiality>
+      <security-objective-integrity>INVALID-fips-199-moderate</security-objective-integrity>
+      <security-objective-availability>INVALID-fips-199-moderate</security-objective-availability>
+    </security-impact-level>
+  </system-characteristics>
+</system-security-plan>

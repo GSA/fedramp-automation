@@ -81,7 +81,7 @@
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
-    <security-sensitivity-level>moderate</security-sensitivity-level>
+    <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
         <title>Financial Information</title>
@@ -92,20 +92,20 @@
           <information-type-id>C.2.8.12</information-type-id>
         </categorization>
         <confidentiality-impact>
-          <base>high</base>
+          <base>fips-199-high</base>
         </confidentiality-impact>
         <integrity-impact>
-          <base>moderate</base>
+          <base>fips-199-moderate</base>
         </integrity-impact>
         <availability-impact>
-          <base>low</base>
+          <base>fips-199-low</base>
         </availability-impact>
       </information-type>
     </system-information>
     <security-impact-level>
-      <security-objective-confidentiality>moderate</security-objective-confidentiality>
-      <security-objective-integrity>moderate</security-objective-integrity>
-      <security-objective-availability>moderate</security-objective-availability>
+      <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
+      <security-objective-integrity>fips-199-moderate</security-objective-integrity>
+      <security-objective-availability>fips-199-moderate</security-objective-availability>
     </security-impact-level>
     <status state="operational"/>
     <authorization-boundary>
