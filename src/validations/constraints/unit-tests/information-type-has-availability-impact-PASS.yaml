@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for information-type-has-availability-impact
-  description: >-
-    This test case validates the behavior of constraint
-    information-type-has-availability-impact
+  description: Test that a SSP system-characteristics system-information information-type element has an availability-impact element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: information-type-has-availability-impact
