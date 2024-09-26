@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for has-security-sensitivity-level
-  description: >-
-    This test case validates the behavior of constraint
-    has-security-sensitivity-level
+  description: Test that a SSP system-characteristics element has a security-sensitivity-level element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-security-sensitivity-level
