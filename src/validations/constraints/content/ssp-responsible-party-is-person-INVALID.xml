@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+    <metadata>
+        <title>Enhanced Example System Security Plan</title>
+        <published>2024-08-01T14:30:00Z</published>
+        <last-modified>2024-08-01T14:30:00Z</last-modified>
+        <version>1.1</version>
+        <oscal-version>1.0.0</oscal-version>
+        <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
+
+        <role id="creator">
+            <title>Document Creator</title>
+        </role>
+        <role id="content-approver">
+            <title>Content Approver</title>
+        </role>
+        <role id="system-admin">
+            <title>System Administrator</title>
+        </role>
+        <role id="asset-owner">
+            <title>Asset Owner</title>
+        </role>
+        <role id="system-poc-management">
+            <title>Information System Management Point of Contact (POC)</title>
+            <description>
+                <p>The highest level manager who responsible for system operation on behalf of the System Owner.</p>
+            </description>
+        </role>
+        <role id="system-poc-technical">
+            <title>Information System Technical Point of Contact</title>
+            <description>
+                <p>The individual or individuals leading the technical operation of the system.</p>
+            </description>
+        </role>
+        <role id="system-poc-other">
+            <title>General Point of Contact (POC)</title>
+            <description>
+                <p>A general point of contact for the system, designated by the system owner.</p>
+            </description>
+        </role>
+        <location uuid="11111112-0000-4000-9001-000000000009">
+            <address >
+            <country>US</country>
+            </address>
+            <prop name='data-center' value='dc-zone-1' class='tertiary' ns="https://fedramp.gov/ns/oscal"/>
+        </location>
+        <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
+            <name>Example Organization</name>
+            <short-name>ExOrg</short-name>
+            <link rel="website" href="https://example.com"/>
+            <address type="work"  />
+        </party>
+        <party uuid="22222222-0000-4000-9000-000000000002" type="person">
+            <name>Jane Doe</name>
+            <email-address>jane.doe@example.com</email-address>
+            <address type="work"  />
+        </party>
+
+        <responsible-party role-id="creator">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="content-approver">
+            <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+        </responsible-party>
+
+        <responsible-party role-id="system-owner">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="authorizing-official">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="authorizing-official-poc">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="system-poc-management">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="system-poc-technical">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="system-poc-other">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="information-system-security-officer">
+            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-party>
+
+        <remarks>
+            <p>This SSP is an example for demonstration purposes.</p>
+        </remarks>
+    </metadata>
+</system-security-plan>
