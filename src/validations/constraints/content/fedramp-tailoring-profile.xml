@@ -12,6 +12,8 @@
     <include-controls>
         <!-- a single control selection -->
         <with-id>ac-1</with-id>
+        <with-id>cm-8</with-id>
+        <with-id>pe-2</with-id>
     </include-controls> 
   </import>
   <merge>
