@@ -1,8 +1,6 @@
 test-case:
   name: Negative Test for has-security-impact-level
-  description: >-
-    This test case validates the behavior of constraint
-    has-security-impact-level
+  description: Test that a SSP system-characteristics element does not have a security-impact-level element.
   content: ../content/ssp-has-security-impact-level-INVALID.xml
   expectations:
     - constraint-id: has-security-impact-level

@@ -1,8 +1,6 @@
 test-case:
   name: Negative Test for has-security-sensitivity-level
-  description: >-
-    This test case validates the behavior of constraint
-    has-security-sensitivity-level
+  description: Test that a SSP system-characteristics element does not have a security-sensitivity-level element.
   content: ../content/ssp-has-security-sensitivity-level-INVALID.xml
   expectations:
     - constraint-id: has-security-sensitivity-level
