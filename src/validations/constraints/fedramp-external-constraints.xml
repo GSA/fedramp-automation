@@ -15,7 +15,7 @@
                 <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
                 <p>For control statements, it signals to the CSP which statements require a response in the SSP.</p>
                 <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
-             </remarks>
+            </remarks>
         </constraints>
     </context>
     <context>
@@ -193,7 +193,44 @@
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
             <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
-                <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
+                <message>
+                    Implemented requirement (Control ID: {@control-id}) must have at least one by-component reference to the source component implementing it found ({count(./by-component)}).
+                </message>
+            </expect>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/mapping-collection"/>
+        <metapath target="/component-definition"/>
+        <metapath target="/system-security-plan"/>
+        <metapath target="/assessment-plan"/>
+        <metapath target="/assessment-results"/>
+        <metapath target="/plan-of-action-and-milestones"/>
+        <constraints>
+            <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))//catalog')"/>
+            <let var="implimented-controls" expression="//implemented-requirement"/>
+            <expect id="all-required-controls-implemented" target="." test="count($all-imports//control) eq count(//implemented-requirement)" level="WARNING">
+                <message>
+            Not all required controls are implemented. 
+            implimented controls: {count(//implemented-requirement)}.
+            required controls: {count($all-imports//control)}.
+     
+        </message>
+            </expect>
+            <expect id="extraneous-implemented-requirements" target="." test="count(//implemented-requirement) lt count($all-imports//control) "  level="WARNING">
+                <message>Extraneous Implemented requirements
+                    implimented controls: {count(//implemented-requirement)}.
+                    required controls: {count($all-imports//control)}.   
+                  
+                </message>
+            </expect>
+            <expect id="incomplete-implemented-requirements" target="." test="count(//implemented-requirement) gt count($all-imports//control) "  level="WARNING">
+                <message>Incomplete Implemented requirements
+                    implimented controls: {count(//implemented-requirement)}.
+                    required controls: {count($all-imports//control)}.                     
+                </message>
             </expect>
         </constraints>
     </context>

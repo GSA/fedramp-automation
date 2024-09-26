@@ -8,9 +8,8 @@
     <published>2024-08-01T14:30:00Z</published>
     <last-modified>2024-08-01T14:30:00Z</last-modified>
     <version>1.1</version>
-    <oscal-version>1.1.2</oscal-version>
+    <oscal-version>1.0.0</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
-    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     
     <role id="creator">
       <title>Document Creator</title>
@@ -38,13 +37,13 @@
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='primary'/>
+      <prop name='data-center' value='dc-zone-1' class='primary' ns="https://fedramp.gov/ns/oscal"/>
     </location>
     <location uuid="11111112-0000-4000-9000-000000000003">
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='aws-us-west-1' class='alternate'/>
+      <prop name='data-center' value='aws-us-west-1' class='alternate' ns="https://fedramp.gov/ns/oscal"/>
     </location>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
@@ -82,7 +81,7 @@
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
-    <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+    <security-sensitivity-level>moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
         <title>Financial Information</title>
@@ -93,20 +92,20 @@
           <information-type-id>C.2.8.12</information-type-id>
         </categorization>
         <confidentiality-impact>
-          <base>fips-199-high</base>
+          <base>high</base>
         </confidentiality-impact>
         <integrity-impact>
-          <base>fips-199-moderate</base>
+          <base>moderate</base>
         </integrity-impact>
         <availability-impact>
-          <base>fips-199-low</base>
+          <base>low</base>
         </availability-impact>
       </information-type>
     </system-information>
     <security-impact-level>
-      <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
-      <security-objective-integrity>fips-199-moderate</security-objective-integrity>
-      <security-objective-availability>fips-199-moderate</security-objective-availability>
+      <security-objective-confidentiality>moderate</security-objective-confidentiality>
+      <security-objective-integrity>moderate</security-objective-integrity>
+      <security-objective-availability>moderate</security-objective-availability>
     </security-impact-level>
     <status state="operational"/>
     <authorization-boundary>
@@ -208,23 +207,7 @@
   <control-implementation>
     <description>
       <p>Implementation of controls for the Enhanced Example System</p>
-    </description>
-    <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
-      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
-      <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
-      </statement>
-      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
-        <description>
-          <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
-        </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
-        <responsible-role role-id="system-admin">
-          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-        </responsible-role>
-      </by-component>
-    </implemented-requirement>
-    
+    </description>    
     <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
       <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
@@ -351,54 +334,5 @@
      <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
   </remarks>
 </resource>
-
-
-<resource uuid="d2eb3c18-6754-4e3a-a933-03d289e3fad5">
-  <title>Authorization Boundary</title>
-  <description>
-     <p>Authorization Boundary Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/AuthBoundary.docx" media-type="application/msword"/>
-  <base64 filename="AuthBoundary.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-
-<resource uuid="61081e81-850b-43c1-bf43-1ecbddcb9e7f">
-  <title>Network Architecture</title>
-  <description>
-     <p>Network Architecture Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/NetworkArchitecture.docx" media-type="application/msword"/>
-  <base64 filename="NetworkArchitecture.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-
-<resource uuid="ac5d7535-f3b8-45d3-bf3b-735c82c64547">
-  <title>Data Flow</title>
-  <description>
-     <p>Data flow Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/Dataflo.docx" media-type="application/msword"/>
-  <base64 filename="Dataflow.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-
-
-
   </back-matter>
 </system-security-plan>
