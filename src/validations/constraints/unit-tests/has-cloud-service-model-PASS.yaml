@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for has-cloud-service-model
+  description: Test that a SSP system-characteristics element has a prop element with a name attribute equal to "cloud-service-model".
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-cloud-service-model
+      result: pass

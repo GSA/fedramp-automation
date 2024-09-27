@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for has-cloud-service-model-remarks
+  description: Test that every SSP system-characteristics prop element with a name attribute equal to "cloud-service-model" and a value attribute equal to "other" does not have a remarks element.
+  content: ../content/ssp-has-cloud-service-model-remarks-INVALID.xml
+  expectations:
+    - constraint-id: has-cloud-service-model-remarks
+      result: fail

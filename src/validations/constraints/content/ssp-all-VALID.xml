@@ -118,8 +118,16 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
-    <prop name='cloud-deployment-model' value='government-only-cloud' ns="https://fedramp.gov/ns/oscal"/>
-    <prop name='cloud-service-model' value='other' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='cloud-deployment-model' value='hybrid-cloud' ns="https://fedramp.gov/ns/oscal">
+      <remarks>
+        <p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional otherwise.</p>
+      </remarks>
+    </prop>
+    <prop name='cloud-service-model' value='other' ns="https://fedramp.gov/ns/oscal">
+      <remarks>
+        <p>Remarks are required if service model is "other". Optional otherwise.</p>
+      </remarks>
+    </prop>
     <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>

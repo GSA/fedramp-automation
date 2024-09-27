@@ -67,6 +67,14 @@ Examples:
   | has-authorization-boundary-diagram-link-rel-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-cloud-deployment-model-FAIL.yaml |
+  | has-cloud-deployment-model-PASS.yaml |
+  | has-cloud-deployment-model-remarks-FAIL.yaml |
+  | has-cloud-deployment-model-remarks-PASS.yaml |
+  | has-cloud-service-model-FAIL.yaml |
+  | has-cloud-service-model-PASS.yaml |
+  | has-cloud-service-model-remarks-FAIL.yaml |
+  | has-cloud-service-model-remarks-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
   | has-data-flow-FAIL.yaml |
@@ -109,6 +117,8 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-public-cloud-deployment-model-FAIL.yaml |
+  | has-public-cloud-deployment-model-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |
@@ -226,6 +236,10 @@ Examples:
   | has-authorization-boundary-diagram-link |
   | has-authorization-boundary-diagram-link-rel |
   | has-authorization-boundary-diagram-link-rel-allowed-value |
+  | has-cloud-deployment-model |
+  | has-cloud-deployment-model-remarks |
+  | has-cloud-service-model |
+  | has-cloud-service-model-remarks |
   | has-configuration-management-plan |
   | has-data-flow |
   | has-data-flow-description |
@@ -247,6 +261,7 @@ Examples:
   | has-network-architecture-diagram-link |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
+  | has-public-cloud-deployment-model |
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
