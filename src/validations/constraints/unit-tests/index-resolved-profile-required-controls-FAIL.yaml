@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for index-resolved-profile-required-controls
+  description: >-
+    This test case validates the behavior of constraint
+    index-resolved-profile-required-controls
+  content: ../content/ssp-index-resolved-profile-required-controls-INVALID.xml
+  expectations:
+    - constraint-id: index-resolved-profile-required-controls
+      result: fail
