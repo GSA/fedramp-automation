@@ -30,9 +30,11 @@ There are multiple approaches for the team and larger community to consider.
 
 ## Decision
 
-The team proposes Solution 4: using the existing property (`prop`) assembly of Metaschema constraint models: one for a URL address, another for help text, and another for hep text with Markdown formatting. A FedRAMP constraint style guide should recommend or require one, some, or all of them to provide a flexible, yet consistent approach.
+The team proposes Solution 4. To implement this solution, we will commit to steps below.
 
-Below is an example of how these properties can look in an example constraints files.
+1. The FedRAMP Team will request the maintainers of [metaschema-java](https://github.com/metaschema-framework/metaschema-java) and [oscal-cli](https://github.com/metaschema-framework/oscal-cli) to implement code to map props `help-url`, `help-text`, and `help-text-markdown` to the SARIF `helpUri` and `help` fields for constraints result outputs.
+
+2. After Step 1 is complete, A FedRAMP constraint style guide should recommend or the use of `help-url`, `help-text`, and `help-text-markdown` props. Below is an example of how these properties can look in an example constraints files.
 
 ```xml
 <metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
@@ -41,8 +43,8 @@ Below is an example of how these properties can look in an example constraints f
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
                 <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
-                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text" value="Data centers must have a country. Only certain countries allowed. See the list below. US"/>
-                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text-markdown" value="# Data Center Requirements\nData centers must have a country.\nOnly certain countries allowed.\nSee the list below.\n- US"/>
+                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text" value="Data centers must have a country. Only certain countries allowed. See the list below: Country 1; Country 2; Country 3."/>
+                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text-markdown" value="# Data Center Requirements\nData centers must have a country.\nOnly certain countries allowed.\nSee the list below.\n- Country 1\n - Country 2\n - Country 3\n\n"/>
                 <message>Each data center address must contain a country code.</message>
             </expect>
         </constraints>
@@ -50,7 +52,7 @@ Below is an example of how these properties can look in an example constraints f
 </metaschema-meta-constraints>
 ```
 
-The FedRAMP Team will request the maintainers of metaschema-java and oscal-cli to implement code to map these props to the SARIF `helpUri` and `help` fields for constraints result outputs.
+3. The team will update backport the props, as required by the style guide completed for Step 2, to existing constraints and correct and enhance documentation at [automate.fedramp.gov](https://automate.fedramp.gov) accordingly to deep-link to precise information for each constraint.
 
 ## Consequences
 
