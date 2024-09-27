@@ -17,8 +17,6 @@ Examples:
 #BEGIN_DYNAMIC_TEST_CASES
   | address-type-FAIL.yaml |
   | address-type-PASS.yaml |
-  | all-required-controls-implemented-FAIL.yaml |
-  | all-required-controls-implemented-PASS.yaml |
   | attachment-type-FAIL.yaml |
   | attachment-type-PASS.yaml |
   | authorization-type-FAIL.yaml |
@@ -111,8 +109,8 @@ Examples:
   | has-user-guide-PASS.yaml |
   | incomplete-all-implemented-requirements-FAIL.yaml |
   | incomplete-all-implemented-requirements-PASS.yaml |
-  | index-resolved-profile-required-controls-FAIL.yaml |
-  | index-resolved-profile-required-controls-PASS.yaml |
+  | incomplete-required-controls-implemented-FAIL.yaml |
+  | incomplete-required-controls-implemented-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -163,7 +161,6 @@ Examples:
 | constraint_id |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
   | address-type |
-  | all-required-controls-implemented |
   | attachment-type |
   | authorization-type |
   | categorization-has-correct-system-attribute |
