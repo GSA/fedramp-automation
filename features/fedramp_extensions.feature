@@ -210,7 +210,6 @@ Examples:
   | has-separation-of-duties-matrix |
   | has-user-guide |
   | incomplete-implemented-requirements |
-  | index-resolved-profile-required-controls |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
