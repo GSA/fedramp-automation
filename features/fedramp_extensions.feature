@@ -107,8 +107,6 @@ Examples:
   | has-separation-of-duties-matrix-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
-  | incomplete-all-implemented-requirements-FAIL.yaml |
-  | incomplete-all-implemented-requirements-PASS.yaml |
   | incomplete-required-controls-implemented-FAIL.yaml |
   | incomplete-required-controls-implemented-PASS.yaml |
   | information-type-system-FAIL.yaml |
