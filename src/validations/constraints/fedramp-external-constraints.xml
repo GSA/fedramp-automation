@@ -181,18 +181,10 @@ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.git
     <context>
         <metapath target="/catalog"/>
         <metapath target="/profile"/>
-        <metapath target="/mapping-collection"/>
-        <metapath target="/component-definition"/>
         <metapath target="/system-security-plan"/>
-        <metapath target="/assessment-plan"/>
-        <metapath target="/assessment-results"/>
-        <metapath target="/plan-of-action-and-milestones"/>
         <constraints>
             <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))//catalog')"/>
             <let var="implimented-controls" expression="//implemented-requirement"/>
-            <expect id="all-required-controls-implemented" target="control-implementation" test="count($all-imports//control) eq count(//implemented-requirement)" level="WARNING">
-                <message>control implimentation mismatch: {count(//implemented-requirement)} required: {count($all-imports//control)}</message>
-            </expect>
             <expect id="extraneous-implemented-requirements" target="control-implementation" test="not(count(//implemented-requirement) gt count($all-imports//control))" level="WARNING">
                 <message>Extraneous controls: {count(//implemented-requirement)}, required controls: {count($all-imports//control/@id)}.</message>
             </expect>
