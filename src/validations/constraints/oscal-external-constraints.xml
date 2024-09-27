@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+<metaschema-meta-constraints xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd"
+>
     <!-- ================== -->
     <!-- OSCAL Enhancements -->
     <!-- ================== -->
