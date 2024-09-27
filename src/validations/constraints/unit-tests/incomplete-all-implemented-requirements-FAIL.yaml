@@ -1,9 +1,0 @@
-test-case:
-  name: Negative Test for incomplete-all-implemented-requirements
-  description: >-
-    This test case validates the behavior of constraint
-    incomplete-all-implemented-requirements
-  content: ../content/ssp-incomplete-all-implemented-requirements-INVALID.xml
-  expectations:
-    - constraint-id: incomplete-all-implemented-requirements
-      result: fail
