@@ -5,5 +5,7 @@ test-case:
     all-required-controls-implemented
   content: ../content/ssp-all-VALID.xml
   expectations:
+    - constraint-id: incomplete-implemented-requirements
+      result: pass
     - constraint-id: all-required-controls-implemented
       result: pass
