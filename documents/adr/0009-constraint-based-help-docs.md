@@ -52,7 +52,7 @@ The team proposes Solution 4. To implement this solution, we will commit to step
 </metaschema-meta-constraints>
 ```
 
-3. The team will update backport the props, as required by the style guide completed for Step 2, to existing constraints and correct and enhance documentation at [automate.fedramp.gov](https://automate.fedramp.gov) accordingly to deep-link to precise information for each constraint.
+3. The team will backport the props, as required by the style guide completed for Step 2, to existing constraints and correct and enhance documentation at [automate.fedramp.gov](https://automate.fedramp.gov) accordingly to deep-link to precise information for each constraint. New constraints will add these props to be successfully reviewed and merged in the team's normal development cycle.
 
 ## Consequences
 
