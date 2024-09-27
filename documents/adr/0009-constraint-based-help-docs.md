@@ -30,7 +30,27 @@ There are multiple approaches for the team and larger community to consider.
 
 ## Decision
 
-What is the change that we're proposing and/or doing?
+The team proposes Solution 4: using the existing property (`prop`) assembly of Metaschema constraint models: one for a URL address, another for help text, and another for hep text with Markdown formatting. A FedRAMP constraint style guide should recommend or require one, some, or all of them to provide a flexible, yet consistent approach.
+
+Below is an example of how these properties can look in an example constraints files.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text" value="Data centers must have a country. Only certain countries allowed. See the list below. US"/>
+                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text-markdown" value="# Data Center Requirements\nData centers must have a country.\nOnly certain countries allowed.\nSee the list below.\n- US"/>
+                <message>Each data center address must contain a country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+The FedRAMP Team will request the maintainers of metaschema-java and oscal-cli to implement code to map these props to the SARIF `helpUri` and `help` fields for constraints result outputs.
 
 ## Consequences
 
