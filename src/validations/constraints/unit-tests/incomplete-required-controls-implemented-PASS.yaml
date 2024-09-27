@@ -2,10 +2,8 @@ test-case:
   name: Positive Test for all-required-controls-implemented
   description: >-
     This test case validates the behavior of constraint
-    all-required-controls-implemented
+    incomplete-required-controls-implemented
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: incomplete-implemented-requirements
-      result: pass
-    - constraint-id: all-required-controls-implemented
       result: pass
