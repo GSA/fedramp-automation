@@ -24,7 +24,7 @@ There are multiple approaches for the team and larger community to consider.
 
 1. Always embed help text directly into the constraints themselves for interpolation into SARIF results, in the `message` field or some other SARIF element, by use of a mandatory Metaschema property in each constraint.
 
-1. Allow for Metaschema properties to optionally define a URL for help information, text for help information without formatting, and/or formatted Markdown text for help information to interpolate into SARIF results. Require one, some, or all of these properties in a constraint style guide per [GSA/fedramp-automation#675](https://github.com/GSA/fedramp-automation/issues/675).
+1. Allow for Metaschema properties to optionally define a URL for help information, text for help information without formatting, and/or formatted Markdown text (conformant with the [CommonMark specification, as required by the Metaschema specification](https://pages.nist.gov/metaschema/specification/datatypes/#markup-data-types)) for help information to interpolate into SARIF results. Require one, some, or all of these properties in a constraint style guide per [GSA/fedramp-automation#675](https://github.com/GSA/fedramp-automation/issues/675).
 
 1. Always embed a new custom Metaschema assembly, `help`, with its own custom nested fields and flags, and enhance Metaschema specification and tools to interpolate that data into SARIF results.
 
@@ -32,9 +32,9 @@ There are multiple approaches for the team and larger community to consider.
 
 The team proposes Solution 4. To implement this solution, we will commit to steps below.
 
-1. The FedRAMP Team will request the maintainers of [metaschema-java](https://github.com/metaschema-framework/metaschema-java) and [oscal-cli](https://github.com/metaschema-framework/oscal-cli) to implement code to map props `help-url`, `help-text`, and `help-text-markdown` to the SARIF `helpUri` and `help` fields for constraints result outputs.
+1. The FedRAMP Team will request the maintainers of [metaschema-java](https://github.com/metaschema-framework/metaschema-java) and [oscal-cli](https://github.com/metaschema-framework/oscal-cli) to implement code to map props `help-url`, `help-text`, and `help-markdown` to the SARIF `helpUri` and `help` fields for constraints result outputs. The team will tunnel formatted help text data in Markdown syntax in a `prop`'s `value` with its current `string` data type as-is. We will _not_ propose a change to change its type or request an alternate Metschema structure to support inline Markdown with a [`markup-multiline`](https://pages.nist.gov/metaschema/specification/datatypes/#markup-data-types).
 
-2. After Step 1 is complete, A FedRAMP constraint style guide should recommend or require the use of `help-url`, `help-text`, and `help-text-markdown` props. Below is an example of how these properties can look in an example constraints files.
+2. After Step 1 is complete, A FedRAMP constraint style guide should recommend or require the use of `help-url`, `help-text`, and `help-markdown` props. Below is an example of how these properties can look in an example constraints files.
 
 ```xml
 <metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
@@ -44,7 +44,7 @@ The team proposes Solution 4. To implement this solution, we will commit to step
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
                 <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
                 <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text" value="Data centers must have a country. Only certain countries allowed. See the list below: Country 1; Country 2; Country 3."/>
-                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text-markdown" value="# Data Center Requirements\nData centers must have a country.\nOnly certain countries allowed.\nSee the list below.\n- Country 1\n - Country 2\n - Country 3\n\n"/>
+                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-markdown" value="# Data Center Requirements\nData centers must have a country.\nOnly certain countries allowed.\nSee the list below.\n- Country 1\n - Country 2\n - Country 3\n\n"/>
                 <message>Each data center address must contain a country code.</message>
             </expect>
         </constraints>
