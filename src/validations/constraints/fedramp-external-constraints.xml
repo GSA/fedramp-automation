@@ -174,13 +174,13 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
             </expect>
-            <expect id="information-type-has-confidentiality-impact" target="./system-characteristics" test="system-information/information-type/confidentiality-impact" level="ERROR">
+            <expect id="information-type-has-confidentiality-impact" target="system-characteristics/system-information/information-type" test="confidentiality-impact" level="ERROR">
                 <message>An OSCAL SSP information type must have a confidentiality impact.</message>
             </expect>
-            <expect id="information-type-has-integrity-impact" target="./system-characteristics" test="system-information/information-type/integrity-impact" level="ERROR">
+            <expect id="information-type-has-integrity-impact" target="system-characteristics/system-information/information-type" test="integrity-impact" level="ERROR">
                 <message>An OSCAL SSP information type must have an integrity impact.</message>
             </expect>
-            <expect id="information-type-has-availability-impact" target="./system-characteristics" test="system-information/information-type/availability-impact" level="ERROR">
+            <expect id="information-type-has-availability-impact" target="system-characteristics/system-information/information-type" test="availability-impact" level="ERROR">
                 <message>An OSCAL SSP information type must have an availability impact.</message>
             </expect>
         </constraints>
