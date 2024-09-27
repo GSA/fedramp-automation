@@ -34,7 +34,7 @@ The team proposes Solution 4. To implement this solution, we will commit to step
 
 1. The FedRAMP Team will request the maintainers of [metaschema-java](https://github.com/metaschema-framework/metaschema-java) and [oscal-cli](https://github.com/metaschema-framework/oscal-cli) to implement code to map props `help-url`, `help-text`, and `help-text-markdown` to the SARIF `helpUri` and `help` fields for constraints result outputs.
 
-2. After Step 1 is complete, A FedRAMP constraint style guide should recommend or the use of `help-url`, `help-text`, and `help-text-markdown` props. Below is an example of how these properties can look in an example constraints files.
+2. After Step 1 is complete, A FedRAMP constraint style guide should recommend or require the use of `help-url`, `help-text`, and `help-text-markdown` props. Below is an example of how these properties can look in an example constraints files.
 
 ```xml
 <metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
