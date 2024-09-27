@@ -19,9 +19,13 @@ This decision record proposes a solution to add machine-readable metadata to Fed
 There are multiple approaches for the team and larger community to consider.
 
 1. Do nothing, keep the development and use of constraints as-is, encourage users to manually reference documentation to help correct or improve OSCAL-based content for FedRAMP packages.
+
 1. Always embed help text directly into the constraints themselves for interpolation into SARIF results, in the `message` field or some other SARIF element, by use of the existing Metaschema `message` element in each constraint.
+
 1. Always embed help text directly into the constraints themselves for interpolation into SARIF results, in the `message` field or some other SARIF element, by use of a mandatory Metaschema property in each constraint.
-1. Allow for Metaschema properties to optionally define a URL for help information, text for help information without formatting, and/or formatted Markdown text for help information to interpolate into SARIF results.
+
+1. Allow for Metaschema properties to optionally define a URL for help information, text for help information without formatting, and/or formatted Markdown text for help information to interpolate into SARIF results. Require one, some, or all of these properties in a constraint style guide per [GSA/fedramp-automation#675](https://github.com/GSA/fedramp-automation/issues/675).
+
 1. Always embed a new custom Metaschema assembly, `help`, with its own custom nested fields and flags, and enhance Metaschema specification and tools to interpolate that data into SARIF results.
 
 ## Decision
