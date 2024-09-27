@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+<metaschema-meta-constraints xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd"
+>
     <!-- ================== -->
     <!-- FedRAMP Extensions -->
     <!-- ================== -->
@@ -170,9 +174,7 @@
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
             <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
-                <message>
-                    Implemented requirement (Control ID: {@control-id}) must have at least one by-component reference to the source component implementing it found ({count(./by-component)}).
-                </message>
+                <message>Implemented requirement (Control ID: {@control-id}) must have at least one by-component reference to the source component implementing it found ({count(./by-component)}).</message>
             </expect>
         </constraints>
     </context>
@@ -188,27 +190,16 @@
         <constraints>
             <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))//catalog')"/>
             <let var="implimented-controls" expression="//implemented-requirement"/>
-            <expect id="all-required-controls-implemented" target="." test="count($all-imports//control) eq count(//implemented-requirement)" level="WARNING">
-                <message>
-            Not all required controls are implemented. 
-            implimented controls: {count(//implemented-requirement)}.
-            required controls: {count($all-imports//control)}.
-     
-        </message>
+            <expect id="all-required-controls-implemented" target="control-implementation" test="count($all-imports//control) eq count(//implemented-requirement)" level="WARNING">
+                <message>control implimentation mismatch: {count(//implemented-requirement)} required: {count($all-imports//control)}</message>
             </expect>
-            <expect id="extraneous-implemented-requirements" target="." test="count(//implemented-requirement) lt count($all-imports//control) "  level="WARNING">
-                <message>Extraneous Implemented requirements
-                    implimented controls: {count(//implemented-requirement)}.
-                    required controls: {count($all-imports//control)}.   
-                  
-                </message>
+            <expect id="extraneous-implemented-requirements" target="control-implementation" test="not(count(//implemented-requirement) gt count($all-imports//control))" level="WARNING">
+                <message>Extraneous controls: {count(//implemented-requirement)}, required controls: {count($all-imports//control/@id)}.</message>
             </expect>
-            <expect id="incomplete-implemented-requirements" target="." test="count(//implemented-requirement) gt count($all-imports//control) "  level="WARNING">
-                <message>Incomplete Implemented requirements
-                    implimented controls: {count(//implemented-requirement)}.
-                    required controls: {count($all-imports//control)}.                     
-                </message>
+            <expect id="incomplete-implemented-requirements" target="control-implementation" test="not(count(//implemented-requirement) lt count($all-imports//control))" level="WARNING">
+                <message>Incomplete controls: {count(//implemented-requirement)} required: {count($all-imports//control)}</message>
             </expect>
         </constraints>
     </context>
 </metaschema-meta-constraints>
+ 
