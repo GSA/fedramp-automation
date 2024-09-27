@@ -23,7 +23,6 @@
             <short-name>FedRAMP PMO</short-name>
             <link href="https://fedramp.gov" rel="homepage"/>
             <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
-            <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
             <email-address>info@fedramp.gov</email-address>
             <address type="work">
                 <addr-line>1800 F St. NW</addr-line>
@@ -1528,22 +1527,11 @@
             </add>
         </alter>
     </modify>
-    <back-matter>
-        <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
-            <title>FedRAMP Applicable Laws and Regulations</title>
-            <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-        </resource>
-        <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
-            <description>
-                <p>FedRAMP Logo</p>
-            </description>
-            <prop name="type" value="logo"/>
-            <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
-        </resource>
-        <resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
-            <title>NIST Special Publication (SP) 800-53 revision 5</title>
-            <prop name="version" value="5.1.1"/>
-            <rlink media-type="application/oscal+xml" href="NIST_SP-800-53_rev5_catalog.xml"/>
-        </resource>
-    </back-matter>
+	<back-matter>
+		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
+			<title>NIST Special Publication (SP) 800-53 revision 5</title>
+			<prop name="version" value="5.1.1"/>
+			<rlink media-type="application/oscal+xml" href="FedRAMP_rev5_catalog_tailoring_profile.xml"/>
+		</resource>
+	</back-matter>
 </profile>
