@@ -1,4 +1,4 @@
-name: "OSCAL Validations: Unit Tests"
+name: "Cross platform script test"
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   pull_request:
 
 jobs:
-  run-tests:
+  test-scripts:
     strategy:
       fail-fast: false
       matrix:
