@@ -6,14 +6,16 @@ import {JSDOM} from "jsdom"
 import { execSync } from 'child_process';
 import inquirer from 'inquirer';
 import xmlFormatter from 'xml-formatter';
+import { fileURLToPath } from 'url';
 
 const prompt = inquirer.createPromptModule();
 
-const __dirname = new URL('.', import.meta.url).pathname;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const constraintsDir = path.join(__dirname, '../../src', 'validations', 'constraints');
-const testDir = path.join(__dirname, '../../src', 'validations', 'constraints', 'unit-tests');
-const featureFile = path.join(__dirname,"../../features/", 'fedramp_extensions.feature');
+const constraintsDir = path.join(__dirname, '..','..','src', 'validations', 'constraints');
+const testDir = path.join(__dirname, '..','..','src', 'validations', 'constraints', 'unit-tests');
+const featureFile = path.join(__dirname,'..','..',"features", 'fedramp_extensions.feature');
 
 
 const ignoreDocument = "oscal-external-constraints.xml";
