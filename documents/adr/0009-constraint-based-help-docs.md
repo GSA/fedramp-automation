@@ -42,9 +42,9 @@ The team proposes Solution 4. To implement this solution, we will commit to step
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
-                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
-                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-text" value="Data centers must have a country. Only certain countries allowed. See the list below: Country 1; Country 2; Country 3."/>
-                <prop namespace="https://json.schemastore.org/sarif/2.1.0" name="help-markdown" value="# Data Center Requirements\nData centers must have a country.\nOnly certain countries allowed.\nSee the list below.\n- Country 1\n - Country 2\n - Country 3\n\n"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-text" value="Data centers must have a country. Only certain countries allowed. See the list below: Country 1; Country 2; Country 3."/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-markdown" value="# Data Center Requirements\nData centers must have a country.\nOnly certain countries allowed.\nSee the list below.\n- Country 1\n - Country 2\n - Country 3\n\n"/>
                 <message>Each data center address must contain a country code.</message>
             </expect>
         </constraints>
