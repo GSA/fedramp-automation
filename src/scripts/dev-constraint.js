@@ -346,8 +346,9 @@ function getScenarioLineNumbers(featureFile, constraintId,tests) {
     const content = fs.readFileSync(featureFile, 'utf8');
     const lines = content.split('\n');
     const scenarioLines = [];
+    console.log(featureFile,tests,constraintId);
     for (let i = 0; i < lines.length; i++) {
-        if (lines[i].includes(`${tests.fail_file}`) || lines[i].includes(`${tests.pass_file}`)) {
+        if (lines[i].includes(`${tests.fail}`) || lines[i].includes(`${tests.pass}`)||lines[i].includes(`${tests.fail_file}`) || lines[i].includes(`${tests.pass_file}`)) {
             scenarioLines.push(i + 1); // +1 because line numbers start at 1, not 0
         }
     }
@@ -388,9 +389,9 @@ async function runCucumberTest(constraintId, testFiles) {
     }
 
     const nodeOptions = '--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node';
-    const cucumberCommand = `NODE_OPTIONS="${nodeOptions}" npx cucumber-js`;
+    const cucumberCommand = `npx cucumber-js`;
 
-    let scenarioLines = getScenarioLineNumbers(featureFile, constraintId,testFiles);
+    let scenarioLines = getScenarioLineNumbers(featureFile, constraintId, testFiles);
 
     if (scenarioLines.length === 0) {
         console.error(`No scenarios found for constraintId: ${constraintId}`);
@@ -398,17 +399,17 @@ async function runCucumberTest(constraintId, testFiles) {
             shell: true,
             stdio: 'ignore',
             cwd: path.join(__dirname, '..', '..') 
-          });     
-        scenarioLines = getScenarioLineNumbers(featureFile, constraintId,testFiles);
-        if(scenarioLines.length===0){
-        return false;
+        });     
+        scenarioLines = getScenarioLineNumbers(featureFile, constraintId, testFiles);
+        if (scenarioLines.length === 0) {
+            return false;
         }
     }
 
     try {
         for (const line of scenarioLines) {
-            const command = `${cucumberCommand} ${featureFile}:${line}`;
-            execSync(command, { stdio: 'inherit' });
+            const command = `set NODE_OPTIONS=${nodeOptions} && ${cucumberCommand} ${featureFile}:${line}`;
+            execSync(command, { stdio: 'inherit', shell: true });
         }
         console.log(`Cucumber tests for ${constraintId} passed successfully.`);
         return true;

@@ -37,7 +37,7 @@ jobs:
           node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
 
       - name: Install OSCAL CLI
-        run: make init-validations
+        run: make configure
 
       - name: Run Constraint script tests
         shell: bash
