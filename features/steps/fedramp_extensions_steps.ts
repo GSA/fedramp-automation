@@ -81,7 +81,7 @@ function getConstraintTests() {
   );
   const files = readdirSync(constraintTestDir);
   const filteredFiles = files
-    .filter((file) => file.endsWith(".yaml") || file.endsWith(".yml"))
+    .filter((file) => file.endsWith(".yaml") || file.endsWith(".yml")).sort()
     .map((file) => `  | ${file} |`)
     .join("\n");
   return filteredFiles;
@@ -97,7 +97,7 @@ async function getConstraintIds() {
   );
   const files = readdirSync(constraintDir);
   const xmlFiles = files
-    .filter((file) => file.endsWith(".xml"))
+    .filter((file) => file.endsWith(".xml")).sort()
     .filter((file) => !file.endsWith(ignoreDocument));
   let allConstraintIds = [];
 
@@ -142,7 +142,7 @@ Given("I have Metaschema extensions documents", function (dataTable) {
   );
   const files = readdirSync(constraintDir);
   metaschemaDocuments = files
-    .filter((file) => file.endsWith(".xml"))
+    .filter((file) => file.endsWith(".xml")).sort()
     .filter((x) => !x.startsWith("oscal")) //temporary
     .map((file) => join(constraintDir, file));
 });
@@ -431,8 +431,8 @@ Given("I have loaded all Metaschema extensions documents", function () {
   );
   const files = readdirSync(constraintDir);
   metaschemaDocuments = files
-    .filter((file) => file.endsWith(".xml"))
-    .map((file) => join(constraintDir, file));
+    .filter((file) => file.endsWith(".xml")).sort()
+    .map((file) => join(constraintDir, file))
   console.log(
     `Loaded ${metaschemaDocuments.length} Metaschema extension documents`
   );
@@ -545,7 +545,7 @@ Given(
       "unit-tests"
     );
     yamlTestFiles = readdirSync(testDir)
-      .filter((file) => file.endsWith(".yaml") || file.endsWith(".yml"))
+      .filter((file) => file.endsWith(".yaml") || file.endsWith(".yml")).sort()
       .map((file) => join(testDir, file));
     console.log(`Collected ${yamlTestFiles.length} YAML test files`);
   }

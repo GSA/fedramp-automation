@@ -1,0 +1,48 @@
+name: "Cross platform script test"
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - 'feature/**'
+  pull_request:
+
+jobs:
+  test-scripts:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
+
+      - name: Set up Java
+        uses: actions/setup-java@b36c23c0d998641eff861008f374ee103c25ac73
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Read node version from `.nvmrc` file
+        id: nvmrc
+        shell: bash
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
+      - name: Install required node.js version
+        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7
+        with:
+          node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
+
+      - name: Install OSCAL CLI
+        run: make configure
+
+      - name: Run Constraint script tests
+        shell: bash
+        run: |
+          set -e
+          npm run constraint resource-has-title
+        env:
+          CI: true

@@ -6,14 +6,16 @@ import {JSDOM} from "jsdom"
 import { execSync } from 'child_process';
 import inquirer from 'inquirer';
 import xmlFormatter from 'xml-formatter';
+import { fileURLToPath } from 'url';
 
 const prompt = inquirer.createPromptModule();
 
-const __dirname = new URL('.', import.meta.url).pathname;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const constraintsDir = path.join(__dirname, '../../src', 'validations', 'constraints');
-const testDir = path.join(__dirname, '../../src', 'validations', 'constraints', 'unit-tests');
-const featureFile = path.join(__dirname,"../../features/", 'fedramp_extensions.feature');
+const constraintsDir = path.join(__dirname, '..','..','src', 'validations', 'constraints');
+const testDir = path.join(__dirname, '..','..','src', 'validations', 'constraints', 'unit-tests');
+const featureFile = path.join(__dirname,'..','..',"features", 'fedramp_extensions.feature');
 
 
 const ignoreDocument = "oscal-external-constraints.xml";
@@ -86,7 +88,6 @@ async function getAllConstraints() {
                 allConstraints.push(id);
                 allContext[id] = context;
 
-                console.log(`Constraint ${id} context: ${context}`); // Debug log
             } else {
                 console.log(`Warning: No context found for constraint ${id}`);
             }
@@ -345,8 +346,9 @@ function getScenarioLineNumbers(featureFile, constraintId,tests) {
     const content = fs.readFileSync(featureFile, 'utf8');
     const lines = content.split('\n');
     const scenarioLines = [];
+    console.log(featureFile,tests,constraintId);
     for (let i = 0; i < lines.length; i++) {
-        if (lines[i].includes(`${tests.fail_file}`) || lines[i].includes(`${tests.pass_file}`)) {
+        if (lines[i].includes(`${tests.fail}`) || lines[i].includes(`${tests.pass}`)||lines[i].includes(`${tests.fail_file}`) || lines[i].includes(`${tests.pass_file}`)) {
             scenarioLines.push(i + 1); // +1 because line numbers start at 1, not 0
         }
     }
@@ -387,9 +389,9 @@ async function runCucumberTest(constraintId, testFiles) {
     }
 
     const nodeOptions = '--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node';
-    const cucumberCommand = `NODE_OPTIONS="${nodeOptions}" npx cucumber-js`;
+    const cucumberCommand = `npx cucumber-js`;
 
-    let scenarioLines = getScenarioLineNumbers(featureFile, constraintId,testFiles);
+    let scenarioLines = getScenarioLineNumbers(featureFile, constraintId, testFiles);
 
     if (scenarioLines.length === 0) {
         console.error(`No scenarios found for constraintId: ${constraintId}`);
@@ -397,17 +399,20 @@ async function runCucumberTest(constraintId, testFiles) {
             shell: true,
             stdio: 'ignore',
             cwd: path.join(__dirname, '..', '..') 
-          });     
-        scenarioLines = getScenarioLineNumbers(featureFile, constraintId,testFiles);
-        if(scenarioLines.length===0){
-        return false;
+        });     
+        scenarioLines = getScenarioLineNumbers(featureFile, constraintId, testFiles);
+        if (scenarioLines.length === 0) {
+            return false;
         }
     }
 
     try {
+        const isWindows = process.platform === 'win32';
         for (const line of scenarioLines) {
-            const command = `${cucumberCommand} ${featureFile}:${line}`;
-            execSync(command, { stdio: 'inherit' });
+            const command = isWindows
+            ? `set "NODE_OPTIONS=${nodeOptions}" && ${cucumberCommand} "${featureFile}:${line}"`
+            : `NODE_OPTIONS="${nodeOptions}" ${cucumberCommand} "${featureFile}:${line}"`;
+            execSync(command, { stdio: 'inherit', shell: true });
         }
         console.log(`Cucumber tests for ${constraintId} passed successfully.`);
         return true;
