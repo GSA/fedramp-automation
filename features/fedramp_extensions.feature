@@ -45,38 +45,38 @@ Examples:
   | deployment-model-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
   | has-authenticator-assurance-level-PASS.yaml |
+  | has-authorization-boundary-diagram-FAIL.yaml |
+  | has-authorization-boundary-diagram-PASS.yaml |
   | has-authorization-boundary-diagram-caption-FAIL.yaml |
   | has-authorization-boundary-diagram-caption-PASS.yaml |
   | has-authorization-boundary-diagram-description-FAIL.yaml |
   | has-authorization-boundary-diagram-description-PASS.yaml |
-  | has-authorization-boundary-diagram-FAIL.yaml |
   | has-authorization-boundary-diagram-link-FAIL.yaml |
   | has-authorization-boundary-diagram-link-PASS.yaml |
-  | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
-  | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-FAIL.yaml |
   | has-authorization-boundary-diagram-link-rel-PASS.yaml |
-  | has-authorization-boundary-diagram-PASS.yaml |
+  | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
+  | has-authorization-boundary-diagram-link-rel-allowed-value-PASS.yaml |
   | has-configuration-management-plan-FAIL.yaml |
   | has-configuration-management-plan-PASS.yaml |
+  | has-data-flow-FAIL.yaml |
+  | has-data-flow-PASS.yaml |
   | has-data-flow-description-FAIL.yaml |
   | has-data-flow-description-PASS.yaml |
+  | has-data-flow-diagram-FAIL.yaml |
+  | has-data-flow-diagram-PASS.yaml |
   | has-data-flow-diagram-caption-FAIL.yaml |
   | has-data-flow-diagram-caption-PASS.yaml |
   | has-data-flow-diagram-description-FAIL.yaml |
   | has-data-flow-diagram-description-PASS.yaml |
-  | has-data-flow-diagram-FAIL.yaml |
   | has-data-flow-diagram-link-FAIL.yaml |
   | has-data-flow-diagram-link-PASS.yaml |
-  | has-data-flow-diagram-link-rel-allowed-value-FAIL.yaml |
-  | has-data-flow-diagram-link-rel-allowed-value-PASS.yaml |
   | has-data-flow-diagram-link-rel-FAIL.yaml |
   | has-data-flow-diagram-link-rel-PASS.yaml |
-  | has-data-flow-diagram-PASS.yaml |
+  | has-data-flow-diagram-link-rel-allowed-value-FAIL.yaml |
+  | has-data-flow-diagram-link-rel-allowed-value-PASS.yaml |
   | has-data-flow-diagram-uuid-FAIL.yaml |
   | has-data-flow-diagram-uuid-PASS.yaml |
-  | has-data-flow-FAIL.yaml |
-  | has-data-flow-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
   | has-federation-assurance-level-PASS.yaml |
   | has-identity-assurance-level-FAIL.yaml |
@@ -85,20 +85,20 @@ Examples:
   | has-incident-response-plan-PASS.yaml |
   | has-information-system-contingency-plan-FAIL.yaml |
   | has-information-system-contingency-plan-PASS.yaml |
+  | has-network-architecture-FAIL.yaml |
+  | has-network-architecture-PASS.yaml |
+  | has-network-architecture-diagram-FAIL.yaml |
+  | has-network-architecture-diagram-PASS.yaml |
   | has-network-architecture-diagram-caption-FAIL.yaml |
   | has-network-architecture-diagram-caption-PASS.yaml |
   | has-network-architecture-diagram-description-FAIL.yaml |
   | has-network-architecture-diagram-description-PASS.yaml |
-  | has-network-architecture-diagram-FAIL.yaml |
   | has-network-architecture-diagram-link-FAIL.yaml |
   | has-network-architecture-diagram-link-PASS.yaml |
-  | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
-  | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
   | has-network-architecture-diagram-link-rel-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-PASS.yaml |
-  | has-network-architecture-diagram-PASS.yaml |
-  | has-network-architecture-FAIL.yaml |
-  | has-network-architecture-PASS.yaml |
+  | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
+  | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-separation-of-duties-matrix-FAIL.yaml |
