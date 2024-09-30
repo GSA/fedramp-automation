@@ -16,7 +16,7 @@ This decision record proposes a solution to add machine-readable metadata to Fed
 
 ## Possible Solutions
 
-There are multiple approaches for the team and larger community to consider.
+The team considered multiple approaches listed below.
 
 1. Do nothing, keep the development and use of constraints as-is, encourage users to manually reference documentation to help correct or improve OSCAL-based content for FedRAMP packages.
 
