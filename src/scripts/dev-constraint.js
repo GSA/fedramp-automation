@@ -407,8 +407,11 @@ async function runCucumberTest(constraintId, testFiles) {
     }
 
     try {
+        const isWindows = process.platform === 'win32';
         for (const line of scenarioLines) {
-            const command = `set NODE_OPTIONS=${nodeOptions} && ${cucumberCommand} ${featureFile}:${line}`;
+            const command = isWindows
+            ? `set "NODE_OPTIONS=${nodeOptions}" && ${cucumberCommand} "${featureFile}:${line}"`
+            : `NODE_OPTIONS="${nodeOptions}" ${cucumberCommand} "${featureFile}:${line}"`;
             execSync(command, { stdio: 'inherit', shell: true });
         }
         console.log(`Cucumber tests for ${constraintId} passed successfully.`);
