@@ -370,6 +370,24 @@
                 <enum value="D.9.4">Industry Sector Income Stabilization</enum>
             </allowed-values>
 
+
+            <allowed-values id="user-privilege-level" target="//user/prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
+                        <formal-name>Privilege Level</formal-name>
+                        <description>The privilege level of the user.</description>
+                        <enum value="read">Read</enum>
+                        <enum value="read-write">Read-Write</enum>
+                        <enum value="write">Write</enum>
+                        <enum value="no-access">No Access</enum>
+                    </allowed-values>
+            <allowed-values id="user-sensitivity-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='sensitivity']/@value"  allow-other="no" level="ERROR">
+                        <formal-name>User Sensitvity Level</formal-name>
+                        <description>Sensitivity level of the user.</description>
+                        <enum value="high-risk">High Risk</enum>
+                        <enum value="severe">Severe</enum>
+                        <enum value="moderate">Moderate</enum>
+                        <enum value="limited">Limited</enum>
+                        <enum value="not-applicable">Not Applicable</enum>
+            </allowed-values>
         </constraints>
 
     </context>

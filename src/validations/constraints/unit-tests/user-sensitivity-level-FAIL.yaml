@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for user-sensitivity-level
+  description: This test case validates the behavior of constraint user-sensitivity-level
+  content: ../content/ssp-user-sensitivity-level-INVALID.xml
+  expectations:
+    - constraint-id: user-sensitivity-level
+      result: fail

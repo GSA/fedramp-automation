@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for user-privilege-level
+  description: This test case validates the behavior of constraint user-privilege-level
+  content: ../content/ssp-user-privilege-level-INVALID.xml
+  expectations:
+    - constraint-id: user-privilege-level
+      result: fail
