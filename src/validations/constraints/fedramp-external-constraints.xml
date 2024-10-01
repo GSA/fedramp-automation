@@ -30,6 +30,27 @@
         </constraints>
     </context>
     <context>
+        <metapath target="//user"/>
+        <constraints>
+
+        <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
+            <message>User must have a single type prop.</message>
+        </expect>
+        <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level']) = 1">
+            <message>User must have a single privilege prop.</message>
+        </expect>
+        <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1">
+            <message>User must have a single sensitivity prop.</message>
+        </expect>
+        <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
+            <message>User must have at least one role id.</message>
+        </expect>
+        <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
+            <message>User must have at least one authorized privilege id.</message>
+        </expect>
+        </constraints>
+    </context>
+    <context>
         <metapath target="/system-security-plan"/>
         <constraints>
             <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
