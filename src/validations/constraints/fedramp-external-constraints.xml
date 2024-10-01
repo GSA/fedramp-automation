@@ -137,6 +137,9 @@
             <expect id="has-data-flow-diagram-link-rel-allowed-value" target="system-characteristics/data-flow/diagram/link" test="@rel eq 'diagram'" level="ERROR">
                 <message>Each FedRAMP SSP data flow diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
+            <expect id="has-security-sensitivity-level"  target="system-characteristics" test="security-sensitivity-level" level='CRITICAL'>
+                <message>A FedRAMP SSP Must have a security sensitivity level.</message>
+            </expect>    
         </constraints>
     </context>
     <context>
