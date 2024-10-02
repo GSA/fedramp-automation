@@ -11,4 +11,50 @@
 
   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
 
+  <system-characteristics>
+    <system-id identifier-type="https://fedramp.gov">F00000001</system-id>
+    <system-name>Enhanced Example System</system-name>
+    <description>
+      <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
+    </description>
+    <prop name='cloud-service-model' value='unsupported-model' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='cloud-deployment-model' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
+    <security-sensitivity-level>moderate</security-sensitivity-level>
+    <system-information>
+      <information-type uuid="33333333-0000-4000-9000-000000000003">
+        <title>Financial Information</title>
+        <description>
+          <p>Contains sensitive financial data related to organizational operations.</p>
+        </description>
+        <categorization system="https://unsupported-system.com">
+          <!-- Removed information-type-id to ensure that categorization-has-information-type-id fails correctly. -->
+        </categorization>
+        <confidentiality-impact>
+          <base>high</base>
+        </confidentiality-impact>
+        <integrity-impact>
+          <base>moderate</base>
+        </integrity-impact>
+        <availability-impact>
+          <base>low</base>
+        </availability-impact>
+      </information-type>
+    </system-information>
+    
+    <security-impact-level>
+      <security-objective-confidentiality>moderate</security-objective-confidentiality>
+      <security-objective-integrity>moderate</security-objective-integrity>
+      <security-objective-availability>moderate</security-objective-availability>
+    </security-impact-level>
+    
+    <status state="operational"/>
+    
+    <authorization-boundary>
+      <description>
+        <p>The authorization boundary includes all components within the main data center and the disaster recovery site.</p>
+      </description>
+    </authorization-boundary>
+  </system-characteristics>
+
 </system-security-plan>
