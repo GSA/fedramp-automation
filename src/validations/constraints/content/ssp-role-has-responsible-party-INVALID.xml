@@ -9,4 +9,6 @@
     </role>
   </metadata>
 
+  <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
+
 </system-security-plan>
