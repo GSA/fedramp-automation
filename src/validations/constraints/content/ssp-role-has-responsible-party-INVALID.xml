@@ -57,4 +57,109 @@
     </authorization-boundary>
   </system-characteristics>
 
+  <system-implementation>
+    <user uuid="44444444-0000-4000-9000-000000000004">
+      <title>System Administrator</title>
+      <prop name="type" value="unsupported-type"/>
+      <prop name="privilege-level" value="unsupported-access-type"/>
+      <role-id>system-admin</role-id>
+    </user>
+    
+    <component uuid="55555555-0000-4000-9000-000000000005" type="unsupported-component-type">
+      <title>Primary Application Server</title>
+      <description>
+        <p>Main application server hosting the core system functionality.</p>
+      </description>
+      <purpose>main line</purpose>
+      <status state="operational"/>
+      <responsible-role role-id="system-admin">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <remarks>
+        <p>This is the primary application server for the system.</p>
+      </remarks>
+    </component>
+    
+    <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
+      <title>External API Connection</title>
+      <description>
+        <p>Secure connection to an external API for data enrichment.</p>
+      </description>
+      <prop name="interconnection-direction" value="unsupported-direction" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-security" value="unsupported-security" ns="https://fedramp.gov/ns/oscal"/>
+      <status state="operational"/>
+      <responsible-role role-id="system-admin">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <remarks>
+        <p>This connection is used for secure data exchange with external systems.</p>
+      </remarks>
+    </component>
+    
+    <inventory-item uuid="77777777-0000-4000-9000-000000000007">
+      <description>
+        <p>Primary database server</p>
+      </description>
+      <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
+      <prop name="asset-type" value="database"/>
+      <prop name="allows-authenticated-scan" value="unsupported-scan"/>
+      <prop name="public" value="unsupported-public"/>
+      <prop name="virtual" value="unsupported-virtual"/>
+      <prop name="scan-type" value="unsupported-scan-type" ns="https://fedramp.gov/ns/oscal"/>
+      <responsible-party role-id="asset-owner">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-party>
+      <implemented-component component-uuid="55555555-0000-4000-9000-000000000005">
+        <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
+      </implemented-component>
+    </inventory-item>
+  </system-implementation>
+  
+  <control-implementation>
+    <description>
+      <p>Implementation of controls for the Enhanced Example System</p>
+    </description>
+    <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
+      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="implementation-status" value="unsupported-status" ns="https://fedramp.gov/ns/oscal"/>
+      <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
+      </statement>
+      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
+        <description>
+          <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
+        </description>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
+        <responsible-role role-id="system-admin">
+          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-role>
+      </by-component>
+    </implemented-requirement>
+    
+    <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
+      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
+      <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
+      </statement>
+      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000000d">
+        <description>
+          <p>Information System Component Inventory (CM-8) is partially implemented.</p>
+        </description>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
+        <responsible-role role-id="system-admin">
+          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-role>
+      </by-component>
+    </implemented-requirement>
+  </control-implementation>
+  
+  <back-matter>
+    <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
+      <!-- There is no <title/> to purposefully to trigger an error for negative testing. -->
+      <description>
+        <p>Detailed access control policy document</p>
+      </description>
+      <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
+      <!-- There is no <rlink/> to purposefully to trigger an error for negative testing. -->
+    </resource>
+  </back-matter>
+
 </system-security-plan>
