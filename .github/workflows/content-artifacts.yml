@@ -110,7 +110,7 @@ jobs:
             org.opencontainers.image.title="FedRAMP Validation Tools"
             org.opencontainers.image.description="FedRAMP's tools for validating OSCAL data"
             org.opencontainers.image.licenses="CC0-1.0"
-      - if: github.repository == env.HOME_REPO && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/feature'))
+      - if: github.repository == env.HOME_REPO && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/feature'))
         name: Container image registry push
         id: image_registry_push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
@@ -122,7 +122,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
-      - if: github.repository == env.HOME_REPO && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/feature'))
+      - if: github.repository == env.HOME_REPO && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/feature'))
         name: Container image push attestations
         uses: actions/attest-build-provenance@1c608d11d69870c2092266b3f9a6f3abbf17002c
         with:
