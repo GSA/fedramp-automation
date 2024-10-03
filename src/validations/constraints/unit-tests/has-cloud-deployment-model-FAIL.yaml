@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for has-cloud-deployment-model
+  description: Test that a SSP system-characteristics element does not have a prop element with a name attribute equal to "cloud-deployment-model".
+  content: ../content/ssp-has-cloud-deployment-model-INVALID.xml
+  expectations:
+    - constraint-id: has-cloud-deployment-model
+      result: fail
