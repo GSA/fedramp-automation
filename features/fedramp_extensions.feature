@@ -105,6 +105,12 @@ Examples:
   | has-separation-of-duties-matrix-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
+  | information-type-has-availability-impact-FAIL.yaml |
+  | information-type-has-availability-impact-PASS.yaml |
+  | information-type-has-confidentiality-impact-FAIL.yaml |
+  | information-type-has-confidentiality-impact-PASS.yaml |
+  | information-type-has-integrity-impact-FAIL.yaml |
+  | information-type-has-integrity-impact-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -199,6 +205,9 @@ Examples:
   | has-rules-of-behavior |
   | has-separation-of-duties-matrix |
   | has-user-guide |
+  | information-type-has-availability-impact |
+  | information-type-has-confidentiality-impact |
+  | information-type-has-integrity-impact |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
