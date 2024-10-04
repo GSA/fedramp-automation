@@ -25,6 +25,10 @@ Examples:
   | categorization-has-correct-system-attribute-PASS.yaml |
   | categorization-has-information-type-id-FAIL.yaml |
   | categorization-has-information-type-id-PASS.yaml |
+  | cia-impact-has-adjustment-justification-FAIL.yaml |
+  | cia-impact-has-adjustment-justification-PASS.yaml |
+  | cia-impact-has-selected-FAIL.yaml |
+  | cia-impact-has-selected-PASS.yaml |
   | cloud-service-model-FAIL.yaml |
   | cloud-service-model-PASS.yaml |
   | component-type-FAIL.yaml |
@@ -103,6 +107,8 @@ Examples:
   | has-rules-of-behavior-PASS.yaml |
   | has-separation-of-duties-matrix-FAIL.yaml |
   | has-separation-of-duties-matrix-PASS.yaml |
+  | has-system-name-short-FAIL.yaml |
+  | has-system-name-short-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
   | information-type-system-FAIL.yaml |
@@ -159,6 +165,8 @@ Examples:
   | authorization-type |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
+  | cia-impact-has-adjustment-justification |
+  | cia-impact-has-selected |
   | cloud-service-model |
   | component-type |
   | control-implementation-status |
@@ -198,6 +206,7 @@ Examples:
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-rules-of-behavior |
   | has-separation-of-duties-matrix |
+  | has-system-name-short |
   | has-user-guide |
   | information-type-system |
   | interconnection-direction |
