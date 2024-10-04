@@ -15,7 +15,7 @@ import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
-
+import {JSDOM} from 'jsdom'
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
 setDefaultTimeout(DEFAULT_TIMEOUT);
@@ -31,6 +31,7 @@ let currentTestCaseFileName:string;
 let processedContentPath: string;
 let ignoreDocument: string = "oscal-external-constraints.xml";
 let metaschemaDocuments: string[] = [];
+let metaschemaDom: JSDOM =new JSDOM();
 const validationCache = new Map<string, Log>();
 
 
@@ -145,7 +146,8 @@ Given("I have Metaschema extensions documents", function (dataTable) {
     .filter((file) => file.endsWith(".xml")).sort()
     .filter((x) => !x.startsWith("oscal")) //temporary
     .map((file) => join(constraintDir, file));
-});
+
+  });
 
 When("I process the constraint unit test {string}", async function (testFile) {
   const constraintTestDir = join(
@@ -436,7 +438,10 @@ Given("I have loaded all Metaschema extensions documents", function () {
   console.log(
     `Loaded ${metaschemaDocuments.length} Metaschema extension documents`
   );
+  metaschemaDom = new JSDOM(`<root>${metaschemaDocuments.join("")}</root>`, { contentType: "text/xml" });
+
 });
+
 
 When(
   "I extract all constraint IDs from the Metaschema extensions",
@@ -452,7 +457,6 @@ When(
       constraintIds = [...constraintIds, ...constraints];
     }
     constraintIds = [...new Set(constraintIds)].sort();
-
     console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
     console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
   }
@@ -641,4 +645,75 @@ Then("I should have both FAIL and PASS tests for constraint ID {string}", functi
     constraintId,
     `Constraint ${constraintId} is not in the extracted constraints list`
   );
+});
+
+
+Given("I have added all documents to a single Document model", function () {
+  const constraintDir = join(
+    __dirname,
+    "..",
+    "..",
+    "src",
+    "validations",
+    "constraints"
+  );
+  const files = readdirSync(constraintDir);
+  metaschemaDocuments = files
+    .filter((file) => file.endsWith(".xml"))
+    .sort()
+    .map((file) => join(constraintDir, file));
+
+  console.log(
+    `Loaded ${metaschemaDocuments.length} Metaschema extension documents`
+  );
+
+  const allXmlContent = metaschemaDocuments
+    .map(file => {
+      const content = readFileSync(file, "utf8");
+      // Remove XML declaration and any leading/trailing whitespace
+      return content.replace(/<\?xml.*?\?>/, '').trim();
+    })
+    .join("\n");
+
+  // Log a sample of the content for verification
+  console.log("Sample of processed XML content:");
+  console.log(allXmlContent.slice(0, 500) + "...");
+
+  metaschemaDom = new JSDOM(`<?xml version="1.0" encoding="UTF-8"?><root>${allXmlContent}</root>`, { contentType: "text/xml" });
+
+  console.log("All documents have been added to a single Document model");
+});
+
+Then("I should have three help props for constraint ID {string}", function (constraintId) {
+  const constraintRule = metaschemaDom.window.document.querySelector(`[id="${constraintId}"]`);
+
+  if (!constraintRule) {
+    expect.fail(`Constraint ${constraintId} not found in any metaschema document`);
+  }
+
+  const requiredProps = [
+    {
+      namespace: "https://docs.oasis-open.org/sarif/sarif/v2.1.0",
+      name: "help-url"
+    },
+    {
+      namespace: "https://docs.oasis-open.org/sarif/sarif/v2.1.0",
+      name: "help-text"
+    },
+    {
+      namespace: "https://docs.oasis-open.org/sarif/sarif/v2.1.0",
+      name: "help-markdown"
+    }
+  ];
+
+  const missingProps = requiredProps.filter(prop => 
+    !constraintRule.querySelector(`prop[ns="${prop.namespace}"][name="${prop.name}"]`)
+  );
+
+  if (missingProps.length > 0) {
+    const missingPropNames = missingProps.map(p => p.name).join(', ');
+    expect.fail(`Constraint ${constraintId} is missing the following help properties: ${missingPropNames}`);
+  }
+
+  console.log(`${constraintId}: Has all required help properties`);
 });
