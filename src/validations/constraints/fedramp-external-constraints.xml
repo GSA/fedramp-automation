@@ -33,21 +33,36 @@
         <metapath target="//user"/>
         <constraints>
 
-        <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
-            <message>User must have a single type prop.</message>
-        </expect>
-        <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level']) = 1">
-            <message>User must have a single privilege prop.</message>
-        </expect>
-        <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1">
-            <message>User must have a single sensitivity prop.</message>
-        </expect>
-        <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
-            <message>User must have at least one role id.</message>
-        </expect>
-        <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
-            <message>User must have at least one authorized privilege id.</message>
-        </expect>
+            <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-text" value="User must have exactly one type property."/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-markdown" value="# User Type Requirement\n\nEach user must have exactly one type property.\n\nThis is essential for proper user classification and access control."/>
+                <message>User with uuid {@uuid} must have a single type prop.</message>
+            </expect>
+            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level']) = 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-text" value="User must have exactly one privilege level property."/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-markdown" value="# Privilege Level Requirement\n\nEach user must have exactly one privilege level property.\n\nThis defines the user's access rights within the system."/>
+                <message>User with uuid {@uuid} must have a single privilege prop.</message>
+            </expect>
+            <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-text" value="User must have exactly one sensitivity level property."/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-markdown" value="# Sensitivity Level Requirement\n\nEach user must have exactly one sensitivity level property.\n\nThis determines the level of sensitive information the user can access."/>
+                <message>User with uuid {@uuid} must have a single sensitivity prop.</message>
+            </expect>
+            <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-text" value="User must have at least one role ID."/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-markdown" value="# Role ID Requirement\n\nEach user must have at least one role ID.\n\nRoles define the user's responsibilities and permissions within the system."/>
+                <message>User with uuid {@uuid} must have at least one role id.</message>
+            </expect>
+            <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-text" value="User must have at least one authorized privilege."/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-markdown" value="# Authorized Privilege Requirement\n\nEach user must have at least one authorized privilege.\n\nAuthorized privileges specify the actions a user is allowed to perform in the system."/>
+                <message>User with uuid {@uuid} must have at least one authorized privilege id.</message>
+            </expect>
         </constraints>
     </context>
     <context>
