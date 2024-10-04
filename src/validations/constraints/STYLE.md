@@ -9,6 +9,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 ### FCSR-1 External Constraints <a id='fcsr-1'></a>
 
 ID: `fcsr-1`
+Formal Name: FedRAMP Prefers External Constraints
 State: Recommended
 Guidance: For FedRAMP OSCAL constraints, it is not recommended to define the constraints inline (i.e. the constraint definition is internal to a Metaschema module). The definition of all constraints SHOULD be in an external file or URL.
 
