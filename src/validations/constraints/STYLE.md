@@ -6,7 +6,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 
 ## Requirements
 
-### FCSR-1 External Constraints <a id='fcsr-1'></a>
+### <h3 id='fcsr-1'>FCSR-1 External Constraints</a>
 
 ID: `fcsr-1`
 Formal Name: FedRAMP Prefers External Constraints
