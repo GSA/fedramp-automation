@@ -16,7 +16,7 @@ State: Recommended
 
 Guidance: For FedRAMP OSCAL constraints, it is not recommended to define the constraints inline (i.e. the constraint definition is internal to a Metaschema module). The definition of all constraints SHOULD be in an external file or URL.
 
-#### Conformant Example <a id='fcsr-1-conformant'></a>
+#### FCSR-1 Conformant Example <a id='fcsr-1-conformant'></a>
 
 Below is a conformant example for FCSR-1.
 
@@ -71,7 +71,7 @@ Below is a conformant example for FCSR-1.
                     <!-- truncated -->
 ```
 
-#### Non-conformant Example <a id='fcsr-1-non-conformant'></a>
+#### FCSR-1 Non-conformant Example
 
 Below is a non-conformant example for FCSR-1.
 
@@ -110,4 +110,88 @@ Below is a non-conformant example for FCSR-1.
     </constraint>
     <!-- truncated -->
 </METASCHEMA>    
+```
+
+### FCSR-2
+
+ID: `fcsr-2`
+
+Formal Name: FedRAMP Requires Constraints Sorted by Metatapath Target from Least to Most Specific
+
+State: Required
+
+Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from the most to least specific. In a `context`, the least specific `metapath/@target` is one with the path addressing some or all of the roots of an OSCAL model. More or most specific targets address specific nested fields, flags, or assemblies deeply embedded in the model as close to the location of the constraint's target for data in the instance of the model as possible.
+
+#### FCSR-2 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/catalog//control"/>
+        <constraints>
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+                <message>Duplicate response point at '{ path(.) }'.</message>
+            </expect>
+            <remarks>
+                <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
+                <p>For control statements, it signals to the CSP which statements require a response in the SSP.</p>
+                <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
+             </remarks>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <message>Each data center address must contain a country code.</message>
+            </expect>
+            <expect id="data-center-US" target="." test="address/country eq 'US'">
+                <message>Each data center must have an address that is within the United States.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-2 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <!--
+            The target(s)  of this context's metapath are more specific.
+            They MUST come later in a document.
+        -->
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <message>Each data center address must contain a country code.</message>
+            </expect>
+            <expect id="data-center-US" target="." test="address/country eq 'US'">
+                <message>Each data center must have an address that is within the United States.</message>
+            </expect>
+        </constraints>
+    </context>    
+    <context>
+        <!--
+            The target(s)  of this context's metapath are more specific.
+            They MUST come earlier in a document.
+        -->        
+        <metapath target="/catalog//control"/>
+        <constraints>
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+                <message>Duplicate response point at '{ path(.) }'.</message>
+            </expect>
+            <remarks>
+                <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
+                <p>For control statements, it signals to the CSP which statements require a response in the SSP.</p>
+                <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
+             </remarks>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
 ```
