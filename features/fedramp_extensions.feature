@@ -161,7 +161,7 @@ Scenario Outline: Ensuring full test coverage for "<constraint_id>"
 Given I have loaded all Metaschema extensions documents
 And I have added all documents to a single Document model
 Then I should have both FAIL and PASS tests for constraint ID "<constraint_id>"
-Then I should have three help props for constraint ID "<constraint_id>"
+Then I should have help url prop for constraint ID "<constraint_id>"
 Examples:
 | constraint_id |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
