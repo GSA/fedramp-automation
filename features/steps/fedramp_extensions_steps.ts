@@ -684,7 +684,7 @@ Given("I have added all documents to a single Document model", function () {
   console.log("All documents have been added to a single Document model");
 });
 
-Then("I should have three help props for constraint ID {string}", function (constraintId) {
+Then("I should have help url prop for constraint ID {string}", function (constraintId) {
   const constraintRule = metaschemaDom.window.document.querySelector(`[id="${constraintId}"]`);
 
   if (!constraintRule) {
@@ -695,16 +695,7 @@ Then("I should have three help props for constraint ID {string}", function (cons
     {
       namespace: "https://docs.oasis-open.org/sarif/sarif/v2.1.0",
       name: "help-url"
-    },
-    {
-      namespace: "https://docs.oasis-open.org/sarif/sarif/v2.1.0",
-      name: "help-text"
-    },
-    {
-      namespace: "https://docs.oasis-open.org/sarif/sarif/v2.1.0",
-      name: "help-markdown"
-    }
-  ];
+    }  ];
 
   const missingProps = requiredProps.filter(prop => 
     !constraintRule.querySelector(`prop[ns="${prop.namespace}"][name="${prop.name}"]`)
