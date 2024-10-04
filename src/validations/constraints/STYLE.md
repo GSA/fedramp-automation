@@ -195,3 +195,66 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-3
+
+ID: `fcsr-3`
+
+Formal Name: FedRAMP Requires Constraints in the Context Alphabetically by ID
+
+State: Required
+
+Guidance: Developers MUST sort OSCAL constraint definitions in a file for each context by each of their `@id`s alphabetically, from upper case and then lower case respectively.
+
+#### FCSR-3 Conformant Example
+
+Below is a conformant example:
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="A" target="." test="count(address/country) eq 1">
+                <message>Example of sorting.</message>
+            </expect>            
+            <expect id="a" target="." test="count(address/country) eq 2">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="b" target="." test="count(address/country) eq 3">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="c" target="." test="count(address/country) eq 4">
+                <message>Example of sorting.</message>
+            </expect>            
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-3 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <!-- Constraints MUST be sorted alphabetically by @id, these are not.  -->
+            <expect id="c" target="." test="count(address/country) eq 4">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="A" target="." test="count(address/country) eq 1">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="b" target="." test="count(address/country) eq 3">
+                <message>Example of sorting.</message>
+            </expect>                      
+            <expect id="a" target="." test="count(address/country) eq 2">
+                <message>Example of sorting.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
