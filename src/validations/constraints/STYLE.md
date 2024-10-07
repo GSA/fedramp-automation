@@ -304,3 +304,50 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-5
+
+ID: `fcsr-5`
+
+Formal Name: FedRAMP Requires Constraints Have a Unique ID
+
+State: Required
+
+Guidance: Developers MUST define a Metaschema constraint with an `id` flag that is unique to all those FedRAMP maintains across all constraint documents.
+
+#### FCSR-5 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/catalog//control"/>
+        <constraints>
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+                <message>Duplicate response point at '{ path(.) }'.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-5 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/catalog//control"/>
+        <constraints>
+            <!-- This constraint is missing an @id flag, it does not meet FedRAMP developer style requirements. -->
+            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+                <message>Duplicate response point at '{ path(.) }'.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
