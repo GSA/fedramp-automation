@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METASCHEMA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <schema-name>FedRAMP OSCAL Extensions Registry</schema-name>
+    <schema-version>0.0.1</schema-version>
+    <short-name>fedramp-extensions</short-name>
+    <namespace>http://fedramp.gov/ns/oscal</namespace>
+    <json-base-uri>http://fedramp.gov/ns/oscal</json-base-uri>
+    <remarks>
+        <p>The FedRAMP OSCAL Extension Model is used to describe the comprehensive set of FedRAMP
+            extenstions.</p>
+        <p>This provides OSCAL practitioners a machine-readable documentation of the extensions used
+            in a FedRAMP authorization package. Sepecific requirements, in the form of FedRAMP
+            external constraints, are referenced in this model.</p>
+    </remarks>
+
+    <!-- Import OSCAL Metadata Metaschema which includes: title, published, last-modified, version,
+    oscal-version, revision, role, party, responsible-party, remarks -->
+    <import href="../../vendor/oscal/src/metaschema/oscal_metadata_metaschema.xml" />
+
+    <!-- FedRAMP Extensions Registry - assembly for collection of extensions -->
+    <define-assembly name="fedramp-extensions-registry">
+        <formal-name>FedRAMP OSCAL Extensions</formal-name>
+        <description>Defines the collection of FedRAMP OSCAL extensions.</description>
+        <root-name>fedramp-extensions-registry</root-name>
+        <define-flag name="uuid" as-type="uuid" required="yes">
+          <formal-name>FedRAMP Extensions Registry Universally Unique Identifier</formal-name>
+          <description>A globally unique identifier used to reference this FedRAMP Extensions Registry.</description>
+        </define-flag>
+        <model>
+            <!-- TODO - import metadata assembly. Commented out because it is causing java.lang.NullPointerException when generating schema and validating content. -->
+            <!-- <assembly ref="metadata" min-occurs="1" /> -->
+            <assembly ref="fedramp-extension" min-occurs="1">
+                <group-as name="fedramp-extensions" in-xml="UNGROUPED" in-json="ARRAY" />
+            </assembly>
+        </model>
+    </define-assembly>
+
+    <!-- FedRAMP Extension Assembly -->
+    <define-assembly name="fedramp-extension">
+        <formal-name>FedRAMP OSCAL Extension</formal-name>
+        <description>Defines a FedRAMP OSCAL extension. This can include custom properties, links,
+            and parts with a FedRAMP namespace.</description>
+        <define-flag name="id" as-type="token" required="yes">
+            <formal-name>FedRAMP Extension Identifier</formal-name>
+            <description>An unique identifier for the FedRAMP extension.</description>
+        </define-flag>
+        <define-flag name="deprecated" as-type="string">
+            <formal-name>Deprecated</formal-name>
+            <description>This optional attribute communicates the version after which use of the given 'fedramp-extension' is discontinued and no longer supported.</description>
+        </define-flag>
+        <model>
+            <define-field name="formal-name" as-type="string" min-occurs="1" max-occurs="1">
+                <formal-name>Extension Name</formal-name>
+                <description>Formal name for the FedRAMP extension.</description>
+            </define-field>
+            <define-field name="description" as-type="markup-multiline" min-occurs="1" max-occurs="1">
+                <formal-name>Description</formal-name>
+                <description>Description of the FedRAMP extension.</description>
+            </define-field>
+            <define-field name="fedramp-external-constraint-id" as-type="string" min-occurs="1" max-occurs="unbounded">
+                <formal-name>FedRAMP External Constraint ID</formal-name>
+                <description>The unique identifier of the referenced FedRAMP external constraint.</description>
+                <group-as name="fedramp-external-constraint-ids" in-json="ARRAY" />
+            </define-field>
+            <define-field name="remarks" as-type="markup-multiline">
+                <formal-name>Remarks</formal-name>
+                <description>Additional commentary about the containing object.</description>
+            </define-field>                    
+        </model>
+
+    </define-assembly>
+
+</METASCHEMA>
