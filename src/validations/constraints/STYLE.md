@@ -351,3 +351,51 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-6
+
+ID: `fcsr-6`
+
+Formal Name: FedRAMP Requires Constraints Have a Severity Level
+
+State: Required
+
+Guidance: Developers MUST define a Metaschema constraint with a `level` flag with [a valid value](https://pages.nist.gov/metaschema/specification/syntax/constraints/#level) to indicate to downstream developers and/or users the potential impact of the data instance not meeting its requirements.
+
+#### FCSR-6 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/catalog//control"/>
+        <constraints>
+        
+            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="ERROR">
+                <message>Duplicate response point at '{ path(.) }'.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-6 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/catalog//control"/>
+        <constraints>
+            <!-- This constraint is missing an @level flag, it does not meet FedRAMP developer style requirements. -->
+            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+                <message>Duplicate response point at '{ path(.) }'.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
