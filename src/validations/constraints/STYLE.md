@@ -2,7 +2,7 @@
 
 ## Summary
 
-This document is to instruct FedRAMP developers and community members on mandatory or recommended style  for the structure, format, and organization of constraints. Each requirement will be given an identifier, guidance text, and examples that either do or do not conform to the best practices.
+This document is to instruct FedRAMP developers and community members on mandatory or recommended style for the structure, format, and organization of constraints. Each requirement will be given an identifier, guidance text, and examples that either do or do not conform to the best practices.  Following the guidance in this document will improve (external constraint) code readability and consistency, and make it easier to maintain.
 
 ## Requirements
 
@@ -10,11 +10,11 @@ This document is to instruct FedRAMP developers and community members on mandato
 
 ID: `fcsr-1`
 
-Formal Name: FedRAMP Prefers External Constraints
+Formal Name: FedRAMP Requires External Constraints
 
-State: Recommended
+State: Required
 
-Guidance: For FedRAMP OSCAL constraints, it is not recommended to define the constraints inline (i.e. the constraint definition is internal to a Metaschema module). The definition of all constraints SHOULD be in an external file or URL.
+Guidance: FedRAMP OSCAL constraints MUST be in an external file or URL. OSCAL model in-line constraints should be avoided and only implemented by NIST for generalized, non-FedRAMP specific constraints. 
 
 #### FCSR-1 Conformant Example <a id='fcsr-1-conformant'></a>
 
