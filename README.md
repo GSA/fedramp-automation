@@ -55,13 +55,6 @@ Please ask questions or provide feedback on the above NIST dependencies either v
 
 FedRAMP looks forward to receiving your comments and sharing additional progress.
 
-## Rules documentation
-
-Complete documentation for each validation rule is available, and is bundled with each official release. The documentation provides a browsable list of each validation rule, as well as the ability to validate FedRAMP OSCAL documents in-browser.
-
-See [./src/web](./src/web) for details on how to build and run locally.
-
-![Web documentation screenshot](./src/web/screenshot.png)
 
 ## Developer notes
 
