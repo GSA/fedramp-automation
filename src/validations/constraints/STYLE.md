@@ -445,3 +445,49 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-8
+
+ID: `fcsr-8`
+
+Formal Name: FedRAMP Requires Constraints Have a Message When Constraints Are Violated
+
+State: Required
+
+Guidance: Developers MUST only define a Metaschema constraint with a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable).
+
+#### FCSR-8 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="." datatype="uri-reference" level="CRITICAL">
+                <message>A FedRAMP SSP MUST define a valid URL to the catalog that identifies the controls' requirements it implements. This error indicates the referenced catalog or profile is invalid, so many constraints are unable to process. The resulting validations from constraint check are inaccurate, incomplete, or both.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-8 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="." datatype="uri-reference" level="CRITICAL">
+                <!-- This constraint does not provide a meaningful message for data violates the constraint. It is not conformant with the developer guide. -->
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
