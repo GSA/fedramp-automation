@@ -491,3 +491,53 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-9
+
+ID: `fcsr-9`
+
+Formal Name: FedRAMP Recommends Constraints Have Remarks for Requirements Too Complex for Description in the Message
+
+State: Recommended
+
+Guidance: Developers SHOULD only define a Metaschema constraint with a `remarks` field when the requirement is complex enough that a full explanation of the positive requirement exceeds a sentence of reasonable length conforming to all requirements in this guide.
+
+#### FCSR-9 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
+                <message>A FedRAMP SSP MUST define a valid URL to the catalog that identifies the controls' requirements it implements.</message>
+                <remarks>
+                    <p>The control requirements a SSP must implement and support are defined in the profile or catalog referenced in b a URL to a file on a computer's filesystem or remote URL.</p>
+                    <p>More than other constraints, a valid profile URL is integral for processing of other constraints in this document.</p>
+                    <p>Users and intervening software developers should clearly mark that validation failed if this constraint is violated regardless of all others.</p>
+                </remarks>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-9 Non-conformant Example
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <!-- This constraint has too long of an explanation of the positive requirement for a message. This example does not conform with the developer guide. -->
+            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
+                <message>A FedRAMP SSP MUST define a valid URL to the catalog that identifies the controls' requirements it implements. The control requirements a SSP must implement and support are defined in the profile or catalog referenced in b a URL to a file on a computer's filesystem or remote URL. More than other constraints, a valid profile URL is integral for processing of other constraints in this document. Users and intervening software developers should clearly mark that validation failed if this constraint is violated regardless of all others.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
