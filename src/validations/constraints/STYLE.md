@@ -399,3 +399,50 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-7
+
+ID: `fcsr-7`
+
+Formal Name: FedRAMP Requires Developers Use Constraints with Critical Severity Level for Runtime Failures
+
+State: Required
+
+Guidance: Developers MUST only define a Metaschema constraint with a `level` flag with a value of `CRITICAL` if and only if the violation of the constraint will lead to an irrecoverable runtime failure (e.g. a SSP's `import-profile` references a catalog or profile with no valid controls) or undefined behavior in a conformant processor in a consistent way for the majority of use cases.
+
+#### FCSR-7 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <matches target="./import-profile" test="." datatype="uri-reference" level="CRITICAL">
+                <message>A FedRAMP SSP MUST define a valid URL to the catalog that identifies the controls' requirements it implements. This error indicates the referenced catalog or profile is invalid, so many constraints are unable to process. The resulting validations from constraint check are inaccurate, incomplete, or both.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-7 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/catalog//control"/>
+        <constraints>
+            <!-- This constraint defines a CRITICAL severity level for a violation that does not cause an irrecoverable error or undefined behavior. This example does not conform with the FedRAMP developer's guide. -->
+            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="CRITICAL">
+                <message>Duplicate response point at '{ path(.) }'.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
