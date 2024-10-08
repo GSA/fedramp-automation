@@ -81,7 +81,8 @@ oscal v1.1.2 built at 2024-08-20 04:25 from branch 4f02dac6f698efda387cc5f55bc99
 metaschema-java 1.0.2 built at 2024-08-19T18:05:06+0000 from branch 76fe3c9dcebe45223d83034f4836510e3a347ba7 (76fe3c9) at https://github.com/metaschema-framework/metaschema-java
 metaschema  built at 2024-08-19T18:05:06+0000 from branch 894b2238764c8732623a3894f0c236625ca5a686 (894b223) at https://github.com/metaschema-framework/metaschema.git
 ```
-
+<details>
+<summary>Manual Installation Instructions Without Containers (for advanced users)</summary>
 ## Manual installation without containers for advanced users
 
 This section provides instructions for setting up your local environment to run `oscal-cli` validations.
@@ -177,7 +178,7 @@ If you have previously cloned the FedRAMP Automation repository, to get the most
    b. Make sure that the **feature/external-constraints** branch is green.
 5. To get the latest repository updates, run the following command:
    `git pull`
-
+</details>
 # Validating FedRAMP OSCAL content
 
 This section describes steps for validating FedRAMP OSCAL artifacts (SSP, SAP, SAR, and POA\&M files).
