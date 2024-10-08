@@ -552,7 +552,7 @@ Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Activ
 
 State: Recommended
 
-Guidance: Developers SHOULD only define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
+Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
 
 #### FCSR-10 Conformant Example
 
