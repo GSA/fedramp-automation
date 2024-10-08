@@ -6,8 +6,8 @@ The ([FedRAMP OSCAL Extensions Registry](fedramp_extensions_registry.xml)) provi
 - **id** - the extension's unique identifier.
 - **formal-name** - the extension's formal name.
 - **description** - a brief description of the extension.
-- **fedramp-external-constraint-id** - reference to the identifier of the FedRAMP external constraint(s) (e.g., allowed-values) for this FedRAMP extension.
-> Note: FedRAMP is currently implementing validation constraints.  The registry will be updated with `fedramp-external-constraint-id` information as constraint IDs become available. 
+- **external-constraint-id** - reference to the identifier of the FedRAMP external constraint(s) (e.g., allowed-values) for this FedRAMP extension.
+> Note: FedRAMP is currently implementing validation constraints.  The registry will be updated with `external-constraint-id` information as constraint IDs become available. 
 - **remarks (OPTIONAL)** - additional information regarding the use of this FedRAMP extension.
 
 The registry includes all FedRAMP extensions, past and present.  Any extensions that are no longer supported have a `deprecated` flag in the registry, specifying the the version number where support ceased (e.g., `deprecated="fedramp-2.0.0-oscal-1.0.4"`).
