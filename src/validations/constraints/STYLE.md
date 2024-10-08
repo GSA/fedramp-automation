@@ -543,3 +543,50 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-10
+
+ID: `fcsr-10`
+
+Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Active Voice
+
+State: Recommended
+
+Guidance: Developers SHOULD only define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
+
+#### FCSR-10 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <message>A FedRAMP document MUST define a data center location with an explicit country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-10 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <!-- The message for this constraint is written in passive voice. It does not conform to the developer guide. -->
+                <message>An explicit country code must be defined here.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
