@@ -698,3 +698,50 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-13
+
+ID: `fcsr-13`
+
+Formal Name: FedRAMP Recommends Constraints Tests and Messages Focus on Single Item of Sequence Data
+
+State: Recommended
+
+Guidance: Developers SHOULD define a Metaschema constraint with `target`, `test`, and `message` fields that test and explain a positive requirement in the singular for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. Violation paths and messages should discuss an individual item in the singular. The only exception is for quantitative or qualitative analysis of the whole sequence. The development team and community contributors can make a determination, meaning if the constraint is within that exceptional category, on a case-by-case basis, as this is a recommendation and not a requirement.
+
+#### FCSR-13 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <message>A FedRAMP SSP must define a location for a data center with an explicit country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-13 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata"/>
+        <constraints>
+            <!--
+                This constraint queries a document higher in the document to analyze and report on a sequence, not an item. This is not conformant with the developer guide.
+            -->
+            <expect id="data-center-country-code" target="." test="count(location/address/country) eq count(location">
+                <message>A FedRAMP SSP needs data centers to indicate a country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
