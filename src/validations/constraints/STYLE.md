@@ -590,3 +590,64 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-11
+
+ID: `fcsr-11`
+
+Formal Name: FedRAMP Requires Constraints Use Messages IETF BCP14 Keywords
+
+State: Required
+
+Guidance: Developers MUST define a Metaschema constraint with a `message` sentence that conforms with IETF standards regarding capitalized requirement keywords per [BCP14](https://datatracker.ietf.org/doc/bcp14/). The sentence will use MUST," "MUST NOT," "REQUIRED," "SHALL," "SHALL NOT,", "SHOULD," "SHOULD NOT," "RECOMMENDED,"  "MAY," and "OPTIONAL" according to BCP14 requirements.
+
+#### FCSR-11 Conformant Example
+
+#### FCSR-11 Non-conformant Example
+
+### FCSR-10
+
+ID: `fcsr-10`
+
+Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Active Voice
+
+State: Recommended
+
+Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
+
+#### FCSR-11 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <message>A FedRAMP document MUST define a data center location with an explicit country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-11 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <!-- The message for this constraint is written without BCP14 keywords. It does not conform to the developer guide. -->
+                <message>Gotta have a country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
