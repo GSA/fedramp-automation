@@ -745,3 +745,48 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-14
+
+ID: `fcsr-14`
+
+Formal Name: FedRAMP Recommends Constraints Messages for a Single Item of Sequence Data Provide Hints
+
+State: Recommended
+
+Guidance: Developers SHOULD define a Metaschema constraint with a `message` fields provide contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should deference machine-oriented data to provide human-oriented clues as recommended above.
+
+#### FCSR-14 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code-us" target="." test="count(address/country) eq 'US'">
+                <message>A FedRAMP SSP must define a location for a data center with the country code US for the United States, not {if empty(.) then 'not an empty value' else string(.)}.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-14 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <!-- This constraint does not provide a contextual hint when it can. It does not conform with the developer guide. -->
+            <expect id="data-center-country-code-us" target="." test="count(address/country) eq 'US'">
+                <message>Bad country code, pick the right one next time, fool!</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
