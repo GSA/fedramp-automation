@@ -179,6 +179,7 @@ If you have previously cloned the FedRAMP Automation repository, to get the most
 5. To get the latest repository updates, run the following command:
    `git pull`
 </details>
+
 # Validating FedRAMP OSCAL content
 
 This section describes steps for validating FedRAMP OSCAL artifacts (SSP, SAP, SAR, and POA\&M files).
