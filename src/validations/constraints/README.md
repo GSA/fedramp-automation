@@ -53,6 +53,9 @@ docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
 
 4. When the download is complete and the terminal prompts you for a new shell command, you can check that you correctly downloaded the image by running your first command to [verify the version of `oscal-cli` in the image].
 
+<details>
+<summary>Upgrading the container image (for those who have already installed)</summary>
+
 ### Upgrading the container image
 
 1. Confirm that you still have [the necessary prerequisites](#prerequisites) for Docker or another OCI container engine installed.
@@ -63,6 +66,8 @@ docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
 ```
 
 When you use `docker run ... ghcr.io/gsa/fedramp-automation/validation-tools:latest` on your computer, it will use the new version pinned to the `latest` tag that you recently downloaded instead of the previous version.
+
+</details>
 
 ### Test the container image with your first command
 
@@ -83,6 +88,7 @@ metaschema  built at 2024-08-19T18:05:06+0000 from branch 894b2238764c8732623a38
 ```
 <details>
 <summary>Manual Installation Instructions Without Containers (for advanced users)</summary>
+
 ## Manual installation without containers for advanced users
 
 This section provides instructions for setting up your local environment to run `oscal-cli` validations.
