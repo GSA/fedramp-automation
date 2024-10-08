@@ -651,3 +651,50 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-12
+
+ID: `fcsr-12`
+
+Formal Name: FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon
+
+State: Required
+
+Guidance: Developers MUST define a Metaschema constraint with a `message` field with one sentence that describes the positive requirements for the artifact of the security process without using jargon or terminology from the [Metaschema](https://pages.nist.gov/metaschema) and [OSCAL](https://pages.nist.gov/OSCAL) projects. Messages MUST NOT use this jargon.
+
+#### FCSR-12 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <message>A FedRAMP document MUST define a data center location with an explicit country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-12 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <!-- The message for this constraint is written with Metaschema and OSCAL jargon. It does not conform to the developer guide. -->
+                <message>The value of this field in the address assembly within the abstract metadta module, with a cardinality of 0 to 1, must result with a value of 1 when evaluated by the Metapath function count.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
