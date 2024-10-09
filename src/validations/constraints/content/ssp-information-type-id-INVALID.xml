@@ -15,6 +15,11 @@
           <information-type-id>invalid-information-type</information-type-id>
         </categorization>
       </information-type>
+      <information-type  uuid="44444444-0000-4000-9000-000000000004">
+        <categorization system="https://example.org/other-data-categorization-scheme">
+          <information-type-id>C.2.8.12</information-type-id>
+        </categorization>
+      </information-type>
     </system-information>
   </system-characteristics>
 
