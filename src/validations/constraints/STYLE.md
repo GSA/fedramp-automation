@@ -358,13 +358,66 @@ Below is a non-conformant example.
 
 ID: `fcsr-6`
 
+Formal Name: FedRAMP Requires Constraints Have IDs with Lower Cases Letters Numbers and Dashes
+
+State: Required
+
+Guidance: Developers MUST define a Metaschema constraint with an `id` flag with the following structure.
+
+1. all lowercase letters (`a-z`) and numbers (`0-9`)
+1. dashes separating words and phrases of letters and numbers above
+
+#### FCSR-6 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code-us" target="." test="count(address/country) eq 'US'">
+                <formal-name>Data Center Locations in the United States</formal-name>
+                <message>A FedRAMP SSP must define locations for data centers that are explicitly in the United States.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-6 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <!-- 
+                This constraint's @id does not use lowercase letters, numbers, and dashes only.
+                This example does not conform to the developer guide.
+            -->
+            <expect id="DataCenterUSOnly" target="." test="count(address/country) eq 'US'">
+                <formal-name>Data Center Locations in the United States</formal-name>
+                <message>A FedRAMP SSP must define locations for data centers that are explicitly in the United States.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+### FCSR-7
+
+ID: `fcsr-7`
+
 Formal Name: FedRAMP Requires Constraints Have a Severity Level
 
 State: Required
 
 Guidance: Developers MUST define a Metaschema constraint with a `level` flag with [a valid value](https://pages.nist.gov/metaschema/specification/syntax/constraints/#level) to indicate to downstream developers and/or users the potential impact of the data instance not meeting its requirements.
 
-#### FCSR-6 Conformant Example
+#### FCSR-7 Conformant Example
 
 Below is a conformant example.
 
@@ -382,7 +435,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-6 Non-conformant Example
+#### FCSR-7 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -401,62 +454,15 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-7
+### FCSR-8
 
-ID: `fcsr-7`
+ID: `fcsr-8`
 
 Formal Name: FedRAMP Requires Developers Use Constraints with Critical Severity Level for Runtime Failures
 
 State: Required
 
 Guidance: Developers MUST only define a Metaschema constraint with a `level` flag with a value of `CRITICAL` if and only if the violation of the constraint will lead to an irrecoverable runtime failure (e.g. a SSP's `import-profile` references a catalog or profile with no valid controls) or undefined behavior in a conformant processor in a consistent way for the majority of use cases.
-
-#### FCSR-7 Conformant Example
-
-Below is a conformant example.
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
-    <context>
-        <metapath target="/system-security-plan"/>
-        <constraints>
-            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
-                <message>A FedRAMP SSP MUST define a valid URL to the catalog that identifies the controls' requirements it implements. This error indicates the referenced catalog or profile is invalid, so many constraints are unable to process. The resulting validations from constraint check are inaccurate, incomplete, or both.</message>
-            </expect>
-        </constraints>
-    </context>
-</metaschema-meta-constraints>
-```
-
-#### FCSR-7 Non-conformant Example
-
-Below is a non-conformant example.
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
-    <context>
-        <metapath target="/catalog//control"/>
-        <constraints>
-            <!-- This constraint defines a CRITICAL severity level for a violation that does not cause an irrecoverable error or undefined behavior. This example does not conform with the FedRAMP developer's guide. -->
-            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="CRITICAL">
-                <message>Duplicate response point at '{ path(.) }'.</message>
-            </expect>
-        </constraints>
-    </context>
-</metaschema-meta-constraints>
-```
-
-### FCSR-8
-
-ID: `fcsr-8`
-
-Formal Name: FedRAMP Requires Constraints Have a Message When Constraints Are Violated
-
-State: Required
-
-Guidance: Developers MUST only define a Metaschema constraint with a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable).
 
 #### FCSR-8 Conformant Example
 
@@ -484,10 +490,11 @@ Below is a non-conformant example.
 <?xml version="1.0" encoding="UTF-8"?>
 <metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
     <context>
-        <metapath target="/system-security-plan"/>
+        <metapath target="/catalog//control"/>
         <constraints>
-            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
-                <!-- This constraint does not provide a meaningful message for data violates the constraint. It is not conformant with the developer guide. -->
+            <!-- This constraint defines a CRITICAL severity level for a violation that does not cause an irrecoverable error or undefined behavior. This example does not conform with the FedRAMP developer's guide. -->
+            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="CRITICAL">
+                <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
         </constraints>
     </context>
@@ -498,13 +505,59 @@ Below is a non-conformant example.
 
 ID: `fcsr-9`
 
+Formal Name: FedRAMP Requires Constraints Have a Message When Constraints Are Violated
+
+State: Required
+
+Guidance: Developers MUST only define a Metaschema constraint with a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable).
+
+#### FCSR-9 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
+                <message>A FedRAMP SSP MUST define a valid URL to the catalog that identifies the controls' requirements it implements. This error indicates the referenced catalog or profile is invalid, so many constraints are unable to process. The resulting validations from constraint check are inaccurate, incomplete, or both.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-9 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
+                <!-- This constraint does not provide a meaningful message for data violates the constraint. It is not conformant with the developer guide. -->
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+### FCSR-10
+
+ID: `fcsr-10`
+
 Formal Name: FedRAMP Recommends Constraints Have Remarks for Requirements Too Complex for Description in the Message
 
 State: Recommended
 
 Guidance: Developers SHOULD only define a Metaschema constraint with a `remarks` field when the requirement is complex enough that a full explanation of the positive requirement exceeds a sentence of reasonable length conforming to all requirements in this guide.
 
-#### FCSR-9 Conformant Example
+#### FCSR-10 Conformant Example
 
 Below is a conformant example.
 
@@ -527,7 +580,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-9 Non-conformant Example
+#### FCSR-10 Non-conformant Example
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -544,9 +597,9 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-10
+### FCSR-11
 
-ID: `fcsr-10`
+ID: `fcsr-11`
 
 Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Active Voice
 
@@ -554,7 +607,7 @@ State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
 
-#### FCSR-10 Conformant Example
+#### FCSR-11 Conformant Example
 
 Below is a conformant example.
 
@@ -572,7 +625,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-10 Non-conformant Example
+#### FCSR-11 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -591,9 +644,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-11
+### FCSR-12
 
-ID: `fcsr-11`
+ID: `fcsr-12`
 
 Formal Name: FedRAMP Requires Constraints Use Messages IETF BCP14 Keywords
 
@@ -601,66 +654,19 @@ State: Required
 
 Guidance: Developers MUST define a Metaschema constraint with a `message` sentence that conforms with IETF standards regarding capitalized requirement keywords per [BCP14](https://datatracker.ietf.org/doc/bcp14/). The sentence will use MUST," "MUST NOT," "REQUIRED," "SHALL," "SHALL NOT,", "SHOULD," "SHOULD NOT," "RECOMMENDED,"  "MAY," and "OPTIONAL" according to BCP14 requirements.
 
-#### FCSR-11 Conformant Example
+#### FCSR-12 Conformant Example
 
-#### FCSR-11 Non-conformant Example
+#### FCSR-12 Non-conformant Example
 
-### FCSR-10
+### FCSR-11
 
-ID: `fcsr-10`
+ID: `fcsr-11`
 
 Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Active Voice
 
 State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
-
-#### FCSR-11 Conformant Example
-
-Below is a conformant example.
-
-```xml
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
-    <context>
-        <metapath target="/system-security-plan/metadata/location"/>
-        <constraints>
-            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
-                <message>A FedRAMP document MUST define a data center location with an explicit country code.</message>
-            </expect>
-        </constraints>
-    </context>
-</metaschema-meta-constraints>
-```
-
-#### FCSR-11 Non-conformant Example
-
-Below is a non-conformant example.
-
-```xml
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
-    <context>
-        <metapath target="/system-security-plan/metadata/location"/>
-        <constraints>
-            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
-                <!-- The message for this constraint is written without BCP14 keywords. It does not conform to the developer guide. -->
-                <message>Gotta have a country code.</message>
-            </expect>
-        </constraints>
-    </context>
-</metaschema-meta-constraints>
-```
-
-### FCSR-12
-
-ID: `fcsr-12`
-
-Formal Name: FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon
-
-State: Required
-
-Guidance: Developers MUST define a Metaschema constraint with a `message` field with one sentence that describes the positive requirements for the artifact of the security process without using jargon or terminology from the [Metaschema](https://pages.nist.gov/metaschema) and [OSCAL](https://pages.nist.gov/OSCAL) projects. Messages MUST NOT use this jargon.
 
 #### FCSR-12 Conformant Example
 
@@ -691,8 +697,8 @@ Below is a non-conformant example.
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
-                <!-- The message for this constraint is written with Metaschema and OSCAL jargon. It does not conform to the developer guide. -->
-                <message>The value of this field in the address assembly within the abstract metadta module, with a cardinality of 0 to 1, must result with a value of 1 when evaluated by the Metapath function count.</message>
+                <!-- The message for this constraint is written without BCP14 keywords. It does not conform to the developer guide. -->
+                <message>Gotta have a country code.</message>
             </expect>
         </constraints>
     </context>
@@ -703,13 +709,60 @@ Below is a non-conformant example.
 
 ID: `fcsr-13`
 
+Formal Name: FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon
+
+State: Required
+
+Guidance: Developers MUST define a Metaschema constraint with a `message` field with one sentence that describes the positive requirements for the artifact of the security process without using jargon or terminology from the [Metaschema](https://pages.nist.gov/metaschema) and [OSCAL](https://pages.nist.gov/OSCAL) projects. Messages MUST NOT use this jargon.
+
+#### FCSR-13 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <message>A FedRAMP document MUST define a data center location with an explicit country code.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-13 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
+                <!-- The message for this constraint is written with Metaschema and OSCAL jargon. It does not conform to the developer guide. -->
+                <message>The value of this field in the address assembly within the abstract metadta module, with a cardinality of 0 to 1, must result with a value of 1 when evaluated by the Metapath function count.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+### FCSR-14
+
+ID: `fcsr-14`
+
 Formal Name: FedRAMP Recommends Constraints Tests and Messages Focus on Single Item of Sequence Data
 
 State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with `target`, `test`, and `message` fields that test and explain a positive requirement in the singular for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. Violation paths and messages should discuss an individual item in the singular. The only exception is for quantitative or qualitative analysis of the whole sequence. The development team and community contributors can make a determination, meaning if the constraint is within that exceptional category, on a case-by-case basis, as this is a recommendation and not a requirement.
 
-#### FCSR-13 Conformant Example
+#### FCSR-14 Conformant Example
 
 Below is a conformant example.
 
@@ -726,7 +779,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-13 Non-conformant Example
+#### FCSR-14 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -746,9 +799,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-14
+### FCSR-15
 
-ID: `fcsr-14`
+ID: `fcsr-15`
 
 Formal Name: FedRAMP Recommends Constraints Messages for a Single Item of Sequence Data Provide Hints
 
@@ -756,7 +809,7 @@ State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` fields provide contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should deference machine-oriented data to provide human-oriented clues as recommended above.
 
-#### FCSR-14 Conformant Example
+#### FCSR-15 Conformant Example
 
 Below is a conformant example.
 
@@ -773,7 +826,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-14 Non-conformant Example
+#### FCSR-15 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -791,9 +844,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-15
+### FCSR-16
 
-ID: `fcsr-15`
+ID: `fcsr-16`
 
 Formal Name: FedRAMP Requires Constraints Have a Formal Name
 
@@ -801,7 +854,7 @@ State: Required
 
 Guidance: Developers MUST define a Metaschema constraint with a `formal-name` field that provides a name for the constraint to use in documentation and tool output.
 
-#### FCSR-15 Conformant Example
+#### FCSR-16 Conformant Example
 
 Below is a conformant example.
 
@@ -811,7 +864,7 @@ Below is a conformant example.
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
             <expect id="data-center-country-code-us" target="." test="count(address/country) eq 'US'">
-                <formal-name>Data Center Locations in the United States
+                <formal-name>Data Center Locations in the United States</formal-name>
                 <message>A FedRAMP SSP must define locations for data centers that are explicitly in the United States.</message>
             </expect>
         </constraints>
@@ -819,7 +872,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-15 Non-conformant Example
+#### FCSR-16 Non-conformant Example
 
 Below is a non-conformant example.
 
