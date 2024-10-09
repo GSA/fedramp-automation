@@ -196,7 +196,7 @@
                 <enum value="no">No</enum>
             </allowed-values>
             
-            <allowed-values id="information-type-800-60-v2r1" target="system-characteristics/system-information/information-type/categorization/information-type-id" allow-other="no" level="ERROR">
+            <allowed-values id="information-type-800-60-v2r1" target="system-characteristics/system-information/information-type/categorization[@system='https://doi.org/10.6028/NIST.SP.800-60v2r1']/information-type-id" allow-other="no" level="ERROR">
                 <formal-name>NIST SP 800-60 Volume 2 Revision 1 Information Types</formal-name>
                 <description>Contains a list of all supported information types from NIST SP 800-60 Volume 2 Revision 1.</description>
                 <enum value="C.2.1.1">Corrective Action Information Type</enum>
