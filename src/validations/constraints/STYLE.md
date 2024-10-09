@@ -790,3 +790,49 @@ Below is a non-conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+### FCSR-15
+
+ID: `fcsr-15`
+
+Formal Name: FedRAMP Requires Constraints Have a Formal Name
+
+State: Required
+
+Guidance: Developers MUST define a Metaschema constraint with a `formal-name` field that provides a name for the constraint to use in documentation and tool output.
+
+#### FCSR-15 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <expect id="data-center-country-code-us" target="." test="count(address/country) eq 'US'">
+                <formal-name>Data Center Locations in the United States
+                <message>A FedRAMP SSP must define locations for data centers that are explicitly in the United States.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FCSR-15 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <!-- This constraint does not have a formal name. It does not conform with the developer guide. -->
+            <expect id="data-center-country-code-us" target="." test="count(address/country) eq 'US'">
+                <message>Bad country code, pick the right one next time, fool!</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
