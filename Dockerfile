@@ -10,7 +10,7 @@ ARG TEMURIN_APK_KEY_URL=https://packages.adoptium.net/artifactory/api/security/k
 ARG TEMURIN_APK_REPO_URL=https://packages.adoptium.net/artifactory/apk/alpine/main
 ARG TEMURIN_APK_VERSION=temurin-22-jdk
 ARG MAVEN_DEP_PLUGIN_VERSION=3.8.0
-ARG OSCAL_CLI_VERSION=2.1.0
+ARG OSCAL_CLI_VERSION=2.2.0
 # Current public key ID for maintainers@metaschema.dev releases of oscal-cli
 # Static analysis from docker build and push warns this is a secret, it is not
 # and is necessary to cross-ref the Maven GPG key for checking build signatures.
