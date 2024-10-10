@@ -103,7 +103,7 @@ To produce a release:
 - [Monitor running Github Actions](https://github.com/GSA/fedramp-automation/actions) for the `build-release` workflow's completion ([./.github/workflows/create-release.yml](./.github/workflows/create-release.yml))
   - On completion, artifacts will be attached to the release.
 
-  ## Support and OSCAL Deprecation Strategy
+## Support and OSCAL Deprecation Strategy
 
 The FedRAMP PMO has [a release strategy and versioning procedures](./documents/adr/0002-git-release-version-strategy.md). FedRAMP has a minimally supported version of OSCAL, unless explicitly noted otherwise in specific documents or source code in this repository. Baselines, guides, templates, and associated tools in this repository will only support OSCAL data with a version number no lower than specified by FedRAMP version tags. A version tag that ends in `-oscal2.0.0` will only support data with `oscal-version` equal to `2.0.0` or newer, it will not support `1.0.1`, `1.0.2`, `1.0.3`, `1.0.4`, etc. A future version tag ending in `-oscal1.1.0` indicates FedRAMP source code and guides will support data with `oscal-version` equal to `1.1.0` or newer, but not `1.0.0`.
 
