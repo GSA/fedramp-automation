@@ -181,6 +181,11 @@
                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
                 <message>There must be one or more alternate data center(s).</message>
             </expect>
+            <index-has-key id="responsible-party-is-person" name="index-person-party-uuid" target="./responsible-party[(@role-id='system-owner') or (@role-id='authorizing-official-poc') or (@role-id='system-poc-management') or (@role-id='system-poc-technical') or (@role-id='system-poc-other') or (@role-id='information-system-security-officer')]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#information-system-owner"/>
+                <key-field target="party-uuid"/>
+                <message>For roles 'system-owner', 'authorizing-official-poc', 'system-poc-management', 'system-poc-technical', 'system-poc-other', and 'information-system-security-officer', the responsible-role party must be a party of type 'person'.</message>
+            </index-has-key>
             <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
                 <message>A FedRAMP SSP must define the system owner role.</message>
             </expect>
@@ -195,13 +200,6 @@
             	<description>An index of  UUIDs for party assemblies of type "person".</description>
                 <key-field target="@uuid"/>
             </index>
-            <index-has-key id="responsible-party-is-person" name="index-person-party-uuid" target="./responsible-party[(@role-id='system-owner') or (@role-id='authorizing-official-poc') or (@role-id='system-poc-management') or (@role-id='system-poc-technical') or (@role-id='system-poc-other') or (@role-id='information-system-security-officer')]" level="ERROR">
-                <key-field target="party-uuid"/>
-                <message>This responsible-party references a party which is not a person.</message>
-            </index-has-key>
-            <remarks>
-                <p>For roles 'system-owner', 'authorizing-official-poc', 'system-poc-management', 'system-poc-technical', 'system-poc-other', and 'information-system-security-officer', the responsible-role party must be a party of type 'person'.</p>
-            </remarks>
         </constraints>
     </context>
     <context>
