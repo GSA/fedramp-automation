@@ -2,11 +2,21 @@
 
 # Federal Risk and Authorization Management Program (FedRAMP) Automation
 
-## OSCAL Guides and Templates
+## Overview
 
-The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP Security Authorization Package using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/).
+The FedRAMP Program Management Office (PMO), has drafted FedRAMP specific tooling and guidance to ensure our stakeholders can fully express and review their FedRAMP Security Authorization Packages using NIST’s [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/).
 
-To accompany these guides, the FedRAMP PMO has also drafted OSCAL files in XML and JSON formats to serve as an example and template for each major deliverable.
+In addition to guides and examples assisting in the production of OSCAL artifacts, the FedRAMP PMO is developing software to assist in automating the review of OSCAL (Open Security Controls Assessment Language) digital authorization packages. The primary aim is to reduce manual review efforts by validating whether submissions conform to FedRAMP’s requirements. While the project is still in development, once completed, it will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, helping to streamline the review process.
+
+## FedRAMP OSCAL Validation Tooling
+
+Our ongoing work is focused on developing automated validation tooling to check that all required elements are present. To learn more about installing and using our validation tooling, go [here] (https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
+FedRAMP OSCAL Constraints will be processed through the oscal-cli tool, which:
+- Validates OSCAL documents against FedRAMP constraints.
+- Identifies compliance with FedRAMP requirements.
+- Outputs a SARIF report, detailing both passed and failed validations.
+This tooling is intended for use by FedRAMP OSCAL implementers and practitioners, Cloud Service Providers (CSPs), OSCAL tool developers, 3PAOs, and federal agencies. We welcome any and all feedback. 
+
 
 ## Support and OSCAL Deprecation Strategy
 
