@@ -13,7 +13,7 @@ In addition to guides and examples assisting in the production of OSCAL artifact
 | Component                                                       | Description                                                                        |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | [FedRAMP OSCAL Validation Tooling](./tree/develop/src/validations/constraints) | The folder that contains the validation tooling and constraints      |
-| [FedRAMP Rev 5 Guidance](/tree/master/dist/content/rev5)         | The folder that contains guidance and examples related to rev5                     |
+| [FedRAMP Rev 5 Releases](/tree/master/dist/content/rev5)         | The folder that contains guidance and examples related to rev5                     |
 
 ## FedRAMP OSCAL Validation Tooling
 
