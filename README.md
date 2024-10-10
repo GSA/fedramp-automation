@@ -8,9 +8,17 @@ The FedRAMP Program Management Office (PMO), has drafted FedRAMP specific toolin
 
 In addition to guides and examples assisting in the production of OSCAL artifacts, the FedRAMP PMO is developing software to assist in automating the review of OSCAL (Open Security Controls Assessment Language) digital authorization packages. The primary aim is to reduce manual review efforts by validating whether submissions conform to FedRAMP’s requirements. While the project is still in development, once completed, it will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, helping to streamline the review process.
 
+## Project Components
+
+| Component                                                       | Description                                                                        |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| [FedRAMP OSCAL Validation Tooling](./tree/develop/src/validations/constraints) | The folder that contains the validation tooling and constraints      |
+| [FedRAMP Rev 5 Guidance](/tree/master/dist/content/rev5)         | The folder that contains guidance and examples related to rev5                     |
+
 ## FedRAMP OSCAL Validation Tooling
 
-Our ongoing work is focused on developing automated validation tooling to check that all required elements are present. To learn more about installing and using our validation tooling, go [here] (https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
+Our ongoing work is focused on developing automated validation tooling to check that all required elements are present. To learn more about installing and using our validation tooling, go [here](https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
+
 FedRAMP OSCAL Constraints will be processed through the oscal-cli tool, which:
 - Validates OSCAL documents against FedRAMP constraints.
 - Identifies compliance with FedRAMP requirements.
@@ -20,7 +28,7 @@ This tooling is intended for use by FedRAMP OSCAL implementers and practitioners
 
 ## FedRAMP OSCAL Rev 5 Releases:
 
-The FedRAMP PMO is releasing the following OSCAL content:
+The FedRAMP PMO has released the following OSCAL content:
 
 - **FedRAMP Baselines:** The FedRAMP rev 5 baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./dist/content/rev5/baselines).
 
@@ -30,7 +38,10 @@ The FedRAMP PMO is releasing the following OSCAL content:
 
 - **Implementation Guides:** These documents help tool developers and content authors ensure any generated OSCAL-based FedRAMP deliverabes are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The FedRAMP OSCAL implementation guides is now available [here](./documents/) in PDF format.
 
+## Questions and Feedback
+
 Please ask questions or provide feedback on the items above above either via email to [oscal@fedramp.gov](mailto:oscal@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
+
 
 ## Dependencies
 

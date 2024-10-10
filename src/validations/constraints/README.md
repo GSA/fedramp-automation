@@ -53,8 +53,6 @@ docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
 
 4. When the download is complete and the terminal prompts you for a new shell command, you can check that you correctly downloaded the image by running your first command to [verify the version of `oscal-cli` in the image].
 
-<details>
-<summary>Upgrading the container image (for those who have already installed)</summary>
 
 ### Upgrading the container image
 
@@ -67,7 +65,6 @@ docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
 
 When you use `docker run ... ghcr.io/gsa/fedramp-automation/validation-tools:latest` on your computer, it will use the new version pinned to the `latest` tag that you recently downloaded instead of the previous version.
 
-</details>
 
 ### Test the container image with your first command
 
@@ -86,8 +83,6 @@ oscal v1.1.2 built at 2024-08-20 04:25 from branch 4f02dac6f698efda387cc5f55bc99
 metaschema-java 1.0.2 built at 2024-08-19T18:05:06+0000 from branch 76fe3c9dcebe45223d83034f4836510e3a347ba7 (76fe3c9) at https://github.com/metaschema-framework/metaschema-java
 metaschema  built at 2024-08-19T18:05:06+0000 from branch 894b2238764c8732623a3894f0c236625ca5a686 (894b223) at https://github.com/metaschema-framework/metaschema.git
 ```
-<details>
-<summary>Manual Installation Instructions Without Containers (for advanced users)</summary>
 
 ## Manual installation without containers for advanced users
 
@@ -184,7 +179,6 @@ If you have previously cloned the FedRAMP Automation repository, to get the most
    b. Make sure that the **feature/external-constraints** branch is green.
 5. To get the latest repository updates, run the following command:
    `git pull`
-</details>
 
 # Validating FedRAMP OSCAL content
 
