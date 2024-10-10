@@ -24,8 +24,6 @@ The FedRAMP PMO is releasing the following OSCAL content:
 
 - **FedRAMP Baselines:** The FedRAMP rev 5 baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./dist/content/rev5/baselines).
 
-*The FedRAMP OSCAL templates, registry, and implementation guides for rev 5 will be released in a few weeks*.
-
 - **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The FedRAMP OSCAL SSP, SAP, SAR, and POA&M template are now available [here](./documents/) in XML, JSON, and YAML formats.
 
 - **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The FedRAMP OSCAL Registry is now available [here](./dist/content/rev5/resources) in XML format.
