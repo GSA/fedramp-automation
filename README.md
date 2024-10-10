@@ -34,7 +34,7 @@ Please ask questions or provide feedback on the items above above either via ema
 
 ## Dependencies
 
-FedRAMP's work is based on NIST's [OSCAL 1.0.4](https://github.com/usnistgov/OSCAL/releases/tag/v1.0.4), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
+FedRAMP's work is based on NIST's [OSCAL 1.1.2](https://github.com/usnistgov/OSCAL/releases/tag/v1.1.2), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
 
 **IMPORTANT**: As NIST makes minor syntax updates and releases new versions, please review [the NIST OSCAL release notes](https://pages.nist.gov/OSCAL/reference/release-notes/) in addition to guides here for more information about these changes.
 
@@ -54,6 +54,10 @@ NIST offers a complete package containing the NIST OSCAL converters, syntax vali
 Please ask questions or provide feedback on the above NIST dependencies either via email to [oscal@nist.gov](mailto:oscal@nist.gov), as a comment to an existing issue, or as a new issue via the [NIST OSCAL GitHub site](https://github.com/usnistgov/OSCAL/issues).
 
 FedRAMP looks forward to receiving your comments and sharing additional progress.
+
+## Validating OSCAL Content
+
+###
 
 
 ## Developer notes
