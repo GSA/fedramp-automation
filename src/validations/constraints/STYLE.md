@@ -16,7 +16,7 @@ State: Required
 
 Guidance: FedRAMP OSCAL constraints MUST be in an external file or URL. OSCAL model in-line constraints should be avoided and only implemented by NIST for generalized, non-FedRAMP specific constraints.
 
-**NOTE:** At this time, the FedRAMP Automation Team maintains a set of constraints for the core NIST-maintained OSCAL models, not specific to FedRAMP, in the the [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file. The team intends intends to upstream these changes to the NIST-maintained models and their supporting code based, as proposed in [usnistgov/OSCAL#2050)](https://github.com/usnistgov/OSCAL/issues/2050). Currently, FedRAMP developers implement externalized constraints in this separate file, as this guidance requires and is the only feasible interim solution. However, the test infrastructure purposely ignores this file and does not process its constraints for explicit continuous integration testing. This approach MAY change given the result of the proposal to NIST maintainers or other decisions by FedRAMP's technical leadership, but they are not explicitly within the scope of FedRAMP developer's constraint roadmap and they follow this guidance when reasonable. FedRAMP developers did not design or implement these constraints as a permanent collection in the constraints inventory.
+**NOTE:** At this time, the FedRAMP Automation Team maintains a set of constraints for the core NIST-maintained OSCAL models, not specific to FedRAMP, in the the [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file. The team intends intends to upstream these changes to the NIST-maintained models and their supporting code base, as proposed in [usnistgov/OSCAL#2050)](https://github.com/usnistgov/OSCAL/issues/2050). Currently, FedRAMP developers implement externalized constraints in this separate file, as this guidance requires and is the only feasible interim solution. However, the test infrastructure purposely ignores this file and does not process its constraints for explicit continuous integration testing. This approach MAY change given the result of the proposal to NIST maintainers or other decisions by FedRAMP's technical leadership, but they are not explicitly within the scope of FedRAMP developer's constraint roadmap and they follow this guidance _only_ when reasonable. FedRAMP developers did not design or implement these constraints as a permanent collection in the constraints inventory.
 
 #### FCSR-1 Conformant Example
 
@@ -269,7 +269,9 @@ Formal Name: FedRAMP Requires Constraints Have a Help URL Property
 
 State: Required
 
-Guidance: Developers MUST define a Metaschema constraint property with a namespace of `https://docs.oasis-open.org/sarif/sarif/v2.1.0`,  name `help-url`, and `value` with a URL to an official, meaningful, and specific explanation to the OSCAL syntax and semantics that motivate that OSCAL constraint definition in a file.
+Guidance: Developers MUST define only one Metaschema constraint property with a namespace of `https://docs.oasis-open.org/sarif/sarif/v2.1.0`,  name `help-url`, and `value` with a URL to an official, meaningful, and specific explanation to the OSCAL syntax and semantics that motivate that OSCAL constraint definition in a file.
+
+**NOTE:** Although Metaschema can support multiple properties for different URLs, the explicit goal of this FedRAMP design and approach is to emit the relevant URL in SARIF output for constraint violations. The SARIF 2.1.0 specification and schema support one and only one URL in the relevant SARIF structure.
 
 #### FCSR-4 Conformant Example
 
@@ -605,7 +607,7 @@ Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Activ
 
 State: Recommended
 
-Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
+Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "A FedRAMP document requires."
 
 #### FCSR-11 Conformant Example
 
@@ -616,6 +618,7 @@ Below is a conformant example.
     <context>
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
+            <!-- This message begins with 'A FedRAMP document ...' because the metadata assembly is in all OSCAL models. -->
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
                 <message>A FedRAMP document MUST define a data center location with an explicit country code.</message>
@@ -656,20 +659,6 @@ Guidance: Developers MUST define a Metaschema constraint with a `message` senten
 
 #### FCSR-12 Conformant Example
 
-#### FCSR-12 Non-conformant Example
-
-### FCSR-11
-
-ID: `fcsr-11`
-
-Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Active Voice
-
-State: Recommended
-
-Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "FedRAMP documents require."
-
-#### FCSR-12 Conformant Example
-
 Below is a conformant example.
 
 ```xml
@@ -697,8 +686,7 @@ Below is a non-conformant example.
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
-                <!-- The message for this constraint is written without BCP14 keywords. It does not conform to the developer guide. -->
-                <message>Gotta have a country code.</message>
+                <message>What's wrong with you, no country code for data center!?</message>
             </expect>
         </constraints>
     </context>
@@ -791,7 +779,7 @@ Below is a non-conformant example.
             <!--
                 This constraint queries a document higher in the document to analyze and report on a sequence, not an item. This is not conformant with the developer guide.
             -->
-            <expect id="data-center-country-code" target="." test="count(location/address/country) eq count(location">
+            <expect id="data-center-country-code" target="." test="count(location/address/country) eq count(location)">
                 <message>A FedRAMP SSP needs data centers to indicate a country code.</message>
             </expect>
         </constraints>
@@ -803,11 +791,11 @@ Below is a non-conformant example.
 
 ID: `fcsr-15`
 
-Formal Name: FedRAMP Recommends Constraints Messages for a Single Item of Sequence Data Provide Hints
+Formal Name: FedRAMP Recommends Constraint Messages for a Single Item of Sequence Data Provide Hints
 
 State: Recommended
 
-Guidance: Developers SHOULD define a Metaschema constraint with a `message` fields provide contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should deference machine-oriented data to provide human-oriented clues as recommended above.
+Guidance: Developers SHOULD define a Metaschema constraint with a `message` field that provides contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should deference machine-oriented data to provide human-oriented clues as recommended above.
 
 #### FCSR-15 Conformant Example
 
