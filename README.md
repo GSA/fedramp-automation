@@ -18,14 +18,6 @@ FedRAMP OSCAL Constraints will be processed through the oscal-cli tool, which:
 This tooling is intended for use by FedRAMP OSCAL implementers and practitioners, Cloud Service Providers (CSPs), OSCAL tool developers, 3PAOs, and federal agencies. We welcome any and all feedback. 
 
 
-## Support and OSCAL Deprecation Strategy
-
-The FedRAMP PMO has [a release strategy and versioning procedures](./documents/adr/0002-git-release-version-strategy.md). FedRAMP has a minimally supported version of OSCAL, unless explicitly noted otherwise in specific documents or source code in this repository. Baselines, guides, templates, and associated tools in this repository will only support OSCAL data with a version number no lower than specified by FedRAMP version tags. A version tag that ends in `-oscal2.0.0` will only support data with `oscal-version` equal to `2.0.0` or newer, it will not support `1.0.1`, `1.0.2`, `1.0.3`, `1.0.4`, etc. A future version tag ending in `-oscal1.1.0` indicates FedRAMP source code and guides will support data with `oscal-version` equal to `1.1.0` or newer, but not `1.0.0`.
-
-Changes to the minimally supported version and deprecation notices will be made in advance of a release.
-
-This repository is for the development and enhancement of OSCAL artifacts only. For issues with the [Word and Excel-based templates and artifacts on the fedramp.gov site](https://www.fedramp.gov/documents-templates/), please send requests to [info@fedramp.gov](mailto:info@gfedramp.gov).
-
 ## FedRAMP OSCAL Rev 5 Releases:
 
 The FedRAMP PMO is releasing the following OSCAL content:
@@ -106,3 +98,11 @@ To produce a release:
   - Ensure the tag follows the naming convention defined in [ADR 0002](./documents/adr/0002-git-release-version-strategy.md)
 - [Monitor running Github Actions](https://github.com/GSA/fedramp-automation/actions) for the `build-release` workflow's completion ([./.github/workflows/create-release.yml](./.github/workflows/create-release.yml))
   - On completion, artifacts will be attached to the release.
+
+  ## Support and OSCAL Deprecation Strategy
+
+The FedRAMP PMO has [a release strategy and versioning procedures](./documents/adr/0002-git-release-version-strategy.md). FedRAMP has a minimally supported version of OSCAL, unless explicitly noted otherwise in specific documents or source code in this repository. Baselines, guides, templates, and associated tools in this repository will only support OSCAL data with a version number no lower than specified by FedRAMP version tags. A version tag that ends in `-oscal2.0.0` will only support data with `oscal-version` equal to `2.0.0` or newer, it will not support `1.0.1`, `1.0.2`, `1.0.3`, `1.0.4`, etc. A future version tag ending in `-oscal1.1.0` indicates FedRAMP source code and guides will support data with `oscal-version` equal to `1.1.0` or newer, but not `1.0.0`.
+
+Changes to the minimally supported version and deprecation notices will be made in advance of a release.
+
+This repository is for the development and enhancement of OSCAL artifacts only. For issues with the [Word and Excel-based templates and artifacts on the fedramp.gov site](https://www.fedramp.gov/documents-templates/), please send requests to [info@fedramp.gov](mailto:info@gfedramp.gov).
