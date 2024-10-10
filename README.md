@@ -15,7 +15,7 @@ FedRAMP OSCAL Constraints will be processed through the oscal-cli tool, which:
 - Validates OSCAL documents against FedRAMP constraints.
 - Identifies compliance with FedRAMP requirements.
 - Outputs a SARIF report, detailing both passed and failed validations.
-This tooling is intended for use by FedRAMP OSCAL implementers and practitioners, Cloud Service Providers (CSPs), OSCAL tool developers, 3PAOs, and federal agencies. We welcome any and all feedback. 
+This tooling is intended for use by FedRAMP OSCAL implementers and practitioners, Cloud Service Providers (CSPs), OSCAL tool developers, 3rd Party Assessment Organizations (3PAOs), and federal agencies. We welcome any and all feedback. 
 
 
 ## FedRAMP OSCAL Rev 5 Releases:
@@ -54,11 +54,6 @@ NIST offers a complete package containing the NIST OSCAL converters, syntax vali
 Please ask questions or provide feedback on the above NIST dependencies either via email to [oscal@nist.gov](mailto:oscal@nist.gov), as a comment to an existing issue, or as a new issue via the [NIST OSCAL GitHub site](https://github.com/usnistgov/OSCAL/issues).
 
 FedRAMP looks forward to receiving your comments and sharing additional progress.
-
-## Validating OSCAL Content
-
-###
-
 
 ## Developer notes
 
