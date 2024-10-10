@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+
+  <system-characteristics>
+    <system-information>
+      <information-type uuid="33333333-0000-4000-9000-000000000003">
+        <title>Financial Information</title>
+        <description>
+          <p>Contains sensitive financial data related to organizational operations.</p>
+        </description>
+        <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+          <information-type-id>invalid-information-type</information-type-id>
+        </categorization>
+      </information-type>
+      <information-type  uuid="44444444-0000-4000-9000-000000000004">
+        <categorization system="https://example.org/other-data-categorization-scheme">
+          <information-type-id>C.2.8.12</information-type-id>
+        </categorization>
+      </information-type>
+    </system-information>
+  </system-characteristics>
+
+</system-security-plan>

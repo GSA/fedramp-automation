@@ -107,6 +107,8 @@ Examples:
   | has-system-id-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
+  | information-type-id-FAIL.yaml |
+  | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -202,6 +204,7 @@ Examples:
   | has-separation-of-duties-matrix |
   | has-system-id |
   | has-user-guide |
+  | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
