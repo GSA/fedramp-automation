@@ -4,25 +4,28 @@
 
 ## Overview
 
-The FedRAMP Program Management Office (PMO), has drafted FedRAMP specific tooling and guidance to ensure our stakeholders can fully express and review their FedRAMP Security Authorization Packages using NIST’s [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/).
+The FedRAMP Program Management Office (PMO) has drafted FedRAMP specific tooling and guidance to ensure our stakeholders can fully express and review their FedRAMP Security Authorization Packages using NIST’s [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/).
 
-In addition to guides and examples assisting in the production of OSCAL artifacts, the FedRAMP PMO is developing software to assist in automating the review of OSCAL (Open Security Controls Assessment Language) digital authorization packages. The primary aim is to reduce manual review efforts by validating whether submissions conform to FedRAMP’s requirements. While the project is still in development, once completed, it will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, helping to streamline the review process.
+In addition to guides and examples assisting in the production of OSCAL artifacts, the FedRAMP PMO is developing software to assist in automating the review of OSCAL (Open Security Controls Assessment Language) digital authorization packages. The primary aim is to reduce manual review efforts by validating whether submissions conform to FedRAMP’s requirements. Once completed, it will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, helping to streamline the review process.
 
 ## Project Components
 
 | Component                                                       | Description                                                                        |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [FedRAMP OSCAL Validation Tooling](./tree/develop/src/validations/constraints) | The folder that contains the validation tooling and constraints      |
+| [FedRAMP OSCAL Validation Tooling](./tree/develop/src/validations/constraints) |  The folder that contains the validation tooling and constraints      |
 | [FedRAMP Rev 5 Releases](/tree/master/dist/content/rev5)         | The folder that contains guidance and examples related to rev5                     |
 
 ## FedRAMP OSCAL Validation Tooling
 
-Our ongoing work is focused on developing automated validation tooling to check that all required elements are present. To learn more about installing and using our validation tooling, go [here](https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
+Our ongoing work is focused on developing automated validation tooling called oscal-cli to automatically check that FedRAMP required controls are present in security artifacts such as System Security Plans. 
 
-FedRAMP OSCAL Constraints will be processed through the oscal-cli tool, which:
+As a part of this project, we are continuing to release "constraints," or automated "checks" of FedRAMP's required controls, to expand the coverage of our tooling and further automate the review of security artifacts. To learn more about installing and using our validation tooling, go [here](https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
+
+Our tooling:
 - Validates OSCAL documents against FedRAMP constraints.
 - Identifies compliance with FedRAMP requirements.
 - Outputs a SARIF report, detailing both passed and failed validations.
+
 This tooling is intended for use by FedRAMP OSCAL implementers and practitioners, Cloud Service Providers (CSPs), OSCAL tool developers, 3rd Party Assessment Organizations (3PAOs), and federal agencies. We welcome any and all feedback. 
 
 
@@ -43,11 +46,13 @@ The FedRAMP PMO has released the following OSCAL content:
 Please ask questions or provide feedback on the items above above either via email to [oscal@fedramp.gov](mailto:oscal@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
 
 
-## Dependencies
+## Dependencies and OSCAL resources
 
-FedRAMP's work is based on NIST's [OSCAL 1.1.2](https://github.com/usnistgov/OSCAL/releases/tag/v1.1.2), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
+FedRAMP's work is based on NIST's [OSCAL 1.1.2](https://github.com/usnistgov/OSCAL/releases/tag/v1.1.2), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly. As such, we have provided NIST-produced OSCAL resources below. 
 
 **IMPORTANT**: As NIST makes minor syntax updates and releases new versions, please review [the NIST OSCAL release notes](https://pages.nist.gov/OSCAL/reference/release-notes/) in addition to guides here for more information about these changes.
+
+<details><summary>Resources</summary>
 
 The following NIST resources are available:
 - **NIST's Main OSCAL Site:** [https://pages.nist.gov/OSCAL/](https://pages.nist.gov/OSCAL/)
@@ -65,8 +70,13 @@ NIST offers a complete package containing the NIST OSCAL converters, syntax vali
 Please ask questions or provide feedback on the above NIST dependencies either via email to [oscal@nist.gov](mailto:oscal@nist.gov), as a comment to an existing issue, or as a new issue via the [NIST OSCAL GitHub site](https://github.com/usnistgov/OSCAL/issues).
 
 FedRAMP looks forward to receiving your comments and sharing additional progress.
+</details>
 
 ## Developer notes
+
+This section is for prospective contributors to our automation efforts. As an open source project, fedramp-automation welcomes contributions. To see a detailed guide for contributors, go [here](https://github.com/GSA/fedramp-automation/blob/develop/CONTRIBUTING.md)
+<details>
+<summary>How to build/test our tools</summary>
 
 ### Build / test
 
@@ -87,7 +97,12 @@ make
 ```
 
 If you are developing on Windows, [msys2](https://www.msys2.org/) may be used for the required build tools (`make` and `bash`, in particular). Follow all the suggested installation steps on the msys2 home page for a complete environment. Additionally, make sure all the build requirements (above) are available on your path.
+</details>
 
+
+
+<details>
+<summary>How to create a release</summary>
 
 ### Creating a release
 
@@ -103,10 +118,17 @@ To produce a release:
 - [Monitor running Github Actions](https://github.com/GSA/fedramp-automation/actions) for the `build-release` workflow's completion ([./.github/workflows/create-release.yml](./.github/workflows/create-release.yml))
   - On completion, artifacts will be attached to the release.
 
-## Support and OSCAL Deprecation Strategy
+</details>
+
+## OSCAL Deprecation Strategy
+
+This section details the version of OSCAL our tooling supports. 
+<details>
 
 The FedRAMP PMO has [a release strategy and versioning procedures](./documents/adr/0002-git-release-version-strategy.md). FedRAMP has a minimally supported version of OSCAL, unless explicitly noted otherwise in specific documents or source code in this repository. Baselines, guides, templates, and associated tools in this repository will only support OSCAL data with a version number no lower than specified by FedRAMP version tags. A version tag that ends in `-oscal2.0.0` will only support data with `oscal-version` equal to `2.0.0` or newer, it will not support `1.0.1`, `1.0.2`, `1.0.3`, `1.0.4`, etc. A future version tag ending in `-oscal1.1.0` indicates FedRAMP source code and guides will support data with `oscal-version` equal to `1.1.0` or newer, but not `1.0.0`.
 
 Changes to the minimally supported version and deprecation notices will be made in advance of a release.
 
 This repository is for the development and enhancement of OSCAL artifacts only. For issues with the [Word and Excel-based templates and artifacts on the fedramp.gov site](https://www.fedramp.gov/documents-templates/), please send requests to [info@fedramp.gov](mailto:info@gfedramp.gov).
+
+</details>
