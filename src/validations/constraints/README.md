@@ -119,7 +119,7 @@ To install `oscal-cli`
 To add Java and `oscal-cli` to the shell’s **PATH** variable
 1. Install JDK.
 2. Using your preferred text editor, open the following file:
-   `<shell-root>/home/<user>/.bashrc`
+   `<shell-root>/home/<user>/.bashrc`. Alternatively, you may not have a .bashrc file, in which case you should open your `.bash_profile` file. 
 3. Scroll to the bottom of the file.
 4. To add Java and `oscal-cli` to the PATH variable, insert the following lines, replacing **\<jdk-path\>** with the actual Java installation directory path on your system:
    `export PATH=$PATH:<jdk-path>/bin`
