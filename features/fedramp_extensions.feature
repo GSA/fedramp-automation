@@ -131,6 +131,8 @@ Examples:
   | resource-has-title-PASS.yaml |
   | response-point-FAIL.yaml |
   | response-point-PASS.yaml |
+  | responsible-party-is-person-FAIL.yaml |
+  | responsible-party-is-person-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
@@ -216,6 +218,7 @@ Examples:
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |
   | resource-has-title |
+  | responsible-party-is-person |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
   | role-defined-system-owner |
