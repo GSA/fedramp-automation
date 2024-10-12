@@ -10,7 +10,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 
 ID: `fcsr-1`
 
-Formal Name: FedRAMP Requires External Constraints
+Formal Name: External Constraints
 
 State: Required
 
@@ -120,7 +120,7 @@ Below is a non-conformant example for FCSR-1.
 
 ID: `fcsr-2`
 
-Formal Name: FedRAMP Requires Constraints Sorted by Metatapath Target from Least to Most Specific
+Formal Name: Constraints Sorted by Metatapath Target from Least to Most Specific
 
 State: Required
 
@@ -206,7 +206,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-3`
 
-Formal Name: FedRAMP Requires Constraints in the Context Alphabetically by ID
+Formal Name: Constraints in the Context Alphabetically by ID
 
 State: Required
 
@@ -271,7 +271,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-4`
 
-Formal Name: FedRAMP Requires Constraints Have a Help URL Property
+Formal Name: Constraints Have a Help URL Property
 
 State: Required
 
@@ -321,7 +321,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-5`
 
-Formal Name: FedRAMP Requires Constraints Have a Unique ID
+Formal Name: Constraints Have a Unique ID
 
 State: Required
 
@@ -370,7 +370,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-6`
 
-Formal Name: FedRAMP Requires Constraints Have IDs with Lower Cases Letters Numbers and Dashes
+Formal Name: Constraints Have IDs with Lower Cases Letters Numbers and Dashes
 
 State: Required
 
@@ -425,7 +425,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-7`
 
-Formal Name: FedRAMP Requires Constraints Have a Severity Level
+Formal Name: Constraints Have a Severity Level
 
 State: Required
 
@@ -474,7 +474,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-8`
 
-Formal Name: FedRAMP Requires Developers Use Constraints with Critical Severity Level for Runtime Failures
+Formal Name: Constraints with Critical Severity Level for Runtime Failures
 
 State: Required
 
@@ -523,7 +523,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-9`
 
-Formal Name: FedRAMP Requires Constraints Have a Message When Constraints Are Violated
+Formal Name: Constraint Message Field Required
 
 State: Required
 
@@ -571,7 +571,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-10`
 
-Formal Name: FedRAMP Recommends Constraints Have Remarks for Requirements Too Complex for Description in the Message
+Formal Name: Constraints Have Remarks for Requirements Overly Complex Descriptions
 
 State: Recommended
 
@@ -623,7 +623,7 @@ Below is a conformant example.
 
 ID: `fcsr-11`
 
-Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Active Voice
+Formal Name: Constraints Message Sentences in Active Voice
 
 State: Recommended
 
@@ -673,7 +673,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-12`
 
-Formal Name: FedRAMP Requires Constraints Use Messages IETF BCP14 Keywords
+Formal Name: IETF BCP14 Keywords in Constraint Messages
 
 State: Required
 
@@ -770,7 +770,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-14`
 
-Formal Name: FedRAMP Recommends Constraints Tests and Messages Focus on Single Item of Sequence Data
+Formal Name: Constraints Tests and Messages Have Single Item Focus
 
 Categories: Sequences; Style
 
@@ -819,7 +819,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-15`
 
-Formal Name: FedRAMP Recommends Constraint Messages for a Single Item of Sequence Data Provide Hints
+Formal Name: Constraint Messages Have Single Item Hints
 
 Categories: Sequences; Style
 
@@ -866,7 +866,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-16`
 
-Formal Name: FedRAMP Requires Constraints Have a Formal Name
+Formal Name: Constraints Formal Names Required
 
 State: Required
 
