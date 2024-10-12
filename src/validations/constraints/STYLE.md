@@ -14,6 +14,8 @@ Formal Name: FedRAMP Requires External Constraints
 
 State: Required
 
+Categories: ID
+
 Guidance: FedRAMP OSCAL constraints MUST be in an external file or URL. OSCAL model in-line constraints should be avoided and only implemented by NIST for generalized, non-FedRAMP specific constraints.
 
 **NOTE:** At this time, the FedRAMP Automation Team maintains a set of constraints for the core NIST-maintained OSCAL models, not specific to FedRAMP, in the the [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file. The team intends intends to upstream these changes to the NIST-maintained models and their supporting code base, as proposed in [usnistgov/OSCAL#2050)](https://github.com/usnistgov/OSCAL/issues/2050). Currently, FedRAMP developers implement externalized constraints in this separate file, as this guidance requires and is the only feasible interim solution. However, the test infrastructure purposely ignores this file and does not process its constraints for explicit continuous integration testing. This approach MAY change given the result of the proposal to NIST maintainers or other decisions by FedRAMP's technical leadership, but they are not explicitly within the scope of FedRAMP developer's constraint roadmap and they follow this guidance _only_ when reasonable. FedRAMP developers did not design or implement these constraints as a permanent collection in the constraints inventory.
@@ -122,6 +124,8 @@ Formal Name: FedRAMP Requires Constraints Sorted by Metatapath Target from Least
 
 State: Required
 
+Categories: Metapath; Sorting
+
 Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from the most to least specific. In a `context`, the least specific `metapath/@target` is one with the path addressing some or all of the roots of an OSCAL model. More or most specific targets address specific nested fields, flags, or assemblies deeply embedded in the model as close to the location of the constraint's target for data in the instance of the model as possible.
 
 #### FCSR-2 Conformant Example
@@ -206,6 +210,8 @@ Formal Name: FedRAMP Requires Constraints in the Context Alphabetically by ID
 
 State: Required
 
+Categories: ID; Sorting
+
 Guidance: Developers MUST sort OSCAL constraint definitions in a file for each context by each of their `@id`s alphabetically, from upper case and then lower case respectively.
 
 #### FCSR-3 Conformant Example
@@ -269,6 +275,8 @@ Formal Name: FedRAMP Requires Constraints Have a Help URL Property
 
 State: Required
 
+Categories: Structure; Metadata
+
 Guidance: Developers MUST define only one Metaschema constraint property with a namespace of `https://docs.oasis-open.org/sarif/sarif/v2.1.0`,  name `help-url`, and `value` with a URL to an official, meaningful, and specific explanation to the OSCAL syntax and semantics that motivate that OSCAL constraint definition in a file.
 
 **NOTE:** Although Metaschema can support multiple properties for different URLs, the explicit goal of this FedRAMP design and approach is to emit the relevant URL in SARIF output for constraint violations. The SARIF 2.1.0 specification and schema support one and only one URL in the relevant SARIF structure.
@@ -317,6 +325,8 @@ Formal Name: FedRAMP Requires Constraints Have a Unique ID
 
 State: Required
 
+Categories: ID; Metadata
+
 Guidance: Developers MUST define a Metaschema constraint with an `id` flag that is unique to all those FedRAMP maintains across all constraint documents.
 
 #### FCSR-5 Conformant Example
@@ -363,6 +373,8 @@ ID: `fcsr-6`
 Formal Name: FedRAMP Requires Constraints Have IDs with Lower Cases Letters Numbers and Dashes
 
 State: Required
+
+Categories: ID
 
 Guidance: Developers MUST define a Metaschema constraint with an `id` flag with the following structure.
 
@@ -417,6 +429,8 @@ Formal Name: FedRAMP Requires Constraints Have a Severity Level
 
 State: Required
 
+Categories: Structure; Metadata
+
 Guidance: Developers MUST define a Metaschema constraint with a `level` flag with [a valid value](https://pages.nist.gov/metaschema/specification/syntax/constraints/#level) to indicate to downstream developers and/or users the potential impact of the data instance not meeting its requirements.
 
 #### FCSR-7 Conformant Example
@@ -463,6 +477,8 @@ ID: `fcsr-8`
 Formal Name: FedRAMP Requires Developers Use Constraints with Critical Severity Level for Runtime Failures
 
 State: Required
+
+Categories: Structure; Metadata
 
 Guidance: Developers MUST only define a Metaschema constraint with a `level` flag with a value of `CRITICAL` if and only if the violation of the constraint will lead to an irrecoverable runtime failure (e.g. a SSP's `import-profile` references a catalog or profile with no valid controls) or undefined behavior in a conformant processor in a consistent way for the majority of use cases.
 
@@ -511,6 +527,8 @@ Formal Name: FedRAMP Requires Constraints Have a Message When Constraints Are Vi
 
 State: Required
 
+Categories: Structure; Metadata
+
 Guidance: Developers MUST only define a Metaschema constraint with a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable).
 
 #### FCSR-9 Conformant Example
@@ -556,6 +574,8 @@ ID: `fcsr-10`
 Formal Name: FedRAMP Recommends Constraints Have Remarks for Requirements Too Complex for Description in the Message
 
 State: Recommended
+
+Categories: Structure; Metadata
 
 Guidance: Developers SHOULD only define a Metaschema constraint with a `remarks` field when the requirement is complex enough that a full explanation of the positive requirement exceeds a sentence of reasonable length conforming to all requirements in this guide.
 
@@ -607,6 +627,8 @@ Formal Name: FedRAMP Recommends Constraints Use Messages with Sentences in Activ
 
 State: Recommended
 
+Categories: Style
+
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "A FedRAMP document requires."
 
 #### FCSR-11 Conformant Example
@@ -655,6 +677,8 @@ Formal Name: FedRAMP Requires Constraints Use Messages IETF BCP14 Keywords
 
 State: Required
 
+Categories: Style
+
 Guidance: Developers MUST define a Metaschema constraint with a `message` sentence that conforms with IETF standards regarding capitalized requirement keywords per [BCP14](https://datatracker.ietf.org/doc/bcp14/). The sentence will use MUST," "MUST NOT," "REQUIRED," "SHALL," "SHALL NOT,", "SHOULD," "SHOULD NOT," "RECOMMENDED,"  "MAY," and "OPTIONAL" according to BCP14 requirements.
 
 #### FCSR-12 Conformant Example
@@ -701,6 +725,8 @@ Formal Name: FedRAMP Requires Constraints Use Messages without Metaschema and OS
 
 State: Required
 
+Categories: Style
+
 Guidance: Developers MUST define a Metaschema constraint with a `message` field with one sentence that describes the positive requirements for the artifact of the security process without using jargon or terminology from the [Metaschema](https://pages.nist.gov/metaschema) and [OSCAL](https://pages.nist.gov/OSCAL) projects. Messages MUST NOT use this jargon.
 
 #### FCSR-13 Conformant Example
@@ -745,6 +771,8 @@ Below is a non-conformant example.
 ID: `fcsr-14`
 
 Formal Name: FedRAMP Recommends Constraints Tests and Messages Focus on Single Item of Sequence Data
+
+Categories: Sequences; Style
 
 State: Recommended
 
@@ -793,6 +821,8 @@ ID: `fcsr-15`
 
 Formal Name: FedRAMP Recommends Constraint Messages for a Single Item of Sequence Data Provide Hints
 
+Categories: Sequences; Style
+
 State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field that provides contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should deference machine-oriented data to provide human-oriented clues as recommended above.
@@ -839,6 +869,8 @@ ID: `fcsr-16`
 Formal Name: FedRAMP Requires Constraints Have a Formal Name
 
 State: Required
+
+Categories: Structure; Metadata
 
 Guidance: Developers MUST define a Metaschema constraint with a `formal-name` field that provides a name for the constraint to use in documentation and tool output.
 
