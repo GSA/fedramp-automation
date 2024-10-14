@@ -4,4 +4,4 @@ test-case:
   content: ../content/ssp-has-identity-assurance-level-INVALID.xml
   expectations:
     - constraint-id: has-identity-assurance-level
-      result: fail
+      pass_count: 0

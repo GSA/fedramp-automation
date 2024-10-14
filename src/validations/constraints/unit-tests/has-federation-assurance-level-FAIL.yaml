@@ -4,4 +4,4 @@ test-case:
   content: ../content/ssp-has-federation-assurance-level-INVALID.xml
   expectations:
     - constraint-id: has-federation-assurance-level
-      result: fail
+      pass_count: 0

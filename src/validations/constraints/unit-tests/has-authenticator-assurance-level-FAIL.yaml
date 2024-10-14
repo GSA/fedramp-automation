@@ -4,4 +4,4 @@ test-case:
   content: ../content/ssp-has-authenticator-assurance-level-INVALID.xml
   expectations:
     - constraint-id: has-authenticator-assurance-level
-      result: fail
+      pass_count: 0
