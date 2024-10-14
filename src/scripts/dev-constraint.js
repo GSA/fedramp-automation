@@ -115,10 +115,10 @@ function analyzeTestFiles() {
                     testResults[constraintId] = { pass: null, fail: null };
                 }
 
-                if (result === 'pass' || file.toUpperCase().includes('PASS')) {
+                if (result === 'pass' ||result ==='informational'|| file.toUpperCase().includes('PASS')) {
                     testResults[constraintId].pass = file;
                     testResults[constraintId].pass_file = filePath.split("/").pop();                
-                } else if (result === 'fail' ||result ==='informational'|| file.toUpperCase().includes('FAIL')) {
+                } else if (result === 'fail' || file.toUpperCase().includes('FAIL')) {
                     testResults[constraintId].fail = file;
                     testResults[constraintId].fail_file = filePath.split("/").pop();                
                 }
