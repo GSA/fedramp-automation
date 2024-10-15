@@ -293,7 +293,7 @@ async function checkConstraints(
     }
 
     let errors = [];
-
+    let sarifMessages = [];
     for (const expectation of constraints) {
       const constraint_id = expectation["constraint-id"];
       const expectedResult = expectation.result;
@@ -312,6 +312,7 @@ async function checkConstraints(
         );
         continue;
       }
+      sarifMessages = constraintResults.map(x=>x.message.text)
 
       const kinds = constraintResults.map((c) => {
         if(c.level==='warning'||c.kind==='informational'){
@@ -400,6 +401,7 @@ async function checkConstraints(
     }
 
     if (errors.length > 0) {
+      errors.push(sarifMessages)
       return {
         status: "fail",
         errorMessage:
