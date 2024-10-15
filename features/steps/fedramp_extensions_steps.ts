@@ -204,7 +204,7 @@ async function processTestCase({ "test-case": testCase }: any) {
       if (step.action === "resolve-profile") {
         await resolveProfileDocument(
           contentPath,
-          processedContentPath,{outputFormat:'xml'})
+          processedContentPath,{outputFormat:'xml'},"oscal-server")
         console.log("Profile resolved");
       }
       // Add other pipeline steps as needed
