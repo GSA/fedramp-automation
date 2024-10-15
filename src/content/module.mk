@@ -1,5 +1,5 @@
 # Variables
-OSCAL_CLI = npx oscal@latest
+OSCAL_CLI = npx oscal@next
 SRC_DIR = ./src
 DIST_DIR = ./dist
 XML_DIR = $(DIST_DIR)/content/rev5/baselines/xml
