@@ -141,6 +141,20 @@ Examples:
   | scan-type-PASS.yaml |
   | security-level-FAIL.yaml |
   | security-level-PASS.yaml |
+  | user-has-authorized-privilege-FAIL.yaml |
+  | user-has-authorized-privilege-PASS.yaml |
+  | user-has-privilege-level-FAIL.yaml |
+  | user-has-privilege-level-PASS.yaml |
+  | user-has-role-id-FAIL.yaml |
+  | user-has-role-id-PASS.yaml |
+  | user-has-sensitivity-level-FAIL.yaml |
+  | user-has-sensitivity-level-PASS.yaml |
+  | user-has-user-type-FAIL.yaml |
+  | user-has-user-type-PASS.yaml |
+  | user-privilege-level-FAIL.yaml |
+  | user-privilege-level-PASS.yaml |
+  | user-sensitivity-level-FAIL.yaml |
+  | user-sensitivity-level-PASS.yaml |
   | user-type-FAIL.yaml |
   | user-type-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
@@ -221,5 +235,12 @@ Examples:
   | role-defined-system-owner |
   | scan-type |
   | security-level |
+  | user-has-authorized-privilege |
+  | user-has-privilege-level |
+  | user-has-role-id |
+  | user-has-sensitivity-level |
+  | user-has-user-type |
+  | user-privilege-level |
+  | user-sensitivity-level |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS
