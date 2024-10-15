@@ -10,7 +10,7 @@ import {
 } from "fs";
 import { load } from "js-yaml";
 import { executeOscalCliCommand, resolveProfileDocument, validateDocument } from "oscal";
-import { dirname, join, parse } from "path";
+import { dirname, join, parse, posix, resolve } from "path";
 import { Log } from "sarif";
 import { fileURLToPath } from "url";
 import { promisify } from "util";
@@ -19,6 +19,8 @@ import { parseString } from "xml2js";
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
 setDefaultTimeout(DEFAULT_TIMEOUT);
+
+const isWindows = process.platform==='win32'
 
 let currentTestCase: {
   name: string;
@@ -194,7 +196,7 @@ async function processTestCase({ "test-case": testCase }: any) {
 
 
   // Process the pipeline
-  processedContentPath = join(
+  processedContentPath = resolve(
     ".",
     `${testCase.name.replace(/\s+/g, "-").toLowerCase()}.xml`
   );
@@ -202,10 +204,16 @@ async function processTestCase({ "test-case": testCase }: any) {
   if (testCase.pipeline) {
     for (const step of testCase.pipeline) {
       if (step.action === "resolve-profile") {
-        await resolveProfileDocument(
-          contentPath,
-          processedContentPath,{outputFormat:'xml'},"oscal-server")
-        console.log("Profile resolved");
+        if(isWindows){
+          await resolveProfileDocument(
+            contentPath.split("\\").join("/"),
+            processedContentPath.split("\\").join("/"),{outputFormat:'xml'},"oscal-server")
+          console.log("Profile resolved");  
+        }else{
+          await resolveProfileDocument(
+            contentPath,
+            processedContentPath,{outputFormat:'xml'},"oscal-server")
+        }
       }
       // Add other pipeline steps as needed
     }
@@ -226,11 +234,23 @@ async function processTestCase({ "test-case": testCase }: any) {
       if(currentTestCaseFileName.includes("FAIL")){
         args.push("disable-schema")
       }
+      if(isWindows){
+        const windowsContentPath = "file://"+ (processedContentPath.split("\\").join("/"))
+        const windowsMetaschemaDocuments = metaschemaDocuments.map(x=>"file://"+ (x).split("\\").join("/"))
+        const {isValid,log}= await validateDocument(
+          windowsContentPath,
+          {extensions:windowsMetaschemaDocuments,flags:args},
+          );
+          sarifResponse = log;          
+    
+      }else{
+      
      const {isValid,log}= await validateDocument(
       processedContentPath,
       {extensions:metaschemaDocuments,flags:args},
-    );
-    sarifResponse = log;
+      );
+      sarifResponse = log;
+      }
     validationCache.set(cacheKey,sarifResponse);
   }
   if (typeof sarifResponse.runs[0].tool.driver.rules === "undefined") {
