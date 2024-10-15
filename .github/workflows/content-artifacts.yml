@@ -13,8 +13,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
-    branches:
-      - master
 name: Process Content
 env:
   HOME_REPO: GSA/fedramp-automation
