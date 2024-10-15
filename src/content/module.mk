@@ -14,7 +14,7 @@ init-content:
 # Generate content and perform conversions
 .PHONY: build-content
 build-content:
-	$(OSCAL_CLI) server start
+	$(OSCAL_CLI) server start&
 	@echo "Producing artifacts for baselines..."
 	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/baselines/xml -o $(DIST_DIR)/content/rev5/baselines/ -s
 	@echo "Producing artifacts for SSP..."

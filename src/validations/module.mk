@@ -16,7 +16,7 @@ init-validations:
 # Validation
 .PHONY: build-validations
 build-validations:
-	$(OSCAL_CLI) server start
+	$(OSCAL_CLI) server start&
 	@echo "Running Cucumber Tests"
 	@npm run test
 	$(OSCAL_CLI) server stop
