@@ -10,6 +10,7 @@ REV5_TEMPLATES = ./dist/content/rev5/templates
 init-validations:
 	@echo "Installing node modules..."
 	npm install -g oscal@next
+	npm install 
 	$(OSCAL_CLI) use latest
 	$(OSCAL_CLI) server update
 
