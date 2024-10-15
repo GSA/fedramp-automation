@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for has-system-id
+  description: Test that a SSP system-characteristics system-id identifier-type attribute is not equal to 'https://fedramp.gov'.
+  content: ../content/ssp-has-system-id-INVALID.xml
+  expectations:
+    - constraint-id: has-system-id
+      result: fail
