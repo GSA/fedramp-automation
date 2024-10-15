@@ -42,7 +42,7 @@ jobs:
       - name: Run Constraint script tests
         shell: bash
         run: |
-          oscal server start
+          oscal server start -bg
           set -e
           npm run constraint resource-has-title
           oscal server stop
