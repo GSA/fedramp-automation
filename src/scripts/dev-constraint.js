@@ -346,7 +346,6 @@ function getScenarioLineNumbers(featureFile, constraintId,tests) {
     const content = fs.readFileSync(featureFile, 'utf8');
     const lines = content.split('\n');
     const scenarioLines = [];
-    console.log(featureFile,tests,constraintId);
     for (let i = 0; i < lines.length; i++) {
         if (lines[i].includes(`${tests.fail}`) || lines[i].includes(`${tests.pass}`)||lines[i].includes(`${tests.fail_file}`) || lines[i].includes(`${tests.pass_file}`)) {
             scenarioLines.push(i + 1); // +1 because line numbers start at 1, not 0
