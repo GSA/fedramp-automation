@@ -6,6 +6,25 @@ This document is to instruct FedRAMP developers and community members on mandato
 
 ## Requirements
 
+| ID              | Formal Name             | Required or Recommended | Category    |
+|-----------------|-------------------------|-------------------------|-------------|
+| [FCSR-1](#fscr-1) | External Constraints    | Required | ID |
+| [FCSR-2](#fscr-2) | Constraints Sorted by Metatapath Target from Least to Most Specific | Required| Metapath; Sorting |
+| [FCSR-3](#fscr-3) | Constraints in the Context Alphabetically by ID | Required | ID; Sorting |
+| [FCSR-4](#fscr-4) | Constraints Have a Help URL Property | Required | Structure; Metadata |
+| [FCSR-5](#fscr-5) | Constraints Have a Unique ID | Required | ID; Metadata |
+| [FCSR-6](#fscr-6) | Constraints Have IDs with Lower Cases Letters Numbers and Dashes | Required | ID |
+| [FCSR-7](#fscr-7) | Constraints Have a Severity Level | Required | Structure; Metadata |
+| [FCSR-8](#fscr-8) | Constraints with Critical Severity Level for Runtime Failures | Required | Structure; Metadata |
+| [FCSR-9](#fscr-9) | Constraint Message Field Required | Required | Structure; Metadata |
+| [FCSR-10](#fscr-10) | Constraints Have Remarks for Requirements Overly Complex Descriptions | Recommended | Structure; Metadata |
+| [FCSR-11](#fscr-11) | Constraints Message Sentences in Active Voice | Recommended | Style |
+| [FCSR-12](#fscr-12) | IETF BCP14 Keywords in Constraint Messages | Required | Style |
+| [FCSR-13](#fscr-13) | FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon | Required | Style |
+| [FCSR-14](#fscr-14) | Constraints Tests and Messages Have Single Item Focus | Recommended | Sequences; Style |
+| [FCSR-15](#fscr-15) | Constraint Messages Have Single Item Hints |  Recommended | Sequences; Style |
+| [FCSR-16](#fscr-16) |  Constraints Formal Names Required | Required | Structure; Metadata |
+
 ### FCSR-1
 
 ID: `fcsr-1`
