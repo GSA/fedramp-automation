@@ -44,3 +44,5 @@ src/validations/test/rules/rev5/sar-result.html
 /sarif
 @rerun.txt
 NUL
+.yarn
+yarn.lock
