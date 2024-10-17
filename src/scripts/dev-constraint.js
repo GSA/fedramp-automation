@@ -115,7 +115,7 @@ function analyzeTestFiles() {
                     testResults[constraintId] = { pass: null, fail: null };
                 }
 
-                if (result === 'pass' ||result ==='informational'|| file.toUpperCase().includes('PASS')) {
+                if (result === 'pass' || file.toUpperCase().includes('PASS')) {
                     testResults[constraintId].pass = file;
                     testResults[constraintId].pass_file = filePath.split("/").pop();                
                 } else if (result === 'fail' || file.toUpperCase().includes('FAIL')) {
