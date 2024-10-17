@@ -8,27 +8,27 @@ This document is to instruct FedRAMP developers and community members on mandato
 
 | ID              | Formal Name             | Required or Recommended | Category    |
 |-----------------|-------------------------|-------------------------|-------------|
-| [FCSR-1](#fscr-1) | Separate OSCAL External Constraints  | Required | ID |
-| [FCSR-2](#fscr-2) | Constraints Sorted by Metatapath Target from Least to Most Specific | Required | Metapath; Sorting |
-| [FCSR-3](#fscr-3) | Constraints in the Context  Sorted  Alphabetically by ID | Required | ID; Sorting |
-| [FCSR-4](#fscr-4) | Constraints Have a Help URL Property | Required | Structure; Metadata |
-| [FCSR-5](#fscr-5) | Constraints Have a Unique ID | Required | ID; Metadata |
-| [FCSR-6](#fscr-6) | Constraints Have IDs with Lower Case Letters, Numbers, and Dashes | Required | ID |
-| [FCSR-7](#fscr-7) | Constraints Have a Severity Level | Required | Structure; Metadata |
-| [FCSR-8](#fscr-8) | Constraints with Critical Severity Level Used only for Runtime Failures | Required | Structure; Metadata |
-| [FCSR-9](#fscr-9) | Expect Constraint Message Field Required | Required | Structure; Metadata |
-| [FCSR-10](#fscr-10) | Constraint Has a Remark when Overly Complex | Recommended | Structure; Metadata |
-| [FCSR-11](#fscr-11) | Constraint Message is Sentence in Active Voice | Recommended | Style |
-| [FCSR-12](#fscr-12) | IETF BCP14 Keywords in Constraint Messages | Required | Style |
-| [FCSR-13](#fscr-13) | FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon | Required | Style |
-| [FCSR-14](#fscr-14) | Constraints Tests and Messages Have Single Item Focus | Recommended | Sequences; Style |
-| [FCSR-15](#fscr-15) | Constraint Messages Have Single Item Hints |  Recommended | Sequences; Style |
-| [FCSR-16](#fscr-16) |  Constraints Formal Names Required | Required | Structure; Metadata |
-| [FCSR-16](#fcsr-17) | Limit Informational Constraint Usage | Recommended| Structure; Metadata |
+| [FRR1](#frr1) | Separate OSCAL External Constraints  | Required | ID |
+| [FRR2](#frr2) | Constraints Sorted by Metatapath Target from Least to Most Specific | Required | Metapath; Sorting |
+| [FRR3](#frr3) | Constraints in the Context  Sorted  Alphabetically by ID | Required | ID; Sorting |
+| [FRR4](#frr4) | Constraints Have a Help URL Property | Required | Structure; Metadata |
+| [FRR5](#frr5) | Constraints Have a Unique ID | Required | ID; Metadata |
+| [FRR6](#frr6) | Constraints Have IDs with Lower Case Letters, Numbers, and Dashes | Required | ID |
+| [FRR7](#frr7) | Constraints Have a Severity Level | Required | Structure; Metadata |
+| [FRR8](#frr8) | Constraints with Critical Severity Level Used only for Runtime Failures | Required | Structure; Metadata |
+| [FRR9](#frr9) | Expect Constraint Message Field Required | Required | Structure; Metadata |
+| [FRR10](#frr10) | Constraint Has a Remark when Overly Complex | Recommended | Structure; Metadata |
+| [FRR11](#frr11) | Constraint Message is Sentence in Active Voice | Recommended | Style |
+| [FRR12](#frr12) | IETF BCP14 Keywords in Constraint Messages | Required | Style |
+| [FRR13](#frr13) | FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon | Required | Style |
+| [FRR14](#frr14) | Constraints Tests and Messages Have Single Item Focus | Recommended | Sequences; Style |
+| [FRR15](#frr15) | Constraint Messages Have Single Item Hints |  Recommended | Sequences; Style |
+| [FRR16](#frr16) |  Constraints Formal Names Required | Required | Structure; Metadata |
+| [FRR16](#frr17) | Limit Informational Constraint Usage | Recommended| Structure; Metadata |
 
-### FCSR-1
+### FRR1
 
-ID: `fcsr-1`
+ID: `frr1`
 
 Formal Name: Separate OSCAL External Constraints
 
@@ -40,9 +40,9 @@ Guidance: FedRAMP OSCAL constraints MUST be in an external file or URL. OSCAL mo
 
 **NOTE:** At this time, the FedRAMP Automation Team maintains a set of constraints for the core NIST-maintained OSCAL models, not specific to FedRAMP, in the the [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file. The team intends intends to upstream these changes to the NIST-maintained models and their supporting code base, as proposed in [usnistgov/OSCAL#2050)](https://github.com/usnistgov/OSCAL/issues/2050). Currently, FedRAMP developers implement externalized constraints in this separate file, as this guidance requires and is the only feasible interim solution. However, the test infrastructure purposely ignores this file and does not process its constraints for explicit continuous integration testing. This approach MAY change given the result of the proposal to NIST maintainers or other decisions by FedRAMP's technical leadership, but they are not explicitly within the scope of FedRAMP developer's constraint roadmap and they follow this guidance _only_ when reasonable. FedRAMP developers did not design or implement these constraints as a permanent collection in the constraints inventory.
 
-#### FCSR-1 Conformant Example
+#### FRR1 Conformant Example
 
-Below is a conformant example for FCSR-1.
+Below is a conformant example for FRR1.
 
 ```xml
 <!-- 
@@ -95,9 +95,9 @@ Below is a conformant example for FCSR-1.
                     <!-- truncated -->
 ```
 
-#### FCSR-1 Non-conformant Example
+#### FRR1 Non-conformant Example
 
-Below is a non-conformant example for FCSR-1.
+Below is a non-conformant example for FRR1.
 
 ```xml
 <!-- 
@@ -136,9 +136,9 @@ Below is a non-conformant example for FCSR-1.
 </METASCHEMA>    
 ```
 
-### FCSR-2
+### FRR2
 
-ID: `fcsr-2`
+ID: `frr2`
 
 Formal Name: Constraints Sorted by Metatapath Target from Least to Most Specific
 
@@ -150,7 +150,7 @@ Guidance: Developers MUST sort OSCAL constraint definitions in the file by `meta
 
 This approach provides a predictable ordering for readers and maintainers of the constraint set. It is intended to allow a reader to quickly find the constraints for a given context and to know where to place new constraints based on the constraint's context.
 
-#### FCSR-2 Conformant Example
+#### FRR2 Conformant Example
 
 Below is a conformant example.
 
@@ -183,7 +183,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-2 Non-conformant Example
+#### FRR2 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -224,9 +224,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-3
+### FRR3
 
-ID: `fcsr-3`
+ID: `frr3`
 
 Formal Name: Constraints in the Context Alphabetically by ID
 
@@ -236,7 +236,7 @@ Categories: ID; Sorting
 
 Guidance: Within a given constraint file, developers MUST sort constraint definitions within a given context so that each constraint is ordered alphabetically by the constraint's `@id`, from upper case and then lower case respectively.
 
-#### FCSR-3 Conformant Example
+#### FRR3 Conformant Example
 
 Below is a conformant example:
 
@@ -262,7 +262,7 @@ Below is a conformant example:
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-3 Non-conformant Example
+#### FRR3 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -289,9 +289,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-4
+### FRR4
 
-ID: `fcsr-4`
+ID: `frr4`
 
 Formal Name: Constraints Have a Help URL Property
 
@@ -303,7 +303,7 @@ Guidance: Developers MUST define only one Metaschema constraint property with a 
 
 **NOTE:** Although Metaschema can support multiple properties for different URLs, the explicit goal of this FedRAMP design and approach is to emit the relevant URL in SARIF output for constraint violations. The SARIF 2.1.0 specification and schema support one and only one URL in the relevant SARIF structure.
 
-#### FCSR-4 Conformant Example
+#### FRR4 Conformant Example
 
 Below is a conformant example.
 
@@ -321,7 +321,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-4 Non-conformant Example
+#### FRR4 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -339,9 +339,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-5
+### FRR5
 
-ID: `fcsr-5`
+ID: `frr5`
 
 Formal Name: Constraints Have a Unique ID
 
@@ -351,7 +351,7 @@ Categories: ID; Metadata
 
 Guidance: Developers MUST define a Metaschema constraint with an `id` flag that is unique to all the constraints that FedRAMP maintains across all constraint documents.
 
-#### FCSR-5 Conformant Example
+#### FRR5 Conformant Example
 
 Below is a conformant example.
 
@@ -369,7 +369,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-5 Non-conformant Example
+#### FRR5 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -388,9 +388,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-6
+### FRR6
 
-ID: `fcsr-6`
+ID: `frr6`
 
 Formal Name: Constraints Have IDs with Lower Cases Letters Numbers and Dashes
 
@@ -403,7 +403,7 @@ Guidance: Developers MUST define a Metaschema constraint with an `id` flag with 
 1. all lowercase letters (`a-z`) and numbers (`0-9`)
 1. dashes separating words and phrases of letters and numbers above
 
-#### FCSR-6 Conformant Example
+#### FRR6 Conformant Example
 
 Below is a conformant example.
 
@@ -421,7 +421,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-6 Non-conformant Example
+#### FRR6 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -443,9 +443,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-7
+### FRR7
 
-ID: `fcsr-7`
+ID: `frr7`
 
 Formal Name: Constraints Have an Explicit Severity Level
 
@@ -455,7 +455,7 @@ Categories: Structure; Metadata
 
 Guidance: Developers MUST define a Metaschema constraint with a `level` flag with [a valid value](https://pages.nist.gov/metaschema/specification/syntax/constraints/#level) to indicate to downstream developers and/or users the potential impact of the data instance not meeting its requirements.
 
-#### FCSR-7 Conformant Example
+#### FRR7 Conformant Example
 
 Below is a conformant example.
 
@@ -473,7 +473,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-7 Non-conformant Example
+#### FRR7 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -492,9 +492,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-8
+### FRR8
 
-ID: `fcsr-8`
+ID: `frr8`
 
 Formal Name: Constraints with Critical Severity Level Used only for Runtime Failures
 
@@ -504,7 +504,7 @@ Categories: Structure; Metadata
 
 Guidance: Developers MUST only define a Metaschema constraint with a `level` flag with a value of `CRITICAL` if and only if the violation of the constraint will lead to an irrecoverable runtime failure (e.g. a SSP's `import-profile` references a catalog or profile with no valid controls) or undefined behavior in a conformant processor in a consistent way for the majority of use cases.
 
-#### FCSR-8 Conformant Example
+#### FRR8 Conformant Example
 
 Below is a conformant example.
 
@@ -522,7 +522,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-8 Non-conformant Example
+#### FRR8 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -541,9 +541,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-9
+### FRR9
 
-ID: `fcsr-9`
+ID: `frr9`
 
 Formal Name: Expect Constraint Message Field Required
 
@@ -553,7 +553,7 @@ Categories: Structure; Metadata
 
 Guidance: Developers MUST only define an `expect`  Metaschema constraint with a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable).
 
-#### FCSR-9 Conformant Example
+#### FRR9 Conformant Example
 
 Below is a conformant example.
 
@@ -571,7 +571,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-9 Non-conformant Example
+#### FRR9 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -589,9 +589,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-10
+### FRR10
 
-ID: `fcsr-10`
+ID: `frr10`
 
 Formal Name: Constraint Has a Remark when Overly Complex
 
@@ -601,7 +601,7 @@ Categories: Structure; Metadata
 
 Guidance: Developers SHOULD only define a Metaschema constraint with a `remarks` field when the requirement is complex enough that a full explanation of the positive requirement exceeds a sentence of reasonable length conforming to all requirements in this guide.
 
-#### FCSR-10 Conformant Example
+#### FRR10 Conformant Example
 
 Below is a conformant example.
 
@@ -624,7 +624,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-10 Non-conformant Example
+#### FRR10 Non-conformant Example
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -641,9 +641,9 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-11
+### FRR11
 
-ID: `fcsr-11`
+ID: `frr11`
 
 Formal Name: Constraint Message is Sentence in Active Voice
 
@@ -653,7 +653,7 @@ Categories: Style
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "A FedRAMP document requires."
 
-#### FCSR-11 Conformant Example
+#### FRR11 Conformant Example
 
 Below is a conformant example.
 
@@ -672,7 +672,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-11 Non-conformant Example
+#### FRR11 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -691,9 +691,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-12
+### FRR12
 
-ID: `fcsr-12`
+ID: `frr12`
 
 Formal Name: IETF BCP14 Keywords in Constraint Messages
 
@@ -703,7 +703,7 @@ Categories: Style
 
 Guidance: Developers MUST define a Metaschema constraint with a `message` sentence that conforms with IETF standards regarding capitalized requirement keywords per [BCP14](https://datatracker.ietf.org/doc/bcp14/). The sentence will use MUST," "MUST NOT," "REQUIRED," "SHALL," "SHALL NOT,", "SHOULD," "SHOULD NOT," "RECOMMENDED,"  "MAY," and "OPTIONAL" according to BCP14 requirements.
 
-#### FCSR-12 Conformant Example
+#### FRR12 Conformant Example
 
 Below is a conformant example.
 
@@ -721,7 +721,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-12 Non-conformant Example
+#### FRR12 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -739,9 +739,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-13
+### FRR13
 
-ID: `fcsr-13`
+ID: `frr13`
 
 Formal Name: FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon
 
@@ -751,7 +751,7 @@ Categories: Style
 
 Guidance: Developers MUST define a Metaschema constraint with a `message` field with one sentence that describes the positive requirements for the artifact of the security process without using jargon or terminology from the [Metaschema](https://pages.nist.gov/metaschema) and [OSCAL](https://pages.nist.gov/OSCAL) projects. Messages MUST NOT use this jargon.
 
-#### FCSR-13 Conformant Example
+#### FRR13 Conformant Example
 
 Below is a conformant example.
 
@@ -769,7 +769,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-13 Non-conformant Example
+#### FRR13 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -788,9 +788,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-14
+### FRR14
 
-ID: `fcsr-14`
+ID: `frr14`
 
 Formal Name: Constraints Tests and Messages Have Single Item Focus
 
@@ -800,7 +800,7 @@ State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with `target`, `test`, and `message` fields that test and explain a positive requirement in the singular for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. Violation paths and messages should discuss an individual item in the singular. The only exception is for quantitative or qualitative analysis of the whole sequence. The development team and community contributors can make a determination, meaning if the constraint is within that exceptional category, on a case-by-case basis, as this is a recommendation and not a requirement.
 
-#### FCSR-14 Conformant Example
+#### FRR14 Conformant Example
 
 Below is a conformant example.
 
@@ -817,7 +817,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-14 Non-conformant Example
+#### FRR14 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -837,9 +837,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-15
+### FRR15
 
-ID: `fcsr-15`
+ID: `frr15`
 
 Formal Name: Constraint Messages Have Single Item Hints
 
@@ -849,7 +849,7 @@ State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field that provides contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should deference machine-oriented data to provide human-oriented clues as recommended above.
 
-#### FCSR-15 Conformant Example
+#### FRR15 Conformant Example
 
 Below is a conformant example.
 
@@ -866,7 +866,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-15 Non-conformant Example
+#### FRR15 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -884,9 +884,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-16
+### FRR16
 
-ID: `fcsr-16`
+ID: `frr16`
 
 Formal Name: Constraints Formal Names Required
 
@@ -896,7 +896,7 @@ Categories: Structure; Metadata
 
 Guidance: Developers MUST define a Metaschema constraint with a `formal-name` field that provides a name for the constraint to use in documentation and tool output.
 
-#### FCSR-16 Conformant Example
+#### FRR16 Conformant Example
 
 Below is a conformant example.
 
@@ -914,7 +914,7 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
-#### FCSR-16 Non-conformant Example
+#### FRR16 Non-conformant Example
 
 Below is a non-conformant example.
 
@@ -932,9 +932,9 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
-### FCSR-17
+### FRR17
 
-ID: `fcsr-17`
+ID: `frr17`
 
 Formal Name: Limit Informational Constraint Usage
 
@@ -946,6 +946,6 @@ Guidance: Developers SHOULD only define Metaschema constraints with a severity `
 
 Developers MAY use informational constraints for development and ad-hoc debugging, but such a constraint MUST NOT be merged into a branch for release to downstream stakeholders without project technical leads' approval during code review. That review SHOULD include a review of a documented use case for how FedRAMP package review or alternative stakeholder will act upon this information.
 
-#### FCSR-17 Conformant Example
+#### FRR17 Conformant Example
 
-#### FCSR-17 Non-conformant Example
+#### FRR17 Non-conformant Example
