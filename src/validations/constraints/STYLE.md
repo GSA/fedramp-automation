@@ -496,7 +496,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-8`
 
-Formal Name: Constraints with Critical Severity Level for Runtime Failures
+Formal Name: Constraints with Critical Severity Level Used only for Runtime Failures
 
 State: Required
 
