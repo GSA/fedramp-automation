@@ -10,7 +10,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 |-----------------|-------------------------|-------------------------|-------------|
 | [FCSR-1](#fscr-1) | Separate OSCAL External Constraints  | Required | ID |
 | [FCSR-2](#fscr-2) | Constraints Sorted by Metatapath Target from Least to Most Specific | Required | Metapath; Sorting |
-| [FCSR-3](#fscr-3) | Constraints in the Context Alphabetically by ID | Required | ID; Sorting |
+| [FCSR-3](#fscr-3) | Constraints in the Context  Sorted  Alphabetically by ID | Required | ID; Sorting |
 | [FCSR-4](#fscr-4) | Constraints Have a Help URL Property | Required | Structure; Metadata |
 | [FCSR-5](#fscr-5) | Constraints Have a Unique ID | Required | ID; Metadata |
 | [FCSR-6](#fscr-6) | Constraints Have IDs with Lower Cases Letters Numbers and Dashes | Required | ID |
