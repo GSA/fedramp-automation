@@ -581,7 +581,7 @@ Below is a non-conformant example.
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
-            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
+            <expect id="ssp-needs-valid-control-source" target="./import-profile" test="@href" level="CRITICAL">
                 <!-- This constraint does not provide a meaningful message for data violates the constraint. It is not conformant with the developer guide. -->
             </expect>
         </constraints>
