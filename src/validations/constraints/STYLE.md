@@ -645,7 +645,7 @@ Below is a conformant example.
 
 ID: `fcsr-11`
 
-Formal Name: Constraints Message Sentences in Active Voice
+Formal Name: Constraint Message is Sentence in Active Voice
 
 State: Recommended
 
