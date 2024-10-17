@@ -545,7 +545,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-9`
 
-Formal Name: Constraint Message Field Required
+Formal Name: Expect Constraint Message Field Required
 
 State: Required
 
