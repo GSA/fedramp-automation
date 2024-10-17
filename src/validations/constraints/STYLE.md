@@ -551,7 +551,7 @@ State: Required
 
 Categories: Structure; Metadata
 
-Guidance: Developers MUST only define a Metaschema constraint with a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable).
+Guidance: Developers MUST only define an `expect`  Metaschema constraint with a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable).
 
 #### FCSR-9 Conformant Example
 
