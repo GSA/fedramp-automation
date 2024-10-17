@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd">
     <!-- ================== -->
     <!-- FedRAMP Extensions -->
     <!-- ================== -->
@@ -22,6 +22,7 @@
             </allowed-values>
             
             <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Attachment Type</formal-name>
                 <description>Identifies the type of attachment.</description>
                 <enum value="law">Law or Statute</enum>
@@ -63,6 +64,7 @@
             </allowed-values>
 
             <allowed-values id="component-type" target="system-implementation/component/@type" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Component Type</formal-name>
                 <description>Identifies the component type.</description>
                 <enum value="interconnection">A connection to something outside this system.</enum>
@@ -82,6 +84,7 @@
             </allowed-values>
 
             <allowed-values id="control-implementation-status" target="control-implementation/implemented-requirement/by-component/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Control Implementation Status</formal-name>
                 <description>The implementation status of the control.</description>
                 <enum value="implemented">Implemented</enum>
@@ -92,6 +95,7 @@
             </allowed-values>
 
             <allowed-values id="interconnection-direction" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Interconnection Direction</formal-name>
                 <description>Identifies the direction of information flow for the interconnection.</description>
                 <enum value="in">Incoming</enum>
@@ -100,6 +104,7 @@
             </allowed-values>
 
             <allowed-values id="interconnection-security" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Interconnection Security</formal-name>
                 <description>Identifies the type of security applied to the interconnection.</description>
                 <enum value="ipsec">IPsec</enum>
@@ -112,6 +117,7 @@
             </allowed-values>
 
             <allowed-values id="scan-type" target="system-implementation//prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Scan Type</formal-name>
                 <description>Identifies the type of scan.</description>
                 <enum value="infrastructure">Infrastructure and Operating System Scan</enum>
@@ -120,6 +126,7 @@
                 <enum value="other">Other</enum>
             </allowed-values>
             <allowed-values id="address-type" target="metadata/party/address/@type" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Address Type</formal-name>
                 <description>The type of address for the party</description>
                 <!-- <enum value="home">Home</enum>-->                <!-- would FedRAMP ever need a "home" address? -->
@@ -130,6 +137,7 @@
             </allowed-values>
 
             <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Authorization Type</formal-name>
                 <description>The FedRAMP Authorization Type</description>
                 <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
@@ -137,6 +145,7 @@
                 <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
             </allowed-values>
             <allowed-values id="deployment-model" target="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Deployment Model</formal-name>
                 <description>The cloud deployment model.</description>
                 <enum value="public-cloud">Public Cloud</enum>
@@ -146,6 +155,7 @@
                 <enum value="other">Other</enum>
             </allowed-values>
             <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Authorization Type</formal-name>
                 <description>The FedRAMP Authorization Type</description>
                 <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
@@ -153,6 +163,7 @@
                 <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
             </allowed-values>
             <allowed-values id="user-type" target="system-implementation/user/prop[@name='type']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>User Type</formal-name>
                 <description>The type of user.</description>
                 <enum value="internal">Internal</enum>
@@ -160,11 +171,13 @@
                 <enum value="privileged">Privileged</enum>
               </allowed-values>
             <allowed-values id="information-type-system" target="system-characteristics/system-information/information-type/categorization/@system" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Information Type Categorization System</formal-name>
                 <description>The system used for categorizing information types.</description>
                 <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST SP 800-60 Volume 2 Revision 1</enum>
               </allowed-values>
               <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
                 <enum value="read">Read</enum>
