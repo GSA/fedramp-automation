@@ -13,7 +13,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 | [FCSR-3](#fscr-3) | Constraints in the Context  Sorted  Alphabetically by ID | Required | ID; Sorting |
 | [FCSR-4](#fscr-4) | Constraints Have a Help URL Property | Required | Structure; Metadata |
 | [FCSR-5](#fscr-5) | Constraints Have a Unique ID | Required | ID; Metadata |
-| [FCSR-6](#fscr-6) | Constraints Have IDs with Lower Cases Letters Numbers and Dashes | Required | ID |
+| [FCSR-6](#fscr-6) | Constraints Have IDs with Lower Case Letters, Numbers, and Dashes | Required | ID |
 | [FCSR-7](#fscr-7) | Constraints Have a Severity Level | Required | Structure; Metadata |
 | [FCSR-8](#fscr-8) | Constraints with Critical Severity Level for Runtime Failures | Required | Structure; Metadata |
 | [FCSR-9](#fscr-9) | Constraint Message Field Required | Required | Structure; Metadata |
