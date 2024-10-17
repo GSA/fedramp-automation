@@ -17,7 +17,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 | [FCSR-7](#fscr-7) | Constraints Have a Severity Level | Required | Structure; Metadata |
 | [FCSR-8](#fscr-8) | Constraints with Critical Severity Level Used only for Runtime Failures | Required | Structure; Metadata |
 | [FCSR-9](#fscr-9) | Expect Constraint Message Field Required | Required | Structure; Metadata |
-| [FCSR-10](#fscr-10) | Constraints Have Remarks for Requirements Overly Complex Descriptions | Recommended | Structure; Metadata |
+| [FCSR-10](#fscr-10) | Constraint Has a Remark when Overly Complex | Recommended | Structure; Metadata |
 | [FCSR-11](#fscr-11) | Constraints Message Sentences in Active Voice | Recommended | Style |
 | [FCSR-12](#fscr-12) | IETF BCP14 Keywords in Constraint Messages | Required | Style |
 | [FCSR-13](#fscr-13) | FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon | Required | Style |
