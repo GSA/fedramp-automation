@@ -234,7 +234,7 @@ State: Required
 
 Categories: ID; Sorting
 
-Guidance: Developers MUST sort OSCAL constraint definitions in a file for each context by each of their `@id`s alphabetically, from upper case and then lower case respectively.
+Guidance: Within a given constraint file, developers MUST sort constraint definitions within a given context so that each constraint is ordered alphabetically by the constraint's `@id`, from upper case and then lower case respectively.
 
 #### FCSR-3 Conformant Example
 
