@@ -146,7 +146,9 @@ State: Required
 
 Categories: Metapath; Sorting
 
-Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from the most to least specific. In a `context`, the least specific `metapath/@target` is one with the path addressing some or all of the roots of an OSCAL model. More or most specific targets address specific nested fields, flags, or assemblies deeply embedded in the model as close to the location of the constraint's target for data in the instance of the model as possible.
+Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from the most to least specific. In a `context`, the least specific `metapath/@target` is one with the path addressing some or all of the roots of a model. More or most specific targets address specific nested fields, flags, or assemblies deeply embedded in the model as close to the location of the constraint's target for data in the instance of the model as possible.
+
+This approach provides a predictable ordering for readers and maintainers of the constraint set. It is intended to allow a reader to quickly find the constraints for a given context and to know where to place new constraints based on the constraint's context.
 
 #### FCSR-2 Conformant Example
 
