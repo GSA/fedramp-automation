@@ -68,7 +68,7 @@
             <expect id="has-authenticator-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'authenticator-assurance-level'])" level="ERROR">
                 <message>This FedRAMP SSP does not define its NIST SP 800-63 authenticator assurance level (AAL).</message>
             </expect>
-            <expect id="has-federation-assurance-level" target="system-characteristics" test="(exists(prop[@name eq 'federation-assurance-level']))" level="ERROR">
+            <expect id="has-federation-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'federation-assurance-level'])" level="ERROR">
                 <message>This FedRAMP SSP does not define its NIST SP 800-63 federation assurance level (FAL).</message>
             </expect>
             <expect id="has-authorization-boundary-diagram" target="system-characteristics/authorization-boundary" test="diagram" level="WARNING">
