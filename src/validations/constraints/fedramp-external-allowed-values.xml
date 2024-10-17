@@ -375,11 +375,9 @@
     </context>
     
     <context>
-        <metapath target="/system-security-plan/system-characteristics/security-sensitivity-level"/>
-        <metapath target="/system-security-plan/system-characteristics/security-impact-level/(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
-        <metapath target="/system-security-plan/system-characteristics/system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"/> 
+        <metapath target="/system-security-plan/system-characteristics"/>
         <constraints>
-            <allowed-values id="security-level" target="." allow-other="no" level="ERROR">
+            <allowed-values id="security-level" target="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)|security-impact-level/(security-objective-confidentiality|security-objective-integrity|security-objective-availability)|security-sensitivity-level" allow-other="no" level="ERROR">
                 <formal-name>Security Impact Level</formal-name>
                 <description>The security objective level as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v1r1">NIST SP 800-60</a>.</description>
                 <enum value="fips-199-low">Low</enum>
