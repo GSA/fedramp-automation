@@ -30,7 +30,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 
 ID: `fcsr-1`
 
-Formal Name: External Constraints
+Formal Name: Separate OSCAL External Constraints
 
 State: Required
 
