@@ -17,9 +17,9 @@ In addition to guidance and examples assisting in the production of OSCAL artifa
 
 ## FedRAMP OSCAL Validation Tooling
 
-Our ongoing work is focused on developing automated validation tooling called oscal-cli to automatically check that FedRAMP required controls are present in security artifacts such as System Security Plans. 
+Our ongoing work is focused on developing automated validation tooling using the oscal-cli to automatically check that security artifacts in a FedRAMP digital authorization package (such as an system security plan) complies with FedRAMP information and data requirements. 
 
-As a part of this project, we are continuing to release "constraints," or automated "checks" of FedRAMP's required controls, to expand the coverage of our tooling and further automate the review of security artifacts. To learn more about installing and using our validation tooling, go [here](https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
+As a part of this project, we are continuing to release "constraints," or automated "checks" of FedRAMP's digital authorization package requirements, to expand the coverage of our tooling and further automate the review of security artifacts. To learn more about installing and using our validation tooling, go [here](https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
 
 Our tooling:
 - Validates OSCAL documents against FedRAMP constraints.
