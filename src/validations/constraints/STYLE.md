@@ -447,7 +447,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-7`
 
-Formal Name: Constraints Have a Severity Level
+Formal Name: Constraints Have an Explicit Severity Level
 
 State: Required
 
