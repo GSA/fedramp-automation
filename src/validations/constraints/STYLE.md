@@ -349,7 +349,7 @@ State: Required
 
 Categories: ID; Metadata
 
-Guidance: Developers MUST define a Metaschema constraint with an `id` flag that is unique to all those FedRAMP maintains across all constraint documents.
+Guidance: Developers MUST define a Metaschema constraint with an `id` flag that is unique to all the constraints that FedRAMP maintains across all constraint documents.
 
 #### FCSR-5 Conformant Example
 
