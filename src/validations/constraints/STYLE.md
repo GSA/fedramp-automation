@@ -948,4 +948,43 @@ Developers MAY use informational constraints for development and ad-hoc debuggin
 
 #### FRR17 Conformant Example
 
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata"/>
+        <constraints>
+            <!-- 
+                This example conforms because to the developer guide because it analyzes one or more data elements.
+                For the purpose of this example, presume an issue at github.com/GSA/fedramp-automation/issues/XYZ justifies the need.
+            -->
+            <let var="data-centers-us-count" expression="count(location/prop[@name = 'data-center'])"/>
+            <expect id="data-center-country-code-us" target="." test="$data-centers-us-count = 0" level="INFORMATIONAL">
+                <message>This FedRAMP SSP has {$data-centers-us-count} {if $data-centers-us-count = 1 then 'data center' else 'data centers' }. This notional example assumes is important for a reviewer to know for XYZ reason.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
 #### FRR17 Non-conformant Example
+
+Below is a non-conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <!-- 
+                This constraint is a simple informational constraint that inverts an expect constraint. 
+                It does not conform to the developer guide.
+            -->
+            <expect id="data-center-country-code-us" target="./address/country" test=". != 'US'" level="INFORMATIONAL">
+                <message>This informational constraint is in the report because it is in the United States.</message>
+            </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
