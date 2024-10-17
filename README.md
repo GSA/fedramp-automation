@@ -39,7 +39,7 @@ The FedRAMP PMO has released the following OSCAL content:
 
 - **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The FedRAMP OSCAL Registry is now available [here](./dist/content/rev5/resources) in XML format.
 
-- **Implementation Guides:** These documents help tool developers and content authors ensure any generated OSCAL-based FedRAMP deliverabes are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The FedRAMP OSCAL implementation guides is now available [here](./documents/) in PDF format.
+- **Implementation Documentation:** The [FedRAMP Developer Hub documentation site](https://automate.fedramp.gov/documentation/) helps tool developers and content authors ensure any generated OSCAL-based FedRAMP deliverables are fully compliant with FedRAMP’s extensions, defined identifiers, and acceptable values. 
 
 ## Questions and Feedback
 
