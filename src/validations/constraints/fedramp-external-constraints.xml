@@ -32,6 +32,12 @@
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
+            <let var="security-impact-level" expression=
+                "if (//security-impact-level//* = 'fips-199-high')
+                    then ('fips-199-high')
+                else if (//security-impact-level//* = 'fips-199-moderate')
+                    then ('fips-199-moderate')
+                else ('fips-199-low')"/>
             <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
                 <message>Every supporting artifact found in a citation should have a title.</message>
             </expect>
@@ -140,6 +146,10 @@
             <expect id="has-system-id" target="system-characteristics" test="system-id[@identifier-type eq 'https://fedramp.gov']" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
                 <message>A FedRAMP SSP must have a FedRAMP system identifier.</message>
+            </expect>
+            <expect id="security-sensitivity-level-matches-security-impact-level" target="system-characteristics/security-sensitivity-level" test=". eq $security-impact-level" level="WARNING">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
+                <message>A FedRAMP SSP security sensitivity level must match the highest level within the security impact levels.</message>
             </expect>
         </constraints>
     </context>
