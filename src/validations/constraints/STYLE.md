@@ -593,7 +593,7 @@ Below is a non-conformant example.
 
 ID: `fcsr-10`
 
-Formal Name: Constraints Have Remarks for Requirements Overly Complex Descriptions
+Formal Name: Constraint Has a Remark when Overly Complex
 
 State: Recommended
 
