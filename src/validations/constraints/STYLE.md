@@ -14,16 +14,16 @@ This document is to instruct FedRAMP developers and community members on mandato
 | [FRR4](#frr4) | Constraints Have a Help URL Property | Required | Structure; Metadata |
 | [FRR5](#frr5) | Constraints Have a Unique ID | Required | ID; Metadata |
 | [FRR6](#frr6) | Constraints Have IDs with Lower Case Letters, Numbers, and Dashes | Required | ID |
-| [FRR7](#frr7) | Constraints Have a Severity Level | Required | Structure; Metadata |
+| [FRR7](#frr7) | Constraints Have an Explicit Severity Level | Required | Structure; Metadata |
 | [FRR8](#frr8) | Constraints with Critical Severity Level Used only for Runtime Failures | Required | Structure; Metadata |
 | [FRR9](#frr9) | Expect Constraint Message Field Required | Required | Structure; Metadata |
 | [FRR10](#frr10) | Constraint Has a Remark when Overly Complex | Recommended | Structure; Metadata |
 | [FRR11](#frr11) | Constraint Message is Sentence in Active Voice | Recommended | Style |
 | [FRR12](#frr12) | IETF BCP14 Keywords in Constraint Messages | Required | Style |
-| [FRR13](#frr13) | FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon | Required | Style |
+| [FRR13](#frr13) | Constraints Use Messages without Metaschema and OSCAL Jargon | Required | Style |
 | [FRR14](#frr14) | Constraints Tests and Messages Have Single Item Focus | Recommended | Sequences; Style |
 | [FRR15](#frr15) | Constraint Messages Have Single Item Hints |  Recommended | Sequences; Style |
-| [FRR16](#frr16) |  Constraints Formal Names Required | Required | Structure; Metadata |
+| [FRR16](#frr16) | Constraints Formal Names Required | Required | Structure; Metadata |
 | [FRR16](#frr17) | Limit Informational Constraint Usage | Recommended| Structure; Metadata |
 
 ### FRR1
@@ -228,7 +228,7 @@ Below is a non-conformant example.
 
 ID: `frr3`
 
-Formal Name: Constraints in the Context Alphabetically by ID
+Formal Name: Constraints in the Context  Sorted  Alphabetically by ID
 
 State: Required
 
@@ -392,7 +392,7 @@ Below is a non-conformant example.
 
 ID: `frr6`
 
-Formal Name: Constraints Have IDs with Lower Cases Letters Numbers and Dashes
+Formal Name: Constraints Have IDs with Lower Case Letters, Numbers, and Dashes
 
 State: Required
 
@@ -743,7 +743,7 @@ Below is a non-conformant example.
 
 ID: `frr13`
 
-Formal Name: FedRAMP Requires Constraints Use Messages without Metaschema and OSCAL Jargon
+Formal Name: Constraints Use Messages without Metaschema and OSCAL Jargon
 
 State: Required
 
