@@ -34,26 +34,6 @@ FedRAMP's work is based on NIST's [OSCAL 1.1.2](https://github.com/usnistgov/OSC
 
 **IMPORTANT**: As NIST makes minor syntax updates and releases new versions, please review [the NIST OSCAL release notes](https://pages.nist.gov/OSCAL/reference/release-notes/) in addition to guides here for more information about these changes.
 
-<details><summary>Resources</summary>
-
-The following NIST resources are available:
-- **NIST's Main OSCAL Site:** [https://pages.nist.gov/OSCAL/](https://pages.nist.gov/OSCAL/)
-
-- **NIST's OSCAL GitHub Repository:** [https://github.com/usnistgov/OSCAL](https://github.com/usnistgov/OSCAL)
-
-- **OSCAL Workshop Training Slides:** Videos and content from NIST's annual OSCAL Conference and Workshop are available at [https://pages.nist.gov/OSCAL/learn/presentations/](https://pages.nist.gov/OSCAL/learn/presentations)
-
-- **Content Converters:** The converters accurately convert OSCAL catalog, profile, SSP, SAP, SAR, and POA&M content from [XML to JSON](https://github.com/usnistgov/OSCAL/tree/master/json/convert) and [JSON to XML](https://github.com/usnistgov/OSCAL/tree/master/xml/convert).
-
-- **NIST SP 800-53 & 53A Revision 5 in OSCAL:** NIST is also providing SP 800-53 and 800-53A, Revision 5 content as well as the NIST High, Moderate, and Low baselines in OSCAL (XML, JSON, and YAML formats) [here](https://github.com/usnistgov/oscal-content/tree/main/nist.gov/SP800-53/rev5).
-
-NIST offers a complete package containing the NIST OSCAL converters, syntax validation tools, 800-53 and FedRAMP baselines content is available for download in both ZIP and BZ2 format. Visit the [NIST OSCAL Github releases page for more information](https://github.com/usnistgov/OSCAL/releases/latest).
-
-Please ask questions or provide feedback on the above NIST dependencies either via email to [oscal@nist.gov](mailto:oscal@nist.gov), as a comment to an existing issue, or as a new issue via the [NIST OSCAL GitHub site](https://github.com/usnistgov/OSCAL/issues).
-
-FedRAMP looks forward to receiving your comments and sharing additional progress.
-</details>
-
 ## Developer notes
 
 This section is for prospective contributors to our automation efforts. As an open source project, fedramp-automation welcomes contributions. To see a detailed guide for contributors, go [here](https://github.com/GSA/fedramp-automation/blob/develop/CONTRIBUTING.md)
