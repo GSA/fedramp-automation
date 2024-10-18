@@ -435,9 +435,9 @@ Given("I have loaded all Metaschema extensions documents", function () {
   metaschemaDocuments = files
     .filter((file) => file.endsWith(".xml")).sort()
     .map((file) => join(constraintDir, file))
-  console.log(
-    `Loaded ${metaschemaDocuments.length} Metaschema extension documents`
-  );
+  // console.log(
+  //   `Loaded ${metaschemaDocuments.length} Metaschema extension documents`
+  // );
   metaschemaDom = new JSDOM(`<root>${metaschemaDocuments.join("")}</root>`, { contentType: "text/xml" });
 
 });
@@ -676,35 +676,36 @@ Given("I have added all documents to a single Document model", function () {
     .join("\n");
 
   // Log a sample of the content for verification
-  console.log("Sample of processed XML content:");
-  console.log(allXmlContent.slice(0, 500) + "...");
-
   metaschemaDom = new JSDOM(`<?xml version="1.0" encoding="UTF-8"?><root>${allXmlContent}</root>`, { contentType: "text/xml" });
-
-  console.log("All documents have been added to a single Document model");
+  // console.log("All documents have been added to a single Document model");
 });
 
-Then("I should have help url prop for constraint ID {string}", function (constraintId) {
-  const constraintRule = metaschemaDom.window.document.querySelector(`[id="${constraintId}"]`);
 
-  if (!constraintRule) {
-    expect.fail(`Constraint ${constraintId} not found in any metaschema document`);
+
+
+Then('I should verify that all constraints follows the style guide constraint', async function () {
+  const baseDir = join(__dirname, '..', '..'); // Adjust this path as needed
+  const constraintDir = join(baseDir, 'src', 'validations', 'constraints');
+  const styleGuidePath = join(baseDir, 'src', 'validations', 'styleguides', 'fedramp_constraint_style.xml');
+
+  const constraint_files = getConstraintFiles().split("|").join("").trim().split("\n")
+  for (const file_name of constraint_files) {
+    const filePath = join(constraintDir, file_name.trim());
+
+    const [result, error] = await executeOscalCliCommand('metaschema', [
+      'validate',
+      filePath,
+      '-c',
+      styleGuidePath,
+      '--disable-schema-validation'
+    ]);
+
+    console.log(`Validation result for ${file_name}:`, result);
+    if (error) {
+      console.error(`Validation error for ${file_name}:`, error);
+    }
+
+    expect(error, `Style guide validation failed for ${file_name}`).to.be.empty;
+    expect(result, `Style guide validation found errors in ${file_name}`).to.not.include("ERROR");
   }
-
-  const requiredProps = [
-    {
-      namespace: "https://docs.oasis-open.org/sarif/sarif/v2.1.0",
-      name: "help-url"
-    }  ];
-
-  const missingProps = requiredProps.filter(prop => 
-    !constraintRule.querySelector(`prop[ns="${prop.namespace}"][name="${prop.name}"]`)
-  );
-
-  if (missingProps.length > 0) {
-    const missingPropNames = missingProps.map(p => p.name).join(', ');
-    expect.fail(`Constraint ${constraintId} is missing the following help properties: ${missingPropNames}`);
-  }
-
-  console.log(`${constraintId}: Has all required help properties`);
-});
+ });
