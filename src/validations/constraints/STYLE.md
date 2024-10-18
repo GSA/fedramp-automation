@@ -611,7 +611,7 @@ State: Recommended
 
 Categories: Structure; Metadata
 
-Guidance: Developers SHOULD only define a Metaschema constraint with a `remarks` field when the requirement is complex enough that a full explanation of the positive requirement exceeds a sentence of reasonable length conforming to all requirements in this guide.
+Guidance: Developers SHOULD only define a Metaschema constraint with a `remarks` field when an explanation of the positive requirement is too long to fix in the `message` field. It is too long for the `message` when it is more than sentence or the sentence(s) are so complex they do not meet other style guide requirements for a `message`.
 
 #### FRR10 Conformant Example
 
