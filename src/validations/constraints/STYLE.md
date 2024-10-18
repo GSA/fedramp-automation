@@ -104,9 +104,10 @@ Below is a conformant example for FRR1.
 Below is a non-conformant example for FRR1.
 
 ```xml
-<!-- 
-    Below is a truncated example from the core NIST OSCAL constraints in v1.1.2.
-    See URL below for full context:
+<!--
+    This example does not conform to the developer guide.
+
+    Below is a truncated example from the core NIST OSCAL constraints in v1.1.2. See URL below for full context:
 
     https://github.com/usnistgov/OSCAL/blob/v1.1.2/src/metaschema/oscal_ssp_metaschema.xml#L1044-L1049
 
