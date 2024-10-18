@@ -137,6 +137,8 @@ Examples:
   | role-defined-information-system-security-officer-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
+  | role-has-responsible-party-FAIL.yaml |
+  | role-has-responsible-party-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | security-level-FAIL.yaml |
@@ -219,6 +221,7 @@ Examples:
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
   | role-defined-system-owner |
+  | role-has-responsible-party |
   | scan-type |
   | security-level |
   | user-type |
