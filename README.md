@@ -13,7 +13,7 @@ FedRAMP maintains this repository with data, software, and documentation to revi
 
 Our current focus is developing validation constraints to use with the oscal-cli to automatically check that all parts of a FedRAMP digital authorization package (such as System Security Plan) meet FedRAMP's requirements before staff start a formal review.  
 
-As a part of this project, we are continuing to release "constraints," or automated "checks" of FedRAMP's digital authorization package requirements, to expand the coverage of our tooling and further automate the review of security artifacts. To learn more about installing and using our validation tooling, go [here](https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
+As a part of this project, we are continuing to release "constraints," or automated "checks" of FedRAMP's digital authorization package requirements, to expand the coverage of our tooling and further automate the review of security artifacts. To learn more about installing and using our validation tooling, go [here](./blob/develop/src/validations/constraints/README.md). 
 
 Our tooling:
 - Validates OSCAL documents against FedRAMP constraints.
@@ -36,7 +36,7 @@ FedRAMP's work is based on NIST's [OSCAL 1.1.2](https://github.com/usnistgov/OSC
 
 ## Developer notes
 
-This section is for prospective contributors to our automation efforts. As an open source project, fedramp-automation welcomes contributions. To see a detailed guide for contributors, go [here](https://github.com/GSA/fedramp-automation/blob/develop/CONTRIBUTING.md)
+This section is for prospective contributors to our automation efforts. As an open source project, fedramp-automation welcomes contributions. To see a detailed guide for contributors, go [here](./CONTRIBUTING.md)
 <details>
 <summary>How to build/test our tools</summary>
 
