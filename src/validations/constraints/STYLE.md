@@ -151,7 +151,7 @@ State: Required
 
 Categories: Metapath; Sorting
 
-Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from the most to least specific. In a `context`, the least specific `metapath/@target` is one with the path addressing some or all of the roots of a model. More or most specific targets address specific nested fields, flags, or assemblies deeply embedded in the model as close to the location of the constraint's target for data in the instance of the model as possible.
+Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from broadest to most narrow target, sorted from  least to most specific paths. In a `context`, the least specific `metapath/@target` is one where the target path is as close as possible to the root of the respective model(s) of a given OSCAL document. More or most specific targets address specific nested fields, flags, or assemblies narrowly focused on a specific assembly, field, or flag in the OSCAL document.
 
 This approach provides a predictable ordering for readers and maintainers of the constraint set. It is intended to allow a reader to quickly find the constraints for a given context and to know where to place new constraints based on the constraint's context.
 
@@ -167,11 +167,6 @@ Below is a conformant example.
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
-            <remarks>
-                <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
-                <p>For control statements, it signals to the CSP which statements require a response in the SSP.</p>
-                <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
-             </remarks>
         </constraints>
     </context>
     <context>
@@ -197,7 +192,7 @@ Below is a non-conformant example.
     <context>
         <!--
             The target(s)  of this context's metapath are more specific.
-            To be conformant to the developer, guide this context MUST
+            To be conformant to the developer guide this context MUST
             come after the second context in the example, not before it.
         -->
         <metapath target="/system-security-plan/metadata/location"/>
@@ -213,7 +208,7 @@ Below is a non-conformant example.
     <context>
         <!--
             The target(s)  of this context's metapath is less specific
-            than the other. To be conformant to the developer, guide this
+            than the other. To be conformant to the developer guide this
             context MUST come before the first context in the example, not
             after it.
         -->
