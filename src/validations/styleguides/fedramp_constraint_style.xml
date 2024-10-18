@@ -8,8 +8,12 @@
     <context>
         <metapath target="/metaschema-meta-constraints"/>
         <constraints>
-            <expect id="allowed-value-has-help-prop" target="//allowed-values" test="//count(prop[@ns='https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name='help-uri']) eq 1" level="ERROR"/>
-            <expect id="expect-has-help-prop" target="//expect" test="//count(prop[@ns='https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name='help-uri']) eq 1" level="ERROR"/>
+            <expect id="allowed-value-has-help-prop" target="//allowed-values" test="//count(prop[@ns='https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name='help-uri']) eq 1" level="ERROR">
+                <message>'{ ./@id }' is missing help uri.</message>
+            </expect>
+            <expect id="expect-has-help-prop" target="//expect" test="//count(prop[@ns='https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name='help-uri']) eq 1" level="ERROR">
+                <message>'{ ./@id }' is missing help uri.</message>
+            </expect>
         </constraints>
     </context>
 
