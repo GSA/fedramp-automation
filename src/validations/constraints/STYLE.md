@@ -197,7 +197,8 @@ Below is a non-conformant example.
     <context>
         <!--
             The target(s)  of this context's metapath are more specific.
-            They MUST come later in a document.
+            To be conformant to the developer, guide this context MUST
+            come after the second context in the example, not before it.
         -->
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
@@ -211,9 +212,11 @@ Below is a non-conformant example.
     </context>    
     <context>
         <!--
-            The target(s)  of this context's metapath are more specific.
-            They MUST come earlier in a document.
-        -->        
+            The target(s)  of this context's metapath is less specific
+            than the other. To be conformant to the developer, guide this
+            context MUST come before the first context in the example, not
+            after it.
+        -->
         <metapath target="/catalog//control"/>
         <constraints>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
