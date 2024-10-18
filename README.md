@@ -4,9 +4,10 @@
 
 ## Overview
 
-The FedRAMP Program Management Office (PMO), has drafted FedRAMP specific tooling and guidance to ensure our stakeholders can fully express and review their FedRAMP Security Authorization Packages using NIST’s [OSCAL syntax](https://pages.nist.gov/OSCAL/documentation/).
 
-In addition to guidance and examples assisting in the production of OSCAL artifacts, the FedRAMP PMO is developing software to assist in automating the review of OSCAL (Open Security Controls Assessment Language) digital authorization packages. The primary aim is to reduce manual review efforts and timeframes by validating whether packages conform to FedRAMP’s requirements as early as possible. Once completed, FedRAMP provided tooling will help ensure that package items such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, helping to streamline the review process.
+**If you are interested in [an overview about OSCAL](https://automate.fedramp.gov/about/) and [extensive documentation](https://automate.fedramp.gov/documentation/) on how to use it for FedRAMP's specific requirements, please visit our [Developer Hub](https://automate.fedramp.gov/).**
+
+FedRAMP maintains this repository with data, software, and documentation to review digital authorization packages for FedRAMP authorizations using [OSCAL](https://pages.nist.gov/OSCAL/documentation/). Our primary aim  is to reduce manual review efforts and timeframes by validating whether submissions conform to FedRAMP’s requirements. Once complete, our tooling will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, streamlining the review process.
 
 ## Project Components
 
