@@ -38,7 +38,11 @@ Categories: ID
 
 Guidance: FedRAMP OSCAL constraints MUST be in an external file or URL. OSCAL model in-line constraints should be avoided and only implemented by NIST for generalized, non-FedRAMP specific constraints.
 
+<details>
+<summary>Click for important background:</summary>
+
 **NOTE:** At this time, the FedRAMP Automation Team maintains a set of constraints for the core NIST-maintained OSCAL models, not specific to FedRAMP, in the the [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file. The team intends intends to upstream these changes to the NIST-maintained models and their supporting code base, as proposed in [usnistgov/OSCAL#2050)](https://github.com/usnistgov/OSCAL/issues/2050). Currently, FedRAMP developers implement externalized constraints in this separate file, as this guidance requires and is the only feasible interim solution. However, the test infrastructure purposely ignores this file and does not process its constraints for explicit continuous integration testing. This approach MAY change given the result of the proposal to NIST maintainers or other decisions by FedRAMP's technical leadership, but they are not explicitly within the scope of FedRAMP developer's constraint roadmap and they follow this guidance _only_ when reasonable. FedRAMP developers did not design or implement these constraints as a permanent collection in the constraints inventory.
+</details>
 
 #### FRR1 Conformant Example
 
@@ -301,7 +305,11 @@ Categories: Structure; Metadata
 
 Guidance: Developers MUST define only one Metaschema constraint property with a namespace of `https://docs.oasis-open.org/sarif/sarif/v2.1.0`,  name `help-url`, and `value` with a URL to an official, meaningful, and specific explanation to the OSCAL syntax and semantics that motivate that OSCAL constraint definition in a file.
 
+<details>
+
+<summary>Click for important background:</summary>
 **NOTE:** Although Metaschema can support multiple properties for different URLs, the explicit goal of this FedRAMP design and approach is to emit the relevant URL in SARIF output for constraint violations. The SARIF 2.1.0 specification and schema support one and only one URL in the relevant SARIF structure.
+</details>
 
 #### FRR4 Conformant Example
 
