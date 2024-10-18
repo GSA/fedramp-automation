@@ -9,13 +9,6 @@
 
 FedRAMP maintains this repository with data, software, and documentation to review digital authorization packages for FedRAMP authorizations using [OSCAL](https://pages.nist.gov/OSCAL/documentation/). Our primary aim  is to reduce manual review efforts and timeframes by validating whether submissions conform to FedRAMP’s requirements. Once complete, our tooling will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, streamlining the review process.
 
-## Project Components
-
-| Component                                                       | Description                                                                        |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [FedRAMP OSCAL Validation Tooling](./tree/develop/src/validations/constraints) |  The folder that contains the validation tooling and constraints      |
-| [FedRAMP Rev 5 Releases](/tree/master/dist/content/rev5)         | The folder that contains guidance and examples related to rev5                     |
-
 ## FedRAMP OSCAL Validation Tooling
 
 Our ongoing work is focused on developing automated validation tooling using the oscal-cli to automatically check that security artifacts in a FedRAMP digital authorization package (such as an system security plan) complies with FedRAMP information and data requirements. 
