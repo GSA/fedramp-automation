@@ -62,26 +62,6 @@ If you are developing on Windows, [msys2](https://www.msys2.org/) may be used fo
 </details>
 
 
-
-<details>
-<summary>How to create a release</summary>
-
-### Creating a release
-
-[ADR 0002 (git release version strategy)](./documents/adr/0002-git-release-version-strategy.md)
-outlines the release and versioning system.
-
-Releases must be tagged from the master branch of [GSA/fedramp-automation](https://github.com/GSA/fedramp-automation). If your work resides elsewhere, first merge to master via a pull-request.
-
-To produce a release:
-
-- [Create a Github Release](https://github.com/GSA/fedramp-automation/releases/new)
-  - Ensure the tag follows the naming convention defined in [ADR 0002](./documents/adr/0002-git-release-version-strategy.md)
-- [Monitor running Github Actions](https://github.com/GSA/fedramp-automation/actions) for the `build-release` workflow's completion ([./.github/workflows/create-release.yml](./.github/workflows/create-release.yml))
-  - On completion, artifacts will be attached to the release.
-
-</details>
-
 ## OSCAL Deprecation Strategy
 
 This section details the version of OSCAL our tooling supports. 
