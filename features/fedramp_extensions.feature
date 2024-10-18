@@ -163,7 +163,6 @@ And I analyze the YAML test files for each constraint ID
 @full-coverage
 Scenario Outline: Ensuring full test coverage for "<constraint_id>"
 Given I have loaded all Metaschema extensions documents
-And I have added all documents to a single Document model
 Then I should have both FAIL and PASS tests for constraint ID "<constraint_id>"
 Examples:
 | constraint_id |
