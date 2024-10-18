@@ -9,7 +9,6 @@
         <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
         <constraints>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#response-point"/>
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
             <remarks>
