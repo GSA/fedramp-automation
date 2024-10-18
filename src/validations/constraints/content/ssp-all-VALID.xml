@@ -32,6 +32,24 @@
      <role id="information-system-security-officer">
        <title>Information System Security Officer (or Equivalent)</title>
      </role>
+     <role id="system-poc-management">
+      <title>Information System Management Point of Contact (POC)</title>
+      <description>
+         <p>The highest level manager who responsible for system operation on behalf of the System Owner.</p>
+      </description>
+      </role>
+      <role id="system-poc-technical">
+          <title>Information System Technical Point of Contact</title>
+          <description>
+            <p>The individual or individuals leading the technical operation of the system.</p>
+          </description>
+      </role>
+      <role id="system-poc-other">
+          <title>General Point of Contact (POC)</title>
+          <description>
+            <p>A general point of contact for the system, designated by the system owner.</p>
+          </description>
+      </role>
 
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
@@ -62,6 +80,29 @@
     <responsible-party role-id="content-approver">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
+
+    <responsible-party role-id="system-owner">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="authorizing-official">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="authorizing-official-poc">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="system-poc-management">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="system-poc-technical">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="system-poc-other">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="information-system-security-officer">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+
     <remarks>
       <p>This SSP is an example for demonstration purposes.</p>
     </remarks>
