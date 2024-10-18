@@ -169,6 +169,9 @@
     <context>
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
+            <expect id="implemented-requirement-outside-statement" target="implemented-requirement" test="not(exists(by-component))">
+                <message>A FedRAMP SSP MUST document only a component-based implemented requirement within a specific statement, not at the control level.</message>
+            </expect>
             <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
                 <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
             </expect>
