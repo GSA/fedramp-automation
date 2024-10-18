@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd">
+    <!-- ============================== -->
+    <!-- FedRAMP Constraint Style guide -->
+    <!-- ============================== -->
+
+    <context>
+        <metapath target="/metaschema-meta-constraints"/>
+        <constraints>
+            <expect id="allowed-value-has-help-prop" target="//allowed-values" test="//count(prop[@ns='https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name='help-uri']) eq 1" level="ERROR"/>
+            <expect id="expect-has-help-prop" target="//expect" test="//count(prop[@ns='https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name='help-uri']) eq 1" level="ERROR"/>
+        </constraints>
+    </context>
+
+</metaschema-meta-constraints>

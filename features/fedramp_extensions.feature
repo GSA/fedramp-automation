@@ -1,5 +1,9 @@
 Feature: OSCAL Document Constraints
 
+@full-coverage
+Scenario Outline: Validating OSCAL documents with metaschema constraints
+  Then I should verify that all constraints follows the style guide constraint
+
 @constraints
 Scenario Outline: Validating OSCAL documents with metaschema constraints
   Given I have Metaschema extensions documents
@@ -9,6 +13,7 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
   | fedramp-external-constraints.xml |
   | oscal-external-constraints.xml |
 #END_DYNAMIC_CONSTRAINT_FILES
+  When I should verify that all constraints follows the style guide constraint
   When I process the constraint unit test "<test_file>"
   Then the constraint unit test should pass
 
@@ -161,7 +166,6 @@ Scenario Outline: Ensuring full test coverage for "<constraint_id>"
 Given I have loaded all Metaschema extensions documents
 And I have added all documents to a single Document model
 Then I should have both FAIL and PASS tests for constraint ID "<constraint_id>"
-Then I should have help url prop for constraint ID "<constraint_id>"
 Examples:
 | constraint_id |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
@@ -212,7 +216,6 @@ Examples:
   | has-separation-of-duties-matrix |
   | has-system-id |
   | has-user-guide |
-  | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
