@@ -242,7 +242,7 @@ State: Required
 
 Categories: ID; Sorting
 
-Guidance: Within a given constraint file, developers MUST sort constraint definitions within a given context so that each constraint is ordered alphabetically by the constraint's `@id`, from upper case and then lower case respectively.
+Guidance: Within a given constraint file, developers MUST sort constraint definitions within a given context so that each constraint is ordered alphabetically by the constraint's `@id`, where upper case letters are sorted before lower case letters.
 
 #### FRR3 Conformant Example
 
