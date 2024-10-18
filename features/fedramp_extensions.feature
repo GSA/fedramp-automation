@@ -43,6 +43,8 @@ Examples:
   | data-center-us-PASS.yaml |
   | deployment-model-FAIL.yaml |
   | deployment-model-PASS.yaml |
+  | extraneous-implemented-requirements-FAIL.yaml |
+  | extraneous-implemented-requirements-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
   | has-authenticator-assurance-level-PASS.yaml |
   | has-authorization-boundary-diagram-FAIL.yaml |
@@ -107,6 +109,8 @@ Examples:
   | has-system-id-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
+  | incomplete-required-controls-implemented-FAIL.yaml |
+  | incomplete-required-controls-implemented-PASS.yaml |
   | information-type-id-FAIL.yaml |
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
@@ -172,6 +176,7 @@ Examples:
   | data-center-country-code |
   | data-center-primary |
   | deployment-model |
+  | extraneous-implemented-requirements |
   | has-authenticator-assurance-level |
   | has-authorization-boundary-diagram |
   | has-authorization-boundary-diagram-caption |
@@ -204,6 +209,7 @@ Examples:
   | has-separation-of-duties-matrix |
   | has-system-id |
   | has-user-guide |
+  | incomplete-implemented-requirements |
   | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |
