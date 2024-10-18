@@ -1,7 +1,7 @@
 Feature: OSCAL Document Constraints
 
 @full-coverage
-Scenario Outline: Validating OSCAL documents with metaschema constraints
+Scenario Outline: Validating OSCAL constraints with metaschema constraints
   Then I should verify that all constraints follows the style guide constraint
 
 @constraints
