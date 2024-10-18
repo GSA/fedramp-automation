@@ -11,7 +11,7 @@ FedRAMP maintains this repository with data, software, and documentation to revi
 
 ## FedRAMP OSCAL Validation Tooling
 
-Our ongoing work is focused on developing automated validation tooling using the oscal-cli to automatically check that security artifacts in a FedRAMP digital authorization package (such as an system security plan) complies with FedRAMP information and data requirements. 
+Our current focus is developing validation constraints to use with the oscal-cli to automatically check that all parts of a FedRAMP digital authorization package (such as System Security Plan) meet FedRAMP's requirements before staff start a formal review.  
 
 As a part of this project, we are continuing to release "constraints," or automated "checks" of FedRAMP's digital authorization package requirements, to expand the coverage of our tooling and further automate the review of security artifacts. To learn more about installing and using our validation tooling, go [here](https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/README.md). 
 
@@ -22,18 +22,6 @@ Our tooling:
 
 This tooling is intended for use by FedRAMP OSCAL implementers and practitioners, Cloud Service Providers (CSPs), OSCAL tool developers, 3rd Party Assessment Organizations (3PAOs), and federal agencies. We welcome any and all feedback. 
 
-
-## FedRAMP OSCAL Rev 5 Releases:
-
-The FedRAMP PMO has released the following OSCAL content:
-
-- **FedRAMP Baselines:** The FedRAMP rev 5 baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./dist/content/rev5/baselines).
-
-- **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The FedRAMP OSCAL SSP, SAP, SAR, and POA&M template are now available [here](./documents/) in XML, JSON, and YAML formats.
-
-- **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The FedRAMP OSCAL Registry is now available [here](./dist/content/rev5/resources) in XML format.
-
-- **Implementation Documentation:** The [FedRAMP Developer Hub documentation site](https://automate.fedramp.gov/documentation/) helps tool developers and content authors ensure any generated OSCAL-based FedRAMP deliverables are fully compliant with FedRAMP’s extensions, defined identifiers, and acceptable values. 
 
 ## Questions and Feedback
 
