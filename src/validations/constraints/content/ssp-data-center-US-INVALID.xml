@@ -8,7 +8,7 @@
       <address >
         <country>WRONG</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='tertiary' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='dc-zone-1' class='tertiary'/>
     </location>
   </metadata>
 </system-security-plan>
