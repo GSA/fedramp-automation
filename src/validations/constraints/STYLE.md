@@ -793,7 +793,7 @@ Below is a non-conformant example.
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1" level="WARNING">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-center"/>
                 <!-- The message for this constraint is written with Metaschema and OSCAL jargon. It does not conform to the developer guide. -->
-                <message>The value of this field in the address assembly within the abstract metadta module, with a cardinality of 0 to 1, must result with a value of 1 when evaluated by the Metapath function count.</message>
+                <message>The value of this field in the address assembly within the abstract metadata module, with a cardinality of 0 to 1, must result with a value of 1 when evaluated by the Metapath function count.</message>
             </expect>
         </constraints>
     </context>
@@ -859,7 +859,7 @@ Categories: Sequences; Style
 
 State: Recommended
 
-Guidance: Developers SHOULD define a Metaschema constraint with a `message` field that provides contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should deference machine-oriented data to provide human-oriented clues as recommended above.
+Guidance: Developers SHOULD define a Metaschema constraint with a `message` field that provides contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should dereference machine-oriented data to provide human-oriented clues as recommended above.
 
 #### FRR15 Conformant Example
 
