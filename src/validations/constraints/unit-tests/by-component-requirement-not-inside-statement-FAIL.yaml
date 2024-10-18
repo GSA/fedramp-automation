@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for by-component-requirement-not-inside-statement
+  description: >-
+    This test case validates the behavior of constraint
+    by-component-requirement-not-inside-statement
+  content: ../content/ssp-by-component-requirement-not-inside-statement-INVALID.xml
+  expectations:
+    - constraint-id: by-component-requirement-not-inside-statement
+      result: fail
