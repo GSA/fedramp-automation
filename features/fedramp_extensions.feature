@@ -13,7 +13,6 @@ Scenario Outline: Validating OSCAL documents with metaschema constraints
   | fedramp-external-constraints.xml |
   | oscal-external-constraints.xml |
 #END_DYNAMIC_CONSTRAINT_FILES
-  When I should verify that all constraints follows the style guide constraint
   When I process the constraint unit test "<test_file>"
   Then the constraint unit test should pass
 
