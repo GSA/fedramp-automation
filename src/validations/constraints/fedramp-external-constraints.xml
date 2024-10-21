@@ -21,8 +21,9 @@
     <context>
         <metapath target="//metadata"/>
         <constraints>
-            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version']">
-                <message>A FedRAMP document metadata MUST contain a FedRAMP version.</message>
+            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/"/>
+                <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
             </expect>
         </constraints>
     </context>

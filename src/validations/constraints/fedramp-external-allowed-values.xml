@@ -15,9 +15,9 @@
 
         <constraints>
             
-            <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>FedRAMP Version</formal-name>
-                <description>The current FedRAMP version.</description>
+                <description>Identifies the FedRAMP version of the document.</description>
                 <enum value="fedramp-3.0.0rc1-oscal-1.1.2">FedRAMP Version</enum>
             </allowed-values>
             
