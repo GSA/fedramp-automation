@@ -7,7 +7,7 @@
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
       </address>
-      <prop name='data-center' value='dc-zone-1' class='tertiary' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='dc-zone-1' class='tertiary'/>
     </location>
   </metadata>
 </system-security-plan>

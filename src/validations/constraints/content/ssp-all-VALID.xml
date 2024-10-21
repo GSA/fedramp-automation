@@ -37,13 +37,13 @@
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='primary' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='dc-zone-1' class='primary'/>
     </location>
     <location uuid="11111112-0000-4000-9000-000000000003">
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='aws-us-west-1' class='alternate' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='aws-us-west-1' class='alternate'/>
     </location>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
