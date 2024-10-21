@@ -19,6 +19,14 @@
         </constraints>
     </context>
     <context>
+        <metapath target="//metadata"/>
+        <constraints>
+            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version']">
+                <message>A FedRAMP document metadata MUST contain a FedRAMP version.</message>
+            </expect>
+        </constraints>
+    </context>
+    <context>
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">

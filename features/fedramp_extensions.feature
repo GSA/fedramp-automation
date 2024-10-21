@@ -43,6 +43,8 @@ Examples:
   | data-center-us-PASS.yaml |
   | deployment-model-FAIL.yaml |
   | deployment-model-PASS.yaml |
+  | fedramp-version-FAIL.yaml |
+  | fedramp-version-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
   | has-authenticator-assurance-level-PASS.yaml |
   | has-authorization-boundary-diagram-FAIL.yaml |
@@ -172,6 +174,7 @@ Examples:
   | data-center-country-code |
   | data-center-primary |
   | deployment-model |
+  | fedramp-version |
   | has-authenticator-assurance-level |
   | has-authorization-boundary-diagram |
   | has-authorization-boundary-diagram-caption |
