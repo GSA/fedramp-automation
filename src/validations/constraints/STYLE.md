@@ -25,6 +25,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 | [FRR15](#frr15) | Constraint Messages Have Single Item Hints |  Recommended | Sequences; Style |
 | [FRR16](#frr16) | Constraints Formal Names Required | Required | Structure; Metadata |
 | [FRR17](#frr17) | Limit Informational Constraint Usage | Recommended| Structure; Metadata |
+| [FRR17](#frr18) | Keep Let Bindings Adjacent to Their Constraints | Recommended| Structure; Sorting |
 
 ### FRR1
 
@@ -991,6 +992,115 @@ Below is a non-conformant example.
             <expect id="data-center-country-code-us" target="./address/country" test=". != 'US'" level="INFORMATIONAL">
                 <message>This informational constraint is in the report because it is in the United States.</message>
             </expect>
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+### FRR18
+
+ID: `frr18`
+
+Formal Name: Sort Let Bindings in Logical Order Before Constraints
+
+State: Recommended
+
+Categories: Sorting; Structure
+
+Guidance: Developers MUST define `let` bindings before any given constraint in a `context`. Developers SHOULD define the `let` binding(s) adjacent to its dependencies in a logical order. A logical order is when developers sort the bindings in order of their dependency, where an `expression` of a later binding evaluates a `var` reference to a previous expression's value. If there are multiple `let` bindings with no dependency relationship between them, developers MAY sort the `let` bindings alphabetically by `var` value (where upper case letters are sorted before lower case letters). 
+
+#### FRR18 Conformant Example
+
+Below is a conformant example.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <let var="one" expression="1"/>
+            <let var="two" expression="$one + 1"/>
+            <let var="three" expression="3"/>
+            <let var="four" expression="4"/>           
+            <expect id="A" target="." test="count(address/country) eq $one" level="WARNING">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="a" target="." test="count(address/country) eq $two">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="b" target="." test="count(address/country) eq $three">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="c" target="." test="count(address/country) eq $four">
+                <message>Example of sorting.</message>
+            </expect>            
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+#### FRR18 Non-conformant Example
+
+Below are non-conformant examples.
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <!--
+                The let binding below cannot evaluate its expression because
+                the value of one is not defined before its evaluation. This
+                binding does not conform to the developer guide.
+            -->
+            <let var="two" expression="$one + 1"/>
+            <let var="one" expression="1"/>
+            <let var="three" expression="3"/>
+            <let var="four" expression="4"/>           
+            <expect id="A" target="." test="count(address/country) eq $one" level="WARNING">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="a" target="." test="count(address/country) eq $two">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="b" target="." test="count(address/country) eq $three">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="c" target="." test="count(address/country) eq $four">
+                <message>Example of sorting.</message>
+            </expect>            
+        </constraints>
+    </context>
+</metaschema-meta-constraints>
+```
+
+```xml
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <context>
+        <metapath target="/system-security-plan/metadata/location"/>
+        <constraints>
+            <let var="one" expression="1"/>
+            <let var="three" expression="3"/>
+            <let var="four" expression="4"/>
+            <!--
+                The let binding below can evaluate its expression, but the
+                separation between it and its logical depdendency makes this
+                context difficult to read. This binding does not conform to the
+                developer guide.
+            -->            
+            <let var="two" expression="$one + 1"/>
+            <expect id="A" target="." test="count(address/country) eq $one" level="WARNING">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="a" target="." test="count(address/country) eq $two">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="b" target="." test="count(address/country) eq $three">
+                <message>Example of sorting.</message>
+            </expect>
+            <expect id="c" target="." test="count(address/country) eq $four">
+                <message>Example of sorting.</message>
+            </expect>            
         </constraints>
     </context>
 </metaschema-meta-constraints>
