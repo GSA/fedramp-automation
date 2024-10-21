@@ -113,8 +113,6 @@ Examples:
   | has-system-id-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
-  | information-type-id-FAIL.yaml |
-  | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
