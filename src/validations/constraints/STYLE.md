@@ -24,7 +24,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 | [FRR14](#frr14) | Constraints Tests and Messages Have Single Item Focus | Recommended | Sequences; Style |
 | [FRR15](#frr15) | Constraint Messages Have Single Item Hints |  Recommended | Sequences; Style |
 | [FRR16](#frr16) | Constraints Formal Names Required | Required | Structure; Metadata |
-| [FRR16](#frr17) | Limit Informational Constraint Usage | Recommended| Structure; Metadata |
+| [FRR17](#frr17) | Limit Informational Constraint Usage | Recommended| Structure; Metadata |
 
 ### FRR1
 
