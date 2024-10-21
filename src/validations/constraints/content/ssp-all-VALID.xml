@@ -10,6 +10,7 @@
     <version>1.1</version>
     <oscal-version>1.0.0</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
+    <prop name="fedramp-version" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     
     <role id="creator">
       <title>Document Creator</title>
