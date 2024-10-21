@@ -14,6 +14,9 @@
             <expect id="expect-has-help-prop" target="//expect" test="//count(prop[@ns='https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name='help-uri']) eq 1" level="ERROR">
                 <message>'{ ./@id }' is missing help uri.</message>
             </expect>
+            <expect id="expect-has-message" target="//expect" test="message" level="ERROR">
+                <message>'{ ./@id }' is missing a message (REQUIRED).</message>
+            </expect>
         </constraints>
     </context>
 
