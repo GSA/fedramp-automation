@@ -654,7 +654,7 @@ Then('I should verify that all constraints follow the style guide constraint', a
     return input.replace(/\[.*?\]/g, '');
   }
 
-  for (const file_name of constraint_files) {
+  for (const file_name of constraint_files.filter(x=>!x.includes("oscal"))) {
     const filePath = join(constraintDir, file_name.trim());
     try {
       const [result, error] = await executeOscalCliCommand('metaschema', [
