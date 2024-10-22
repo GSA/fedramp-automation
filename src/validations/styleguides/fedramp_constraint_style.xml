@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!-- ============================== -->
     <!-- FedRAMP Constraint Style guide -->
     <!-- ============================== -->
@@ -36,4 +36,21 @@
         </constraints>
     </context>
 
+    <!-- 
+    //TODO following-sibling is not implimented in metapath
+    //TODO could be done with for every & positional context
+    
+    <context>
+        <metapath target="/metaschema-meta-constraints/context"/>
+        <constraints>
+            <expect id="constraints-sorted-alphabetically" target="." 
+            test="not(//expect[@id > following-sibling::expect[1]/@id])" 
+            level="ERROR">
+                <formal-name>Constraints Sorted Alphabetically</formal-name>
+                <message>
+                    A FedRAMP constraint context SHOULD have its constraints sorted alphabetically by their IDs.
+                </message>
+            </expect>
+    </constraints>
+    </context> -->
 </metaschema-meta-constraints>
