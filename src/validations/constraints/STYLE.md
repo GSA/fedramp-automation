@@ -25,7 +25,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 | [FRR15](#frr15) | Constraint Messages Have Single Item Hints |  Recommended | Sequences; Style |
 | [FRR16](#frr16) | Constraints Formal Names Required | Required | Structure; Metadata |
 | [FRR17](#frr17) | Limit Informational Constraint Usage | Recommended| Structure; Metadata |
-| [FRR17](#frr18) | Keep Let Bindings Adjacent to Their Constraints | Recommended| Structure; Sorting |
+| [FRR18](#frr18) | Keep Let Bindings Adjacent to Their Constraints | Recommended| Structure; Sorting |
 
 ### FRR1
 
