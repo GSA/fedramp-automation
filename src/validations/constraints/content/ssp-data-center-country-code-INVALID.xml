@@ -7,7 +7,7 @@
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address>
       </address>
-      <prop name='type' value='data-center' class='primary'/>
+      <prop name="type" value="data-center" class="primary"/>
     </location>
     <location uuid="11117112-0080-4000-9001-001230000009">
       <address>
