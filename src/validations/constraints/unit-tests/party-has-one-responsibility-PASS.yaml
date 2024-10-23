@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for party-has-one-responsibility
+  description: >-
+    This test case validates the behavior of constraint
+    party-has-one-responsibility
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: party-has-one-responsibility
+      result: pass
