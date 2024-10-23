@@ -17,7 +17,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 | [FRR107](#frr107) | Constraints Have an Explicit Severity Level | Required | Structure; Metadata |
 | [FRR108](#frr108) | Constraints with Critical Severity Level Used only for Runtime Failures | Required | Structure; Metadata |
 | [FRR109](#frr109) | Expect Constraint Message Field Required | Required | Structure; Metadata |
-| [FR110](#frr110) | Constraint Has a Remark when Overly Complex | Recommended | Structure; Metadata |
+| [FR110](#frr110) | Constraint Has a Remark When Overly Complex | Recommended | Structure; Metadata |
 | [FRR111](#frr111) | Constraint Message is Sentence in Active Voice | Recommended | Style |
 | [FRR112](#frr112) | IETF BCP14 Keywords in Constraint Messages | Required | Style |
 | [FRR113](#frr113) | Constraints Use Messages without Metaschema and OSCAL Jargon | Required | Style |
@@ -658,7 +658,7 @@ Below is a non-conformant example.
 
 ID: `frr110`
 
-Formal Name: Constraint Has a Remark when Overly Complex
+Formal Name: Constraint Has a Remark When Overly Complex
 
 State: Recommended
 
