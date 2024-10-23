@@ -1049,7 +1049,7 @@ State: Recommended
 
 Categories: Structure; Metadata
 
-Guidance: Developers SHOULD only define Metaschema constraints with a severity `level="INFORMATIONAL"` (a.k.a. informational constraints) if and only if the FedRAMP developers clearly document a specific use cases where a FedRAMP package reviewer SHOULD review the analysis reported in its `message` field. The constraint SHOULD report an analytical result of processing one or more OSCAL data elements and emitting novel information for that use case. The constraint's `message`, `target`, `test` fields SHOULD NOT only be the inverse of the opposite condition of a `CRITICAL`, `ERROR`, or `WARNING` constraint.
+Guidance: Developers SHOULD only define Metaschema constraints with a severity `level="INFORMATIONAL"` (a.k.a. informational constraints) if and only if the FedRAMP developers clearly document a specific use case where a FedRAMP package reviewer SHOULD review the analysis reported in its `message` field. The constraint SHOULD report an analytical result of processing one or more OSCAL data elements and emitting novel information for that use case. The constraint's `message`, `target`, `test` fields SHOULD NOT only be the inverse of the opposite condition of a `CRITICAL`, `ERROR`, or `WARNING` constraint.
 
 Developers MAY use informational constraints for development and ad-hoc debugging, but such a constraint MUST NOT be merged into a branch for release to downstream stakeholders without project technical leads' approval during code review. That review SHOULD include a review of a documented use case for how FedRAMP package review or alternative stakeholder will act upon this information.
 
