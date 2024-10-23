@@ -10,7 +10,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 |-----------------|-------------------------|-------------------------|-------------|
 | [FRR101](#frr101) | Separate OSCAL External Constraints  | Required | ID |
 | [FRR102](#frr102) | Constraints Sorted from Broadest to Narrowest Metapath Target | Required | Metapath; Sorting |
-| [FRR103](#frr103) | Constraints in the Context  Sorted  Alphabetically by ID | Required | ID; Sorting |
+| [FRR103](#frr103) | Constraints in the Context Sorted Alphabetically by ID | Required | ID; Sorting |
 | [FRR104](#frr104) | Constraints Have a Help URL Property | Required | Structure; Metadata |
 | [FRR105](#frr105) | Constraints Have a Unique ID | Required | ID; Metadata |
 | [FRR106](#frr106) | Constraints Have IDs with Lower Case Letters, Numbers, and Dashes | Required | ID |
@@ -245,7 +245,7 @@ Below is a non-conformant example.
 
 ID: `frr103`
 
-Formal Name: Constraints in the Context  Sorted  Alphabetically by ID
+Formal Name: Constraints in the Context Sorted Alphabetically by ID
 
 State: Required
 
