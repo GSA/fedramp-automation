@@ -37,13 +37,13 @@
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='primary' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='dc-zone-1' class='primary'/>
     </location>
     <location uuid="11111112-0000-4000-9000-000000000003">
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='aws-us-west-1' class='alternate' ns="https://fedramp.gov/ns/oscal"/>
+      <prop name='data-center' value='aws-us-west-1' class='alternate'/>
     </location>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
@@ -336,5 +336,54 @@
      <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
   </remarks>
 </resource>
+
+
+<resource uuid="d2eb3c18-6754-4e3a-a933-03d289e3fad5">
+  <title>Authorization Boundary</title>
+  <description>
+     <p>Authorization Boundary Diagram</p>
+  </description>
+  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+  <prop name="published" value="2023-01-01T00:00:00Z"/>
+  <prop name="version" value="Document Version"/>
+  <rlink href="./documents/AuthBoundary.docx" media-type="application/msword"/>
+  <base64 filename="AuthBoundary.docx" media-type="application/msword">00000000</base64>
+  <remarks>
+     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+  </remarks>
+</resource>
+
+<resource uuid="61081e81-850b-43c1-bf43-1ecbddcb9e7f">
+  <title>Network Architecture</title>
+  <description>
+     <p>Network Architecture Diagram</p>
+  </description>
+  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+  <prop name="published" value="2023-01-01T00:00:00Z"/>
+  <prop name="version" value="Document Version"/>
+  <rlink href="./documents/NetworkArchitecture.docx" media-type="application/msword"/>
+  <base64 filename="NetworkArchitecture.docx" media-type="application/msword">00000000</base64>
+  <remarks>
+     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+  </remarks>
+</resource>
+
+<resource uuid="ac5d7535-f3b8-45d3-bf3b-735c82c64547">
+  <title>Data Flow</title>
+  <description>
+     <p>Data flow Diagram</p>
+  </description>
+  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+  <prop name="published" value="2023-01-01T00:00:00Z"/>
+  <prop name="version" value="Document Version"/>
+  <rlink href="./documents/Dataflo.docx" media-type="application/msword"/>
+  <base64 filename="Dataflow.docx" media-type="application/msword">00000000</base64>
+  <remarks>
+     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+  </remarks>
+</resource>
+
+
+
   </back-matter>
 </system-security-plan>
