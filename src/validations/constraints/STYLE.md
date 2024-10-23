@@ -322,7 +322,7 @@ State: Required
 
 Categories: Structure; Metadata
 
-Guidance: Developers MUST define only one Metaschema constraint property with a namespace of `https://docs.oasis-open.org/sarif/sarif/v2.1.0`,  name `help-url`, and `value` with a URL to an official, meaningful, and specific explanation to the OSCAL syntax and semantics that motivate that OSCAL constraint definition in a file.
+Guidance: Developers MUST define only one Metaschema constraint property with a namespace of `https://docs.oasis-open.org/sarif/sarif/v2.1.0`,  name `help-url`, and `value` with a URL to an official, meaningful, and specific explanation to the OSCAL syntax and semantics (from [automate.fedramp.gov/documentation](https://automate.fedramp.gov/documentation/)) that motivate that OSCAL constraint definition in a file.
 
 <details>
 
