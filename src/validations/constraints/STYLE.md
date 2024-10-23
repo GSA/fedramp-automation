@@ -2,7 +2,7 @@
 
 ## Summary
 
-This document is to instruct FedRAMP developers and community members on mandatory or recommended style for the structure, format, and organization of constraints. Each requirement will be given an identifier, guidance text, and examples that either do or do not conform to the best practices.  Following the guidance in this document will improve (external constraint) code readability and consistency, and make it easier to maintain.
+This document is to instruct FedRAMP developers and community members on mandatory or recommended style for the structure, format, and organization of constraints. Each requirement MUST have an identifier, guidance text, and examples that either do or do not conform to the best practices.  Following the guidance in this document will improve (external constraint) code readability and consistency, and make it easier to maintain.
 
 ## Requirements
 
