@@ -384,7 +384,7 @@ State: Required
 
 Categories: ID; Metadata
 
-Guidance: Developers MUST define a Metaschema constraint with an `id` flag that is unique to all the constraints that FedRAMP maintains across all constraint documents.
+Guidance: Developers MUST define a Metaschema constraint with an `id` flag, and the value of that `id` flag must be unique from all other constraint IDs across all constraint documents FedRAMP and NIST define in core OSCAL.
 
 [back to top](#summary)
 
