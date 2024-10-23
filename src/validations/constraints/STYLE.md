@@ -44,6 +44,9 @@ Guidance: FedRAMP OSCAL constraints MUST be in an external file or URL. OSCAL mo
 
 **NOTE:** At this time, the FedRAMP Automation Team maintains a set of constraints for the core NIST-maintained OSCAL models, not specific to FedRAMP, in the the [`oscal-external-constraints.xml`](./oscal-external-constraints.xml) file. The team intends intends to upstream these changes to the NIST-maintained models and their supporting code base, as proposed in [usnistgov/OSCAL#2050)](https://github.com/usnistgov/OSCAL/issues/2050). Currently, FedRAMP developers implement externalized constraints in this separate file, as this guidance requires and is the only feasible interim solution. However, the test infrastructure purposely ignores this file and does not process its constraints for explicit continuous integration testing. This approach MAY change given the result of the proposal to NIST maintainers or other decisions by FedRAMP's technical leadership, but they are not explicitly within the scope of FedRAMP developer's constraint roadmap and they follow this guidance _only_ when reasonable. FedRAMP developers did not design or implement these constraints as a permanent collection in the constraints inventory.
 </details>
+<br/>
+
+[back to top](#summary)
 
 #### FRR101 Conformant Example
 
@@ -100,6 +103,8 @@ Below is a conformant example for FRR1.
                     <!-- truncated -->
 ```
 
+[back to top](#summary)
+
 #### FRR101 Non-conformant Example
 
 Below is a non-conformant example for FRR1.
@@ -142,6 +147,8 @@ Below is a non-conformant example for FRR1.
 </METASCHEMA>    
 ```
 
+[back to top](#summary)
+
 ### FRR102
 
 ID: `frr102`
@@ -155,6 +162,8 @@ Categories: Metapath; Sorting
 Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from broadest to most narrow target, sorted from  least to most specific paths. In a `context`, the least specific `metapath/@target` is one where the target path is as close as possible to the root of the respective model(s) of a given OSCAL document. More or most specific targets address specific nested fields, flags, or assemblies narrowly focused on a specific assembly, field, or flag in the OSCAL document.
 
 This approach provides a predictable ordering for readers and maintainers of the constraint set. It is intended to allow a reader to quickly find the constraints for a given context and to know where to place new constraints based on the constraint's context.
+
+[back to top](#summary)
 
 #### FRR102 Conformant Example
 
@@ -183,6 +192,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR102 Non-conformant Example
 
@@ -228,6 +239,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR103
 
 ID: `frr103`
@@ -239,6 +252,8 @@ State: Required
 Categories: ID; Sorting
 
 Guidance: Within a given constraint file, developers MUST sort constraint definitions within a given context so that each constraint is ordered alphabetically by the constraint's `@id`, where upper case letters are sorted before lower case letters.
+
+[back to top](#summary)
 
 #### FRR103 Conformant Example
 
@@ -265,6 +280,8 @@ Below is a conformant example:
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR103 Non-conformant Example
 
@@ -293,6 +310,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR104
 
 ID: `frr104`
@@ -308,8 +327,12 @@ Guidance: Developers MUST define only one Metaschema constraint property with a 
 <details>
 
 <summary>Click for important background:</summary>
+
 **NOTE:** Although Metaschema can support multiple properties for different URLs, the explicit goal of this FedRAMP design and approach is to emit the relevant URL in SARIF output for constraint violations. The SARIF 2.1.0 specification and schema support one and only one URL in the relevant SARIF structure.
 </details>
+<br/>
+
+[back to top](#summary)
 
 #### FRR104 Conformant Example
 
@@ -329,6 +352,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 #### FRR104 Non-conformant Example
 
 Below is a non-conformant example.
@@ -347,6 +372,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR105
 
 ID: `frr105`
@@ -358,6 +385,8 @@ State: Required
 Categories: ID; Metadata
 
 Guidance: Developers MUST define a Metaschema constraint with an `id` flag that is unique to all the constraints that FedRAMP maintains across all constraint documents.
+
+[back to top](#summary)
 
 #### FRR105 Conformant Example
 
@@ -376,6 +405,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR105 Non-conformant Example
 
@@ -396,6 +427,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR106
 
 ID: `frr106`
@@ -410,6 +443,8 @@ Guidance: Developers MUST define a Metaschema constraint with an `id` flag with 
 
 1. all lowercase letters (`a-z`) and numbers (`0-9`)
 1. dashes separating words and phrases of letters and numbers above
+
+[back to top](#summary)
 
 #### FRR106 Conformant Example
 
@@ -428,6 +463,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR106 Non-conformant Example
 
@@ -451,6 +488,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR107
 
 ID: `frr107`
@@ -462,6 +501,8 @@ State: Required
 Categories: Structure; Metadata
 
 Guidance: Developers MUST define a Metaschema constraint with a `level` flag with [a valid value](https://pages.nist.gov/metaschema/specification/syntax/constraints/#level) to indicate to downstream developers and/or users the potential impact of the data instance not meeting its requirements.
+
+[back to top](#summary)
 
 #### FRR107 Conformant Example
 
@@ -480,6 +521,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR107 Non-conformant Example
 
@@ -500,6 +543,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR108
 
 ID: `frr108`
@@ -511,6 +556,8 @@ State: Required
 Categories: Structure; Metadata
 
 Guidance: Developers MUST only define a Metaschema constraint with a `level` flag with a value of `CRITICAL` if and only if the violation of the constraint will lead to an irrecoverable runtime failure (e.g. a SSP's `import-profile` references a catalog or profile with no valid controls) or undefined behavior in a conformant processor in a consistent way for the majority of use cases.
+
+[back to top](#summary)
 
 #### FRR108 Conformant Example
 
@@ -529,6 +576,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR108 Non-conformant Example
 
@@ -549,6 +598,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR109
 
 ID: `frr109`
@@ -560,6 +611,8 @@ State: Required
 Categories: Structure; Metadata
 
 Guidance: A developer MUST define a `message` field with a description of the positive requirement (i.e. what an OSCAL document must define and encode for FedRAMP's use case; why it matters; and other relevant details technical leads and developer team, if applicable) only in an `expect`  Metaschema constraint.
+
+[back to top](#summary)
 
 #### FRR109 Conformant Example
 
@@ -579,6 +632,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 #### FRR109 Non-conformant Example
 
 Below is a non-conformant example.
@@ -597,6 +652,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FR110
 
 ID: `frr110`
@@ -608,6 +665,8 @@ State: Recommended
 Categories: Structure; Metadata
 
 Guidance: Developers SHOULD only define a Metaschema constraint with a `remarks` field when an explanation of the positive requirement is too long to fix in the `message` field. It is too long for the `message` when it is more than sentence or the sentence(s) are so complex they do not meet other style guide requirements for a `message`.
+
+[back to top](#summary)
 
 #### FR110 Conformant Example
 
@@ -632,6 +691,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 #### FR110 Non-conformant Example
 
 ```xml
@@ -649,6 +710,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR111
 
 ID: `frr111`
@@ -660,6 +723,8 @@ State: Recommended
 Categories: Style
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field with one sentence with active voice, not passive voice. The subject SHOULD be the document name or abbreviation for the OSCAL model in question. For general constraints (e.g. `metadata`; `back-matter/resources`), the sentence should begin with the subject as "A FedRAMP document requires."
+
+[back to top](#summary)
 
 #### FRR111 Conformant Example
 
@@ -680,6 +745,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 #### FRR111 Non-conformant Example
 
 Below is a non-conformant example.
@@ -699,6 +766,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR112
 
 ID: `frr112`
@@ -710,6 +779,8 @@ State: Required
 Categories: Style
 
 Guidance: Developers MUST define a Metaschema constraint with a `message` sentence that conforms with IETF standards regarding capitalized requirement keywords per [BCP14](https://datatracker.ietf.org/doc/bcp14/). The sentence will use MUST," "MUST NOT," "REQUIRED," "SHALL," "SHALL NOT,", "SHOULD," "SHOULD NOT," "RECOMMENDED,"  "MAY," and "OPTIONAL" according to BCP14 requirements.
+
+[back to top](#summary)
 
 #### FRR112 Conformant Example
 
@@ -729,6 +800,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 #### FRR112 Non-conformant Example
 
 Below is a non-conformant example.
@@ -747,6 +820,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR113
 
 ID: `frr113`
@@ -758,6 +833,8 @@ State: Required
 Categories: Style
 
 Guidance: Developers MUST define a Metaschema constraint with a `message` field with one sentence that describes the positive requirements for the artifact of the security process without using jargon or terminology from the [Metaschema](https://pages.nist.gov/metaschema) and [OSCAL](https://pages.nist.gov/OSCAL) projects. Messages MUST NOT use this jargon.
+
+[back to top](#summary)
 
 #### FRR113 Conformant Example
 
@@ -776,6 +853,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR113 Non-conformant Example
 
@@ -796,6 +875,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR114
 
 ID: `frr114`
@@ -807,6 +888,8 @@ Categories: Sequences; Style
 State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with `target`, `test`, and `message` fields that test and explain a positive requirement in the singular for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. Violation paths and messages should discuss an individual item in the singular. The only exception is for quantitative or qualitative analysis of the whole sequence. The development team and community contributors can make a determination, meaning if the constraint is within that exceptional category, on a case-by-case basis, as this is a recommendation and not a requirement.
+
+[back to top](#summary)
 
 #### FRR114 Conformant Example
 
@@ -824,6 +907,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR114 Non-conformant Example
 
@@ -845,6 +930,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR115
 
 ID: `frr115`
@@ -856,6 +943,8 @@ Categories: Sequences; Style
 State: Recommended
 
 Guidance: Developers SHOULD define a Metaschema constraint with a `message` field that provides contextual hints when it is for an individual item of a sequence (i.e. occurrences of a flag, field, or assembly have a `max-occurs` greater than 1) that conforms to an OSCAL model. If there is an identifier, name, or brief label (of five words or less) as applicable. Messages SHOULD NOT provide hints with machine-oriented data (i.e. fields or flags of [type UUID](https://pages.nist.gov/metaschema/specification/datatypes/#uuid)). Instead, message hints should dereference machine-oriented data to provide human-oriented clues as recommended above.
+
+[back to top](#summary)
 
 #### FRR115 Conformant Example
 
@@ -873,6 +962,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR115 Non-conformant Example
 
@@ -892,6 +983,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR116
 
 ID: `frr116`
@@ -903,6 +996,8 @@ State: Required
 Categories: Structure; Metadata
 
 Guidance: Developers MUST define a Metaschema constraint with a `formal-name` field that provides a name for the constraint to use in documentation and tool output.
+
+[back to top](#summary)
 
 #### FRR116 Conformant Example
 
@@ -922,6 +1017,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 #### FRR116 Non-conformant Example
 
 Below is a non-conformant example.
@@ -940,6 +1037,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR117
 
 ID: `frr117`
@@ -953,6 +1052,8 @@ Categories: Structure; Metadata
 Guidance: Developers SHOULD only define Metaschema constraints with a severity `level="INFORMATIONAL"` (a.k.a. informational constraints) if and only if the FedRAMP developers clearly document a specific use cases where a FedRAMP package reviewer SHOULD review the analysis reported in its `message` field. The constraint SHOULD report an analytical result of processing one or more OSCAL data elements and emitting novel information for that use case. The constraint's `message`, `target`, `test` fields SHOULD NOT only be the inverse of the opposite condition of a `CRITICAL`, `ERROR`, or `WARNING` constraint.
 
 Developers MAY use informational constraints for development and ad-hoc debugging, but such a constraint MUST NOT be merged into a branch for release to downstream stakeholders without project technical leads' approval during code review. That review SHOULD include a review of a documented use case for how FedRAMP package review or alternative stakeholder will act upon this information.
+
+[back to top](#summary)
 
 #### FRR117 Conformant Example
 
@@ -976,6 +1077,8 @@ Below is a conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 #### FRR117 Non-conformant Example
 
 Below is a non-conformant example.
@@ -997,6 +1100,8 @@ Below is a non-conformant example.
 </metaschema-meta-constraints>
 ```
 
+[back to top](#summary)
+
 ### FRR118
 
 ID: `frr118`
@@ -1007,7 +1112,9 @@ State: Recommended
 
 Categories: Sorting; Structure
 
-Guidance: Developers MUST define `let` bindings before any given constraint in a `context`. Developers SHOULD define the `let` binding(s) adjacent to its dependencies in a logical order. A logical order is when developers sort the bindings in order of their dependency, where an `expression` of a later binding evaluates a `var` reference to a previous expression's value. If there are multiple `let` bindings with no dependency relationship between them, developers MAY sort the `let` bindings alphabetically by `var` value (where upper case letters are sorted before lower case letters). 
+Guidance: Developers MUST define `let` bindings before any given constraint in a `context`. Developers SHOULD define the `let` binding(s) adjacent to its dependencies in a logical order. A logical order is when developers sort the bindings in order of their dependency, where an `expression` of a later binding evaluates a `var` reference to a previous expression's value. If there are multiple `let` bindings with no dependency relationship between them, developers MAY sort the `let` bindings alphabetically by `var` value (where upper case letters are sorted before lower case letters).
+
+[back to top](#summary)
 
 #### FRR118 Conformant Example
 
@@ -1038,6 +1145,8 @@ Below is a conformant example.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
 
 #### FRR118 Non-conformant Example
 
@@ -1105,3 +1214,5 @@ Below are non-conformant examples.
     </context>
 </metaschema-meta-constraints>
 ```
+
+[back to top](#summary)
