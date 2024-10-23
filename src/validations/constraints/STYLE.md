@@ -569,7 +569,7 @@ Below is a conformant example.
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
-            <matches id="ssp-needs-valid-control-source" target="./import-profile" test="@href" datatype="uri-reference" level="CRITICAL">
+            <expect id="ssp-needs-valid-control-source" target="./import-profile" test="@href" level="CRITICAL">
                 <message>A FedRAMP SSP MUST define a valid URL to the catalog that identifies the controls' requirements it implements. This error indicates the referenced catalog or profile is invalid, so many constraints are unable to process. The resulting validations from constraint check are inaccurate, incomplete, or both.</message>
             </expect>
         </constraints>
