@@ -34,10 +34,8 @@ The team considered multiple approaches listed below.
 
 ## Decision
 
-TBD
+Proceed with option 4 to minimize impact to OSCAL SSP authors.  There is only one instance of the use of `identifier-type` in an OSCAL SSP, the potential impact if SSP authors need to update it is minimal, and it is easy to identify / enforce with constraints.  Option 4 eliminates any impact to SSP authors, an requires no or minimal updates to the [FedRAMP Developer Hub](https://automate.fedramp.gov/documentation) documentation site.
 
 ## Consequences
 
-Each of the proposed options will require some updates by the FedRAMP automation team to documentation at https://automate.fedramp.gov/documentation as well as updates to the codebase (including FedRAMP OSCAL profiles, FedRAMP OSCAL templates, and FedRAMP constraints).
-
-Community impact will depend on the which approach is ultimately selected.
+Option 4 will provide clarity around the acceptable values for an SSP system `identifier-type` and for its extension `prop` namespace values, with minimal impact to the community. 
