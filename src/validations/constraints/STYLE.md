@@ -9,7 +9,7 @@ This document is to instruct FedRAMP developers and community members on mandato
 | ID              | Formal Name             | Required or Recommended | Category    |
 |-----------------|-------------------------|-------------------------|-------------|
 | [FRR101](#frr101) | Separate OSCAL External Constraints  | Required | ID |
-| [FRR102](#frr102) | Constraints Sorted by Metatapath Target from Least to Most Specific | Required | Metapath; Sorting |
+| [FRR102](#frr102) | Constraints Sorted from Broadest to Narrowest Metapath Target | Required | Metapath; Sorting |
 | [FRR103](#frr103) | Constraints in the Context  Sorted  Alphabetically by ID | Required | ID; Sorting |
 | [FRR104](#frr104) | Constraints Have a Help URL Property | Required | Structure; Metadata |
 | [FRR105](#frr105) | Constraints Have a Unique ID | Required | ID; Metadata |
@@ -153,13 +153,13 @@ Below is a non-conformant example for FRR1.
 
 ID: `frr102`
 
-Formal Name: Constraints Sorted by Metatapath Target from Least to Most Specific
+Formal Name: Constraints Sorted from Broadest to Narrowest Metapath Target
 
 State: Required
 
 Categories: Metapath; Sorting
 
-Guidance: Developers MUST sort OSCAL constraint definitions in the file by `metapath/@target` from broadest to most narrow target, sorted from  least to most specific paths. In a `context`, the least specific `metapath/@target` is one where the target path is as close as possible to the root of the respective model(s) of a given OSCAL document. More or most specific targets address specific nested fields, flags, or assemblies narrowly focused on a specific assembly, field, or flag in the OSCAL document.
+Guidance: Developers MUST sort OSCAL constraint definitions in the file from broadest to narrowest `metapath/@target`. In a `context`, the broadest `metapath/@target` is one where the target path is as close as possible to the root of the respective model (`target="/system-security-plan"`) or models (`target="//*/metadata"`) of a given OSCAL document. Targets that address specific nested fields, flags, or assemblies are more narrowly focused.
 
 This approach provides a predictable ordering for readers and maintainers of the constraint set. It is intended to allow a reader to quickly find the constraints for a given context and to know where to place new constraints based on the constraint's context.
 
@@ -442,7 +442,7 @@ Categories: ID
 Guidance: Developers MUST define a Metaschema constraint with an `id` flag with the following structure.
 
 1. all lowercase letters (`a-z`) and numbers (`0-9`)
-1. dashes separating words and phrases of letters and numbers above
+1. dashes (`-`) separating words and phrases of letters and numbers above
 
 [back to top](#summary)
 
