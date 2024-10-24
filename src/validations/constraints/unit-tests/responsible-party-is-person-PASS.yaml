@@ -1,0 +1,8 @@
+# driver for the responsible party is person unit test
+test-case:
+  name: Positive Test for responsible-party-is-person
+  description: This test case validates the behavior of constraint responsible-party-is-person
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: responsible-party-is-person
+      result: pass
