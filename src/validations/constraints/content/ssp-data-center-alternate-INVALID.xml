@@ -14,7 +14,7 @@
       <address >
         <country>US</country>
       </address>
-      <prop name='type' value='data-center' class='tertiary'/>
+      <prop name="type" value="data-center" class="tertiary" />
     </location>
   </metadata>
 </system-security-plan>
