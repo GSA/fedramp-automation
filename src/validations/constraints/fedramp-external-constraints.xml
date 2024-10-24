@@ -47,7 +47,7 @@
             </expect>
             <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>User with uuid {@uuid} must have at least one role id.</message>
+                <message>A FedRAMP document MUST define a user with at least one role by a role identifier.</message>
             </expect>
             <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
