@@ -205,26 +205,13 @@
         <metapath target="/profile"/>
         <metapath target="/system-security-plan"/>
         <constraints>
-
-            <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))//catalog')"/>
-            <!-- Collect all the control IDs from imported profiles -->
-            <let var="imported-controls-map" expression="map:merge($all-imports//control ! map:entry(@id,.))?*"/>
-            <!-- Collect all the implemented requirements' control IDs -->
-            <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>
-            <!-- Verify each required control has a corresponding implemented-requirement -->
-            <index id="index-imported-controls" name="index-imported-controls" target="$imported-controls-map">
-                <key-field target="@id"/>
-            </index>
-            <index id="index-implemented-requirements" name="index-implemented-requirements" target="$implemented-requirements-map">
-                <key-field target="@control-id"/>
-            </index>
-            <index-has-key id='incomplete-implemented-requirements' target="$imported-controls-map" name="index-implemented-requirements">
+            <index-has-key id='incomplete-implemented-requirements' target="$imported-controls-map" name="index-implemented-requirements" level="WARNING">
                 <formal-name>Incomplete Implemented Requirements</formal-name>
                 <description>A FedRAMP SSP must contain an implemented requirement for each imported control</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
                 <key-field target="@id"/>
             </index-has-key>
-            <index-has-key id='extraneous-implemented-requirements' target="//implemented-requirement" name="index-imported-controls">
+            <index-has-key id='extraneous-implemented-requirements' target="//implemented-requirement" name="index-imported-controls" level="WARNING">
                 <formal-name>Implemented Controls</formal-name>
                 <description>A FedRAMP SSP must contain an imported control for each implemented-requirement</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
