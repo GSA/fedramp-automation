@@ -14,7 +14,7 @@
       <address >
         <country>WRONG</country>
       </address>
-      <prop name='type' value='data-center' class='alternate'/>
+      <prop name="type" value="data-center" class="alternate" />
     </location>
   </metadata>
 </system-security-plan>
