@@ -12,7 +12,7 @@
     <location uuid="11117112-0080-4000-9001-001230000009">
       <address>
       </address>
-      <prop name='type' value='data-center' class='alternate'/>
+      <prop name="type" value="data-center" class="alternate" />
     </location>
   </metadata>
 </system-security-plan>
