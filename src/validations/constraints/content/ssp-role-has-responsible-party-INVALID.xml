@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+  <metadata>
+    <title>Enhanced Example System Security Plan</title>
+    <published>2024-08-01T14:30:00Z</published>
+    <last-modified>2024-08-01T14:30:00Z</last-modified>
+    <version>1.1</version>
+    <oscal-version>1.0.0</oscal-version>
+    <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
+
+    <role id="role-without-responsible-party">
+      <title>Role not bound to a responsible party</title>
+    </role>
+  </metadata>
+
+</system-security-plan>
