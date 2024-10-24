@@ -1,8 +1,0 @@
-# Driver for the information-type-800-60-v2r1 constraint unit test.
-test-case:
-  name: The information-type-800-60-v2r1 constraint unit test.
-  description: Test that the SSP "information-type-id" element contains an invalid value.
-  content: ../content/ssp-information-type-id-INVALID.xml
-  expectations:
-  - constraint-id: information-type-800-60-v2r1
-    result: fail

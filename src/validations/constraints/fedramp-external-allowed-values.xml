@@ -195,7 +195,8 @@
                 <enum value="yes">Yes</enum>
                 <enum value="no">No</enum>
             </allowed-values>
-            
+
+
             <allowed-values id="information-type-800-60-v2r1" target="system-characteristics/system-information/information-type/categorization[@system='https://doi.org/10.6028/NIST.SP.800-60v2r1']/information-type-id" allow-other="no" level="ERROR">
                 <formal-name>NIST SP 800-60 Volume 2 Revision 1 Information Types</formal-name>
                 <description>Contains a list of all supported information types from NIST SP 800-60 Volume 2 Revision 1.</description>
@@ -369,7 +370,6 @@
                 <enum value="D.9.3">Financial Sector Oversight</enum>
                 <enum value="D.9.4">Industry Sector Income Stabilization</enum>
             </allowed-values>
-
         </constraints>
 
     </context>

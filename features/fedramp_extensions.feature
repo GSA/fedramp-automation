@@ -1,5 +1,9 @@
 Feature: OSCAL Document Constraints
 
+@full-coverage
+Scenario Outline: Validating OSCAL constraints with metaschema constraints
+  Then I should verify that all constraints follow the style guide constraint
+
 @constraints
 Scenario Outline: Validating OSCAL documents with metaschema constraints
   Given I have Metaschema extensions documents
@@ -107,8 +111,8 @@ Examples:
   | has-system-id-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
-  | information-type-id-FAIL.yaml |
-  | information-type-id-PASS.yaml |
+  | information-type-800-60-v2r1-FAIL.yaml |
+  | information-type-800-60-v2r1-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -154,6 +158,7 @@ And I analyze the YAML test files for each constraint ID
 
 @full-coverage
 Scenario Outline: Ensuring full test coverage for "<constraint_id>"
+Given I have loaded all Metaschema extensions documents
 Then I should have both FAIL and PASS tests for constraint ID "<constraint_id>"
 Examples:
 | constraint_id |
