@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model schematypens="http://www.w3.org/2001/XMLSchema" title="FedRAMP OSCAL Extensions Registry"?>
+<extensions-registry xmlns="http://fedramp.gov/ns/oscal"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="af4b2194-ace7-491b-89d4-b97eba3ae5f8">
+   <!-- ===================================================================== -->
+   <!--  METADATA                                                             -->
+   <!-- ===================================================================== -->
+   <metadata>
+      <title>FedRAMP Extensions Registry</title>
+      <published>2024-10-04T00:00:00Z</published>
+      <last-modified>2024-10-04T00:00:00Z</last-modified>
+      <version>fedramp2.1.0-oscal1.0.4</version>
+
+      <role id="prepared-by">
+         <title>Prepared By</title>
+         <description>
+            <p>The organization that prepared this content.</p>
+         </description>
+      </role>
+
+      <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
+         <name>Federal Risk and Authorization Management Program: Program Management Office</name>
+         <short-name>FedRAMP PMO</short-name>
+         <link href="https://fedramp.gov" />
+         <email-address>info@fedramp.gov</email-address>
+         <address type="work">
+            <addr-line>1800 F St. NW</addr-line>
+            <addr-line />
+            <city>Washington</city>
+            <state>DC</state>
+            <postal-code />
+            <country>US</country>
+         </address>
+      </party>
+
+      <responsible-party role-id="prepared-by">
+         <party-uuid>77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d</party-uuid>
+      </responsible-party>
+
+      <remarks>
+         <p>This machine-readable file documents how FedRAMP extends OSCAL to meet its information
+            requirements.</p>
+         <p>It provides the extensions, defined identifiers, and references constraints necessary to
+            meet FedRAMP Authorization Package requirements.</p>
+      </remarks>
+   </metadata>
+
+   <!-- ===================================================================== -->
+   <!--  EXTENSIONS                                                           -->
+   <!-- ===================================================================== -->
+
+   <extension id="assessment-type">
+      <formal-name>Assessment Type</formal-name>
+      <description><p>The type of assessment (e.g., initial authorization, annual assessment,
+         assessment for a significant change, or another type of assessment).</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+   
+   <extension id="asset-type">
+      <formal-name>Asset Type</formal-name>
+      <description><p>Identifies the type of asset.</p></description>
+   </extension>
+
+   <extension id="authentication-method">
+      <formal-name>Authentication Method</formal-name>
+      <description><p>The authentication method(s) for users of a leveraged service or external
+         interconnection. Refer to for authentication methods NIST 800-63B
+         (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentication methods</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="authorization-date">
+      <formal-name>Authorization Date</formal-name>
+      <description><p>The date the system was authorized. Omit or leave blank for an initial
+         authorization.</p></description>
+   </extension>
+
+   <extension id="authorization-recommendation" deprecated="1.0.2">
+      <formal-name>Authorization Recommendation</formal-name>
+      <description><p>Indicates whether the assessor recommends the system be authorized by the
+         authorizing official.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use "recommend-authorization" <code>prop</code> instead.</p>
+      </remarks>
+   </extension>
+
+   <extension id="authorization-type">
+      <formal-name>Authorization Type</formal-name>
+      <description><p>Identifies the FedRAMP authorization type.</p></description>
+   </extension>
+
+   <extension id="authorized-users">
+      <formal-name>Authorized Users</formal-name>
+      <description><p>The users or roles that can access the leveraged service or external
+         interconnection. </p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="circuit">
+      <formal-name>Service Processor</formal-name>
+      <description><p>A circuit used for the communication.</p></description>
+   </extension>
+
+   <extension id="control-implementation-status">
+      <formal-name>Control Implementation Status</formal-name>
+      <description><p>Indicates the implementation status of the control.</p></description>
+      <remarks>
+         <p>Updated bindings and constraint.</p>
+      </remarks>
+   </extension>
+
+   <extension id="control-objective-implementation-status" deprecated="1.0.2">
+      <formal-name>Objective Implementation Status</formal-name>
+      <description><p>Indicates the implementation status of the control objective.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use "implementation-status" <code>prop</code> instead.</p>
+      </remarks>
+   </extension>
+
+   <extension id="control-origination">
+      <formal-name>Control Origination</formal-name>
+      <description><p>The point(s) from which the control satisfaction originates.</p></description>
+   </extension>
+
+   <extension id="CORE">
+      <formal-name>Core Control</formal-name>
+      <description><p>Identifies a control that must be included in every FedRAMP
+         assessment.</p></description>
+      <remarks>
+         <p>Core controls must be assessed every year, and are often subject to additional
+            scrutiny
+            by assessors and adjudication reviewers.</p>
+      </remarks>
+   </extension>
+
+   <extension id="cryptographic-module-usage">
+      <formal-name>Cryptographic Module Usage</formal-name>
+      <description><p>The cryptographic module is used for data at rest (DAT) or data in transit
+         (DIT).</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="csp-validated">
+      <formal-name>CSP Validated</formal-name>
+      <description><p>The CSP ensured the independent assessor team roles are appropriately
+         filled.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="description" deprecated="1.0.2">
+      <formal-name>Description</formal-name>
+      <description><p>A brief description of the system.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="discrepancies">
+      <formal-name>Discrepancies</formal-name>
+      <description><p>Any discrepancies between inventory that was in scope for the planned
+         assessment
+         and the assets in the assessment results.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="discrepencies-reason">
+      <formal-name>Discrepancies Reason</formal-name>
+      <description><p>The justification or reason for any discrepancies between inventory that was
+         in
+         scope for the planned assessment and the assets in the assessment results.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="false-positive">
+      <formal-name>False Positive</formal-name>
+      <description><p>The risk was found to be a false positive report.</p></description>
+   </extension>
+
+   <extension id="fully-operational-date">
+      <formal-name>Fully Operational Date</formal-name>
+      <description><p>The date when security control implementations for the appropriate control
+         baseline was completed.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>“Fully operational” means there are no “gaps” in the security control baseline
+            implementations for the system. The CSP attests that the security controls are
+            implemented correctly, operating as intended, and producing the desired outcome with
+            respect to meeting established security requirements.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ia-manual-review">
+      <formal-name>IA Manual Review</formal-name>
+      <description><p>Confirmation that the independent assessor performed a manual review of (scan)
+         configuration files to analyze for existing vulnerabilities. </p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ia-validated">
+      <formal-name>IA Validated</formal-name>
+      <description><p>The independent assessor ensured the assessment team roles are appropriately
+         filled.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="impact-level">
+      <formal-name>Impact Level</formal-name>
+      <description><p>The impact level of a leveraged authorization.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="import-profile">
+      <formal-name>Profile</formal-name>
+      <description><p>The baseline/profile for this system based on its FIPS-199
+         categorization.</p></description>
+   </extension>
+
+   <extension id="information">
+      <formal-name>Transmitted Information</formal-name>
+      <description><p>Describes the information transmitted over the interconnection.</p></description>
+   </extension>
+
+   <extension id="interconnection-compliance">
+      <formal-name>Interconnection Compliance</formal-name>
+      <description><p>Any (security) compliance certifications the third party external service has
+         (e.g., PCI SOC 2, CSA STAR Level 2, etc.).</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-data-categorization">
+      <formal-name>Interconnection Data Categorization</formal-name>
+      <description><p>The security impact level of the data (Low, Moderate, High), processed by or
+         stored in the external service, in accordance with FIPS 199 &amp; NIST 800-60 Vol.
+         2.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-data-type">
+      <formal-name>Interconnection Data Type</formal-name>
+      <description><p>The type of data / information processed by or stored in the external service,
+         in
+         accordance with NIST 800-60 Vol. 2.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-direction" deprecated="1.0.2">
+      <formal-name>Interconnection Direction</formal-name>
+      <description><p>Identifies the direction of information flow for the
+         interconnection.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use core OSCAL "direction" <code>prop</code> instead.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-hosting-environment">
+      <formal-name>Interconnection Hosting Environment</formal-name>
+      <description><p>A description of the hosting environment (e.g., corporate network, IaaS, or
+         self-hosted) for the external service.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-risk">
+      <formal-name>Interconnection Risk</formal-name>
+      <description><p>A description of the potential risks introduced by the external system/service
+         and impact to the CSO or federal data if the confidentiality, integrity, and
+         availability
+         (CIA) of the system/service is compromised.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-security">
+      <formal-name>Interconnection Security</formal-name>
+      <description><p>Identifies the type of security applied to the interconnection.</p></description>
+   </extension>
+
+   <extension id="interconnection-security">
+      <formal-name>Interconnection Security</formal-name>
+      <description><p>Identifies the mechanisms/protocol(s) used to secure the
+         communication.</p></description>
+      <remarks>
+         <p>Renamed from "connection-security" to "interconnection-security".</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-type">
+      <formal-name>Interconnection Type</formal-name>
+      <description><p>Numeric indicator of the type of interconnection, where 1 = Non-FedRAMP
+         Authorized Cloud Services, 2 = Corporate Shared Services, and 3 = Update Services for
+         In-Boundary Software/Services. </p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="inventory-item-state" deprecated="1.0.2">
+      <formal-name>Different states of inventory items: public, private, et cetera.</formal-name>
+      <description><p>Indicates if the asset is virtual.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use core OSCAL "public" and "virtual" <code>prop</code> instead.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ipv4-address">
+      <formal-name>IPv4 Address</formal-name>
+      <description><p>The IP address of a component, inventory item, or other asset.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>Core OSCAL has an "ipv4-address" <code>prop</code> which can be used for certain
+            component types and for inventory items. This extension can be used instead, and is also
+            applicable for other assemblies such as <code>assessment-platform</code>.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ipv4-subnet">
+      <formal-name>IPv4 Subnet</formal-name>
+      <description><p>The subnet for a component of inventory item.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="iso-iec-17020-identifier">
+      <formal-name>ISO/IEC 17020 Identifier</formal-name>
+      <description><p>The ISO/IEC-17020 identifier assigned to the assessor related to their status
+         as
+         an A2LA Accredited Third Party Assessment Organization.</p></description>
+   </extension>
+
+   <extension id="kev-catalog">
+      <formal-name>KEV Catalog</formal-name>
+      <description><p>Indicates if this vulnerability is on the CISA Known Exploited Vulnerabilities
+         (KEV) Catalog.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>In accordance with Binding Operational Directive (BOD) 22-01, CSPs must track their
+            vulnerabilities against the KEV catalog.</p>
+      </remarks>
+   </extension>
+
+   <extension id="kev-due-date">
+      <formal-name>Due Date</formal-name>
+      <description><p>The KEV catalog specified due date by which the vulnerability must be
+         remediated.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>In accordance with Binding Operational Directive (BOD) 22-01, CSPs must track their
+            vulnerabilities against the KEV catalog.</p>
+      </remarks>
+   </extension>
+
+   <extension id="label">
+      <formal-name>Test ID</formal-name>
+      <description><p>The test ID for the manual test method.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="leveraged-authorization">
+      <formal-name>Leveraged Authorization</formal-name>
+      <description><p>Indicates a leveraged authorization used for this control.</p></description>
+      <remarks>
+         <p>This is for legacy SSP conversion to OSCAL. The preferred approach is to specify the
+            leveraged system as a <code>component</code> and reference it in the control using <code>
+            by-component</code>.</p>
+      </remarks>
+   </extension>
+
+   <extension id="leveraged-system-identifier">
+      <formal-name>leveraged-system-identifier</formal-name>
+      <description><p>The identifier corresponding to the FedRAMP package ID.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="likelihood">
+      <formal-name>Likelihood</formal-name>
+      <description><p>The likelihood of a risk.</p></description>
+   </extension>
+
+   <extension id="name">
+      <formal-name>Tool Name</formal-name>
+      <description><p>The product or tool name for a component or inventory item.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="nature-of-agreement">
+      <formal-name>Nature of Agreement</formal-name>
+      <description><p>Any type of agreement between a CSP and the leveraged CSP vendors who support
+         products (e.g., End User Licensing Agreement (EULA), Service-Level Agreement (SLA), App
+         License Agreement, Contract, etc.).</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="no-oscal-ssp-authorization-date">
+      <formal-name>Authorization Date</formal-name>
+      <description><p>The date of the system's initial FedRAMP authorization.</p></description>
+   </extension>
+
+   <extension id="no-oscal-ssp-import-profile">
+      <formal-name>Relevant Baseline</formal-name>
+      <description><p>Identifies the relevant OSCAL baseline.</p></description>
+      <remarks>
+         <p>As with all URIs in OSCAL, this may contain a URI fragment, which identifies the
+            local
+            resource containing the relevant profile.</p>
+      </remarks>
+   </extension>
+
+   <extension id="no-oscal-ssp-purpose">
+      <formal-name>Short System Name</formal-name>
+      <description><p>The FedRAMP-assigned system identifier.</p></description>
+   </extension>
+
+   <extension id="no-oscal-ssp-system-id">
+      <formal-name>Short System Name</formal-name>
+      <description><p>The FedRAMP-assigned system identifier.</p></description>
+   </extension>
+
+   <extension id="no-oscal-ssp-title-short">
+      <formal-name>Short System Name</formal-name>
+      <description><p>The abbreviated name for the system, such as an acronym.</p></description>
+   </extension>
+
+   <extension id="operational-requirement">
+      <formal-name>Operational Requirement</formal-name>
+      <description><p>The risk cannot be remediated without impact to the system and must be
+         accepted.</p></description>
+   </extension>
+
+   <extension id="planned-completion-date">
+      <formal-name>Planned Completion Date</formal-name>
+      <description><p>Provides the date the control expects to be implemented. Must be present when
+         Implementation Status is "Planned"</p></description>
+   </extension>
+
+   <extension id="plugin-identifier">
+      <formal-name>Plugin Identifier</formal-name>
+      <description><p>A tool assigned Plugin ID.</p></description>
+   </extension>
+
+   <extension id="poam-id">
+      <formal-name>POA&amp;M ID</formal-name>
+      <description><p>A CSP-assigned POA&amp;M identifier.</p></description>
+   </extension>
+
+   <extension id="poam-impacted-control">
+      <formal-name>Impacted Control</formal-name>
+      <description><p>A control impacted by this POA&amp;M item.</p></description>
+      <remarks>
+         <p>Impacted control is required in the POA&amp;M and optional in the SAR.</p>
+         <p>It is allowed in the SAR in anticipation of duplicating open risks from the SAR to
+            the
+            POA&amp;M.</p>
+      </remarks>
+   </extension>
+
+   <extension id="privacy-designation" deprecated="1.0.2">
+      <formal-name>Privacy Designation</formal-name>
+      <description><p>Indicates whether this system is privacy sensitive.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="privacy-threshold-analysis-q1" deprecated="1.0.2">
+      <formal-name>Privacy Threshold Analysis Q1</formal-name>
+      <description><p>Does the ISA collect, maintain, or share PII in any identifiable
+         form?</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="privacy-threshold-analysis-q2" deprecated="1.0.2">
+      <formal-name>Privacy Threshold Analysis Q2</formal-name>
+      <description><p>Does the ISA collect, maintain, or share PII from or about the
+         public?</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="privacy-threshold-analysis-q3" deprecated="1.0.2">
+      <formal-name>Privacy Threshold Analysis Q3</formal-name>
+      <description><p>Has a Privacy Impact Assessment (PIA) ever been performed for the
+         ISA?</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="privacy-threshold-analysis-q4" deprecated="1.0.2">
+      <formal-name>Privacy Threshold Analysis Q4</formal-name>
+      <description><p>Is there a Privacy Act System of Records Notice (SORN) for this ISA
+         system?</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="purpose">
+      <formal-name>Purpose</formal-name>
+      <description><p>Explains the system's purpose.</p></description>
+   </extension>
+
+   <extension id="resolution-resource">
+      <formal-name>Resolution Resource</formal-name>
+      <description><p>The back-matter resource reference used to determine which FedRAMP validation
+         rule sets apply.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="response-point">
+      <formal-name>response-point</formal-name>
+      <description><p>A property whose presence indicates its parent part is a required point of
+         response for FedRAMP stakeholders.</p></description>
+      <external-constraint-id>TBD</external-constraint-id>
+      <remarks>
+         <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
+         <p>For control statements, it signals to the CSP which statements require a response in
+            the
+            SSP.</p>
+         <p>For control objectives, it signals to the assessor which control objectives must
+            appear
+            in the assessment results, which aligns with the FedRAMP test case workbook.</p>
+      </remarks>
+   </extension>
+
+   <extension id="revision-history-party-uuid">
+      <formal-name>Party Identifier</formal-name>
+      <description><p>Identifies the party who authored this revision.</p></description>
+   </extension>
+
+   <extension id="risk-adjustment">
+      <formal-name>Risk Adjustment</formal-name>
+      <description><p>Mitigating factors were identified or implemented, reducing the likelihood or
+         impact of the risk.</p></description>
+   </extension>
+
+   <extension id="sampling">
+      <formal-name>Sampling</formal-name>
+      <description><p>Indicates whether a sampling methodology was used instead of assessing the
+         entire
+         system.</p></description>
+   </extension>
+
+   <extension id="sar-recommend-authorization">
+      <formal-name>Assessor's Authorization Recommendation</formal-name>
+      <description><p>Indicates the assessor's recommendation for initial or continued
+         authorization.</p></description>
+   </extension>
+
+   <extension id="sar-risk-priority">
+      <formal-name>Risk Priority</formal-name>
+      <description><p>Assessor's recommended risk priority. Lower numbers are higher priority. One
+         (1)
+         is highest priority.</p></description>
+   </extension>
+
+   <extension id="scan-percentage">
+      <formal-name>Scan Percentage</formal-name>
+      <description><p>The scan coverage</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="scan-type">
+      <formal-name>Scan Type</formal-name>
+      <description><p>Identifies the type(s) of scans to be performed on this inventory-item or
+         component.</p></description>
+   </extension>
+
+   <extension id="security-cia-level" deprecated="1.0.2">
+      <formal-name>eAuth Level (OVERALL)</formal-name>
+      <description><p>The overall electronic authentication (eAuth) level applied to the
+         system.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="service-processor">
+      <formal-name>Service Processor</formal-name>
+      <description><p>Name of the interconnection service processor.</p></description>
+   </extension>
+
+   <extension id="service-used-by">
+      <formal-name>Service Used By</formal-name>
+      <description><p>Identifies what uses the service.</p></description>
+   </extension>
+
+   <extension id="significant-changes-scope">
+      <formal-name>Significant Changes Scope</formal-name>
+      <description><p>The general quantity of significant change(s) in scope.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="sorn-id" deprecated="1.0.2">
+      <formal-name>SORN ID</formal-name>
+      <description><p>An assigned System of Records Notice (SORN) identifier for this
+         system.</p></description>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
+   </extension>
+
+   <extension id="sort-id">
+      <formal-name>Sort ID</formal-name>
+      <description><p>Identifier for sort ordering content.</p></description>
+      <remarks>
+         <p>Core OSCAL has a "sort-id" <code>prop</code>, however this "sort-id" extension can be
+            applied to any assembly that provided information which may need to be rendered in a
+            specific order. The <code>step</code> assembly is an example of this.</p>
+      </remarks>
+   </extension>
+
+   <extension id="still-supported">
+      <formal-name>Still Supported</formal-name>
+      <description><p>Specify if the product / component is still supported by the vendor /
+         manufacturer.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="system-id">
+      <formal-name>System Identifier</formal-name>
+      <description><p>The FedRAMP-assigned identifier for this system.</p></description>
+   </extension>
+
+   <extension id="task-login-id">
+      <formal-name>Login ID</formal-name>
+      <description><p>The login ID used to assess the web application.</p></description>
+      <remarks>
+         <p>Extension renamed from "login-id" to "login-id".</p>
+      </remarks>
+   </extension>
+
+   <extension id="task-login-url">
+      <formal-name>Login URL</formal-name>
+      <description><p>The login URL for a web application.</p></description>
+      <remarks>
+         <p>Extension renamed from "login-url" to "login-url".</p>
+      </remarks>
+   </extension>
+
+   <extension id="task-test-type">
+      <formal-name>Test Type</formal-name>
+      <description><p>Indicates the type of test represented by the task.</p></description>
+   </extension>
+
+   <extension id="task-user-uuid">
+      <formal-name>User Identifier</formal-name>
+      <description><p>Cites the SSP defined user role to use for testing.</p></description>
+   </extension>
+
+   <extension id="title-short">
+      <formal-name>Short Title</formal-name>
+      <description><p>The short name for the system represented in the resource.</p></description>
+   </extension>
+
+   <extension id="type">
+      <formal-name>Type</formal-name>
+      <description><p>The "type" of back-matter resource.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>Locally defined resource types.</p>
+      </remarks>
+   </extension>
+
+   <extension id="user-sensitivity-level">
+      <formal-name>User Sensitivity Level</formal-name>
+      <description><p>Defines the sensitivity level of the identified user type.</p></description>
+      <remarks>
+         <p>Values are as required by FedRAMP for packages based on NIST 800-53, Revision 4.</p>
+         <p>Authoritative source: <a href="#871713A8-5A27-4AC3-8B94-972588469C6B">OPM Position
+            Designation (Page 18)</a>.</p>
+      </remarks>
+   </extension>
+
+   <extension id="users-external">
+      <formal-name>External Users</formal-name>
+      <description><p>The current number of users external to the organization.</p></description>
+   </extension>
+
+   <extension id="users-external-future">
+      <formal-name>Future External Users</formal-name>
+      <description><p>The anticipated number of users external to the organization in one
+         year.</p></description>
+   </extension>
+
+   <extension id="users-internal">
+      <formal-name>Internal Users</formal-name>
+      <description><p>The current number of users internal to the organization.</p></description>
+   </extension>
+
+   <extension id="users-internal-future">
+      <formal-name>Future Internal Users</formal-name>
+      <description><p>The anticipated number of users internal to the organization in one
+         year.</p></description>
+   </extension>
+
+   <extension id="vendor-dependency">
+      <formal-name>Vendor Dependency</formal-name>
+      <description><p>A vendor resolution is pending, but not yet available.</p></description>
+   </extension>
+
+   <extension id="vendor-name">
+      <formal-name>Vendor Name</formal-name>
+      <description><p>The vendor or manufacturer of a component or inventory item.</p></description>
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="vulnerability-identifier">
+      <formal-name>Vulnerability Identifier</formal-name>
+      <description><p>A tool assigned vulnerability ID.</p></description>
+   </extension>
+
+</extensions-registry>
