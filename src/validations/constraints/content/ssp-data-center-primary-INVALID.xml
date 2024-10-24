@@ -8,7 +8,7 @@
       <address >
         <country>US</country>
       </address>
-      <prop name='type' value='data-center' class='tertiary'/>
+      <prop name="type" value="data-center" class="tertiary" />
     </location>
     <location uuid="11143112-0000-4320-9001-000066700009">
       <address >
