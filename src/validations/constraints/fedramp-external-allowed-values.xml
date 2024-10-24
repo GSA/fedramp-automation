@@ -14,6 +14,13 @@
         <metapath target="/plan-of-action-and-milestones"/>
 
         <constraints>
+            
+            <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>FedRAMP Version</formal-name>
+                <description>Identifies the FedRAMP version of the document.</description>
+                <enum value="fedramp-3.0.0rc1-oscal-1.1.2">FedRAMP Version</enum>
+            </allowed-values>
+            
             <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Attachment Type</formal-name>
                 <description>Identifies the type of attachment.</description>
