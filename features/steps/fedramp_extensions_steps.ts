@@ -143,7 +143,6 @@ Given("I have Metaschema extensions documents", function (dataTable) {
   const files = readdirSync(constraintDir);
   metaschemaDocuments = files
     .filter((file) => file.endsWith(".xml")).sort()
-    .filter((x) => !x.startsWith("oscal")) //temporary
     .map((file) => join(constraintDir, file));
 });
 
