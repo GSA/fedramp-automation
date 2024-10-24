@@ -215,8 +215,6 @@ Examples:
   | has-system-id |
   | has-user-guide |
   | incomplete-implemented-requirements |
-  | index-implemented-requirements |
-  | index-imported-controls |
   | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |
