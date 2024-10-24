@@ -6,8 +6,6 @@
   <import-profile href="fedramp-tailoring-profile.xml"/>
   
   <control-implementation>
-    <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8"/>
-    <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="pe-2"/>
   </control-implementation>
   
 </system-security-plan>
