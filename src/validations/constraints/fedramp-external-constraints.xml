@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metaschema-meta-constraints xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd"
->
+    xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd">
     <!-- ================== -->
     <!-- FedRAMP Extensions -->
     <!-- ================== -->
@@ -30,7 +28,8 @@ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.git
                 <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
                 <remarks>
                     <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
-                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
+                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.
+                    </p>
                 </remarks>
             </expect>
         </constraints>
@@ -206,25 +205,32 @@ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.git
         <metapath target="/profile"/>
         <metapath target="/system-security-plan"/>
         <constraints>
-            <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))//catalog')"/>
-                <!-- Collect all the control IDs from imported profiles -->
-                <let var="all-control-ids" expression="map:merge($all-imports//control ! map:entry(@id,.))?*"/>
-                
-                <!-- Collect all the implemented requirements' control IDs -->
-                <let var="implemented-ids" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>
-                <!-- Extraneous Implemented Requirements -->
 
-                <expect id="extraneous-implemented-requirements" target="control-implementation"
-                        test="not(count($implemented-ids) gt count($all-control-ids))" level="WARNING">
-                    <message>{count($implemented-ids)  - count($all-control-ids) } Extraneous Implemented Requirements</message>
-                </expect>
-            
-                <!-- Incomplete Implemented Requirements -->
-                <expect id="incomplete-implemented-requirements" target="control-implementation"
-                        test="not(count($implemented-ids) lt count($all-control-ids))" level="WARNING">
-                    <message>Missing {count($all-control-ids) - count($implemented-ids) } Implemented Requirements</message>
-                </expect>
-                </constraints>
+            <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))//catalog')"/>
+            <!-- Collect all the control IDs from imported profiles -->
+            <let var="imported-controls-map" expression="map:merge($all-imports//control ! map:entry(@id,.))?*"/>
+            <!-- Collect all the implemented requirements' control IDs -->
+            <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>
+            <!-- Verify each required control has a corresponding implemented-requirement -->
+            <index id="index-imported-controls" name="index-imported-controls" target="$imported-controls-map">
+                <key-field target="@id"/>
+            </index>
+            <index id="index-implemented-requirements" name="index-implemented-requirements" target="$implemented-requirements-map">
+                <key-field target="@control-id"/>
+            </index>
+            <index-has-key id='incomplete-implemented-requirements' target="$imported-controls-map" name="index-implemented-requirements">
+                <formal-name>Incomplete Implemented Requirements</formal-name>
+                <description>A FedRAMP SSP must contain an implemented requirement for each imported control</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
+                <key-field target="@id"/>
+            </index-has-key>
+            <index-has-key id='extraneous-implemented-requirements' target="//implemented-requirement" name="index-imported-controls">
+                <formal-name>Implemented Controls</formal-name>
+                <description>A FedRAMP SSP must contain an imported control for each implemented-requirement</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
+                <key-field target="@control-id"/>
+            </index-has-key>
+        </constraints>
     </context>
 </metaschema-meta-constraints>
  
