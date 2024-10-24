@@ -141,6 +141,10 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
                 <message>A FedRAMP SSP must have a FedRAMP system identifier.</message>
             </expect>
+            <expect id="import-profile-has-href-attribute" target="import-profile" test="exists(doc(resolve-uri(@href))//control/prop[@ns='https://fedramp.gov/ns/oscal' and @name='CORE' and @value='true'])" level="CRITICAL">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
+                <message>A FedRAMP SSP MUST have an import-profile element that has a reference to a valid catalog with resolved controls in it.</message>
+            </expect>
         </constraints>
     </context>
     <context>
