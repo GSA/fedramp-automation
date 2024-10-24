@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+<metaschema-meta-constraints xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd">
     <!-- ================== -->
     <!-- FedRAMP Extensions -->
     <!-- ================== -->
@@ -15,7 +17,7 @@
                 <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
                 <p>For control statements, it signals to the CSP which statements require a response in the SSP.</p>
                 <p>For control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook.</p>
-             </remarks>
+            </remarks>
         </constraints>
     </context>
     <context>
@@ -26,7 +28,8 @@
                 <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
                 <remarks>
                     <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
-                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
+                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.
+                    </p>
                 </remarks>
             </expect>
         </constraints>
@@ -193,8 +196,28 @@
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
             <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
-                <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
+                <message>Implemented requirement (Control ID: {@control-id}) must have at least one by-component reference to the source component implementing it found ({count(./by-component)}).</message>
             </expect>
         </constraints>
     </context>
+    <context>
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <index-has-key id='incomplete-implemented-requirements' target="$imported-controls-map" name="index-implemented-requirements" level="WARNING">
+                <formal-name>Incomplete Implemented Requirements</formal-name>
+                <description>A FedRAMP SSP must contain an implemented requirement for each imported control</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
+                <key-field target="@id"/>
+            </index-has-key>
+            <index-has-key id='extraneous-implemented-requirements' target="//implemented-requirement" name="index-imported-controls" level="WARNING">
+                <formal-name>Implemented Controls</formal-name>
+                <description>A FedRAMP SSP must contain an imported control for each implemented-requirement</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
+                <key-field target="@control-id"/>
+            </index-has-key>
+        </constraints>
+    </context>
 </metaschema-meta-constraints>
+ 

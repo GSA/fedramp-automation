@@ -143,7 +143,6 @@ Given("I have Metaschema extensions documents", function (dataTable) {
   const files = readdirSync(constraintDir);
   metaschemaDocuments = files
     .filter((file) => file.endsWith(".xml")).sort()
-    .filter((x) => !x.startsWith("oscal")) //temporary
     .map((file) => join(constraintDir, file));
 });
 
@@ -293,7 +292,7 @@ async function checkConstraints(
     }
 
     let errors = [];
-
+    let sarifMessages = [];
     for (const expectation of constraints) {
       const constraint_id = expectation["constraint-id"];
       const expectedResult = expectation.result;
@@ -312,6 +311,7 @@ async function checkConstraints(
         );
         continue;
       }
+      sarifMessages = constraintResults.map(x=>x.message.text)
 
       const kinds = constraintResults.map((c) => {
         if(c.level==='warning'){
@@ -400,6 +400,7 @@ async function checkConstraints(
     }
 
     if (errors.length > 0) {
+      errors.push(sarifMessages)
       return {
         status: "fail",
         errorMessage:
