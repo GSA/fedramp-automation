@@ -1,0 +1,36 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
+  <control-implementation>
+    <description>
+      <p>Implementation of controls for the Enhanced Example System</p>
+    </description>
+    <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
+      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
+      <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
+      </statement>
+      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
+        <description>
+          <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
+        </description>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+        <responsible-role role-id="system-admin">
+          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-role>
+      </by-component>
+    </implemented-requirement>
+    <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
+      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
+      <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
+      </statement>
+      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000000d">
+        <description>
+          <p>Information System Component Inventory (CM-8) is partially implemented.</p>
+        </description>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
+        <responsible-role role-id="system-admin">
+          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-role>
+      </by-component>
+    </implemented-requirement>
+  </control-implementation>
+</system-security-plan>

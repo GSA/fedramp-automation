@@ -21,6 +21,8 @@ Examples:
   | attachment-type-PASS.yaml |
   | authorization-type-FAIL.yaml |
   | authorization-type-PASS.yaml |
+  | by-component-requirement-not-inside-statement-FAIL.yaml |
+  | by-component-requirement-not-inside-statement-PASS.yaml |
   | categorization-has-correct-system-attribute-FAIL.yaml |
   | categorization-has-correct-system-attribute-PASS.yaml |
   | categorization-has-information-type-id-FAIL.yaml |
@@ -165,6 +167,7 @@ Examples:
   | address-type |
   | attachment-type |
   | authorization-type |
+  | by-component-requirement-not-inside-statement |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
   | cloud-service-model |
