@@ -8,7 +8,13 @@
       <address >
         <country>WRONG</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='tertiary'/>
+      <prop name="type" value="data-center" class="primary" />
+    </location>
+    <location uuid="11291112-0070-4000-9001-000890000009">
+      <address >
+        <country>WRONG</country>
+      </address>
+      <prop name="type" value="data-center" class="alternate" />
     </location>
   </metadata>
 </system-security-plan>

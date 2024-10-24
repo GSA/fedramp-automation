@@ -38,13 +38,13 @@
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='primary'/>
+      <prop name="type" value="data-center" class="primary"/>
     </location>
     <location uuid="11111112-0000-4000-9000-000000000003">
       <address >
         <country>US</country>
       </address>
-      <prop name='data-center' value='aws-us-west-1' class='alternate'/>
+      <prop name="type" value="data-center" class="alternate"/>
     </location>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>

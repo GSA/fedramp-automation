@@ -6,9 +6,15 @@
   <metadata>
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
-        <country>WRONG</country>
+        <country>US</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='tertiary'/>
+      <prop name="type" value="data-center" class="tertiary" />
+    </location>
+    <location uuid="11143112-0000-4320-9001-000066700009">
+      <address >
+        <country>US</country>
+      </address>
+      <prop name="type" value="data-center" class="alternate'"/>
     </location>
   </metadata>
 </system-security-plan>
