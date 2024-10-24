@@ -51,7 +51,7 @@
             </expect>
             <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>User with uuid {@uuid} must have at least one authorized privilege id.</message>
+                <message>A FedRAMP document MUST define a user with at least one authorized privilege by a privilege identifier.</message>
             </expect>
         </constraints>
     </context>
