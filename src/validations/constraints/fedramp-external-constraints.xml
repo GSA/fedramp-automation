@@ -35,7 +35,7 @@
 
             <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>User with uuid {@uuid} must have a single type prop.</message>
+                <message>A FedRAMP document MUST define a user with a type.</message>
             </expect>
             <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level']) = 1">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
