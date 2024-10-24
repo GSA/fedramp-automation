@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for import-profile-has-href-attribute
-  description: >-
-    This test case validates the behavior of constraint
-    import-profile-has-href-attribute
+  description: The import-profile element has a reference to a valid catalog with resolved controls in it.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: import-profile-has-href-attribute
