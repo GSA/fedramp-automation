@@ -107,10 +107,14 @@ Examples:
   | has-rules-of-behavior-PASS.yaml |
   | has-separation-of-duties-matrix-FAIL.yaml |
   | has-separation-of-duties-matrix-PASS.yaml |
+  | has-system-id-FAIL.yaml |
+  | has-system-id-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
   | incomplete-required-controls-implemented-FAIL.yaml |
   | incomplete-required-controls-implemented-PASS.yaml |
+  | information-type-id-FAIL.yaml |
+  | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
@@ -208,8 +212,12 @@ Examples:
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-rules-of-behavior |
   | has-separation-of-duties-matrix |
+  | has-system-id |
   | has-user-guide |
   | incomplete-implemented-requirements |
+  | index-implemented-requirements |
+  | index-imported-controls |
+  | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
