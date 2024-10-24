@@ -5,9 +5,14 @@
                       uuid="12345678-1234-4321-8765-123456789012">
   <metadata>
     <location uuid="11111112-0000-4000-9001-000000000009">
-      <address >
+      <address>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='tertiary'/>
+      <prop name='type' value='data-center' class='primary'/>
+    </location>
+    <location uuid="11117112-0080-4000-9001-001230000009">
+      <address>
+      </address>
+      <prop name='type' value='data-center' class='alternate'/>
     </location>
   </metadata>
 </system-security-plan>

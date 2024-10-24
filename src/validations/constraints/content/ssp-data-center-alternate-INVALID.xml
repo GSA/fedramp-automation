@@ -4,11 +4,17 @@
                       xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
                       uuid="12345678-1234-4321-8765-123456789012">
   <metadata>
+    <location uuid="11155112-0340-4000-9001-000006500009">
+      <address >
+        <country>US</country>
+      </address>
+      <prop name='type' value='data-center' class='primary'/>
+    </location>
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
-        <country>WRONG</country>
+        <country>US</country>
       </address>
-      <prop name='data-center' value='dc-zone-1' class='tertiary'/>
+      <prop name='type' value='data-center' class='tertiary'/>
     </location>
   </metadata>
 </system-security-plan>
