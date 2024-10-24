@@ -7,7 +7,7 @@
 
 **If you are interested in [an overview about OSCAL](https://automate.fedramp.gov/about/) and [extensive documentation](https://automate.fedramp.gov/documentation/) on how to use it for FedRAMP's specific requirements, please visit our [Developer Hub](https://automate.fedramp.gov/).**
 
-FedRAMP maintains this repository with data, software, and documentation to review digital authorization packages for FedRAMP authorizations using [OSCAL](https://pages.nist.gov/OSCAL/documentation/). Our primary aim  is to reduce manual review efforts and timeframes by validating whether submissions conform to FedRAMP’s requirements. Once complete, our tooling will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, streamlining the review process.
+FedRAMP maintains this repository with data, software, and documentation to review digital authorization packages for FedRAMP authorizations using [OSCAL](https://pages.nist.gov/OSCAL/documentation/). Our primary aim is to reduce manual review efforts and timeframes by validating whether submissions conform to FedRAMP’s requirements. Once complete, our tooling will help ensure that packages such as System Security Plans (SSPs) and Plans of Action and Milestones (POA&Ms) meet FedRAMP's expectations before submission, streamlining the review process.
 
 ## FedRAMP OSCAL Validation Tooling
 
