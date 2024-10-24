@@ -143,7 +143,7 @@
             </expect>
             <expect id="import-profile-has-href-attribute" target="import-profile" test="exists(doc(resolve-uri(@href))//control/prop[@ns='https://fedramp.gov/ns/oscal' and @name='CORE' and @value='true'])" level="CRITICAL">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
-                <message>A FedRAMP SSP MUST have an import-profile element that has a reference to a valid catalog with resolved controls in it.</message>
+                <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
             </expect>
         </constraints>
     </context>
