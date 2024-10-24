@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for import-profile-has-href-attribute
+  description: The import-profile element does not have a reference to a valid catalog with resolved controls in it.
+  content: ../content/ssp-import-profile-has-href-attribute-INVALID.xml
+  expectations:
+    - constraint-id: import-profile-has-href-attribute
+      result: fail
