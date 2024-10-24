@@ -8,8 +8,9 @@
     <published>2024-08-01T14:30:00Z</published>
     <last-modified>2024-08-01T14:30:00Z</last-modified>
     <version>1.1</version>
-    <oscal-version>1.0.0</oscal-version>
+    <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
+    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     
     <role id="creator">
       <title>Document Creator</title>

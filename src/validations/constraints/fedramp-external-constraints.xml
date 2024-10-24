@@ -23,6 +23,19 @@ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.git
         </constraints>
     </context>
     <context>
+        <metapath target="//metadata"/>
+        <constraints>
+            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-version"/>
+                <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
+                <remarks>
+                    <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
+                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
+                </remarks>
+            </expect>
+        </constraints>
+    </context>
+    <context>
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
@@ -36,6 +49,12 @@ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.git
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
+            <let var="security-impact-level" expression=
+                "if (//security-impact-level//* = 'fips-199-high')
+                    then ('fips-199-high')
+                else if (//security-impact-level//* = 'fips-199-moderate')
+                    then ('fips-199-moderate')
+                else ('fips-199-low')"/>
             <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
                 <message>Every supporting artifact found in a citation should have a title.</message>
             </expect>
@@ -144,6 +163,10 @@ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.git
             <expect id="has-system-id" target="system-characteristics" test="system-id[@identifier-type eq 'https://fedramp.gov']" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
                 <message>A FedRAMP SSP must have a FedRAMP system identifier.</message>
+            </expect>
+            <expect id="security-sensitivity-level-matches-security-impact-level" target="system-characteristics/security-sensitivity-level" test=". eq $security-impact-level" level="WARNING">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
+                <message>A FedRAMP SSP SHOULD define its FIPS-199 security sensitivity level to match the highest security impact level for the system's confidentiality, integrity, and availability objectives.</message>
             </expect>
         </constraints>
     </context>

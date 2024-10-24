@@ -1,0 +1,8 @@
+# Driver for the invalid security-sensitivity-level-matches-security-impact-level constraint unit test.
+test-case:
+  name: The invalid security-sensitivity-level-matches-security-impact-level constraint unit test.
+  description: Test that the SSP "security-sensitivity-level" element value does not match "security-impact-level" values.
+  content: ../content/ssp-security-sensitivity-level-matches-security-impact-level-INVALID.xml
+  expectations:
+  - constraint-id: security-sensitivity-level-matches-security-impact-level
+    result: fail
