@@ -143,6 +143,8 @@ Examples:
   | scan-type-PASS.yaml |
   | security-level-FAIL.yaml |
   | security-level-PASS.yaml |
+  | security-sensitivity-level-matches-security-impact-level-FAIL.yaml |
+  | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
   | user-type-FAIL.yaml |
   | user-type-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
@@ -224,5 +226,6 @@ Examples:
   | role-defined-system-owner |
   | scan-type |
   | security-level |
+  | security-sensitivity-level-matches-security-impact-level |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS
