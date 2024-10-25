@@ -42,7 +42,7 @@ body:
       label: Allowed Values
       options:
       - There are no relevant allowed values.
-      - There are only NIST-defined allowd values.
+      - There are only NIST-defined allowed values.
       - FedRAMP allowed values must be defined or verified.
       - NIST-allowed values must be extended with FedRAMP allowed values.
     validations:
