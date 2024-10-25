@@ -36,7 +36,7 @@
      <role id="system-poc-management">
       <title>Information System Management Point of Contact (POC)</title>
       <description>
-         <p>The highest level manager who responsible for system operation on behalf of the System Owner.</p>
+         <p>The highest level manager who is responsible for system operation on behalf of the System Owner.</p>
       </description>
       </role>
       <role id="system-poc-technical">

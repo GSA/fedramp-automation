@@ -72,18 +72,6 @@
         <responsible-party role-id="authorizing-official">
             <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-party>
-        <responsible-party role-id="authorizing-official-poc">
-            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-        </responsible-party>
-        <responsible-party role-id="system-poc-management">
-            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-        </responsible-party>
-        <responsible-party role-id="system-poc-technical">
-            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-        </responsible-party>
-        <responsible-party role-id="system-poc-other">
-            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-        </responsible-party>
         <responsible-party role-id="information-system-security-officer">
             <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-party>
