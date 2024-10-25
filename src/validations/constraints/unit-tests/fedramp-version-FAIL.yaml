@@ -1,0 +1,8 @@
+# Driver for the invalid fedramp-version constraint unit test.
+test-case:
+  name: The invalid fedramp-version constraint unit test.
+  description: Test that the SSP metadata does not contain the "fedramp-version" property.
+  content: ../content/ssp-fedramp-version-INVALID.xml
+  expectations:
+  - constraint-id: fedramp-version
+    result: fail
