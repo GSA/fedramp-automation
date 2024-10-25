@@ -211,8 +211,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
                 <key-field target="@id"/>
             </index-has-key>
-            <index-has-key id='extraneous-implemented-requirements' target="//implemented-requirement" name="index-imported-controls" level="WARNING">
-                <formal-name>Implemented Controls</formal-name>
+                <formal-name>Additional Controls Implemented Not in Baseline</formal-name>
                 <description>A FedRAMP SSP must contain an imported control for each implemented-requirement</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
                 <key-field target="@control-id"/>
