@@ -1,4 +1,4 @@
-name: Create or Revise a Constraint
+name: Add, Change, or Remove a Constraint
 description: Define work to be performed specifically related to the creation, refinement, or decommissioning of constraints.
 labels: ["enhancement"]
 body:
