@@ -1,5 +1,5 @@
 name: Add, Change, or Remove a Constraint
-description: Define work to be performed specifically related to the creation, refinement, or decommissioning of constraints.
+description: Define work to be performed specifically related to the adding, changing, or removing constraints.
 labels: ["enhancement"]
 body:
   - type: textarea
