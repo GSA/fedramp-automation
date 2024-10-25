@@ -32,7 +32,7 @@ body:
       options:
       - This is required core OSCAL syntax.
       - This is optional core OSCAL syntax.
-      - This is a FedRAMP extension.
+      - This is a FedRAMP constraint in the FedRAMP-specific namespace.
       - This is a mix of required, optional, and/or extended syntax.
     validations:
       required: true
