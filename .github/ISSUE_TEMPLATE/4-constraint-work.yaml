@@ -24,7 +24,7 @@ body:
 
   - type: markdown
     attributes:
-      label: OSCAL Content Details
+      value: OSCAL Content Details
       
   - type: dropdown
     attributes:
@@ -102,7 +102,7 @@ body:
         - [ ] This issue is referenced in the PR.
     validations:
       required: true
-      
+
   - type: textarea
     attributes:
       label: Other information
