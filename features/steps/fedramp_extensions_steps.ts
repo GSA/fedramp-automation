@@ -311,6 +311,7 @@ async function checkConstraints(
         );
         continue;
       }
+      // store sarif messages in case there is an error
       sarifMessages = constraintResults.map(x=>x.message.text)
 
       const kinds = constraintResults.map((c) => {
@@ -400,6 +401,7 @@ async function checkConstraints(
     }
 
     if (errors.length > 0) {
+      //include relevant sarif messages if there is an error (may give a clue)
       errors.push(sarifMessages)
       return {
         status: "fail",
