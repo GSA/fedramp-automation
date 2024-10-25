@@ -89,7 +89,7 @@ body:
         - [ ] All [OSCAL adoption content](http://automate.fedramp.gov/) affected by the change in this issue have been updated in accordance with the Documentation Standards.
           - [ ] Explanation is present and accurate
           - [ ] sample content is present and accurate
-          - [ ] metapath is present and accurate 
+          - [ ] [Metapath](https://pages.nist.gov/metaschema/specification/syntax/metapath/) is present,  accurate, and does not throw a syntax exception using `oscal-cli metaschema metapath eval -e "expression"`. 
         - [ ] All constraints associated with the review task have been created
         - [ ] The appropriate example OSCAL file is updated with content that demonstrates the FedRAMP-compliant OSCAL presentation.
         - [ ] The constraint conforms to the FedRAMP Constraint Style Guide. 
