@@ -207,7 +207,7 @@
         <constraints>
             <index-has-key id='incomplete-implemented-requirements' target="$imported-controls-map" name="index-implemented-requirements" level="WARNING">
                 <formal-name>Incomplete Implemented Requirements</formal-name>
-                <description>A FedRAMP SSP must contain an implemented requirement for each imported control</description>
+                <description>A FedRAMP SSP MUST contain an implemented requirement for each imported control.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
                 <key-field target="@id"/>
             </index-has-key>
