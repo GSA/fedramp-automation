@@ -195,7 +195,7 @@
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
             <expect id="missing-response-components" target="implemented-requirement" test="./statement/by-component">
-                <message>Implemented requirement (Control ID: {@control-id}) must have at least one by-component reference to the source component implementing it. Found ({count(./by-component)}).</message>
+                <message>Implemented requirement (Control ID: {@control-id}) must have at least one by-component reference to the source component implementing it. Found ({count(./statement/by-component)}).</message>
             </expect>
         </constraints>
     </context>
