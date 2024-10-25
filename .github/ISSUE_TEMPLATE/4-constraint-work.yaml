@@ -45,6 +45,7 @@ body:
       - There are only NIST-defined allowed values.
       - FedRAMP allowed values must be defined or verified.
       - NIST-allowed values must be extended with FedRAMP allowed values.
+      - Not sure, can maintainers help me choose?
     validations:
       required: true
 
