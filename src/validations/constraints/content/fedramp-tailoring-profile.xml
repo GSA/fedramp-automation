@@ -8,7 +8,7 @@
     <oscal-version>1.2.0</oscal-version>
   </metadata>
   <!-- very small valid example of a response point declaration -->
-  <import href="https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml">
+  <import href="../../../content/rev5/baselines/xml/NIST_SP-800-53_rev5_catalog.xml">
     <include-controls>
         <!-- a single control selection -->
         <with-id>ac-1</with-id>

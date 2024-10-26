@@ -81,7 +81,7 @@
                 <enum value="network">A physical or virtual network.</enum>
             </allowed-values>
 
-            <allowed-values id="control-implementation-status" target="control-implementation/implemented-requirement/by-component/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="control-implementation-status" target="//prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
                 <formal-name>Control Implementation Status</formal-name>
                 <description>The implementation status of the control.</description>
                 <enum value="implemented">Implemented</enum>
