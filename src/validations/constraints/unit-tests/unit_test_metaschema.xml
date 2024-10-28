@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METASCHEMA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/0441e6d4c9bce5b6c40b4647148019e4f47bed08/schema/xml/metaschema.xsd"
+ xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <schema-name>OSCAL Unit Test Module</schema-name>
+    <schema-version>1.0.0</schema-version>
+    <short-name>oscal-unit-tests</short-name>
+    <namespace>http://github.com/gsa/fedramp-automation/constraint/test</namespace>
+    <json-base-uri>http://github.com/gsa/fedramp-automation/constraint/test</json-base-uri>
+    <define-assembly name="test-case">
+        <root-name>test-case</root-name>
+        <model>
+            <field ref="name" min-occurs="1" max-occurs="1"/>
+            <field ref="description" min-occurs="1" max-occurs="1"/>
+            <field ref="content" min-occurs="1" max-occurs="1"/>
+            <assembly ref="expectation" min-occurs="1" max-occurs="unbounded">
+                <group-as name="expectations" in-json="ARRAY"/>
+            </assembly>
+        </model>
+    </define-assembly>
+    <define-field name="name" as-type="string"/>
+    <define-field name="description" as-type="string"/>
+    <define-field name="content" as-type="string">
+        <constraint>
+            <expect id="content-url-invalid" target="." test=". => doc-available()">
+                <message>Test content URL does not point to a valid file or HTTP resource. Is it correct?</message>
+            </expect>
+        </constraint>
+    </define-field>
+    <define-assembly name="expectation">
+        <model>
+            <field ref="constraint-id" min-occurs="1" max-occurs="1"/>
+            <field ref="result" min-occurs="1" max-occurs="1"/>
+        </model>
+    </define-assembly>
+    <define-field name="constraint-id" as-type="string"/>
+    <define-field name="result" as-type="string">
+        <constraint>
+            <allowed-values target="." allow-other="no">
+                <enum value="pass">Use when the desired result of test execution without a constraint passing</enum>
+                <enum value="fail">Use when the desired result of test execution with a constraint violation</enum>
+            </allowed-values>
+        </constraint>
+    </define-field>
+</METASCHEMA>
