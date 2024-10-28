@@ -16,8 +16,8 @@
     <alter control-id="ac-1">
       <add position="starting">
         <part name="statement">
-          <prop name="response-point" ns="https://fedramp.gov/ns/oscal" value="123"/>
-          <prop name="response-point" ns="https://fedramp.gov/ns/oscal" value="1234"/>
+          <prop name="response-point" ns="http://fedramp.gov/ns/oscal" value="123"/>
+          <prop name="response-point" ns="http://fedramp.gov/ns/oscal" value="1234"/>
           <p>This is a test checking that profiles validation fails if more than one response point is specified for a given (control) part.</p>
         </part>
       </add>

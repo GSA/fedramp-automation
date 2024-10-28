@@ -342,7 +342,7 @@
                 <enum value="in/out">Bi-Directional</enum>
             </allowed-values>
 
-            <allowed-values id="interconnection-security" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="interconnection-security" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-security'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Interconnection Security</formal-name>
                 <description>Identifies the type of security applied to the interconnection.</description>
                 <enum value="ipsec">IPsec</enum>

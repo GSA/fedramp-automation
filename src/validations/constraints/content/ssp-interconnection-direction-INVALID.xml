@@ -9,8 +9,8 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="interconnection-security" value="unsupported-security" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="interconnection-direction" value="unsupported-direction" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-security" value="unsupported-security" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-direction" value="unsupported-direction" ns="http://fedramp.gov/ns/oscal"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
