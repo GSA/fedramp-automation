@@ -19,7 +19,7 @@ build-validations:
 	@echo "Running Cucumber Tests"
 	$(OSCAL_CLI) server start
 	@npm run test
-	$(OSCAL_CLI) server start
+	$(OSCAL_CLI) server stop
 
 clean-validations:
 	@echo "Nothing to clean"
