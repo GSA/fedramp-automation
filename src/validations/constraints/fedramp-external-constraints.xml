@@ -187,6 +187,16 @@
             <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'data-center'][@class eq 'alternate']) &gt; 0">
                 <message>There MUST be one or more alternate data center(s).</message>
             </expect>
+            <index name="index-person-party-uuid" target="map:merge(party[@type='person'] ! map:entry(@uuid,.))?*">
+            	<formal-name>Index of parties of type "person".</formal-name>
+            	<description>This index is a list of the UUIDs of all of the parties that are type "person" in the document.</description>
+                <key-field target="@uuid"/>
+            </index>
+            <index-has-key id="responsible-party-is-person" name="index-person-party-uuid" target="./responsible-party[(@role-id='system-owner') or (@role-id='information-system-security-officer')]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#summary-of-ssp-roles-requirements"/>
+                <key-field target="party-uuid"/>
+                <message>For roles 'system-owner' and 'information-system-security-officer', the responsible-role party must be a party of type 'person'.</message>
+            </index-has-key>
             <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#information-system-owner"/>
                 <message>A FedRAMP SSP MUST define the system owner role.</message>
