@@ -22,20 +22,15 @@ body:
   - type: checkboxes
     attributes:
       label: This relates to ...
-      description: Select all things this feedback relates to.
+      description: Select all things this feedback relates to. (For changes to the FedRAMP OSCAL guidance document, please submit an issue [in the automate.fedramp.gov repository](https://github.com/GSA/automate.fedramp.gov/issues).)
       options:
-      - label: the **FedRAMP OSCAL Registry**
       - label: the **FedRAMP OSCAL baselines**
-      - label: the **Guide to OSCAL-based FedRAMP Content**
-      - label: the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)**
-      - label: the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)**
-      - label: the **Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)**
-      - label: the **Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)**
-      - label: the **FedRAMP SSP OSCAL Template** (JSON or XML Format)
-      - label: the **FedRAMP SAP OSCAL Template** (JSON or XML Format)
-      - label: the **FedRAMP SAR OSCAL Template** (JSON or XML Format)
-      - label: the **FedRAMP POA&M OSCAL Template** (JSON or XML Format)
+      - label: the **FedRAMP SSP OSCAL Example** 
+      - label: the **FedRAMP SAP OSCAL Example** 
+      - label: the **FedRAMP SAR OSCAL Example**
+      - label: the **FedRAMP POA&M OSCAL Example**
       - label: the **FedRAMP OSCAL Validations**
+      - label: the **Not sure** 
   - type: textarea
     id: user-story
     attributes:

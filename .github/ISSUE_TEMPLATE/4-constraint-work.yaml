@@ -1,0 +1,114 @@
+name: Add, Change, or Remove a Constraint
+description: Define work to be performed specifically related to the adding, changing, or removing constraints.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: user-story
+    attributes:
+      label: Constraint Task
+      description: Identify the constraint 
+      placeholder: |
+        Consistent with the parent/tracked-by issue, this constraint work focuses on ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: intended-outcome
+    attributes:
+      label: Intended Outcome
+      description: Describe the reason for the constraint 
+      placeholder: |
+        Ensure the {*content*} is ...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: OSCAL Content Details
+      
+  - type: dropdown
+    attributes:
+      label: Syntax Type
+      options:
+      - This is required core OSCAL syntax.
+      - This is optional core OSCAL syntax.
+      - This is a FedRAMP constraint in the FedRAMP-specific namespace.
+      - This is a mix of required, optional, and/or extended syntax.
+      - Not sure, can maintainers help me choose?
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Allowed Values
+      options:
+      - There are no relevant allowed values.
+      - There are only NIST-defined allowed values.
+      - FedRAMP allowed values must be defined or verified.
+      - NIST-allowed values must be extended with FedRAMP allowed values.
+      - Not sure, can maintainers help me choose?
+    validations:
+      required: true
+
+  - type: textarea
+    id: metapath
+    attributes:
+      label: Metapath(s) to Content
+      description: Provide the metapath/xpath to the OSCAL conent. This will be automatically formatted into code, so no need for backticks.
+      render: xslt
+    validations:
+      required: true
+
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose of the OSCAL Content
+      description: Describe how the OSCAL content is used by FedRAMP Reviewers.
+      placeholder: |
+        Provide information that explains why the constraint is important 
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Describe any previous issues or related work that must be completed to start or complete this issue.
+      placeholder: |
+        Link to any previous issues or related work.
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Describe the artifacts and additional work that must be completed to resolve this issue.
+      placeholder: |
+        The items below are general acceptance criteria for all User Stories. Please describe anything else that must be completed for this issue to be considered resolved.
+      value: |
+        - [ ] All [OSCAL adoption content](http://automate.fedramp.gov/) affected by the change in this issue have been updated in accordance with the Documentation Standards.
+          - [ ] Explanation is present and accurate
+          - [ ] sample content is present and accurate
+          - [ ] [Metapath](https://pages.nist.gov/metaschema/specification/syntax/metapath/) is present,  accurate, and does not throw a syntax exception using `oscal-cli metaschema metapath eval -e "expression"`. 
+        - [ ] All constraints associated with the review task have been created
+        - [ ] The appropriate example OSCAL file is updated with content that demonstrates the FedRAMP-compliant OSCAL presentation.
+        - [ ] The constraint conforms to the FedRAMP Constraint Style Guide. 
+          - [ ] All automated and manual review items that identify non-conformance are addressed; **or** technical leads (David Waltermire; AJ Stein) have approved the PR and “override” the style guide requirement.
+        - [ ] Known good test content is created for unit testing.
+        - [ ] Known bad test content is created for unit testing.
+        - [ ] Unit testing is configured to run both known good and known bad test content examples.
+        - [ ] Passing and failing unit tests, and corresponding test vectors in the form of known valid and invalid OSCAL test files, are created or updated for each constraint.
+        - [ ] A Pull Request (PR) is submitted that fully addresses the goals section of the User Story in the issue. 
+        - [ ] This issue is referenced in the PR.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Other information
+      description: Provide any other relevant information.
+      placeholder: |
+        detailed explanation, suggestions how to fix, reference to related issues, links providing context, etc.
+
