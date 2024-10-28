@@ -1,4 +1,4 @@
-import { Given, Then, When, setDefaultTimeout } from "@cucumber/cucumber";
+import { BeforeAll, BeforeStep, Given, Then, When, setDefaultTimeout, world } from "@cucumber/cucumber";
 import { expect } from "chai";
 import {
   readFileSync,
@@ -16,7 +16,8 @@ import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
 
-const executor = 'oscal-server'
+let executor:'oscal-cli'|'oscal-server' = 'oscal-cli'
+
 
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
@@ -132,6 +133,11 @@ function getConstraintFiles() {
     .join("\n");
   return xmlFiles;
 }
+BeforeStep(()=>{
+  if(world.parameters.executor){
+    executor=world.parameters.executor;
+  }
+})
 
 Given("I have Metaschema extensions documents", function (dataTable) {
   const constraintDir = join(
