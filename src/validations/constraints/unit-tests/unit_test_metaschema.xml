@@ -20,15 +20,15 @@
             </assembly>
         </model>
     </define-assembly>
-    <define-field name="name" as-type="string">
+    <define-field name="name">
         <formal-name>Test Case Name</formal-name>
         <description>The name of the test case collection within a test cases file. </description>
     </define-field>
-    <define-field name="description" as-type="string">
+    <define-field name="description">
         <formal-name>Test Case Description</formal-name>
         <description>The description of the test case collection within a test case file.</description>
     </define-field>
-    <define-field name="content" as-type="string">
+    <define-field name="content">
         <formal-name>Test Case Content Path</formal-name>
         <description>A relative or absolute file path or HTTP URL to the OSCAL document instance for which the test runs.</description>
         <constraint>
@@ -52,11 +52,11 @@
             <field ref="result" min-occurs="1" max-occurs="1"/>
         </model>
     </define-assembly>
-    <define-field name="constraint-id" as-type="string">
+    <define-field name="constraint-id">
         <formal-name>Constraint ID for the Expectation</formal-name>
         <description>The <code>@id</code> attribute for a given constraint for which the test serves to match the expectation.</description>
     </define-field>
-    <define-field name="result" as-type="string">
+    <define-field name="result">
         <formal-name>Expectation Result</formal-name>
         <description>The expected result type in <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html">SARIF format</a> for the expectation. The expectation only supports specific values, defined in a constraint.</description>
         <constraint>
