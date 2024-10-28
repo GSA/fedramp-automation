@@ -1,5 +1,9 @@
 Feature: OSCAL Document Constraints
 
+@full-coverage
+Scenario Outline: Validating OSCAL constraints with metaschema constraints
+  Then I should verify that all constraints follow the style guide constraint
+
 @constraints
 Scenario Outline: Validating OSCAL documents with metaschema constraints
   Given I have Metaschema extensions documents
@@ -160,6 +164,7 @@ And I analyze the YAML test files for each constraint ID
 
 @full-coverage
 Scenario Outline: Ensuring full test coverage for "<constraint_id>"
+Given I have loaded all Metaschema extensions documents
 Then I should have both FAIL and PASS tests for constraint ID "<constraint_id>"
 Examples:
 | constraint_id |
