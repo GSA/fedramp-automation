@@ -112,15 +112,15 @@ function analyzeTestFiles() {
                 const result = expectation.result;
 
                 if (!testResults[constraintId]) {
-                    testResults[constraintId] = { pass: null, fail: null };
+                    testResults[constraintId] = { pass: [], pass_file: [], fail: null };
                 }
 
                 if (result === 'pass' || file.toUpperCase().includes('PASS')) {
-                    testResults[constraintId].pass = file;
-                    testResults[constraintId].pass_file = filePath.split("/").pop();                
+                    testResults[constraintId].pass.push(file);
+                    testResults[constraintId].pass_file.push(filePath.split("/").pop());
                 } else if (result === 'fail' || file.toUpperCase().includes('FAIL')) {
                     testResults[constraintId].fail = file;
-                    testResults[constraintId].fail_file = filePath.split("/").pop();                
+                    testResults[constraintId].fail_file = filePath.split("/").pop();
                 }
             }
         }
@@ -347,8 +347,15 @@ function getScenarioLineNumbers(featureFile, constraintId,tests) {
     const lines = content.split('\n');
     const scenarioLines = [];
     for (let i = 0; i < lines.length; i++) {
-        if (lines[i].includes(`${tests.fail}`) || lines[i].includes(`${tests.pass}`)||lines[i].includes(`${tests.fail_file}`) || lines[i].includes(`${tests.pass_file}`)) {
+        if (lines[i].includes(`${tests.fail}`) || lines[i].includes(`${tests.fail_file}`)) {
             scenarioLines.push(i + 1); // +1 because line numbers start at 1, not 0
+        }
+        if (Array.isArray(tests.pass_file)) {
+            tests.pass_file.forEach(passFile => {
+                if (lines[i].includes(passFile)) {
+                    scenarioLines.push(i + 1);
+                }
+            });
         }
     }
 
@@ -379,52 +386,55 @@ function parseFeatureFile(featureFilePath) {
     return testCases;
 }
 async function runCucumberTest(constraintId, testFiles) {
-    const passFile = testFiles.pass_file;
+    const passFiles = testFiles.pass_file;
     const failFile = testFiles.fail_file;
 
-    if (!passFile || !failFile) {
-        console.log(`Skipping Cucumber test for ${constraintId}: Missing ${!passFile ? 'PASS' : 'FAIL'} test file`);
+    if (passFiles.length === 0 || !failFile) {
+        console.log(`Skipping Cucumber test for ${constraintId}: Missing ${passFiles.length === 0 ? 'PASS' : 'FAIL'} test file`);
         return false;
     }
 
     const nodeOptions = '--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node';
     const cucumberCommand = `npx cucumber-js`;
 
-    let scenarioLines = getScenarioLineNumbers(featureFile, constraintId, testFiles);
+    for (const passFile of passFiles) {
+        let scenarioLines = getScenarioLineNumbers(featureFile, constraintId, { pass_file: [passFile], fail_file: failFile });
 
-    if (scenarioLines.length === 0) {
-        console.error(`No scenarios found for constraintId: ${constraintId}`);
-        execSync("npm run-script test:coverage", {
-            shell: true,
-            stdio: 'ignore',
-            cwd: path.join(__dirname, '..', '..') 
-        });     
-        scenarioLines = getScenarioLineNumbers(featureFile, constraintId, testFiles);
         if (scenarioLines.length === 0) {
+            console.error(`No scenarios found for constraintId: ${constraintId} with pass file: ${passFile}`);
+            execSync("npm run-script test:coverage", {
+                shell: true,
+                stdio: 'ignore',
+                cwd: path.join(__dirname, '..', '..')
+            });
+            scenarioLines = getScenarioLineNumbers(featureFile, constraintId, { pass_file: [passFile], fail_file: failFile });
+            if (scenarioLines.length === 0) {
+                return false;
+            }
+        }
+
+        try {
+            const isWindows = process.platform === 'win32';
+            for (const line of scenarioLines) {
+                const command = isWindows
+                    ? `set "NODE_OPTIONS=${nodeOptions}" && ${cucumberCommand} "${featureFile}:${line}"`
+                    : `NODE_OPTIONS="${nodeOptions}" ${cucumberCommand} "${featureFile}:${line}"`;
+                execSync(command, { stdio: 'inherit', shell: true });
+            }
+            console.log(`Cucumber tests for ${constraintId} with pass file ${passFile} passed successfully.`);
+        } catch (error) {
+            console.error(`Cucumber test for ${constraintId} with pass file ${passFile} failed:`, error.message);
             return false;
         }
     }
 
-    try {
-        const isWindows = process.platform === 'win32';
-        for (const line of scenarioLines) {
-            const command = isWindows
-            ? `set "NODE_OPTIONS=${nodeOptions}" && ${cucumberCommand} "${featureFile}:${line}"`
-            : `NODE_OPTIONS="${nodeOptions}" ${cucumberCommand} "${featureFile}:${line}"`;
-            execSync(command, { stdio: 'inherit', shell: true });
-        }
-        console.log(`Cucumber tests for ${constraintId} passed successfully.`);
-        return true;
-    } catch (error) {
-        console.error(`Cucumber test for ${constraintId} failed:`, error.message);
-        return false;
-    }
+    return true;
 }
 
 
 
 async function main() {
-    const {constraints:allConstraints,allContext} = await getAllConstraints();
+    const { constraints: allConstraints, allContext } = await getAllConstraints();
     console.log(`Found ${allConstraints.length} constraints.`);
     const selectedConstraints = await selectConstraints(allConstraints);
     console.log(`Selected ${selectedConstraints.length} constraints for analysis.`);
@@ -434,17 +444,17 @@ async function main() {
     console.log('\nConstraint Analysis and Test Execution:');
     for (const constraintId of selectedConstraints) {
         const testCoverage = testResults[constraintId];
-        
+
         if (!testCoverage) {
             console.log(`${constraintId}: No tests found`);
             var context = allContext[constraintId]
             console.log(`${context}: constraint context`);
             const scaffold = await scaffoldTest(constraintId,context);
             if (scaffold) {
-                const passed = await runCucumberTest(constraintId, { pass_file: `${constraintId}-PASS.yaml`, fail_file: `${constraintId}-FAIL.yaml` });
+                const passed = await runCucumberTest(constraintId, { pass_file: [`${constraintId}-PASS.yaml`], fail_file: `${constraintId}-FAIL.yaml` });
                 console.log(`${constraintId}: Test ${passed ? 'passed' : 'failed'}`);
             }
-        } else if (!testCoverage.pass) {
+        } else if (testCoverage.pass_file.length === 0) {
             console.log(`${constraintId}: Missing positive test`);
         } else if (!testCoverage.fail) {
             console.log(`${constraintId}: Missing negative test`);
