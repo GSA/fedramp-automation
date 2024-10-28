@@ -32,7 +32,7 @@
         <formal-name>Test Case Content Path</formal-name>
         <description>A relative or absolute file path or HTTP URL to the OSCAL document instance for which the test runs.</description>
         <constraint>
-            <expect id="content-url-invalid" level="CRITICAL" target="." test=". => doc-available()" >
+            <expect id="test-case-content-url-invalid" level="CRITICAL" target="." test=". => doc-available()" >
                 <message>Test content URL does not point to a valid file or HTTP resource. If the path is invalid, tests are not operable. Are you sure it's correct?</message>
             </expect>
         </constraint>
@@ -60,7 +60,7 @@
         <formal-name>Expectation Result</formal-name>
         <description>The expected result type in <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html">SARIF format</a> for the expectation. The expectation only supports specific values, defined in a constraint.</description>
         <constraint>
-            <allowed-values target="." allow-other="no">
+            <allowed-values id="test-case-expectation-result" target="." allow-other="no" level="ERROR">
                 <enum value="pass">Use when the desired result of test execution without a constraint passing</enum>
                 <enum value="fail">Use when the desired result of test execution with a constraint violation</enum>
             </allowed-values>
