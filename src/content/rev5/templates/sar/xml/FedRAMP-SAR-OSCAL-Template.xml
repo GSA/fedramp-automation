@@ -9,7 +9,7 @@
 		<oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
@@ -114,7 +114,7 @@
       <party uuid="49f73135-efab-4275-9a79-003656ad890a" type="organization">
          <name>Assessment Organization Name</name>
          <short-name>Acronym/Short Name</short-name>
-         <prop ns="https://fedramp.gov/ns/oscal" name="iso-iec-17020-identifier" value="0000.00" uuid="2fdac229-9dc9-4115-a2ff-34d4c8b6b60b"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="iso-iec-17020-identifier" value="0000.00" uuid="2fdac229-9dc9-4115-a2ff-34d4c8b6b60b"/>
          <link href="https://assessor.web.site" rel="home-page"/>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <remarks>
@@ -396,24 +396,24 @@
             <!-- Corresponds to FedRAMP SAR Table 4-1 column "Justification" -->
             <p>This describes an activity that was not defined in the SAP, but was performed during the assessment. The justification must be included.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="manual"/>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
             <description>
                <p>Describe test step #1</p>
             </description>
-            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
          </step>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
             <description>
                <p>Describe test step #2</p>
             </description>
-            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
          </step>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
             <description>
                <p>Describe test step #3</p>
             </description>
-            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="003"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="003"/>
          </step>
       </activity>
    </local-definitions>
@@ -430,7 +430,7 @@
             <description>
                <p>A Windows laptop, which is not defined in the SSP inventory.</p>
             </description>
-            <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.1.1.99"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" value="10.1.1.99"/>
             <prop name="allows-authenticated-scan" value="yes"/>
          </inventory-item>
          <assessment-assets>
@@ -439,7 +439,7 @@
                <description>
                   <p>Describe assessment laptop.</p>
                </description>
-               <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.10.10.10"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" value="10.10.10.10"/>
                <status state="operational"/>
                <remarks>
                   <p>Ideally, this assessment laptop would have been defined in the SAP, and not repeated here.</p>
@@ -493,36 +493,36 @@
       <attestation>
          <!-- Section 2 of FedRAMP SAR (Executive Summary) contains the authorization statements -->
          <part name="authorization-statements">
-            <prop ns="https://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
             <!-- Include appropriate authorization recommendation statement(s) -->
             <!-- new authorization example -->
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
                <p>[IA Name] recommends this system for authorization.</p>
             </part>
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
                <p>[IA Name] does not recommend this system for authorization.</p>
             </part>
             <!-- continued authorization example -->
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
                <p>[IA Name] recommends this system for continued authorization.</p>
             </part>
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
                <p>[IA Name] does not recommend this system for continued authorization.</p>
             </part>
             <!-- significant change authorization example -->
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
                <p>[IA Name] recommends the following [significant change/significant changes] for authorization:</p>
                <ul>
                   <li>[list significant changes approved for authorization]</li>
                </ul>
             </part>
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
                <p>[IA Name] does not recommend the following [significant change/significant changes] for authorization:</p>
                <ul>
                   <li>[list significant changes not approved for authorization]</li>
@@ -840,9 +840,9 @@
          <description>
             <p>Infrastructure Scan Percentage.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="infrastructure" value="95"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies" class="infrastructure" value="no"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="infrastructure" value="yes"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-percentage" class="infrastructure" value="95"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="discrepancies" class="infrastructure" value="no"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ia-manual-review" class="infrastructure" value="yes"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T00:00:00Z</collected>
          <remarks>
@@ -854,9 +854,9 @@
          <description>
             <p>Database Scan Percentage.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="database" value="100"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies" class="database" value="no"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="database" value="no"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-percentage" class="database" value="100"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="discrepancies" class="database" value="no"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ia-manual-review" class="database" value="no"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T03:00:00Z</collected>
          <remarks>
@@ -868,15 +868,15 @@
          <description>
             <p>Web Scan Percentage.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="web" value="75"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies" class="web" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies-reason" class="web" value="yes">
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-percentage" class="web" value="75"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="discrepancies" class="web" value="yes"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="discrepancies-reason" class="web" value="yes">
             <!-- Must include a remark with justification for the discrepancies -->
             <remarks>
                <p>EXAMPLE - Next Gen Web Application Firewall is blocking requests from scanner.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="web" value="yes"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ia-manual-review" class="web" value="yes"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T03:00:00Z</collected>
          <remarks>
@@ -1010,10 +1010,10 @@
             <p>This is a statement about the identified risk as provided by the tool.</p>
             <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
          </statement>
-         <prop ns="https://fedramp.gov/ns/oscal" name="priority" value="1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="operational-requirement" value="approved"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="false-positive" value="withdrawn"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="risk-adjustment" value="approved"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="priority" value="1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="operational-requirement" value="approved"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="false-positive" value="withdrawn"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="risk-adjustment" value="approved"/>
          <status>closed</status>
          <characterization>
             <origin>
@@ -1096,7 +1096,7 @@
          <statement>
             <p>This is a statement about the risk identified by penetration testing.</p>
          </statement>
-         <prop ns="https://fedramp.gov/ns/oscal" name="priority" value="2"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="priority" value="2"/>
          <status>open</status>
          <characterization>
             <origin>
@@ -1133,7 +1133,7 @@
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" target-id="ac-1.a.1_obj.1">
-            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
             <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
@@ -1153,7 +1153,7 @@
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" target-id="ac-1.a.1_obj.2">
-            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
             <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
@@ -1173,7 +1173,7 @@
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" target-id="ac-1.a.1_obj.3">
-            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
             <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
@@ -1248,7 +1248,7 @@
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" target-id="at-2.c_obj.2">
-            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
             <!-- todo - need to relax constraint to allow local definitions like "other-than-satisfied" -->
             <status state="not-satisfied"/>
             <!-- FedRAMP state conflicts with core OSCAL constraint -->
@@ -1269,7 +1269,7 @@
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" target-id="ca-8.1_obj">
-            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="alternative"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="alternative"/>
             <!-- todo - need to relax constraint to allow local definitions like "other-than-satisfied" -->
             <status state="not-satisfied"/>
             <!-- FedRAMP status value conflicts with core OSCAL constraint -->
@@ -1301,7 +1301,7 @@
       </reviewed-controls>
       <attestation>
          <part name="authorization-statements">
-            <prop ns="https://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
          </part>
       </attestation>
    </result>
@@ -1323,7 +1323,7 @@
       </reviewed-controls>
       <attestation>
          <part name="authorization-statements">
-            <prop ns="https://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
          </part>
       </attestation>
    </result>
@@ -1342,7 +1342,7 @@
       <!-- OSCAL-Based SAP -->
       <resource uuid="5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
          <title>[System Name] [FIPS-199 Level] SAP</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="security-assessment-plan"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="security-assessment-plan"/>
          <prop name="published" value="2023-06-30T00:00:00Z"/>
          <prop name="version" value="SAP Version"/>
          <rlink media-type="text/xml" href="../../sap/xml/FedRAMP-SAP-OSCAL-Template.xml"/>
@@ -1351,7 +1351,7 @@
       <!-- Laws, Acronyms, and other attachments -->
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
          <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
          <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" media-type="application/vnd.ms-excel">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
@@ -1361,7 +1361,7 @@
       </resource>
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
@@ -1374,7 +1374,7 @@
          <description>
             <p>Signed SAR</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="signature"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="signature"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-sar.pdf" media-type="application/pdf"/>
          <!--<base64 filename="sar.pdf" media-type="application/pdf">00000000</base64>-->
@@ -1464,7 +1464,7 @@
       <!-- Appendix F - Pen Test Report -->
       <resource uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
          <title>Penetration Test Report</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="penetration-test-report"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="penetration-test-report"/>
          <prop name="type" value="report"/>
          <rlink media-type="application/pdf" href="./pen_test_report.pdf"/>
          <remarks>
