@@ -6,7 +6,7 @@
   <control-implementation>
     <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
       </by-component>
     </implemented-requirement>
   </control-implementation>
