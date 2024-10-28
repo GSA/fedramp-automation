@@ -9,7 +9,7 @@
 		<oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
@@ -134,8 +134,8 @@
          <description>
             <p>Provide description</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="Vendor Name"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="name" value="Tool Name"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="vendor-name" value="Vendor Name"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="name" value="Tool Name"/>
          <prop name="version" value="1.2.3"/>
          <status state="operational"/>
          <remarks>
@@ -294,14 +294,14 @@
       <statement>
          <p>Describe the risk</p>
       </statement>
-      <prop ns="https://fedramp.gov/ns/oscal" name="impacted-control-id" value="ac-2"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="impacted-control-id" value="ac-2"/>
       <status>open</status>
       <characterization>
          <origin>
             <actor type="party" actor-uuid="afe665d1-9021-4ad8-8bd2-c15b0f2dcf2d"/>
             <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
          </origin>
-         <facet name="risk" system="https://fedramp.gov/ns/oscal" value="high">
+         <facet name="risk" system="http://fedramp.gov/ns/oscal" value="high">
             <prop name="state" value="initial"/>
          </facet>
       </characterization>
@@ -346,17 +346,17 @@
          <p>This is a statement about the identified risk as provided by the tool.</p>
          <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
       </statement>
-      <prop ns="https://fedramp.gov/ns/oscal" name="impacted-control-id" value="ac-2"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="vendor-dependency" value="tracking"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="operational-requirement" value="approved"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="false-positive" value="withdrawn"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="risk-adjustment" value="approved"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="impacted-control-id" value="ac-2"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="vendor-dependency" value="tracking"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="operational-requirement" value="approved"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="false-positive" value="withdrawn"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="risk-adjustment" value="approved"/>
       <status>open</status>
       <characterization>
          <origin>
             <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e">
-               <prop ns="https://fedramp.gov/ns/oscal" name="vulnerability-id" value="VulID-001"/>
-               <prop ns="https://fedramp.gov/ns/oscal" name="plugin-id" value="Plugin-ID"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="vulnerability-id" value="VulID-001"/>
+               <prop ns="http://fedramp.gov/ns/oscal" name="plugin-id" value="Plugin-ID"/>
             </actor>
          </origin>
          <facet name="iavm-severity" value="high" system="https://us-cert.cisa.gov"/>
@@ -368,10 +368,10 @@
          <origin>
             <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
          </origin>
-         <facet name="risk" value="high" system="https://fedramp.gov">
+         <facet name="risk" value="high" system="http://fedramp.gov/ns/oscal">
             <prop name="state" value="initial"/>
          </facet>
-         <facet name="risk" value="moderate" system="https://fedramp.gov">
+         <facet name="risk" value="moderate" system="http://fedramp.gov/ns/oscal">
             <prop name="state" value="adjusted">
                <remarks>
                   <p>Explain why risk was adjusted.</p>
@@ -501,7 +501,7 @@
       <description>
          <p>Provide description</p>
       </description>
-      <prop ns="https://fedramp.gov/ns/oscal" name="POAM-ID" value="V-1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="POAM-ID" value="V-1"/>
       <related-observation observation-uuid="0aa54106-8a63-4953-ac0d-30ff91f8d4ab"/>
       <associated-risk risk-uuid="9cbd98f3-abcb-4948-ad06-14e0bcba742f"/>
       <remarks>
@@ -514,7 +514,7 @@
       <description>
          <p>An example set of infrastructure scan findings.</p>
       </description>
-      <prop ns="https://fedramp.gov/ns/oscal" name="POAM-ID" value="V-2"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="POAM-ID" value="V-2"/>
       <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
       <related-observation observation-uuid="6c103050-d72a-4391-b830-dc669641231c"/>
       <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
@@ -534,7 +534,7 @@
       <!-- OSCAL-based SSP -->
       <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
          <title>[System Name] [FIPS-199 Level] SSP</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="system-security-plan"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="system-security-plan"/>
          <prop name="published" value="2023-04-21T00:00:00Z"/>
          <prop name="version" value="SSP Version"/>
          <rlink media-type="text/xml" href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"/>
@@ -551,12 +551,12 @@
             <h1>ONLY USE THIS RESOURCE WHEN NO OSCAL-BASED SSP EXISTS</h1>
             <p>Briefly describe the system. This will appear in the SAR.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="no-oscal-ssp"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="title-short" value="SFN"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="system-id" value="FR00000000"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="import-profile" value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="purpose" value="Briefly state the system's purpose. This will appear in the SAR."/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-date" value="2017-01-23T00:00:00Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="no-oscal-ssp"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="title-short" value="SFN"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="system-id" value="FR00000000"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="import-profile" value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="purpose" value="Briefly state the system's purpose. This will appear in the SAR."/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authorization-date" value="2017-01-23T00:00:00Z"/>
          <remarks>
             <p>Only include this resource if no OSCAL-based SSP is available.</p>
             <p>Delete it otherwise.</p>
@@ -565,7 +565,7 @@
       <!-- Laws, Acronyms, and other attachments -->
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
          <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
          <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" media-type="application/vnd.ms-excel">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
@@ -575,7 +575,7 @@
       </resource>
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
