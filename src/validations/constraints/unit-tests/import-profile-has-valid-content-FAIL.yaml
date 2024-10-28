@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for import-profile-has-valid-content
+  description: >-
+    This test case validates the behavior of constraint
+    import-profile-has-valid-content
+  content: ../content/ssp-import-profile-has-valid-content-INVALID.xml
+  expectations:
+    - constraint-id: import-profile-has-valid-content
+      result: fail
