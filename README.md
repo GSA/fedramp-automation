@@ -48,8 +48,7 @@ Build requirements are:
 
 - gnu make
 - node.js (as versioned in [./nvmrc](./.nvmrc))
-- Java 8+
-- Python 3.9+
+- Java 11+
 - Docker
 
 For usage information, use the default target:
