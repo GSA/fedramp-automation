@@ -42,7 +42,7 @@
             <p>There, we use the default implied <code>as-type="string"</code> and not  <code>as-type="uri"</code>.</p>
             <p>However, this approach does work and the constraint passes successfully.</p>
             <p>At this time, a violation where the test evaluates to `false()` throws a lower-level exception.</p>
-            <p>See <a href="">metaschema-framework/metaschema-java#</a> for details.</p>
+            <p>See <a href="https://github.com/metaschema-framework/metaschema-java/issues/219">metaschema-framework/metaschema-java#219</a> for details.</p>
         </remarks>
     </define-field>
     <define-assembly name="pipeline">
