@@ -1,5 +1,5 @@
 # Variables
-OSCAL_CLI = npx oscal@latest
+OSCAL_CLI = npx oscal@next
 SRC_DIR = ./src
 DIST_DIR = ./dist
 REV5_BASELINES = ./dist/content/rev5/baselines
@@ -11,12 +11,15 @@ init-validations:
 	@echo "Installing node modules..."
 	npm install
 	$(OSCAL_CLI) use latest
+	$(OSCAL_CLI) server update
 
 # Validation
 .PHONY: build-validations
 build-validations:
 	@echo "Running Cucumber Tests"
+	$(OSCAL_CLI) server start
 	@npm run test
+	$(OSCAL_CLI) server start
 
 clean-validations:
 	@echo "Nothing to clean"

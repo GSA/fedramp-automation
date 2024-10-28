@@ -9,12 +9,14 @@ import {
   existsSync,
 } from "fs";
 import { load } from "js-yaml";
-import { executeOscalCliCommand, validateFile, validateWithSarif } from "oscal";
-import { dirname, join,parse } from "path";
+import { executeOscalCliCommand, resolveProfile, resolveProfileDocument, validateDocument } from "oscal";
+import { dirname, join,parse, resolve } from "path";
 import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
+
+const executor = 'oscal-server'
 
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
@@ -202,12 +204,12 @@ async function processTestCase({ "test-case": testCase }: any) {
   if (testCase.pipeline) {
     for (const step of testCase.pipeline) {
       if (step.action === "resolve-profile") {
-        await executeOscalCliCommand("resolve-profile", [
+        await resolveProfileDocument(
           contentPath,
           processedContentPath,
-          "--to=XML",
-          "--overwrite",
-        ]);
+          {
+            outputFormat:'xml'
+          },executor)
         console.log("Profile resolved");
       }
       // Add other pipeline steps as needed
@@ -225,15 +227,14 @@ async function processTestCase({ "test-case": testCase }: any) {
       console.log("Using cached validation result from "+cacheKey);
       sarifResponse = validationCache.get(cacheKey)!;
     }else{
-      let args = [];
+      let flags = [];
       if(currentTestCaseFileName.includes("FAIL")){
-        args.push("--disable-schema-validation")
+        flags.push("disable-schema")
       }
-    sarifResponse = await validateWithSarif([
-      processedContentPath,
-      ...args,
-      ...metaschemaDocuments.flatMap((x) => ["-c", x]),
-    ]);
+    const {isValid,log} = await validateDocument(resolve(processedContentPath),{
+      extensions:metaschemaDocuments.flatMap((x) => resolve(x)),
+      flags},executor)
+      sarifResponse=log;
     validationCache.set(cacheKey,sarifResponse);
   }
   if (typeof sarifResponse.runs[0].tool.driver.rules === "undefined") {

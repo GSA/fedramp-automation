@@ -18,11 +18,12 @@
   "type": "module",
   "dependencies": {
     "@apidevtools/json-schema-ref-parser": "^11.6.4",
+    "@types/sarif": "^2.1.7",
     "chai": "^5.1.1",
     "inquirer": "^10.1.8",
     "js-yaml": "^4.1.0",
     "jsdom": "^25.0.0",
-    "oscal": "^1.4.7",
+    "oscal": "2.0.0-rc10",
     "ts-node": "^10.9.2",
     "xml-formatter": "^3.6.3",
     "xml2js": "^0.6.2"
