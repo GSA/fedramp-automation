@@ -1,8 +1,6 @@
 test-case:
   name: Positive Test for import-profile-has-valid-content
-  description: >-
-    This test case validates the behavior of constraint
-    import-profile-has-valid-content
+  description: This test case validates the behavior of constraint import-profile-has-valid-content in the case of a URI reference to a profile.
   content: ../content/ssp-import-profile-has-valid-content-VALID-1.xml
   expectations:
     - constraint-id: import-profile-has-valid-content
