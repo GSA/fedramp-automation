@@ -8,6 +8,8 @@
     <namespace>http://github.com/gsa/fedramp-automation/constraint/test</namespace>
     <json-base-uri>http://github.com/gsa/fedramp-automation/constraint/test</json-base-uri>
     <define-assembly name="test-case">
+        <formal-name>Test Case Document</formal-name>
+        <description>This is the root element of the FedRAMP Automation Test Suite format for collections of unit tests.</description>
         <root-name>test-case</root-name>
         <model>
             <field ref="name" min-occurs="1" max-occurs="1"/>
@@ -18,23 +20,45 @@
             </assembly>
         </model>
     </define-assembly>
-    <define-field name="name" as-type="string"/>
-    <define-field name="description" as-type="string"/>
+    <define-field name="name" as-type="string">
+        <formal-name>Test Case Name</formal-name>
+        <description>The name of the test case collection within a test cases file. </description>
+    </define-field>
+    <define-field name="description" as-type="string">
+        <formal-name>Test Case Description</formal-name>
+        <description>The description of the test case collection within a test case file.</description>
+    </define-field>
     <define-field name="content" as-type="string">
+        <formal-name>Test Case Content Path</formal-name>
+        <description>A relative or absolute file path or HTTP URL to the OSCAL document instance for which the test runs.</description>
         <constraint>
-            <expect id="content-url-invalid" target="." test=". => doc-available()">
-                <message>Test content URL does not point to a valid file or HTTP resource. Is it correct?</message>
+            <expect id="content-url-invalid" level="CRITICAL" target="." test=". => doc-available()" >
+                <message>Test content URL does not point to a valid file or HTTP resource. If the path is invalid, tests are not operable. Are you sure it's correct?</message>
             </expect>
         </constraint>
+        <remarks>
+            <p>In this format, we often use relative paths that are not strictly conformant to the URI datatype in Metaschema.</p>
+            <p>There, we use the default implied <code>as-type="string"</code> and not  <code>as-type="uri"</code>.</p>
+            <p>However, this approach does work and the constraint passes successfully.</p>
+            <p>At this time, a violation where the test evaluates to `false()` throws a lower-level exception.</p>
+            <p>See <a href="">metaschema-framework/metaschema-java#</a> for details.</p>
+        </remarks>
     </define-field>
     <define-assembly name="expectation">
+        <formal-name>Test Case Expectation</formal-name>
+        <description>This assembly defines the relevant constraint ID and the desired result when executing tests over the content. There MAY be one or more expectations.</description>
         <model>
             <field ref="constraint-id" min-occurs="1" max-occurs="1"/>
             <field ref="result" min-occurs="1" max-occurs="1"/>
         </model>
     </define-assembly>
-    <define-field name="constraint-id" as-type="string"/>
+    <define-field name="constraint-id" as-type="string">
+        <formal-name>Constraint ID for the Expectation</formal-name>
+        <description>The <code>@id</code> attribute for a given constraint for which the test serves to match the expectation.</description>
+    </define-field>
     <define-field name="result" as-type="string">
+        <formal-name>Expectation Result</formal-name>
+        <description>The expected result type in <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html">SARIF format</a> for the expectation. The expectation only supports specific values, defined in a constraint.</description>
         <constraint>
             <allowed-values target="." allow-other="no">
                 <enum value="pass">Use when the desired result of test execution without a constraint passing</enum>
