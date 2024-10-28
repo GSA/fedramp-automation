@@ -8,11 +8,11 @@
     "federalist": "make init-repo && npm run build:validation-ui && npm run link:validation-ui",
     "link:validation-ui": "ln -sf ./src/web/dist _site",
     "test": "cross-env-shell NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js",
+    "test:server": "cross-env-shell OSCAL_EXECUTOR='oscal-server' NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js",
     "test:parallel": "cross-env-shell NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js  --parallel 4 2>/dev/null 2>NUL",
     "test:failed": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js -p rerun",
     "test:constraints": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @constraints",
     "test:coverage": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @full-coverage",
-    "test:server": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --world-parameters '{\"executor\":\"oscal-server\"}'",
     "mq": "node ./src/scripts/dev-metaschema-eval.js",
     "constraint": "node ./src/scripts/dev-constraint.js"
   },

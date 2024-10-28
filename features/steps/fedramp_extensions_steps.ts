@@ -9,15 +9,15 @@ import {
   existsSync,
 } from "fs";
 import { load } from "js-yaml";
-import { executeOscalCliCommand, resolveProfile, resolveProfileDocument, validateDocument } from "oscal";
+import { executeOscalCliCommand, resolveProfile, resolveProfileDocument, validateDocument} from "oscal";
+import {checkServerStatus} from 'oscal/dist/server.js'
 import { dirname, join,parse, resolve } from "path";
 import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
 
-let executor:'oscal-cli'|'oscal-server' = 'oscal-cli'
-
+let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-cli'
 
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
@@ -133,10 +133,14 @@ function getConstraintFiles() {
     .join("\n");
   return xmlFiles;
 }
-BeforeStep(()=>{
-  if(world.parameters.executor){
-    executor=world.parameters.executor;
-  }
+BeforeAll(async ()=>{
+  if(executor==='oscal-server'){
+    const isHealthy=await checkServerStatus()
+    if(!isHealthy){
+      console.warn("Server not healthy, switching to CLI")
+      executor='oscal-cli';
+    }
+  }  
 })
 
 Given("I have Metaschema extensions documents", function (dataTable) {
