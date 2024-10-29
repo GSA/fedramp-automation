@@ -159,11 +159,11 @@
                 <message>Each FedRAMP SSP data flow diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
             <expect id="has-security-sensitivity-level" target="system-characteristics" test="security-sensitivity-level" level="ERROR">
-                <message>An OSCAL SSP document MUST specify a FIPS 199 categorization.</message>
+                <message>A FedRAMP SSP document MUST specify a FIPS 199 categorization.</message>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
             </expect>
             <expect id="has-security-impact-level" target="system-characteristics" test="security-impact-level" level="ERROR">
-                <message>An OSCAL SSP document MUST specify a security impact level.</message>
+                <message>A FedRAMP SSP document MUST specify a security impact level.</message>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
             </expect>
             <expect id="has-system-id" target="system-characteristics" test="system-id[@identifier-type eq 'https://fedramp.gov']" level="ERROR">
