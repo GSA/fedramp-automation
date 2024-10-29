@@ -17,7 +17,7 @@ import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
 
-let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-server'
+let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-cli'
 
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
@@ -257,7 +257,7 @@ async function processTestCase({ "test-case": testCase }: any) {
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
-    const sarifDir = resolve(__dirname, "..", "..", "sarif");
+    const sarifDir = join(__dirname, "..", "..", "sarif");
     if (!existsSync(sarifDir)) {
       mkdirSync(sarifDir, { recursive: true });
     }

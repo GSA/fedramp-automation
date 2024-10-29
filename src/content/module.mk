@@ -16,37 +16,37 @@ init-content:
 .PHONY: build-content
 build-content:
 	@echo "Producing artifacts for baselines..."
-	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/baselines/xml -o $(DIST_DIR)/content/rev5/baselines/
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/baselines/xml -o $(DIST_DIR)/content/rev5/baselines/ -s
 	@echo "Producing artifacts for SSP..."
-	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/ssp/xml -o $(DIST_DIR)/content/rev5/templates/ssp
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/ssp/xml -o $(DIST_DIR)/content/rev5/templates/ssp -s
 	@echo "Producing artifacts for POAM..."
-	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/poam/xml -o $(DIST_DIR)/content/rev5/templates/poam
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/poam/xml -o $(DIST_DIR)/content/rev5/templates/poam -s
 	@echo "Producing artifacts for SAP..."
-	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/sap/xml -o $(DIST_DIR)/content/rev5/templates/sap
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/sap/xml -o $(DIST_DIR)/content/rev5/templates/sap -s
 	@echo "Producing artifacts for SAR..."
-	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/sar/xml -o $(DIST_DIR)/content/rev5/templates/sar
+	$(OSCAL_CLI) convert -f $(SRC_DIR)/content/rev5/templates/sar/xml -o $(DIST_DIR)/content/rev5/templates/sar -s
 
 	@echo "Resolving FedRAMP HIGH baseline profile..."
-	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml -s
 	@echo "Resolving FedRAMP MODERATE baseline profile..."
-	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.xml
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.xml -s
 	@echo "Resolving FedRAMP LOW baseline profile..."
-	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml -s
 	@echo "Resolving FedRAMP LI-SaaS baseline profile..."
-	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_LI-SaaS-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_LI-SaaS-baseline-resolved-profile_catalog.xml
+	$(OSCAL_CLI) resolve -f $(SRC_DIR)/content/rev5/baselines/xml/FedRAMP_rev5_LI-SaaS-baseline_profile.xml -o $(XML_DIR)/FedRAMP_rev5_LI-SaaS-baseline-resolved-profile_catalog.xml -s
 
 	@echo "Converting Profiles to JSON..."
-	$(OSCAL_CLI) convert -f $(XML_DIR) -o $(JSON_DIR) -t JSON
+	$(OSCAL_CLI) convert -f $(XML_DIR) -o $(JSON_DIR) -t JSON -s
 	@echo "Converting Profiles to YAML..."
-	$(OSCAL_CLI) convert -f $(XML_DIR) -o $(YAML_DIR) -t YAML
+	$(OSCAL_CLI) convert -f $(XML_DIR) -o $(YAML_DIR) -t YAML -s
 
 
 .PHONY: test-content
 test-content:
 	@echo "Validating Source files"
-	@$(OSCAL_CLI) validate -f  $(SRC_DIR)/content/rev5/baselines/ -r
+	@$(OSCAL_CLI) validate -f  $(SRC_DIR)/content/rev5/baselines/ -r -s
 
 .PHONY: test-legacy-content
 test-legacy-content:
 	@echo "Validating Source files"
-	@$(OSCAL_CLI) validate -f  $(SRC_DIR)/content/rev4/baselines/ -r
+	@$(OSCAL_CLI) validate -f  $(SRC_DIR)/content/rev4/baselines/ -r -s
