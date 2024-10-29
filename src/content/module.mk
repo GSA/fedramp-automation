@@ -10,6 +10,8 @@ YAML_DIR = $(DIST_DIR)/content/rev5/baselines/yaml
 init-content:
 	@npm install
 	$(OSCAL_CLI) use latest
+	$(OSCAL_CLI) server update
+	$(OSCAL_CLI) server start -bg
 # Generate content and perform conversions
 .PHONY: build-content
 build-content:
