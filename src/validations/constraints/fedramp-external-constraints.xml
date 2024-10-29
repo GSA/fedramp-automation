@@ -32,6 +32,21 @@
         </constraints>
     </context>
     <context>
+        <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
+        <constraints>
+            <let var="fedramp-version-oscal-part" expression="tokenize(prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value, '-')[4]"/>
+            <let var="fedramp-oscal-version-subparts" expression="tokenize($fedramp-version-oscal-part, '\.')"/>
+            <let var="oscal-version-subparts" expression="tokenize(oscal-version, '\.')"/>
+            <let var="major-version-valid" expression="boo$fedramp-oscal-version-subparts[1] >= $oscal-version-subparts[1]"/>
+            <let var="minor-version-valid" expression="$fedramp-oscal-version-subparts[2] >= $oscal-version-subparts[2]"/>
+            <let var="patch-version-valid" expression="$fedramp-oscal-version-subparts[3] >= $oscal-version-subparts[3]"/>
+            <expect id="oscal-version-matches-fedramp-version" target="." test="$major-version-valid and $minor-version-valid and $patch-version-valid" level="WARNING">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://docs.oasis-open.org/sarif/sarif/v2.1.0"/>                
+                <message>A FedRAMP document SHOULD have an OSCAL version that matches the minimally required FedRAMP guidance version, not {oscal-version}. DEBUG: {$major-version-valid} and {$minor-version-valid} and {$patch-version-valid}</message>
+            </expect>            
+        </constraints>
+    </context>
+    <context>
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
@@ -168,7 +183,7 @@
     </context>
     <context>
         <metapath target="/system-security-plan/metadata"/>
-        <constraints>
+        <constraints>            
             <expect id="data-center-count" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center']) &gt; 1">
                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
                 <message>There must be at least two (2) data centers listed.</message>
@@ -199,7 +214,7 @@
             </expect>
             <expect id="role-defined-information-system-security-officer" target="." test="role[@id eq 'information-system-security-officer']" level="ERROR">
                 <message>A FedRAMP SSP must define a role for the point of contact for an information system security officer.</message>
-            </expect>
+            </expect>        
         </constraints>
     </context>
     <context>

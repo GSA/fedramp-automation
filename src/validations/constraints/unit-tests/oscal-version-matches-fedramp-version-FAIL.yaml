@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for oscal-version-matches-fedramp-version
+  description: >-
+    This test case validates the behavior of constraint
+    oscal-version-matches-fedramp-version
+  content: ../content/ssp-oscal-version-matches-fedramp-version-INVALID.xml
+  expectations:
+    - constraint-id: oscal-version-matches-fedramp-version
+      result: fail
