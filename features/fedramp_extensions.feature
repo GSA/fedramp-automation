@@ -112,10 +112,7 @@ Examples:
   | import-profile-has-href-attribute-FAIL.yaml |
   | import-profile-has-href-attribute-PASS.yaml |
   | import-profile-has-valid-content-FAIL.yaml |
-  | import-profile-has-valid-content-scenario1-PASS.yaml |
-  | import-profile-has-valid-content-scenario2-PASS.yaml |
-  | import-profile-has-valid-content-scenario3-PASS.yaml |
-  | import-profile-has-valid-content-scenario4-PASS.yaml |
+  | import-profile-has-valid-content-PASS.yaml |
   | information-type-id-FAIL.yaml |
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |

@@ -1,7 +1,0 @@
-test-case:
-  name: Positive Test for import-profile-has-valid-content
-  description: This test case validates the behavior of constraint import-profile-has-valid-content in the case of a fragment that points to a resolved profile catalog in the back-matter.
-  content: ../content/ssp-import-profile-has-valid-content-VALID-2.xml
-  expectations:
-    - constraint-id: import-profile-has-valid-content
-      result: pass

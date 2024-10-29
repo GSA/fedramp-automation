@@ -23,7 +23,7 @@ setDefaultTimeout(DEFAULT_TIMEOUT);
 let currentTestCase: {
   name: string;
   description: string;
-  content: string;
+  content: string [];
   pipelines: [];
   expectations: [{ "constraint-id": string; result: string }];
 };
@@ -178,89 +178,100 @@ async function processTestCase({ "test-case": testCase }: any) {
   console.log(`Processing test case:${testCase.name}`);
   console.log(`Description: ${testCase.description}`);
 
-  // Load the content file
-  const contentPath = join(
-    __dirname,
-    "..",
-    "..",
-    "src",
-    "validations",
-    "constraints",
-    "content",
-    testCase.content
-  );
-  console.log(`Loaded content from: ${contentPath}`);
-  const cacheKey = (typeof testCase.pipeline === 'undefined' ? "" : "resolved-") + parse(contentPath).name;
+  const contentFiles = Array.isArray(testCase.content) ? testCase.content : [testCase.content];
+
+  for (let i = 0; i < contentFiles.length; i++) {
+    const contentFile = contentFiles[i];
+    // Load the content file
+    const contentPath = join(
+      __dirname,
+      "..",
+      "..",
+      "src",
+      "validations",
+      "constraints",
+      "content",
+      contentFile
+    );
+    console.log(`Loaded content from: ${contentPath}`);
+    const cacheKey = (typeof testCase.pipeline === 'undefined' ? "" : "resolved-") + parse(contentPath).name;
 
 
-  // Process the pipeline
-  processedContentPath = join(
-    ".",
-    `${testCase.name.replace(/\s+/g, "-").toLowerCase()}.xml`
-  );
-  
-  if (testCase.pipeline) {
-    for (const step of testCase.pipeline) {
-      if (step.action === "resolve-profile") {
-        await executeOscalCliCommand("resolve-profile", [
-          contentPath,
-          processedContentPath,
-          "--to=XML",
-          "--overwrite",
-        ]);
-        console.log("Profile resolved");
-      }
-      // Add other pipeline steps as needed
-    }
-  } else {
-    processedContentPath = contentPath;
-  }
-
-  //Validate processed content
-  // Check expectations
-  try {
-    let sarifResponse;
+    // Process the pipeline
+    processedContentPath = join(
+      ".",
+      `${testCase.name.replace(/\s+/g, "-").toLowerCase()}.xml`
+    );
     
-    if (validationCache.has(cacheKey)) {
-      console.log("Using cached validation result from "+cacheKey);
-      sarifResponse = validationCache.get(cacheKey)!;
-    }else{
-      let args = [];
-      if(currentTestCaseFileName.includes("FAIL")){
-        args.push("--disable-schema-validation")
+    if (testCase.pipeline) {
+      for (const step of testCase.pipeline) {
+        if (step.action === "resolve-profile") {
+          await executeOscalCliCommand("resolve-profile", [
+            contentPath,
+            processedContentPath,
+            "--to=XML",
+            "--overwrite",
+          ]);
+          console.log("Profile resolved");
+        }
+        // Add other pipeline steps as needed
       }
-    sarifResponse = await validateWithSarif([
-      processedContentPath,
-      ...args,
-      ...metaschemaDocuments.flatMap((x) => ["-c", x]),
-    ]);
-    validationCache.set(cacheKey,sarifResponse);
-  }
-  if (typeof sarifResponse.runs[0].tool.driver.rules === "undefined") {
-      const [result, error] = await executeOscalCliCommand("validate", [
+    } else {
+      processedContentPath = contentPath;
+    }
+
+    //Validate processed content
+    // Check expectations
+    try {
+      let sarifResponse;
+      
+      if (validationCache.has(cacheKey)) {
+        console.log("Using cached validation result from "+cacheKey);
+        sarifResponse = validationCache.get(cacheKey)!;
+      }else{
+        let args = [];
+        if(currentTestCaseFileName.includes("FAIL")){
+          args.push("--disable-schema-validation")
+        }
+      sarifResponse = await validateWithSarif([
         processedContentPath,
+        ...args,
         ...metaschemaDocuments.flatMap((x) => ["-c", x]),
       ]);
-      return { status: "fail", errorMessage: error };
+      validationCache.set(cacheKey,sarifResponse);
     }
-    if (processedContentPath != contentPath) {
-      unlinkSync(processedContentPath);
+    if (typeof sarifResponse.runs[0].tool.driver.rules === "undefined") {
+        const [result, error] = await executeOscalCliCommand("validate", [
+          processedContentPath,
+          ...metaschemaDocuments.flatMap((x) => ["-c", x]),
+        ]);
+        return { status: "fail", errorMessage: error };
+      }
+      if (processedContentPath != contentPath) {
+        unlinkSync(processedContentPath);
+      }
+      const sarifDir = join(__dirname, "..", "..", "sarif");
+      if (!existsSync(sarifDir)) {
+        mkdirSync(sarifDir, { recursive: true });
+      }
+      writeFileSync(
+        join(
+          __dirname,
+          "../../sarif/",
+          cacheKey.toString()+".sarif"
+        ),
+        JSON.stringify(sarifResponse, null,"\t")
+      );
+      const result = await checkConstraints(sarifResponse, testCase.expectations);
+      if (result.status === "fail") {
+        return result;
+      }
+      if (i === contentFiles.length -1) {
+        return result;
+      }
+    } catch (e) {
+      return { status: "fail", errorMessage: e.toString() };
     }
-    const sarifDir = join(__dirname, "..", "..", "sarif");
-    if (!existsSync(sarifDir)) {
-      mkdirSync(sarifDir, { recursive: true });
-    }
-    writeFileSync(
-      join(
-        __dirname,
-        "../../sarif/",
-        cacheKey.toString()+".sarif"
-      ),
-      JSON.stringify(sarifResponse, null,"\t")
-    );
-    return checkConstraints(sarifResponse, testCase.expectations);
-  } catch (e) {
-    return { status: "fail", errorMessage: e.toString() };
   }
 }
 
