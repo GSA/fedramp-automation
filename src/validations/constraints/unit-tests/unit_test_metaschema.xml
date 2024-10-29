@@ -17,6 +17,7 @@
             <field ref="content" min-occurs="0" max-occurs="unbounded">
                 <group-as name="content" in-json="SINGLETON_OR_ARRAY"/>
             </field>
+            <assembly ref="pipeline" min-occurs="0" max-occurs="1"  />
             <assembly ref="expectation" min-occurs="1" max-occurs="unbounded">
                 <group-as name="expectations" in-json="ARRAY"/>
             </assembly>
