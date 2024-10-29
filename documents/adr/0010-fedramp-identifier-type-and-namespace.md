@@ -38,4 +38,4 @@ Proceed with Option 2.  The inconsistency in documentation and tooling was the s
 
 ## Consequences
 
-Option 4 will provide clarity around the acceptable values for an SSP system `identifier-type` and for its extension `prop` namespace values, with minimal impact to the community. 
+While not backwards compatible, option 2 will provide is more understandable and maintainable long-term, which should prevent misunderstandings in the future. 
