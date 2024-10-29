@@ -34,7 +34,7 @@ The team considered multiple approaches listed below.
 
 ## Decision
 
-Proceed with option 4 to minimize impact to OSCAL SSP authors.  There is only one instance of the use of `identifier-type` in an OSCAL SSP, the potential impact if SSP authors need to update it is minimal, and it is easy to identify / enforce with constraints.  Option 4 eliminates any impact to SSP authors, an requires no or minimal updates to the [FedRAMP Developer Hub](https://automate.fedramp.gov/documentation) documentation site.
+Proceed with Option 2.  The inconsistency in documentation and tooling was the source of a bug that initiated an investigation and led to this ADR. This change will have an impact on updating documentation for FedRAMP, but there is little evidence or public feedback to indicate one or more community-maintained tools warrant this concern. Alignment sooner rather than later by FedRAMP, who will operationalize the FedRAMP constraints, is a key factor to prioritize this change the soonest major release, not defer it until later.
 
 ## Consequences
 
