@@ -380,7 +380,7 @@
             </allowed-values>
 
 
-            <allowed-values id="user-privilege-level" target="//user/prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="user-privilege-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='privilege-level']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
