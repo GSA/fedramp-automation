@@ -143,7 +143,7 @@
             <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>FedRAMP Version</formal-name>
                 <description>Identifies the FedRAMP version of the document.</description>
-                <enum value="fedramp-3.0.0rc1-oscal-1.1.2">FedRAMP Version</enum>
+                <enum value="3.0.0-rc1">FedRAMP Version 3.0.0 Release Candidate 1</enum>
             </allowed-values>
 
             <allowed-values id="information-type-800-60-v2r1" target="system-characteristics/system-information/information-type/categorization[@system='https://doi.org/10.6028/NIST.SP.800-60v2r1']/information-type-id" allow-other="no" level="ERROR">

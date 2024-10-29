@@ -1,0 +1,14 @@
+test-case:
+  name: Positive Test for import-profile-has-available-document
+  description: >-
+    This test case validates the behavior of constraint import-profile-has-available-document.
+    Scenario 1 tests: an invalid match below the minimum required version threshold.
+    Scenario 2 tests: an invalid match above the implied maximum required version threshold, a major version greater than required.
+    Scenario 3 tests: an invalid match because the fedramp-version prop is missing, so a fallthrough default is required.
+  content: 
+    - ../content/ssp-oscal-version-matches-fedramp-version-INVALID-1.xml
+    - ../content/ssp-oscal-version-matches-fedramp-version-INVALID-2.xml
+    - ../content/ssp-oscal-version-matches-fedramp-version-INVALID-3.xml
+  expectations:
+    - constraint-id: oscal-version-matches-fedramp-version
+      result: fail
