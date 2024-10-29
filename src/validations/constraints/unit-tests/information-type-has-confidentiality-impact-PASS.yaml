@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for information-type-has-confidentiality-impact
-  description: Test that a SSP system-characteristics system-information information-type element has a confidentiality-impact element.
+  description: Test that an SSP system-characteristics system-information information-type element has a confidentiality-impact element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: information-type-has-confidentiality-impact
