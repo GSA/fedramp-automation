@@ -14,8 +14,9 @@
         <model>
             <field ref="name" min-occurs="1" max-occurs="1"/>
             <field ref="description" min-occurs="1" max-occurs="1"/>
-            <field ref="content" min-occurs="1" max-occurs="1"/>
-            <field ref="pipeline" max-occurs="1"/>
+            <field ref="content" min-occurs="0" max-occurs="unbounded">
+                <group-as name="content" in-json="SINGLETON_OR_ARRAY"/>
+            </field>
             <assembly ref="expectation" min-occurs="1" max-occurs="unbounded">
                 <group-as name="expectations" in-json="ARRAY"/>
             </assembly>
@@ -49,7 +50,7 @@
         <formal-name>Test Case Pipeline Action</formal-name>
         <description>The test case pipeline is a sequence of one or more <code>actions</code> to execute before the test runner executes the test suite.</description>
         <model>
-            <field ref="action">
+            <field ref="action" max-occurs="unbounded">
                 <group-as name="actions" in-json="ARRAY"/>
             </field>
         </model>
