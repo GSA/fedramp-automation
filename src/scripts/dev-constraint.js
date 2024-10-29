@@ -180,7 +180,6 @@ async function scaffoldTest(constraintId,context) {
             const dom = new JSDOM(templateXml, { contentType: "text/xml" });
             const document = dom.window.document;
 
-            console.log(`Context for ${constraintId}: ${context}`); // Debug log
 
             if (!context || typeof context !== 'string' || context.trim() === '') {
                 throw new Error('Invalid or empty context');
