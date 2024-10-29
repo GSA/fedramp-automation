@@ -176,15 +176,15 @@
             </expect>
             <expect id="information-type-has-confidentiality-impact" target="system-characteristics/system-information/information-type" test="confidentiality-impact" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
-                <message>An OSCAL SSP information type must have a confidentiality impact.</message>
+                <message>An OSCAL SSP information type MUST have a confidentiality impact.</message>
             </expect>
             <expect id="information-type-has-integrity-impact" target="system-characteristics/system-information/information-type" test="integrity-impact" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
-                <message>An OSCAL SSP information type must have an integrity impact.</message>
+                <message>An OSCAL SSP information type MUST have an integrity impact.</message>
             </expect>
             <expect id="information-type-has-availability-impact" target="system-characteristics/system-information/information-type" test="availability-impact" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
-                <message>An OSCAL SSP information type must have an availability impact.</message>
+                <message>An OSCAL SSP information type MUST have an availability impact.</message>
             </expect>
         </constraints>
     </context>
