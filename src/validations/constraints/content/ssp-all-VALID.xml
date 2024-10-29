@@ -152,7 +152,7 @@
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
       <prop name="privilege-level" value="read-write"/>
-      <prop ns='https://fedramp.gov/ns/oscal' name="sensitivity" value="high-risk"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
       <role-id>system-admin</role-id>
       <authorized-privilege>
         <title>Admin</title>
