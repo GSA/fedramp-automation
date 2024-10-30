@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for cia-impact-has-selected
+  description: Test that an SSP system-characteristics system-information information-type (confidentiality-impact/integrity-impact/availability-impact) element does not have a selected element.
+  content: ../content/ssp-cia-impact-has-selected-INVALID.xml
+  expectations:
+    - constraint-id: cia-impact-has-selected
+      result: fail
