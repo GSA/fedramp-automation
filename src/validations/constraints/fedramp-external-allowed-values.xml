@@ -165,7 +165,7 @@
                 <description>The system used for categorizing information types.</description>
                 <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST SP 800-60 Volume 2 Revision 1</enum>
               </allowed-values>
-              <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level']/@value" allow-other="no" level="ERROR">
+              <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
