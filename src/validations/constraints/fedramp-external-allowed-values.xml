@@ -73,7 +73,7 @@
                 <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
             </allowed-values>
 
-            <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model']/@value" allow-other="no" level="ERROR">
                 <formal-name>Cloud Service Model</formal-name>
                 <description>The cloud service model used by the system.</description>
                 <enum value="iaas">Infrastructure as a Service</enum>
@@ -111,7 +111,7 @@
                 <enum value="not-applicable">Not Applicable</enum>
             </allowed-values>
 
-            <allowed-values id="deployment-model" target="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="deployment-model" target="system-characteristics/prop[@name='cloud-deployment-model']/@value" allow-other="no" level="ERROR">
                 <formal-name>Deployment Model</formal-name>
                 <description>The cloud deployment model.</description>
                 <enum value="public-cloud">Public Cloud</enum>
