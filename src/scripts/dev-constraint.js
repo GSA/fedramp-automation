@@ -347,7 +347,8 @@ function getScenarioLineNumbers(featureFile, constraintId,tests) {
     const lines = content.split('\n');
     const scenarioLines = [];
     for (let i = 0; i < lines.length; i++) {
-        if (lines[i].includes(`${tests.fail}`) || lines[i].includes(`${tests.pass}`)||lines[i].includes(`${tests.fail_file}`) || lines[i].includes(`${tests.pass_file}`)) {
+        const line = lines[i].replace(/\|/g, '').trim();
+        if (line === tests.fail || line === tests.pass || line === tests.fail_file || line === tests.pass_file) {
             scenarioLines.push(i + 1); // +1 because line numbers start at 1, not 0
         }
     }
