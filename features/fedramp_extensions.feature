@@ -223,10 +223,10 @@ Examples:
   | has-user-guide |
   | import-profile-has-href-attribute |
   | import-profile-has-valid-content |
+  | information-type-800-60-v2r1 |
   | information-type-has-availability-impact |
   | information-type-has-confidentiality-impact |
   | information-type-has-integrity-impact |
-  | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
