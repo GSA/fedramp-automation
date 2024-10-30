@@ -161,10 +161,12 @@
                 <message>A FedRAMP SSP must define a role for the point of contact for an information system security officer.</message>
             </expect>
             <expect id="party-has-responsibility" target="." test="every $person in //party[@type='person'] satisfies exists(.//responsible-party[party-uuid = $person/@uuid])" level="WARNING">
-                <message>Every party in a FedRAMP SSP must be responsible for a role.</message>
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-metadata/#using-responsible-party-assemblies">
+                <message>Every party in a FedRAMP SSP MUST be responsible for a role.</message>
             </expect>
             <expect id="party-has-one-responsibility" target="." test="every $person in //party[@type='person'] satisfies count(.//responsible-party[party-uuid = $person/@uuid]) eq 1" level="WARNING">
-                <message>Every party in a FedRAMP SSP must be responsible for only one role.</message>
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-metadata/#using-responsible-party-assemblies">                 
+                <message>Every party in a FedRAMP SSP MUST be responsible for only one role.</message>
             </expect>
         </constraints>
     </context>
