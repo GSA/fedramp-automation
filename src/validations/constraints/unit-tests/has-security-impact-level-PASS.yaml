@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for has-security-impact-level
-  description: Test that a SSP system-characteristics element has a security-impact-level element.
+  description: Test that an SSP system-characteristics element has a security-impact-level element.
   content: ../content/ssp-all-VALID.xml
   expectations:
     - constraint-id: has-security-impact-level
