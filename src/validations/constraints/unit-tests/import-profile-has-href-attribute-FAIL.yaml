@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for import-profile-has-href-attribute
+  description: >-
+    This test case validates the behavior of constraint
+    import-profile-has-href-attribute
+  content: ../content/ssp-import-profile-has-href-attribute-INVALID.xml
+  expectations:
+    - constraint-id: import-profile-has-href-attribute
+      result: fail
