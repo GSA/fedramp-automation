@@ -1,6 +1,6 @@
 test-case:
   name: Negative Test for has-public-cloud-deployment-model
-  description: Test that a SSP (component/inventory-item) has a prop element with a name attribute equal to "public" and a value attribute equal to "yes" and test that a system-characteristics prop with a name attribute equal to "cloud-deployment-model" and a value attribute equal to "public-cloud" does not exist.
+  description: Test that an SSP (component/inventory-item) has a prop element with a name attribute equal to "public" and a value attribute equal to "yes" and test that a system-characteristics prop with a name attribute equal to "cloud-deployment-model" and a value attribute equal to "public-cloud" does not exist.
   content: ../content/ssp-has-public-cloud-deployment-model-INVALID.xml
   expectations:
     - constraint-id: has-public-cloud-deployment-model
