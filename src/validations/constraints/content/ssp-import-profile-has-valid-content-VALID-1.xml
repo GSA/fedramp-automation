@@ -33,24 +33,6 @@
      <role id="information-system-security-officer">
        <title>Information System Security Officer (or Equivalent)</title>
      </role>
-     <role id="system-poc-management">
-      <title>Information System Management Point of Contact (POC)</title>
-      <description>
-         <p>The highest level manager who is responsible for system operation on behalf of the System Owner.</p>
-      </description>
-      </role>
-      <role id="system-poc-technical">
-          <title>Information System Technical Point of Contact</title>
-          <description>
-            <p>The individual or individuals leading the technical operation of the system.</p>
-          </description>
-      </role>
-      <role id="system-poc-other">
-          <title>General Point of Contact (POC)</title>
-          <description>
-            <p>A general point of contact for the system, designated by the system owner.</p>
-          </description>
-      </role>
 
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
@@ -81,35 +63,12 @@
     <responsible-party role-id="content-approver">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
-
-    <responsible-party role-id="system-owner">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="authorizing-official">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="authorizing-official-poc">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="system-poc-management">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="system-poc-technical">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="system-poc-other">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="information-system-security-officer">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-
     <remarks>
       <p>This SSP is an example for demonstration purposes.</p>
     </remarks>
   </metadata>
   
-  <import-profile href="fedramp-tailoring-profile.xml"/>
+  <import-profile href="../../../../src/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml"/>
   
   <system-characteristics>
     <system-id identifier-type="https://fedramp.gov">F00000001</system-id>
@@ -254,48 +213,31 @@
       <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
-        <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
-          <description>
-            <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
-          </description>
-          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
-          <responsible-role role-id="system-admin">
-            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-          </responsible-role>
-        </by-component>
       </statement>
-
+      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
+        <description>
+          <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
+        </description>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+        <responsible-role role-id="system-admin">
+          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-role>
+      </by-component>
     </implemented-requirement>
     
     <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
       <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
-        <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000000d">
-          <description>
-            <p>Information System Component Inventory (CM-8) is partially implemented.</p>
-          </description>
-          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
-          <responsible-role role-id="system-admin">
-            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-          </responsible-role>
-        </by-component>
       </statement>
-    </implemented-requirement>
-    <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="pe-2">
-      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
-      <statement statement-id="pe-2_stmt.a" uuid="cccccccc-0000-4000-9000-00000000001c">
-        <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000010d">
-          <description>
-            <p>(PE-2) is partially implemented.</p>
-          </description>
-          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
-          <responsible-role role-id="system-admin">
-            <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-          </responsible-role>
-        </by-component>
-      </statement>
+      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000000d">
+        <description>
+          <p>Information System Component Inventory (CM-8) is partially implemented.</p>
+        </description>
+        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
+        <responsible-role role-id="system-admin">
+          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-role>
+      </by-component>
     </implemented-requirement>
   </control-implementation>
   

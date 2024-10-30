@@ -113,6 +113,10 @@ Examples:
   | has-user-guide-PASS.yaml |
   | incomplete-required-controls-implemented-FAIL.yaml |
   | incomplete-required-controls-implemented-PASS.yaml |
+  | import-profile-has-href-attribute-FAIL.yaml |
+  | import-profile-has-href-attribute-PASS.yaml |
+  | import-profile-has-valid-content-FAIL.yaml |
+  | import-profile-has-valid-content-PASS.yaml |
   | information-type-id-FAIL.yaml |
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
@@ -137,6 +141,8 @@ Examples:
   | resource-has-title-PASS.yaml |
   | response-point-FAIL.yaml |
   | response-point-PASS.yaml |
+  | responsible-party-is-person-FAIL.yaml |
+  | responsible-party-is-person-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
@@ -215,6 +221,8 @@ Examples:
   | has-system-id |
   | has-user-guide |
   | incomplete-implemented-requirements |
+  | import-profile-has-href-attribute |
+  | import-profile-has-valid-content |
   | information-type-800-60-v2r1 |
   | information-type-system |
   | interconnection-direction |
@@ -227,6 +235,7 @@ Examples:
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |
   | resource-has-title |
+  | responsible-party-is-person |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
   | role-defined-system-owner |

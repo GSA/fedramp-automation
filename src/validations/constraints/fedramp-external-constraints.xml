@@ -47,6 +47,8 @@
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
+            <let var="import-profile-href" expression="import-profile/@href"/>
+            <let var="resolved-import-profile-href" expression="if (starts-with($import-profile-href, '#')) then back-matter/resource[@uuid = substring($import-profile-href, 2)]/rlink/@href else $import-profile-href"/>
             <let var="security-impact-level" expression=
                 "if (//security-impact-level//* = 'fips-199-high')
                     then ('fips-199-high')
@@ -166,20 +168,41 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
                 <message>A FedRAMP SSP SHOULD define its FIPS-199 security sensitivity level to match the highest security impact level for the system's confidentiality, integrity, and availability objectives.</message>
             </expect>
+            <expect id="import-profile-has-href-attribute" target="import-profile" test="doc-available(@href)" level="CRITICAL">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
+                <message>A FedRAMP SSP MUST import a profile or catalog with a valid file or HTTP(S) address.</message>
+            </expect>
+            <expect id="import-profile-has-valid-content" target="." test="count(resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//control//prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
+                <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
+            </expect>
         </constraints>
     </context>
     <context>
         <metapath target="/system-security-plan/metadata"/>
         <constraints>
-            <expect id="data-center-count" target="." test="count(/location/prop[@name eq 'data-center']) &gt; 1">
+            <expect id="data-center-count" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center']) &gt; 1">
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
                 <message>There must be at least two (2) data centers listed.</message>
             </expect>
-            <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'data-center'][@class eq 'primary']) = 1">
+            <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'primary']) = 1">
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
                 <message>There must be a single primary data center.</message>
             </expect>
-            <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'data-center'][@class eq 'alternate']) &gt; 0">
+            <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
                 <message>There must be one or more alternate data center(s).</message>
             </expect>
+            <index name="index-person-party-uuid" target="map:merge(party[@type='person'] ! map:entry(@uuid,.))?*">
+            	<formal-name>Index of parties of type "person".</formal-name>
+            	<description>This index is a list of the UUIDs of all of the parties that are type "person" in the document.</description>
+                <key-field target="@uuid"/>
+            </index>
+            <index-has-key id="responsible-party-is-person" name="index-person-party-uuid" target="./responsible-party[(@role-id='system-owner') or (@role-id='information-system-security-officer')]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#summary-of-ssp-roles-requirements"/>
+                <key-field target="party-uuid"/>
+                <message>For roles 'system-owner' and 'information-system-security-officer', the responsible-role party must be a party of type 'person'.</message>
+            </index-has-key>
             <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
                 <message>A FedRAMP SSP must define the system owner role.</message>
             </expect>
