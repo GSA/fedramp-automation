@@ -121,8 +121,8 @@ Examples:
   | has-user-guide-PASS.yaml |
   | import-profile-has-available-document-FAIL.yaml |
   | import-profile-has-available-document-PASS.yaml |
-  | import-profile-resolves-to-catalog-FAIL.yaml |
-  | import-profile-resolves-to-catalog-PASS.yaml |
+  | import-profile-resolves-to-fedramp-content-FAIL.yaml |
+  | import-profile-resolves-to-fedramp-content-PASS.yaml |
   | information-type-has-availability-impact-FAIL.yaml |
   | information-type-has-availability-impact-PASS.yaml |
   | information-type-has-confidentiality-impact-FAIL.yaml |
@@ -251,7 +251,7 @@ Examples:
   | has-system-name-short |
   | has-user-guide |
   | import-profile-has-available-document |
-  | import-profile-resolves-to-catalog |
+  | import-profile-resolves-to-fedramp-content |
   | information-type-800-60-v2r1 |
   | information-type-has-availability-impact |
   | information-type-has-confidentiality-impact |
