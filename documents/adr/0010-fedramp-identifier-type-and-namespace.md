@@ -38,4 +38,4 @@ Proceed with Option 2.  The inconsistency in documentation and tooling was the s
 
 ## Consequences
 
-While not backwards compatible, option 2 will provide is more understandable and maintainable long-term, which should prevent misunderstandings in the future. 
+Option 2 is not backwards compatible, as it requires updates to existing FedRAMP documentation. However, it establishes a consistent and maintainable standard that will reduce ambiguity in the long term. Implementing this now also minimizes the risk of future misalignment.
