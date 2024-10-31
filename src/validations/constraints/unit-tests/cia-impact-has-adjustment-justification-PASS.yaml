@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for cia-impact-has-adjustment-justification
+  description: Test that if an SSP system-characteristics system-information information-type (confidentiality-impact/integrity-impact/availability-impact) base element is not equal to the selected element, then an adjustment-justification element exists. If the base element equals the selected element, then it returns true.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: cia-impact-has-adjustment-justification
+      result: pass

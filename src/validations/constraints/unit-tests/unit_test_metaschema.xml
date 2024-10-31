@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METASCHEMA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/0441e6d4c9bce5b6c40b4647148019e4f47bed08/schema/xml/metaschema.xsd"
+ xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <schema-name>OSCAL Unit Test Module</schema-name>
+    <schema-version>1.0.0</schema-version>
+    <short-name>oscal-unit-tests</short-name>
+    <namespace>http://github.com/gsa/fedramp-automation/constraint/test</namespace>
+    <json-base-uri>http://github.com/gsa/fedramp-automation/constraint/test</json-base-uri>
+    <define-assembly name="test-case">
+        <formal-name>Test Case Document</formal-name>
+        <description>This is the root element of the FedRAMP Automation Test Suite format for collections of unit tests.</description>
+        <root-name>test-case</root-name>
+        <model>
+            <field ref="name" min-occurs="1" max-occurs="1"/>
+            <field ref="description" min-occurs="1" max-occurs="1"/>
+            <field ref="content" min-occurs="0" max-occurs="unbounded">
+                <group-as name="content" in-json="SINGLETON_OR_ARRAY"/>
+            </field>
+            <assembly ref="pipeline" min-occurs="0" max-occurs="1"  />
+            <assembly ref="expectation" min-occurs="1" max-occurs="unbounded">
+                <group-as name="expectations" in-json="ARRAY"/>
+            </assembly>
+        </model>
+    </define-assembly>
+    <define-field name="name">
+        <formal-name>Test Case Name</formal-name>
+        <description>The name of the test case collection within a test cases file. </description>
+    </define-field>
+    <define-field name="description">
+        <formal-name>Test Case Description</formal-name>
+        <description>The description of the test case collection within a test case file.</description>
+    </define-field>
+    <define-field name="content">
+        <formal-name>Test Case Content Path</formal-name>
+        <description>A relative or absolute file path or HTTP URL to the OSCAL document instance for which the test runs.</description>
+        <constraint>
+            <expect id="test-case-content-url-invalid" level="CRITICAL" target="." test=". => doc-available()" >
+                <message>Test content URL does not point to a valid file or HTTP resource. If the path is invalid, tests are not operable. Are you sure it's correct?</message>
+            </expect>
+        </constraint>
+        <remarks>
+            <p>In this format, we often use relative paths that are not strictly conformant to the URI datatype in Metaschema.</p>
+            <p>There, we use the default implied <code>as-type="string"</code> and not  <code>as-type="uri"</code>.</p>
+            <p>However, this approach does work and the constraint passes successfully.</p>
+            <p>At this time, a violation where the test evaluates to `false()` throws a lower-level exception.</p>
+            <p>See <a href="https://github.com/metaschema-framework/metaschema-java/issues/219">metaschema-framework/metaschema-java#219</a> for details.</p>
+        </remarks>
+    </define-field>
+    <define-assembly name="pipeline">
+        <formal-name>Test Case Pipeline Action</formal-name>
+        <description>The test case pipeline is a sequence of one or more <code>actions</code> to execute before the test runner executes the test suite.</description>
+        <model>
+            <field ref="action" max-occurs="unbounded">
+                <group-as name="actions" in-json="ARRAY"/>
+            </field>
+        </model>
+    </define-assembly>
+    <define-assembly name="expectation">
+        <formal-name>Test Case Expectation</formal-name>
+        <description>This assembly defines the relevant constraint ID and the desired result when executing tests over the content. There MAY be one or more expectations.</description>
+        <model>
+            <field ref="constraint-id" min-occurs="1" max-occurs="1"/>
+            <field ref="result" min-occurs="1" max-occurs="1"/>
+        </model>
+    </define-assembly>
+    <define-field name="constraint-id">
+        <formal-name>Constraint ID for the Expectation</formal-name>
+        <description>The <code>@id</code> attribute for a given constraint for which the test serves to match the expectation.</description>
+    </define-field>
+    <define-field name="result">
+        <formal-name>Expectation Result</formal-name>
+        <description>The expected result type in <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html">SARIF format</a> for the expectation. The expectation only supports specific values, defined in a constraint.</description>
+        <constraint>
+            <allowed-values id="test-case-expectation-result" target="." allow-other="no" level="ERROR">
+                <enum value="pass">Use when the desired result of test execution without a constraint passing</enum>
+                <enum value="fail">Use when the desired result of test execution with a constraint violation</enum>
+            </allowed-values>
+        </constraint>
+    </define-field>
+    <define-field name="action">
+        <formal-name>Pipeline Action</formal-name>
+        <description>An action for a pipeline to perform before the test runner executes the test suite. This field only supports allowed values explicitly defined in the constraint.</description>
+        <constraint>
+            <allowed-values id="test-case-pipeline-action-allowed-values" target="." allow-other="no" level="ERROR">
+                <enum value="resolve-profile">An action declaration to perform profile resolution for a profile associated with expectation test case.</enum>
+                <remarks>
+                    <p>See the <a href="https://automate.fedramp.gov/documentation/general-concepts/profile-resolution">official FedRAMP's documentation on profile resolution</a> for detailed information.</p>
+                </remarks>
+            </allowed-values>
+        </constraint>
+    </define-field>
+</METASCHEMA>

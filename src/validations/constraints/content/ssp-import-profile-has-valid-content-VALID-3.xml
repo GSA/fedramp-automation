@@ -33,24 +33,6 @@
      <role id="information-system-security-officer">
        <title>Information System Security Officer (or Equivalent)</title>
      </role>
-     <role id="system-poc-management">
-      <title>Information System Management Point of Contact (POC)</title>
-      <description>
-         <p>The highest level manager who is responsible for system operation on behalf of the System Owner.</p>
-      </description>
-      </role>
-      <role id="system-poc-technical">
-          <title>Information System Technical Point of Contact</title>
-          <description>
-            <p>The individual or individuals leading the technical operation of the system.</p>
-          </description>
-      </role>
-      <role id="system-poc-other">
-          <title>General Point of Contact (POC)</title>
-          <description>
-            <p>A general point of contact for the system, designated by the system owner.</p>
-          </description>
-      </role>
 
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
@@ -81,40 +63,16 @@
     <responsible-party role-id="content-approver">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
-
-    <responsible-party role-id="system-owner">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="authorizing-official">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="authorizing-official-poc">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="system-poc-management">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="system-poc-technical">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="system-poc-other">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-    <responsible-party role-id="information-system-security-officer">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
-
     <remarks>
       <p>This SSP is an example for demonstration purposes.</p>
     </remarks>
   </metadata>
   
-  <import-profile href="../../../../dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
+  <import-profile href="#eeeeeeee-0000-4000-9000-0000000000ee"/>
   
   <system-characteristics>
     <system-id identifier-type="https://fedramp.gov">F00000001</system-id>
     <system-name>Enhanced Example System</system-name>
-    <system-name-short>System's Short Name or Acronym</system-name-short>
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
@@ -136,22 +94,12 @@
         </categorization>
         <confidentiality-impact>
           <base>fips-199-high</base>
-          <selected>fips-199-high</selected>
-          <!-- adjustment-justification removed to ensure cia-impact-has-adjustment-justification passes when base and selected have the same impact level -->
         </confidentiality-impact>
         <integrity-impact>
           <base>fips-199-moderate</base>
-          <selected>fips-199-low</selected>
-          <adjustment-justification>
-            <p>Required if the base and selected values do not match.</p>
-          </adjustment-justification>
         </integrity-impact>
         <availability-impact>
-          <base>fips-199-high</base>
-          <selected>fips-199-low</selected>
-          <adjustment-justification>
-            <p>Required if the base and selected values do not match.</p>
-          </adjustment-justification>
+          <base>fips-199-low</base>
         </availability-impact>
       </information-type>
     </system-information>
@@ -203,15 +151,8 @@
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+      <prop name="privilege-level" value="read-write"/>
       <role-id>system-admin</role-id>
-      <authorized-privilege>
-        <title>Admin</title>
-        <description><p>admin user</p></description>
-        <function-performed>administration</function-performed>
-      </authorized-privilege>
-
     </user>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
@@ -308,6 +249,14 @@
       </description>
       <prop name="type" value="policy" ns="https://fedramp.gov/ns/oscal"/>
       <rlink href="https://example.com/policies/access-control.pdf"/>
+    </resource>
+    <resource uuid="eeeeeeee-0000-4000-9000-0000000000ee">
+      <title>Import Profile</title>
+      <description>
+        <p>Profile to be imported</p>
+      </description>
+      <prop name="type" value="policy" ns="https://fedramp.gov/ns/oscal"/>
+      <rlink href="../../../../src/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml"/>
     </resource>
     <resource uuid="90a128ac-c850-48f6-8fff-a55692f80b41">
       <title>User's Guide</title>

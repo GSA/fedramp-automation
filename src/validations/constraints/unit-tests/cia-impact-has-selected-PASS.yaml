@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for cia-impact-has-selected
+  description: Test that an SSP system-characteristics system-information information-type (confidentiality-impact/integrity-impact/availability-impact) element has selected element.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: cia-impact-has-selected
+      result: pass

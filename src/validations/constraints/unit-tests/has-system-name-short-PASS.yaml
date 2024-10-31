@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for has-system-name-short
+  description: Test that an SSP system-characteristics element has a system-name-short element.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-system-name-short
+      result: pass

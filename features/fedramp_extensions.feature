@@ -25,6 +25,10 @@ Examples:
   | categorization-has-correct-system-attribute-PASS.yaml |
   | categorization-has-information-type-id-FAIL.yaml |
   | categorization-has-information-type-id-PASS.yaml |
+  | cia-impact-has-adjustment-justification-FAIL.yaml |
+  | cia-impact-has-adjustment-justification-PASS.yaml |
+  | cia-impact-has-selected-FAIL.yaml |
+  | cia-impact-has-selected-PASS.yaml |
   | cloud-service-model-FAIL.yaml |
   | cloud-service-model-PASS.yaml |
   | component-type-FAIL.yaml |
@@ -103,12 +107,28 @@ Examples:
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
+  | has-security-impact-level-FAIL.yaml |
+  | has-security-impact-level-PASS.yaml |
+  | has-security-sensitivity-level-FAIL.yaml |
+  | has-security-sensitivity-level-PASS.yaml |
   | has-separation-of-duties-matrix-FAIL.yaml |
   | has-separation-of-duties-matrix-PASS.yaml |
   | has-system-id-FAIL.yaml |
   | has-system-id-PASS.yaml |
+  | has-system-name-short-FAIL.yaml |
+  | has-system-name-short-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
+  | import-profile-has-href-attribute-FAIL.yaml |
+  | import-profile-has-href-attribute-PASS.yaml |
+  | import-profile-has-valid-content-FAIL.yaml |
+  | import-profile-has-valid-content-PASS.yaml |
+  | information-type-has-availability-impact-FAIL.yaml |
+  | information-type-has-availability-impact-PASS.yaml |
+  | information-type-has-confidentiality-impact-FAIL.yaml |
+  | information-type-has-confidentiality-impact-PASS.yaml |
+  | information-type-has-integrity-impact-FAIL.yaml |
+  | information-type-has-integrity-impact-PASS.yaml |
   | information-type-id-FAIL.yaml |
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
@@ -147,6 +167,20 @@ Examples:
   | security-level-PASS.yaml |
   | security-sensitivity-level-matches-security-impact-level-FAIL.yaml |
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
+  | user-has-authorized-privilege-FAIL.yaml |
+  | user-has-authorized-privilege-PASS.yaml |
+  | user-has-privilege-level-FAIL.yaml |
+  | user-has-privilege-level-PASS.yaml |
+  | user-has-role-id-FAIL.yaml |
+  | user-has-role-id-PASS.yaml |
+  | user-has-sensitivity-level-FAIL.yaml |
+  | user-has-sensitivity-level-PASS.yaml |
+  | user-has-user-type-FAIL.yaml |
+  | user-has-user-type-PASS.yaml |
+  | user-privilege-level-FAIL.yaml |
+  | user-privilege-level-PASS.yaml |
+  | user-sensitivity-level-FAIL.yaml |
+  | user-sensitivity-level-PASS.yaml |
   | user-type-FAIL.yaml |
   | user-type-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
@@ -169,6 +203,8 @@ Examples:
   | authorization-type |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
+  | cia-impact-has-adjustment-justification |
+  | cia-impact-has-selected |
   | cloud-service-model |
   | component-type |
   | control-implementation-status |
@@ -208,10 +244,18 @@ Examples:
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-rules-of-behavior |
+  | has-security-impact-level |
+  | has-security-sensitivity-level |
   | has-separation-of-duties-matrix |
   | has-system-id |
+  | has-system-name-short |
   | has-user-guide |
+  | import-profile-has-href-attribute |
+  | import-profile-has-valid-content |
   | information-type-800-60-v2r1 |
+  | information-type-has-availability-impact |
+  | information-type-has-confidentiality-impact |
+  | information-type-has-integrity-impact |
   | information-type-system |
   | interconnection-direction |
   | interconnection-security |
@@ -230,5 +274,12 @@ Examples:
   | scan-type |
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
+  | user-has-authorized-privilege |
+  | user-has-privilege-level |
+  | user-has-role-id |
+  | user-has-sensitivity-level |
+  | user-has-user-type |
+  | user-privilege-level |
+  | user-sensitivity-level |
   | user-type |
 #END_DYNAMIC_CONSTRAINT_IDS

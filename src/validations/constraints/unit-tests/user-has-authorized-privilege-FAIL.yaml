@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for user-has-authorized-privilege
+  description: >-
+    This test case validates the behavior of constraint
+    user-has-authorized-privilege
+  content: ../content/ssp-user-INVALID.xml
+  expectations:
+    - constraint-id: user-has-authorized-privilege
+      result: fail

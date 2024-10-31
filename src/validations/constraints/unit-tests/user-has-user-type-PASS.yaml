@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for user-has-user-type
+  description: This test case validates the behavior of constraint user-has-user-type
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: user-has-user-type
+      result: pass

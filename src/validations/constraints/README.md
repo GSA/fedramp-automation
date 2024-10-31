@@ -53,6 +53,7 @@ docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
 
 4. When the download is complete and the terminal prompts you for a new shell command, you can check that you correctly downloaded the image by running your first command to [verify the version of `oscal-cli` in the image].
 
+
 ### Upgrading the container image
 
 1. Confirm that you still have [the necessary prerequisites](#prerequisites) for Docker or another OCI container engine installed.
@@ -63,6 +64,7 @@ docker pull ghcr.io/gsa/fedramp-automation/validation-tools:latest
 ```
 
 When you use `docker run ... ghcr.io/gsa/fedramp-automation/validation-tools:latest` on your computer, it will use the new version pinned to the `latest` tag that you recently downloaded instead of the previous version.
+
 
 ### Test the container image with your first command
 
@@ -117,7 +119,7 @@ To install `oscal-cli`
 To add Java and `oscal-cli` to the shell’s **PATH** variable
 1. Install JDK.
 2. Using your preferred text editor, open the following file:
-   `<shell-root>/home/<user>/.bashrc`
+   `<shell-root>/home/<user>/.bashrc`. Alternatively, you may not have a .bashrc file, in which case you should open your `.bash_profile` file. 
 3. Scroll to the bottom of the file.
 4. To add Java and `oscal-cli` to the PATH variable, insert the following lines, replacing **\<jdk-path\>** with the actual Java installation directory path on your system:
    `export PATH=$PATH:<jdk-path>/bin`
