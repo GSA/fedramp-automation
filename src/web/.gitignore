@@ -1,6 +1,0 @@
-.vite_temp
-bin
-public/rules
-coverage
-dist
-node_modules
