@@ -1,6 +1,0 @@
-[submodule "oscal"]
-	path = vendor/oscal
-	url = https://github.com/usnistgov/OSCAL.git
-	branch = main
-	ignore = dirty
-
