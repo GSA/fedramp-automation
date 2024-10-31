@@ -203,8 +203,15 @@
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
-      <prop name="privilege-level" value="read-write"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
       <role-id>system-admin</role-id>
+      <authorized-privilege>
+        <title>Admin</title>
+        <description><p>admin user</p></description>
+        <function-performed>administration</function-performed>
+      </authorized-privilege>
+
     </user>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">

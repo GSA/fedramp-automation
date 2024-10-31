@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for user-has-role-id
+  description: This test case validates the behavior of constraint user-has-role-id
+  content: ../content/ssp-user-INVALID.xml
+  expectations:
+    - constraint-id: user-has-role-id
+      result: fail
