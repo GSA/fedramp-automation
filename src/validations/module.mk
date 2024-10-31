@@ -11,12 +11,15 @@ init-validations:
 	@echo "Installing node modules..."
 	npm install
 	$(OSCAL_CLI) use latest
+	$(OSCAL_CLI) server update
 
 # Validation
 .PHONY: build-validations
 build-validations:
 	@echo "Running Cucumber Tests"
-	@npm run test
+	$(OSCAL_CLI) server start -bg
+	@npm run test:server
+	$(OSCAL_CLI) server stop
 
 clean-validations:
 	@echo "Nothing to clean"
