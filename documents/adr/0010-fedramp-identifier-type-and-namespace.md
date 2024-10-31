@@ -29,7 +29,7 @@ The team considered multiple approaches listed below.
   - Cons - this approach does not align with NIST allowed-value for `identifier-type` which may cause confusion, thus creating a misalignment between core OSCAL and FedRAMP OSCAL requirements.
 
 4. **Option 4** - go with "http://fedramp.gov/ns/oscal" for `identifier-type`, and "https://fedramp.gov/ns/oscal" for FedRAMP extension `prop` namespaces and `system`.  
-  - Pros - this approach aligns with NIST OSCAL allowed value for `identifier-type`, while preserving the current FedRAMP extention `prop` namespace value.  This requires no change to existing FedRAMP OSCAL content or tools.
+  - Pros - this approach aligns with NIST OSCAL allowed value for `identifier-type`, while preserving the current FedRAMP extension `prop` namespace value.  This requires no change to existing FedRAMP OSCAL content or tools.
   - Cons - FedRAMP OSCAL practitioners may be confused by the minor, subtle difference in allowed values for `identifier-type`, `system` and FedRAMP extention `prop` namespaces. 
 
 ## Decision
