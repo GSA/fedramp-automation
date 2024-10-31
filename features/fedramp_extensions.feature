@@ -1,5 +1,9 @@
 Feature: OSCAL Document Constraints
 
+@style-guide
+Scenario Outline: Validating OSCAL constraints with metaschema constraints
+  Then I should verify that all constraints follow the style guide constraint
+  
 @constraints
 Scenario Outline: Validating OSCAL documents with metaschema constraints
   Given I have Metaschema extensions documents
