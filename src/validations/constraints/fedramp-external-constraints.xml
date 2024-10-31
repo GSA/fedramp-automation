@@ -68,9 +68,11 @@
                     then ('fips-199-moderate')
                 else ('fips-199-low')"/>
             <expect id="categorization-has-correct-system-attribute" target="system-characteristics/system-information/information-type/categorization" test="@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information-type categorization requires a correct system attribute. FedRAMP only supports the system value 'https://doi.org/10.6028/NIST.SP.800-60v2r1'.</message>
             </expect>
             <expect id="categorization-has-information-type-id" target="system-characteristics/system-information/information-type/categorization" test="information-type-id" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type categorization must have at least one information type identifier.</message>
             </expect>
             <expect id="cia-impact-has-adjustment-justification" target="system-characteristics/system-information/information-type/(confidentiality-impact | integrity-impact | availability-impact)" test="if (base ne selected) then exists(adjustment-justification) else true()" level="ERROR">
@@ -267,15 +269,15 @@
         <metapath target="/system-security-plan/metadata"/>
         <constraints>
             <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
-               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>There must be one or more alternate data center(s).</message>
             </expect>
             <expect id="data-center-count" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center']) &gt; 1">
-               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>There must be at least two (2) data centers listed.</message>
             </expect>
             <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'primary']) = 1">
-               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>There must be a single primary data center.</message>
             </expect>
             <index name="index-person-party-uuid" target="map:merge(party[@type='person'] ! map:entry(@uuid,.))?*">
@@ -305,9 +307,11 @@
         <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
             <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>Each data center address must contain a country code.</message>
             </expect>
             <expect id="data-center-US" target="." test="address/country eq 'US'">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>Each data center must have an address that is within the United States.</message>
             </expect>
         </constraints>
