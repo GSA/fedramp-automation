@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+<metaschema-meta-constraints xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/refs/heads/develop/schema/xml/metaschema-meta-constraints.xsd"
+>
     <!-- ================== -->
     <!-- OSCAL Enhancements -->
     <!-- ================== -->
@@ -268,6 +272,26 @@
             </index>
             <index id="index-imports-metadata-property-uuid" name="index-imports-metadata-property-uuid" target="map:merge($all-imports//prop[@uuid] ! map:entry(@uuid,.))?*">
                 <key-field target="@uuid"/>
+            </index>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+
+            <let var="all-imports" expression="recurse-depth('resolve-profile(doc(resolve-uri(import-profile/@href)))//catalog')"/>            <!-- Collect all the control IDs from imported profiles -->
+            <let var="imported-controls-map" expression="map:merge($all-imports//control ! map:entry(@id,.))?*"/>
+            <!-- Collect all the implemented requirements' control IDs -->
+            <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>
+            <!-- Verify each required control has a corresponding implemented-requirement -->
+            <index id="index-imported-controls" name="index-imported-controls" target="$imported-controls-map">
+                <key-field target="@id"/>
+            </index>
+            
+            <index id="index-implemented-requirements" name="index-implemented-requirements" target="$implemented-requirements-map">
+                <key-field target="@control-id"/>
             </index>
         </constraints>
     </context>

@@ -273,9 +273,28 @@
     <context>
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
-            <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
-                <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
+            <expect id="missing-response-components" target="implemented-requirement" test="./statement/by-component">
+                <message>Implemented requirement (Control ID: {@control-id}) must have at least one by-component reference to the source component implementing it. Found ({count(./statement/by-component)}).</message>
             </expect>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/catalog"/>
+        <metapath target="/profile"/>
+        <metapath target="/system-security-plan"/>
+        <constraints>
+            <index-has-key id='incomplete-implemented-requirements' target="$imported-controls-map" name="index-implemented-requirements" level="ERROR">
+                <formal-name>Incomplete Implemented Requirements</formal-name>
+                <description>A FedRAMP SSP MUST contain an implemented requirement for each imported control.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
+                <key-field target="@id"/>
+            </index-has-key>
+            <index-has-key id='extraneous-implemented-requirements' target="//implemented-requirement" name="index-imported-controls" level="ERROR">
+                <formal-name>Additional Controls Implemented Not in Baseline</formal-name>
+                <description>This SSP includes extraneous controls that are not part of the FedRAMP baseline.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
+                <key-field target="@control-id"/>
+            </index-has-key>
         </constraints>
     </context>
 </metaschema-meta-constraints>
