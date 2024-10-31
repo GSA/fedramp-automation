@@ -26,7 +26,7 @@ setDefaultTimeout(DEFAULT_TIMEOUT);
 let currentTestCase: {
   name: string;
   description: string;
-  content: string;
+  content: string[];
   pipelines: [];
   expectations: [{ "constraint-id": string; result: string }];
 };
@@ -191,17 +191,22 @@ async function processTestCase({ "test-case": testCase }: any) {
   console.log(`Description: ${testCase.description}`);
 
   // Load the content file
-  const contentPath = join(
-    __dirname,
-    "..",
-    "..",
-    "src",
-    "validations",
-    "constraints",
-    "content",
-    testCase.content
-  );
-  console.log(`Loaded content from: ${contentPath}`);
+  const contentFiles = Array.isArray(testCase.content) ? testCase.content : [testCase.content];
+
+  for (let i = 0; i < contentFiles.length; i++) {
+    const contentFile = contentFiles[i];
+    // Load the content file
+    const contentPath = join(
+      __dirname,
+      "..",
+      "..",
+      "src",
+      "validations",
+      "constraints",
+      "content",
+      contentFile
+    );
+    console.log(`Loaded content from: ${contentPath}`);
   const cacheKey = (typeof testCase.pipeline === 'undefined' ? "" : "resolved-") + parse(contentPath).name;
 
 
@@ -269,9 +274,17 @@ async function processTestCase({ "test-case": testCase }: any) {
       ),
       JSON.stringify(sarifResponse, null,"\t")
     );
-    return checkConstraints(sarifResponse, testCase.expectations);
-  } catch (e) {
-    return { status: "fail", errorMessage: e.toString() };
+    const result = await checkConstraints(sarifResponse, testCase.expectations);
+      if (result.status === "fail") {
+        return result;
+      }
+      if (i === contentFiles.length -1) {
+        return result;
+      }
+
+    } catch (e) {
+      return { status: "fail", errorMessage: e.toString() };
+    }
   }
 }
 
