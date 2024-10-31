@@ -6,9 +6,7 @@ help:
 
 # Most of the real work of the build is in sub-project Makefiles.
 include src/content/module.mk
-include src/examples/module.mk
 include src/validations/module.mk
-include src/web/module.mk
 
 .PHONY: help
 
