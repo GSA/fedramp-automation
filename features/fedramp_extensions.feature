@@ -119,10 +119,10 @@ Examples:
   | has-system-name-short-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
-  | import-profile-has-href-attribute-FAIL.yaml |
-  | import-profile-has-href-attribute-PASS.yaml |
-  | import-profile-has-valid-content-FAIL.yaml |
-  | import-profile-has-valid-content-PASS.yaml |
+  | import-profile-has-available-document-FAIL.yaml |
+  | import-profile-has-available-document-PASS.yaml |
+  | import-profile-resolves-to-catalog-FAIL.yaml |
+  | import-profile-resolves-to-catalog-PASS.yaml |
   | information-type-has-availability-impact-FAIL.yaml |
   | information-type-has-availability-impact-PASS.yaml |
   | information-type-has-confidentiality-impact-FAIL.yaml |
@@ -250,8 +250,8 @@ Examples:
   | has-system-id |
   | has-system-name-short |
   | has-user-guide |
-  | import-profile-has-href-attribute |
-  | import-profile-has-valid-content |
+  | import-profile-has-available-document |
+  | import-profile-resolves-to-catalog |
   | information-type-800-60-v2r1 |
   | information-type-has-availability-impact |
   | information-type-has-confidentiality-impact |

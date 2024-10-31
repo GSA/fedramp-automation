@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for import-profile-resolves-to-catalog
+  description: >-
+    This test case validates the behavior of constraint
+    import-profile-resolves-to-catalog
+  content: ../content/ssp-import-profile-resolves-to-catalog-INVALID.xml
+  expectations:
+    - constraint-id: import-profile-resolves-to-catalog
+      result: fail
