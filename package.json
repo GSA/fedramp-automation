@@ -8,6 +8,7 @@
     "federalist": "make init-repo && npm run build:validation-ui && npm run link:validation-ui",
     "link:validation-ui": "ln -sf ./src/web/dist _site",
     "test": "cross-env-shell NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js",
+    "test:server": "cross-env-shell OSCAL_EXECUTOR='oscal-server' NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js",
     "test:parallel": "cross-env-shell NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js  --parallel 4 2>/dev/null 2>NUL",
     "test:failed": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js -p rerun",
     "test:constraints": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @constraints",
@@ -18,11 +19,12 @@
   "type": "module",
   "dependencies": {
     "@apidevtools/json-schema-ref-parser": "^11.6.4",
+    "@types/sarif": "^2.1.7",
     "chai": "^5.1.1",
     "inquirer": "^10.1.8",
     "js-yaml": "^4.1.0",
     "jsdom": "^25.0.0",
-    "oscal": "^1.4.7",
+    "oscal": "^2.0.3",
     "ts-node": "^10.9.2",
     "xml-formatter": "^3.6.3",
     "xml2js": "^0.6.2"
