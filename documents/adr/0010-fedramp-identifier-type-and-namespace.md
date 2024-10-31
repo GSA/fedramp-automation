@@ -10,7 +10,7 @@ Proposed
 
 The FedRAMP automation team needs to provide clear guidance on the acceptable values for an SSP system `identifier-type`, for its extension `prop` namespace values, and the  naming system identifier `system` attribute (used in the assessent results and POA&M).
 
-The OSCAL models specify a set of allowed values for `identifier-type` (see [OSCAL Metaschema Model](https://github.com/usnistgov/OSCAL/blob/4f02dac6f698efda387cc5f55bc99581eaf494b6/src/metaschema/oscal_implementation-common_metaschema.xml#L676-L704)).  For FedRAMP systems, the only allowed value is "http://fedramp.gov/ns/oscal" because "https://fedramp.gov" is deprecated.   However, use of "http://fedramp.gov/ns/oscal" for `identifier-type` may cause some confusion as FedRAMP extensions currently have `@ns` values of "https://fedramp.gov/ns/oscal" (notice the difference - **http** vs **https**).  Currently, the allowed value forr naming system identifier (in the assessment results and POA&M) is "https://fedramp.gov/ns/oscal".
+The OSCAL models specify a set of allowed values for `identifier-type` (see [OSCAL Metaschema Model](https://github.com/usnistgov/OSCAL/blob/4f02dac6f698efda387cc5f55bc99581eaf494b6/src/metaschema/oscal_implementation-common_metaschema.xml#L676-L704)).  For FedRAMP systems, the only allowed value is "http://fedramp.gov/ns/oscal" because "https://fedramp.gov" is deprecated.   However, use of "http://fedramp.gov/ns/oscal" for `identifier-type` may cause some confusion as FedRAMP extensions currently have `@ns` values of "https://fedramp.gov/ns/oscal" (notice the difference - **http** vs **https**).  Currently, the allowed value for naming system identifier (in the assessment results and POA&M) is "https://fedramp.gov/ns/oscal".
 
 ## Possible Solutions
 
