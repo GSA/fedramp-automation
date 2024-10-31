@@ -3,6 +3,44 @@
     <!-- ================== -->
     <!-- FedRAMP Extensions -->
     <!-- ================== -->
+        <context>
+        <metapath target="//metadata"/>
+        <constraints>
+            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-version"/>
+                <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
+                <remarks>
+                    <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
+                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
+                </remarks>
+            </expect>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="//user"/>
+        <constraints>
+            <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <message>A FedRAMP document MUST define a user with at least one authorized privilege by a privilege identifier.</message>
+            </expect>
+            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']) = 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <message>A FedRAMP document MUST define a user with a privilege for their use of the system.</message>
+            </expect>
+            <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <message>A FedRAMP document MUST define a user with at least one role by a role identifier.</message>
+            </expect>
+            <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <message>A FedRAMP document MUST define a user with a sensitivity level of their use of the system.</message>
+            </expect>
+            <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <message>A FedRAMP document MUST define a user with a type.</message>
+            </expect>
+        </constraints>
+    </context>
     <context>
         <metapath target="/catalog//control"/>
         <metapath target="/assessment-plan/local-definitions/objectives-and-methods"/>
@@ -19,56 +57,6 @@
         </constraints>
     </context>
     <context>
-        <metapath target="//metadata"/>
-        <constraints>
-            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-version"/>
-                <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
-                <remarks>
-                    <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
-                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
-                </remarks>
-            </expect>
-        </constraints>
-    </context>
-    <context>
-        <metapath target="/system-security-plan/metadata/location"/>
-        <constraints>
-            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
-                <message>Each data center address must contain a country code.</message>
-            </expect>
-            <expect id="data-center-US" target="." test="address/country eq 'US'">
-                <message>Each data center must have an address that is within the United States.</message>
-            </expect>
-        </constraints>
-    </context>
-    <context>
-        <metapath target="//user"/>
-        <constraints>
-
-            <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>A FedRAMP document MUST define a user with a type.</message>
-            </expect>
-            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']) = 1">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>A FedRAMP document MUST define a user with a privilege for their use of the system.</message>
-            </expect>
-            <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>A FedRAMP document MUST define a user with a sensitivity level of their use of the system.</message>
-            </expect>
-            <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>A FedRAMP document MUST define a user with at least one role by a role identifier.</message>
-            </expect>
-            <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>A FedRAMP document MUST define a user with at least one authorized privilege by a privilege identifier.</message>
-            </expect>
-        </constraints>
-    </context>
-    <context>
         <metapath target="/system-security-plan"/>
         <constraints>
             <let var="import-profile-href" expression="import-profile/@href"/>
@@ -79,58 +67,31 @@
                 else if (//security-impact-level//* = 'fips-199-moderate')
                     then ('fips-199-moderate')
                 else ('fips-199-low')"/>
-            <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-citations-and-attachments/#citation-and-attachment-details"/>
-                <message>Every supporting artifact found in a citation should have a title.</message>
-            </expect>
-            <expect id="resource-has-base64-or-rlink" target="back-matter/resource" test="count(./rlink) >= 1 or count(./base64) >= 1" level="WARNING">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-citations-and-attachments/#including-multiple-rlink-and-base64-fields"/>
-                <message>Every supporting artifact found in a citation must have at least one base64 or rlink element.</message>
-            </expect>
-            <expect id="has-user-guide" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'users-guide']]" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-                <message>A FedRAMP SSP must have a User Guide attached.</message>
-            </expect>
-            <expect id="has-rules-of-behavior" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'rules-of-behavior']]" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-                <message>A FedRAMP SSP must have Rules of Behavior.</message>
-            </expect>
-            <expect id="has-information-system-contingency-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'information-system-contingency-plan']]" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-                <message>A FedRAMP SSP must have a Contingency Plan attached.</message>
-            </expect>
-            <expect id="has-configuration-management-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'configuration-management-plan']]" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-                <message>A FedRAMP SSP must have a Configuration Management Plan attached.</message>
-            </expect>
-            <expect id="has-incident-response-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'incident-response-plan']]" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-                <message>A FedRAMP SSP must have an Incident Response Plan attached.</message>
-            </expect>
-            <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="ERROR">
-                <message>A FedRAMP SSP must have a Separation of Duties Matrix attached.</message>
-            </expect>
             <expect id="categorization-has-correct-system-attribute" target="system-characteristics/system-information/information-type/categorization" test="@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'" level="ERROR">
                 <message>A FedRAMP SSP information-type categorization requires a correct system attribute. FedRAMP only supports the system value 'https://doi.org/10.6028/NIST.SP.800-60v2r1'.</message>
             </expect>
             <expect id="categorization-has-information-type-id" target="system-characteristics/system-information/information-type/categorization" test="information-type-id" level="ERROR">
                 <message>A FedRAMP SSP information type categorization must have at least one information type identifier.</message>
             </expect>
-            <expect id="has-identity-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'identity-assurance-level'])" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
-                <message>A FedRAMP SSP must define its NIST SP 800-63 identity assurance level (IAL).</message>
+            <expect id="cia-impact-has-adjustment-justification" target="system-characteristics/system-information/information-type/(confidentiality-impact | integrity-impact | availability-impact)" test="if (base ne selected) then exists(adjustment-justification) else true()" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
+                <message>When SP 800-60 base and selected impacts levels differ for a given information type, the SSP MUST include a justification for the difference.</message>
+            </expect>
+            <expect id="cia-impact-has-selected" target="system-characteristics/system-information/information-type/(confidentiality-impact | integrity-impact | availability-impact)" test="selected" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
+                <message>A FedRAMP SSP information type confidentiality, integrity, or availability impact MUST specify the selected impact.</message>
             </expect>
             <expect id="has-authenticator-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'authenticator-assurance-level'])" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
                 <message>A FedRAMP SSP must define its NIST SP 800-63 authenticator assurance level (AAL).</message>
             </expect>
-            <expect id="has-federation-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'federation-assurance-level'])" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
-                <message>A FedRAMP SSP must define its NIST SP 800-63 federation assurance level (FAL).</message>
-            </expect>
             <expect id="has-authorization-boundary-diagram" target="system-characteristics/authorization-boundary" test="diagram" level="WARNING">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <message>A FedRAMP SSP must have at least one authorization boundary diagram.</message>
+            </expect>
+            <expect id="has-authorization-boundary-diagram-caption" target="system-characteristics/authorization-boundary/diagram" test="caption" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
+                <message>Each FedRAMP SSP authorization boundary diagram must have a caption.</message>
             </expect>
             <expect id="has-authorization-boundary-diagram-description" target="system-characteristics/authorization-boundary/diagram" test="description" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
@@ -148,53 +109,25 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <message>Each FedRAMP SSP authorization boundary diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
-            <expect id="has-authorization-boundary-diagram-caption" target="system-characteristics/authorization-boundary/diagram" test="caption" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
-                <message>Each FedRAMP SSP authorization boundary diagram must have a caption.</message>
-            </expect>
-            <expect id="has-network-architecture" target="system-characteristics" test="network-architecture" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
-                <message>A FedRAMP SSP must include a network architecture.</message>
-            </expect>
-            <expect id="has-network-architecture-diagram" target="system-characteristics/network-architecture" test="diagram" level="WARNING">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
-                <message>A FedRAMP SSP must have at least one network architecture diagram.</message>
-            </expect>
-            <expect id="has-network-architecture-diagram-description" target="system-characteristics/network-architecture/diagram" test="description" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
-                <message>Each FedRAMP SSP network architecture diagram must have a description.</message>
-            </expect>
-            <expect id="has-network-architecture-diagram-link" target="system-characteristics/network-architecture/diagram" test="link" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
-                <message>Each FedRAMP SSP network architecture diagram must have a link.</message>
-            </expect>
-            <expect id="has-network-architecture-diagram-caption" target="system-characteristics/network-architecture/diagram" test="caption" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
-                <message>Each FedRAMP SSP network architecture diagram must have a caption.</message>
-            </expect>
-            <expect id="has-network-architecture-diagram-link-rel" target="system-characteristics/network-architecture/diagram/link" test="@rel" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
-                <message>Each FedRAMP SSP network architecture diagram must have a link rel attribute.</message>
-            </expect>
-            <expect id="has-network-architecture-diagram-link-rel-allowed-value" target="system-characteristics/network-architecture/diagram/link" test="@rel eq 'diagram'" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
-                <message>Each FedRAMP SSP network architecture diagram must have a link rel attribute with the value "diagram".</message>
+            <expect id="has-configuration-management-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'configuration-management-plan']]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>A FedRAMP SSP must have a Configuration Management Plan attached.</message>
             </expect>
             <expect id="has-data-flow" target="system-characteristics" test="data-flow" level="WARNING">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
                 <message>A FedRAMP SSP must include a data flow section.</message>
             </expect>
-            <expect id="has-data-flow-diagram" target="system-characteristics/data-flow" test="diagram" level="WARNING">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
-                <message>A FedRAMP SSP must have at least one data flow diagram.</message>
-            </expect>
             <expect id="has-data-flow-description" target="system-characteristics/data-flow" test="description" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
                 <message>An OSCAL SSP document with a data flow must have a description.</message>
             </expect>
-            <expect id="has-data-flow-diagram-uuid" target="system-characteristics/data-flow/diagram" test="@uuid" level="ERROR">
+            <expect id="has-data-flow-diagram" target="system-characteristics/data-flow" test="diagram" level="WARNING">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
-                <message>An OSCAL SSP document with a data flow diagram must have a unique identifier.</message>
+                <message>A FedRAMP SSP must have at least one data flow diagram.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-caption" target="system-characteristics/data-flow/diagram" test="caption" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
+                <message>Each FedRAMP SSP data flow diagram must have a caption.</message>
             </expect>
             <expect id="has-data-flow-diagram-description" target="system-characteristics/data-flow/diagram" test="description" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
@@ -204,10 +137,6 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
                 <message>Each FedRAMP SSP data flow diagram must have a link.</message>
             </expect>
-            <expect id="has-data-flow-diagram-caption" target="system-characteristics/data-flow/diagram" test="caption" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
-                <message>Each FedRAMP SSP data flow diagram must have a caption.</message>
-            </expect>
             <expect id="has-data-flow-diagram-link-rel" target="system-characteristics/data-flow/diagram/link" test="@rel" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
                 <message>Each FedRAMP SSP data flow diagram must have a link rel attribute.</message>
@@ -216,21 +145,80 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
                 <message>Each FedRAMP SSP data flow diagram must have a link rel attribute with the value "diagram".</message>
             </expect>
-            <expect id="has-security-sensitivity-level" target="system-characteristics" test="security-sensitivity-level" level="ERROR">
-                <message>A FedRAMP SSP document MUST specify a FIPS 199 categorization.</message>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
+            <expect id="has-data-flow-diagram-uuid" target="system-characteristics/data-flow/diagram" test="@uuid" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
+                <message>An OSCAL SSP document with a data flow diagram must have a unique identifier.</message>
+            </expect>
+            <expect id="has-federation-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'federation-assurance-level'])" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
+                <message>A FedRAMP SSP must define its NIST SP 800-63 federation assurance level (FAL).</message>
+            </expect>
+            <expect id="has-identity-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'identity-assurance-level'])" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
+                <message>A FedRAMP SSP must define its NIST SP 800-63 identity assurance level (IAL).</message>
+            </expect>
+            <expect id="has-incident-response-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'incident-response-plan']]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>A FedRAMP SSP must have an Incident Response Plan attached.</message>
+            </expect>
+            <expect id="has-information-system-contingency-plan" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'information-system-contingency-plan']]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>A FedRAMP SSP must have a Contingency Plan attached.</message>
+            </expect>
+            <expect id="has-network-architecture" target="system-characteristics" test="network-architecture" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>A FedRAMP SSP must include a network architecture.</message>
+            </expect>
+            <expect id="has-network-architecture-diagram" target="system-characteristics/network-architecture" test="diagram" level="WARNING">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>A FedRAMP SSP must have at least one network architecture diagram.</message>
+            </expect>
+            <expect id="has-network-architecture-diagram-caption" target="system-characteristics/network-architecture/diagram" test="caption" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>Each FedRAMP SSP network architecture diagram must have a caption.</message>
+            </expect>
+            <expect id="has-network-architecture-diagram-description" target="system-characteristics/network-architecture/diagram" test="description" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>Each FedRAMP SSP network architecture diagram must have a description.</message>
+            </expect>
+            <expect id="has-network-architecture-diagram-link" target="system-characteristics/network-architecture/diagram" test="link" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>Each FedRAMP SSP network architecture diagram must have a link.</message>
+            </expect>
+            <expect id="has-network-architecture-diagram-link-rel" target="system-characteristics/network-architecture/diagram/link" test="@rel" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>Each FedRAMP SSP network architecture diagram must have a link rel attribute.</message>
+            </expect>
+            <expect id="has-network-architecture-diagram-link-rel-allowed-value" target="system-characteristics/network-architecture/diagram/link" test="@rel eq 'diagram'" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>Each FedRAMP SSP network architecture diagram must have a link rel attribute with the value "diagram".</message>
+            </expect>
+            <expect id="has-rules-of-behavior" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'rules-of-behavior']]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>A FedRAMP SSP must have Rules of Behavior.</message>
             </expect>
             <expect id="has-security-impact-level" target="system-characteristics" test="security-impact-level" level="ERROR">
                 <message>A FedRAMP SSP document MUST specify a security impact level.</message>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
             </expect>
+            <expect id="has-security-sensitivity-level" target="system-characteristics" test="security-sensitivity-level" level="ERROR">
+                <message>A FedRAMP SSP document MUST specify a FIPS 199 categorization.</message>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
+            </expect>
+            <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="ERROR">
+                <message>A FedRAMP SSP must have a Separation of Duties Matrix attached.</message>
+            </expect>
             <expect id="has-system-id" target="system-characteristics" test="system-id[@identifier-type eq 'https://fedramp.gov']" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
                 <message>A FedRAMP SSP must have a FedRAMP system identifier.</message>
             </expect>
-            <expect id="security-sensitivity-level-matches-security-impact-level" target="system-characteristics/security-sensitivity-level" test=". eq $security-impact-level" level="WARNING">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
-                <message>A FedRAMP SSP SHOULD define its FIPS-199 security sensitivity level to match the highest security impact level for the system's confidentiality, integrity, and availability objectives.</message>
+            <expect id="has-system-name-short" target="system-characteristics" test="system-name-short" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
+                <message>A FedRAMP SSP MUST have a short system name.</message>
+            </expect>
+            <expect id="has-user-guide" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'users-guide']]" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>A FedRAMP SSP must have a User Guide attached.</message>
             </expect>
             <expect id="import-profile-has-href-attribute" target="import-profile" test="doc-available(@href)" level="CRITICAL">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
@@ -240,6 +228,10 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
             </expect>
+            <expect id="information-type-has-availability-impact" target="system-characteristics/system-information/information-type" test="availability-impact" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
+                <message>A FedRAMP SSP information type MUST have an availability impact.</message>
+            </expect>
             <expect id="information-type-has-confidentiality-impact" target="system-characteristics/system-information/information-type" test="confidentiality-impact" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type MUST have a confidentiality impact.</message>
@@ -248,27 +240,36 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type MUST have an integrity impact.</message>
             </expect>
-            <expect id="information-type-has-availability-impact" target="system-characteristics/system-information/information-type" test="availability-impact" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
-                <message>A FedRAMP SSP information type MUST have an availability impact.</message>
+            <expect id="resource-has-base64-or-rlink" target="back-matter/resource" test="count(./rlink) >= 1 or count(./base64) >= 1" level="WARNING">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-citations-and-attachments/#including-multiple-rlink-and-base64-fields"/>
+                <message>Every supporting artifact found in a citation must have at least one base64 or rlink element.</message>
             </expect>
-            <expect id="cia-impact-has-selected" target="system-characteristics/system-information/information-type/(confidentiality-impact | integrity-impact | availability-impact)" test="selected" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
-                <message>A FedRAMP SSP information type confidentiality, integrity, or availability impact MUST specify the selected impact.</message>
+            <expect id="resource-has-title" target="back-matter/resource" test="title" level="WARNING">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-citations-and-attachments/#citation-and-attachment-details"/>
+                <message>Every supporting artifact found in a citation should have a title.</message>
             </expect>
-            <expect id="cia-impact-has-adjustment-justification" target="system-characteristics/system-information/information-type/(confidentiality-impact | integrity-impact | availability-impact)" test="if (base ne selected) then exists(adjustment-justification) else true()" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
-                <message>When SP 800-60 base and selected impacts levels differ for a given information type, the SSP MUST include a justification for the difference.</message>
+            <expect id="security-sensitivity-level-matches-security-impact-level" target="system-characteristics/security-sensitivity-level" test=". eq $security-impact-level" level="WARNING">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
+                <message>A FedRAMP SSP SHOULD define its FIPS-199 security sensitivity level to match the highest security impact level for the system's confidentiality, integrity, and availability objectives.</message>
             </expect>
-            <expect id="has-system-name-short" target="system-characteristics" test="system-name-short" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
-                <message>A FedRAMP SSP MUST have a short system name.</message>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/system-security-plan/control-implementation"/>
+        <constraints>
+            <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-overview"/>
+                <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
             </expect>
         </constraints>
     </context>
     <context>
         <metapath target="/system-security-plan/metadata"/>
         <constraints>
+            <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
+                <message>There must be one or more alternate data center(s).</message>
+            </expect>
             <expect id="data-center-count" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center']) &gt; 1">
                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
                 <message>There must be at least two (2) data centers listed.</message>
@@ -276,10 +277,6 @@
             <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'primary']) = 1">
                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
                 <message>There must be a single primary data center.</message>
-            </expect>
-            <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
-               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers" />
-                <message>There must be one or more alternate data center(s).</message>
             </expect>
             <index name="index-person-party-uuid" target="map:merge(party[@type='person'] ! map:entry(@uuid,.))?*">
             	<formal-name>Index of parties of type "person".</formal-name>
@@ -291,10 +288,6 @@
                 <key-field target="party-uuid"/>
                 <message>For roles 'system-owner' and 'information-system-security-officer', the responsible-role party must be a party of type 'person'.</message>
             </index-has-key>
-            <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#information-system-owner"/>
-                <message>A FedRAMP SSP must define the system owner role.</message>
-            </expect>
             <expect id="role-defined-authorizing-official-poc" target="." test="role[@id eq 'authorizing-official-poc']" level="ERROR">
                 <message>A FedRAMP SSP must define a role for the point of contact for an authorizing official.</message>
             </expect>
@@ -302,14 +295,20 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#assignment-of-security-responsibilities"/>
                 <message>A FedRAMP SSP must define a role for the point of contact for an information system security officer.</message>
             </expect>
+            <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#information-system-owner"/>
+                <message>A FedRAMP SSP must define the system owner role.</message>
+            </expect>
         </constraints>
     </context>
     <context>
-        <metapath target="/system-security-plan/control-implementation"/>
+        <metapath target="/system-security-plan/metadata/location"/>
         <constraints>
-            <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-overview"/>
-                <message>Each implemented requirement must have at least one by-component reference to the source component implementing it.</message>
+            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
+                <message>Each data center address must contain a country code.</message>
+            </expect>
+            <expect id="data-center-US" target="." test="address/country eq 'US'">
+                <message>Each data center must have an address that is within the United States.</message>
             </expect>
         </constraints>
     </context>
