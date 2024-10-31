@@ -22,7 +22,7 @@ The team considered multiple approaches listed below.
 
 2. **Option 2** - require "http://fedramp.gov/ns/oscal" for `identifier-type`, `system`, and `prop`.  
   - Pros - this approach aligns with NIST allowed values for `identifier-type`, and has the added benefit of reducing confusion since all use the same FedRAMP URI value. 
-  - Cons - however, this approach is likely to impact the community since FedRAMP extensions will all need to be updated (e.g., change "https" to "http" in existing FedRAMP OSCAL documents).  OSCAL content generating tools will also be impacted by the `@ns` change for FedRAMP extensions.
+  - Cons - this approach is likely to impact the community since FedRAMP extensions will all need to be updated (e.g., change "https" to "http" in existing FedRAMP OSCAL documents).  OSCAL content generating tools will also be impacted by the `@ns` change for FedRAMP extensions.
 
 3. **Option 3** - require "https://fedramp.gov/ns/oscal" for `identifier-type`, `system`, and `prop` namespaces attribute value.  
   - Pros - perceived lesser impact on existing FedRAMP OSCAL documents and tools, as only the `identifier-type` would require change.
