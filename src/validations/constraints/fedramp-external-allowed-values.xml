@@ -12,15 +12,18 @@
         <metapath target="/assessment-plan"/>
         <metapath target="/assessment-results"/>
         <metapath target="/plan-of-action-and-milestones"/>
-
         <constraints>
-            
-            <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>FedRAMP Version</formal-name>
-                <description>Identifies the FedRAMP version of the document.</description>
-                <enum value="fedramp-3.0.0rc1-oscal-1.1.2">FedRAMP Version</enum>
+
+            <allowed-values id="address-type" target="metadata/party/address/@type" allow-other="no" level="ERROR">
+                <formal-name>Address Type</formal-name>
+                <description>The type of address for the party</description>
+                <!-- <enum value="home">Home</enum>-->                <!-- would FedRAMP ever need a "home" address? -->
+                <enum value="work">Work</enum>
+                <remarks>
+                    <p>FedRAMP requires work addresses.</p>
+                </remarks>
             </allowed-values>
-            
+
             <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Attachment Type</formal-name>
                 <description>Identifies the type of attachment.</description>
@@ -62,6 +65,23 @@
                 </remarks>
             </allowed-values>
 
+            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Authorization Type</formal-name>
+                <description>The FedRAMP Authorization Type</description>
+                <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
+                <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
+                <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
+            </allowed-values>
+
+            <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Cloud Service Model</formal-name>
+                <description>The cloud service model used by the system.</description>
+                <enum value="iaas">Infrastructure as a Service</enum>
+                <enum value="paas">Platform as a Service</enum>
+                <enum value="saas">Software as a Service</enum>
+                <enum value="other">Other</enum>
+            </allowed-values>
+
             <allowed-values id="component-type" target="system-implementation/component/@type" allow-other="no" level="ERROR">
                 <formal-name>Component Type</formal-name>
                 <description>Identifies the component type.</description>
@@ -91,51 +111,6 @@
                 <enum value="not-applicable">Not Applicable</enum>
             </allowed-values>
 
-            <allowed-values id="interconnection-direction" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Interconnection Direction</formal-name>
-                <description>Identifies the direction of information flow for the interconnection.</description>
-                <enum value="in">Incoming</enum>
-                <enum value="out">Outgoing</enum>
-                <enum value="in/out">Bi-Directional</enum>
-            </allowed-values>
-
-            <allowed-values id="interconnection-security" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Interconnection Security</formal-name>
-                <description>Identifies the type of security applied to the interconnection.</description>
-                <enum value="ipsec">IPsec</enum>
-                <enum value="vpn">Virtual Private Network</enum>
-                <enum value="tls">Transport-Layer Security</enum>
-                <enum value="dtls">Transport-Layer Security</enum>
-                <enum value="certificate">Certificate Authentication Security</enum>
-                <enum value="secure-file-transfer">Secure File Transfer</enum>
-                <enum value="other">Other</enum>
-            </allowed-values>
-
-            <allowed-values id="scan-type" target="system-implementation//prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Scan Type</formal-name>
-                <description>Identifies the type of scan.</description>
-                <enum value="infrastructure">Infrastructure and Operating System Scan</enum>
-                <enum value="database">Database Scan</enum>
-                <enum value="web">Web Scan</enum>
-                <enum value="other">Other</enum>
-            </allowed-values>
-            <allowed-values id="address-type" target="metadata/party/address/@type" allow-other="no" level="ERROR">
-                <formal-name>Address Type</formal-name>
-                <description>The type of address for the party</description>
-                <!-- <enum value="home">Home</enum>-->                <!-- would FedRAMP ever need a "home" address? -->
-                <enum value="work">Work</enum>
-                <remarks>
-                    <p>FedRAMP requires work addresses.</p>
-                </remarks>
-            </allowed-values>
-
-            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Authorization Type</formal-name>
-                <description>The FedRAMP Authorization Type</description>
-                <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
-                <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
-                <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
-            </allowed-values>
             <allowed-values id="deployment-model" target="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Deployment Model</formal-name>
                 <description>The cloud deployment model.</description>
@@ -145,66 +120,13 @@
                 <enum value="hybrid-cloud">Hybrid</enum>
                 <enum value="other">Other</enum>
             </allowed-values>
-            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Authorization Type</formal-name>
-                <description>The FedRAMP Authorization Type</description>
-                <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
-                <enum value="fedramp-agency">FedRAMP Agency ATO</enum>
-                <enum value="fedramp-li-saas">FedRAMP Tailored for LI-SaaS</enum>
-            </allowed-values>
-            <allowed-values id="user-type" target="system-implementation/user/prop[@name='type']/@value" allow-other="no" level="ERROR">
-                <formal-name>User Type</formal-name>
-                <description>The type of user.</description>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <enum value="internal">Internal</enum>
-                <enum value="external">External</enum>
-                <enum value="privileged">Privileged</enum>
-              </allowed-values>
-            <allowed-values id="information-type-system" target="system-characteristics/system-information/information-type/categorization/@system" allow-other="no" level="ERROR">
-                <formal-name>Information Type Categorization System</formal-name>
-                <description>The system used for categorizing information types.</description>
-                <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST SP 800-60 Volume 2 Revision 1</enum>
-              </allowed-values>
-              <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Privilege Level</formal-name>
-                <description>The privilege level of the user.</description>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <enum value="read">Read</enum>
-                <enum value="read-write">Read-Write</enum>
-                <enum value="write">Write</enum>
-                <enum value="no-access">No Access</enum>
-              </allowed-values>
 
-            <allowed-values id="cloud-service-model" target="system-characteristics/prop[@name='cloud-service-model'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
-                <formal-name>Cloud Service Model</formal-name>
-                <description>The cloud service model used by the system.</description>
-                <enum value="iaas">Infrastructure as a Service</enum>
-                <enum value="paas">Platform as a Service</enum>
-                <enum value="saas">Software as a Service</enum>
-                <enum value="other">Other</enum>
+            <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>FedRAMP Version</formal-name>
+                <description>Identifies the FedRAMP version of the document.</description>
+                <enum value="fedramp-3.0.0rc1-oscal-1.1.2">FedRAMP Version</enum>
             </allowed-values>
 
-            <allowed-values id="inventory-item-virtual" target="(//inventory-item/prop[@name='virtual'] | //component/prop[@name='virtual'])/@value" allow-other="no" level="ERROR">
-                <formal-name>Virtual</formal-name>
-                <description>Indicates if the asset is virtual.</description>
-                <enum value="yes">Yes</enum>
-                <enum value="no">No</enum>
-            </allowed-values>
-            
-            <allowed-values id="inventory-item-public" target="(//inventory-item | //component)/prop[@name='public']/@value" allow-other="no" level="ERROR">
-                <formal-name>Public</formal-name>
-                <description>Indicates if the asset is exposed to the public Internet.</description>
-                <enum value="yes">Yes</enum>
-                <enum value="no">No</enum>
-            </allowed-values>
-            
-            <allowed-values id="inventory-item-allows-authenticated-scan" target="(//inventory-item | //component)/prop[@name='allows-authenticated-scan']/@value" allow-other="no" level="ERROR">
-                <formal-name>Allows Authenticated Scan</formal-name>
-                <description>Indicates if the asset is capable of having an authenticated scan.</description>
-                <enum value="yes">Yes</enum>
-                <enum value="no">No</enum>
-            </allowed-values>
-            
             <allowed-values id="information-type-800-60-v2r1" target="system-characteristics/system-information/information-type/categorization[@system='https://doi.org/10.6028/NIST.SP.800-60v2r1']/information-type-id" allow-other="no" level="ERROR">
                 <formal-name>NIST SP 800-60 Volume 2 Revision 1 Information Types</formal-name>
                 <description>Contains a list of all supported information types from NIST SP 800-60 Volume 2 Revision 1.</description>
@@ -379,6 +301,71 @@
                 <enum value="D.9.4">Industry Sector Income Stabilization</enum>
             </allowed-values>
 
+            <allowed-values id="information-type-system" target="system-characteristics/system-information/information-type/categorization/@system" allow-other="no" level="ERROR">
+                <formal-name>Information Type Categorization System</formal-name>
+                <description>The system used for categorizing information types.</description>
+                <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST SP 800-60 Volume 2 Revision 1</enum>
+            </allowed-values>
+
+            <allowed-values id="interconnection-direction" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Interconnection Direction</formal-name>
+                <description>Identifies the direction of information flow for the interconnection.</description>
+                <enum value="in">Incoming</enum>
+                <enum value="out">Outgoing</enum>
+                <enum value="in/out">Bi-Directional</enum>
+            </allowed-values>
+
+            <allowed-values id="interconnection-security" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Interconnection Security</formal-name>
+                <description>Identifies the type of security applied to the interconnection.</description>
+                <enum value="ipsec">IPsec</enum>
+                <enum value="vpn">Virtual Private Network</enum>
+                <enum value="tls">Transport-Layer Security</enum>
+                <enum value="dtls">Transport-Layer Security</enum>
+                <enum value="certificate">Certificate Authentication Security</enum>
+                <enum value="secure-file-transfer">Secure File Transfer</enum>
+                <enum value="other">Other</enum>
+            </allowed-values>
+
+            <allowed-values id="inventory-item-allows-authenticated-scan" target="(//inventory-item | //component)/prop[@name='allows-authenticated-scan']/@value" allow-other="no" level="ERROR">
+                <formal-name>Allows Authenticated Scan</formal-name>
+                <description>Indicates if the asset is capable of having an authenticated scan.</description>
+                <enum value="yes">Yes</enum>
+                <enum value="no">No</enum>
+            </allowed-values>
+
+            <allowed-values id="inventory-item-public" target="(//inventory-item | //component)/prop[@name='public']/@value" allow-other="no" level="ERROR">
+                <formal-name>Public</formal-name>
+                <description>Indicates if the asset is exposed to the public Internet.</description>
+                <enum value="yes">Yes</enum>
+                <enum value="no">No</enum>
+            </allowed-values>
+
+            <allowed-values id="inventory-item-virtual" target="(//inventory-item/prop[@name='virtual'] | //component/prop[@name='virtual'])/@value" allow-other="no" level="ERROR">
+                <formal-name>Virtual</formal-name>
+                <description>Indicates if the asset is virtual.</description>
+                <enum value="yes">Yes</enum>
+                <enum value="no">No</enum>
+            </allowed-values>
+
+            <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Privilege Level</formal-name>
+                <description>The privilege level of the user.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <enum value="read">Read</enum>
+                <enum value="read-write">Read-Write</enum>
+                <enum value="write">Write</enum>
+                <enum value="no-access">No Access</enum>
+              </allowed-values>
+
+            <allowed-values id="scan-type" target="system-implementation//prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Scan Type</formal-name>
+                <description>Identifies the type of scan.</description>
+                <enum value="infrastructure">Infrastructure and Operating System Scan</enum>
+                <enum value="database">Database Scan</enum>
+                <enum value="web">Web Scan</enum>
+                <enum value="other">Other</enum>
+            </allowed-values>
 
             <allowed-values id="user-privilege-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='privilege-level']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
@@ -389,6 +376,7 @@
                 <enum value="write">Write</enum>
                 <enum value="no-access">No Access</enum>
             </allowed-values>
+
             <allowed-values id="user-sensitivity-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='sensitivity']/@value"  allow-other="no" level="ERROR">
                 <formal-name>User Sensitvity Level</formal-name>
                 <description>Sensitivity level of the user.</description>
@@ -399,8 +387,17 @@
                 <enum value="limited">Limited</enum>
                 <enum value="not-applicable">Not Applicable</enum>
             </allowed-values>
-        </constraints>
 
+            <allowed-values id="user-type" target="system-implementation/user/prop[@name='type']/@value" allow-other="no" level="ERROR">
+                <formal-name>User Type</formal-name>
+                <description>The type of user.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
+                <enum value="internal">Internal</enum>
+                <enum value="external">External</enum>
+                <enum value="privileged">Privileged</enum>
+            </allowed-values>
+
+        </constraints>
     </context>
     
     <context>
@@ -408,6 +405,7 @@
         <metapath target="/system-security-plan/system-characteristics/security-impact-level/(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
         <metapath target="/system-security-plan/system-characteristics/system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"/> 
         <constraints>
+
             <allowed-values id="security-level" target="." allow-other="no" level="ERROR">
                 <formal-name>Security Impact Level</formal-name>
                 <description>The security objective level as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v1r1">NIST SP 800-60</a>.</description>
@@ -415,6 +413,7 @@
                 <enum value="fips-199-moderate">Moderate</enum>
                 <enum value="fips-199-high">High</enum>
             </allowed-values>
+
         </constraints>
     </context>    
 
