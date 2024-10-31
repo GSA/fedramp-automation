@@ -134,6 +134,94 @@ To add new tests, add an import to the `./test/test_all.xpec` file. For example:
 </x:description>
 ```
 
+
+# Server Operation and Testing
+
+## OSCAL Server Commands
+
+The OSCAL server provides several commands for managing its operation:
+
+```bash
+oscal server start      # Start the server in foreground mode
+oscal server start -bg  # Start the server in background mode
+oscal server stop      # Stop the running server
+oscal server update    # Update the server's content
+```
+
+## Testing Workflows
+
+There are multiple ways to run tests depending on your needs:
+
+### Using `make test`
+
+The recommended way to run tests is using `make test`, which handles the complete testing workflow:
+
+1. Starts the OSCAL server in background mode
+2. Runs the tests using the server
+3. Automatically stops the server when complete
+
+```bash
+make test
+```
+
+### Manual Testing Options
+
+#### CLI-only Testing
+```bash
+npm run test
+```
+This runs tests without the server, using the CLI implementation.
+
+#### Server-based Testing
+```bash
+# First, ensure the server is running
+oscal server start -bg
+# Then run the server-based tests
+npm run test:server
+```
+
+Note: If `npm run test:server` is executed without a running server, it will fall back to CLI-based testing.
+
+## Best Practices
+
+- For local development, using `make test` is recommended as it handles server lifecycle management automatically.
+- The server-based testing (`npm run test:server`) is primarily beneficial for CI/CD pipelines and cloud environments where it can significantly improve test execution speed.
+- If you're actively developing and need to run tests frequently, you can keep the server running in the background:
+  ```bash
+  oscal server start -bg
+  # Run multiple test sessions
+  npm run test:server
+  # edit your files
+  npm run test:server
+  # When finished
+  oscal server stop
+  ```
+
+## Performance Considerations
+
+- Server-based testing is generally faster than CLI-based testing, especially in CI/CD environments
+- The initial server start may take a moment, but subsequent test runs will be faster
+
+## Troubleshooting
+
+If you encounter issues with server-based testing:
+
+1. Check if the server is running:
+   ```bash
+   ps aux | grep oscal
+   ```
+2. Try stopping and restarting the server:
+   ```bash
+   oscal server stop
+   oscal server start -bg
+   ```
+3. Update the server binary:
+   ```bash
+   oscal server update
+   ```
+
+Remember that `make test` handles these issues automatically and is the recommended approach for most scenarios.
+
 ## Analyzing Changes to OSCAL Data Models to Update Rules
 
 OSCAL has abstract information models that are converted into concrete data models into XML and JSON.
