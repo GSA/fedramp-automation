@@ -1,7 +1,7 @@
 test-case:
-  name: Negative Test for data-center-US
-  description: This test case validates the behavior of constraint data-center-US
-  content: ../content/ssp-data-center-US-INVALID.xml
+  name: Negative Test for data-center-us
+  description: This test case validates the behavior of constraint data-center-us
+  content: ../content/ssp-data-center-us-INVALID.xml
   expectations:
-    - constraint-id: data-center-US
+    - constraint-id: data-center-us
       result: fail
