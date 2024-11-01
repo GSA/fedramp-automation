@@ -17,7 +17,7 @@ The FedRAMP Automation Team recognizes the need to develop automation capabiliti
 Within this context, the Team recognizes three tiers of automation:
 - **Completeness Checks**: Ensure the presence of required content and attachments within the package submission. Typically defined and performed using Metaschema constraints.
 - **Integrity Checks**: Focus on data correlation and consistency checks within the OSCAL content, similar to database referential integrity checks. Some of this can be performed with Metaschema constraints; however, some may require another mechanism to fully address.
-- **Reviewer Automation**: Advanced and complex digital package quality checks to that  support decision-makers in understanding the CSO’s risk posture.
+- **Reviewer Automation**: Advanced and complex digital package quality checks that support decision-makers in understanding the CSO’s risk posture.
 
 This ADR focuses on Metaschema constraints related to **Completeness Checks** and **Integrity Checks**.
 
