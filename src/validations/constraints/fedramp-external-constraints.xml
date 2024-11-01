@@ -57,7 +57,7 @@
         <constraints>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
                 <formal-name>Prop Response Point Has Cardinality One</formal-name>
-                <!-- Needs supporting documentation on automate.fedramp.gov -->
+                <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
                 <message>MUST NOT have Duplicate response point at '{ path(.) }'.</message>
             </expect>
@@ -257,7 +257,7 @@
             </expect>
             <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="ERROR">
                 <formal-name>Has Separation Of Duties Matrix</formal-name>
-                <!-- Needs supporting documentation on automate.fedramp.gov -->
+                <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
                 <message>A FedRAMP SSP MUST have a Separation of Duties Matrix attached.</message>
             </expect>
@@ -361,7 +361,7 @@
             </index-has-key>
             <expect id="role-defined-authorizing-official-poc" target="." test="role[@id eq 'authorizing-official-poc']" level="ERROR">
                 <formal-name>Role Defined Authorizing Official POC</formal-name>
-                <!-- Needs supporting documentation on automate.fedramp.gov -->
+                <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
                 <message>A FedRAMP SSP MUST define a role for the point of contact for an authorizing official.</message>
             </expect>
