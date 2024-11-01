@@ -23,7 +23,7 @@ This ADR focuses on Metaschema constraints related to **Completeness Checks** an
 
 ### Approach
 
-1. The Team will align automation actiivity to the FedRAMP Templates and Review Checklists for FedRAMP Baselines based on NIST SP 800-53 Revision 5.
+1. The Team will align automation activity to the FedRAMP Templates and Review Checklists for FedRAMP Baselines based on NIST SP 800-53 Revision 5.
 1. The Team will assess each automation activity as something that:
   1. is fully automatable via metaschema constraints or other means; or
   1. requires human judgement, thus is more suited to a workflow.
