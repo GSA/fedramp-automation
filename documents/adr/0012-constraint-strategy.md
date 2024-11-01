@@ -45,7 +45,7 @@ The Team will work in the following sequence:
 - Theme 2: Data and Referential Integrity Checks 
 - Theme 3: Reviewer Automation
 
-All contributers to constraint development will ensure all contributions adhear to the [Definition of Done](https://github.com/GSA/fedramp-automation/wiki/Constraint-Management#definition-of-done), which includes updating the documentation in accordance with the [Documentation Standards](https://github.com/GSA/fedramp-automation/wiki/Constraint-Management#documentation-standards).
+All contributors to constraint development will ensure all contributions adhere to the [Definition of Done](https://github.com/GSA/fedramp-automation/wiki/Constraint-Management#definition-of-done), which includes updating the documentation in accordance with the [Documentation Standards](https://github.com/GSA/fedramp-automation/wiki/Constraint-Management#documentation-standards).
 
 ## Consequences
 
