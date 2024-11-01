@@ -49,6 +49,6 @@ All contributors to constraint development will ensure all contributions adhere 
 
 ## Consequences
 
-By focusing on completeness checks first, the Team is able to publish more constraints in a shorter period of time, exposing pilot team perticipants to as many contraints as possible in as short a time as possible. 
+By focusing on completeness checks first, the Team is able to publish more constraints in a shorter period of time, exposing pilot team participants to as many constraints as possible in as short a time as possible. 
 Further, completeness checks represent an excellent effort/value ratio in terms of stakeholders being able to validate packages prior to submission.
 
