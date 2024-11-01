@@ -57,8 +57,7 @@
         <constraints>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
                 <formal-name>Prop Response Point Has Cardinality One</formal-name>
-                <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#control-implementation-descriptions"/>
                 <message>MUST NOT have Duplicate response point at '{ path(.) }'.</message>
             </expect>
             <remarks>
