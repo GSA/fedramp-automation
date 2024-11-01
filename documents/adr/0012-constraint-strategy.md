@@ -28,7 +28,7 @@ This ADR focuses on Metaschema constraints related to **Completeness Checks** an
   1. is fully automatable via metaschema constraints or other means; or
   1. requires human judgment, thus is more suited to a workflow.
 1. For each template element or review task, the Team will identify the applicable completness and integrity checks, as well as identify any reviewer automation that may be necessary to fully achieve the desired adjudication activity.
-1. The Team will prioritize and logically group related constratins into Epics, defined in the FedRAMP Automation GitHub repository.
+1. The Team will prioritize and logically group related constraints into Epics, defined in the FedRAMP Automation GitHub repository.
 1. The Team will bundle work into milestones and releases that ensure stakeholders are able to use constraints sooner. 
 
 ### Prioritization
