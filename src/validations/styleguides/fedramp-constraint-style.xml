@@ -25,7 +25,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/STYLE.md#frr105"/>
                 <message>A FedRAMP constraint MUST have an id.</message>
             </expect>
-            <expect id="frr 106" target="//expect | //allowed-values | //index-has-key" test="matches(@id, '^[a-z0-9-]+$')" level="ERROR">
+            <expect id="frr106" target="//expect | //allowed-values | //index-has-key" test="matches(@id, '^[a-z0-9-]+$')" level="ERROR">
                 <formal-name>Constraints Have IDs with Lower Case Letters, Numbers, and Dashes</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/STYLE.md#frr106"/>
                 <message>A FedRAMP constraint id MUST only consist of lowercase letters, numbers 0-9, or "-" characters.</message>
