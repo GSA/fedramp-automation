@@ -33,7 +33,7 @@ This ADR focuses on Metaschema constraints related to **Completeness Checks** an
 
 ### Prioritization
 
-The Team will adhear to the following prioritization principles:
+The Team will adhere to the following prioritization principles:
 - Simple constraints over complex 
 - Prioritizing higher value, lower effort constraints first
 - Focus on items that apply to all impact levels (H/M/L)
