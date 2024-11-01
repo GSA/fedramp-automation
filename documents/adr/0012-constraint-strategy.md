@@ -9,7 +9,7 @@ Proposed
 
 ## Context
 
-The FedRAMP Automation Team requires a consistent mechanism for prioritizing and performing work on FedRAMP constraints. While a larger strategy document was created internally, this ADR documents the key decisions from that document in order to provide transparency to stakeholders and guide contributors to the constraint work.  
+The FedRAMP Automation Team requires a consistent strategy and methodology for prioritizing and performing work on FedRAMP constraints. This ADR documents the key decisions in how FedRAMP will develop and maintain constraints, in order to provide transparency to stakeholders and guide contributors to this work.  
 
 ## Decision
 
