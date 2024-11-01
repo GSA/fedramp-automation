@@ -15,9 +15,9 @@ The FedRAMP Automation Team requires a consistent strategy and methodology for p
 
 The FedRAMP Automation Team recognizes the need to develop automation capabilities in the context of current FedRAMP policies, guidance, and review standards. 
 Within this context, the Team recognizes three tiers of automation:
-- **Completeness Checks**: Ensure the presence of required content and attachments within the package submission. Typically defined and performed using Metaschema constraints.
-- **Integrity Checks**: Focus on data correlation and consistency checks within the OSCAL content, similar to database referential integrity checks. Some of this can be performed with Metaschema constraints; however, some may require another mechanism to fully address.
-- **Reviewer Automation**: Advanced and complex digital package quality checks that support decision-makers in understanding the CSO’s risk posture.
+- **Completeness Checks**: Ensure the presence of required content and attachments within the package submission. Typically defined and performed using Metaschema constraints. Examples include ensuring cloud service and delivery models are provided, as well as at least one boundary diagram, one network diagram and one data flow diagram.
+- **Integrity Checks**: Focus on data correlation and consistency checks within the OSCAL content, similar to database referential integrity checks. Some of this can be performed with Metaschema constraints; however, some may require another mechanism to fully address. Examples include ensuring components referenced in SSP controls and SAR findings are actually defined and resolvable in the OSCAL content.
+- **Reviewer Automation**: Advanced and complex digital package quality checks that support decision-makers in understanding the CSO’s risk posture. Examples include determining whether a described solution adequately satisfies a defined control requirements, and ensuring that cited cryptographic modules are deployed consistent with the FIPS validation parameters.  
 
 This ADR focuses on Metaschema constraints related to **Completeness Checks** and **Integrity Checks**.
 
