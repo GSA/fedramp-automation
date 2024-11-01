@@ -9,7 +9,7 @@
     <context>
         <metapath target="/metaschema-meta-constraints"/>
         <constraints>
-            <!-- place holder for when support is added to implement frr103-->
+            <!-- TODO: Implement frr103 when axes supported after new oscal-cli release uses metaschema-java release with metaschema-framework/metaschema-java#229 included. -->
             <!-- <expect id="frr103" target="//expect | //allowed-values | //index-has-key" test="" level="ERROR">
                 <formal-name>Constraints in the Context Sorted Alphabetically by ID</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/STYLE.md#frr103"/>
@@ -20,7 +20,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/STYLE.md#frr104"/>
                 <message>A FedRAMP constraint MUST define a help URL.</message>
             </expect>
-            <!-- Uniqueness check needs to be added to frr105 once support is added for a function like distinct-values()-->
+            <!-- TODO: Uniqueness check needs to be added to frr105 once support is added for a function like distinct-values() or some other method of ensuring that an id is unique-->
             <expect id="frr105" target="//expect | //allowed-values | //index-has-key" test="@id" level="ERROR">
                 <formal-name>Constraints Have a Unique ID</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/STYLE.md#frr105"/>
