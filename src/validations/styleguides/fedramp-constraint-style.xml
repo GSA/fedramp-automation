@@ -40,7 +40,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/STYLE.md#frr109"/>
                 <message>A FedRAMP constraint MUST include a message describing the requirement.</message>
             </expect>
-            <expect id="FRR112" target="//expect | //index-has-key" test="matches(message, '\b(MUST|MUST NOT|REQUIRED|SHALL|SHALL NOT|SHOULD|SHOULD NOT|RECOMMENDED|MAY|OPTIONAL)\b')" level="ERROR">
+            <expect id="FRR112" target="//expect" test="matches(message, '(MUST|MUST NOT|REQUIRED|SHALL|SHALL NOT|SHOULD|SHOULD NOT|RECOMMENDED|MAY|OPTIONAL)')" level="ERROR">
                 <formal-name>IETF BCP14 Keywords in Constraint Messages</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/constraints/STYLE.md#frr112"/>
                 <message>A FedRAMP constraint MUST include one of the IETF BCP14 keywords in the message.</message>

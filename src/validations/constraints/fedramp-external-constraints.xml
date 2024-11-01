@@ -56,7 +56,10 @@
         <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
         <constraints>
             <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
-                <message>Duplicate response point at '{ path(.) }'.</message>
+                <formal-name>Prop Response Point Has Cardinality One</formal-name>
+                <!-- Needs supporting documentation on automate.fedramp.gov -->
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
+                <message>MUST NOT have Duplicate response point at '{ path(.) }'.</message>
             </expect>
             <remarks>
                 <p>This appears in FedRAMP profiles and resolved profile catalogs.</p>
@@ -80,7 +83,7 @@
             <expect id="categorization-has-correct-system-attribute" target="system-characteristics/system-information/information-type/categorization" test="@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'" level="ERROR">
                 <formal-name>Categorization Has Correct System Attribute</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
-                <message>A FedRAMP SSP information-type categorization requires a correct system attribute. FedRAMP only supports the system value 'https://doi.org/10.6028/NIST.SP.800-60v2r1'.</message>
+                <message>A FedRAMP SSP information-type categorization MUST have a correct system attribute. FedRAMP only supports the system value 'https://doi.org/10.6028/NIST.SP.800-60v2r1'.</message>
             </expect>
             <expect id="categorization-has-information-type-id" target="system-characteristics/system-information/information-type/categorization" test="information-type-id" level="ERROR">
                 <formal-name>Categorization Has Information Type ID</formal-name>
@@ -254,6 +257,8 @@
             </expect>
             <expect id="has-separation-of-duties-matrix" target="back-matter" test="resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']]" level="ERROR">
                 <formal-name>Has Separation Of Duties Matrix</formal-name>
+                <!-- Needs supporting documentation on automate.fedramp.gov -->
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
                 <message>A FedRAMP SSP MUST have a Separation of Duties Matrix attached.</message>
             </expect>
             <expect id="has-system-id" target="system-characteristics" test="system-id[@identifier-type eq 'https://fedramp.gov']" level="ERROR">
@@ -356,6 +361,8 @@
             </index-has-key>
             <expect id="role-defined-authorizing-official-poc" target="." test="role[@id eq 'authorizing-official-poc']" level="ERROR">
                 <formal-name>Role Defined Authorizing Official POC</formal-name>
+                <!-- Needs supporting documentation on automate.fedramp.gov -->
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
                 <message>A FedRAMP SSP MUST define a role for the point of contact for an authorizing official.</message>
             </expect>
             <expect id="role-defined-information-system-security-officer" target="." test="role[@id eq 'information-system-security-officer']" level="ERROR">
@@ -379,7 +386,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>Each data center address MUST contain a country code.</message>
             </expect>
-            <expect id="data-center-US" target="." test="address/country eq 'US'">
+            <expect id="data-center-us" target="." test="address/country eq 'US'">
                 <formal-name>Data Center In United States</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>Each data center MUST have an address that is within the United States.</message>
