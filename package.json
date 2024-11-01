@@ -13,6 +13,7 @@
     "test:failed": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js -p rerun",
     "test:constraints": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @constraints",
     "test:coverage": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @full-coverage",
+    "test:style": "cross-env-shell NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @style-guide",
     "mq": "node ./src/scripts/dev-metaschema-eval.js",
     "constraint": "node ./src/scripts/dev-constraint.js"
   },

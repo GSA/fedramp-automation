@@ -1,5 +1,9 @@
 Feature: OSCAL Document Constraints
 
+@style-guide
+Scenario Outline: Validating OSCAL constraints with metaschema constraints
+  Then I should verify that all constraints follow the style guide constraint
+  
 @constraints
 Scenario Outline: Validating OSCAL documents with metaschema constraints
   Given I have Metaschema extensions documents
@@ -208,11 +212,11 @@ Examples:
   | cloud-service-model |
   | component-type |
   | control-implementation-status |
-  | data-center-US |
   | data-center-alternate |
   | data-center-count |
   | data-center-country-code |
   | data-center-primary |
+  | data-center-us |
   | deployment-model |
   | fedramp-version |
   | has-authenticator-assurance-level |

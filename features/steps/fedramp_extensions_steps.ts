@@ -666,3 +666,55 @@ Then("I should have both FAIL and PASS tests for constraint ID {string}", functi
     `Constraint ${constraintId} is not in the extracted constraints list`
   );
 });
+
+Then('I should verify that all constraints follow the style guide constraint', async function () {
+  const baseDir = join(__dirname, '..', '..');
+  const constraintDir = join(baseDir, 'src', 'validations', 'constraints');
+  const styleGuidePath = join(baseDir, 'src', 'validations', 'styleguides', 'fedramp-constraint-style.xml');
+
+  const constraint_files = readdirSync(constraintDir).filter((file) => file.startsWith('fedramp') && file.endsWith('constraints.xml') );
+  const errors = [];
+
+  function filterOutBrackets(input) {
+    return input.replace(/\[.*?\]/g, '');
+  }
+
+  for (const file_name of constraint_files) {
+    const filePath = join(constraintDir, file_name.trim());
+    console.log(filePath);
+    try {
+      console.log(filePath);
+      const [result, error] = await executeOscalCliCommand('metaschema', [
+        'validate',
+        filePath,
+        '-c',
+        styleGuidePath,
+        '--disable-schema-validation'
+      ]);
+
+      console.log(`Validation result for ${file_name}:`, result);
+      if (error) {
+        console.error(`Validation error for ${file_name}:`, error);
+      }
+
+      const filteredError = filterOutBrackets(error);
+      if (filteredError) {
+        errors.push(`Style guide validation failed for ${file_name}: ${filteredError}`);
+      }
+      if (result.includes("ERROR")) {
+        errors.push(`Style guide validation found errors in ${file_name}: ${result}`);
+      }
+    } catch (error) {
+      errors.push(`Error processing ${file_name}: ${error}`);
+    }
+  }
+
+  // Display all errors at the end
+  if (errors.length > 0) {
+    console.error("Validation errors found:");
+    
+    throw new Error("Style guide validation failed. "+errors.join("\n"));
+  }
+
+  expect(errors, "No style guide validation errors should be found").to.be.empty;
+});
