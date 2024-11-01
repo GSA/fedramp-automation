@@ -52,3 +52,4 @@ All contributors to constraint development will ensure all contributions adhere 
 By focusing on completeness checks first, the Team is able to publish more constraints in a shorter period of time, exposing pilot team participants to as many constraints as possible in as short a time as possible. 
 Further, completeness checks represent an excellent effort/value ratio in terms of stakeholders being able to validate packages prior to submission.
 
+The trade-off for focusing on completeness checks first is that several checks that represent challenges for SSP authors may be more valuable, but are delayed due to having greater complexity. There is also a risk that our approach to simple tasks doesn't scale as well as the team expects.
