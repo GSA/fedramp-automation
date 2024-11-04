@@ -19,7 +19,7 @@ configure: init-validations
 init-repo:
 	git submodule update --init --recursive
 
-clean: clean-dist clean-validations clean-web  ## Clean all
+clean: clean-dist clean-validations ## Clean all
 
 clean-dist:  ## Clean non-RCS-tracked dist files
 	@echo "Cleaning dist..."
