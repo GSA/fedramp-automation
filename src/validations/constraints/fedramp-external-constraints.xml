@@ -207,6 +207,9 @@
             <expect id="import-profile-resolves-to-fedramp-content" target="." test="count(resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//control//prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
+                <remarks>
+                    <p>FedRAMP requires the use of a valid FedRAMP catalog when referencing security controls. Using catalogs from non-FedRAMP sources or external catalogs is not permitted.</p>
+                </remarks>
             </expect>
             <expect id="information-type-has-confidentiality-impact" target="system-characteristics/system-information/information-type" test="confidentiality-impact" level="ERROR">
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
