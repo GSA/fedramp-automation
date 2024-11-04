@@ -1,11 +1,9 @@
-_This is the template in [Documenting architecture decisions - Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).  In each ADR file, write these sections_:
-
 # 12. Constraint Prioritization Strategy ADR 
-Date: 2024-09-26
+Date: 2024-10-04
 
 ## Status
 
-Proposed
+Accepted
 
 ## Context
 
