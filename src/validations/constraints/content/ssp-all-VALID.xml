@@ -118,7 +118,7 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
-    <prop name="cloud-deployment-model" value="public">
+    <prop name="cloud-deployment-model" value="public-cloud">
       <remarks>
         <p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional otherwise.</p>
       </remarks>
