@@ -332,10 +332,10 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#deployment-model"/>
                 <message>A FedRAMP SSP MUST define a cloud deployment model.</message>
             </expect>
-            <expect id="has-cloud-deployment-model-remarks" target="system-characteristics" test="if (count(prop[@name eq 'cloud-deployment-model']) > 1) then every $p in prop[@name eq 'cloud-deployment-model'] satisfies exists($p/remarks)" level="ERROR">
+            <expect id="has-cloud-deployment-model-remarks" target="system-characteristics" test="if (count(prop[@name eq 'cloud-deployment-model']) > 1) then every $p in prop[@name eq 'cloud-deployment-model'] satisfies exists($p/remarks) else every $p in prop[@name eq 'cloud-deployment-model' and @value eq 'other'] satisfies exists($p/remarks)" level="ERROR">
                 <formal-name>Has Cloud Deployment Model Remarks</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#deployment-model"/>
-                <message>A FedRAMP SSP with more than one cloud deployment model MUST supply remarks to clarify this selection.</message>
+                <message>A FedRAMP SSP with more than one cloud deployment model or a cloud deployment model of "other" MUST supply remarks to clarify this selection.</message>
                 <remarks>
                     <p>FedRAMP requires precise classification of cloud deployment models. Use of generic classifications like "hybrid-cloud" should be avoided.</p>
                 </remarks>
