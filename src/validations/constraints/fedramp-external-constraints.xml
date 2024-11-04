@@ -318,19 +318,27 @@
                 <message>A FedRAMP SSP SHOULD define its FIPS-199 security sensitivity level to match the highest security impact level for the system's confidentiality, integrity, and availability objectives.</message>
             </expect>
             <expect id="has-cloud-service-model" target="system-characteristics" test="prop[@name eq 'cloud-service-model']" level="ERROR">
+                <formal-name>Has Cloud Service Model</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#service-model"/>
                 <message>A FedRAMP SSP MUST define a cloud service model.</message>
             </expect>
             <expect id="has-cloud-service-model-remarks" target="system-characteristics" test="every $p in prop[@name eq 'cloud-service-model' and @value eq 'other'] satisfies exists($p/remarks)" level="ERROR">
+                <formal-name>Has Cloud Service Model Remarks</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#service-model"/>
                 <message>A FedRAMP SSP with a cloud service model of "other" MUST supply remarks to explain this choice.</message>
             </expect>
             <expect id="has-cloud-deployment-model" target="system-characteristics" test="prop[@name eq 'cloud-deployment-model']" level="ERROR">
+                <formal-name>Has Cloud Deployment Model</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#deployment-model"/>
                 <message>A FedRAMP SSP MUST define a cloud deployment model.</message>
             </expect>
-            <expect id="has-cloud-deployment-model-remarks" target="system-characteristics" test="every $p in prop[@name eq 'cloud-deployment-model' and @value eq 'hybrid-cloud'] satisfies exists($p/remarks)" level="ERROR">
-                <message>A FedRAMP SSP with a cloud deployment model of "hybrid-cloud" MUST supply remarks to explain this choice.</message>
-            </expect>
-            <expect id="has-public-cloud-deployment-model" target="system-characteristics" test="not( exists(..//component[prop[@name eq 'public' and @value eq 'yes']]) or exists(..//inventory-item[prop[@name eq 'public' and @value eq 'yes']]) ) or exists(prop[@name eq 'cloud-deployment-model' and @value eq 'public-cloud'])" level="ERROR">
-                <message>When a FedRAMP SSP has public components or inventory items, a cloud deployment model of "public-cloud" MUST be employed.</message>
+            <expect id="has-cloud-deployment-model-remarks" target="system-characteristics" test="if (count(prop[@name eq 'cloud-deployment-model']) > 1) then every $p in prop[@name eq 'cloud-deployment-model'] satisfies exists($p/remarks)" level="ERROR">
+                <formal-name>Has Cloud Deployment Model Remarks</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#deployment-model"/>
+                <message>A FedRAMP SSP with more than one cloud deployment model MUST supply remarks to clarify this selection.</message>
+                <remarks>
+                    <p>FedRAMP requires precise classification of cloud deployment models. Use of generic classifications like "hybrid-cloud" should be avoided.</p>
+                </remarks>
             </expect>
         </constraints>
     </context>

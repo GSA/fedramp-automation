@@ -117,8 +117,6 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
-  | has-public-cloud-deployment-model-FAIL.yaml |
-  | has-public-cloud-deployment-model-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |
@@ -261,7 +259,6 @@ Examples:
   | has-network-architecture-diagram-link |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
-  | has-public-cloud-deployment-model |
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
