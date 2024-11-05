@@ -41,6 +41,9 @@ const validationCache = new Map<string, Log>();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const sarifDir = join(__dirname, "..", "..", "sarif");
+if (!existsSync(sarifDir)) {
+  mkdirSync(sarifDir, { recursive: true });
+}
 const featureFile = join(__dirname, "..", "fedramp_extensions.feature");
 let featureContent = readFileSync(featureFile, "utf8");
 
@@ -263,9 +266,7 @@ async function processTestCase({ "test-case": testCase }: any) {
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
-    if (!existsSync(sarifDir)) {
-      mkdirSync(sarifDir, { recursive: true });
-    }
+    
     writeFileSync(
       join(
         __dirname,
