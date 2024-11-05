@@ -12,6 +12,18 @@ In the past, the FedRAMP Automation Team [the versioning methodology of the Spoc
 
 This decision record is to document the following possible solutions and implications.
 
+### Possible Solutions
+
+Below is a list of possible versioning solutions that will or will not support this strategy.
+
+#### Do Nothing
+
+If FedRAMP does nothing, the strategy and processes will stay as-is. The documentation about the release strategy and versioning methodology and the practice of using them in releases will contradict one another. Internal staff and external stakeholders will continue to receive conflicted guidance. The misalignment may cause confusion about future releases.
+
+#### Continue Spock Versioning and Revert Semantic Versioning Change
+
+FedRAMP can change the developer documentation, standard operating procedures in the wiki, and the website to continue to use Spock versioning and revert the decision to use Semantic Versioning. This option would take as much effort as the alternative to completely move to SemVer. However, this option will likely alienate community stakeholders receptive to the change.
+
 ## Decision
 
 FedRAMP has decided to move forward completely with the Semantic Versioning transition and completely deprecate the Spock versioning approach.
