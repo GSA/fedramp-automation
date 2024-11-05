@@ -689,7 +689,7 @@ Then('I should verify that all constraints follow the style guide constraint', a
           __dirname,
           "../../sarif/",
           file_name.split(".xml").join("").toString()+".sarif"
-        ),JSON.stringify(log))  
+        ),JSON.stringify(log, null,"\t"))  
       const formattedErrors = (formatSarifOutput(log));
       
       console.log(`Validation result for ${file_name}:`, isValid?"valid":"invalid");
