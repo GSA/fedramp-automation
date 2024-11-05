@@ -1,10 +1,12 @@
 # 2. Release and Version Strategy Used for Github Tagging
 
-Date: 2021-06-03
+Date: 2021-10-07
 
 ## Status
 
-Accepted
+Deprecated
+
+(**NOTE:** FedRAMP deprecated this ADR retroactively in favor of [ADR #10](./0010-semantic-versions-only.md). See ADR #10 for further details on the current version methodology as part of the FedRAMP Automation Team's release strategy.)
 
 ## Context
 
