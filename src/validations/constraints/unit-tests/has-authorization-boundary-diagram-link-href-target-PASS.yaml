@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for has-authorization-boundary-diagram-link-href-target
+  description: >-
+    This test case validates the behavior of constraint
+    has-authorization-boundary-diagram-link-href-target
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-authorization-boundary-diagram-link-href-target
+      result: pass

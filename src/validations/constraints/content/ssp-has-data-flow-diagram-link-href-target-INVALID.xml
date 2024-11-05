@@ -1,0 +1,13 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd" uuid="12345678-1234-4321-8765-123456789012">
+  <system-characteristics>
+    <data-flow>
+      <diagram uuid="e3b98448-4219-46a5-b229-412423c566f3">
+        <link href="#ac5d7535-f3b8-45d3-bf3b-735c82c64547" rel="diagram"/>
+      </diagram>
+    </data-flow>
+  </system-characteristics>
+  <back-matter>
+    <resource uuid="bc5d7535-f3b8-45d3-bf3b-735c82c64547">
+    </resource>
+  </back-matter>
+</system-security-plan>
