@@ -247,7 +247,7 @@ async function processTestCase({ "test-case": testCase }: any) {
       if(currentTestCaseFileName.includes("FAIL")){
         flags.push("disable-schema")
       }
-    const {isValid,log} = await validateDocument(resolve(processedContentPath),{
+    const {isValid,log} = await validateDocument(resolve(processedContentPath),{quiet:true,
       extensions:metaschemaDocuments.flatMap((x) => resolve(x)),
       flags},executor)
       sarifResponse=log;
@@ -683,7 +683,7 @@ Then('I should verify that all constraints follow the style guide constraint', a
     const filePath = join(constraintDir, file_name.trim());
     console.log(filePath);
     try {
-      const {isValid,log} = await validateDocument(filePath,{flags:['disable-schema'],extensions:[styleGuidePath],module:"http://csrc.nist.gov/ns/oscal/metaschema/1.0"},"oscal-cli")
+      const {isValid,log} = await validateDocument(filePath,{flags:['disable-schema'],quiet:true,extensions:[styleGuidePath],module:"http://csrc.nist.gov/ns/oscal/metaschema/1.0"},executor)
       writeFileSync(
         join(
           __dirname,
