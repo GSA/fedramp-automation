@@ -16,6 +16,7 @@ import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
+import {formatSarifOutput} from 'oscal'
 
 let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-cli'
 
@@ -39,7 +40,7 @@ const validationCache = new Map<string, Log>();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
+const sarifDir = join(__dirname, "..", "..", "sarif");
 const featureFile = join(__dirname, "..", "fedramp_extensions.feature");
 let featureContent = readFileSync(featureFile, "utf8");
 
@@ -262,7 +263,6 @@ async function processTestCase({ "test-case": testCase }: any) {
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
-    const sarifDir = join(__dirname, "..", "..", "sarif");
     if (!existsSync(sarifDir)) {
       mkdirSync(sarifDir, { recursive: true });
     }
@@ -683,26 +683,21 @@ Then('I should verify that all constraints follow the style guide constraint', a
     const filePath = join(constraintDir, file_name.trim());
     console.log(filePath);
     try {
-      console.log(filePath);
-      const [result, error] = await executeOscalCliCommand('metaschema', [
-        'validate',
-        filePath,
-        '-c',
-        styleGuidePath,
-        '--disable-schema-validation'
-      ]);
-
-      console.log(`Validation result for ${file_name}:`, result);
-      if (error) {
-        console.error(`Validation error for ${file_name}:`, error);
+      const {isValid,log} = await validateDocument(filePath,{flags:['disable-schema'],extensions:[styleGuidePath],module:"http://csrc.nist.gov/ns/oscal/metaschema/1.0"},"oscal-cli")
+      writeFileSync(
+        join(
+          __dirname,
+          "../../sarif/",
+          file_name.split(".xml").join("").toString()+".sarif"
+        ),JSON.stringify(log))  
+      const formattedErrors = (formatSarifOutput(log));
+      
+      console.log(`Validation result for ${file_name}:`, isValid?"valid":"invalid");
+      if (!isValid) {
+        console.error("\n"+formattedErrors);
       }
-
-      const filteredError = filterOutBrackets(error);
-      if (filteredError) {
-        errors.push(`Style guide validation failed for ${file_name}: ${filteredError}`);
-      }
-      if (result.includes("ERROR")) {
-        errors.push(`Style guide validation found errors in ${file_name}: ${result}`);
+      if (!isValid) {
+        errors.push(`Style guide validation found errors in ${file_name}:\n ${formatSarifOutput(log)}`);
       }
     } catch (error) {
       errors.push(`Error processing ${file_name}: ${error}`);
