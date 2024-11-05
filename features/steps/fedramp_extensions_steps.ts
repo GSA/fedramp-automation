@@ -682,7 +682,6 @@ Then('I should verify that all constraints follow the style guide constraint', a
 
   for (const file_name of constraint_files) {
     const filePath = join(constraintDir, file_name.trim());
-    console.log(filePath);
     try {
       const {isValid,log} = await validateDocument(filePath,{flags:['disable-schema'],quiet:true,extensions:[styleGuidePath],module:"http://csrc.nist.gov/ns/oscal/metaschema/1.0"},executor)
       writeFileSync(
