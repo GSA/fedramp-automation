@@ -275,17 +275,19 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
                 <message>A FedRAMP SSP MUST have a User Guide attached.</message>
             </expect>
-            <expect id="import-profile-has-href-attribute" target="import-profile" test="doc-available(@href)" level="CRITICAL">
-                <formal-name>Import Profile Has Href Attribute</formal-name>
+            <expect id="import-profile-has-available-document" target="import-profile" test="doc-available(resolve-uri($resolved-import-profile-href))" level="CRITICAL">
+                <formal-name>Import Profile has available document</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog with a valid file or HTTP(S) address.</message>
             </expect>
-            <expect id="import-profile-has-valid-content" target="." test="count(resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//control//prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
-                <formal-name>Import Profile Has Valid Content</formal-name>
+            <expect id="import-profile-resolves-to-fedramp-content" target="." test="count(resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//control//prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
+                <formal-name>Import Profile resolves to Fedramp content</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
-            </expect>
-            <expect id="information-type-has-availability-impact" target="system-characteristics/system-information/information-type" test="availability-impact" level="ERROR">
+                <remarks>
+                    <p>A FedRAMP SSP MUST use a valid FedRAMP catalog to reference security controls. It MUST NOT reference controls from a non-FedRAMP catalog.</p>
+                </remarks>
+            </expect>            <expect id="information-type-has-availability-impact" target="system-characteristics/system-information/information-type" test="availability-impact" level="ERROR">
                 <formal-name>Information Type Has Availability Impact</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type MUST have an availability impact.</message>
