@@ -76,8 +76,26 @@
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
+            <let var="authorization-boundary-link" expression="system-characteristics/authorization-boundary/diagram/link/@href"/>
+            <let var="data-flow-link" expression="system-characteristics/data-flow/diagram/link/@href"/>
+            <let var="network-architecture-link" expression="system-characteristics/network-architecture/diagram/link/@href"/>
             <let var="import-profile-href" expression="import-profile/@href"/>
             <let var="resolved-import-profile-href" expression="if (starts-with($import-profile-href, '#')) then back-matter/resource[@uuid = substring($import-profile-href, 2)]/rlink/@href else $import-profile-href"/>
+            <expect id="has-authorization-boundary-diagram-link-href-target" target="." test="exists(//resource[@uuid eq substring-after($authorization-boundary-link, '#')])" level="ERROR">
+                <formal-name>Has Authorization Boundary Diagram Link Href Target</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
+                <message>A FedRAMP SSP authorization boundary diagram MUST reference a resource representing the diagram document.</message>
+            </expect>
+            <expect id="has-data-flow-diagram-link-href-target" target="." test="exists(//resource[@uuid eq substring-after($data-flow-link, '#')])" level="ERROR">
+                <formal-name>Has Data Flow Diagram Link Href Target</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
+                <message>A FedRAMP SSP data flow diagram MUST reference a resource representing the diagram document.</message>
+            </expect>
+            <expect id="has-network-architecture-diagram-link-href-target" target="." test="exists(//resource[@uuid eq substring-after($network-architecture-link, '#')])" level="ERROR">
+                <formal-name>Has Network Architecture Diagram Link Href Target</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
+                <message>A FedRAMP SSP network architecture diagram MUST reference a resource representing the diagram document.</message>
+            </expect>
             <expect id="import-profile-has-available-document" target="import-profile" test="doc-available(resolve-uri($resolved-import-profile-href))" level="CRITICAL">
                 <formal-name>Import Profile has available document</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>

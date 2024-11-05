@@ -67,6 +67,8 @@ Examples:
   | has-authorization-boundary-diagram-description-PASS.yaml |
   | has-authorization-boundary-diagram-link-FAIL.yaml |
   | has-authorization-boundary-diagram-link-PASS.yaml |
+  | has-authorization-boundary-diagram-link-href-target-FAIL.yaml |
+  | has-authorization-boundary-diagram-link-href-target-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-FAIL.yaml |
   | has-authorization-boundary-diagram-link-rel-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
@@ -93,6 +95,8 @@ Examples:
   | has-data-flow-diagram-description-PASS.yaml |
   | has-data-flow-diagram-link-FAIL.yaml |
   | has-data-flow-diagram-link-PASS.yaml |
+  | has-data-flow-diagram-link-href-target-FAIL.yaml |
+  | has-data-flow-diagram-link-href-target-PASS.yaml |
   | has-data-flow-diagram-link-rel-FAIL.yaml |
   | has-data-flow-diagram-link-rel-PASS.yaml |
   | has-data-flow-diagram-link-rel-allowed-value-FAIL.yaml |
@@ -119,6 +123,8 @@ Examples:
   | has-network-architecture-diagram-description-PASS.yaml |
   | has-network-architecture-diagram-link-FAIL.yaml |
   | has-network-architecture-diagram-link-PASS.yaml |
+  | has-network-architecture-diagram-link-href-target-FAIL.yaml |
+  | has-network-architecture-diagram-link-href-target-PASS.yaml |
   | has-network-architecture-diagram-link-rel-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
@@ -258,6 +264,7 @@ Examples:
   | has-authorization-boundary-diagram-caption |
   | has-authorization-boundary-diagram-description |
   | has-authorization-boundary-diagram-link |
+  | has-authorization-boundary-diagram-link-href-target |
   | has-authorization-boundary-diagram-link-rel |
   | has-authorization-boundary-diagram-link-rel-allowed-value |
   | has-cloud-deployment-model |
@@ -271,6 +278,7 @@ Examples:
   | has-data-flow-diagram-caption |
   | has-data-flow-diagram-description |
   | has-data-flow-diagram-link |
+  | has-data-flow-diagram-link-href-target |
   | has-data-flow-diagram-link-rel |
   | has-data-flow-diagram-link-rel-allowed-value |
   | has-data-flow-diagram-uuid |
@@ -284,6 +292,7 @@ Examples:
   | has-network-architecture-diagram-caption |
   | has-network-architecture-diagram-description |
   | has-network-architecture-diagram-link |
+  | has-network-architecture-diagram-link-href-target |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-published-date |

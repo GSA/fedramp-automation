@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-network-architecture-diagram-link-href-target
+  description: >-
+    This test case validates the behavior of constraint
+    has-network-architecture-diagram-link-href-target
+  content: ../content/ssp-has-network-architecture-diagram-link-href-target-INVALID.xml
+  expectations:
+    - constraint-id: has-network-architecture-diagram-link-href-target
+      result: fail
