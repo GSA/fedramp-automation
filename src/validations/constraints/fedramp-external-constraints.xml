@@ -99,22 +99,15 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type confidentiality, integrity, or availability impact MUST specify the selected impact.</message>
             </expect>
-            <expect id="has-identity-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'identity-assurance-level'])" level="ERROR">
-                <message>A FedRAMP SSP must define its NIST SP 800-63 identity assurance level (IAL).</message>
-            </expect>         
             <expect id="has-authenticator-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'authenticator-assurance-level'])" level="ERROR">
                 <formal-name>Has Authenticator Assurance Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
                 <message>A FedRAMP SSP MUST define its NIST SP 800-63 authenticator assurance level (AAL).</message>
             </expect>
-                <message>A FedRAMP SSP must define its NIST SP 800-63 authenticator assurance level (AAL).</message>
-            </expect>
-            <expect id="has-federation-assurance-level" target="system-characteristics" test="exists(prop[@name eq 'federation-assurance-level'])" level="ERROR">
-                <message>A FedRAMP SSP must define its NIST SP 800-63 federation assurance level (FAL).</message>
-            </expect> 
             <expect id="has-fully-operational-date" target="system-characteristics" test="exists(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date'])" level="ERROR">
+                <formal-name>Fully Operational Date</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
-                <message>A FedRAMP SSP must define the system's fully operational date.</message>
+                <message>A FedRAMP SSP MUST define the system's fully operational date.</message>
             </expect>
             <expect id="has-authorization-boundary-diagram" target="system-characteristics/authorization-boundary" test="diagram" level="WARNING">
                 <formal-name>Has Authorization Boundary Diagram</formal-name>
@@ -394,6 +387,7 @@
         <metapath target="/system-security-plan/system-characteristics"/>
         <constraints>
             <matches id="fully-operational-date-type" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" datatype="date-with-timezone" level="ERROR">
+                <formal-name>Fully Operational Date Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
                 <!-- Todo: add custom error message once Metaschma 'match' constraints support 'message' field. -->
                 <!-- 
@@ -401,10 +395,11 @@
                 -->
             </matches> 
             <expect id="fully-operational-date-is-valid" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" test=". &lt;= current-dateTime()" level="ERROR"><!-- TODO - Need metapath current-date() function -->
+                <formal-name>Fully Operational Date Is Valid</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
-                <message>A system must be fully implemented prior to submitting the SSP to FedRAMP.</message>
+                <message>A system MUST be fully implemented prior to submitting the SSP to FedRAMP.</message>
             </expect>
-        </constraints>   
+        </constraints>
     </context>
 
     <context>
