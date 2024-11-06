@@ -151,6 +151,7 @@
         <metapath target="/system-security-plan/metadata"/>
         <constraints>
             <let var="prepared-by-responsible-party-party-uuid" expression="responsible-party[@role-id eq 'prepared-by']/party-uuid"/>
+            <let var="prepared-by-party" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]"/>
             <let var="prepared-by-party-location-uuid" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]/location-uuid"/>
             <let var="prepared-by-location" expression="//location[@uuid eq $prepared-by-party-location-uuid]"/>
             <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
@@ -184,7 +185,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
                 <message>A FedRAMP SSP MUST have a responsible party that references a role defined as "prepared-by". </message>
             </expect>
-            <expect id="responsible-party-prepared-by-location-valid" target="." test="exists($prepared-by-location) and $prepared-by-location/address[@type='work'] and $prepared-by-location/address/addr-line and $prepared-by-location/address/city and $prepared-by-location/address/state and $prepared-by-location/address/postal-code" level="WARNING">
+            <expect id="responsible-party-prepared-by-location-valid" target="." test="$prepared-by-party/address[@type='work'] and $prepared-by-party/address/addr-line and $prepared-by-party/address/city and $prepared-by-party/address/state and $prepared-by-party/address/postal-code or $prepared-by-location/address[@type='work'] and $prepared-by-location/address/addr-line and $prepared-by-location/address/city and $prepared-by-location/address/state and $prepared-by-location/address/postal-code" level="WARNING">
                 <formal-name>Responsible Party Prepared By Location Valid</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
                 <message>A FedRAMP SSP MUST have a responsible party defined as "prepared-by" that references a party with a valid location. </message>
