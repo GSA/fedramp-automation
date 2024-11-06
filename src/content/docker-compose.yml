@@ -1,6 +1,0 @@
-# This extends the OSCAL build container which should be located at:
-# ../../vendor/oscal/build/docker-compose.yml
-services:
-  cli:
-    volumes:
-      - "../../..:/code"

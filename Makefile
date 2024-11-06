@@ -29,21 +29,11 @@ clean-oci-image:
 	docker rmi -f \
 		validation-tools:$(OCI_REV_TAG) \
 		ghcr.io/gsa/fedramp-automation/validation-tools:$(OCI_REV_TAG) \
-		gsatts/validation-tools:$(OCI_REV_TAG) \
+		gsatts/validation-tools:$(OCI_REV_TAG)
 
 test: build-validations ## Test all
 
-build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
-	# Copy validations
-	mkdir -p dist/validations/rev4
-	cp src/validations/target/rules/rev4/*.xsl dist/validations/rev4
-	cp src/validations/rules/rev4/*.sch dist/validations/rev4
-
-	# Copy web build to dist
-	cp -R ./src/web/dist dist/web
-
-	@echo '#/bin/bash\necho "Serving FedRAMP ASAP documentation at http://localhost:8000/..."\npython3 -m http.server 8000 --directory web/' > ./dist/serve-documentation
-	chmod +x ./dist/serve-documentation
+build: init-content test-content build-content  ## Build all artifacts and copy into dist directory
 
 build-oci-image: ## Build OCI image
 	docker build \
