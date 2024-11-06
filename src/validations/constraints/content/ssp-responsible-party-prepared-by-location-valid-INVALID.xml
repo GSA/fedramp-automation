@@ -1,0 +1,22 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd" uuid="12345678-1234-4321-8765-123456789012">
+  <metadata>
+    <role id="prepared-by">
+    </role>
+      <location uuid="27b78960-59ef-4619-82b0-ae20b9c709ac">
+      <title>CSP HQ</title>
+      <address type="work">
+        <addr-line>Suite 0000</addr-line>
+        <addr-line>1234 Some Street</addr-line>
+        <!-- missing city -->
+        <state>ME</state>
+        <postal-code>00000</postal-code>
+      </address>
+    </location>
+    <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
+      <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+    </party>
+    <responsible-party role-id="prepared-by">
+      <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+    </responsible-party>
+  </metadata>
+</system-security-plan>

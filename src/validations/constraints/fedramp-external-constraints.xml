@@ -150,6 +150,9 @@
     <context>
         <metapath target="/system-security-plan/metadata"/>
         <constraints>
+            <let var="prepared-by-responsible-party-party-uuid" expression="responsible-party[@role-id eq 'prepared-by']/party-uuid"/>
+            <let var="prepared-by-party-location-uuid" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]/location-uuid"/>
+            <let var="prepared-by-location" expression="//location[@uuid eq $prepared-by-party-location-uuid]"/>
             <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
                 <formal-name>Data Center Alternate</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
@@ -176,6 +179,16 @@
                 <key-field target="party-uuid"/>
                 <message>For roles 'system-owner' and 'information-system-security-officer', the responsible-role party MUST be a party of type 'person'.</message>
             </index-has-key>
+            <expect id="responsible-party-prepared-by" target="." test="exists(responsible-party[@role-id eq 'prepared-by'])" level="ERROR">
+                <formal-name>Responsible Party Prepared By</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
+                <message>A FedRAMP SSP MUST have a responsible party that references a role defined as "prepared-by". </message>
+            </expect>
+            <expect id="responsible-party-prepared-by-location-valid" target="." test="exists($prepared-by-location) and $prepared-by-location/address[@type='work'] and $prepared-by-location/address/addr-line and $prepared-by-location/address/city and $prepared-by-location/address/state and $prepared-by-location/address/postal-code" level="WARNING">
+                <formal-name>Responsible Party Prepared By Location Valid</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
+                <message>A FedRAMP SSP MUST have a responsible party defined as "prepared-by" that references a party with a valid location. </message>
+            </expect>
             <expect id="role-defined-authorizing-official-poc" target="." test="role[@id eq 'authorizing-official-poc']" level="ERROR">
                 <formal-name>Role Defined Authorizing Official POC</formal-name>
                 <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
@@ -186,6 +199,11 @@
                 <formal-name>Role Defined Information System Security Officer</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#assignment-of-security-responsibilities"/>
                 <message>A FedRAMP SSP MUST define a role for the point of contact for an information system security officer.</message>
+            </expect>
+            <expect id="role-defined-prepared-by" target="." test="exists(role[@id eq 'prepared-by'])" level="ERROR">
+                <formal-name>Role Defined Prepared By</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
+                <message>A FedRAMP SSP MUST have a role defined as "prepared-by". </message>
             </expect>
             <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
                 <formal-name>Role Defined System Owner</formal-name>

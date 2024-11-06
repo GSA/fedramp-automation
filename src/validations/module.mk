@@ -24,7 +24,7 @@ lint-validations:
 build-validations:
 	@echo "Running Cucumber Tests"
 	$(OSCAL_CLI) server start -bg
-	@npm run test:server
+	@npm run test
 	$(OSCAL_CLI) server stop
 
 clean-validations:

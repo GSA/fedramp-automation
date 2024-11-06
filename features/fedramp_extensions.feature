@@ -167,10 +167,16 @@ Examples:
   | response-point-PASS.yaml |
   | responsible-party-is-person-FAIL.yaml |
   | responsible-party-is-person-PASS.yaml |
+  | responsible-party-prepared-by-FAIL.yaml |
+  | responsible-party-prepared-by-PASS.yaml |
+  | responsible-party-prepared-by-location-valid-FAIL.yaml |
+  | responsible-party-prepared-by-location-valid-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
   | role-defined-information-system-security-officer-PASS.yaml |
+  | role-defined-prepared-by-FAIL.yaml |
+  | role-defined-prepared-by-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
@@ -284,8 +290,11 @@ Examples:
   | resource-has-base64-or-rlink |
   | resource-has-title |
   | responsible-party-is-person |
+  | responsible-party-prepared-by |
+  | responsible-party-prepared-by-location-valid |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
+  | role-defined-prepared-by |
   | role-defined-system-owner |
   | scan-type |
   | security-level |
