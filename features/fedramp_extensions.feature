@@ -91,6 +91,8 @@ Examples:
   | has-incident-response-plan-PASS.yaml |
   | has-information-system-contingency-plan-FAIL.yaml |
   | has-information-system-contingency-plan-PASS.yaml |
+  | has-marking-FAIL.yaml |
+  | has-marking-PASS.yaml |
   | has-network-architecture-FAIL.yaml |
   | has-network-architecture-PASS.yaml |
   | has-network-architecture-diagram-FAIL.yaml |
@@ -236,6 +238,7 @@ Examples:
   | has-identity-assurance-level |
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
+  | has-marking |
   | has-network-architecture |
   | has-network-architecture-diagram |
   | has-network-architecture-diagram-caption |
@@ -262,6 +265,7 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | marking |
   | missing-response-components |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
