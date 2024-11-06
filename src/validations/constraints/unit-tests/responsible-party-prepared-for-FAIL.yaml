@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for responsible-party-prepared-for
+  description: >-
+    This test case validates the behavior of constraint
+    responsible-party-prepared-for
+  content: ../content/ssp-responsible-party-prepared-for-INVALID.xml
+  expectations:
+    - constraint-id: responsible-party-prepared-for
+      result: fail

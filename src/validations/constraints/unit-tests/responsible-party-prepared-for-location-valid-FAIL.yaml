@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for responsible-party-prepared-for-location-valid
+  description: >-
+    This test case validates the behavior of constraint
+    responsible-party-prepared-for-location-valid
+  content: ../content/ssp-responsible-party-prepared-for-location-valid-INVALID.xml
+  expectations:
+    - constraint-id: responsible-party-prepared-for-location-valid
+      result: fail

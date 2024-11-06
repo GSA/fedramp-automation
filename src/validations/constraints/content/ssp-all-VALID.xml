@@ -19,6 +19,12 @@
         <p>This party prepared the SSP.</p>
       </description>
     </role>
+    <role id="prepared-for">
+      <title>Prepared For</title>
+      <description>
+        <p>The organization for which this SSP was prepared. Typically the CSP.</p>
+      </description>
+    </role>
     <role id="creator">
       <title>Document Creator</title>
     </role>
@@ -91,6 +97,12 @@
       <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
       <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
     </party>
+    <party uuid="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" type="organization">
+      <name>Cloud Service Provider (CSP) Name</name>
+      <short-name>CSP Acronym/Short Name</short-name>
+      <link href="#31a46c4f-2959-4287-bc1c-67297d7da60b" rel="logo"/>
+      <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+    </party>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
@@ -104,6 +116,9 @@
 
     <responsible-party role-id="prepared-by">
       <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="prepared-for">
+      <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
     </responsible-party>
     <responsible-party role-id="creator">
       <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>

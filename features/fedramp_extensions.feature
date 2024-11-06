@@ -183,12 +183,18 @@ Examples:
   | responsible-party-prepared-by-PASS.yaml |
   | responsible-party-prepared-by-location-valid-FAIL.yaml |
   | responsible-party-prepared-by-location-valid-PASS.yaml |
+  | responsible-party-prepared-for-FAIL.yaml |
+  | responsible-party-prepared-for-PASS.yaml |
+  | responsible-party-prepared-for-location-valid-FAIL.yaml |
+  | responsible-party-prepared-for-location-valid-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
   | role-defined-information-system-security-officer-PASS.yaml |
   | role-defined-prepared-by-FAIL.yaml |
   | role-defined-prepared-by-PASS.yaml |
+  | role-defined-prepared-for-FAIL.yaml |
+  | role-defined-prepared-for-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
@@ -310,9 +316,12 @@ Examples:
   | responsible-party-is-person |
   | responsible-party-prepared-by |
   | responsible-party-prepared-by-location-valid |
+  | responsible-party-prepared-for |
+  | responsible-party-prepared-for-location-valid |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
   | role-defined-prepared-by |
+  | role-defined-prepared-for |
   | role-defined-system-owner |
   | scan-type |
   | security-level |
