@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-fully-operational-date
+  description: >-
+    This test case validates the behavior of constraint
+    has-fully-operational-date
+  content: ../content/ssp-has-fully-operational-date-INVALID.xml
+  expectations:
+    - constraint-id: has-fully-operational-date
+      result: fail

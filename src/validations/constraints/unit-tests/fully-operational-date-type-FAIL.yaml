@@ -1,0 +1,12 @@
+test-case:
+  name: Negative Test for fully-operational-date-type
+  description: >-
+    This test case validates the behavior of constraint fully-operational-date-type. 
+    Scenario 1 test: just year, not a full date.
+    Scenario 2 test: no timezone.
+  content: 
+    - ../content/ssp-fully-operational-date-type-INVALID-1.xml
+    - ../content/ssp-fully-operational-date-type-INVALID-2.xml
+  expectations:
+    - constraint-id: fully-operational-date-type
+      result: fail

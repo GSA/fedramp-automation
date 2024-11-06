@@ -53,6 +53,10 @@ Examples:
   | deployment-model-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
+  | fully-operational-date-is-valid-FAIL.yaml |
+  | fully-operational-date-is-valid-PASS.yaml |
+  | fully-operational-date-type-FAIL.yaml |
+  | fully-operational-date-type-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
   | has-authenticator-assurance-level-PASS.yaml |
   | has-authorization-boundary-diagram-FAIL.yaml |
@@ -89,6 +93,8 @@ Examples:
   | has-data-flow-diagram-uuid-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
   | has-federation-assurance-level-PASS.yaml |
+  | has-fully-operational-date-FAIL.yaml |
+  | has-fully-operational-date-PASS.yaml |
   | has-identity-assurance-level-FAIL.yaml |
   | has-identity-assurance-level-PASS.yaml |
   | has-incident-response-plan-FAIL.yaml |
@@ -219,6 +225,8 @@ Examples:
   | data-center-us |
   | deployment-model |
   | fedramp-version |
+  | fully-operational-date-is-valid |
+  | fully-operational-date-type |
   | has-authenticator-assurance-level |
   | has-authorization-boundary-diagram |
   | has-authorization-boundary-diagram-caption |
@@ -237,6 +245,7 @@ Examples:
   | has-data-flow-diagram-link-rel-allowed-value |
   | has-data-flow-diagram-uuid |
   | has-federation-assurance-level |
+  | has-fully-operational-date |
   | has-identity-assurance-level |
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
