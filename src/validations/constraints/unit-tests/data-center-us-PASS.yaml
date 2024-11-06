@@ -1,7 +1,7 @@
 test-case:
-  name: Positive Test for data-center-US
-  description: This test case validates the behavior of constraint data-center-US
+  name: Positive Test for data-center-us
+  description: This test case validates the behavior of constraint data-center-us
   content: ../content/ssp-all-VALID.xml
   expectations:
-    - constraint-id: data-center-US
+    - constraint-id: data-center-us
       result: pass

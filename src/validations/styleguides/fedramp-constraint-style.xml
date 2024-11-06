@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaschema-meta-constraints xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/metaschema/1.0 https://raw.githubusercontent.com/metaschema-framework/metaschema/0441e6d4c9bce5b6c40b4647148019e4f47bed08/schema/xml/metaschema-meta-constraints.xsd">
+    <!-- ============================== -->
+    <!-- FedRAMP Constraint Style guide -->
+    <!-- ============================== -->
+
+    <context>
+        <metapath target="/metaschema-meta-constraints"/>
+        <constraints>
+            <!-- TODO: Implement frr103 when axes supported after new oscal-cli release uses metaschema-java release with metaschema-framework/metaschema-java#229 included. -->
+            <!-- <expect id="frr103" target="//expect | //allowed-values | //index-has-key" test="" level="ERROR">
+                <formal-name>Constraints in the Context Sorted Alphabetically by ID</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr103"/>
+                <message>A FedRAMP constraint MUST be sorted Alphabetically within it's specific context block.</message>
+            </expect> -->
+            <expect id="frr104" target="//expect | //index-has-key" test="count(prop[@namespace = 'https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name = 'help-url']) eq 1" level="ERROR">
+                <formal-name>Constraints Have a Help URL Property</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr104"/>
+                <message>A FedRAMP constraint MUST define a help URL.</message>
+            </expect>
+            <!-- TODO: Uniqueness check needs to be added to frr105 once support is added for a function like distinct-values() or some other method of ensuring that an id is unique-->
+            <expect id="frr105" target="//expect | //allowed-values | //index-has-key" test="@id" level="ERROR">
+                <formal-name>Constraints Have a Unique ID</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr105"/>
+                <message>A FedRAMP constraint MUST have an id.</message>
+            </expect>
+            <expect id="frr106" target="//expect | //allowed-values | //index-has-key" test="matches(@id, '^[a-z0-9-]+$')" level="ERROR">
+                <formal-name>Constraints Have IDs with Lower Case Letters, Numbers, and Dashes</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr106"/>
+                <message>A FedRAMP constraint id MUST only consist of lowercase letters, numbers 0-9, or "-" characters.</message>
+            </expect>
+            <expect id="frr107" target="//expect | //allowed-values | //index-has-key" test="matches(@level, '\b(CRITICAL|ERROR|WARNING|INFORMATIONAL|DEBUG)\b')" level="ERROR">
+                <formal-name>Constraints Have an Explicit Severity Level</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr107"/>
+                <message>A FedRAMP constraint MUST specify a valid severity level.</message>
+            </expect>
+            <expect id="frr109" target="//expect" test="message" level="ERROR">
+                <formal-name>Expect Constraint Message Field Required</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr109"/>
+                <message>A FedRAMP constraint MUST include a message describing the requirement.</message>
+            </expect>
+            <expect id="frr112" target="//expect" test="matches(message, '(MUST|MUST NOT|REQUIRED|SHALL|SHALL NOT|SHOULD|SHOULD NOT|RECOMMENDED|MAY|OPTIONAL)')" level="ERROR">
+                <formal-name>IETF BCP14 Keywords in Constraint Messages</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr112"/>
+                <message>A FedRAMP constraint MUST include one of the IETF BCP14 keywords in the message.</message>
+            </expect>
+            <expect id="frr116" target="//expect | //allowed-values | //index-has-key" test="formal-name" level="ERROR">
+                <formal-name>Constraints Formal Names Required</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/README.md#frr116"/>
+                <message>A FedRAMP constraint MUST include a formal name.</message>
+            </expect>
+        </constraints>
+    </context>
+
+</metaschema-meta-constraints>

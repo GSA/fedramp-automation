@@ -16,6 +16,8 @@ init: init-repo init-validations init-content init-web  ## Initialize project de
 
 configure: init-validations
 
+lint: lint-validations
+
 init-repo:
 	git submodule update --init --recursive
 

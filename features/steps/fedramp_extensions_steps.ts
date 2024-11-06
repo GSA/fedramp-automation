@@ -16,6 +16,7 @@ import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
+import {formatSarifOutput} from 'oscal'
 
 let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-cli'
 
@@ -39,7 +40,10 @@ const validationCache = new Map<string, Log>();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
+const sarifDir = join(__dirname, "..", "..", "sarif");
+if (!existsSync(sarifDir)) {
+  mkdirSync(sarifDir, { recursive: true });
+}
 const featureFile = join(__dirname, "..", "fedramp_extensions.feature");
 let featureContent = readFileSync(featureFile, "utf8");
 
@@ -246,7 +250,7 @@ async function processTestCase({ "test-case": testCase }: any) {
       if(currentTestCaseFileName.includes("FAIL")){
         flags.push("disable-schema")
       }
-    const {isValid,log} = await validateDocument(resolve(processedContentPath),{
+    const {isValid,log} = await validateDocument(resolve(processedContentPath),{quiet:true,
       extensions:metaschemaDocuments.flatMap((x) => resolve(x)),
       flags},executor)
       sarifResponse=log;
@@ -262,10 +266,7 @@ async function processTestCase({ "test-case": testCase }: any) {
     if (processedContentPath != contentPath) {
       unlinkSync(processedContentPath);
     }
-    const sarifDir = join(__dirname, "..", "..", "sarif");
-    if (!existsSync(sarifDir)) {
-      mkdirSync(sarifDir, { recursive: true });
-    }
+    
     writeFileSync(
       join(
         __dirname,
@@ -665,4 +666,50 @@ Then("I should have both FAIL and PASS tests for constraint ID {string}", functi
     constraintId,
     `Constraint ${constraintId} is not in the extracted constraints list`
   );
+});
+
+Then('I should verify that all constraints follow the style guide constraint', async function () {
+  const baseDir = join(__dirname, '..', '..');
+  const constraintDir = join(baseDir, 'src', 'validations', 'constraints');
+  const styleGuidePath = join(baseDir, 'src', 'validations', 'styleguides', 'fedramp-constraint-style.xml');
+
+  const constraint_files = readdirSync(constraintDir).filter((file) => file.startsWith('fedramp') && file.endsWith('xml') );
+  const errors = [];
+
+  function filterOutBrackets(input) {
+    return input.replace(/\[.*?\]/g, '');
+  }
+
+  for (const file_name of constraint_files) {
+    const filePath = join(constraintDir, file_name.trim());
+    try {
+      const {isValid,log} = await validateDocument(filePath,{flags:['disable-schema'],quiet:true,extensions:[styleGuidePath],module:"http://csrc.nist.gov/ns/oscal/metaschema/1.0"},executor)
+      writeFileSync(
+        join(
+          __dirname,
+          "../../sarif/",
+          file_name.split(".xml").join("").toString()+".sarif"
+        ),JSON.stringify(log, null,"\t"))  
+      const formattedErrors = (formatSarifOutput(log));
+      
+      console.log(`Validation result for ${file_name}:`, isValid?"valid":"invalid");
+      if (!isValid) {
+        console.error("\n"+formattedErrors);
+      }
+      if (!isValid) {
+        errors.push(`Style guide validation found errors in ${file_name}:\n ${formatSarifOutput(log)}`);
+      }
+    } catch (error) {
+      errors.push(`Error processing ${file_name}: ${error}`);
+    }
+  }
+
+  // Display all errors at the end
+  if (errors.length > 0) {
+    console.error("Validation errors found:");
+    
+    throw new Error("Style guide validation failed. "+errors.join("\n"));
+  }
+
+  expect(errors, "No style guide validation errors should be found").to.be.empty;
 });
