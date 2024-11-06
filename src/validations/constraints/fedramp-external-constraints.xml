@@ -16,11 +16,11 @@
                     <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
                 </remarks>
             </expect>
-        	<expect id="has-marking" target="." test="prop[@name='marking']" level="ERROR">
-        		<formal-name>FedRAMP data sensitivity classification identifier.</formal-name>
-        		<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/"/>
-        		<message>A FedRAMP document's metadata MUST specify a data sensitivity classification.</message>
-        	</expect>
+            <expect id="has-marking" target="." test="prop[@name='marking']" level="ERROR">
+                <formal-name>FedRAMP data sensitivity classification identifier.</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/"/>
+                <message>A FedRAMP document's metadata MUST specify a data sensitivity classification.</message>
+            </expect>
         </constraints>
     </context>
 

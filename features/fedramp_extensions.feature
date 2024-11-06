@@ -269,7 +269,6 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
-  | marking |
   | missing-response-components |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
