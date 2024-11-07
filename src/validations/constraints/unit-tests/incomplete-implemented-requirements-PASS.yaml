@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for incomplete-implemented-requirements
+  description: >-
+    This test case validates the behavior of constraint
+    incomplete-implemented-requirements
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: incomplete-implemented-requirements
+      result: pass
