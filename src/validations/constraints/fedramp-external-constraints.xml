@@ -73,12 +73,25 @@
         <constraints>
             <let var="import-profile-href" expression="import-profile/@href"/>
             <let var="resolved-import-profile-href" expression="if (starts-with($import-profile-href, '#')) then back-matter/resource[@uuid = substring($import-profile-href, 2)]/rlink/@href else $import-profile-href"/>
+            <let var="profile-is-available" expression="doc-available($resolved-import-profile-href)"/>
+            <let var="resolved-profile" expression="if ($profile-is-available) then resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//catalog else //catalog"/>
+            <let var="imported-controls-map" expression="map:merge($resolved-profile//control ! map:entry(@id,.))?*"/>
+            <!-- Collect all the implemented requirements' control IDs -->
+            <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>
+          
             <let var="security-impact-level" expression=
                 "if (//security-impact-level//* = 'fips-199-high')
                     then ('fips-199-high')
                 else if (//security-impact-level//* = 'fips-199-moderate')
                     then ('fips-199-moderate')
                 else ('fips-199-low')"/>
+            <index name="index-imported-controls" target="$imported-controls-map">
+                <key-field target="@id"/>
+            </index>
+            
+            <index name="index-implemented-requirements" target="$implemented-requirements-map">
+                <key-field target="@control-id"/>
+            </index>
             <expect id="categorization-has-correct-system-attribute" target="system-characteristics/system-information/information-type/categorization" test="@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'" level="ERROR">
                 <formal-name>Categorization Has Correct System Attribute</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
@@ -275,12 +288,12 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
                 <message>A FedRAMP SSP MUST have a User Guide attached.</message>
             </expect>
-            <expect id="import-profile-has-available-document" target="import-profile" test="doc-available(resolve-uri($resolved-import-profile-href))" level="CRITICAL">
+            <expect id="import-profile-has-available-document" target="import-profile" test="$profile-is-available" level="CRITICAL">
                 <formal-name>Import Profile has available document</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog with a valid file or HTTP(S) address.</message>
             </expect>
-            <expect id="import-profile-resolves-to-fedramp-content" target="." test="count(resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//control//prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
+            <expect id="import-profile-resolves-to-fedramp-content" target="." test="count($resolved-profile//control//prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
                 <formal-name>Import Profile resolves to Fedramp content</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
@@ -418,10 +431,9 @@
         </constraints>
     </context>
     <context>
-        <metapath target="/catalog"/>
-        <metapath target="/profile"/>
         <metapath target="/system-security-plan"/>
         <constraints>
+
             <index-has-key id='incomplete-implemented-requirements' target="$imported-controls-map" name="index-implemented-requirements" level="ERROR">
                 <formal-name>Incomplete Implemented Requirements</formal-name>
                 <description>A FedRAMP SSP MUST contain an implemented requirement for each imported control.</description>
