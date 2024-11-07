@@ -1,4 +1,4 @@
-import { BeforeAll, BeforeStep, Given, Then, When, setDefaultTimeout, world } from "@cucumber/cucumber";
+import { Before, BeforeAll, BeforeStep, Given, Then, When, setDefaultTimeout, world } from "@cucumber/cucumber";
 import { expect } from "chai";
 import {
   readFileSync,
@@ -137,7 +137,7 @@ function getConstraintFiles() {
     .join("\n");
   return xmlFiles;
 }
-BeforeAll(async ()=>{
+Before(async ()=>{
   if(executor==='oscal-server'){
     const isHealthy=await checkServerStatus()
     if(!isHealthy){
