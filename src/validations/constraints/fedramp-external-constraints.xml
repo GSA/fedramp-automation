@@ -422,7 +422,7 @@
         <constraints>
             <expect id="party-name" target="." test="exists(name)" level="ERROR">
                 <formal-name>all Parties of MUST have a name.</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#party"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-metadata/#working-with-party-assemblies"/>
                 <message>Each Party assembly MUST have a name</message>
             </expect>
         </constraints>
