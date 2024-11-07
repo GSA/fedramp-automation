@@ -281,7 +281,7 @@ Examples:
   | inventory-item-public |
   | inventory-item-virtual |
   | missing-response-components |
-  | party-has-name |
+  | party-name |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |

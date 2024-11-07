@@ -420,7 +420,7 @@
     <context>
         <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata/party"/>
         <constraints>
-            <expect id="party-has-name" target="." test="exists(name)">
+            <expect id="party-name" target="." test="exists(name)" level="ERROR">
                 <formal-name>all Parties of MUST have a name.</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#party"/>
                 <message>Each Party assembly MUST have a name</message>

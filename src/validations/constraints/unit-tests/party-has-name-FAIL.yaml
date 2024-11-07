@@ -3,5 +3,5 @@ test-case:
   description: This test case validates the behavior of constraint party-has-name
   content: ../content/ssp-party-has-name-INVALID.xml
   expectations:
-    - constraint-id: party-has-name
+    - constraint-id: party-name
       result: fail
