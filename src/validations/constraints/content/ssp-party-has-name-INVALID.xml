@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      uuid="12345678-1234-4321-8765-123456789012">
+  <metadata>
+    <title>Enhanced Example System Security Plan</title>
+    <published>2024-08-01T14:30:00Z</published>
+    <last-modified>2024-08-01T14:30:00Z</last-modified>
+    <version>1.1</version>
+    <oscal-version>1.1.2</oscal-version>
+    <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
+    <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
+      <short-name>ExOrg</short-name>
+      <link rel="website" href="https://example.com"/>
+    </party>
+    <party uuid="22222222-0000-4000-9000-000000000002" type="person">
+      <email-address>jane.doe@example.com</email-address>
+    <address type="work"  />
+    </party>
+  </metadata>
+</system-security-plan>
