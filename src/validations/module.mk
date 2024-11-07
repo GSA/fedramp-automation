@@ -10,7 +10,7 @@ REV5_TEMPLATES = ./dist/content/rev5/templates
 init-validations:
 	@echo "Installing node modules..."
 	npm install
-	$(OSCAL_CLI) use 2.2.0
+	$(OSCAL_CLI) use latest
 	$(OSCAL_CLI) server update
 
 # Style lint
