@@ -1,0 +1,8 @@
+# Driver for the invalid marking constraint unit test.
+test-case:
+  name: The invalid marking constraint unit test.
+  description: Test that the SSP metadata does not contain the "marking" property.
+  content: ../content/ssp-marking-INVALID.xml
+  expectations:
+  - constraint-id: marking
+    result: fail
