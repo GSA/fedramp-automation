@@ -109,7 +109,7 @@
     </remarks>
   </metadata>
   
-  <import-profile href="fedramp-tailoring-profile.xml"/>
+  <import-profile href="../../../../dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
   
   <system-characteristics>
     <system-id identifier-type="https://fedramp.gov">F00000001</system-id>

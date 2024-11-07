@@ -51,6 +51,8 @@ Examples:
   | data-center-us-PASS.yaml |
   | deployment-model-FAIL.yaml |
   | deployment-model-PASS.yaml |
+  | extraneous-implemented-requirements-FAIL.yaml |
+  | extraneous-implemented-requirements-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
@@ -135,6 +137,8 @@ Examples:
   | import-profile-has-available-document-PASS.yaml |
   | import-profile-resolves-to-fedramp-content-FAIL.yaml |
   | import-profile-resolves-to-fedramp-content-PASS.yaml |
+  | incomplete-implemented-requirements-FAIL.yaml |
+  | incomplete-implemented-requirements-PASS.yaml |
   | information-type-has-availability-impact-FAIL.yaml |
   | information-type-has-availability-impact-PASS.yaml |
   | information-type-has-confidentiality-impact-FAIL.yaml |
@@ -226,6 +230,7 @@ Examples:
   | data-center-primary |
   | data-center-us |
   | deployment-model |
+  | extraneous-implemented-requirements |
   | fedramp-version |
   | has-authenticator-assurance-level |
   | has-authorization-boundary-diagram |
@@ -268,6 +273,7 @@ Examples:
   | has-user-guide |
   | import-profile-has-available-document |
   | import-profile-resolves-to-fedramp-content |
+  | incomplete-implemented-requirements |
   | information-type-800-60-v2r1 |
   | information-type-has-availability-impact |
   | information-type-has-confidentiality-impact |
