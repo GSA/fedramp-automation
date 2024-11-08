@@ -467,7 +467,7 @@
             </index-has-key>
             <index-has-key id='extraneous-implemented-requirements' target="//implemented-requirement" name="index-imported-controls" level="ERROR">
                 <formal-name>Additional Controls Implemented Not in Baseline</formal-name>
-                <description>This SSP includes extraneous controls that are not part of the FedRAMP baseline.</description>
+                <description>A FedRAMP SSP MUST NOT include extraneous controls outside of the FedRAMP baseline.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/implemented-requirements"/>
                 <key-field target="@control-id"/>
             </index-has-key>
