@@ -159,7 +159,7 @@
             <let var="prepared-by-party" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]"/>
             <let var="prepared-by-party-location-uuid" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]/location-uuid"/>
             <let var="prepared-by-location" expression="//location[@uuid eq $prepared-by-party-location-uuid]"/>
-            <let var="prepared-for-responsible-party-party-uuid" expression="metadata/responsible-party[@role-id eq 'prepared-for']/party-uuid"/>
+            <let var="prepared-for-responsible-party-party-uuid" expression="responsible-party[@role-id eq 'prepared-for']/party-uuid"/>
             <let var="prepared-for-party" expression="//party[@uuid eq $prepared-for-responsible-party-party-uuid]"/>
             <let var="prepared-for-party-location-uuid" expression="//party[@uuid eq $prepared-for-responsible-party-party-uuid]/location-uuid"/>
             <let var="prepared-for-location" expression="//location[@uuid eq $prepared-for-party-location-uuid]"/>
