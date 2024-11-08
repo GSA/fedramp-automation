@@ -163,8 +163,8 @@ Examples:
   | inventory-item-virtual-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
-  | party-has-name-FAIL.yaml |
-  | party-has-name-PASS.yaml |
+  | party-name-FAIL.yaml |
+  | party-name-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
   | resource-has-base64-or-rlink-FAIL.yaml |
