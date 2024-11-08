@@ -104,11 +104,6 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
                 <message>A FedRAMP SSP MUST define its NIST SP 800-63 authenticator assurance level (AAL).</message>
             </expect>
-            <expect id="has-fully-operational-date" target="system-characteristics" test="exists(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date'])" level="ERROR">
-                <formal-name>Fully Operational Date</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
-                <message>A FedRAMP SSP MUST define the system's fully operational date.</message>
-            </expect>
             <expect id="has-authorization-boundary-diagram" target="system-characteristics/authorization-boundary" test="diagram" level="WARNING">
                 <formal-name>Has Authorization Boundary Diagram</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
@@ -400,6 +395,11 @@
                 <message>A FedRAMP SSP MUST specify the system's fully operational data as a "full-date" per RFC3339 with the addition of a timezone.</message>
                 -->
             </matches> 
+            <expect id="has-fully-operational-date" target="." test="exists(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date'])" level="ERROR">
+                <formal-name>Fully Operational Date</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
+                <message>A FedRAMP SSP MUST define the system's fully operational date.</message>
+            </expect>
         </constraints>
     </context>
 
