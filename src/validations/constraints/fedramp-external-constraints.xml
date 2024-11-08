@@ -397,7 +397,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
                 <!-- Todo: add custom error message once Metaschma 'match' constraints support 'message' field. -->
                 <!-- 
-                <message>A FedRAMP SSP must specify the system's fully operational data as a "full-date" per RFC3339 with the addition of a timezone.</message>
+                <message>A FedRAMP SSP MUST specify the system's fully operational data as a "full-date" per RFC3339 with the addition of a timezone.</message>
                 -->
             </matches> 
         </constraints>
