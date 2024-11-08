@@ -15,7 +15,7 @@
     </party>
     <party uuid="22222222-0000-4000-9000-000000000002" type="person">
       <email-address>jane.doe@example.com</email-address>
-    <address type="work"  />
+      <address type="work"  />
     </party>
   </metadata>
 </system-security-plan>
