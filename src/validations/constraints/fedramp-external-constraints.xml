@@ -383,9 +383,15 @@
             </expect>
         </constraints>
     </context>
+    
     <context>
         <metapath target="/system-security-plan/system-characteristics"/>
         <constraints>
+            <expect id="fully-operational-date-is-valid" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" test=". &lt;= current-dateTime()" level="ERROR"><!-- TODO - Need metapath current-date() function -->
+                <formal-name>Fully Operational Date Is Valid</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
+                <message>A system MUST be fully implemented prior to submitting the SSP to FedRAMP.</message>
+            </expect>
             <matches id="fully-operational-date-type" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" datatype="date-with-timezone" level="ERROR">
                 <formal-name>Fully Operational Date Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
@@ -394,11 +400,6 @@
                 <message>A FedRAMP SSP must specify the system's fully operational data as a "full-date" per RFC3339 with the addition of a timezone.</message>
                 -->
             </matches> 
-            <expect id="fully-operational-date-is-valid" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" test=". &lt;= current-dateTime()" level="ERROR"><!-- TODO - Need metapath current-date() function -->
-                <formal-name>Fully Operational Date Is Valid</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
-                <message>A system MUST be fully implemented prior to submitting the SSP to FedRAMP.</message>
-            </expect>
         </constraints>
     </context>
 
