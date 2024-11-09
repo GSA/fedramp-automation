@@ -228,7 +228,7 @@
          <name>Cloud Service Provider (CSP) Name</name>
          <short-name>CSP Acronym/Short Name</short-name>
          <link href="#00000000-0000-4000-8001-c00100000052" rel="logo"/>
-         <location-uuid>00000000-0000-4000-8001-c00400000001</location-uuid>
+         <location-uuid>00000000-0000-4000-8001-c00300000001</location-uuid>
          <remarks>
             <p>Replace sample CSP information.</p>
             <p>CSP information must be present and associated with the "cloud-service-provider" role via <code>responsible-party</code>.</p>
@@ -314,7 +314,7 @@
          <prop name="mail-stop" value="Mailstop A-1"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000001</telephone-number>
-         <location-uuid>00000000-0000-4000-8001-c00400000001</location-uuid>
+         <location-uuid>00000000-0000-4000-8001-c00300000001</location-uuid>
          <member-of-organization>00000000-0000-4000-8001-c00400000001</member-of-organization>
       </party>
       <party uuid="00000000-0000-4000-8001-c00400000011" type="person">
