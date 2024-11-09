@@ -483,18 +483,13 @@
             <p>Exactly one</p>
          </remarks>
       </responsible-party>
-      <responsible-party role-id="fedramp-jab">
-         <party-uuid>00000000-0000-4000-8001-c00400000003</party-uuid>
-         <remarks>
-            <p>Exactly one</p>
-         </remarks>
-      </responsible-party>
+
       <remarks>
          <p>This OSCAL-based FedRAMP SSP Template can be used for the FedRAMP Low, Moderate, and High baselines.</p>
          <p>Guidance for OSCAL-based FedRAMP Tailored Low Impact - Software as a Service (LI-SaaS) content has not yet been developed.</p>
       </remarks>
    </metadata>
-   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.xml">
+   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-profile.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official FedRAMP 3.0.0 release.</p>
          <p>Must adjust accordingly for applicable baseline and revision.</p>
@@ -776,7 +771,7 @@
       <!-- Must have a component for each FedRAMP Authorized Service -->
       <!-- include authorization status, link to marketplace, CSO Service, nature of agreement, authorized users/authentication -->
       <!-- data types (as backmatter resource) -->
-      <component uuid="00000000-0000-4000-8001-c00900000004" type="leveraged-system">
+      <component uuid="00000000-0000-4000-8001-c00900000004" type="interconnection">
          <title>Name of Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
@@ -799,7 +794,7 @@
          <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8"/>
          <!-- system & network monitoring information type -->
          <!-- other props -->
-         <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
+         <prop name="leveraged-authorization-uuid" value="00000000-0000-4000-8001-c01900000001"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
 
@@ -811,7 +806,7 @@
             <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
             <p>Must include all leveraged services and features from the leveraged authorization here.</p>
          </description>
-         <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
+         <prop name="leveraged-authorization-uuid" value="00000000-0000-4000-8001-c01900000001"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000002"/>
          <link href="00000000-0000-4000-8001-c00900000001" rel="used-by"/>
@@ -1131,7 +1126,7 @@
          <description>
             <p>Legacy Example (No implemented-component).</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-1"/>
+         <!--<prop name="asset-id" value="unique-asset-ID-01"/>-->
          <prop name="ipv4-address" value="10.1.1.1"/>
          <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888"/>
          <prop name="virtual" value="no"/>
@@ -1189,7 +1184,7 @@
          <description>
             <p>Component Inventory Example</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-2"/>
+         <prop name="asset-id" value="unique-asset-ID-02"/>
          <prop name="ipv4-address" value="10.2.2.2"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a02:0202"/>
          <prop name="mac-address" value="00:00:00:00:00:00"/>
@@ -1227,7 +1222,7 @@
          <description>
             <p>None.</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-4"/>
+         <prop name="asset-id" value="unique-asset-ID-03"/>
          <prop name="asset-type" value="web-server"/>
          <prop name="virtual" value="yes"/>
          <prop name="public" value="no"/>
@@ -1242,7 +1237,7 @@
          <description>
             <p>None.</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-5"/>
+         <prop name="asset-id" value="unique-asset-ID-04"/>
          <prop name="asset-type" value="appliance"/>
          <prop name="virtual" value="yes"/>
          <prop name="public" value="no"/>
@@ -1256,7 +1251,7 @@
          <description>
             <p>None.</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-6"/>
+         <prop name="asset-id" value="unique-asset-ID-05"/>
          <prop name="asset-type" value="firewall"/>
          <prop name="ipv4-address" value="10.5.5.5"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a05:0505"/>
@@ -1270,7 +1265,7 @@
          <description>
             <p>None.</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-7"/>
+         <prop name="asset-id" value="unique-asset-ID-06"/>
          <prop name="ipv4-address" value="10.6.6.6"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a06:0606"/>
          <prop name="asset-type" value="router"/>
@@ -1287,7 +1282,7 @@
          <description>
             <p>None.</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-8"/>
+         <prop name="asset-id" value="unique-asset-ID-07"/>
          <prop name="asset-type" value="switch"/>
          <prop name="ipv4-address" value="10.7.7.7"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a07:0707"/>
@@ -1301,7 +1296,7 @@
          <description>
             <p>None.</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-9"/>
+         <prop name="asset-id" value="unique-asset-ID-08"/>
          <prop name="asset-type" value="web-server"/>
          <prop name="ipv4-address" value="10.8.8.8"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a08:0808"/>
@@ -1318,7 +1313,7 @@
          <description>
             <p>Email-Service</p>
          </description>
-         <prop name="asset-id" value="unique-asset-ID-10"/>
+         <prop name="asset-id" value="unique-asset-ID-09"/>
          <prop name="asset-type" value="email-server"/>
          <prop name="ipv4-address" value="10.10.10.100"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a08:0808"/>
@@ -1477,7 +1472,7 @@
                         <p>Leveraged system's statement of capabilities which may be inherited by a leveraging systems to satisfy AC-2, part a.</p>
                      </description>
                   </provided>
-                  <responsibility uuid="00000000-0000-4000-8001-c01600000001" provided-uuid="b068e08a-53b9-4f80-ac5f-0476c35c6e46">
+                  <responsibility uuid="00000000-0000-4000-8001-c01600000001" provided-uuid="00000000-0000-4000-8001-c01500000001">
                      <description>
                         <p>Leveraged system's statement of a leveraging system's responsibilities in satisfaction of AC-2, part a.</p>
                         <p>Not associated with inheritance, thus associated this with the by-component for "this system".</p>
@@ -1502,7 +1497,7 @@
                         <party-uuid>00000000-0000-4000-8001-c00400000005</party-uuid>
                      </responsible-role>
                   </provided>
-                  <responsibility uuid="11111111-0000-4000-9009-002001002002" provided-uuid="11111111-0000-4000-9009-002001002001">
+                  <responsibility uuid="11111111-0000-4000-9009-002001002002" provided-uuid="00000000-0000-4000-8001-c01500000002">
                      <description>
                         <p>Leveraging system's responsibilities with respect to inheriting this capability from this application.</p>
                         <p>In the context of the application component in satisfaction of AC-2, part a.</p>
@@ -2667,17 +2662,6 @@
    </control-implementation>
    <!-- SSP Attachments -->
    <back-matter>
-      <!-- Rev 5 new "resolution-resource" prop in metadata and corresponding resource in back-matter -->
-      <resource uuid="00000000-0000-4000-8001-c00100000001">
-         <title>Resolution Resource</title>
-         <prop name="dataset" class="collection" value="Special Publication"/>
-         <prop name="dataset" class="name" value="800-53"/>
-         <prop name="dataset" class="version" value="5.0.2"/>
-         <prop name="dataset" class="organization" value="gov.nist.csrc"/>
-         <remarks>
-            <p>This "resolution resource" is used by FedRAMP as a local, authoritative indicator of what version SSP (rev 4 or rev 5) this OSCAL document is for.</p>
-         </remarks>
-      </resource>
       <!-- Cloud Service Provider (CSP) Signatures -->
       <resource uuid="00000000-0000-4000-8001-c00100000002">
          <description>
