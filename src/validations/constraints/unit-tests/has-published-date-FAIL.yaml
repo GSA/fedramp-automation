@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for has-published-date
+  description: This test case validates the behavior of constraint has-published-date
+  content: ../content/ssp-has-published-date-INVALID.xml
+  expectations:
+    - constraint-id: has-published-date
+      result: fail
