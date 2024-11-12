@@ -132,6 +132,7 @@
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
+    <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
     <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
