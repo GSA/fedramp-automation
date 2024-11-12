@@ -43,3 +43,4 @@ FedRAMP has decided to move forward completely with the Semantic Versioning tran
 
 What becomes easier or more difficult to do because of this change?
 It will be easier for developers to automate handling version updates based on SemVer rules.
+It will be easier for developers to automate handling version updates based on SemVer rules.
