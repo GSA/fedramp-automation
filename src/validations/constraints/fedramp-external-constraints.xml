@@ -423,7 +423,7 @@
             <expect id="party-has-name" target="." test="exists(name)" level="ERROR">
                 <formal-name>All Parties Have a Name</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-metadata/#working-with-party-assemblies"/>
-                <message>Each Party assembly MUST have a name.</message>
+                <message>Every FedRAMP document must define a party with a name.</message>
             </expect>
         </constraints>
     </context>
