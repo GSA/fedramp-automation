@@ -137,7 +137,7 @@ function getConstraintFiles() {
     .join("\n");
   return xmlFiles;
 }
-Before(async ()=>{
+BeforeAll(async ()=>{
   if(executor==='oscal-server'){
     const isHealthy=await checkServerStatus()
     if(!isHealthy){

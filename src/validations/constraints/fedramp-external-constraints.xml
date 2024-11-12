@@ -70,9 +70,22 @@
 
     <context>
         <metapath target="/system-security-plan"/>
+
         <constraints>
             <let var="import-profile-href" expression="import-profile/@href"/>
             <let var="resolved-import-profile-href" expression="if (starts-with($import-profile-href, '#')) then back-matter/resource[@uuid = substring($import-profile-href, 2)]/rlink/@href else $import-profile-href"/>
+            <let var="profile-is-available" expression="doc-available($resolved-import-profile-href)"/>
+            <let var="resolved-profile" expression="if ($profile-is-available) then resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//catalog else //catalog"/>
+            <let var="imported-controls-map" expression="map:merge($resolved-profile//control ! map:entry(@id,.))?*"/>
+            <!-- Collect all the implemented requirements' control IDs -->
+            <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>
+            <index name="index-imported-controls" target="$imported-controls-map">
+                <key-field target="@id"/>
+            </index>
+
+            <index name="index-implemented-requirements" target="$implemented-requirements-map">
+                <key-field target="@control-id"/>
+            </index>
             <expect id="import-profile-has-available-document" target="import-profile" test="doc-available(resolve-uri($resolved-import-profile-href))" level="CRITICAL">
                 <formal-name>Import Profile has available document</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
