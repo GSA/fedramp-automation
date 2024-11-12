@@ -185,6 +185,8 @@ Examples:
   | security-level-PASS.yaml |
   | security-sensitivity-level-matches-security-impact-level-FAIL.yaml |
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
+  | unique-inventory-item-asset-id-FAIL.yaml |
+  | unique-inventory-item-asset-id-PASS.yaml |
   | user-has-authorized-privilege-FAIL.yaml |
   | user-has-authorized-privilege-PASS.yaml |
   | user-has-privilege-level-FAIL.yaml |
@@ -299,6 +301,7 @@ Examples:
   | scan-type |
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
+  | unique-inventory-item-asset-id |
   | user-has-authorized-privilege |
   | user-has-privilege-level |
   | user-has-role-id |

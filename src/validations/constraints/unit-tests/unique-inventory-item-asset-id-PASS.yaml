@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for unique-inventory-item-asset-id
+  description: >-
+    This test case validates the behavior of constraint
+    unique-inventory-item-asset-id
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: unique-inventory-item-asset-id
+      result: pass
