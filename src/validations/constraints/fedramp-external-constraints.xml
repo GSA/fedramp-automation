@@ -449,6 +449,16 @@
         </constraints>
     </context>
     <context>
+        <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
+        <constraints>
+            <expect id="has-published-date" target="." test="exists(published)" level="ERROR">
+                <formal-name>Has Published Date</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#title-page"/>
+                <message>All documents submitted to FedRAMP MUST define a valid publication date.</message>
+            </expect>
+        </constraints>
+    </context>    
+    <context>
         <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata/party"/>
         <constraints>
             <expect id="party-has-name" target="." test="exists(name)" level="ERROR">
