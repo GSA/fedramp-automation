@@ -1,0 +1,8 @@
+# Driver for the invalid has-inventory-items constraint unit test.
+test-case:
+  name: The invalid has-inventory-items constraint unit test.
+  description: Test that the FedRAMP SSP contains only one inventory item.
+  content: ../content/ssp-has-inventory-items-INVALID.xml
+  expectations:
+  - constraint-id: has-inventory-items
+    result: fail
