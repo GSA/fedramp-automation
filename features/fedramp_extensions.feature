@@ -163,6 +163,8 @@ Examples:
   | inventory-item-public-PASS.yaml |
   | inventory-item-virtual-FAIL.yaml |
   | inventory-item-virtual-PASS.yaml |
+  | marking-FAIL.yaml |
+  | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
   | party-has-name-FAIL.yaml |
@@ -292,6 +294,7 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | marking |
   | missing-response-components |
   | party-has-name |
   | privilege-level |
