@@ -11,12 +11,11 @@
     <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
     <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
-    <prop name="marking" value="cui"/>
     
     <role id="prepared-by">
       <title>Prepared By</title>
       <description>
-        <p>This party prepared the SSP.</p>
+        <p>This organization prepared the SSP.</p>
       </description>
     </role>
     <role id="creator">
@@ -58,18 +57,6 @@
             <p>A general point of contact for the system, designated by the system owner.</p>
           </description>
       </role>
-
-    <location uuid="27b78960-59ef-4619-82b0-ae20b9c709ac">
-      <title>CSP HQ</title>
-      <address type="work">
-        <addr-line>Suite 0000</addr-line>
-        <addr-line>1234 Some Street</addr-line>
-        <city>Haven</city>
-        <state>ME</state>
-        <postal-code>00000</postal-code>
-        <country>US</country>
-      </address>
-    </location>
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
         <country>US</country>
@@ -88,7 +75,14 @@
       <prop name="mail-stop" value="Mailstop A-1"/>
       <email-address>name@example.com</email-address>
       <telephone-number>2020000001</telephone-number>
-      <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+      <address type="work">
+        <addr-line>Suite 0000</addr-line>
+        <addr-line>1234 Some Street</addr-line>
+        <city>Haven</city>
+        <state>ME</state>
+        <postal-code>00000</postal-code>
+        <country>US</country>
+      </address>
       <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
     </party>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
@@ -148,21 +142,12 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
-    <prop name="cloud-deployment-model" value="public-cloud">
-      <remarks>
-        <p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional otherwise.</p>
-      </remarks>
-    </prop>
-    <prop name="cloud-service-model" value="other">
-      <remarks>
-        <p>Remarks are required if service model is "other". Optional otherwise.</p>
-      </remarks>
-    </prop>
+    <prop name='cloud-deployment-model' value='government-only-cloud' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='cloud-service-model' value='other' ns="https://fedramp.gov/ns/oscal"/>
     <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
-    <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
     <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">

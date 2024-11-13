@@ -24,6 +24,12 @@
                 </remarks>
             </allowed-values>
 
+        	<allowed-values id="marking" target="metadata/prop[@name='marking']/@value" allow-other="yes" level="ERROR">
+        		<formal-name>FedRAMP Data Sensitivity Classification</formal-name>
+        		<description>Identifies the FedRAMP data sensitivity classification of the document.</description>
+        		<enum value="cui">Controlled Unclassified Information</enum>
+        	</allowed-values>
+
             <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Attachment Type</formal-name>
                 <description>Identifies the type of attachment.</description>

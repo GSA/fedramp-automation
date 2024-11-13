@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for responsible-party-prepared-by
+  description: >-
+    This test case validates the behavior of constraint
+    responsible-party-prepared-by
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: responsible-party-prepared-by
+      result: pass

@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for role-defined-prepared-by
+  description: This test case validates the behavior of constraint role-defined-prepared-by
+  content: ../content/ssp-role-defined-prepared-by-INVALID.xml
+  expectations:
+    - constraint-id: role-defined-prepared-by
+      result: fail

@@ -123,6 +123,8 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-published-date-FAIL.yaml |
+  | has-published-date-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |
@@ -161,8 +163,12 @@ Examples:
   | inventory-item-public-PASS.yaml |
   | inventory-item-virtual-FAIL.yaml |
   | inventory-item-virtual-PASS.yaml |
+  | marking-FAIL.yaml |
+  | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
+  | party-has-name-FAIL.yaml |
+  | party-has-name-PASS.yaml |
   | privilege-level-FAIL.yaml |
   | privilege-level-PASS.yaml |
   | resource-has-base64-or-rlink-FAIL.yaml |
@@ -173,10 +179,16 @@ Examples:
   | response-point-PASS.yaml |
   | responsible-party-is-person-FAIL.yaml |
   | responsible-party-is-person-PASS.yaml |
+  | responsible-party-prepared-by-FAIL.yaml |
+  | responsible-party-prepared-by-PASS.yaml |
+  | responsible-party-prepared-by-location-valid-FAIL.yaml |
+  | responsible-party-prepared-by-location-valid-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
   | role-defined-information-system-security-officer-PASS.yaml |
+  | role-defined-prepared-by-FAIL.yaml |
+  | role-defined-prepared-by-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
@@ -270,6 +282,7 @@ Examples:
   | has-network-architecture-diagram-link |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
+  | has-published-date |
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
@@ -289,14 +302,19 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | marking |
   | missing-response-components |
+  | party-has-name |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
   | resource-has-base64-or-rlink |
   | resource-has-title |
   | responsible-party-is-person |
+  | responsible-party-prepared-by |
+  | responsible-party-prepared-by-location-valid |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
+  | role-defined-prepared-by |
   | role-defined-system-owner |
   | scan-type |
   | security-level |

@@ -1,0 +1,16 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd" uuid="12345678-1234-4321-8765-123456789012">
+  <metadata>
+    <role id="NOT-prepared-by">
+      <title>Prepared By</title>
+      <description>
+        <p>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</p>
+      </description>
+    </role>
+    <responsible-party role-id="NOT-prepared-by">
+      <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+      <remarks>
+        <p>Exactly one</p>
+      </remarks>
+    </responsible-party>
+  </metadata>
+</system-security-plan>

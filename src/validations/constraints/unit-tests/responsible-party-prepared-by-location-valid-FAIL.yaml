@@ -1,0 +1,12 @@
+test-case:
+  name: Negative Test for responsible-party-prepared-by-location-valid
+  description: >-
+    This test case validates the behavior of constraint responsible-party-prepared-by-location-valid.
+    Scenario 1: Tests the case of an invalid location assembly.
+    Scenario 2: Tests the case of an invalid address directly in the party itself.
+  content:
+    - ../content/ssp-responsible-party-prepared-by-location-valid-INVALID.xml
+    - ../content/ssp-responsible-party-prepared-by-location-valid-INVALID-1.xml
+  expectations:
+    - constraint-id: responsible-party-prepared-by-location-valid
+      result: fail

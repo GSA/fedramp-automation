@@ -5,7 +5,7 @@
     <!-- ================== -->
 
     <context>
-        <metapath target="//metadata"/>
+    	<metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
         <constraints>
             <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']">
                 <formal-name>Fedramp Version</formal-name>
@@ -15,6 +15,11 @@
                     <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
                     <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
                 </remarks>
+            </expect>
+            <expect id="marking" target="." test="prop[@name='marking']" level="ERROR">
+                <formal-name>FedRAMP data sensitivity classification identifier.</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/"/>
+            	<message>A FedRAMP document MUST have a marking that defines its data classification.</message>
             </expect>
         </constraints>
     </context>
@@ -150,6 +155,10 @@
     <context>
         <metapath target="/system-security-plan/metadata"/>
         <constraints>
+            <let var="prepared-by-responsible-party-party-uuid" expression="responsible-party[@role-id eq 'prepared-by']/party-uuid"/>
+            <let var="prepared-by-party" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]"/>
+            <let var="prepared-by-party-location-uuid" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]/location-uuid"/>
+            <let var="prepared-by-location" expression="//location[@uuid eq $prepared-by-party-location-uuid]"/>
             <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
                 <formal-name>Data Center Alternate</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
@@ -160,10 +169,20 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>There MUST be at least two (2) data centers listed.</message>
             </expect>
+            <expect id="data-center-country-code" target="location[prop[@name='type' and @value='data-center']]" test="count(address/country) eq 1">
+                <formal-name>Data Center Has Country Code</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
+                <message>Each data center address MUST contain a country code.</message>
+            </expect>
             <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'primary']) = 1">
                 <formal-name>Data Center Primary</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>There MUST be a single primary data center.</message>
+            </expect>
+            <expect id="data-center-us" target="location[prop[@name='type' and @value='data-center']]" test="address/country eq 'US'">
+                <formal-name>Data Center In United States</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
+                <message>Each data center MUST have an address that is within the United States.</message>
             </expect>
             <index name="index-person-party-uuid" target="map:merge(party[@type='person'] ! map:entry(@uuid,.))?*">
             	<formal-name>Index of parties of type "person".</formal-name>
@@ -176,6 +195,16 @@
                 <key-field target="party-uuid"/>
                 <message>For roles 'system-owner' and 'information-system-security-officer', the responsible-role party MUST be a party of type 'person'.</message>
             </index-has-key>
+            <expect id="responsible-party-prepared-by" target="." test="exists(responsible-party[@role-id eq 'prepared-by'])" level="ERROR">
+                <formal-name>Responsible Party Prepared By</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
+                <message>A FedRAMP SSP MUST have a responsible party that defines which party performs the role of preparing the document.</message>
+            </expect>
+            <expect id="responsible-party-prepared-by-location-valid" target="." test="($prepared-by-party/address[@type='work'] and $prepared-by-party/address/addr-line and $prepared-by-party/address/city and $prepared-by-party/address/state and $prepared-by-party/address/postal-code) or ($prepared-by-location/address[@type='work'] and $prepared-by-location/address/addr-line and $prepared-by-location/address/city and $prepared-by-location/address/state and $prepared-by-location/address/postal-code)" level="ERROR">
+                <formal-name>Responsible Party Prepared By Location Valid</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
+                <message>A FedRAMP SSP MUST have a responsible party for preparing the document, and that party MUST define an address.</message>
+            </expect>
             <expect id="role-defined-authorizing-official-poc" target="." test="role[@id eq 'authorizing-official-poc']" level="ERROR">
                 <formal-name>Role Defined Authorizing Official POC</formal-name>
                 <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
@@ -186,6 +215,11 @@
                 <formal-name>Role Defined Information System Security Officer</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#assignment-of-security-responsibilities"/>
                 <message>A FedRAMP SSP MUST define a role for the point of contact for an information system security officer.</message>
+            </expect>
+            <expect id="role-defined-prepared-by" target="." test="exists(role[@id eq 'prepared-by'])" level="ERROR">
+                <formal-name>Role Defined Prepared By</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
+                <message>A FedRAMP SSP MUST define a role for preparing this document.</message>
             </expect>
             <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
                 <formal-name>Role Defined System Owner</formal-name>
@@ -438,19 +472,23 @@
             </expect>
         </constraints>
     </context>
-
     <context>
-        <metapath target="/system-security-plan/metadata/location"/>
+        <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
         <constraints>
-            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
-                <formal-name>Data Center Has Country Code</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
-                <message>Each data center address MUST contain a country code.</message>
+            <expect id="has-published-date" target="." test="exists(published)" level="ERROR">
+                <formal-name>Has Published Date</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#title-page"/>
+                <message>All documents submitted to FedRAMP MUST define a valid publication date.</message>
             </expect>
-            <expect id="data-center-us" target="." test="address/country eq 'US'">
-                <formal-name>Data Center In United States</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
-                <message>Each data center MUST have an address that is within the United States.</message>
+        </constraints>
+    </context>    
+    <context>
+        <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata/party"/>
+        <constraints>
+            <expect id="party-has-name" target="." test="exists(name)" level="ERROR">
+                <formal-name>Party Has a Name</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-metadata/#working-with-party-assemblies"/>
+                <message>Every FedRAMP document MUST define a party with a name.</message>
             </expect>
         </constraints>
     </context>
