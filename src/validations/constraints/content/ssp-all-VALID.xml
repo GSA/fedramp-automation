@@ -10,6 +10,7 @@
     <version>1.1</version>
     <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
+    <prop name="marking" value="marked"></prop>
     <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     <prop name="marking" value="cui"/>
     
@@ -39,6 +40,9 @@
     </role>
     <role id="system-owner">
       <title>System Owner</title>
+    </role>
+    <role id="prepared-by">
+      <title>Document Preparer</title>
     </role>
      <role id="authorizing-official-poc">
        <title>Authorizing Official Point of Contact</title>
@@ -111,7 +115,13 @@
     <party uuid="22222222-0000-4000-9000-000000000002" type="person">
       <name>Jane Doe</name>
       <email-address>jane.doe@example.com</email-address>
-    <address type="work"  />
+    <address type="work">
+      <addr-line>123 main</addr-line>
+      <city>new york</city>
+      <state>NY</state>
+      <postal-code>10001</postal-code>
+      <country>US</country>
+    </address>
     </party>
 
     <responsible-party role-id="prepared-by">
@@ -146,6 +156,9 @@
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
     <responsible-party role-id="information-system-security-officer">
+      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="prepared-by">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
 
