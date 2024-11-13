@@ -12,14 +12,8 @@
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
     <prop name="marking" value="marked"></prop>
     <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
-    <prop name="marking" value="cui"/>
     
-    <role id="prepared-by">
-      <title>Prepared By</title>
-      <description>
-        <p>This party prepared the SSP.</p>
-      </description>
-    </role>
+    <!-- Unique role definitions -->
     <role id="creator">
       <title>Document Creator</title>
     </role>
@@ -38,63 +32,51 @@
     <role id="prepared-by">
       <title>Document Preparer</title>
     </role>
-     <role id="authorizing-official-poc">
-       <title>Authorizing Official Point of Contact</title>
-     </role>
-     <role id="information-system-security-officer">
-       <title>Information System Security Officer (or Equivalent)</title>
-     </role>
-     <role id="system-poc-management">
+    <role id="authorizing-official">
+      <title>Authorizing Official</title>
+      <description>
+        <p>The senior official with the authority to formally assume responsibility.</p>
+      </description>
+    </role>
+    <role id="authorizing-official-poc">
+      <title>Authorizing Official Point of Contact</title>
+    </role>
+    <role id="information-system-security-officer">
+      <title>Information System Security Officer (or Equivalent)</title>
+    </role>
+    <role id="system-poc-management">
       <title>Information System Management Point of Contact (POC)</title>
       <description>
-         <p>The highest level manager who is responsible for system operation on behalf of the System Owner.</p>
+        <p>The highest level manager who is responsible for system operation on behalf of the System Owner.</p>
       </description>
-      </role>
-      <role id="system-poc-technical">
-          <title>Information System Technical Point of Contact</title>
-          <description>
-            <p>The individual or individuals leading the technical operation of the system.</p>
-          </description>
-      </role>
-      <role id="system-poc-other">
-          <title>General Point of Contact (POC)</title>
-          <description>
-            <p>A general point of contact for the system, designated by the system owner.</p>
-          </description>
-      </role>
+    </role>
+    <role id="system-poc-technical">
+      <title>Information System Technical Point of Contact</title>
+      <description>
+        <p>The individual or individuals leading the technical operation of the system.</p>
+      </description>
+    </role>
+    <role id="system-poc-other">
+      <title>General Point of Contact (POC)</title>
+      <description>
+        <p>A general point of contact for the system, designated by the system owner.</p>
+      </description>
+    </role>
 
-    <location uuid="27b78960-59ef-4619-82b0-ae20b9c709ac">
-      <title>CSP HQ</title>
-      <address type="work">
-        <addr-line>Suite 0000</addr-line>
-        <addr-line>1234 Some Street</addr-line>
-        <city>Haven</city>
-        <state>ME</state>
-        <postal-code>00000</postal-code>
-        <country>US</country>
-      </address>
-    </location>
     <location uuid="11111112-0000-4000-9001-000000000009">
-      <address >
+      <address>
         <country>US</country>
       </address>
       <prop name="type" value="data-center" class="primary"/>
     </location>
     <location uuid="11111112-0000-4000-9000-000000000003">
-      <address >
+      <address>
         <country>US</country>
       </address>
       <prop name="type" value="data-center" class="alternate"/>
     </location>
-    <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
-      <name>Person Name 1</name>
-      <prop name="job-title" value="Individual's Title"/>
-      <prop name="mail-stop" value="Mailstop A-1"/>
-      <email-address>name@example.com</email-address>
-      <telephone-number>2020000001</telephone-number>
-      <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
-      <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
-    </party>
+
+    <!-- Party definitions -->
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
@@ -103,25 +85,22 @@
     <party uuid="22222222-0000-4000-9000-000000000002" type="person">
       <name>Jane Doe</name>
       <email-address>jane.doe@example.com</email-address>
-    <address type="work">
-      <addr-line>123 main</addr-line>
-      <city>new york</city>
-      <state>NY</state>
-      <postal-code>10001</postal-code>
-      <country>US</country>
-    </address>
+      <address type="work">
+        <addr-line>123 main</addr-line>
+        <city>new york</city>
+        <state>NY</state>
+        <postal-code>10001</postal-code>
+        <country>US</country>
+      </address>
     </party>
 
-    <responsible-party role-id="prepared-by">
-      <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
-    </responsible-party>
+    <!-- Unique responsible party assignments -->
     <responsible-party role-id="creator">
       <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
     </responsible-party>
     <responsible-party role-id="content-approver">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
-
     <responsible-party role-id="system-owner">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>

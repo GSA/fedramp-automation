@@ -43,6 +43,8 @@ Examples:
   | data-center-us |
   | deployment-model |
   | fedramp-version |
+  | fully-operational-date-is-valid |
+  | fully-operational-date-type |
   | has-authenticator-assurance-level |
   | has-authorization-boundary-diagram |
   | has-authorization-boundary-diagram-caption |
@@ -65,6 +67,7 @@ Examples:
   | has-data-flow-diagram-link-rel-allowed-value |
   | has-data-flow-diagram-uuid |
   | has-federation-assurance-level |
+  | has-fully-operational-date |
   | has-identity-assurance-level |
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
@@ -75,6 +78,7 @@ Examples:
   | has-network-architecture-diagram-link |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
+  | has-published-date |
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
@@ -94,6 +98,7 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | marking |
   | missing-response-components |
   | party-has-name |
   | privilege-level |
@@ -101,8 +106,11 @@ Examples:
   | resource-has-base64-or-rlink |
   | resource-has-title |
   | responsible-party-is-person |
+  | responsible-party-prepared-by |
+  | responsible-party-prepared-by-location-valid |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
+  | role-defined-prepared-by |
   | role-defined-system-owner |
   | scan-type |
   | security-level |
@@ -166,6 +174,10 @@ Examples:
   | deployment-model-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
+  | fully-operational-date-is-valid-FAIL.yaml |
+  | fully-operational-date-is-valid-PASS.yaml |
+  | fully-operational-date-type-FAIL.yaml |
+  | fully-operational-date-type-PASS.yaml |
   | has-authenticator-assurance-level-FAIL.yaml |
   | has-authenticator-assurance-level-PASS.yaml |
   | has-authorization-boundary-diagram-FAIL.yaml |
@@ -210,6 +222,8 @@ Examples:
   | has-data-flow-diagram-uuid-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
   | has-federation-assurance-level-PASS.yaml |
+  | has-fully-operational-date-FAIL.yaml |
+  | has-fully-operational-date-PASS.yaml |
   | has-identity-assurance-level-FAIL.yaml |
   | has-identity-assurance-level-PASS.yaml |
   | has-incident-response-plan-FAIL.yaml |
@@ -230,6 +244,8 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-published-date-FAIL.yaml |
+  | has-published-date-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |
@@ -268,6 +284,8 @@ Examples:
   | inventory-item-public-PASS.yaml |
   | inventory-item-virtual-FAIL.yaml |
   | inventory-item-virtual-PASS.yaml |
+  | marking-FAIL.yaml |
+  | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
   | party-has-name-FAIL.yaml |
@@ -282,10 +300,16 @@ Examples:
   | response-point-PASS.yaml |
   | responsible-party-is-person-FAIL.yaml |
   | responsible-party-is-person-PASS.yaml |
+  | responsible-party-prepared-by-FAIL.yaml |
+  | responsible-party-prepared-by-PASS.yaml |
+  | responsible-party-prepared-by-location-valid-FAIL.yaml |
+  | responsible-party-prepared-by-location-valid-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
   | role-defined-information-system-security-officer-PASS.yaml |
+  | role-defined-prepared-by-FAIL.yaml |
+  | role-defined-prepared-by-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
