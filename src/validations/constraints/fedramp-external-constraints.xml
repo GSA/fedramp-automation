@@ -460,7 +460,7 @@
             <is-unique id="unique-inventory-item-asset-id" target="inventory-item/prop[@name='asset-id']">
                 <formal-name>Unique Asset Identifier</formal-name>
                 <description>Ensure each inventory item has a unique asset-id property.</description>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#asset-id"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
                 <key-field target="@value"/>
                 <remarks>
                     <p>Asset IDs must be unique across all inventory items to ensure proper identification and tracking of system components.</p>
