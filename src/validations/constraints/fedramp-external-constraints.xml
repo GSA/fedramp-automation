@@ -160,10 +160,20 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>There MUST be at least two (2) data centers listed.</message>
             </expect>
+            <expect id="data-center-country-code" target="location[prop[@name='type' and @value='data-center']]" test="count(address/country) eq 1">
+                <formal-name>Data Center Has Country Code</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
+                <message>Each data center address MUST contain a country code.</message>
+            </expect>
             <expect id="data-center-primary" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'primary']) = 1">
                 <formal-name>Data Center Primary</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
                 <message>There MUST be a single primary data center.</message>
+            </expect>
+            <expect id="data-center-us" target="location[prop[@name='type' and @value='data-center']]" test="address/country eq 'US'">
+                <formal-name>Data Center In United States</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
+                <message>Each data center MUST have an address that is within the United States.</message>
             </expect>
             <index name="index-person-party-uuid" target="map:merge(party[@type='person'] ! map:entry(@uuid,.))?*">
             	<formal-name>Index of parties of type "person".</formal-name>
@@ -438,22 +448,6 @@
             </expect>
         </constraints>
     </context>
-
-    <context>
-        <metapath target="/system-security-plan/metadata/location"/>
-        <constraints>
-            <expect id="data-center-country-code" target="." test="count(address/country) eq 1">
-                <formal-name>Data Center Has Country Code</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
-                <message>Each data center address MUST contain a country code.</message>
-            </expect>
-            <expect id="data-center-us" target="." test="address/country eq 'US'">
-                <formal-name>Data Center In United States</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
-                <message>Each data center MUST have an address that is within the United States.</message>
-            </expect>
-        </constraints>
-    </context>
     <context>
         <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata/party"/>
         <constraints>
@@ -464,5 +458,4 @@
             </expect>
         </constraints>
     </context>
-
 </metaschema-meta-constraints>
