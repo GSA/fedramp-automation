@@ -1,5 +1,5 @@
 # Variables
-OSCAL_CLI = npx oscal@2.0.5
+OSCAL_CLI = npx oscal@next
 SRC_DIR = ./src
 DIST_DIR = ./dist
 REV5_BASELINES = ./dist/content/rev5/baselines
