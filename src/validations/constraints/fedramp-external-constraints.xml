@@ -509,6 +509,16 @@
             </expect>
         </constraints>
     </context>
+	<context>
+		<metapath target="/system-security-plan/system-implementation"/>
+		<constraints>
+			<expect id="has-inventory-items" target="." test="count(inventory-item) >= 2" level="ERROR">
+				<formal-name>System Implementation Has Inventory Items</formal-name>
+				<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
+				<message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
+			</expect>
+		</constraints>
+	</context>    
     <context>
         <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
         <constraints>

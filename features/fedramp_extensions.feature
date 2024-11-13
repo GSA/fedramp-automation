@@ -113,6 +113,8 @@ Examples:
   | has-incident-response-plan-PASS.yaml |
   | has-information-system-contingency-plan-FAIL.yaml |
   | has-information-system-contingency-plan-PASS.yaml |
+  | has-inventory-items-FAIL.yaml |
+  | has-inventory-items-PASS.yaml |  
   | has-network-architecture-FAIL.yaml |
   | has-network-architecture-PASS.yaml |
   | has-network-architecture-diagram-FAIL.yaml |
@@ -287,6 +289,7 @@ Examples:
   | has-identity-assurance-level |
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
+  | has-inventory-items |  
   | has-network-architecture |
   | has-network-architecture-diagram |
   | has-network-architecture-diagram-caption |
