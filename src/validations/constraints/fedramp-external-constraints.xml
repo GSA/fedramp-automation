@@ -159,6 +159,10 @@
             <let var="prepared-by-party" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]"/>
             <let var="prepared-by-party-location-uuid" expression="//party[@uuid eq $prepared-by-responsible-party-party-uuid]/location-uuid"/>
             <let var="prepared-by-location" expression="//location[@uuid eq $prepared-by-party-location-uuid]"/>
+            <let var="prepared-for-responsible-party-party-uuid" expression="responsible-party[@role-id eq 'prepared-for']/party-uuid"/>
+            <let var="prepared-for-party" expression="//party[@uuid eq $prepared-for-responsible-party-party-uuid]"/>
+            <let var="prepared-for-party-location-uuid" expression="//party[@uuid eq $prepared-for-responsible-party-party-uuid]/location-uuid"/>
+            <let var="prepared-for-location" expression="//location[@uuid eq $prepared-for-party-location-uuid]"/>
             <expect id="data-center-alternate" target="." test="count(/location/prop[@name eq 'type'][@value eq 'data-center'][@class eq 'alternate']) &gt; 0">
                 <formal-name>Data Center Alternate</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0"  name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-centers"/>
@@ -205,6 +209,16 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
                 <message>A FedRAMP SSP MUST have a responsible party for preparing the document, and that party MUST define an address.</message>
             </expect>
+            <expect id="responsible-party-prepared-for" target="." test="exists(responsible-party[@role-id eq 'prepared-for'])" level="ERROR">
+                <formal-name>Responsible Party Prepared For</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-for-csp"/>
+                <message>A FedRAMP SSP MUST have a responsible party that defines the party for whom the document was prepared.</message>
+            </expect>
+            <expect id="responsible-party-prepared-for-location-valid" target="." test="($prepared-for-party/address[@type='work'] and $prepared-for-party/address/addr-line and $prepared-for-party/address/city and $prepared-for-party/address/state and $prepared-for-party/address/postal-code) or ($prepared-for-location/address[@type='work'] and $prepared-for-location/address/addr-line and $prepared-for-location/address/city and $prepared-for-location/address/state and $prepared-for-location/address/postal-code)" level="ERROR">
+                <formal-name>Responsible Party Prepared For Location Valid</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-for-csp"/>
+                <message>A FedRAMP SSP MUST define the address of the responsible party for whom the document was prepared.</message>
+            </expect>
             <expect id="role-defined-authorizing-official-poc" target="." test="role[@id eq 'authorizing-official-poc']" level="ERROR">
                 <formal-name>Role Defined Authorizing Official POC</formal-name>
                 <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
@@ -220,6 +234,11 @@
                 <formal-name>Role Defined Prepared By</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-by-csp-self-prepared"/>
                 <message>A FedRAMP SSP MUST define a role for preparing this document.</message>
+            </expect>
+            <expect id="role-defined-prepared-for" target="." test="exists(role[@id eq 'prepared-for'])" level="ERROR">
+                <formal-name>Role Defined Prepared For</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#prepared-for-csp"/>
+                <message>A FedRAMP SSP MUST define a role for which the document was prepared.</message>
             </expect>
             <expect id="role-defined-system-owner" target="." test="role[@id eq 'system-owner']" level="ERROR">
                 <formal-name>Role Defined System Owner</formal-name>
