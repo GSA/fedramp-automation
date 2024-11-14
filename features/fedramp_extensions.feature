@@ -50,6 +50,7 @@ Examples:
   | has-authorization-boundary-diagram-caption |
   | has-authorization-boundary-diagram-description |
   | has-authorization-boundary-diagram-link |
+  | has-authorization-boundary-diagram-link-href-target |
   | has-authorization-boundary-diagram-link-rel |
   | has-authorization-boundary-diagram-link-rel-allowed-value |
   | has-cloud-deployment-model |
@@ -63,6 +64,7 @@ Examples:
   | has-data-flow-diagram-caption |
   | has-data-flow-diagram-description |
   | has-data-flow-diagram-link |
+  | has-data-flow-diagram-link-href-target |
   | has-data-flow-diagram-link-rel |
   | has-data-flow-diagram-link-rel-allowed-value |
   | has-data-flow-diagram-uuid |
@@ -76,6 +78,7 @@ Examples:
   | has-network-architecture-diagram-caption |
   | has-network-architecture-diagram-description |
   | has-network-architecture-diagram-link |
+  | has-network-architecture-diagram-link-href-target |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-published-date |
@@ -108,9 +111,12 @@ Examples:
   | responsible-party-is-person |
   | responsible-party-prepared-by |
   | responsible-party-prepared-by-location-valid |
+  | responsible-party-prepared-for |
+  | responsible-party-prepared-for-location-valid |
   | role-defined-authorizing-official-poc |
   | role-defined-information-system-security-officer |
   | role-defined-prepared-by |
+  | role-defined-prepared-for |
   | role-defined-system-owner |
   | scan-type |
   | security-level |
@@ -188,6 +194,8 @@ Examples:
   | has-authorization-boundary-diagram-description-PASS.yaml |
   | has-authorization-boundary-diagram-link-FAIL.yaml |
   | has-authorization-boundary-diagram-link-PASS.yaml |
+  | has-authorization-boundary-diagram-link-href-target-FAIL.yaml |
+  | has-authorization-boundary-diagram-link-href-target-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-FAIL.yaml |
   | has-authorization-boundary-diagram-link-rel-PASS.yaml |
   | has-authorization-boundary-diagram-link-rel-allowed-value-FAIL.yaml |
@@ -214,6 +222,8 @@ Examples:
   | has-data-flow-diagram-description-PASS.yaml |
   | has-data-flow-diagram-link-FAIL.yaml |
   | has-data-flow-diagram-link-PASS.yaml |
+  | has-data-flow-diagram-link-href-target-FAIL.yaml |
+  | has-data-flow-diagram-link-href-target-PASS.yaml |
   | has-data-flow-diagram-link-rel-FAIL.yaml |
   | has-data-flow-diagram-link-rel-PASS.yaml |
   | has-data-flow-diagram-link-rel-allowed-value-FAIL.yaml |
@@ -240,6 +250,8 @@ Examples:
   | has-network-architecture-diagram-description-PASS.yaml |
   | has-network-architecture-diagram-link-FAIL.yaml |
   | has-network-architecture-diagram-link-PASS.yaml |
+  | has-network-architecture-diagram-link-href-target-FAIL.yaml |
+  | has-network-architecture-diagram-link-href-target-PASS.yaml |
   | has-network-architecture-diagram-link-rel-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
@@ -304,12 +316,18 @@ Examples:
   | responsible-party-prepared-by-PASS.yaml |
   | responsible-party-prepared-by-location-valid-FAIL.yaml |
   | responsible-party-prepared-by-location-valid-PASS.yaml |
+  | responsible-party-prepared-for-FAIL.yaml |
+  | responsible-party-prepared-for-PASS.yaml |
+  | responsible-party-prepared-for-location-valid-FAIL.yaml |
+  | responsible-party-prepared-for-location-valid-PASS.yaml |
   | role-defined-authorizing-official-poc-FAIL.yaml |
   | role-defined-authorizing-official-poc-PASS.yaml |
   | role-defined-information-system-security-officer-FAIL.yaml |
   | role-defined-information-system-security-officer-PASS.yaml |
   | role-defined-prepared-by-FAIL.yaml |
   | role-defined-prepared-by-PASS.yaml |
+  | role-defined-prepared-for-FAIL.yaml |
+  | role-defined-prepared-for-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
   | scan-type-FAIL.yaml |
