@@ -4,7 +4,7 @@ Feature: OSCAL Document Constraints
 Scenario Outline: Validating OSCAL constraints with metaschema constraints
   Then I should verify that all constraints follow the style guide constraint
 
-@style-guide
+@integration
 Scenario Outline: Documents that should be valid are pass
   Then I should have valid results "<valid_file>"
 Examples:
