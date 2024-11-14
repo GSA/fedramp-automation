@@ -14,7 +14,9 @@
     "test:constraints": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @constraints",
     "test:coverage": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @full-coverage",
     "test:style": "cross-env-shell NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @style-guide",
+    "test:integration": "cross-env-shell NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @integration",
     "lint:server": "cross-env-shell OSCAL_EXECUTOR='oscal-server' NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @style-guide",
+    "test:integration:server": "cross-env-shell OSCAL_EXECUTOR='oscal-server' NODE_OPTIONS=\"--loader ts-node/esm --no-warnings --experimental-specifier-resolution=node\" cucumber-js --tags @integration",
     "mq": "node ./src/scripts/dev-metaschema-eval.js",
     "constraint": "node ./src/scripts/dev-constraint.js"
   },
