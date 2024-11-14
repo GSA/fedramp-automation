@@ -39,10 +39,9 @@ jobs:
         uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b
         with:
           node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
-      - name: Install OSCAL CLI
+      - name: Install OSCAL CLI 
         run: |
-          make init-validations
-          npx oscal use 2.2.0
+          npm install && npx oscal use 2.2.0
       - name: Run Lint tests
         shell: bash
         run: |
