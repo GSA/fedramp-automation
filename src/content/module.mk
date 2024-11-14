@@ -1,6 +1,6 @@
 # Variables
-OSCAL_VERSION=`cat package.json|jq .dependencies.oscal | sed 's/"//g'`
-OSCAL_CLI_VERSION := $(shell (grep "^oscal-cli" .tool-versions 2>nul || findstr "^oscal-cli" .tool-versions) | awk '{print $$2}' 2>nul || (grep "^oscal-cli" .tool-versions 2>/dev/null || findstr "^oscal-cli" .tool-versions) | cut -d' ' -f2)
+OSCAL_VERSION = $(shell jq -r .dependencies.oscal package.json)
+OSCAL_CLI_VERSION = $(shell awk '/^oscal-cli/ {print $$2}' .tool-versions)
 OSCAL_CLI = npx oscal@$(OSCAL_VERSION)
 SRC_DIR = ./src
 DIST_DIR = ./dist
