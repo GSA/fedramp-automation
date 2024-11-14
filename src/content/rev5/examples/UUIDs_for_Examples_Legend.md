@@ -92,6 +92,10 @@ _Fields for other models to be added as we work with those models._
 
 # Examples:
 
+### "This System"
+
+Always `11111111-2222-4000-8000-009000000000` in its SSP.
+
 
 ### Resource UUIDs
 
