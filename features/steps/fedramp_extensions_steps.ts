@@ -18,7 +18,7 @@ import { parseString } from "xml2js";
 import { promisify } from "util";
 import {formatSarifOutput,fedrampValidationOptions} from 'oscal'
 let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-cli'
-let quiet= true
+let quiet= false
 
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
