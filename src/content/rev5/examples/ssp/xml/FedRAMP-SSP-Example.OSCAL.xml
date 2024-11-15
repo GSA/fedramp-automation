@@ -686,8 +686,7 @@
          </remarks>
       </user>
       
-      <!-- Components -->
-      
+      <!-- ============= MINIMUM REQUIRED COMPONENT ============= -->
       <!-- OSCAL requires the existance of a "this-system" component -->
       <component uuid="11111111-2222-4000-8000-009000000000" type="this-system">
          <title>This System</title>
@@ -703,26 +702,28 @@
          </remarks>
       </component>
 
+      <!-- ============= EXTERNAL COMPONENTS ============= -->
+      <!-- ============= EXTERNAL COMPONENTS ============= -->
+      <!-- ============= EXTERNAL COMPONENTS ============= -->
 
       <!-- Section 6 - Leveraged FedRAMP-Authorized Systems -->
-      <!-- Must have a "system" component for each FedRAMP Authorized System leveraged by this system as an underlying servic eprovider -->
-      <!-- include authorization status, link to marketplace, CSO Service, nature of agreement, authorized users/authentication -->
       <component uuid="11111111-2222-4000-8000-009000100001" type="system">
-         <title>Awesome Cloud PaaS</title>
+         <title>Awesome Cloud IaaS (Leveraged Authorized System)</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
             <p>Must include all leveraged services and features from the leveraged authorization here.</p>
          </description>
          <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="paas"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-         <!-- New Rev 5 prop - Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
-         <prop ns="http://fedramp.gov/ns/oscal" name="information" value="describe information being transferred">
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla">
             <remarks>
-               <p>For a leveraged authoriation, describe the information being transferred.</p>
+               <p>Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc</p>
             </remarks>
          </prop>
-         <!-- New Rev 5 prop - Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
-         <!-- Alternatively, if the list is long, data types may be provided as a link to a backmatter resource containing all the information -->
+         <prop ns="http://fedramp.gov/ns/oscal" name="information" value="describe information being transferred">
+            <remarks>
+               <p>Describe the information being transferred in the @value field.</p>
+            </remarks>
+         </prop>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1">
             <remarks>
                <p>System development information</p>
@@ -756,66 +757,72 @@
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
+         <remarks>
+            <p>Must have a "system" component for each FedRAMP Authorized System leveraged by this system as an underlying service provider.</p>
+         </remarks>
       </component>
 
       <!-- Section 6 - Use Authorized Service from a Leveraged FedRAMP-Authorized System -->
-      <!-- Must have a "system" component for each FedRAMP Authorized System leveraged by this system as an underlying servic eprovider -->
-      <!-- include authorization status, link to marketplace, CSO Service, nature of agreement, authorized users/authentication -->
       <component uuid="11111111-2222-4000-8000-009000500001" type="service">
-         <title>Authorized Service Provided by Leveraged System</title>
+         <title>Service A</title>
          <description>
-            <p></p>
+            <p>An authorized service provided by Awesome Cloud</p>
+            <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
-         <!-- <link href="#11111111-2222-4000-8000-009000100001" rel="provided-by"/>  -->
+         <!-- <link href="11111111-2222-4000-8000-009000100001" rel="provided-by"/> -->
          <status state="operational"/>
          <remarks>
             <p>This is a service provided by the leveraged system.</p>
-            <p>It is explicitly listed on the FedRAMP marketplace as being an authorized service.</p>
-            <p>As a result, this service includes both the "provided-by" link and the "leveraged-authorization-uuid" property.</p>
+            <p>The service is explicitly listed on the FedRAMP marketplace as being included in the scope of the leveraged system's ATO.</p>
+            <p>As a result, this service includes the "leveraged-authorization-uuid" property.</p>
+            <p>All services require the "implementation-point" property. With a leveraged service, this property value is set to "external.</p>
+            <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
+            <p>All external services would normally require a "provided-by" link; however, a known bug in core OSCAL syntax prevents the use of this property at this time.</p>
          </remarks>
       </component>
-
 
       <!-- Section 7 - Use UNAuthorized Service from a Leveraged FedRAMP-Authorized System -->
-      <!-- Must have a "system" component for each FedRAMP Authorized System leveraged by this system as an underlying servic eprovider -->
-      <!-- include authorization status, link to marketplace, CSO Service, nature of agreement, authorized users/authentication -->
       <component uuid="11111111-2222-4000-8000-009000500002" type="service">
-         <title>Non-Authorized Service Provided by Leveraged System</title>
+         <title>Service B</title>
          <description>
-            <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
-            <p>Must include all leveraged services and features from the leveraged authorization here.</p>
+            <p>A non-authorized service provided by an authorized, leveraged system.</p>
+            <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external"/>
-         <!-- <link href="#11111111-2222-4000-8000-009000100001" rel="provided-by"/>  -->
+         <!-- <link href="11111111-2222-4000-8000-009000100001" rel="provided-by"/> -->
          <status state="operational"/>
          <remarks>
             <p>This is a service provided by the leveraged system.</p>
-            <p>It is NOT explicitly listed on the FedRAMP marketplace as being an authorized service.</p>
-            <p>As a result, this service still includes the "provided-by" link, but omits the "leveraged-authorization-uuid" property.</p>
+            <p>It is NOT explicitly listed on the FedRAMP marketplace as being within the scope of leveraged system's ATO.</p>
+            <p>As a result, the  "leveraged-authorization-uuid" property must NOT be used.</p>
+            <p>All services require the "implementation-point" property. With a leveraged service, this property value is set to "external.</p>
+            <p>All external services would normally require a "provided-by" link; however, a known bug in core OSCAL syntax prevents the use of this property at this time.</p>
+            <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
          </remarks>
       </component>
 
-
       <!-- Section 7 - Use Service from an external system other than the Leveraged FedRAMP-Authorized System -->
-      <!-- Must have a "system" component for each FedRAMP Authorized System leveraged by this system as an underlying servic eprovider -->
-      <!-- include authorization status, link to marketplace, CSO Service, nature of agreement, authorized users/authentication -->
       <component uuid="11111111-2222-4000-8000-009000500003" type="service">
-         <title>Service Provided by Leveraged System</title>
+         <title>Service C</title>
          <description>
-            <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
-            <p>Must include all leveraged services and features from the leveraged authorization here.</p>
+            <p>A service provided by an external system other than the leveraged system.</p>
+            <p>Describe the service and what it is used for.</p>
          </description>
-         <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
-         <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/>
+         <!-- <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/> -->
          <status state="operational"/>
+         <remarks>
+            <p>This is a service provided by an external system other than the leveraged system.</p>
+            <p>As a result, the  "leveraged-authorization-uuid" property is not applicable and must NOT be used.</p>
+            <p>All services require the "implementation-point" property. In this case, the property value is set to "external.</p>
+            <p>All external services would normally require a "provided-by" link; however, a known bug in core OSCAL syntax prevents the use of this property at this time.</p>
+            <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
+         </remarks>
       </component>
 
       <!-- Section 7 - Interconnection -->
-      <!-- Must have a component for each FedRAMP Authorized Service -->
-      <!-- include authorization status, link to marketplace, CSO Service, nature of agreement, authorized users/authentication -->
       <component uuid="11111111-2222-4000-8000-009000200001" type="interconnection">
          <title>Name of Interconnected System</title>
          <description>
@@ -823,41 +830,22 @@
             <p>Must include all leveraged services and features from the leveraged authorization here.</p>
          </description>
          <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="paas"/>
-         <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-         <!-- New Rev 5 prop - Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" value="172.0.0.0"/>
          <prop name="ipv6-address" value="::"/>
          <prop name="direction" value="incoming"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information" value="describe information being transferred"/>
-         <!-- New Rev 5 prop - Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
          <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="data-type" value="C.3.5.1"/>
          <!-- system development information type -->
          <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="data-type" value="C.3.5.8"/>
-         <!-- system & network monitoring information type -->
 
-         <!-- other props -->
          <prop name="implementation-point" value="external"/>
-         <status state="operational"/>
-      </component>
-      
-      <component uuid="11111111-2222-4000-8000-009000500004" type="service">
-         <title>Service Provided by Leveraged System</title>
-         <description>
-            <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
-            <p>Must include all leveraged services and features from the leveraged authorization here.</p>
-         </description>
-         <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
-         <prop name="implementation-point" value="external"/>
-         <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/>
          <status state="operational"/>
       </component>
 
       <!-- Section 7 - External Systems and Services Not Having FedRAMP-Authorization -->
-      <!-- Must have a component for each external, non-FedRAMP Authorized Service -->
-      <!-- System/Service/API Name, Connection Details, Nature of agreement, Support Status, Data Types, Data Categorization, authorized users/authentication, other compliance programs, hosting environment, risk/impact/mitigation -->
       <component uuid="11111111-2222-4000-8000-009000200002" type="interconnection">
          <!-- Use title element to provid System/ Service/ API/CLI Name -->
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
@@ -927,6 +915,22 @@
             <p>Optional notes about this interconnection</p>
          </remarks>
       </component>
+
+
+      <!-- ============= INTERNAL COMPONENTS ============= -->
+      <!-- ============= INTERNAL COMPONENTS ============= -->
+      <!-- ============= INTERNAL COMPONENTS ============= -->
+      <component uuid="11111111-2222-4000-8000-009000500004" type="service">
+         <title>Service D</title>
+         <description>
+            <p>A service that exists within the authorization boundary.</p>
+            <p>Describe the service and what it is used for.</p>
+         </description>
+         <prop name="implementation-point" value="internal"/>
+         <status state="operational"/>
+      </component>
+      
+
 
       <!-- Section 10 / Appendix Q - Cryptographic Modules -->
       <!-- NOTE: Must set type="cryptographic-module" -->
