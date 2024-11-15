@@ -186,6 +186,24 @@
             <p>Any internal users of a leveraged authorization.</p>
          </description>
       </role>
+      <role id="external-system-owner">
+         <title>External System Owner</title>
+         <description>
+            <p>The owner of an external system.</p>
+         </description>
+      </role>
+      <role id="external-system-poc-management">
+         <title>External System Management Point of Contact (POC)</title>
+         <description>
+            <p>The highest level manager who responsible for an external system's operation on behalf of the System Owner.</p>
+         </description>
+      </role>
+      <role id="external-system-poc-technical">
+         <title>External System Technical Point of Contact</title>
+         <description>
+            <p>The individual or individuals leading the technical operation of an external system.</p>
+         </description>
+      </role>
       <role id="approver">
          <title>Approver</title>
          <description>
@@ -425,6 +443,12 @@
       <party uuid="11111111-2222-4000-8000-004000000018" type="organization">
          <name>[SAMPLE]Security Team</name>
       </party>
+      <party uuid="11111111-2222-4000-8000-c0040000000a" type="person">
+         <name>Leveraged Authorization User</name>
+      </party>
+     
+      
+      
       <party uuid="22222222-2222-4000-8000-004000000001" type="organization">
          <name>Name of Leveraged System A Provider</name>
       </party>
@@ -752,6 +776,9 @@
          </prop>
          <status state="operational"/>
 
+         <responsible-role role-id="provider">
+            <party-uuid>11111111-2222-4000-8000-c0040000000a</party-uuid>
+         </responsible-role>
          <responsible-role role-id="leveraged-authorization-users">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
@@ -773,6 +800,9 @@
          <prop name="implementation-point" value="external"/>
          <!-- <link href="11111111-2222-4000-8000-009000100001" rel="provided-by"/> -->
          <status state="operational"/>
+         <responsible-role role-id="provider">
+            <party-uuid>11111111-2222-4000-8000-c0040000000a</party-uuid>
+         </responsible-role>
          <remarks>
             <p>This is a service provided by the leveraged system.</p>
             <p>The service is explicitly listed on the FedRAMP marketplace as being included in the scope of the leveraged system's ATO.</p>
@@ -821,6 +851,62 @@
             <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
          </remarks>
       </component>
+
+      <!-- Section 7 - An external system with which this system has an interconnection -->
+      <component uuid="11111111-2222-4000-8000-009000100002" type="system">
+         <title>Other Cloud SaaS</title>
+         <description>
+            <p></p>
+         </description>
+         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa">
+            <remarks>
+               <p>Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc</p>
+            </remarks>
+         </prop>
+         <prop ns="http://fedramp.gov/ns/oscal" name="information" value="describe information being transferred">
+            <remarks>
+               <p>Describe the information being transferred in the @value field.</p>
+            </remarks>
+         </prop>
+         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1">
+            <remarks>
+               <p>System development information</p>
+            </remarks>
+         </prop>
+         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8">
+            <remarks>
+               <p>System and network monitoring information</p>
+            </remarks>
+         </prop>
+         <!-- other props -->
+         <prop name="implementation-point" value="external">
+            <remarks>
+               <p>For a leveraged system, this property must always be present with a value of "external".</p>
+            </remarks>
+         </prop>
+         <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
+            <remarks>
+               <p>Include this property if available, such as through an OSCAL-based CRM, component definition, or direct access to the leveraged system's SSP.</p>
+            </remarks>
+         </prop>
+         <status state="operational"/>
+         
+         <responsible-role role-id="external-system-owner">
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="external-system-poc-management">
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="external-system-poc-technical">
+            <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
+         </responsible-role>
+         <remarks>
+            <p>Each interconnection must be defined with both an "system" component and an "interconnection" component.</p>
+            <p>Must include all leveraged services and features from the leveraged authorization here.</p>
+         </remarks>
+      </component>
+      
 
       <!-- Section 7 - Interconnection -->
       <component uuid="11111111-2222-4000-8000-009000200001" type="interconnection">
@@ -915,6 +1001,23 @@
             <p>Optional notes about this interconnection</p>
          </remarks>
       </component>
+
+      <component uuid="11111111-2222-4000-8000-00900030000a" type="software">
+         <title>Management CLI</title>
+         <description>
+            <p>None</p>
+         </description>
+         <prop name="asset-type" value="cli"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
+         <prop name="allows-authenticated-scan" value="no">
+            <remarks>
+               <p></p>
+            </remarks>
+         </prop>
+         <status state="operational"/>
+      </component>
+      
 
 
       <!-- ============= INTERNAL COMPONENTS ============= -->
