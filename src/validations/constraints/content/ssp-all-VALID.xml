@@ -118,6 +118,16 @@
       <email-address>jane.doe@example.com</email-address>
     <address type="work"  />
     </party>
+    <party uuid="11111111-0000-4000-9000-000000000003" type="organization">
+      <name>Example Organization for Leveraged Authorization</name>
+      <short-name>LeveragedCSP</short-name>
+      <link rel="website" href="https://example-iaas.com"/>
+    </party>
+    <party uuid="11111111-0000-4000-9000-000000000004" type="organization">
+      <name>Example Organization for Leveraged Authorization 2</name>
+      <short-name>LeveragedCSP 2</short-name>
+      <link rel="website" href="https://example-paas.com"/>
+    </party>
 
     <responsible-party role-id="prepared-by">
       <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
@@ -286,6 +296,29 @@
         <function-performed>administration</function-performed>
       </authorized-privilege>
     </user>
+
+    <component uuid="7622fb94-ac33-498a-a955-fb3501f02d83" type="system">
+      <title>Name of Leveraged System</title>
+      <description>
+          <p>Briefly describe leveraged system.</p>
+      </description>
+      <prop name="leveraged-authorization-uuid" 
+            value="94d678fb-6d33-4eef-a17a-897bb4809487" />
+      <!-- <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001" /> -->
+      <prop name="implementation-point" value="external"/>
+      <status state="operational"/>
+  </component>
+
+  <component uuid="58350560-dbf7-4f43-9d86-bd0e15555e50" type="system">
+    <title>Another Leveraged System</title>
+    <description>
+        <p>Another leveraged system.</p>
+    </description>
+    <prop name="leveraged-authorization-uuid" 
+          value="adcbafe0-f418-4fab-8e02-75b32c9eee04" />
+    <prop name="implementation-point" value="external"/>
+    <status state="operational"/>
+  </component>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
       <title>Primary Application Server</title>
