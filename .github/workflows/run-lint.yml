@@ -16,8 +16,6 @@ on:
 jobs:
   # one job that runs tests
   run-tests:
-    strategy:
-      fail-fast: false
     runs-on: ubuntu-20.04
     # Checkout repository and its submodules
     steps:
