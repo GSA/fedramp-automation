@@ -304,7 +304,8 @@
       </description>
       <prop name="leveraged-authorization-uuid" 
             value="94d678fb-6d33-4eef-a17a-897bb4809487" />
-      <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="SLA" />
+            <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="SLA" />
+            <prop name="information-type"  ns="http://fedramp.gov/ns/oscal" value="C.3.5.8" />
       <!-- <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001" /> -->
       <prop name="implementation-point" value="external"/>
       <status state="operational"/>
@@ -318,6 +319,7 @@
     <prop name="leveraged-authorization-uuid" 
           value="adcbafe0-f418-4fab-8e02-75b32c9eee04" />
           <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="EULA" />
+          <prop name="information-type"  ns="http://fedramp.gov/ns/oscal" value="C.3.5.4" />
     <prop name="implementation-point" value="external"/>
     <status state="operational"/>
   </component>
