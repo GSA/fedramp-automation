@@ -569,6 +569,11 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>Each leveraged authorization system component MUST have exactly one implementation point property.  The leveraged authorization with uuid '{ $leveraged-authorization-uuid }' has a "system" component with { count(../component[@type='system'][prop[@name='leveraged-authorization-uuid' and @value=$leveraged-authorization-uuid]]/prop[@name='implementation-point' and @value='external']) } defined "implementation-point" props.</message>
             </expect>
+            <expect id="leveraged-authorization-has-authorized-users" target="." test="count(../component[@type='system'][prop[@name='leveraged-authorization-uuid' and @value=$leveraged-authorization-uuid]]/responsible-role/@role-id) gte 1" level="WARNING">
+                <formal-name>Leveraged Authorization Has System Component</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>Each leveraged authorization system component SHOULD have at least one role for authorized users.  The leveraged authorization with uuid '{ $leveraged-authorization-uuid }' has a "system" component with { count(../component[@type='system'][prop[@name='leveraged-authorization-uuid' and @value=$leveraged-authorization-uuid]]/responsible-role/@role-id) } roles specified.</message>
+            </expect>
         </constraints>
     </context>
     <context>
