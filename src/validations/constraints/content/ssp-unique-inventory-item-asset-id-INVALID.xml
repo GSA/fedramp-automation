@@ -31,7 +31,7 @@
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>
       <implemented-component component-uuid="55555555-0000-4000-9000-000000000005">
-        <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
+        <prop name="asset-id" value="DB-001" />
       </implemented-component>
     </inventory-item>
   </system-implementation>
