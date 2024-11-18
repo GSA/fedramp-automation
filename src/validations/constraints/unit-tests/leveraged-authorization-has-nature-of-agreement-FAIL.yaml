@@ -5,8 +5,8 @@ test-case:
     Scenario 1: leveraged authorization "system" component without "nature of agreement".
     Scenario 2: leveraged authorization "system" component with more than one "nature of agreement".
   content: 
-    - ..content/ssp-leveraged-authorization-component-has-nature-of-agreement-INVALID.xml
-    - ..content/ssp-leveraged-authorization-component-has-nature-of-agreement-INVALID-1.xml
+    - ../content/ssp-leveraged-authorization-component-has-nature-of-agreement-INVALID.xml
+    - ../content/ssp-leveraged-authorization-component-has-nature-of-agreement-INVALID-1.xml
   expectations:
     - constraint-id: leveraged-authorization-has-nature-of-agreement
       result: fail

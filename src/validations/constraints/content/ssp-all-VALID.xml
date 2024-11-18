@@ -316,10 +316,9 @@
     <description>
         <p>Another leveraged system.</p>
     </description>
-    <prop name="leveraged-authorization-uuid" 
-          value="adcbafe0-f418-4fab-8e02-75b32c9eee04" />
-          <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="EULA" />
-          <prop name="information-type"  ns="http://fedramp.gov/ns/oscal" value="C.3.5.4" />
+    <prop name="leveraged-authorization-uuid" value="adcbafe0-f418-4fab-8e02-75b32c9eee04" />
+    <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="EULA" />
+    <prop name="information-type"  ns="http://fedramp.gov/ns/oscal" value="C.3.5.4" />
     <prop name="implementation-point" value="external"/>
     <status state="operational"/>
   </component>

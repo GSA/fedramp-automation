@@ -1,0 +1,8 @@
+test-case:
+  name: Negative Test for leveraged-authorization-has-implementation-point
+  description: >-
+    This test case validates the behavior of constraint leveraged-authorization-has-implementation-point
+  content: ../content/ssp-leveraged-authorization-has-implementation-point-INVALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-has-implementation-point
+      result: fail
