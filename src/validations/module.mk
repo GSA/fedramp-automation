@@ -1,5 +1,7 @@
 # Variables
-OSCAL_CLI = npx oscal@2.0.6
+OSCAL_VERSION = $(shell jq -r .dependencies.oscal package.json)
+OSCAL_CLI_VERSION = $(shell awk '/^oscal-cli/ {print $$2}' .tool-versions)
+OSCAL_CLI = npx oscal@$(OSCAL_VERSION)
 SRC_DIR = ./src
 DIST_DIR = ./dist
 REV5_BASELINES = ./dist/content/rev5/baselines
@@ -10,7 +12,7 @@ REV5_TEMPLATES = ./dist/content/rev5/templates
 init-validations:
 	@echo "Installing node modules..."
 	npm install
-	$(OSCAL_CLI) use latest
+	$(OSCAL_CLI) use $(OSCAL_CLI_VERSION)
 	$(OSCAL_CLI) server update
 
 # Style lint
