@@ -1,48 +1,5 @@
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
   <system-implementation>
-    <user uuid="44444444-0000-4000-9000-000000000004">
-      <title>System Administrator</title>
-      <prop name="type" value="internal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
-      <role-id>system-admin</role-id>
-      <authorized-privilege>
-        <title>Admin</title>
-        <description>
-          <p>admin user</p>
-        </description>
-        <function-performed>administration</function-performed>
-      </authorized-privilege>
-    </user>
-    <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
-      <title>Primary Application Server</title>
-      <description>
-        <p>Main application server hosting the core system functionality.</p>
-      </description>
-      <purpose>main line</purpose>
-      <status state="operational"/>
-      <responsible-role role-id="system-admin">
-        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-      </responsible-role>
-      <remarks>
-        <p>This is the primary application server for the system.</p>
-      </remarks>
-    </component>
-    <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
-      <title>External API Connection</title>
-      <description>
-        <p>Secure connection to an external API for data enrichment.</p>
-      </description>
-      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <status state="operational"/>
-      <responsible-role role-id="system-admin">
-        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-      </responsible-role>
-      <remarks>
-        <p>This connection is used for secure data exchange with external systems.</p>
-      </remarks>
-    </component>
     <inventory-item uuid="77777777-0000-4000-9000-000000000007">
       <description>
         <p>Primary database server</p>
