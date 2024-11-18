@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+
+  <system-implementation>
+    <leveraged-authorization uuid="94d678fb-6d33-4eef-a17a-897bb4809487" >
+      <title>Name of Underlying System</title>
+      <!-- FedRAMP Package ID -->
+      <prop name="leveraged-system-identifier" 
+          ns="https://fedramp.gov/ns/oscal" 
+          value="F9999999999" />
+      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" 
+            value="fedramp-agency"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
+      <link href="//path/to/leveraged_system_legacy_crm.xslt" />
+      <link href="//path/to/leveraged_system_responsibility_and_inheritance.xml" />
+      <party-uuid>11111111-0000-4000-9000-000000000003</party-uuid>
+      <date-authorized>2019-01-01</date-authorized>
+      <remarks>
+        <p>Sample leveraged authorization (e.g., underlying IaaS).</p>
+      </remarks>
+    </leveraged-authorization>
+
+    <!-- Leveraged authorization has associcated service component BUT with more than one "nature-of-agreement" prop-->
+    <component uuid="7622fb94-ac33-498a-a955-fb3501f02d83" type="system">
+      <title>Name of Leveraged System</title>
+      <description>
+          <p>Briefly describe leveraged system.</p>
+      </description>
+      <prop name="leveraged-authorization-uuid" 
+            value="94d678fb-6d33-4eef-a17a-897bb4809487" />
+      <!-- componet missing "nature-of-agreement" prop-->
+      <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="EULA" />
+      <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="Contract" />
+      <prop name="implementation-point" value="external"/>
+      <status state="operational"/>
+  </component>
+
+  </system-implementation>
+
+</system-security-plan>

@@ -554,6 +554,11 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>Each leveraged authorization MUST have one system component.  The leveraged authorization with uuid '{ $leveraged-authorization-uuid }' has { count(../component[@type='system'][prop[@name='leveraged-authorization-uuid' and @value=$leveraged-authorization-uuid]]) } "system" components.</message>
             </expect>
+            <expect id="leveraged-authorization-has-nature-of-agreement" target="." test="count(../component[@type='system'][prop[@name='leveraged-authorization-uuid' and @value=$leveraged-authorization-uuid]]/prop[@name='nature-of-agreement' and @ns='http://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+                <formal-name>Leveraged Authorization Has System Component</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>Each leveraged authorization system component MUST specify the nature of agreemeent.  The leveraged authorization with uuid '{ $leveraged-authorization-uuid }' has a "system" components with { count(../component[@type='system'][prop[@name='leveraged-authorization-uuid' and @value=$leveraged-authorization-uuid]]/prop[@name='nature-of-agreement' and @ns='http://fedramp.gov/ns/oscal']) } defined "nature-of-agreement" props.</message>
+            </expect>
         </constraints>
     </context>
     <context>
