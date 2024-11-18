@@ -37,11 +37,10 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/"/>
             	<message>A FedRAMP document MUST have a marking that defines its data classification.</message>
             </expect>
-            <expect id="oscal-version-matches-fedramp-version" target="oscal-version" level="ERROR"
-                test="$major-version-valid and $minor-version-valid and $patch-version-valid">
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://docs.oasis-open.org/sarif/sarif/v2.1.0"/>                
+            <expect id="oscal-version-matches-fedramp-version" target="oscal-version" test="$major-version-valid and $minor-version-valid and $patch-version-valid" level="ERROR">
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-file-concepts/#oscal-syntax-version"/>                
                 <message>A FedRAMP document SHOULD have an OSCAL version that matches the minimally required version for FedRAMP packages ({$fedramp-required-minimum-version} not {.}).</message>
-            </expect>        
+            </expect>          
         </constraints>
     </context>
     <context>
