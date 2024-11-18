@@ -21,7 +21,7 @@
       <description>
         <p>Primary database server</p>
       </description>
-      <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
+      <prop name="asset-id" value="DB-001" />
       <prop name="asset-type" value="database"/>
       <prop name="allows-authenticated-scan" value="yes"/>
       <prop name="public" value="no"/>
