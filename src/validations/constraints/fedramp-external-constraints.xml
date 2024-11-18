@@ -501,7 +501,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
                 <key-field target="@value"/>
                 <remarks>
-                    <p>Asset IDs MUST be unique across all inventory items to ensure proper identification and tracking of system components.</p>
+                    <p>A FedRAMP SSP's inventory item MUST Have an Asset ID across that is unique across all inventory items in the system and its components.</p>
                 </remarks>
             </is-unique>
         </constraints>
