@@ -1,0 +1,38 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
+  <system-implementation>
+    <inventory-item uuid="77777777-0000-4000-9000-000000000007">
+      <description>
+        <p>Primary database server</p>
+      </description>
+      <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
+      <prop name="asset-type" value="database"/>
+      <prop name="allows-authenticated-scan" value="yes"/>
+      <prop name="public" value="no"/>
+      <prop name="virtual" value="yes"/>
+      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <responsible-party role-id="asset-owner">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-party>
+      <implemented-component component-uuid="55555555-0000-4000-9000-000000000005">
+        <prop name="asset-id" value="DB-001"/>
+      </implemented-component>
+    </inventory-item>
+    <inventory-item uuid="77777777-0000-4000-9000-000000000007">
+      <description>
+        <p>Primary database server</p>
+      </description>
+      <prop name="asset-id" value="DB-001" />
+      <prop name="asset-type" value="database"/>
+      <prop name="allows-authenticated-scan" value="yes"/>
+      <prop name="public" value="no"/>
+      <prop name="virtual" value="yes"/>
+      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <responsible-party role-id="asset-owner">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-party>
+      <implemented-component component-uuid="55555555-0000-4000-9000-000000000005">
+        <prop name="asset-id" value="DB-001" />
+      </implemented-component>
+    </inventory-item>
+  </system-implementation>
+</system-security-plan>
