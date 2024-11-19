@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for leveraged-authorization-matches-impact-level
+  description: >-
+    This test case validates the behavior of constraint
+    leveraged-authorization-matches-impact-level
+  content: ../content/ssp-leveraged-authorization-matches-impact-level-INVALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-matches-impact-level
+      result: fail

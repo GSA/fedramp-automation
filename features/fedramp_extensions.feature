@@ -323,8 +323,8 @@ Examples:
   | leveraged-authorization-has-system-identifier-PASS.yaml |
   | leveraged-authorization-nature-of-agreement-FAIL.yaml |
   | leveraged-authorization-nature-of-agreement-PASS.yaml |
-  | leveraged-authorization-has-allowed-impact-level-FAIL.yaml |
-  | leveraged-authorization-has-allowed-impact-level-PASS.yaml |
+  | leveraged-authorization-matches-impact-level-FAIL.yaml |
+  | leveraged-authorization-matches-impact-level-PASS.yaml |
   | marking-FAIL.yaml |
   | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
