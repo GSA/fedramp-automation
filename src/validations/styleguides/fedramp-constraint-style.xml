@@ -31,7 +31,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr106"/>
                 <message>A FedRAMP constraint id MUST only consist of lowercase letters, numbers 0-9, or "-" characters.</message>
             </expect>
-            <expect id="frr107" target="//expect | //allowed-values | //index-has-key" test="matches(@level, '\b(CRITICAL|ERROR|WARNING|INFORMATIONAL|DEBUG)\b')" level="ERROR">
+            <expect id="frr107" target="//expect | //allowed-values | //index-has-key" test="matches(@level, '(CRITICAL|ERROR|WARNING|INFORMATIONAL|DEBUG)')" level="ERROR">
                 <formal-name>Constraints Have an Explicit Severity Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr107"/>
                 <message>A FedRAMP constraint MUST specify a valid severity level.</message>

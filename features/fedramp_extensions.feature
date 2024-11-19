@@ -240,6 +240,8 @@ Examples:
   | has-incident-response-plan-PASS.yaml |
   | has-information-system-contingency-plan-FAIL.yaml |
   | has-information-system-contingency-plan-PASS.yaml |
+  | has-inventory-items-FAIL.yaml |
+  | has-inventory-items-PASS.yaml |
   | has-network-architecture-FAIL.yaml |
   | has-network-architecture-PASS.yaml |
   | has-network-architecture-diagram-FAIL.yaml |
@@ -336,6 +338,8 @@ Examples:
   | security-level-PASS.yaml |
   | security-sensitivity-level-matches-security-impact-level-FAIL.yaml |
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
+  | unique-inventory-item-asset-id-FAIL.yaml |
+  | unique-inventory-item-asset-id-PASS.yaml |
   | user-has-authorized-privilege-FAIL.yaml |
   | user-has-authorized-privilege-PASS.yaml |
   | user-has-privilege-level-FAIL.yaml |
@@ -353,4 +357,3 @@ Examples:
   | user-type-FAIL.yaml |
   | user-type-PASS.yaml |
 #END_DYNAMIC_TEST_CASES
-

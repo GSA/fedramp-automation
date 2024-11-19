@@ -1,0 +1,11 @@
+test-case:
+  name: Negative Test for unique-inventory-item-asset-id
+  description: >-
+    This test case validates the behavior of constraint
+    unique-inventory-item-asset-id
+  content: ../content/ssp-unique-inventory-item-asset-id-INVALID.xml
+  expectations:
+    - constraint-id: unique-inventory-item-asset-id
+      fail_count:
+        type: "exact"
+        value: 1

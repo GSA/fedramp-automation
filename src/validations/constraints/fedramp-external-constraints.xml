@@ -7,7 +7,7 @@
     <context>
     	<metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
         <constraints>
-            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']">
+            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']" level="ERROR">
                 <formal-name>Fedramp Version</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-version"/>
                 <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
@@ -27,27 +27,27 @@
     <context>
         <metapath target="//user"/>
         <constraints>
-            <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0">
+            <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0" level="ERROR">
                 <formal-name>User Has Authorized Privilege</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with at least one authorized privilege by a privilege identifier.</message>
             </expect>
-            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']) = 1">
+            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>User Has Privilege Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with a privilege for their use of the system.</message>
             </expect>
-            <expect id="user-has-role-id" target="." test="count(role-id) gt 0">
+            <expect id="user-has-role-id" target="." test="count(role-id) gt 0" level="ERROR">
                 <formal-name>User Has Role ID</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with at least one role by a role identifier.</message>
             </expect>
-            <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1">
+            <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1" level="ERROR">
                 <formal-name>User Has Sensitivity Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with a sensitivity level of their use of the system.</message>
             </expect>
-            <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1">
+            <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1" level="ERROR">
                 <formal-name>User Has User Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with a type.</message>
@@ -60,7 +60,7 @@
         <metapath target="/assessment-plan/local-definitions/objectives-and-methods"/>
         <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
         <constraints>
-            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="ERROR">
                 <formal-name>Prop Response Point Has Cardinality One</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#control-implementation-descriptions"/>
                 <message>MUST NOT have Duplicate response point at '{ path(.) }'.</message>
@@ -162,7 +162,7 @@
     <context>
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
-            <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0">
+            <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0" level="ERROR">
                 <formal-name>Missing Response Components</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-overview"/>
                 <message>Each implemented requirement MUST have at least one by-component reference to the source component implementing it.</message>
@@ -509,6 +509,16 @@
             </expect>
         </constraints>
     </context>
+	<context>
+		<metapath target="/system-security-plan/system-implementation"/>
+		<constraints>
+			<expect id="has-inventory-items" target="." test="count(inventory-item) >= 2" level="ERROR">
+				<formal-name>System Implementation Has Inventory Items</formal-name>
+				<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
+				<message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
+			</expect>
+		</constraints>
+	</context>    
     <context>
         <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
         <constraints>
@@ -527,6 +537,20 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-metadata/#working-with-party-assemblies"/>
                 <message>Every FedRAMP document MUST define a party with a name.</message>
             </expect>
+        </constraints>
+    </context>
+    <context>
+        <metapath target="/system-security-plan/system-implementation"/>
+        <constraints>
+            <is-unique id="unique-inventory-item-asset-id" target="inventory-item/prop[@name='asset-id']">
+                <formal-name>Unique Asset Identifier</formal-name>
+                <description>Ensure each inventory item has a unique asset-id property.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
+                <key-field target="@value"/>
+                <remarks>
+                    <p>A FedRAMP SSP's inventory item MUST have an Asset ID that is unique across all inventory items in the system and its components.</p>
+                </remarks>
+            </is-unique>
         </constraints>
     </context>
 </metaschema-meta-constraints>
