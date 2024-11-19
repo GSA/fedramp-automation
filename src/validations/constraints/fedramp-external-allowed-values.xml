@@ -136,175 +136,175 @@
             <allowed-values id="information-type-800-60-v2r1" target="system-characteristics/system-information/information-type/categorization[@system='https://doi.org/10.6028/NIST.SP.800-60v2r1']/information-type-id" allow-other="no" level="ERROR">
                 <formal-name>NIST SP 800-60 Volume 2 Revision 1 Information Types</formal-name>
                 <description>Contains a list of all supported information types from NIST SP 800-60 Volume 2 Revision 1.</description>
-                <enum value="C.2.1.1">Corrective Action Information Type</enum>
-                <enum value="C.2.1.2">Program Evaluation</enum>
-                <enum value="C.2.1.3">Program Monitoring</enum>
-                <enum value="C.2.2.1">Policy and Guidance Development</enum>
-                <enum value="C.2.2.2"> Public Comment Tracking</enum>
-                <enum value="C.2.2.3">Regulatory Creation</enum>
-                <enum value="C.2.2.4">Rule Publication</enum>
-                <enum value="C.2.3.1">Budget Formulation</enum>
-                <enum value="C.2.3.2">Capital Planning</enum>
-                <enum value="C.2.3.3">Enterprise Architecture</enum>
-                <enum value="C.2.3.4">Strategic Planning</enum>
-                <enum value="C.2.3.5">Budget Execution</enum>
-                <enum value="C.2.3.6">Workforce Planning</enum>
-                <enum value="C.2.3.7">Management Improvement</enum>
-                <enum value="C.2.3.8">Budget and Performance Integration</enum>
-                <enum value="C.2.3.9">Tax and Fiscal Policy</enum>
-                <enum value="C.2.4.1">Contingency Planning</enum>
-                <enum value="C.2.4.2">Continuity of Operations</enum>
-                <enum value="C.2.4.3">Service Recovery</enum>
-                <enum value="C.2.5.1">Debt Collection</enum>
-                <enum value="C.2.5.2">User Fee Collection</enum>
-                <enum value="C.2.5.3">Federal Asset Sales</enum>
-                <enum value="C.2.6.1">Customer Services</enum>
-                <enum value="C.2.6.2">Official Information Dissemination</enum>
-                <enum value="C.2.6.3">Product Outreach</enum>
-                <enum value="C.2.6.4">Public Relations</enum>
-                <enum value="C.2.7.1">Legislation Tracking</enum>
-                <enum value="C.2.7.2">Legislative Testimony</enum>
-                <enum value="C.2.7.3">Proposal Development</enum>
-                <enum value="C.2.7.4">Congressional Liaison Operations</enum>
-                <enum value="C.2.8.1">Central Fiscal Operations</enum>
-                <enum value="C.2.8.10">Entitlement Event Information</enum>
-                <enum value="C.2.8.11">Representative Payee Information</enum>
-                <enum value="C.2.8.12">General Information</enum>
-                <enum value="C.2.8.2">Legislative Functions</enum>
-                <enum value="C.2.8.3">Executive Functions</enum>
-                <enum value="C.2.8.4">Central Property Management</enum>
-                <enum value="C.2.8.5">Central Personnel Management</enum>
-                <enum value="C.2.8.6">Taxation Management</enum>
-                <enum value="C.2.8.7">Central Records and Statistics Management</enum>
-                <enum value="C.2.8.8">Income Information</enum>
-                <enum value="C.2.8.9">Personal Identity and Authentication Information</enum>
-                <enum value="C.3.1.1">Facilities, Fleet, and Equipment Management</enum>
-                <enum value="C.3.1.2">Help Desk Services</enum>
-                <enum value="C.3.1.3">Security Management</enum>
-                <enum value="C.3.1.4">Travel Information</enum>
-                <enum value="C.3.1.5">Workplace Policy Development and Management</enum>
-                <enum value="C.3.2.1">Assets and Liability Management</enum>
-                <enum value="C.3.2.2">Reporting and Information</enum>
-                <enum value="C.3.2.3">Funds Control</enum>
-                <enum value="C.3.2.4">Accounting</enum>
-                <enum value="C.3.2.5">Payments</enum>
-                <enum value="C.3.2.6">Collections and Receivables</enum>
-                <enum value="C.3.2.7">Cost Accounting/ Performance Measurement</enum>
-                <enum value="C.3.3.1">HR Strategy</enum>
-                <enum value="C.3.3.10">Human Resources Development</enum>
-                <enum value="C.3.3.2">Staff Acquisition</enum>
-                <enum value="C.3.3.3">Organization &amp; Position Management</enum>
-                <enum value="C.3.3.4">Compensation Management</enum>
-                <enum value="C.3.3.5">Benefits Management</enum>
-                <enum value="C.3.3.6">Employee Performance Management</enum>
-                <enum value="C.3.3.7">Employee Relations</enum>
-                <enum value="C.3.3.8">Labor Relations</enum>
-                <enum value="C.3.3.9">Separation Management</enum>
-                <enum value="C.3.4.1">Goods Acquisition</enum>
-                <enum value="C.3.4.2">Inventory Control</enum>
-                <enum value="C.3.4.3">Logistics Management</enum>
-                <enum value="C.3.4.4">Services Acquisition</enum>
-                <enum value="C.3.5.1">System Development</enum>
-                <enum value="C.3.5.2">Lifecycle/Change Management</enum>
-                <enum value="C.3.5.3">System Maintenance</enum>
-                <enum value="C.3.5.4">IT Infrastructure Maintenance</enum>
-                <enum value="C.3.5.5">Information Security</enum>
-                <enum value="C.3.5.6">Record Retention</enum>
-                <enum value="C.3.5.7">Information Management</enum>
-                <enum value="C.3.5.8">System and Network Monitoring</enum>
-                <enum value="C.3.5.9">Information Sharing</enum>
-                <enum value="D.10.1">Home-ownership Promotion</enum>
-                <enum value="D.10.2">Community and Regional Development</enum>
-                <enum value="D.10.3">Social Services</enum>
-                <enum value="D.10.4">Postal Services</enum>
-                <enum value="D.11.1">Ground Transportation</enum>
-                <enum value="D.11.2">Water Transportation</enum>
-                <enum value="D.11.3">Air Transportation</enum>
-                <enum value="D.11.4">Space Operations</enum>
-                <enum value="D.12.1">Elementary, Secondary, and Vocational Education</enum>
-                <enum value="D.12.2">Higher Education</enum>
-                <enum value="D.12.3">Cultural and Historic Preservation</enum>
-                <enum value="D.12.4">Cultural and Historic Exhibition</enum>
-                <enum value="D.13.1">Training and Employment</enum>
-                <enum value="D.13.2">Labor Rights Management</enum>
-                <enum value="D.13.3">Worker Safety</enum>
-                <enum value="D.14.1">Access to Care</enum>
-                <enum value="D.14.2">Population Health Management and Consumer Safety</enum>
-                <enum value="D.14.3">Health Care Administration</enum>
-                <enum value="D.14.4">Health Care Delivery Services</enum>
-                <enum value="D.14.5">Health Care Research and Practitioner Education</enum>
-                <enum value="D.15.1">General Retirement and Disability</enum>
-                <enum value="D.15.2">Unemployment Compensation</enum>
-                <enum value="D.15.3">Housing Assistance</enum>
-                <enum value="D.15.4">Food and Nutrition Assistance</enum>
-                <enum value="D.15.5">Survivor Compensation</enum>
-                <enum value="D.16.1">Criminal Apprehension</enum>
-                <enum value="D.16.2">Criminal Investigation and Surveillance</enum>
-                <enum value="D.16.3">Citizen Protection</enum>
-                <enum value="D.16.4">Leadership Protection</enum>
-                <enum value="D.16.5">Property Protection</enum>
-                <enum value="D.16.6">Substance Control</enum>
-                <enum value="D.16.7">Crime Prevention</enum>
-                <enum value="D.16.8">Trade Law Enforcement</enum>
-                <enum value="D.17.1">Judicial Hearings</enum>
-                <enum value="D.17.2">Legal Defense</enum>
-                <enum value="D.17.3">Legal Investigation</enum>
-                <enum value="D.17.4">Legal Prosecution and Litigation</enum>
-                <enum value="D.17.5">Resolution Facilitation</enum>
-                <enum value="D.18.1">Criminal Incarceration</enum>
-                <enum value="D.18.2">Criminal Rehabilitation</enum>
-                <enum value="D.19.1">Scientific and Technological Research and Innovation</enum>
-                <enum value="D.19.2">Space Exploration and Innovation</enum>
-                <enum value="D.2.1">Border and Transportation Security</enum>
-                <enum value="D.2.2">Key Asset and Critical Infrastructure Protection</enum>
-                <enum value="D.2.3">Catastrophic Defense</enum>
-                <enum value="D.2.4">Executive Functions of the Executive Office of the President</enum>
-                <enum value="D.20.1">Research and Development</enum>
-                <enum value="D.20.2">General Purpose Data and Statistics</enum>
-                <enum value="D.20.3">Advising and Consulting</enum>
-                <enum value="D.20.4">Knowledge Dissemination</enum>
-                <enum value="D.21.1">Inspections and Auditing</enum>
-                <enum value="D.21.2">Standards Setting/Reporting Guideline Development</enum>
-                <enum value="D.21.3">Permits and Licensing</enum>
-                <enum value="D.22.1">Manufacturing</enum>
-                <enum value="D.22.2">Construction</enum>
-                <enum value="D.22.3">Public Resources, Facility and Infrastructure Management</enum>
-                <enum value="D.22.4">Information Infrastructure Management</enum>
-                <enum value="D.23.1">Federal Grants (Non-State)</enum>
-                <enum value="D.23.2">Direct Transfers to Individuals</enum>
-                <enum value="D.23.3">Subsidies Information</enum>
-                <enum value="D.23.4">Tax Credits</enum>
-                <enum value="D.24.1">Direct Loans</enum>
-                <enum value="D.24.2">Loan Guarantees</enum>
-                <enum value="D.24.3">General Insurance</enum>
-                <enum value="D.25.1">Formula Grants</enum>
-                <enum value="D.25.2">Project/Competitive Grants</enum>
-                <enum value="D.25.3">Earmarked Grants</enum>
-                <enum value="D.25.4">State Loans</enum>
-                <enum value="D.26.1">Military Operations</enum>
-                <enum value="D.26.2">Civilian Operations</enum>
-                <enum value="D.3.1">Domestic Intelligence</enum>
-                <enum value="D.4.1">Disaster Monitoring and Prediction</enum>
-                <enum value="D.4.2">Disaster Preparedness and Planning</enum>
-                <enum value="D.4.3">Disaster Repair and Restoration</enum>
-                <enum value="D.4.4">Emergency Response</enum>
-                <enum value="D.5.1">Foreign Affairs</enum>
-                <enum value="D.5.2">International Development and Humanitarian Aid</enum>
-                <enum value="D.5.3">Global Trade</enum>
-                <enum value="D.6.1">Water Resource Management</enum>
-                <enum value="D.6.2">Conservation, Marine and Land Management</enum>
-                <enum value="D.6.3">Recreational Resource Management and Tourism</enum>
-                <enum value="D.6.4">Agricultural Innovation and Services</enum>
-                <enum value="D.7.1">Energy Supply</enum>
-                <enum value="D.7.2">Energy Conservation and Preparedness</enum>
-                <enum value="D.7.3">Energy Resource Management</enum>
-                <enum value="D.7.4">Energy Production</enum>
-                <enum value="D.8.1">Environmental Monitoring and Forecasting</enum>
-                <enum value="D.8.2">Environmental Remediation</enum>
-                <enum value="D.9.1">Business and Industry Development</enum>
-                <enum value="D.9.2">Intellectual Property Protection</enum>
-                <enum value="D.9.3">Financial Sector Oversight</enum>
-                <enum value="D.9.4">Industry Sector Income Stabilization</enum>
+                <enum value='C.2.1.1'>Controls and Oversight / Corrective Action Information Type as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.1.2'>Controls and Oversight / Program Evaluation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.1.3'>Controls and Oversight / Program Monitoring as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.2.1'>Regulatory Development / Policy and Guidance Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.2.2'>Regulatory Development / Public Comment Tracking as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.2.3'>Regulatory Development / Regulatory Creation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.2.4'>Regulatory Development / Rule Publication as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.1'>Planning and Budgeting / Budget Formulation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.2'>Planning and Budget / Capital Planning as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.3'>Planning and Budget / Enterprise Architecture as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.4'>Planning and Budget / Strategic Planning as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.5'>Planning and Budget / Budget Execution as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.6'>Planning and Budget / Workforce Planning as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.7'>Planning and Budget / Management Improvement as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.8'>Planning and Budget / Budget and Performance Integration as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.3.9'>Planning and Budget / Tax and Fiscal Policy as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.4.1'>Internal Risk Management and Mitigation / Contingency Planning as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.4.2'>Internal Risk Management and Mitigation / Continuity of Operations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.4.3'>Internal Risk Management and Mitigation / Service Recovery as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.5.1'>Revenue Collection / Debt Collection as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.5.2'>Revenue Collection / User Fee Collection as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.5.3'>Revenue Collection / Federal Asset Sales as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.6.1'>Public Affairs / Customer Services as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.6.2'>Public Affairs / Official Information Dissemination as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.6.3'>Public Affairs / Product Outreach as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.6.4'>Public Affairs / Public Relations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.7.1'>Legislative Relations / Legislation Tracking as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.7.2'>Legislative Relations / Legislative Testimony as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.7.3'>Legislative Relations / Proposal Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.7.4'>Legislative Relations / Congressional Liaison Operations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.1'>General Government / Central Fiscal Operations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.2'>General Government / Legislative Functions as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.3'>General Government / Executive Functions as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.4'>General Government / Central Property Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.5'>General Government / Central Personnel Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.6'>General Government / Taxation Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.7'>General Government / Central Records and Statistics Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.8'>General Government / Income Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.9'>General Government / Personal Identity and Authentication Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.10'>General Government / Entitlement Event Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.11'>General Government / Representative Payee Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.2.8.12'>General Government / General Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.1.1'>Administrative Management / Facilities, Fleet, and Equipment Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.1.2'>Administrative Management / Help Desk Services as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.1.3'>Administrative Management / Security Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.1.4'>Administrative Management / Travel Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.1.5'>Administrative Management / Workplace Policy Development and Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.2.1'>Financial Management / Assets and Liability Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.2.2'>Financial Management / Reporting and Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.2.3'>Financial Management / Funds Control as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.2.4'>Financial Management / Accounting as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.2.5'>Financial Management / Payments as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.2.6'>Financial Management / Collections and Receivables as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.2.7'>Financial Management / Cost Accounting/ Performance Measurement as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.1'>Human Resource Management / HR Strategy as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.2'>Human Resource Management / Staff Acquisition as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.3'>Human Resource Management / Organization & Position Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.4'>Human Resource Management / Compensation Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.5'>Human Resource Management / Benefits Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.6'>Human Resource Management / Employee Performance Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.7'>Human Resource Management / Employee Relations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.8'>Human Resource Management / Labor Relations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.9'>Human Resource Management / Separation Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.3.10'>Human Resource Management / Human Resources Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.4.1'>Supply Chain Management / Goods Acquisition as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.4.2'>Supply Chain Management / Inventory Control as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.4.3'>Supply Chain Management / Logistics Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.4.4'>Supply Chain Management / Services Acquisition as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.1'>Information and Technology Management / System Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.2'>Information and Technology Management / Lifecycle/Change Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.3'>Information and Technology Management / System Maintenance as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.4'>Information and Technology Management / IT Infrastructure Maintenance as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.5'>Information and Technology Management / Information Security as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.6'>Information and Technology Management / Record Retention as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.7'>Information and Technology Management / Information Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.8'>Information and Technology Management / System and Network Monitoring as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='C.3.5.9'>Information and Technology Management / Information Sharing as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.2.1'>Homeland Security / Border and Transportation Security as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.2.2'>Homeland Security / Key Asset and Critical Infrastructure Protection as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.2.3'>Homeland Security / Catastrophic Defense as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.2.4'>Homeland Security / Executive Functions of the Executive Office of the President as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.3.1'>Intelligence Operations / Domestic Intelligence as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.4.1'>Disaster Management / Disaster Monitoring and Prediction as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.4.2'>Disaster Management / Disaster Preparedness and Planning as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.4.3'>Disaster Management / Disaster Repair and Restoration as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.4.4'>Disaster Management / Emergency Response as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.5.1'>International Affairs and Commerce / Foreign Affairs as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.5.2'>International Affairs and Commerce / International Development and Humanitarian Aid as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.5.3'>International Affairs and Commerce / Global Trade as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.6.1'>Natural Resources / Water Resource Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.6.2'>Natural Resources / Conservation, Marine and Land Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.6.3'>Natural Resources / Recreational Resource Management and Tourism as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.6.4'>Natural Resources / Agricultural Innovation and Services as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.7.1'>Energy / Energy Supply as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.7.2'>Energy / Energy Conservation and Preparedness as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.7.3'>Energy / Energy Resource Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.7.4'>Energy / Energy Production as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.8.1'>Environmental Management / Environmental Monitoring and Forecasting as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.8.2'>Environmental Management / Environmental Remediation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.9.1'>Economic Development / Business and Industry Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.9.2'>Economic Development / Intellectual Property Protection as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.9.3'>Economic Development / Financial Sector Oversight as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.9.4'>Economic Development / Industry Sector Income Stabilization as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.10.1'>Community and Social Services / Home-ownership Promotion as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.10.2'>Community and Social Services / Community and Regional Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.10.3'>Community and Social Services / Social Services as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.10.4'>Community and Social Services / Postal Services as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.11.1'>Transportation / Ground Transportation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.11.2'>Transportation / Water Transportation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.11.3'>Transportation / Air Transportation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.11.4'>Transportation / Space Operations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.12.1'>Education / Elementary, Secondary, and Vocational Education as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.12.2'>Education / Higher Education as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.12.3'>Education / Cultural and Historic Preservation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.12.4'>Education / Cultural and Historic Exhibition as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.13.1'>Workforce Management / Training and Employment as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.13.2'>Workforce Management / Labor Rights Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.13.3'>Workforce Management / Worker Safety as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.14.1'>Health / Access to Care as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.14.2'>Health / Population Health Management and Consumer Safety as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.14.3'>Health / Health Care Administration as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.14.4'>Health / Health Care Delivery Services as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.14.5'>Health / Health Care Research and Practitioner Education as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.15.1'>Income Security / General Retirement and Disability as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.15.2'>Income Security / Unemployment Compensation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.15.3'>Income Security / Housing Assistance as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.15.4'>Income Security / Food and Nutrition Assistance as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.15.5'>Income Security / Survivor Compensation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.1'>Law Enforcement / Criminal Apprehension as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.2'>Law Enforcement / Criminal Investigation and Surveillance as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.3'>Law Enforcement / Citizen Protection as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.4'>Law Enforcement / Leadership Protection as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.5'>Law Enforcement / Property Protection as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.6'>Law Enforcement / Substance Control as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.7'>Law Enforcement / Crime Prevention as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.16.8'>Law Enforcement / Trade Law Enforcement as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.17.1'>Litigation and Judicial Activities / Judicial Hearings as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.17.2'>Litigation and Judicial Activities / Legal Defense as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.17.3'>Litigation and Judicial Activities / Legal Investigation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.17.4'>Litigation and Judicial Activities / Legal Prosecution and Litigation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.17.5'>Litigation and Judicial Activities / Resolution Facilitation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.18.1'>Federal Correctional Activities / Criminal Incarceration as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.18.2'>Federal Correctional Activities / Criminal Rehabilitation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.19.1'>General Sciences and Innovation / Scientific and Technological Research and Innovation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.19.2'>General Science and Innovation / Space Exploration and Innovation as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.20.1'>Knowledge Creation and Management / Research and Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.20.2'>Knowledge Creation and Management / General Purpose Data and Statistics as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.20.3'>Knowledge Creation and Management / Advising and Consulting as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.20.4'>Knowledge Creation and Management / Knowledge Dissemination as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.21.1'>Regulatory Compliance and Enforcement / Inspections and Auditing as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.21.2'>Regulatory Compliance and Enforcement / Standards Setting/Reporting Guideline Development as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.21.3'>Regulatory Compliance and Enforcement / Permits and Licensing as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.22.1'>Public Goods Creation and Management / Manufacturing as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.22.2'>Public Goods Creation and Management / Construction as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.22.3'>Public Goods Creation and Management / Public Resources, Facility and Infrastructure Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.22.4'>Public Goods Creation and Management / Information Infrastructure Management as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.23.1'>Federal Financial Assistance / Federal Grants (Non-State) as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.23.2'>Federal Financial Assistance / Direct Transfers to Individuals as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.23.3'>Federal Financial Assistance / Subsidies Information as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.23.4'>Federal Financial Assistance / Tax Credits as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.24.1'>Credit and Insurance / Direct Loans as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.24.2'>Credit and Insurance / Loan Guarantees as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.24.3'>Credit and Insurance / General Insurance as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.25.1'>Transfers to Local/State Government / Formula Grants as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.25.2'>Transfers to Local/State Government / Project/Competitive Grants as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.25.3'>Transfers to Local/State Governments / Earmarked Grants as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.25.4'>Transfers to Local/State Governments / State Loans as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.26.1'>Direct Services for Citizens / Military Operations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
+                <enum value='D.26.2'>Direct Services for Citizens / Civilian Operations as defined by <a href='https://doi.org/10.6028/NIST.SP.800-60v2r1'>NIST.SP.800-60v2r1</a></enum>
             </allowed-values>
 
             <allowed-values id="information-type-system" target="system-characteristics/system-information/information-type/categorization/@system" allow-other="no" level="ERROR">
