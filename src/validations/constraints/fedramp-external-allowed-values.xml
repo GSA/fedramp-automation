@@ -299,10 +299,10 @@
                 <enum value="D.24.1">Credit and Insurance: Direct Loans as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="D.24.2">Credit and Insurance: Loan Guarantees as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="D.24.3">Credit and Insurance: General Insurance as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
-                <enum value="D.25.1">Transfers to Local&#x2F;State Government: Formula Grants as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
-                <enum value="D.25.2">Transfers to Local&#x2F;State Government: Project/Competitive Grants as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
-                <enum value="D.25.3">Transfers to Local&#x2F;State Governments: Earmarked Grants as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
-                <enum value="D.25.4">Transfers to Local&#x2F;State Governments: State Loans as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
+                <enum value="D.25.1">Transfers to Local;State Government: Formula Grants as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
+                <enum value="D.25.2">Transfers to Local;State Government: Project/Competitive Grants as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
+                <enum value="D.25.3">Transfers to Local;State Governments: Earmarked Grants as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
+                <enum value="D.25.4">Transfers to Local;State Governments: State Loans as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="D.26.1">Direct Services for Citizens: Military Operations as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="D.26.2">Direct Services for Citizens: Civilian Operations as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
             </allowed-values>
