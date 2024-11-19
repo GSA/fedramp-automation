@@ -189,7 +189,7 @@
                 <enum value="C.3.2.4">Financial Management: Accounting as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="C.3.2.5">Financial Management: Payments as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="C.3.2.6">Financial Management: Collections and Receivables as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
-                <enum value="C.3.2.7">Financial Management: Cost Accounting&#x2F; Performance Measurement as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
+                <enum value="C.3.2.7">Financial Management: Cost Accounting; Performance Measurement as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="C.3.3.1">Human Resource Management: HR Strategy as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="C.3.3.2">Human Resource Management: Staff Acquisition as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
                 <enum value="C.3.3.3">Human Resource Management: Organization &amp; Position Management as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
