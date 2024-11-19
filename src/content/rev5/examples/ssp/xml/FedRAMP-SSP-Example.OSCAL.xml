@@ -843,7 +843,7 @@
          <prop name="implementation-point" value="external"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
-         <link href="#11111111-2222-4000-8000-009000100001" rel="provided-by"/>
+         <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
          <status state="operational"/>
          <remarks>
             <p>This service is explicitly listed on the FedRAMP marketplace as being included in the
@@ -897,10 +897,11 @@
             <p>An non-authorized service provided by the Awesome Cloud leveraged authorization.</p>
             <p>Describe the service and what it is used for.</p>
          </description>
-         <prop name="implementation-point" value="external"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop name="implementation-point" value="external" />
+         <prop name="direction" value="outgoing"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
+         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
          <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
             <remarks>
                <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
@@ -917,8 +918,8 @@
                <p>If there are one or more identified risks, describe any mitigating factors.</p>
             </remarks>
          </prop>         
-         <link href="#11111111-2222-4000-8000-009000100001" rel="provided-by"/>
-         <status state="operational"/>
+         <link  rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
+         <status state="operational" />
          <remarks>
             <p>This service is provided by the leveraged system; however, it is NOT explicitly
                listed on the FedRAMP marketplace as being included in the scope of this leveraged
@@ -969,21 +970,10 @@
       <component uuid="11111111-2222-4000-8000-009000100002" type="system">
          <title>Other Cloud SaaS</title>
          <description>
-            <p/>
+            <p>An external system to which this system shares an interconnection.</p>
          </description>
-         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa">
-            <remarks>
-               <p>Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract,
-                  etc</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information"
-            value="describe information being transferred">
-            <remarks>
-               <p>Describe the information being transferred in the @value field.</p>
-            </remarks>
-         </prop>
+         <prop name="asset-type" value="saas"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" />
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1">
             <remarks>
                <p>System development information</p>
@@ -1024,7 +1014,7 @@
          </prop>
          <status state="operational"/>
 
-         <responsible-role role-id="provider">
+         <responsible-role role-id="provider-abc">
             <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
          </responsible-role>
          <responsible-role role-id="external-system-owner">
@@ -1068,13 +1058,13 @@
          </description>
          <prop name="direction" value="incoming"/>
          <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="interconnection-type" value="1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
-         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="compliance" value="PCI SOC 2"/>
-         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="compliance" value="ISO/IEC 27001"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="pci"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="hosting-environment" value="PaaS"/>
 
          <prop name="isa-title" value="system interconnection agreement"/>
@@ -1083,7 +1073,7 @@
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" value="::ffff:10.2.2.2"/>
 
-         <prop ns="http://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec">
             <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>
             </remarks>
@@ -1107,7 +1097,8 @@
          </prop>      
 
          <link rel="isa-agreement" href="#11111111-2222-4000-8000-001000000050"/>
-         
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000" />
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000100002" />
          <status state="operational"/>
          
          <responsible-role role-id="provider">
@@ -1125,8 +1116,9 @@
          <responsible-role role-id="isa-authorizing-official-local">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
-         <protocol name="remote">
-            <port-range start="80" end="80" transport="tcp"/>
+         <protocol name="remote" uuid="11111111-2222-4000-8000-010000000001">
+            <title>services</title>
+            <port-range start="80" end="80" transport="TCP" />
          </protocol>
          <remarks>
             <p>Optional notes about this interconnection</p>
@@ -1216,7 +1208,7 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
+<!--         <prop name="direction" value="outgoing"/>-->
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
@@ -1238,7 +1230,7 @@
          </prop>      
 
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001"/>
-         <link href="#11111111-2222-4000-8000-009000100003" rel="provided-by"/>
+         <link rel="provided-by" href="#11111111-2222-4000-8000-009000100003" />
          <status state="operational"/>
          
          <responsible-role role-id="provider">
@@ -1302,7 +1294,8 @@
             <p>A service provided by an external system other than the leveraged system.</p>
             <p>Describe the service and what it is used for.</p>
          </description>
-         <prop name="implementation-point" value="external"/>
+         <prop name="implementation-point" value="internal"/>
+         <prop name="direction" value="outgoing"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
             <remarks>
                <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
@@ -1321,7 +1314,12 @@
          </prop>      
          
          <!-- <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/> -->
+         <link rel="api" href="https://api.example.com/v1" />
          <status state="operational"/>
+         <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
+            <title>Remote API Service</title>
+            <port-range start="443" end="443" transport="TCP"/>
+         </protocol>
          <remarks>
             <p>This is a service provided by an external system other than the leveraged system.</p>
 
@@ -1354,6 +1352,9 @@
             <p>None</p>
          </description>
          <prop name="asset-type" value="cli"/>
+         <prop name="implementation-point" value="internal"/>
+         <prop name="direction" value="outgoing"/>
+         
          <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
@@ -1377,6 +1378,7 @@
                <p/>
             </remarks>
          </prop>
+         <link rel='provided-by' href="#11111111-2222-4000-8000-009000100001" />
          <status state="operational"/>
       </component>
 
