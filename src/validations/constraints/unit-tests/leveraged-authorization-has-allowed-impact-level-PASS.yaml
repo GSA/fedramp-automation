@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for leveraged-authorization-has-allowed-impact-level
+  description: >-
+    This test case validates the behavior of constraint
+    leveraged-authorization-has-allowed-impact-level
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-has-allowed-impact-level
+      result: pass
