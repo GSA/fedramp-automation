@@ -38,6 +38,7 @@
             	<message>A FedRAMP document MUST have a marking that defines its data classification.</message>
             </expect>
             <expect id="oscal-version-matches-fedramp-version" target="oscal-version" test="$major-version-valid and $minor-version-valid and $patch-version-valid" level="ERROR">
+                <formal-name>Minimally Required OSCAL Version for Requirements of Document's FedRAMP Version</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-file-concepts/#oscal-syntax-version"/>                
                 <message>A FedRAMP document SHOULD have an OSCAL version that matches the minimally required version for FedRAMP packages ({$fedramp-required-minimum-version} not {.}).</message>
             </expect>          
