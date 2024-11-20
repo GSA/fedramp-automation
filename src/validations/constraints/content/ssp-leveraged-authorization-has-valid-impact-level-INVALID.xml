@@ -1,14 +1,10 @@
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd" uuid="12345678-1234-4321-8765-123456789012">
   <system-characteristics>
-    <security-impact-level>
-      <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
-      <security-objective-integrity>fips-199-moderate</security-objective-integrity>
-      <security-objective-availability>fips-199-moderate</security-objective-availability>
-    </security-impact-level>
+    <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
   </system-characteristics>
   <system-implementation>
     <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
-      <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-high"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-low"/>
     </leveraged-authorization>
   </system-implementation>
 </system-security-plan>

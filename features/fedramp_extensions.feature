@@ -109,6 +109,7 @@ Examples:
   | leveraged-authorization-has-impact-level |
   | leveraged-authorization-has-system-identifier |
   | leveraged-authorization-nature-of-agreement |
+  | leveraged-authorization-has-valid-impact-level |
   | marking |
   | missing-response-components |
   | party-has-name |
