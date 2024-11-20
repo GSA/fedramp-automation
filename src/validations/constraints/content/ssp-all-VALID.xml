@@ -287,7 +287,17 @@
         <p>This is the primary application server for the system.</p>
       </remarks>
     </component>
-    
+
+    <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
+      <title>An External Leveraged System</title>
+      <description>
+        <p>An external leveraged system.</p>
+      </description>
+      <prop name="leveraged-authorization-uuid" uuid="233e0f09-fe5e-47e2-bca3-5f32df75e57a" value="contract"/>
+      <prop name="nature-of-agreement" uuid="306e68da-86c3-4c18-b559-e95d85fb71e7" ns="https://fedramp.gov/ns/oscal" value="sla"/>
+      <status state="operational"/>
+    </component>
+
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
       <title>External API Connection</title>
       <description>

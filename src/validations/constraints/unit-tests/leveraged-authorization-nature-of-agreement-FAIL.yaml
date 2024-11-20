@@ -1,0 +1,8 @@
+# Driver for the invalid leveraged-authorization-nature-of-agreement constraint unit test.
+test-case:
+  name: The invalid leveraged-authorization-nature-of-agreement constraint unit test.
+  description: Test that the FedRAMP SSP contains invalid nature-of-agreement value for an external leveraged system.
+  content: ../content/ssp-leveraged-authorization-nature-of-agreement-INVALID.xml
+  expectations:
+  - constraint-id: leveraged-authorization-nature-of-agreement
+    result: fail

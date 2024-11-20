@@ -333,6 +333,17 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
+        	<allowed-values id="leveraged-authorization-nature-of-agreement" target="system-implementation/component[@type='system'][prop[@name='leveraged-authorization-uuid']]/prop[@name='nature-of-agreement'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+        		<formal-name>Nature of Agreement for Leveraged Authorizations</formal-name>
+        		<description>Identifies nature of agreement for leveraged authorizations.</description>
+        		<enum value="contract">A contract between the CSP and the organization that owns the leveraged system.</enum>
+        		<enum value="eula">An end-user license agreement between the CSP and the organization that owns the leveraged system.</enum>
+        		<enum value="license">An application license agreement between the CSP and the organization that owns the leveraged system.</enum>
+        		<enum value="mou">A memorandum of understanding between the CSP and the organization that owns the leveraged system.</enum>
+        		<enum value="other">An untypical agreement between the CSP and the organization that owns the leveraged system. Explain in remarks.</enum>
+        		<enum value="sla">A service-level agreement between the CSP and the organization that owns the leveraged system.</enum>
+        	</allowed-values>
+
             <allowed-values id="inventory-item-allows-authenticated-scan" target="(//inventory-item | //component)/prop[@name='allows-authenticated-scan']/@value" allow-other="no" level="ERROR">
                 <formal-name>Allows Authenticated Scan</formal-name>
                 <description>Indicates if the asset is capable of having an authenticated scan.</description>

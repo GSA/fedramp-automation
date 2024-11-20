@@ -73,6 +73,7 @@ Examples:
   | has-identity-assurance-level |
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
+  | has-inventory-items |
   | has-network-architecture |
   | has-network-architecture-diagram |
   | has-network-architecture-diagram-caption |
@@ -101,6 +102,7 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | leveraged-authorization-nature-of-agreement |
   | marking |
   | missing-response-components |
   | party-has-name |
@@ -121,6 +123,7 @@ Examples:
   | scan-type |
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
+  | unique-inventory-item-asset-id |
   | user-has-authorized-privilege |
   | user-has-privilege-level |
   | user-has-role-id |
@@ -298,6 +301,8 @@ Examples:
   | inventory-item-public-PASS.yaml |
   | inventory-item-virtual-FAIL.yaml |
   | inventory-item-virtual-PASS.yaml |
+  | leveraged-authorization-nature-of-agreement-FAIL.yaml |
+  | leveraged-authorization-nature-of-agreement-PASS.yaml |
   | marking-FAIL.yaml |
   | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
