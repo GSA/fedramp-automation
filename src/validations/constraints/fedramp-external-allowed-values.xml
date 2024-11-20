@@ -388,6 +388,7 @@
             <allowed-values id="user-authentication" target="//system-implementation/leveraged-authorization/prop[@name='user-authentication'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>User Authentication</formal-name>
                 <description>Identifies if user authentication is required.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <enum value="yes">Yes</enum>
                 <enum value="no">No</enum>
                 <enum value="not-applicable">Not-Applicable</enum>
