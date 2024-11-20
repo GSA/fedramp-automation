@@ -25,6 +25,7 @@ lint-validations:
 .PHONY: build-validations
 build-validations:
 	@echo "Running Cucumber Tests"
+	$(OSCAL_CLI) server stop
 	$(OSCAL_CLI) server start -bg
 	@npm run test:server
 	$(OSCAL_CLI) server stop

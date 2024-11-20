@@ -16,9 +16,9 @@ import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
-import {formatSarifOutput} from 'oscal'
-
+import {formatSarifOutput,fedrampValidationOptions} from 'oscal'
 let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-cli'
+const quiet = process.env.OSCAL_TEST_QUIET === 'true'
 
 const parseXmlString = promisify(parseString);
 const DEFAULT_TIMEOUT = 60000;
@@ -191,8 +191,8 @@ Then("the constraint unit test should pass", async function () {
 });
 
 async function processTestCase({ "test-case": testCase }: any) {
-  console.log(`Processing test case:${testCase.name}`);
-  console.log(`Description: ${testCase.description}`);
+  !quiet && console.log(`Processing test case:${testCase.name}`);
+  !quiet && console.log(`Description: ${testCase.description}`);
 
   // Load the content file
   const contentFiles = Array.isArray(testCase.content) ? testCase.content : [testCase.content];
@@ -210,7 +210,7 @@ async function processTestCase({ "test-case": testCase }: any) {
       "content",
       contentFile
     );
-    console.log(`Loaded content from: ${contentPath}`);
+    !quiet && console.log(`Loaded content from: ${contentPath}`);
   const cacheKey = (typeof testCase.pipeline === 'undefined' ? "" : "resolved-") + parse(contentPath).name;
 
 
@@ -227,9 +227,10 @@ async function processTestCase({ "test-case": testCase }: any) {
           contentPath,
           processedContentPath,
           {
+            quiet,
             outputFormat:'xml'
           },executor)
-        console.log("Profile resolved");
+        !quiet && console.log("Profile resolved");
       }
       // Add other pipeline steps as needed
     }
@@ -243,14 +244,14 @@ async function processTestCase({ "test-case": testCase }: any) {
     let sarifResponse;
     
     if (validationCache.has(cacheKey)) {
-      console.log("Using cached validation result from "+cacheKey);
+      !quiet && console.log("Using cached validation result from "+cacheKey);
       sarifResponse = validationCache.get(cacheKey)!;
     }else{
       let flags = [];
       if(currentTestCaseFileName.includes("FAIL")){
         flags.push("disable-schema")
       }
-    const {isValid,log} = await validateDocument(resolve(processedContentPath),{quiet:true,
+    const {isValid,log} = await validateDocument(resolve(processedContentPath),{quiet,
       extensions:metaschemaDocuments.flatMap((x) => resolve(x)),
       flags},executor)
       sarifResponse=log;
@@ -322,7 +323,7 @@ async function checkConstraints(
     for (const expectation of constraints) {
       const constraint_id = expectation["constraint-id"];
       const expectedResult = expectation.result;
-      console.log(
+      !quiet && console.log(
         `Checking status of constraint: ${constraint_id} expecting: ${
           expectedResult || "mixed"
         }`
@@ -356,15 +357,15 @@ async function checkConstraints(
         return kind;
       }, "initial");
 
-      console.log(
+      !quiet && console.log(
         `Received: ${constraintResults.length} matching ${result} results (${passCount} pass, ${failCount} fail)`
       );
       if(warnCount>0)
-        console.log(
+        !quiet && console.log(
           `Received: ${warnCount} warn)`
         );
         if(infoCount>0)
-          console.log(
+          !quiet && console.log(
             `Received: ${infoCount} informational)`
           );
       
@@ -458,7 +459,7 @@ Given("I have loaded all Metaschema extensions documents", function () {
   metaschemaDocuments = files
     .filter((file) => file.endsWith(".xml")).sort()
     .map((file) => join(constraintDir, file))
-  console.log(
+  !quiet && console.log(
     `Loaded ${metaschemaDocuments.length} Metaschema extension documents`
   );
 });
@@ -478,8 +479,8 @@ When(
     }
     constraintIds = [...new Set(constraintIds)].sort();
 
-    console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
-    console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
+    !quiet && console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
+    !quiet && console.log(`Extracted ${constraintIds.length} unique constraint IDs`);
   }
 );
 function extractConstraints(xmlObject: any): string[] {
@@ -515,16 +516,16 @@ Then(
       const testCoverage = testResults[constraintId];
 
       if (!testCoverage) {
-        console.log(`${constraintId}: No tests found`);
+        !quiet && console.log(`${constraintId}: No tests found`);
         expect.fail(`Constraint ${constraintId} has no tests`);
       } else if (!testCoverage.pass) {
-        console.log(`${constraintId}: Missing positive test`);
+        !quiet && console.log(`${constraintId}: Missing positive test`);
         expect.fail(`Constraint ${constraintId} is missing a positive test`);
       } else if (!testCoverage.fail) {
-        console.log(`${constraintId}: Missing negative test`);
+        !quiet && console.log(`${constraintId}: Missing negative test`);
         expect.fail(`Constraint ${constraintId} is missing a negative test`);
       } else {
-        console.log(`${constraintId}: Fully covered`);
+        !quiet && console.log(`${constraintId}: Fully covered`);
       }
 
       expect(reportedConstraints).to.include(
@@ -551,7 +552,7 @@ Then(
       .map((row) => row["Constraint ID"]);
 
     for (const constraintId of constraintIds) {
-      console.log(`${constraintId}: Status to be determined`);
+      !quiet && console.log(`${constraintId}: Status to be determined`);
       expect(reportedConstraints).to.include(constraintId);
     }
   }
@@ -572,7 +573,7 @@ Given(
     yamlTestFiles = readdirSync(testDir)
       .filter((file) => file.endsWith(".yaml") || file.endsWith(".yml")).sort()
       .map((file) => join(testDir, file));
-    console.log(`Collected ${yamlTestFiles.length} YAML test files`);
+    !quiet && console.log(`Collected ${yamlTestFiles.length} YAML test files`);
   }
 );
 
@@ -641,8 +642,8 @@ When("I analyze the YAML test files for each constraint ID", function () {
     }
   }
 
-  console.log(`Analyzed ${yamlTestFiles.length} YAML test files`);
-  console.log("Test results:", testResults);
+  !quiet && console.log(`Analyzed ${yamlTestFiles.length} YAML test files`);
+  !quiet && console.log("Test results:", testResults);
 });
 
 // New step definition for the "Ensuring full test coverage for "<constraint_id>"" scenario
@@ -650,16 +651,16 @@ Then("I should have both FAIL and PASS tests for constraint ID {string}", functi
   const testCoverage = testResults[constraintId];
 
   if (!testCoverage) {
-    console.log(`${constraintId}: No tests found`);
+    !quiet && console.log(`${constraintId}: No tests found`);
     expect.fail(`Constraint ${constraintId} has no tests`);
   } else if (!testCoverage.pass) {
-    console.log(`${constraintId}: Missing at least one positive test`);
+    !quiet && console.log(`${constraintId}: Missing at least one positive test`);
     expect.fail(`Constraint ${constraintId} is missing a positive test`);
   } else if (!testCoverage.fail) {
-    console.log(`${constraintId}: Missing at least one negative test`);
+    !quiet && console.log(`${constraintId}: Missing at least one negative test`);
     expect.fail(`Constraint ${constraintId} is missing a negative test`);
   } else {
-    console.log(`${constraintId}: Has minimal required coverage`);
+    !quiet && console.log(`${constraintId}: Has minimal required coverage`);
   }
 
   expect(constraintIds).to.include(
@@ -667,6 +668,19 @@ Then("I should have both FAIL and PASS tests for constraint ID {string}", functi
     `Constraint ${constraintId} is not in the extracted constraints list`
   );
 });
+
+Then('I should have valid results {string}', async function (fileToValidate) {
+  const fullPath = resolve(
+    __dirname,
+    "..",
+    "..",
+    "src",
+    "validations","constraints","content",fileToValidate
+  );
+  const {isValid,log}=await validateDocument(fullPath,{quiet,...fedrampValidationOptions},executor);
+  expect(isValid,formatSarifOutput(log)).to.be.true;
+});
+
 
 Then('I should verify that all constraints follow the style guide constraint', async function () {
   const baseDir = join(__dirname, '..', '..');
@@ -683,7 +697,7 @@ Then('I should verify that all constraints follow the style guide constraint', a
   for (const file_name of constraint_files) {
     const filePath = join(constraintDir, file_name.trim());
     try {
-      const {isValid,log} = await validateDocument(filePath,{flags:['disable-schema'],quiet:true,extensions:[styleGuidePath],module:"http://csrc.nist.gov/ns/oscal/metaschema/1.0"},executor)
+      const {isValid,log} = await validateDocument(filePath,{flags:['disable-schema'],quiet,extensions:[styleGuidePath],module:"http://csrc.nist.gov/ns/oscal/metaschema/1.0"},executor)
       writeFileSync(
         join(
           __dirname,
@@ -692,7 +706,7 @@ Then('I should verify that all constraints follow the style guide constraint', a
         ),JSON.stringify(log, null,"\t"))  
       const formattedErrors = (formatSarifOutput(log));
       
-      console.log(`Validation result for ${file_name}:`, isValid?"valid":"invalid");
+      !quiet && console.log(`Validation result for ${file_name}:`, isValid?"valid":"invalid");
       if (!isValid) {
         console.error("\n"+formattedErrors);
       }
@@ -707,8 +721,6 @@ Then('I should verify that all constraints follow the style guide constraint', a
   // Display all errors at the end
   if (errors.length > 0) {
     console.error("Validation errors found:");
-    
-    throw new Error("Style guide validation failed. "+errors.join("\n"));
   }
 
   expect(errors, "No style guide validation errors should be found").to.be.empty;
