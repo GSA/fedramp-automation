@@ -385,6 +385,14 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
+            <allowed-values id="user-authentication" target="//system-implementation/leveraged-authorization/prop[@name='user-authentication'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>User Authentication</formal-name>
+                <description>Identifies if user authentication is required.</description>
+                <enum value="yes">Yes</enum>
+                <enum value="no">No</enum>
+                <enum value="not-applicable">Not-Applicable</enum>
+            </allowed-values>
+
             <allowed-values id="user-privilege-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='privilege-level']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
