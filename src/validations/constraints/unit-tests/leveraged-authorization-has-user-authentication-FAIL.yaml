@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for leveraged-authorization-has-user-authentication
+  description: >-
+    This test case validates the behavior of constraint
+    leveraged-authorization-has-user-authentication
+  content: ../content/ssp-leveraged-authorization-has-user-authentication-INVALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-has-user-authentication
+      result: fail

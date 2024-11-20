@@ -303,6 +303,14 @@ Examples:
   | inventory-item-virtual-PASS.yaml |
   | leveraged-authorization-nature-of-agreement-FAIL.yaml |
   | leveraged-authorization-nature-of-agreement-PASS.yaml |
+  | leveraged-authorization-has-authorization-type-FAIL.yaml |
+  | leveraged-authorization-has-authorization-type-PASS.yaml |
+  | leveraged-authorization-has-impact-level-FAIL.yaml |
+  | leveraged-authorization-has-impact-level-PASS.yaml |
+  | leveraged-authorization-has-system-identifier-FAIL.yaml |
+  | leveraged-authorization-has-system-identifier-PASS.yaml |
+  | leveraged-authorization-has-user-authentication-FAIL.yaml |
+  | leveraged-authorization-has-user-authentication-PASS.yaml |
   | marking-FAIL.yaml |
   | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |

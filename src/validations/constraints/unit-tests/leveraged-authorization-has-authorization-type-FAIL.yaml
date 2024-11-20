@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for leveraged-authorization-has-authorization-type
+  description: >-
+    This test case validates the behavior of constraint
+    leveraged-authorization-has-authorization-type
+  content: ../content/ssp-leveraged-authorization-has-authorization-type-INVALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-has-authorization-type
+      result: fail
