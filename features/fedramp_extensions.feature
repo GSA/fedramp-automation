@@ -73,6 +73,7 @@ Examples:
   | has-identity-assurance-level |
   | has-incident-response-plan |
   | has-information-system-contingency-plan |
+  | has-inventory-items |
   | has-network-architecture |
   | has-network-architecture-diagram |
   | has-network-architecture-diagram-caption |
@@ -118,9 +119,11 @@ Examples:
   | role-defined-prepared-by |
   | role-defined-prepared-for |
   | role-defined-system-owner |
+  | saas-has-leveraged-authorization |
   | scan-type |
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
+  | unique-inventory-item-asset-id |
   | user-has-authorized-privilege |
   | user-has-privilege-level |
   | user-has-role-id |
@@ -332,6 +335,8 @@ Examples:
   | role-defined-prepared-for-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
+  | saas-has-leveraged-authorization-FAIL.yaml |
+  | saas-has-leveraged-authorization-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | security-level-FAIL.yaml |
