@@ -259,6 +259,23 @@
   </system-characteristics>
   
   <system-implementation>
+
+    <leveraged-authorization uuid="233e0f09-fe5e-47e2-bca3-5f32df75e57a">
+      <title>GovCloud</title>
+      <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
+      <link href="//path/to/leveraged_system_ssp.xml"/>
+      <link href="//path/to/leveraged_system_legacy_crm.xslt"/>
+      <link href="//path/to/leveraged_system_responsibility_and_inheritance.xml"/>
+      <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
+      <date-authorized>2015-01-01</date-authorized>
+      <remarks>
+        <p>Use one leveraged-authorization assembly for each underlying system. In the legacy world, these may be general support systems.</p>
+        <p>The link fields are optional, but preferred when known. Often, a leveraging system's SSP author will not have access to the leveraged system's SSP, but should have access to the leveraged system's CRM.</p>
+      </remarks>
+    </leveraged-authorization>
+
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
@@ -270,7 +287,6 @@
         <description><p>admin user</p></description>
         <function-performed>administration</function-performed>
       </authorized-privilege>
-
     </user>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
@@ -293,8 +309,8 @@
       <description>
         <p>An external leveraged system.</p>
       </description>
-      <prop name="leveraged-authorization-uuid" uuid="233e0f09-fe5e-47e2-bca3-5f32df75e57a" value="contract"/>
-      <prop name="nature-of-agreement" uuid="306e68da-86c3-4c18-b559-e95d85fb71e7" ns="https://fedramp.gov/ns/oscal" value="sla"/>
+      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
+      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
       <status state="operational"/>
     </component>
 
