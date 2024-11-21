@@ -753,18 +753,21 @@
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000003">
+         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
          <authorized-privilege>
             <title></title>
             <function-performed>add/remove non-privliged admins</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000004">
+         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
          <authorized-privilege>
             <title></title>
             <function-performed>Manage services and components within the virtual cloud environment.</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000005">
+         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
          <authorized-privilege>
             <title></title>
             <function-performed>Add and remove users from the virtual cloud environment.</function-performed>
