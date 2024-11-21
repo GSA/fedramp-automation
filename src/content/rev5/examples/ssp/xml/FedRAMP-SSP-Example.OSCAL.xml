@@ -1111,13 +1111,13 @@
          <responsible-role role-id="isso">
             <prop name="privilege-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-2222-4000-8000-008000000002" />
             <link rel="user" href="#11111111-2222-4000-8000-008000000002" />
-            <party-uuid>11111111-2222-4000-8000-002000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
 
          <responsible-role role-id="privacy-officer">
             <prop name="privilege-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-2222-4000-8000-008000000002" />
             <link rel="user" href="#11111111-2222-4000-8000-008000000002" />
-            <party-uuid>11111111-2222-4000-8000-002000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
          
 
