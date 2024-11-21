@@ -266,8 +266,6 @@
       <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
       <link href="//path/to/leveraged_system_ssp.xml"/>
-      <link href="//path/to/leveraged_system_legacy_crm.xslt"/>
-      <link href="//path/to/leveraged_system_responsibility_and_inheritance.xml"/>
       <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
       <date-authorized>2015-01-01</date-authorized>
       <remarks>
