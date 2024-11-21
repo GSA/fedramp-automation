@@ -302,8 +302,7 @@
       <description>
           <p>Briefly describe leveraged system.</p>
       </description>
-      <prop name="leveraged-authorization-uuid" 
-            value="94d678fb-6d33-4eef-a17a-897bb4809487" />
+      <prop name="leveraged-authorization-uuid" value="94d678fb-6d33-4eef-a17a-897bb4809487" />
       <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="SLA" />
       <prop name="information-type"  ns="http://fedramp.gov/ns/oscal" value="C.3.5.8" />
       <!-- <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001" /> -->
