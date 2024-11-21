@@ -46,22 +46,21 @@
         </remarks>
       </prop>
     </component>
-    <component uuid="11111111-2222-4000-8000-009000500002" type="service">
-      <title>Service B</title>
-      <description>
-        <p>An non-authorized service provided by the Awesome Cloud leveraged authorization.</p>
-        <p>Describe the service and what it is used for.</p>
-      </description>
-      <prop name="implementation-point" value="external"/>
-      <prop name="direction" value="outgoing"/>
-      <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
-      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
-        <remarks>
-          <p>If 'yes', describe the authentication method.</p>
-          <p>If 'no', explain why no authentication is used.</p>
-          <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
-        </remarks>
-      </prop>
+    <component uuid="11111111-2222-4000-8000-009000500004" type="service">
+      <title>Service C</title>
+        <description>
+          <p>A service provided by an external system other than the leveraged system.</p>
+          <p>Describe the service and what it is used for.</p>
+        </description>
+        <prop name="implementation-point" value="internal"/>
+        <prop name="direction" value="outgoing"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
+          <remarks>
+            <p>If 'yes', describe the authentication method in the remarks.</p>
+            <p>If 'no', explain why no authentication is used in the remarks.</p>
+            <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
+          </remarks>
+        </prop>
     </component>
     <component uuid="11111111-2222-4000-8000-009000300001" type="software">
       <title>Management CLI</title>
