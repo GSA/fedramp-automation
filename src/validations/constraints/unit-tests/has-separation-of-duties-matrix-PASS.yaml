@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-separation-of-duties-matrix
   description: Test that a SSP back-matter resource element has a separation-of-duties-matrix element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: has-separation-of-duties-matrix
       result: pass

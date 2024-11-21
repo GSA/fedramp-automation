@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for data-center-alternate
   description: This test case validates the behavior of constraint data-center-alternate
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: data-center-alternate
       result: pass

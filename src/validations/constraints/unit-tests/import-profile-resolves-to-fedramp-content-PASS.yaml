@@ -7,7 +7,7 @@ test-case:
     Scenario 3 tests: a fragment that points to a resolved profile catalog in the back-matter.
     Scenario 4 tests: a fragment that points to a profile in the back-matter.
   content: 
-    - ../content/ssp-all-VALID.xml
+    - ../content/FedRAMP-SSP-Example.OSCAL.xml
     - ../content/ssp-import-profile-resolves-to-fedramp-content-VALID-1.xml
     - ../content/ssp-import-profile-resolves-to-fedramp-content-VALID-2.xml
     - ../content/ssp-import-profile-resolves-to-fedramp-content-VALID-3.xml

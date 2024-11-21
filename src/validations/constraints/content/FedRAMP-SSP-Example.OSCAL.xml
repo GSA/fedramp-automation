@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                       xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
@@ -562,8 +563,7 @@
 
 
    </metadata>
-   <import-profile
-      href="../../../../dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
+   <import-profile href="../../../../dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official
             FedRAMP 3.0.0 release.</p>
@@ -1321,7 +1321,7 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external"/>
-<!--         <prop name="direction" value="outgoing"/>-->
+         <!--         <prop name="direction" value="outgoing"/>-->
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>

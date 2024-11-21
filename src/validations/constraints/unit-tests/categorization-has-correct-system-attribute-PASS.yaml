@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for categorization-has-correct-system-attribute
   description: Test that a SSP system-characteristics categorization element has a system attribute equal to "https://doi.org/10.6028/NIST.SP.800-60v2r1".
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: categorization-has-correct-system-attribute
       result: pass

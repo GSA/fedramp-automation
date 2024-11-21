@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-user-guide
   description: Test that a SSP back-matter resource element has a user-guide element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: has-user-guide
       result: pass

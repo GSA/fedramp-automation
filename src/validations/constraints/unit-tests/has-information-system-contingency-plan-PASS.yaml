@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-information-system-contingency-plan
   description: Test that a SSP back-matter resource element has a information-system-contigency-plan element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: has-information-system-contingency-plan
       result: pass

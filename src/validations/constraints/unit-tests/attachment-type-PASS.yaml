@@ -2,7 +2,7 @@
 test-case:
   name: The valid attachment type test.
   description: Test that the specified attachment type is valid.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
   - constraint-id: attachment-type
     result: pass

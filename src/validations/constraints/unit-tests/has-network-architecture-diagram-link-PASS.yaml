@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-network-architecture-diagram-link
   description: Test that a SSP network-architecture diagram element has a link element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: has-network-architecture-diagram-link
       result: pass

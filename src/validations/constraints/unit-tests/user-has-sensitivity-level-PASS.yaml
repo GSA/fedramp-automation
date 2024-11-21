@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     user-has-sensitivity-level
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: user-has-sensitivity-level
       result: pass

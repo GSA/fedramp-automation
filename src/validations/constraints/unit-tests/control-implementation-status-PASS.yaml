@@ -2,7 +2,7 @@
 test-case:
   name: The valid control implementation status test.
   description: Test that the specified control implementation status is valid.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
   - constraint-id: control-implementation-status
     result: pass

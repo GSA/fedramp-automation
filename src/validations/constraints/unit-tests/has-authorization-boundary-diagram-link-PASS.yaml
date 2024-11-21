@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-authorization-boundary-diagram-link
   description: Test that a SSP authorization-boundary diagram element does not have a link element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: has-authorization-boundary-diagram-link
       result: pass

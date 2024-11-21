@@ -2,7 +2,7 @@
 test-case:
   name: The valid authenticated scan test.
   description: Test that the specified authenticated scan is valid.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
   - constraint-id: inventory-item-allows-authenticated-scan
     result: pass

@@ -2,7 +2,7 @@
 test-case:
   name: The valid scan type test.
   description: Test that the specified scan type is valid.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
   - constraint-id: scan-type
     result: pass

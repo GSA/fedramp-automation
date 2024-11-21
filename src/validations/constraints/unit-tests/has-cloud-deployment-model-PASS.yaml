@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-cloud-deployment-model
   description: Test that an SSP system-characteristics element has a prop element with a name attribute equal to "cloud-deployment-model".
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
     - constraint-id: has-cloud-deployment-model
       result: pass

@@ -5,7 +5,7 @@ test-case:
     Scenario 1: Tests when a party references a location assembly.
     Scenario 2: Tests when a party has an address assembly embedded.
   content: 
-    - ../content/ssp-all-VALID.xml
+    - ../content/FedRAMP-SSP-Example.OSCAL.xml
     - ../content/ssp-responsible-party-prepared-for-location-valid-VALID-1.xml
   expectations:
     - constraint-id: responsible-party-prepared-for-location-valid

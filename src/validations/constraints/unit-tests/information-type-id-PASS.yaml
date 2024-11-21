@@ -2,7 +2,7 @@
 test-case:
   name: The valid information-type-800-60-v2r1 constraint unit test.
   description: Test that the SSP "information-type-id" element contains a valid value.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
   - constraint-id: information-type-800-60-v2r1
     result: pass

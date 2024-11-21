@@ -2,7 +2,7 @@
 test-case:
   name: The valid role-defined-authorizing-official-poc constraint unit test.
   description: Test that SSP metadata contains the authorizing-official-poc role.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/FedRAMP-SSP-Example.OSCAL.xml
   expectations:
   - constraint-id: role-defined-authorizing-official-poc
     result: pass

@@ -5,7 +5,7 @@ test-case:
     Scenario 1: Tests an @href that references a resource in the back-matter.
     Scenario 2: Tests a link provided directly in the @href.
   content: 
-    - ../content/ssp-all-VALID.xml
+    - ../content/FedRAMP-SSP-Example.OSCAL.xml
     - ../content/ssp-has-authorization-boundary-diagram-link-href-target-VALID-1.xml
   expectations:
     - constraint-id: has-authorization-boundary-diagram-link-href-target
