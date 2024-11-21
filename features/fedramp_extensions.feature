@@ -10,6 +10,7 @@ Scenario Outline: Documents that should be valid are pass
 Examples:
 | valid_file     |
 | ssp-all-VALID.xml |
+| ../../../content/rev5/examples/ssp/xml/FedRAMP-SSP-Example.OSCAL.xml |
 # | ../../../content/awesome-cloud/xml/AwesomeCloudSSP1.xml |
 # | ../../../content/awesome-cloud/xml/AwesomeCloudSSP2.xml |
 
