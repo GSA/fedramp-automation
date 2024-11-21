@@ -385,13 +385,18 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
-            <allowed-values id="user-authentication" target="//system-implementation/leveraged-authorization/prop[@name='user-authentication'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="user-authentication" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]/prop[@ns='http://fedramp.gov/ns/oscal' and @name='authentication-method']/@value" allow-other="no" level="ERROR">
                 <formal-name>User Authentication</formal-name>
                 <description>Identifies if user authentication is required.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <enum value="yes">Yes</enum>
                 <enum value="no">No</enum>
                 <enum value="not-applicable">Not-Applicable</enum>
+                <remarks>
+                    <p>yes: An authentication mechanism exists, and is described in the remarks.</p>
+                    <p>no: An authentication mechanism does not exist, the reason authentication is not necessary is described in the remarks.</p>
+                    <p>not-applicable: The authentication requirement is not applicable, and is described in the remarks.</p>
+                </remarks>
             </allowed-values>
 
             <allowed-values id="user-privilege-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='privilege-level']/@value" allow-other="no" level="ERROR">
