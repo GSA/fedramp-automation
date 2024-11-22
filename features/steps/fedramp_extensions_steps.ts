@@ -421,6 +421,7 @@ async function checkConstraints(
               `The content may need adjustment to properly test this constraint.`
           );
         }
+        !quiet && console.error(formatSarifOutput(sarifOutput))
         errors.push(""); // Add a blank line for readability
       }
     }
