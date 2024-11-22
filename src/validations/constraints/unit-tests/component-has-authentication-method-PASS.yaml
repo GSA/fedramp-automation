@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for component-has-authentication-method
+  description: >-
+    This test case validates the behavior of constraint
+    component-has-authentication-method
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: component-has-authentication-method
+      result: pass
