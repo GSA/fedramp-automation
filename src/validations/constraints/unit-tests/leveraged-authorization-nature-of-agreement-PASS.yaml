@@ -1,0 +1,8 @@
+# Driver for the valid leveraged-authorization-nature-of-agreement constraint unit test.
+test-case:
+  name: The valid leveraged-authorization-nature-of-agreement constraint unit test.
+  description: Test that the FedRAMP SSP contains valid nature-of-agreement value for an external leveraged system.
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+  - constraint-id: leveraged-authorization-nature-of-agreement
+    result: pass

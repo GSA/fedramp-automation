@@ -354,6 +354,18 @@
                 <enum value="no">No</enum>
             </allowed-values>
 
+            <allowed-values id="leveraged-authorization-nature-of-agreement" target="system-implementation/component[@type='system'][prop[@name='leveraged-authorization-uuid']]/prop[@name='nature-of-agreement'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Nature of Agreement for Leveraged Authorizations</formal-name>
+                <description>Identifies nature of agreement for leveraged authorizations.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <enum value="contract">A contract between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="eula">An end-user license agreement between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="license">An application license agreement between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="mou">A memorandum of understanding between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="other">An untypical agreement between the CSP and the organization that owns the leveraged system. Explain in remarks.</enum>
+                <enum value="sla">A service-level agreement between the CSP and the organization that owns the leveraged system.</enum>
+            </allowed-values>
+
             <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
