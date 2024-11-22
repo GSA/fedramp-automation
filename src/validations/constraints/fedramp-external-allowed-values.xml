@@ -130,7 +130,7 @@
             <allowed-values id="external-system-nature-of-agreement" target="system-implementation/component[@type='system'][not(prop[@name='leveraged-authorization-uuid'])][prop[@name='implementation-point' and @value='external']]/prop[@name='nature-of-agreement' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Nature of Agreement for External Systems</formal-name>
                 <description>Identifies nature of agreement for external systems.</description>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems"/>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
                 <enum value="contract">A contract between the CSP and the organization that owns the external system.</enum>
                 <enum value="eula">An end-user license agreement between the CSP and the organization that owns the external system.</enum>
                 <enum value="isa">An interconnection security agreement between the CSP and the organization that owns the external system.</enum>
