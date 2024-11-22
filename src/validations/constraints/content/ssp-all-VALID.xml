@@ -297,15 +297,14 @@
       </authorized-privilege>
     </user>
 
-    <component uuid="7622fb94-ac33-498a-a955-fb3501f02d83" type="system">
-      <title>Name of Leveraged System</title>
+    <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
+      <title>An External Leveraged System</title>
       <description>
-          <p>Briefly describe leveraged system.</p>
+        <p>An external leveraged system.</p>
       </description>
-      <prop name="leveraged-authorization-uuid" value="94d678fb-6d33-4eef-a17a-897bb4809487" />
-      <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="SLA" />
-      <prop name="information-type"  ns="http://fedramp.gov/ns/oscal" value="C.3.5.8" />
-      <!-- <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001" /> -->
+      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
+      <prop name="nature-of-agreement"  ns="https://fedramp.gov/ns/oscal" value="sla" />
+      <prop name="information-type"  ns="https://fedramp.gov/ns/oscal" value="C.3.5.8" />
       <prop name="implementation-point" value="external"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
@@ -314,25 +313,7 @@
           <p>Using responsible-role to represent the CSPs "authorized users" who have access the leveraged authorization service.</p>
         </remarks>
       </responsible-role>
-  </component>
-
-  <component uuid="58350560-dbf7-4f43-9d86-bd0e15555e50" type="system">
-    <title>Another Leveraged System</title>
-    <description>
-        <p>Another leveraged system.</p>
-    </description>
-    <prop name="leveraged-authorization-uuid" value="adcbafe0-f418-4fab-8e02-75b32c9eee04" />
-    <prop name="nature-of-agreement"  ns="http://fedramp.gov/ns/oscal" value="EULA" />
-    <prop name="information-type"  ns="http://fedramp.gov/ns/oscal" value="C.3.5.4" />
-    <prop name="implementation-point" value="external"/>
-    <status state="operational"/>
-    <responsible-role role-id="asset-administrator">
-      <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
-      <remarks>
-        <p>Using responsible-role to represent the CSPs "authorized users" who have access the leveraged authorization service.</p>
-      </remarks>
-    </responsible-role>
-  </component>
+    </component>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
       <title>Primary Application Server</title>
