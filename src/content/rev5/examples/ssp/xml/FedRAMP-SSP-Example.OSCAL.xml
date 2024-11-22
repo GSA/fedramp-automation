@@ -1064,71 +1064,25 @@
          </description>
          <prop name="asset-type" value="saas"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1">
-            <remarks>
-               <p>System development information</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8">
-            <remarks>
-               <p>System and network monitoring information</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
-            <remarks>
-               <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>      
-         <prop name="implementation-point" value="external">
-            <remarks>
-               <p>For a leveraged system, this property must always be present with a value of
-                  "external".</p>
-            </remarks>
-         </prop>
-         <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
-            <remarks>
-               <p>This can only be known if provided by the leveraged system.
-                  such as via an OSCAL-based CRM, component definition,
-                  or as a result to the leveraged system's OSCAL-based SSP.</p>
-            </remarks>
-         </prop>
+         <prop name="implementation-point" value="external" />
+         
+         <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
+         
          <status state="operational"/>
 
          <responsible-role role-id="provider">
             <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
+         </responsible-role>         
+         <responsible-role role-id="authorizing-official">
+            <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
-         <responsible-role role-id="isso">
-            <prop name="privilege-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-2222-4000-8000-008000000002" />
-            <link rel="user" href="#11111111-2222-4000-8000-008000000002" />
+         <responsible-role role-id="system-owner">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
-
-         <responsible-role role-id="privacy-officer">
-            <prop name="privilege-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-2222-4000-8000-008000000002" />
-            <link rel="user" href="#11111111-2222-4000-8000-008000000002" />
-            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
-         </responsible-role>
-         
-
-
-         <responsible-role role-id="external-system-owner">
-            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
-         </responsible-role>
-         <responsible-role role-id="external-system-poc-management">
+         <responsible-role role-id="system-poc-management">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
-         <responsible-role role-id="external-system-poc-technical">
+         <responsible-role role-id="system-poc-technical">
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
          <remarks>
@@ -1179,8 +1133,7 @@
          <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="hosting-environment" value="PaaS"/>
 
-         <prop name="isa-title" value="system interconnection agreement"/>
-         <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
+
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" value="::ffff:10.2.2.2"/>
@@ -1208,9 +1161,9 @@
             </remarks>
          </prop>      
 
-         <link rel="isa-agreement" href="#11111111-2222-4000-8000-001000000050"/>
-         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000" />
-         <link rel="used-by" href="#11111111-2222-4000-8000-009000100002" />
+         <link rel="agreement" href="#11111111-2222-4000-8000-001000000058"/>
+         <link rel="used-by"   href="#11111111-2222-4000-8000-009000000000" />
+         <link rel="used-by"   href="#11111111-2222-4000-8000-009000100002" />
          <status state="operational"/>
          
          <responsible-role role-id="provider">
@@ -1222,9 +1175,6 @@
          <responsible-role role-id="isa-poc-local">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
-         <responsible-role role-id="isa-authorizing-official-remote">
-            <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
-         </responsible-role>
          <responsible-role role-id="isa-authorizing-official-local">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
@@ -1233,7 +1183,14 @@
             <port-range start="80" end="80" transport="TCP" />
          </protocol>
          <remarks>
-            <p>Optional notes about this interconnection</p>
+            <p>This is an interconnection between this system and one or more
+               external systems.</p>
+            <p>There must be a separate "system" component for each external system 
+            linked by this interconnection. (Typically only one, but could be more.)</p>
+            <p>There must be one "used-by" link for each external "system" component
+               connected by this interconnection. The href is a URI fragment with the 
+               UUID of the "system" component.</p>
+            <p>There must be at least one </p>
          </remarks>
       </component>
 
@@ -1245,51 +1202,19 @@
             <p/>
          </description>
          <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa">
-            <remarks>
-               <p>Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract,
-                  etc</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information"
-            value="describe information being transferred">
-            <remarks>
-               <p>Describe the information being transferred in the @value field.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1">
-            <remarks>
-               <p>System development information</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8">
-            <remarks>
-               <p>System and network monitoring information</p>
-            </remarks>
-         </prop>
-         <!-- other props -->
-         <prop name="implementation-point" value="external">
-            <remarks>
-               <p>For a leveraged system, this property must always be present with a value of
-                  "external".</p>
-            </remarks>
-         </prop>
-         <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
-            <remarks>
-               <p>This can only be known if provided by the leveraged system.
-                  such as via an OSCAL-based CRM, component definition,
-                  or as a result to the leveraged system's OSCAL-based SSP.</p>
-            </remarks>
-         </prop>
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" /> 
+         <prop name="implementation-point" value="external" />
+         <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
+         
          <status state="operational"/>
          
-         <responsible-role role-id="external-system-owner">
+         <responsible-role role-id="system-owner">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
-         <responsible-role role-id="external-system-poc-management">
+         <responsible-role role-id="system-poc-management">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
-         <responsible-role role-id="external-system-poc-technical">
+         <responsible-role role-id="system-poc-technical">
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
          <remarks>
@@ -1868,7 +1793,7 @@
       </component>
 
       <!-- SSP Attachments - Procedures -->
-      <component uuid="11111111-2222-4000-8000-009000800001" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800001" type="process-procedure">
          <title>AC Policy</title>
          <description>
             <p>The Access Control Procedure governs how access is managed and approved.</p>
@@ -1876,7 +1801,7 @@
          <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800002" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800002" type="process-procedure">
          <title>AT Policy</title>
          <description>
             <p>The Awareness and Training Procedure governs how access is managed and approved.</p>
@@ -1884,7 +1809,7 @@
          <link href="#11111111-2222-4000-8000-001000000024" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800003" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800003" type="process-procedure">
          <title>AU Policy</title>
          <description>
             <p>The Audit and Accountability Procedure governs how access is managed and
@@ -1893,7 +1818,7 @@
          <link href="#11111111-2222-4000-8000-001000000025" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800004" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800004" type="process-procedure">
          <title>CA Policy</title>
          <description>
             <p>The Assessment, Authorization, and Monitoring Procedure governs how access is managed
@@ -1902,7 +1827,7 @@
          <link href="#11111111-2222-4000-8000-001000000026" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800005" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800005" type="process-procedure">
          <title>CM Policy</title>
          <description>
             <p>The Configuration Management Procedure governs how access is managed and
@@ -1911,7 +1836,7 @@
          <link href="#11111111-2222-4000-8000-001000000027" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800006" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800006" type="process-procedure">
          <title>CP Policy</title>
          <description>
             <p>The Contingency Planning Procedure governs how access is managed and approved.</p>
@@ -1919,7 +1844,7 @@
          <link href="#11111111-2222-4000-8000-001000000028" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800007" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800007" type="process-procedure">
          <title>IA Policy</title>
          <description>
             <p>The Identificaiton and Authentication Procedure governs how access is managed and
@@ -1928,7 +1853,7 @@
          <link href="#11111111-2222-4000-8000-001000000029" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800008" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800008" type="process-procedure">
          <title>IR Policy</title>
          <description>
             <p>The Incident Response Procedure governs how access is managed and approved.</p>
@@ -1936,7 +1861,7 @@
          <link href="#11111111-2222-4000-8000-001000000030" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800009" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800009" type="process-procedure">
          <title>MA Policy</title>
          <description>
             <p>The Maintenance Procedure governs how access is managed and approved.</p>
@@ -1944,7 +1869,7 @@
          <link href="#11111111-2222-4000-8000-001000000031" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800010" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800010" type="process-procedure">
          <title>MP Policy</title>
          <description>
             <p>The Media Protection Procedure governs how access is managed and approved.</p>
@@ -1952,7 +1877,7 @@
          <link href="#11111111-2222-4000-8000-0010000000032" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800011" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800011" type="process-procedure">
          <title>PE Policy</title>
          <description>
             <p>The Physical and Enviornmental Protection Procedure governs how access is managed and
@@ -1961,7 +1886,7 @@
          <link href="#11111111-2222-4000-8000-001000000033" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800012" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800012" type="process-procedure">
          <title>PL Policy</title>
          <description>
             <p>The Planning Procedure governs how access is managed and approved.</p>
@@ -1969,7 +1894,7 @@
          <link href="#11111111-2222-4000-8000-001000000034" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800013" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800013" type="process-procedure">
          <title>PM Policy</title>
          <description>
             <p>The Program Management Procedure governs how access is managed and approved.</p>
@@ -1977,7 +1902,7 @@
          <link href="#11111111-2222-4000-8000-001000000035" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800014" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800014" type="process-procedure">
          <title>PS Policy</title>
          <description>
             <p>The Personnel Security Procedure governs how access is managed and approved.</p>
@@ -1985,7 +1910,7 @@
          <link href="#11111111-2222-4000-8000-001000000036" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800015" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800015" type="process-procedure">
          <title>PT Policy</title>
          <description>
             <p>The PII Processing and Transparency Procedure governs how access is managed and
@@ -1994,7 +1919,7 @@
          <link href="#11111111-2222-4000-8000-001000000037" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800016" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800016" type="process-procedure">
          <title>RA Policy</title>
          <description>
             <p>The Risk Assessment Procedure governs how access is managed and approved.</p>
@@ -2002,7 +1927,7 @@
          <link href="#11111111-2222-4000-8000-001000000038" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800017" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800017" type="process-procedure">
          <title>SA Policy</title>
          <description>
             <p>The System and Services Acquisition Procedure governs how access is managed and
@@ -2011,7 +1936,7 @@
          <link href="#11111111-2222-4000-8000-001000000039" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800018" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800018" type="process-procedure">
          <title>S3 Policy</title>
          <description>
             <p>The System and Communication Protection Procedure governs how access is managed and
@@ -2020,7 +1945,7 @@
          <link href="#11111111-2222-4000-8000-001000000040" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800019" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800019" type="process-procedure">
          <title>SI Policy</title>
          <description>
             <p>The System and Information Integrity Procedure governs how access is managed and
@@ -2029,7 +1954,7 @@
          <link href="#11111111-2222-4000-8000-001000000041" rel="procedure"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000800020" type="procedure">
+      <component uuid="11111111-2222-4000-8000-009000800020" type="process-procedure">
          <title>SR Policy</title>
          <description>
             <p>The Supply Chain Risk Management Procedure governs how access is managed and
@@ -3851,14 +3776,14 @@
          <description>
             <p>SSP Signature</p>
          </description>
-         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="signed-ssp"/>
+         <prop name="type" value="signed-ssp"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-ssp.pdf" media-type="application/pdf"/>
          <base64 filename="ssp.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
-            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in
+            <p>The FedRAMP PMO is formulating guidelines for handling digital/electronic signatures in
                OSCAL, and welcome feedback on solutions.</p>
-            <p>For now, FedRAMP recommends one of the following:</p>
+            <p>For now, the PMO recommends one of the following:</p>
             <ul>
                <li>Render the OSCAL SSP content as a PDF that is digitally signed and attached.</li>
                <li>Render the OSCAL SSP content as a printed page that is physically signed,
@@ -3871,7 +3796,7 @@
       <!-- FedRAMP Laws -->
       <resource uuid="11111111-2222-4000-8000-001000000003">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
+         <prop name="type" value="fedramp-citations"/>
          <rlink
             href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
          <!-- Todo: Make base64 optional -->
@@ -3885,7 +3810,7 @@
       <!-- Appendix B - Related Acronyms -->
       <resource uuid="11111111-2222-4000-8000-001000000004">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
+         <prop name="type" value="fedramp-acronyms"/>
          <rlink
             href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <!-- Todo: Make base64 optional -->
@@ -4786,7 +4711,7 @@
          <description>
             <p>Separation of Duties Matrix</p>
          </description>
-         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
+         <prop name="type" value="separation-of-duties-matrix"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -4796,6 +4721,13 @@
             <p>May use <code>rlink</code> with a relative path, or embedded as
                <code>base64</code>.</p>
          </remarks>
+      </resource>
+      <resource uuid="11111111-2222-4000-8000-001000000058">
+         <title>Interconneciton Security Agreement (ISA)</title>
+         <prop name="type" value="agreement" />
+         <prop name="published" value="2024-01-31T00:00:00Z" />
+         <prop name="version" value="2.1"/>
+         <rlink href="./documents/isa.pdf" media-type="application/pdf" />
       </resource>
    </back-matter>
 </system-security-plan>
