@@ -1,9 +1,0 @@
-test-case:
-  name: Positive Test for leveraged-authorization-has-component
-  description: >-
-    This test case validates the behavior of constraint
-    leveraged-authorization-has-component
-  content: ../content/ssp-all-VALID.xml
-  expectations:
-    - constraint-id: leveraged-authorization-has-component
-      result: pass

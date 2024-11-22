@@ -1,0 +1,8 @@
+test-case:
+  name: Negative Test for leveraged-authorization-component-has-valid-reference
+  description: >-
+    This test case validates the behavior of constraint leveraged-authorization-component-has-valid-reference
+  content: ../content/ssp-leveraged-authorization-component-has-valid-reference-INVALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-component-has-valid-reference
+      result: fail

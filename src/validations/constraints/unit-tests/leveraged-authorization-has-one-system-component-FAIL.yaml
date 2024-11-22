@@ -1,0 +1,12 @@
+test-case:
+  name: Negative Test for leveraged-authorization-has-one-system-component
+  description: >-
+    This test case validates the behavior of constraint leveraged-authorization-has-one-system-component
+    Scenario 1: missing system component for a leveraged authorization.
+    Scenario 2: more than one system component for a leveraged authorization.
+  content: 
+    - ../content/ssp-leveraged-authorization-has-one-system-component-INVALID.xml
+    - ../content/ssp-leveraged-authorization-has-one-system-component-INVALID-1.xml
+  expectations:
+    - constraint-id: leveraged-authorization-has-one-system-component
+      result: fail

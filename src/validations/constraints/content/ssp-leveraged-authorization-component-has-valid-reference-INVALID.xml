@@ -23,25 +23,14 @@
       </remarks>
     </leveraged-authorization>
 
-    <!-- Leveraged authorization has more than one associcated service components -->
+    <!-- Leveraged authorization component has invalid "leveraged-authorization-uuid" -->
     <component uuid="7622fb94-ac33-498a-a955-fb3501f02d83" type="system">
       <title>Name of Leveraged System</title>
       <description>
           <p>Briefly describe leveraged system.</p>
       </description>
       <prop name="leveraged-authorization-uuid" 
-            value="94d678fb-6d33-4eef-a17a-897bb4809487" />
-      <prop name="implementation-point" value="external"/>
-      <status state="operational"/>
-    </component>
-
-    <component uuid="58350560-dbf7-4f43-9d86-bd0e15555e50" type="system">
-      <title>Duplicated Leveraged System</title>
-      <description>
-          <p>Duplicate leveraged system.</p>
-      </description>
-      <prop name="leveraged-authorization-uuid" 
-            value="94d678fb-6d33-4eef-a17a-897bb4809487" />
+            value="94d678fb-6d33-4eef-a17a-897bb4800000" />
       <prop name="implementation-point" value="external"/>
       <status state="operational"/>
     </component>

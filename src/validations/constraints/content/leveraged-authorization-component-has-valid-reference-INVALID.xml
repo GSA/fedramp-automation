@@ -23,7 +23,17 @@
       </remarks>
     </leveraged-authorization>
 
-    <!-- Leveraged authorization is missing associcated service component -->
+    <!-- Leveraged authorization has more than one associated service components -->
+    <component uuid="7622fb94-ac33-498a-a955-fb3501f02d83" type="system">
+      <title>Name of Leveraged System</title>
+      <description>
+          <p>Briefly describe leveraged system.</p>
+      </description>
+      <prop name="leveraged-authorization-uuid" 
+            value="94d678fb-6d33-4eef-a17a-000000000000" />
+      <prop name="implementation-point" value="external"/>
+      <status state="operational"/>
+    </component>
 
   </system-implementation>
 

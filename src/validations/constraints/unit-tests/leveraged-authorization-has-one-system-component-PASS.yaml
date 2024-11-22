@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for leveraged-authorization-has-one-system-component
+  description: >-
+    This test case validates the behavior of constraint
+    leveraged-authorization-has-one-system-component
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-has-one-system-component
+      result: pass
