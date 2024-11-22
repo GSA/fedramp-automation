@@ -319,6 +319,11 @@
       </description>
       <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+        <remarks>
+          <p>Some description of the authentication method.</p>
+        </remarks>
+      </prop>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>

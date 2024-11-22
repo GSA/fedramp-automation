@@ -34,6 +34,7 @@ Examples:
   | cia-impact-has-adjustment-justification |
   | cia-impact-has-selected |
   | cloud-service-model |
+  | component-has-authentication-method |
   | component-type |
   | control-implementation-status |
   | data-center-alternate |
@@ -165,6 +166,8 @@ Examples:
   | cia-impact-has-selected-PASS.yaml |
   | cloud-service-model-FAIL.yaml |
   | cloud-service-model-PASS.yaml |
+  | component-has-authentication-method-FAIL.yaml |
+  | component-has-authentication-method-PASS.yaml |
   | component-type-FAIL.yaml |
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
