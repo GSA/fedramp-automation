@@ -42,6 +42,7 @@ Examples:
   | data-center-primary |
   | data-center-us |
   | deployment-model |
+  | external-system-nature-of-agreement |
   | fedramp-version |
   | fully-operational-date-is-valid |
   | fully-operational-date-type |
@@ -181,6 +182,8 @@ Examples:
   | data-center-us-PASS.yaml |
   | deployment-model-FAIL.yaml |
   | deployment-model-PASS.yaml |
+  | external-system-nature-of-agreement-FAIL.yaml |
+  | external-system-nature-of-agreement-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
   | fully-operational-date-is-valid-FAIL.yaml |
