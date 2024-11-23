@@ -1063,8 +1063,6 @@
             <p>An external system to which this system shares an interconnection.</p>
          </description>
          <prop name="asset-type" value="saas"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" />
-         <prop name="implementation-point" value="external" />
          
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
          
@@ -1086,24 +1084,32 @@
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
          <remarks>
-            <p>For each external system with which this system connects:</p>
-            <p>Must have a "system" component (this component).</p>
-            <p>Must have an "interconnection" component that connects this component with the
-               "this-system" component.</p>
-            <p>If the leveraged system owner provides a UUID for their system (such as in an
-               OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-               property.</p>
-            <p>Must include all leveraged services and features from the leveraged authorization
-               here.</p>
-            <p>For an external system, the "implementation-point" property must always be present
-               with a value of "external".</p>
-
-            <p>Each interconnection must be defined with both an "system" component and an
-               "interconnection" component.</p>
-            <p>Must include all leveraged services and features from the leveraged authorization
-               here.</p>
+            <p>Each interconnection to one or more remote systems must have:</p>
+            <ul>
+               <li>a "system" component (this component)</li>
+               <li>an "interconnection" component</li>
+            </ul>
+            <p>Each "system" component must have:</p>
+            <ul>
+               <li>an "asset-type" property with a value of "saas", "paas", "iaas" or "other"</li>
+               <li>an "implementation-point" property with a value of "external"</li>
+               <li>a "status" field with a state value of "operational"</li>
+            </ul>
             
-            <p>The risk associated with an external system must be quantified within the context of an interconnection, service, or cli, thus risk, impact, and mitigation properties are applied to those component types.</p>
+            <p>While not required, each "system" component should have:</p>
+            <ul>
+               <li>an "inherited-uuid" property if the value was provided by the system owner</li>
+               <li>a "compliance" property/extension if appropriate</li>
+               <li>an "authorizing-official" responsible-role</li>
+               <li>an "system-owner" responsible-role</li>
+               <li>an "system-poc-management" responsible-role</li>
+               <li>an "system-poc-technical" responsible-role</li>
+            </ul>  
+            <p>Unlike prior FedRAMP OSCAL publications, avoid the use of FedRAMP 
+               properties/extensions for these roles, instead favor the core OSCAL
+               responsible-roles constructs, and the NIST-standard roles of 
+               "authorizing-official", "system-owner", "system-poc-management
+               and "system-poc-technical"</p>
          </remarks>
       </component>
 
@@ -1118,7 +1124,6 @@
          <prop name="direction" value="incoming"/>
          <prop name="direction" value="outgoing"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
@@ -1129,20 +1134,21 @@
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="pci"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="hosting-environment" value="PaaS"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="hosting-environment" value="see-remarks">
+            <remarks>
+               <p>Describe the hosting of the interconnection itself (NOT the hosting of the remote system).</p>
+            </remarks>
+         </prop>
 
 
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
-         <prop name="ipv6-address" value="::ffff:10.2.2.2"/>
+         <prop name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
+         <prop name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
 
-         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec">
-            <remarks>
-               <p>If "other", remarks are required. Optional otherwise.</p>
-            </remarks>
-         </prop>
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
 
          <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
             <remarks>
@@ -1175,22 +1181,50 @@
          <responsible-role role-id="isa-poc-local">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
-         <responsible-role role-id="isa-authorizing-official-local">
-            <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
-         </responsible-role>
+
          <protocol name="remote" uuid="11111111-2222-4000-8000-010000000001">
             <title>services</title>
             <port-range start="80" end="80" transport="TCP" />
          </protocol>
          <remarks>
-            <p>This is an interconnection between this system and one or more
-               external systems.</p>
-            <p>There must be a separate "system" component for each external system 
-            linked by this interconnection. (Typically only one, but could be more.)</p>
-            <p>There must be one "used-by" link for each external "system" component
-               connected by this interconnection. The href is a URI fragment with the 
-               UUID of the "system" component.</p>
-            <p>There must be at least one </p>
+            <p>Each interconnection to one or more remote systems must have:</p>
+            <ul>
+               <li>one "system" component for each remote system sharing the connection</li>
+               <li>an "interconnection" component (this component)</li>
+            </ul>
+            <p>Each "interconnection" component must have:</p>
+            <ul>
+               <li>an "implementation-point" property with a value of "external"</li>
+               <li>a "status" field with a state value of "operational"</li>
+               <li>one or two "direction" properties</li>
+               <li>a "nature-of-agreement" property/extension</li>
+               <li>one or more "authentication-method" properties/extensions.</li>
+               <li>a "hosting-environment" proptery/extension</li>
+               <li>at least one local ipv4 address, ipv6 address or URI via the appropriate property, with the class set to "local" </li>
+               <li>at least one remote ipv4 address, ipv6 address or URI via the appropriate property, with the class set to "remote" </li>
+               <li>at least one "protocol" field with the name set to "local" or "remote" depending on which side is "listening" on the identified ports.</li>
+               <li>at least one "agreement" link with an href vlue that refers to a back-matter resource containing the interconnection security agreemnet (ISA)</li>
+               <li>exactly one "used-by" link with an href value that refers to the "this-system" component.</li>
+               <li>one or more "used-by" links with href values that refer to each "system" component representing a remote system sharing the connection.</li>
+               <li>exactly one "provider" responsible role that references the party information for the organization the provides the connection.</li>
+            </ul>
+            <p>Authentication methods must address both system-authentication as well as 
+               user authentication mechanisms.</p>
+            <p>Describe the hosting of the interconnection itself (NOT the hosting of the remote system).</p>
+            <p>If the interconnection travels across the public Internet, the provider may be the cloud hosting provider or the Internet provider</p>
+            <p />
+            <p>While not required, each "interconnection" component should have:</p>
+            <ul>
+               <li>an "inherited-uuid" property if the value was provided by the system owner</li>
+               <li>a "compliance" property/extension if appropriate</li>
+               <li>an "system-poc-management" responsible-role</li>
+               <li>an "system-poc-technical" responsible-role</li>
+            </ul>  
+            <p>Unlike prior FedRAMP OSCAL publications, avoid the use of FedRAMP 
+               properties/extensions for these roles, instead favor the core OSCAL
+               responsible-roles constructs, and the NIST-standard roles of 
+               "system-poc-management" and "system-poc-technical". With an interconnection, 
+               the system POC roles reference parties that represent the connection provider.</p>
          </remarks>
       </component>
 
@@ -3776,7 +3810,7 @@
          <description>
             <p>SSP Signature</p>
          </description>
-         <prop name="type" value="signed-ssp"/>
+         <prop name="type" value="artifact"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-ssp.pdf" media-type="application/pdf"/>
          <base64 filename="ssp.pdf" media-type="application/pdf">00000000</base64>
@@ -3796,7 +3830,7 @@
       <!-- FedRAMP Laws -->
       <resource uuid="11111111-2222-4000-8000-001000000003">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop name="type" value="fedramp-citations"/>
+         <prop name="type" value="citation"/>
          <rlink
             href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
          <!-- Todo: Make base64 optional -->
@@ -3810,7 +3844,7 @@
       <!-- Appendix B - Related Acronyms -->
       <resource uuid="11111111-2222-4000-8000-001000000004">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="type" value="fedramp-acronyms"/>
+         <prop name="type" value="citation"/>
          <rlink
             href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <!-- Todo: Make base64 optional -->
@@ -4703,23 +4737,6 @@
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
-         </remarks>
-      </resource>
-      <!-- Section 11 - Separation of Duties -->
-      <resource uuid="11111111-2222-4000-8000-001000000057">
-         <title>Separation of Duties Matrix</title>
-         <description>
-            <p>Separation of Duties Matrix</p>
-         </description>
-         <prop name="type" value="separation-of-duties-matrix"/>
-         <prop name="published" value="2023-01-01T00:00:00Z"/>
-         <!-- document date -->
-         <prop name="version" value="Document Version"/>
-         <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
-         <base64 filename="Sep_Matrix.docx" media-type="application/msword">00000000</base64>
-         <remarks>
-            <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000058">
