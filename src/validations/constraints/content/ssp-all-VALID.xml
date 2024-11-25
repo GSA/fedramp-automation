@@ -309,7 +309,7 @@
       </description>
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
       <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
-      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes"/>
      <status state="operational"/>
      </component>
 
@@ -320,7 +320,7 @@
       </description>
       <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>Some description of the authentication method.</p>
         </remarks>
