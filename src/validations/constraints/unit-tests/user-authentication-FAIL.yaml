@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for user-authentication
+  description: This test case validates the behavior of constraint user-authentication
+  content: ../content/ssp-user-authentication-INVALID.xml
+  expectations:
+    - constraint-id: user-authentication
+      result: fail
