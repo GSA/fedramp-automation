@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for saas-has-leveraged-authorization
+  description: >-
+    This test case validates the behavior of constraint
+    saas-has-leveraged-authorization
+  content: ../content/ssp-saas-has-leveraged-authorization-INVALID.xml
+  expectations:
+    - constraint-id: saas-has-leveraged-authorization
+      result: fail

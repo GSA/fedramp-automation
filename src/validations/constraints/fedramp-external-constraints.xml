@@ -293,6 +293,7 @@
     <context>
         <metapath target="/system-security-plan/system-characteristics"/>
         <constraints>
+            <let var="is-saas" expression="exists(prop[@name='cloud-service-model' and @value='saas'])"/>
             <let var="security-impact-level" expression=
                 "if (//security-impact-level//* = 'fips-199-high')
                     then ('fips-199-high')
@@ -501,6 +502,11 @@
                 <formal-name>Information Type Has Integrity Impact</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type MUST have an integrity impact.</message>
+            </expect>
+            <expect id="saas-has-leveraged-authorization" target="." test="if ($is-saas) then (count(..//leveraged-authorization) >= 1) else (true())" level="ERROR">
+                <formal-name>SaaS Has Leveraged Authorization</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>A FedRAMP SSP that defines a SaaS cloud service model MUST define at least one leveraged authorization.</message>
             </expect>
             <expect id="security-sensitivity-level-matches-security-impact-level" target="security-sensitivity-level" test=". eq $security-impact-level" level="WARNING">
                 <formal-name>Security Sensitivity Level Matches Security Impact Level</formal-name>
