@@ -264,7 +264,7 @@
       <title>GovCloud</title>
       <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-moderate"/>
       <link href="//path/to/leveraged_system_ssp.xml"/>
       <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
       <date-authorized>2015-01-01</date-authorized>

@@ -120,7 +120,7 @@
                     <p>A FedRAMP SSP MUST use a valid FedRAMP catalog to reference security controls. It MUST NOT reference controls from a non-FedRAMP catalog.</p>
                 </remarks>
             </expect>
-            <expect id="leveraged-authorization-has-valid-impact-level" target="//leveraged-authorization/prop[@name='impact-level'][@ns='http://fedramp.gov/ns/oscal']/@value" test=". = $sensitivity-level-floor">
+            <expect id="leveraged-authorization-has-valid-impact-level" target="//leveraged-authorization/prop[@name='impact-level'][@ns='https://fedramp.gov/ns/oscal']/@value" test=". = $sensitivity-level-floor">
                 <formal-name>Leveraged Authorization Has Valid Impact Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST define the appropriate FIPS-199 impact level (low, moderate, or high) for each leveraged authorization.</message>
