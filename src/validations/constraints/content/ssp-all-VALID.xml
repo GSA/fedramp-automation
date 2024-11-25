@@ -301,7 +301,23 @@
         <p>This is the primary application server for the system.</p>
       </remarks>
     </component>
-
+    <component uuid="66666666-0000-4000-9000-000000000007" type="service">
+      <title>Firebase CLI Connection</title>
+      <description>
+        <p>CLI for updating firebase Secure connection to an external API for data enrichment.</p>
+      </description>
+      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="asset-type" value="cli"/>
+      <prop name="implementation-point" value="external"></prop>
+      <status state="operational"/>
+      <responsible-role role-id="system-admin">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <remarks>
+        <p>This connection is used for secure data exchange with external systems.</p>
+      </remarks>
+    </component>
     <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
       <title>An External Leveraged System</title>
       <description>
