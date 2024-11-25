@@ -535,6 +535,11 @@
                 <formal-name>Leveraged Authorization Has System Identifier</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST define exactly one system identifier for each leveraged authorization entry.</message>
+			</expect>
+            <expect id="network-component-has-connection-security-prop" target="//component[(@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]" test="count(./prop[@name='connection-security' and @ns='https://fedramp.gov/ns/oscal']) >= 1" level="ERROR">
+				<formal-name>Network Component Has Connection Security Property</formal-name>
+				<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#ports-protocols-and-services"/>
+				<message>All network components in a FedRAMP SSP system implementation MUST define at least one interconnection security property.</message>
             </expect>
             <is-unique id="unique-inventory-item-asset-id" target="inventory-item/prop[@name='asset-id']">
                 <formal-name>Unique Asset Identifier</formal-name>

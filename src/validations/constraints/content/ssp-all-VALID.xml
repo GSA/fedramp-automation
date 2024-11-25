@@ -349,6 +349,7 @@
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
+      <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
@@ -373,9 +374,10 @@
       <description>
           <p>Briefly describe the external system.</p>
       </description>
+      <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>      
       <prop name="asset-type" value="cli"/>
       <prop name="implementation-point" value="external"/>
-      <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>

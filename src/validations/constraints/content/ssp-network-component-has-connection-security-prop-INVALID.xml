@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+    <system-implementation>
+      <component uuid="69988666-0000-4000-9000-000000100006" type="interconnection">
+        <title>External API Connection</title>
+        <description>
+          <p>Secure connection to an external API for data enrichment.</p>
+        </description>
+        <!--Error: connection-security property not defined for an interconnection component-->
+        <!-- <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/> -->
+        <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
+        <status state="operational"/>
+        <responsible-role role-id="system-admin">
+          <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        </responsible-role>
+        <remarks>
+          <p>This connection is used for secure data exchange with external systems.</p>
+        </remarks>
+      </component>
+    </system-implementation>
+  </system-security-plan>
+                      
