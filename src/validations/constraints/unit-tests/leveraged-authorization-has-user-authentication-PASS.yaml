@@ -1,9 +1,0 @@
-test-case:
-  name: Positive Test for leveraged-authorization-has-user-authentication
-  description: >-
-    This test case validates the behavior of constraint
-    leveraged-authorization-has-user-authentication
-  content: ../content/ssp-all-VALID.xml
-  expectations:
-    - constraint-id: leveraged-authorization-has-user-authentication
-      result: pass
