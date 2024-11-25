@@ -579,4 +579,13 @@
             </is-unique>
         </constraints>
     </context>
+    <context>
+        <metapath target="//system-implementation"/>
+        <constraints>
+            <expect id="network-component-has-implementation-point" target="." test="every $c in component[@type='service' or (@type='software' and ./prop[@name='asset-type' and @value='cli'])] satisfies count($c/prop[@name='implementation-point']) = 1" level="ERROR">
+                <formal-name>Component Has Implementation Point</formal-name>
+                <message>Service components and CLI software components MUST have exactly one implementation-point property.</message>
+            </expect>
+        </constraints>
+    </context>
 </metaschema-meta-constraints>

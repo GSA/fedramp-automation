@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for network-component-has-implementation-point
+  description: >-
+    This test case validates the behavior of constraint
+    network-component-has-implementation-point
+  content: ../content/ssp-network-component-has-implementation-point-INVALID.xml
+  expectations:
+    - constraint-id: network-component-has-implementation-point
+      result: fail
