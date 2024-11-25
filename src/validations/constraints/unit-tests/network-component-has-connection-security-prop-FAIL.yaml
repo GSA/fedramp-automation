@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for network-component-has-connection-security-prop
+  description: >-
+    This test case validates the behavior of constraint
+    network-component-has-connection-security-prop
+  content: ../content/ssp-network-component-has-connection-security-prop-INVALID.xml
+  expectations:
+    - constraint-id: network-component-has-connection-security-prop
+      result: fail

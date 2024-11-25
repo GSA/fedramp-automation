@@ -115,6 +115,7 @@ Examples:
   | leveraged-authorization-nature-of-agreement |
   | marking |
   | missing-response-components |
+  | network-component-has-connection-security-prop |
   | network-component-has-implementation-point |
   | non-provider-responsible-role-references-user |
   | party-has-name |
@@ -337,6 +338,8 @@ Examples:
   | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
+  | network-component-has-connection-security-prop-FAIL.yaml |
+  | network-component-has-connection-security-prop-PASS.yaml |
   | network-component-has-implementation-point-FAIL.yaml |
   | network-component-has-implementation-point-PASS.yaml |
   | non-provider-responsible-role-references-user-FAIL.yaml |
