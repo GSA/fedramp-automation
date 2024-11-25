@@ -319,7 +319,7 @@
       </description>
       <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>Some description of the authentication method.</p>
         </remarks>
