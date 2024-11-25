@@ -127,7 +127,7 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
-            <allowed-values id="external-system-nature-of-agreement" target="system-implementation/component[@type='system'][not(prop[@name='leveraged-authorization-uuid'])][prop[@name='implementation-point' and @value='external']]/prop[@name='nature-of-agreement' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="external-system-nature-of-agreement" target="system-implementation/component[(@type='service' and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and prop[@name='implementation-point' and @value='internal'] and prop[@name='direction']) or (@type='software' and prop[@name='asset-type' and @value='cli'] and prop[@name='direction'])]/prop[@name='nature-of-agreement' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Nature of Agreement for External Systems</formal-name>
                 <description>Identifies nature of agreement for external systems.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
