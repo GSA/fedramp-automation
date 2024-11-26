@@ -30,7 +30,8 @@
             </remarks>
          </revision>
       </revisions>
-      <prop name="marking" value="Controlled Unclassified Information"/>
+      <prop name="marking" value="cui" class="fedramp.gov"/>
+      <prop name="fedramp-version" ns="http://fedramp.gov/ns/oscal" value="fedramp-3.0.0-oscal-1.1.2" />
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -647,6 +648,68 @@
                </adjustment-justification>
             </availability-impact>
          </information-type>
+         <information-type uuid="11111111-2222-4000-8000-006000000002">
+            <title>Information Type Name</title>
+            <description>
+               <p>A description of the information.</p>
+            </description>
+            <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+               <information-type-id>C.3.5.1</information-type-id>
+            </categorization>
+            <confidentiality-impact>
+               <base>fips-199-moderate</base>
+               <selected>fips-199-moderate</selected>
+               <adjustment-justification>
+                  <p>Required if the base and selected values do not match.</p>
+               </adjustment-justification>
+            </confidentiality-impact>
+            <integrity-impact>
+               <base>fips-199-moderate</base>
+               <selected>fips-199-moderate</selected>
+               <adjustment-justification>
+                  <p>Required if the base and selected values do not match.</p>
+               </adjustment-justification>
+            </integrity-impact>
+            <availability-impact>
+               <base>fips-199-moderate</base>
+               <selected>fips-199-moderate</selected>
+               <adjustment-justification>
+                  <p>Required if the base and selected values do not match.</p>
+               </adjustment-justification>
+            </availability-impact>
+         </information-type>
+         <information-type uuid="11111111-2222-4000-8000-006000000003">
+            <title>Information Type Name</title>
+            <description>
+               <p>A description of the information.</p>
+            </description>
+            <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+               <information-type-id>C.3.5.8</information-type-id>
+            </categorization>
+            <confidentiality-impact>
+               <base>fips-199-moderate</base>
+               <selected>fips-199-moderate</selected>
+               <adjustment-justification>
+                  <p>Required if the base and selected values do not match.</p>
+               </adjustment-justification>
+            </confidentiality-impact>
+            <integrity-impact>
+               <base>fips-199-moderate</base>
+               <selected>fips-199-moderate</selected>
+               <adjustment-justification>
+                  <p>Required if the base and selected values do not match.</p>
+               </adjustment-justification>
+            </integrity-impact>
+            <availability-impact>
+               <base>fips-199-moderate</base>
+               <selected>fips-199-moderate</selected>
+               <adjustment-justification>
+                  <p>Required if the base and selected values do not match.</p>
+               </adjustment-justification>
+            </availability-impact>
+         </information-type>
+
+
       </system-information>
       <!-- Security Impact Level -->
       <security-impact-level>
@@ -735,14 +798,22 @@
          <party-uuid>11111111-2222-4000-8000-c0040000000a</party-uuid>
          <date-authorized>2015-01-01</date-authorized>
          <remarks>
-            <p>Use one leveraged-authorization assembly for each underlying authorized cloud system
-               or general support system (GSS).</p>
+            <p>Use one leveraged-authorization assembly for each underlying authorized 
+               cloud system or general support system (GSS).</p>
+            <p>For each leveraged authorization there must also be a "system" component.
+               The corrisponding "system" component must include a 
+               "leveraged-authorization-uuid" property
+               that links it to this leveraged authorization.</p>
          </remarks>
       </leveraged-authorization>
 
       <user uuid="11111111-2222-4000-8000-008000000001">
          <remarks>
-            <p>The user assembly is being reviewed for continued applicability under FedRAMP's adoption of Rev 5.</p>
+            <p>The user assembly is being reviewed for continued applicability 
+               under FedRAMP's adoption of Rev 5.</p>
+            <p>Currently, FedRAMP will only process user content if it includes the
+            FedRAMP "separation-of-duties-matrix" property/extension. All other user 
+            entries will be ignored by validation rules, but may be displayed by tools. </p>
          </remarks>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000002">
@@ -780,15 +851,16 @@
       <component uuid="11111111-2222-4000-8000-009000000000" type="this-system">
          <title>This System</title>
          <description>
-            <p>The entire system as depicted in the system authorization boundary</p>
-            <p>FedRAMP requires exactly one "this-system" component.</p>
-            <p>This is used in SSP control responses and may be used in interconnection
-               linkages.</p>
+            <p>This component represents the entire authorization boundary, 
+               as depicted in the system authorization boundary diagram.</p>
+            <p>FedRAMP requires exactly one "this-system" component, which is used
+            in control implementation responses and interconnections.</p>
          </description>
          <status state="operational"/>
          <remarks>
-            <p>A FedRAMP SSP must always have exactly one component that represents the whole system.
-            It should be the only component with the "this-system" component type.</p>
+            <p>A FedRAMP SSP must always have exactly one "this-system" component
+               that represents the whole system.</p>
+            <p>It does not need system details, as those exist elsewhere in this SSP.</p>
          </remarks>
       </component>
 
@@ -807,6 +879,7 @@
          </description>
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
+         <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
@@ -817,13 +890,6 @@
          </prop>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
-         <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
-            <remarks>
-               <p>This can only be known if provided by the leveraged system.
-               such as via an OSCAL-based CRM, component definition,
-               or as a result to the leveraged system's OSCAL-based SSP.</p>
-            </remarks>
-         </prop>
          <status state="operational"/>
 
          <responsible-role role-id="provider">
@@ -848,62 +914,73 @@
             <ul>
                <li>the name of the system in the title - exactly as it appears in the FedRAMP
                   Marketplace</li>
-               <li>a "leveraged authorization-uuid" property that links this component to the
+               <li>a "leveraged authorization-uuid" core property that links this component to the
                   leveraged-authorization entry</li>
-               <li>an "implementation-point" property with a value of "external"; and</li>
-               <li>a "provided-by" link with a URI fragment, which points to the "system" 
-                  component that represents the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
-               <li>a "user-authentication" property/extension</li>
-               <li>A responsible-role with a role-id of "provider" and exactly one party-uuid entry
-                  that indicates which organization is the provider of this leveraged system.</li>
-               <li>A "nature-of-agreement" property with an appropriate allowed value. If the value is
+               <li>an "implementation-point" core property with a value of "external"</li>
+               <li>A "nature-of-agreement" property/extension with an appropriate allowed value. If the value is
                   "other", use the proeprty's remarks to descibe the agreement.</li>
+               <li>an "authentication-method" property/extension with a value of "yes", "no" or 
+                  "not-applicable" with commentary in the remarks.</li>
+               <li>One or more "information-type" property/extensions, where the a
+                  llowed values are the 800-63
+                  information type identifiers.</li>
+               <li>A "provider" responsible-role with exactly one party-uuid entry
+                  that indicates which organization is the provider of this leveraged system.</li>
                <li>a status with a state value of "operational"</li>
+               <li>At least one responsible-role (other than "provider") that indicates any authorized
+                  users. This must have one or more "privilege-uuid" property/extensions. Each references
+                  a user assembly entry.</li>
             </ul>
             <p/>
             <p>Where relevant, this component should also have:</p>
             <ul>
-               <li></li>
-               <li>One or more "information-type" properties, where the allowed values are the 800-63
-                  information type identifiers.<ul>
-                     <li>C.3.5.1 is System development information</li>
-                     <li>C.3.5.8 is System and network monitoring information</li>
-                  </ul></li>
-               <li>One or more "information-type" properties, where the allowed values are the 800-63
-                  information type identifiers.</li>
-               <li>At least one responsible-role that indicates the authorized userswith a role-id of "leveraged-authorization-users" and exactly
-                  one or more party-uuid entries that indicates which users within this system may
-                  interact with the leveraged systeme.</li>
                <li>An "inherited-uuid" property if the leveraged system's owner provides a UUID for
                   their system (such as in an OSCAL-based CRM).</li>
             </ul>
             <p/>
             <p>Links to the vendor website describing the system are encouraged, but not required.</p>
+            
             <h1>Services</h1>
             <p>A service within the scope of the leveraged system's authorization boundary 
                is considered an "authorized service". Any other service offered by the 
                leveraged system is considered a "non-authorized service"</p>
-            <p>Represent each authorized or non-authorized services using a "service" component.
-            Both authorized and non-authorized service components are represented the same 
-            in OSCAL with the following exceptions:</p>
+            <p>Represent each authorized or non-authorized leveraged services using a 
+               "service" component. Both authorized and non-authorized service components 
+               are represented the same in OSCAL with the following exceptions:</p>
             <ul>
                <li>The component for an authorized servcie includes a 
-                   "leveraged-authorization-uuid" property, while this 
+                   "leveraged-authorization-uuid" property. This 
                    property must be excluded from the component of a 
-                   non-authorized service.</li>
+                   non-authorized leveraged service.</li>
                <li>The component for a non-authorized service must include 
-                  properties/extensions to indicate if the service is still 
-                  suported, to cite other compliance programs the service may 
-                  have satisifed, and to identify any relevant
-                  risks/impacts/mitigations.</li>
-               <li>Although SSP Table 7.1 also requires data categoriation and hosting
-                   environment information about non-authorized leveraged services,
-                   these datails are derived from other SSP content.</li>
+                  a "still-supported" property/extension.</li>
+               <li>The component for a non-authorized service must have
+               a "poam-item" link that references a corrisponding entry in this system's
+               POA&amp;M.</li>
             </ul>
-            <p>The components for both authorized and non-authorized services
-               must include a "provided-by" link with a URI fragment that points
+            
+            <p>Both authorized and non-authorized leveraged services include:</p>
+            <ul>
+               <li>a "provided-by" link with a URI fragment that points
                to the "system" component representing the leveraged system. 
-               (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</p>
+               (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
+               <li>the name of the service in the title (for authorized services this should be 
+                  exactly as it appears in the FedRAMP Marketplace</li>
+               <li>an "implementation-point" core property with a value of "external"</li>
+               <li>an "authentication-method" property/extension with a value of "yes", "no" or 
+                  "not-applicable" with commentary in the remarks.</li>
+               <li>One or more "information-type" property/extensions, where the a
+                  llowed values are the 800-63
+                  information type identifiers.</li>
+               <li>a status with a state value of "operational"</li>
+               <li>At least one responsible-role (other than "provider") that indicates any authorized
+                  users. This must have one or more "privilege-uuid" property/extensions. Each references
+                  a user assembly entry.</li>               
+            </ul>
+
+            <p>Although SSP Table 7.1 also requires data categoriation and hosting
+               environment information about non-authorized leveraged services,
+               these datails are derived from other content in this SSP.</p>
          </remarks>
       </component>
 
@@ -986,58 +1063,61 @@
          </prop>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
-            <remarks>
-               <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>         
+         <prop name="poam-item-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001" />
+         <prop name="poam-id" ns="http://fedramp.gov/ns/oscal" value="ID-0001" />
          <link  rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000001" />
+         <link  rel="poam-item"   href="https://raw.githubusercontent.com/usnistgov/oscal-content/refs/heads/main/examples/poam/xml/ifa_plan-of-action-and-milestones.xml" resource-fragment="11111111-3333-4000-8000-000000000001" />
          <status state="operational" />
+         <responsible-role role-id="admin">
+            
+         </responsible-role>
          <remarks>
             <p>This is a service offered by a leveraged system and used by this system.
                It is NOT explicitly listed on the FedRAMP marketplace as being included 
-               in the scope of this leveraged system's ATO, thus is treated as a 
+               in the scope of the leveraged system's ATO, thus is treated as a 
                non-authorized, leveraged service.</p>
             <p/>
-            <p>Each leveraged service must be expressed as a "service" component, and must have:</p>
+            <p>Each non-authorized leveraged service must be expressed as a "service" component, and must have:</p>
             <ul>
                <li>the name of the service in the title - exactly as it appears in the FedRAMP
                   Marketplace</li>
                <li>an "implementation-point" property with a value of "external"; and</li>
+               <li>one or two "direction" prperty/extensions</li>
+               <li>One or more "information-type" property/extensions, where the allowed values are the 800-63
+                  information type identifiers, and the cited types are included full list of system information types.</li>
+               <li>exactly one "poam-item" link, with an href value that references the 
+                  POA&amp;M and a resource-fragment that represents the 
+                  POAM&amp;M ID (legacy) in a Excel workbook or poam-item-uuid (preferred)
+                  in an OSCAL-based POA&amp;M.</li>
                <li>a "provided-by" link with a URI fragment that points to the 
                   "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
-               <li>One or more "risk" property/extension for each identified risk; or,
-                  one "risk" property/extension that asserts there is no identified risk,
-                  and provides a basis for that assertion.</li>
                <li></li>
                <li></li>
-               <li></li>
-               <li></li>
-               <li></li>
+
             </ul>
             <p>The "leveraged-authorization-uuid" property must NOT be present, as this is how
                tools are able to distinguish between authorized and non-authorized services
                from the same leveraged provider.</p>
             <p/>
-            <p>This component must always have:</p>
-
+            
             <p>Where relevant, this component should also have:</p>
-            <p>- One or more "information-type" properties, where the allowed values are the 800-63
-               information type identifiers.</p>
-            <p>- A responsible-role with a role-id of "leveraged-authorization-users" and exactly
-               one or more party-uuid entries that indicates which users within this system may
-               interact with the leveraged systeme.</p>
+            <ul>
+               <li>At least one responsible-role that indicates the authorized userswith a role-id of "leveraged-authorization-users" and exactly
+                  one or more party-uuid entries that indicates which users within this system may
+                  interact with the leveraged systeme.</li>
+               <li>An "inherited-uuid" property if the leveraged system's owner provides a UUID for
+                  their system (such as in an OSCAL-based CRM).</li>
+            </ul>
+            <p>Link(s) to the vendor's web site describing the service are encouraged, but not
+               required.</p>
+            <p>The following fields from the Leveraged Authorization Table are handled in the
+               leveraged-authorization assembly:</p>
+            <ul>
+               <li>Package ID, Authorization Type, Impact Level</li>
+            </ul>
+            <p/>
+            
             <p>- An "inherited-uuid" property if the leveraged system's owner provides a UUID for
                their system (such as in an OSCAL-based CRM).</p>
             <p>Link(s) to the vendor's web site describing the service are encouraged, but not
@@ -1150,26 +1230,14 @@
 
          <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
 
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
-            <remarks>
-               <p>Either describe a risk associated with this interconnection, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>      
-
          <link rel="agreement" href="#11111111-2222-4000-8000-001000000058"/>
          <link rel="used-by"   href="#11111111-2222-4000-8000-009000000000" />
          <link rel="used-by"   href="#11111111-2222-4000-8000-009000100002" />
+
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000001" />
+         <link  rel="poam-item"   href="https://raw.githubusercontent.com/usnistgov/oscal-content/refs/heads/main/examples/poam/xml/ifa_plan-of-action-and-milestones.xml" resource-fragment="11111111-3333-4000-8000-000000000001" />
+         
+
          <status state="operational"/>
          
          <responsible-role role-id="provider">
@@ -4598,12 +4666,13 @@
       </resource>
       <!-- Appendix O - POA&M -->
       <resource uuid="11111111-2222-4000-8000-001000000048">
-         <title>[SAMPLE]Plan of Actions and Milestones (POAM)</title>
+         <title>Plan of Actions and Milestones (POAM)</title>
          <prop name="published" value="2023-05-31T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
          <prop name="type" value="plan" class="poam"/>
-         <rlink href="./documents/POAMs/SAMPLE_POAM_20230531.xml"/>
+         <rlink href="./documents/POAMs/SAMPLE_POAM_20230531.xml" media-type="=application/xml"/>
+         <rlink href="./documents/POAMs/SAMPLE_POAM_20230531.xlsx" media-type="application/vnd.ms-excel"/>
          <base64 filename="SAMPLE_POAM_20230531.xml" media-type="application/xml">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
       </resource>
@@ -4687,6 +4756,7 @@
          <description>
             <p>The primary authorization boundary diagram.</p>
          </description>
+         <prop name="type" value="image" class="authorization-boundary" />
          <rlink href="./diagrams/boundary.png"/>
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
