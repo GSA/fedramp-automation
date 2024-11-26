@@ -3878,6 +3878,7 @@
    <back-matter>
       <!-- Cloud Service Provider (CSP) Signatures -->
       <resource uuid="11111111-2222-4000-8000-001000000002">
+         <title>Signed System Security Plan</title>
          <description>
             <p>SSP Signature</p>
          </description>
