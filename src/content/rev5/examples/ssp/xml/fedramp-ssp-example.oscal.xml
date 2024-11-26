@@ -608,8 +608,7 @@
       <prop name="identity-assurance-level" value="2"/>
       <prop name="authenticator-assurance-level" value="2"/>
       <prop name="federation-assurance-level" value="2"/>
-      <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date"
-         value="2023-12031T00:00:00z"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-12031T00:00:00z"/>
       <!-- Rev5 update - new prop -->
       <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
       <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
