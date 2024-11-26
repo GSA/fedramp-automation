@@ -102,6 +102,9 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | leveraged-authorization-has-authorization-type |
+  | leveraged-authorization-has-impact-level |
+  | leveraged-authorization-has-system-identifier |
   | leveraged-authorization-nature-of-agreement |
   | marking |
   | missing-response-components |
@@ -304,6 +307,12 @@ Examples:
   | inventory-item-public-PASS.yaml |
   | inventory-item-virtual-FAIL.yaml |
   | inventory-item-virtual-PASS.yaml |
+  | leveraged-authorization-has-authorization-type-FAIL.yaml |
+  | leveraged-authorization-has-authorization-type-PASS.yaml |
+  | leveraged-authorization-has-impact-level-FAIL.yaml |
+  | leveraged-authorization-has-impact-level-PASS.yaml |
+  | leveraged-authorization-has-system-identifier-FAIL.yaml |
+  | leveraged-authorization-has-system-identifier-PASS.yaml |
   | leveraged-authorization-nature-of-agreement-FAIL.yaml |
   | leveraged-authorization-nature-of-agreement-PASS.yaml |
   | marking-FAIL.yaml |
