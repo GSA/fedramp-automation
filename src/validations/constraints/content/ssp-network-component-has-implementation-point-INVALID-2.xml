@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+  <system-implementation>
+    <component uuid="66666666-0000-4000-9000-000000000006" type="service">
+      <title>Firebase CLI Connection</title>
+      <description>
+        <p>CLI for updating firebase Secure connection to an external API for data enrichment.</p>
+      </description>
+      <prop name="asset-type" value="cli"/>
+      <prop name="implementation-point" value="test"/>      
+      <status state="operational"/>
+    </component>
+    <component uuid="66666666-0000-4000-9000-000000000006" type="software">
+      <title>Firebase CLI Connection</title>
+      <description>
+        <p>CLI for updating firebase Secure connection to an external API for data enrichment.</p>
+      </description>
+      <prop name="asset-type" value="cli"/>
+      <status state="operational"/>
+    </component>
+    <component uuid="66666666-0000-4000-9000-000000000006" type="software">
+      <title>nvm CLI Connection</title>
+      <description>
+        <p>CLI for updating nvm Secure connection to an external API for data enrichment.</p>
+      </description>
+      <prop name="asset-type" value="cli"/>
+      <status state="operational"/>
+    </component>
+</system-implementation>
+</system-security-plan>
