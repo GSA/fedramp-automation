@@ -807,6 +807,10 @@
       </leveraged-authorization>
 
       <user uuid="11111111-2222-4000-8000-008000000001">
+         <authorized-privilege>
+            <title></title>
+            <function-performed>none</function-performed>
+         </authorized-privilege>
          <remarks>
             <p>The user assembly is being reviewed for continued applicability 
                under FedRAMP's adoption of Rev 5.</p>
