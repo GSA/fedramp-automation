@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for authentication-method-has-remarks
+  description: >-
+    This test case validates the behavior of constraint
+    authentication-method-has-remarks
+  content: ../content/ssp-authentication-method-has-remarks-INVALID.xml
+  expectations:
+    - constraint-id: authentication-method-has-remarks
+      result: fail
