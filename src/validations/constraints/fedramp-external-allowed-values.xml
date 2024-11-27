@@ -127,6 +127,19 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
+            <allowed-values id="external-system-nature-of-agreement" target="system-implementation/component[(@type='service' and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and prop[@name='implementation-point' and @value='internal'] and prop[@name='direction']) or (@type='software' and prop[@name='asset-type' and @value='cli'] and prop[@name='direction'])]/prop[@name='nature-of-agreement' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Nature of Agreement for External Systems</formal-name>
+                <description>Identifies nature of agreement for external systems.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
+                <enum value="contract">A contract between the CSP and the organization that owns the external system.</enum>
+                <enum value="eula">An end-user license agreement between the CSP and the organization that owns the external system.</enum>
+                <enum value="isa">An interconnection security agreement between the CSP and the organization that owns the external system.</enum>
+                <enum value="license">An application license agreement between the CSP and the organization that owns the external system.</enum>
+                <enum value="mou">A memorandum of understanding between the CSP and the organization that owns the external system.</enum>
+                <enum value="other">An non-typical agreement between the CSP and the organization that owns the external system. Explain in remarks.</enum>
+                <enum value="sla">A service-level agreement between the CSP and the organization that owns the external system.</enum>
+            </allowed-values>
+
             <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>FedRAMP Version</formal-name>
                 <description>Identifies the FedRAMP version of the document.</description>
@@ -354,6 +367,18 @@
                 <enum value="no">No</enum>
             </allowed-values>
 
+            <allowed-values id="leveraged-authorization-nature-of-agreement" target="system-implementation/component[@type='system'][prop[@name='leveraged-authorization-uuid']]/prop[@name='nature-of-agreement'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+                <formal-name>Nature of Agreement for Leveraged Authorizations</formal-name>
+                <description>Identifies nature of agreement for leveraged authorizations.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <enum value="contract">A contract between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="eula">An end-user license agreement between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="license">An application license agreement between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="mou">A memorandum of understanding between the CSP and the organization that owns the leveraged system.</enum>
+                <enum value="other">An untypical agreement between the CSP and the organization that owns the leveraged system. Explain in remarks.</enum>
+                <enum value="sla">A service-level agreement between the CSP and the organization that owns the leveraged system.</enum>
+            </allowed-values>
+
             <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
@@ -371,6 +396,20 @@
                 <enum value="database">Database Scan</enum>
                 <enum value="web">Web Scan</enum>
                 <enum value="other">Other</enum>
+            </allowed-values>
+
+            <allowed-values id="user-authentication" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]/prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']/@value" allow-other="no" level="ERROR">
+                <formal-name>User Authentication</formal-name>
+                <description>Identifies if user authentication is required.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <enum value="yes">Yes</enum>
+                <enum value="no">No</enum>
+                <enum value="not-applicable">Not-Applicable</enum>
+                <remarks>
+                    <p>yes: An authentication mechanism exists, and is described in the remarks.</p>
+                    <p>no: An authentication mechanism does not exist, the reason authentication is not necessary is described in the remarks.</p>
+                    <p>not-applicable: The authentication requirement is not applicable, and is described in the remarks.</p>
+                </remarks>
             </allowed-values>
 
             <allowed-values id="user-privilege-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='privilege-level']/@value" allow-other="no" level="ERROR">

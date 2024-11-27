@@ -39,7 +39,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Install OSCAL CLI 
         run: |
-          npm install && npx oscal use 2.2.0
+          make configure
       - name: Run Lint tests
         shell: bash
         run: |

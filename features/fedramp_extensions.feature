@@ -43,6 +43,7 @@ Examples:
   | data-center-primary |
   | data-center-us |
   | deployment-model |
+  | external-system-nature-of-agreement |
   | fedramp-version |
   | fully-operational-date-is-valid |
   | fully-operational-date-type |
@@ -103,6 +104,10 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | leveraged-authorization-has-authorization-type |
+  | leveraged-authorization-has-impact-level |
+  | leveraged-authorization-has-system-identifier |
+  | leveraged-authorization-nature-of-agreement |
   | marking |
   | missing-response-components |
   | party-has-name |
@@ -120,10 +125,12 @@ Examples:
   | role-defined-prepared-by |
   | role-defined-prepared-for |
   | role-defined-system-owner |
+  | saas-has-leveraged-authorization |
   | scan-type |
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
   | unique-inventory-item-asset-id |
+  | user-authentication |
   | user-has-authorized-privilege |
   | user-has-privilege-level |
   | user-has-role-id |
@@ -181,6 +188,8 @@ Examples:
   | data-center-us-PASS.yaml |
   | deployment-model-FAIL.yaml |
   | deployment-model-PASS.yaml |
+  | external-system-nature-of-agreement-FAIL.yaml |
+  | external-system-nature-of-agreement-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
   | fully-operational-date-is-valid-FAIL.yaml |
@@ -301,6 +310,14 @@ Examples:
   | inventory-item-public-PASS.yaml |
   | inventory-item-virtual-FAIL.yaml |
   | inventory-item-virtual-PASS.yaml |
+  | leveraged-authorization-has-authorization-type-FAIL.yaml |
+  | leveraged-authorization-has-authorization-type-PASS.yaml |
+  | leveraged-authorization-has-impact-level-FAIL.yaml |
+  | leveraged-authorization-has-impact-level-PASS.yaml |
+  | leveraged-authorization-has-system-identifier-FAIL.yaml |
+  | leveraged-authorization-has-system-identifier-PASS.yaml |
+  | leveraged-authorization-nature-of-agreement-FAIL.yaml |
+  | leveraged-authorization-nature-of-agreement-PASS.yaml |
   | marking-FAIL.yaml |
   | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
@@ -335,6 +352,8 @@ Examples:
   | role-defined-prepared-for-PASS.yaml |
   | role-defined-system-owner-FAIL.yaml |
   | role-defined-system-owner-PASS.yaml |
+  | saas-has-leveraged-authorization-FAIL.yaml |
+  | saas-has-leveraged-authorization-PASS.yaml |
   | scan-type-FAIL.yaml |
   | scan-type-PASS.yaml |
   | security-level-FAIL.yaml |
@@ -343,6 +362,8 @@ Examples:
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
   | unique-inventory-item-asset-id-FAIL.yaml |
   | unique-inventory-item-asset-id-PASS.yaml |
+  | user-authentication-FAIL.yaml |
+  | user-authentication-PASS.yaml |
   | user-has-authorized-privilege-FAIL.yaml |
   | user-has-authorized-privilege-PASS.yaml |
   | user-has-privilege-level-FAIL.yaml |

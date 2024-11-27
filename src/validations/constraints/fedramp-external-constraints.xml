@@ -293,6 +293,7 @@
     <context>
         <metapath target="/system-security-plan/system-characteristics"/>
         <constraints>
+            <let var="is-saas" expression="exists(prop[@name='cloud-service-model' and @value='saas'])"/>
             <let var="security-impact-level" expression=
                 "if (//security-impact-level//* = 'fips-199-high')
                     then ('fips-199-high')
@@ -502,6 +503,11 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type MUST have an integrity impact.</message>
             </expect>
+            <expect id="saas-has-leveraged-authorization" target="." test="if ($is-saas) then (count(..//leveraged-authorization) >= 1) else (true())" level="ERROR">
+                <formal-name>SaaS Has Leveraged Authorization</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>A FedRAMP SSP that defines a SaaS cloud service model MUST define at least one leveraged authorization.</message>
+            </expect>
             <expect id="security-sensitivity-level-matches-security-impact-level" target="security-sensitivity-level" test=". eq $security-impact-level" level="WARNING">
                 <formal-name>Security Sensitivity Level Matches Security Impact Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
@@ -517,6 +523,21 @@
 				<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
 				<message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
 			</expect>
+            <expect id="leveraged-authorization-has-authorization-type" target="leveraged-authorization" test="count(prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+                <formal-name>Leveraged Authorization Has Authorization Type</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>A FedRAMP SSP MUST define exactly one authorization type for each leveraged authorization entry.</message>
+            </expect>
+            <expect id="leveraged-authorization-has-impact-level" target="leveraged-authorization" test="count(prop[@name='impact-level'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+                <formal-name>Leveraged Authorization Has Impact Level</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>A FedRAMP SSP MUST define exactly one impact level for each leveraged authorization entry.</message>
+            </expect>
+            <expect id="leveraged-authorization-has-system-identifier" target="leveraged-authorization" test="count(prop[@name='leveraged-system-identifier'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+                <formal-name>Leveraged Authorization Has System Identifier</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>A FedRAMP SSP MUST define exactly one system identifier for each leveraged authorization entry.</message>
+            </expect>
 		</constraints>
 	</context>    
     <context>

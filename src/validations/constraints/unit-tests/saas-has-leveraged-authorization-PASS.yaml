@@ -1,0 +1,12 @@
+test-case:
+  name: Positive Test for saas-has-leveraged-authorization
+  description: >-
+    This test case validates the behavior of constraint saas-has-leveraged-authorization.
+    Scenario 1: SSP does not have a saas cloud service model.
+    Scenario 2: SSP has a saas cloud service model.
+  content: 
+    - ../content/ssp-all-VALID.xml
+    - ../content/ssp-saas-has-leveraged-authorization-VALID.xml
+  expectations:
+    - constraint-id: saas-has-leveraged-authorization
+      result: pass

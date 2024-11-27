@@ -1,0 +1,7 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
+  <system-implementation>
+    <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+      <!-- <prop ns="http://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/> Missing leveraged-system-identifier -->
+    </leveraged-authorization>
+  </system-implementation>
+</system-security-plan>
