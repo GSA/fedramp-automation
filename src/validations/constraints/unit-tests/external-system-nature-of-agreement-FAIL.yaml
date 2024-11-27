@@ -1,0 +1,8 @@
+# Driver for the invalid external-system-nature-of-agreement constraint unit test.
+test-case:
+  name: The invalid external-system-nature-of-agreement constraint unit test.
+  description: Test that the FedRAMP SSP contains an invalid nature-of-agreement value for an external system.
+  content: ../content/ssp-external-system-nature-of-agreement-INVALID.xml
+  expectations:
+  - constraint-id: external-system-nature-of-agreement
+    result: fail

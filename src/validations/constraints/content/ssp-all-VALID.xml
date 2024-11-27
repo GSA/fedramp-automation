@@ -332,6 +332,17 @@
         <p>This connection is used for secure data exchange with external systems.</p>
       </remarks>
     </component>
+
+    <component uuid="77777777-0000-4000-9000-000000000007" type="software">
+      <title>Name of External System</title>
+      <description>
+          <p>Briefly describe the external system.</p>
+      </description>
+      <prop name="asset-type" value="cli"/>
+      <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
+      <status state="operational"/>
+    </component>
     
     <inventory-item uuid="77777777-0000-4000-9000-000000000007">
       <description>
