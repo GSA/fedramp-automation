@@ -28,6 +28,7 @@ Examples:
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
   | address-type |
   | attachment-type |
+  | authentication-method-has-remarks |
   | authorization-type |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
@@ -130,7 +131,6 @@ Examples:
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
   | unique-inventory-item-asset-id |
-  | unique-inventory-item-asset-id |
   | user-authentication |
   | user-has-authorized-privilege |
   | user-has-privilege-level |
@@ -161,6 +161,8 @@ Examples:
   | address-type-PASS.yaml |
   | attachment-type-FAIL.yaml |
   | attachment-type-PASS.yaml |
+  | authentication-method-has-remarks-FAIL.yaml |
+  | authentication-method-has-remarks-PASS.yaml |
   | authorization-type-FAIL.yaml |
   | authorization-type-PASS.yaml |
   | categorization-has-correct-system-attribute-FAIL.yaml |
