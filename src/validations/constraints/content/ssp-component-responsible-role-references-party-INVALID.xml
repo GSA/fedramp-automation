@@ -1,22 +1,11 @@
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd" uuid="12345678-1234-4321-8765-123456789012">
-  <metadata>
-  <!-- There are two parties with the same uuid. The count should be 1. -->
-    <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
-      <name>Example Organization</name>
-      <short-name>ExOrg</short-name>
-      <link rel="website" href="https://example.com"/>
-    </party>
-    <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
-      <name>Example Organization</name>
-      <short-name>ExOrg</short-name>
-      <link rel="website" href="https://example.com"/>
-    </party>
-  </metadata>
   <system-implementation>
     <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
       <responsible-role role-id="provider">
+        <!-- There are two parties referenced. The count should be 1. -->
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+        <party-uuid>11111111-0000-4000-9000-000000000002</party-uuid>
       </responsible-role>
     </component>
   </system-implementation>
