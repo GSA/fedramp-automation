@@ -5,7 +5,7 @@
                       uuid="12345678-1234-4321-8765-123456789012">
   
   <system-characteristics>
-    <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2027-01-01+00:00"/><!-- operational date should not be in future -->
+    <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2027-01-01+00:00"/><!-- operational date should not be in future -->
   </system-characteristics>
 
 </system-security-plan>

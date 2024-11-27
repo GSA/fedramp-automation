@@ -11,7 +11,7 @@
         <p>An external leveraged system.</p>
       </description>
       <prop name="leveraged-authorization-uuid" uuid="233e0f09-fe5e-47e2-bca3-5f32df75e57a" value="contract"/>
-      <prop name="nature-of-agreement" uuid="306e68da-86c3-4c18-b559-e95d85fb71e7" ns="https://fedramp.gov/ns/oscal" value="invalid"/>
+      <prop name="nature-of-agreement" uuid="306e68da-86c3-4c18-b559-e95d85fb71e7" ns="http://fedramp.gov/ns/oscal" value="invalid"/>
       <status state="operational"/>
     </component>
   </system-implementation>

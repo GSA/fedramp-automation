@@ -30,7 +30,7 @@
         		<enum value="cui">Controlled Unclassified Information</enum>
         	</allowed-values>
 
-            <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="attachment-type" target="back-matter/resource/prop[@name='type'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Attachment Type</formal-name>
                 <description>Identifies the type of attachment.</description>
                 <enum value="law">Law or Statute</enum>
@@ -71,7 +71,7 @@
                 </remarks>
             </allowed-values>
 
-            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="authorization-type" target="system-characteristics/prop[@name='authorization-type'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Authorization Type</formal-name>
                 <description>The FedRAMP Authorization Type</description>
                 <enum value="fedramp-jab">FedRAMP JAB P-ATO</enum>
@@ -127,7 +127,7 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
-            <allowed-values id="external-system-nature-of-agreement" target="system-implementation/component[(@type='service' and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and prop[@name='implementation-point' and @value='internal'] and prop[@name='direction']) or (@type='software' and prop[@name='asset-type' and @value='cli'] and prop[@name='direction'])]/prop[@name='nature-of-agreement' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="external-system-nature-of-agreement" target="system-implementation/component[(@type='service' and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and prop[@name='implementation-point' and @value='internal'] and prop[@name='direction']) or (@type='software' and prop[@name='asset-type' and @value='cli'] and prop[@name='direction'])]/prop[@name='nature-of-agreement' and @ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Nature of Agreement for External Systems</formal-name>
                 <description>Identifies nature of agreement for external systems.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
@@ -140,7 +140,7 @@
                 <enum value="sla">A service-level agreement between the CSP and the organization that owns the external system.</enum>
             </allowed-values>
 
-            <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="fedramp-version" target="metadata/prop[@name='fedramp-version'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>FedRAMP Version</formal-name>
                 <description>Identifies the FedRAMP version of the document.</description>
                 <enum value="fedramp-3.0.0rc1-oscal-1.1.2">FedRAMP Version</enum>
@@ -334,7 +334,7 @@
                 <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST SP 800-60 Volume 2 Revision 1</enum>
             </allowed-values>
 
-            <allowed-values id="interconnection-direction" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="interconnection-direction" target="system-implementation/component[@type='interconnection']/prop[@name='interconnection-direction'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Interconnection Direction</formal-name>
                 <description>Identifies the direction of information flow for the interconnection.</description>
                 <enum value="in">Incoming</enum>
@@ -375,7 +375,7 @@
                 <enum value="no">No</enum>
             </allowed-values>
 
-            <allowed-values id="leveraged-authorization-nature-of-agreement" target="system-implementation/component[@type='system'][prop[@name='leveraged-authorization-uuid']]/prop[@name='nature-of-agreement'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="leveraged-authorization-nature-of-agreement" target="system-implementation/component[@type='system'][prop[@name='leveraged-authorization-uuid']]/prop[@name='nature-of-agreement'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Nature of Agreement for Leveraged Authorizations</formal-name>
                 <description>Identifies nature of agreement for leveraged authorizations.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
@@ -387,7 +387,7 @@
                 <enum value="sla">A service-level agreement between the CSP and the organization that owns the leveraged system.</enum>
             </allowed-values>
 
-            <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="privilege-level" target="system-implementation/user/prop[@name='privilege-level'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
@@ -397,7 +397,7 @@
                 <enum value="no-access">No Access</enum>
               </allowed-values>
 
-            <allowed-values id="scan-type" target="system-implementation//prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="scan-type" target="system-implementation//prop[@name='scan-type'][@ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>Scan Type</formal-name>
                 <description>Identifies the type of scan.</description>
                 <enum value="infrastructure">Infrastructure and Operating System Scan</enum>
@@ -406,7 +406,7 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
-            <allowed-values id="user-authentication" target="system-implementation/component/prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="user-authentication" target="system-implementation/component/prop[@name='authentication-method' and @ns='http://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>User Authentication</formal-name>
                 <description>Identifies if user authentication is required.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
@@ -420,7 +420,7 @@
                 </remarks>
             </allowed-values>
 
-            <allowed-values id="user-privilege-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='privilege-level']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="user-privilege-level" target="//user/prop[@ns='http://fedramp.gov/ns/oscal' and @name='privilege-level']/@value" allow-other="no" level="ERROR">
                 <formal-name>Privilege Level</formal-name>
                 <description>The privilege level of the user.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
@@ -430,7 +430,7 @@
                 <enum value="no-access">No Access</enum>
             </allowed-values>
 
-            <allowed-values id="user-sensitivity-level" target="//user/prop[@ns='https://fedramp.gov/ns/oscal' and @name='sensitivity']/@value"  allow-other="no" level="ERROR">
+            <allowed-values id="user-sensitivity-level" target="//user/prop[@ns='http://fedramp.gov/ns/oscal' and @name='sensitivity']/@value"  allow-other="no" level="ERROR">
                 <formal-name>User Sensitvity Level</formal-name>
                 <description>Sensitivity level of the user.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>

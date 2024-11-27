@@ -10,7 +10,7 @@
     <version>1.1</version>
     <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
-    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
+    <prop name="fedramp-version" ns="http://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     <prop name="marking" value="cui"/>
     <role id="authorizing-official">
       <title>Authorizing Official</title>
@@ -178,11 +178,11 @@
         <p>Remarks are required if service model is "other". Optional otherwise.</p>
       </remarks>
     </prop>
-    <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='fedramp-agency' ns="http://fedramp.gov/ns/oscal"/>
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
-    <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
+    <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
     <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
@@ -270,8 +270,8 @@
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
       <role-id>system-admin</role-id>
       <authorized-privilege>
         <title>Admin</title>
@@ -294,6 +294,19 @@
       <remarks>
         <p>This is the primary application server for the system.</p>
       </remarks>
+    </component>
+
+    <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
+      <title>An External Leveraged System</title>
+      <description>
+        <p>An external leveraged system.</p>
+      </description>
+      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
+      <prop name="nature-of-agreement" ns="http://fedramp.gov/ns/oscal" value="sla"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes"/>
+     <status state="operational"/>
+     </component>
+
     </component>
     
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
@@ -339,7 +352,7 @@
       <prop name="allows-authenticated-scan" value="yes"/>
       <prop name="public" value="no"/>
       <prop name="virtual" value="yes"/>
-      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="scan-type" value="database" ns="http://fedramp.gov/ns/oscal"/>
       <responsible-party role-id="asset-owner">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>

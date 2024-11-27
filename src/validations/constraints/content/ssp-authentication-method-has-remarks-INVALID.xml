@@ -1,7 +1,7 @@
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
   <system-implementation>
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <!-- <remarks>
           <p>Some description of the authentication method.</p>
         </remarks> Missing remarks field. Authentication method count = 1 and remarks count = 0.-->

@@ -7,8 +7,8 @@
     <component uuid="11111111-2222-4000-8000-009000100001" type="system">
       <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
       <prop name="implementation-point" value="external"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
+      <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
         <remarks>
           <p>If 'yes', describe the authentication method.</p>
           <p>If 'no', explain why no authentication is used.</p>
@@ -24,8 +24,8 @@
       </description>
       <prop name="implementation-point" value="external"/>
       <prop name="direction" value="outgoing"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
+      <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
         <remarks>
           <p>If 'yes', describe the authentication method.</p>
           <p>If 'no', explain why no authentication is used.</p>
@@ -36,9 +36,9 @@
     <component uuid="11111111-2222-4000-8000-009000200001" type="interconnection">
       <prop name="direction" value="incoming"/>
       <prop name="direction" value="outgoing"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
+      <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
         <remarks>
           <p>If 'yes', describe the authentication method in the remarks.</p>
           <p>If 'no', explain why no authentication is used in the remarks.</p>
@@ -54,7 +54,7 @@
         </description>
         <prop name="implementation-point" value="internal"/>
         <prop name="direction" value="outgoing"/>
-        <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
+        <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
           <remarks>
             <p>If 'yes', describe the authentication method in the remarks.</p>
             <p>If 'no', explain why no authentication is used in the remarks.</p>
@@ -70,7 +70,7 @@
       <prop name="asset-type" value="cli"/>
       <prop name="implementation-point" value="internal"/>
       <prop name="direction" value="outgoing"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="INVALID">
         <remarks>
           <p>If 'yes', describe the authentication method in the remarks.</p>
           <p>If 'no', explain why no authentication is used in the remarks.</p>
