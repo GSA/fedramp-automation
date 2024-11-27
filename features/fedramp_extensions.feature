@@ -131,7 +131,6 @@ Examples:
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
   | unique-inventory-item-asset-id |
-  | unique-inventory-item-asset-id |
   | user-authentication |
   | user-has-authorized-privilege |
   | user-has-privilege-level |
