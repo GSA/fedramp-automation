@@ -315,7 +315,10 @@
         </remarks>
       </prop>
      <status state="operational"/>
-     </component>
+       <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+    </component>
 
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
       <title>External API Connection</title>

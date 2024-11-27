@@ -76,15 +76,22 @@
     <context>
         <metapath target="/system-security-plan"/>
         <constraints>
+            <let var="all-parties" expression="//party"/>
             <let var="authorization-boundary-link" expression="system-characteristics/authorization-boundary/diagram/link/@href"/>
             <let var="data-flow-link" expression="system-characteristics/data-flow/diagram/link/@href"/>
             <let var="network-architecture-link" expression="system-characteristics/network-architecture/diagram/link/@href"/>
             <let var="import-profile-href" expression="import-profile/@href"/>
+            <let var="provider-role-party-uuid" expression="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]/responsible-role[@role-id='provider']/party-uuid"/>
             <let var="resolved-import-profile-href" expression="if (starts-with($import-profile-href, '#')) then back-matter/resource[@uuid = substring($import-profile-href, 2)]/rlink/@href else $import-profile-href"/>
             <expect id="component-has-authentication-method" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']) >= 1" level="ERROR">
                 <formal-name>Component Has Authentication Method</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST include at least one authentication method for each leveraged system.</message>
+            </expect>
+            <expect id="component-responsible-role-references-party" target="." test="count($all-parties[@uuid = $provider-role-party-uuid]) = 1" level="ERROR">
+                <formal-name>Component Responsible Role References Party</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>Each component dealing with leveraged systems, interconnections, or authorized services MUST have a "provider" responsible-role that references exactly one valid party.</message>
             </expect>
             <expect id="has-authorization-boundary-diagram-link-href-target" target="." test="not(starts-with(system-characteristics/authorization-boundary/diagram/link/@href, '#')) or exists(//resource[@uuid eq substring-after($authorization-boundary-link, '#')])" level="ERROR">
                 <formal-name>Has Authorization Boundary Diagram Link Href Target</formal-name>
