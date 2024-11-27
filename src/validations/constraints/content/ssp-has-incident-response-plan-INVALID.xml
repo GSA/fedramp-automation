@@ -8,7 +8,7 @@
       <description>
         <p>Detailed access control policy document</p>
       </description>
-      <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="type" value="unsupported-type" ns="http://fedramp.gov/ns/oscal"/>
     </resource>
   </back-matter>
 </system-security-plan>

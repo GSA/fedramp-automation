@@ -93,8 +93,8 @@
         <link href="#4c0ec2ee-a0d6-428a-9043-4504bc3ade6f" rel="reference"/>
         <link href="#7f473f21-fdbf-4a6c-81a1-0ab95919609d" rel="reference"/>
         <part name="statement" ns="http://csrc.nist.gov/ns/oscal">
-            <prop name="response-point" ns="https://fedramp.gov/ns/oscal" value="123"/>
-            <prop name="response-point" ns="https://fedramp.gov/ns/oscal" value="1234"/>
+            <prop name="response-point" ns="http://fedramp.gov/ns/oscal" value="123"/>
+            <prop name="response-point" ns="http://fedramp.gov/ns/oscal" value="1234"/>
         </part>
 
 </control>

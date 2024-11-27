@@ -20,7 +20,7 @@
   <modify>
     <alter control-id="ac-1">
         <add position="ending">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
         </add>
     </alter>
   </modify>
