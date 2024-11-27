@@ -309,8 +309,9 @@
       </description>
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
       <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
-      <status state="operational"/>
-    </component>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes"/>
+     <status state="operational"/>
+     </component>
 
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
       <title>External API Connection</title>
