@@ -634,7 +634,7 @@
             </confidentiality-impact>
             <integrity-impact>
                <base>fips-199-moderate</base>
-               <selected>fips-199-moderate</selected>
+               <selected>fips-199-low</selected>
                <adjustment-justification>
                   <p>Required if the base and selected values do not match.</p>
                </adjustment-justification>
@@ -657,7 +657,7 @@
             </categorization>
             <confidentiality-impact>
                <base>fips-199-moderate</base>
-               <selected>fips-199-moderate</selected>
+               <selected>fips-199-low</selected>
                <adjustment-justification>
                   <p>Required if the base and selected values do not match.</p>
                </adjustment-justification>
@@ -671,7 +671,7 @@
             </integrity-impact>
             <availability-impact>
                <base>fips-199-moderate</base>
-               <selected>fips-199-moderate</selected>
+               <selected>fips-199-high</selected>
                <adjustment-justification>
                   <p>Required if the base and selected values do not match.</p>
                </adjustment-justification>
@@ -3882,9 +3882,9 @@
          <description>
             <p>SSP Signature</p>
          </description>
-         <prop name="type" value="artifact"/>
+         <prop name="type" class="signed-ssp" value="artifact"/>
          <!-- Use rlink and/or base64 -->
-         <rlink href="./signed-ssp.pdf" media-type="application/pdf"/>
+         <rlink href="./attachments/signed-ssp.pdf" media-type="application/pdf"/>
          <base64 filename="ssp.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>The FedRAMP PMO is formulating guidelines for handling digital/electronic signatures in
@@ -3902,21 +3902,21 @@
       <!-- FedRAMP Laws -->
       <resource uuid="11111111-2222-4000-8000-001000000003">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop name="type" value="citation"/>
+         <prop name="type" class="fedramp-citations" value="citation"/>
          <rlink
             href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
             media-type="application/vnd.ms-excel">00000000</base64>
          <remarks>
-            <p>Must be present in a FedRAMP SAP.</p>
+            <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
       </resource>
       <!-- Section 12 lists required attachments -->
       <!-- Appendix B - Related Acronyms -->
       <resource uuid="11111111-2222-4000-8000-001000000004">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="type" value="citation"/>
+         <prop name="type" class="fedramp-acronyms" value="citation"/>
          <rlink
             href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <!-- Todo: Make base64 optional -->
@@ -3932,11 +3932,11 @@
          <description>
             <p>AC Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ac"/>
+         <prop name="type" value="policy"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_AC_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_policy.pdf"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
@@ -3950,11 +3950,11 @@
          <description>
             <p>AT Policy document</p>
          </description>
-         <prop name="type" value="policy" class="at"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_AT_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AT_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -3967,11 +3967,11 @@
          <description>
             <p>AU Policy document</p>
          </description>
-         <prop name="type" value="policy" class="au"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_AU_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AU_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -3984,11 +3984,11 @@
          <description>
             <p>CA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ca"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_CA_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_CA_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4001,11 +4001,11 @@
          <description>
             <p>CM Policy document</p>
          </description>
-         <prop name="type" value="policy" class="cm"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_CM_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_CM_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4018,11 +4018,11 @@
          <description>
             <p>CP Policy document</p>
          </description>
-         <prop name="type" value="policy" class="cp"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_CP_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_CP_policy.pdf"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
@@ -4036,11 +4036,11 @@
          <description>
             <p>IA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ia"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_IA_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_IA_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4053,11 +4053,11 @@
          <description>
             <p>IR Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ir"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_IR_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_IR_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4070,11 +4070,11 @@
          <description>
             <p>MA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ma"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_MA_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_MA_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4087,11 +4087,11 @@
          <description>
             <p>MP Policy document</p>
          </description>
-         <prop name="type" value="policy" class="mp"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_MP_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_MP_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4104,11 +4104,11 @@
          <description>
             <p>PE Policy document</p>
          </description>
-         <prop name="type" value="policy" class="pe"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_PE_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_PE_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4121,11 +4121,11 @@
          <description>
             <p>PL Policy document</p>
          </description>
-         <prop name="type" value="policy" class="pl"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_PL_policy.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_PL_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4138,11 +4138,11 @@
          <description>
             <p>PS Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ps"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_PS_policy.pdf"/>
+         <rlink href="./attachments/policies/sample_PS_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4155,11 +4155,11 @@
          <description>
             <p>RA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ra"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_RA_policy.pdf"/>
+         <rlink href="./attachments/policies/sample_RA_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4172,11 +4172,11 @@
          <description>
             <p>SA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="sa"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SA_policy.pdf"/>
+         <rlink href="./attachments/policies/sample_SA_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4189,11 +4189,11 @@
          <description>
             <p>SC Policy document</p>
          </description>
-         <prop name="type" value="policy" class="sc"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SC_policy.pdf"/>
+         <rlink href="./attachments/policies/sample_SC_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4206,11 +4206,11 @@
          <description>
             <p>SI Policy document</p>
          </description>
-         <prop name="type" value="policy" class="si"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SI_policy.pdf"/>
+         <rlink href="./attachments/policies/sample_SI_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4223,11 +4223,11 @@
          <description>
             <p>SR Policy document</p>
          </description>
-         <prop name="type" value="policy" class="sr"/>
+         <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SR_policy.pdf"/>
+         <rlink href="./attachments/policies/sample_SR_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -4241,11 +4241,11 @@
          <description>
             <p>AC Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ac"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_AC_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4258,11 +4258,11 @@
          <description>
             <p>AT Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="at"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_AT_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AT_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4275,11 +4275,11 @@
          <description>
             <p>AU Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="au"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_AU_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AU_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4292,11 +4292,11 @@
          <description>
             <p>CA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ca"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_CA_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_CA_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4309,11 +4309,11 @@
          <description>
             <p>CM Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="cm"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_CM_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_CM_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4326,11 +4326,11 @@
          <description>
             <p>CP Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="cp"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_CP_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_CP_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4343,11 +4343,11 @@
          <description>
             <p>IA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ia"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_IA_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_IA_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4360,11 +4360,11 @@
          <description>
             <p>IR Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ir"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_IR_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_IR_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4377,11 +4377,11 @@
          <description>
             <p>MA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ma"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_MA_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_MA_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4394,11 +4394,11 @@
          <description>
             <p>MP Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="mp"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_MP_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_MP_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4411,11 +4411,11 @@
          <description>
             <p>PE Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="pe"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_PE_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_PE_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4428,11 +4428,11 @@
          <description>
             <p>PL Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="pl"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./documents/policies/sample_PL_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_PL_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4445,11 +4445,11 @@
          <description>
             <p>PS Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ps"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_PS_procedure.pdf"/>
+         <rlink href="./attachments/policies/sample_PS_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4462,11 +4462,11 @@
          <description>
             <p>RA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ra"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_RA_procedure.pdf"/>
+         <rlink href="./attachments/policies/sample_RA_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4479,11 +4479,11 @@
          <description>
             <p>SA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="sa"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SA_procedure.pdf"/>
+         <rlink href="./attachments/policies/sample_SA_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4496,11 +4496,11 @@
          <description>
             <p>SC Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="sc"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SC_procedure.pdf"/>
+         <rlink href="./attachments/policies/sample_SC_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4513,11 +4513,11 @@
          <description>
             <p>SI Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="si"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SI_procedure.pdf"/>
+         <rlink href="./attachments/policies/sample_SI_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4530,11 +4530,11 @@
          <description>
             <p>SR Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="sr"/>
+         <prop name="type" value="procedure" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/policies/sample_SR_procedure.pdf"/>
+         <rlink href="./attachments/policies/sample_SR_procedure.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4551,7 +4551,7 @@
          <prop name="type" value="users-guide"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
-         <rlink href="./documents/guides/sample_guide.pdf"/>
+         <rlink href="./attachments/guides/sample_guide.pdf"/>
          <!--<base64 media-type="application/pdf" filename="sample_guide.pdf">00000000</base64>-->
          <remarks>
             <p>Table 12-1 Attachments: User's Guide Attachment</p>
@@ -4571,7 +4571,7 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/rob.docx" media-type="application/msword"/>
+         <rlink href="./attachments/rob.docx" media-type="application/msword"/>
          <base64 filename="rob.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Rules of Behavior (ROB)</p>
@@ -4589,7 +4589,7 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/cp.docx" media-type="application/msword"/>
+         <rlink href="./attachments/cp.docx" media-type="application/msword"/>
          <base64 filename="cp.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Contingency Plan (CP) Attachment</p>
@@ -4607,7 +4607,7 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/CM_Plan.docx" media-type="application/msword"/>
+         <rlink href="./attachments/CM_Plan.docx" media-type="application/msword"/>
          <base64 filename="CM_Plan.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Configuration Management (CM) Plan Attachment</p>
@@ -4625,7 +4625,7 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/IR_Plan.docx" media-type="application/msword"/>
+         <rlink href="./attachments/IR_Plan.docx" media-type="application/msword"/>
          <base64 filename="IR_Plan.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Incident Response (IR) Plan Attachment</p>
@@ -4660,7 +4660,7 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/ConMon_Plan.docx" media-type="application/msword"/>
+         <rlink href="./attachments/ConMon_Plan.docx" media-type="application/msword"/>
          <base64 filename="ConMon_Plan.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Continuous Monitoring Plan Attachment</p>
@@ -4675,8 +4675,8 @@
          <!-- document date -->
          <prop name="version" value="Document Version"/>
          <prop name="type" value="plan" class="poam"/>
-         <rlink href="./documents/POAMs/SAMPLE_POAM_20230531.xml" media-type="=application/xml"/>
-         <rlink href="./documents/POAMs/SAMPLE_POAM_20230531.xlsx" media-type="application/vnd.ms-excel"/>
+         <rlink href="./attachments/POAMs/SAMPLE_POAM_20230531.xml" media-type="=application/xml"/>
+         <rlink href="./attachments/POAMs/SAMPLE_POAM_20230531.xlsx" media-type="application/vnd.ms-excel"/>
          <base64 filename="SAMPLE_POAM_20230531.xml" media-type="application/xml">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
       </resource>
@@ -4686,11 +4686,11 @@
          <description>
             <p>Supply Chain Risk Management Plan</p>
          </description>
-         <prop name="type" value="plan" class="scrmp"/>
+         <prop name="type" value="plan" class="supply-chain-risk-management-plan"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/plans/sample_SCRMP_procedure.pdf"/>
+         <rlink href="./attachments/plans/sample_SCRMP_procedure.pdf"/>
          <base64 filename="sample_SCRMP.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
@@ -4706,8 +4706,8 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <prop name="type" value="agreement" class="isa"/>
-         <rlink href="./documents/ISAs/ISA-1.docx"/>
+         <prop name="type" value="agreement" class="interconnection-security-agreement"/>
+         <rlink href="./attachments/ISAs/ISA-1.docx"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="ISA-1.docx" media-type="application/msword">00000000</base64>
       </resource>
@@ -4729,7 +4729,7 @@
          <description>
             <p>CSP Logo</p>
          </description>
-         <rlink href="./img/logo.png" media-type="image/png"/>
+         <rlink href="./attachments/img/logo.png" media-type="image/png"/>
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>May use <code>rlink</code> with a relative path, or embedded as
@@ -4744,7 +4744,7 @@
          <description>
             <p>3PAO Logo</p>
          </description>
-         <rlink href="./img/logo.png" media-type="image/png"/>
+         <rlink href="./attachments/img/logo.png" media-type="image/png"/>
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>May use <code>rlink</code> with a relative path, or embedded as
@@ -4761,7 +4761,7 @@
             <p>The primary authorization boundary diagram.</p>
          </description>
          <prop name="type" value="image" class="authorization-boundary" />
-         <rlink href="./diagrams/boundary.png"/>
+         <rlink href="./attachments/diagrams/boundary.png"/>
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>Section 8.1, Figure 8-1 Authorization Boundary Diagram (graphic)</p>
@@ -4780,8 +4780,9 @@
          <description>
             <p>The primary network diagram.</p>
          </description>
+         <prop name="type" value="image" class="network-architecture" />
          <!-- Use rlink and/or base64 -->
-         <rlink href="./diagrams/network.png"/>
+         <rlink href="./attachments/diagrams/network.png"/>
          <base64 filename="network.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>Section 8.1, Figure 8-2 Network Diagram (graphic)</p>
@@ -4800,7 +4801,8 @@
          <description>
             <p>The primary data flow diagram.</p>
          </description>
-         <rlink href="./diagrams/dataflow.png"/>
+         <prop name="type" value="image" class="data-flow" />
+         <rlink href="./attachments/diagrams/dataflow.png"/>
          <base64 filename="dataflow.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>Section 8.1, Figure 8-3 Data Flow Diagram (graphic)</p>
@@ -4815,10 +4817,31 @@
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000058">
          <title>Interconneciton Security Agreement (ISA)</title>
-         <prop name="type" value="agreement" />
+         <prop name="type" value="agreement" class="interconnection-security-agreement"/>
          <prop name="published" value="2024-01-31T00:00:00Z" />
          <prop name="version" value="2.1"/>
-         <rlink href="./documents/isa.pdf" media-type="application/pdf" />
+         <rlink href="./attachments/isa.pdf" media-type="application/pdf" />
+      </resource>
+      <resource uuid="11111111-2222-4000-8000-001000100001">
+         <title>41 CFR 201</title>
+         <prop name="type" class="law" value="citation"/>
+         <citation>
+            <text><q>Federal Acquisition Supply Chain Security Act; Rule,</q> 85 Federal Register 54263 (September 1, 2020), pp 54263-54271.</text>
+         </citation>
+         <rlink href="https://www.federalregister.gov/d/2020-18939"/>
+         <remarks>
+            <p>CSP-specific citation. Note the "type" property's class is "law"
+               and the value is "citation".</p>
+         </remarks>
+      </resource>
+      <resource uuid="11111111-2222-4000-8000-001000100002">
+         <title>CSP Acronyms</title>
+         <prop name="type" class="acronyms" value="citation"/>
+         <rlink href="./attachments/acronyms.pdf"/>
+         <remarks>
+            <p>CSP-specific citation. Note the "type" property's class is "acronyms"
+               and the value is "citation".</p>
+         </remarks>
       </resource>
    </back-matter>
 </system-security-plan>
