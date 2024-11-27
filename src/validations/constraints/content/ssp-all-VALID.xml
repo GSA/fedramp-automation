@@ -10,7 +10,7 @@
     <version>1.1</version>
     <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
-    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
+    <prop name="fedramp-version" ns="http://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     <prop name="marking" value="cui"/>
     <role id="authorizing-official">
       <title>Authorizing Official</title>
@@ -178,11 +178,11 @@
         <p>Remarks are required if service model is "other". Optional otherwise.</p>
       </remarks>
     </prop>
-    <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='fedramp-agency' ns="http://fedramp.gov/ns/oscal"/>
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
-    <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
+    <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
     <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
@@ -262,9 +262,9 @@
 
     <leveraged-authorization uuid="233e0f09-fe5e-47e2-bca3-5f32df75e57a">
       <title>GovCloud</title>
-      <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
       <link href="//path/to/leveraged_system_ssp.xml"/>
       <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
       <date-authorized>2015-01-01</date-authorized>
@@ -277,8 +277,8 @@
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
       <role-id>system-admin</role-id>
       <authorized-privilege>
         <title>Admin</title>
@@ -308,8 +308,8 @@
         <p>An external leveraged system.</p>
       </description>
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
-      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes"/>
+      <prop name="nature-of-agreement" ns="http://fedramp.gov/ns/oscal" value="sla"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes"/>
      <status state="operational"/>
      </component>
 
@@ -318,9 +318,9 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop name="interconnection-security" value="vpn" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-direction" value="in/out" ns="http://fedramp.gov/ns/oscal"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>Some description of the authentication method.</p>
         </remarks>
@@ -340,8 +340,8 @@
           <p>Briefly describe the external system.</p>
       </description>
       <prop name="asset-type" value="cli"/>
-      <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
+      <prop name="direction" value="in/out" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="nature-of-agreement" ns="http://fedramp.gov/ns/oscal" value="isa"/>
       <status state="operational"/>
     </component>
     
@@ -372,7 +372,7 @@
       <prop name="allows-authenticated-scan" value="yes"/>
       <prop name="public" value="no"/>
       <prop name="virtual" value="yes"/>
-      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="scan-type" value="database" ns="http://fedramp.gov/ns/oscal"/>
       <responsible-party role-id="asset-owner">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>

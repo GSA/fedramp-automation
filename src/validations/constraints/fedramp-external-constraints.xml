@@ -7,7 +7,7 @@
     <context>
     	<metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
         <constraints>
-            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']" level="ERROR">
+            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='http://fedramp.gov/ns/oscal']" level="ERROR">
                 <formal-name>Fedramp Version</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-version"/>
                 <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
@@ -32,7 +32,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with at least one authorized privilege by a privilege identifier.</message>
             </expect>
-            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level'][@ns='http://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>User Has Privilege Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with a privilege for their use of the system.</message>
@@ -60,7 +60,7 @@
         <metapath target="/assessment-plan/local-definitions/objectives-and-methods"/>
         <metapath target="/assessment-results/local-definitions/objectives-and-methods"/>
         <constraints>
-            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="ERROR">
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="ERROR">
                 <formal-name>Prop Response Point Has Cardinality One</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#control-implementation-descriptions"/>
                 <message>MUST NOT have Duplicate response point at '{ path(.) }'.</message>
@@ -81,7 +81,7 @@
             <let var="network-architecture-link" expression="system-characteristics/network-architecture/diagram/link/@href"/>
             <let var="import-profile-href" expression="import-profile/@href"/>
             <let var="resolved-import-profile-href" expression="if (starts-with($import-profile-href, '#')) then back-matter/resource[@uuid = substring($import-profile-href, 2)]/rlink/@href else $import-profile-href"/>
-            <expect id="component-has-authentication-method" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']) >= 1" level="ERROR">
+            <expect id="component-has-authentication-method" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='authentication-method']) >= 1" level="ERROR">
                 <formal-name>Component Has Authentication Method</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST include at least one authentication method for each leveraged system.</message>
@@ -106,7 +106,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog with a valid file or HTTP(S) address.</message>
             </expect>
-            <expect id="import-profile-resolves-to-fedramp-content" target="." test="count(resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//control//prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
+            <expect id="import-profile-resolves-to-fedramp-content" target="." test="count(resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//control//prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) >= 2" level="CRITICAL">
                 <formal-name>Import Profile resolves to Fedramp content</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/3-working-with-oscal-files/#importing-the-fedramp-baseline"/>
                 <message>A FedRAMP SSP MUST import a profile or catalog of security controls to reference implemented requirements against those control(s).</message>
@@ -274,12 +274,12 @@
     <context>
         <metapath target="/system-security-plan/system-characteristics"/>
         <constraints>
-            <expect id="fully-operational-date-is-valid" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" test=". &lt;= current-dateTime()" level="ERROR"><!-- TODO - Need metapath current-date() function -->
+            <expect id="fully-operational-date-is-valid" target="prop[@ns='http://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" test=". &lt;= current-dateTime()" level="ERROR"><!-- TODO - Need metapath current-date() function -->
                 <formal-name>Fully Operational Date Is Valid</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
                 <message>A system MUST be fully implemented prior to submitting the SSP to FedRAMP.</message>
             </expect>
-            <matches id="fully-operational-date-type" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" datatype="date-with-timezone" level="ERROR">
+            <matches id="fully-operational-date-type" target="prop[@ns='http://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" datatype="date-with-timezone" level="ERROR">
                 <formal-name>Fully Operational Date Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
                 <!-- Todo: add custom error message once Metaschma 'match' constraints support 'message' field. -->
@@ -287,7 +287,7 @@
                 <message>A FedRAMP SSP MUST specify the system's fully operational data as a "full-date" per RFC3339 with the addition of a timezone.</message>
                 -->
             </matches> 
-            <expect id="has-fully-operational-date" target="." test="exists(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date'])" level="ERROR">
+            <expect id="has-fully-operational-date" target="." test="exists(prop[@ns='http://fedramp.gov/ns/oscal' and @name='fully-operational-date'])" level="ERROR">
                 <formal-name>Fully Operational Date</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
                 <message>A FedRAMP SSP MUST define the system's fully operational date.</message>
@@ -483,7 +483,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-sensitivity-level"/>
                 <message>A FedRAMP SSP document MUST specify a FIPS 199 categorization.</message>
             </expect>
-            <expect id="has-system-id" target="." test="system-id[@identifier-type eq 'https://fedramp.gov']" level="ERROR">
+            <expect id="has-system-id" target="." test="system-id[@identifier-type eq 'http://fedramp.gov/ns/oscal']" level="ERROR">
                 <formal-name>Has System Id</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-name-abbreviation-and-fedramp-unique-identifier"/>
                 <message>A FedRAMP SSP MUST have a FedRAMP system identifier.</message>
@@ -528,17 +528,17 @@
 				<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
 				<message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
 			</expect>
-            <expect id="leveraged-authorization-has-authorization-type" target="leveraged-authorization" test="count(prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+            <expect id="leveraged-authorization-has-authorization-type" target="leveraged-authorization" test="count(prop[@name='authorization-type'][@ns='http://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>Leveraged Authorization Has Authorization Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST define exactly one authorization type for each leveraged authorization entry.</message>
             </expect>
-            <expect id="leveraged-authorization-has-impact-level" target="leveraged-authorization" test="count(prop[@name='impact-level'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+            <expect id="leveraged-authorization-has-impact-level" target="leveraged-authorization" test="count(prop[@name='impact-level'][@ns='http://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>Leveraged Authorization Has Impact Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST define exactly one impact level for each leveraged authorization entry.</message>
             </expect>
-            <expect id="leveraged-authorization-has-system-identifier" target="leveraged-authorization" test="count(prop[@name='leveraged-system-identifier'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
+            <expect id="leveraged-authorization-has-system-identifier" target="leveraged-authorization" test="count(prop[@name='leveraged-system-identifier'][@ns='http://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>Leveraged Authorization Has System Identifier</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST define exactly one system identifier for each leveraged authorization entry.</message>
@@ -568,7 +568,7 @@
     <context>
         <metapath target="/system-security-plan/system-implementation"/>
         <constraints>
-            <expect id="authentication-method-has-remarks" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]"  test="count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal'])  = count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal']/remarks)" level="ERROR">
+            <expect id="authentication-method-has-remarks" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]"  test="count(./prop[@name='authentication-method' and @ns='http://fedramp.gov/ns/oscal'])  = count(./prop[@name='authentication-method' and @ns='http://fedramp.gov/ns/oscal']/remarks)" level="ERROR">
                 <formal-name>Authentication Method Has Remarks</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>Each authentication method in a FedRAMP SSP MUST have a remarks field.</message>

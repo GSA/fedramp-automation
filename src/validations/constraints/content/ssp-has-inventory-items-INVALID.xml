@@ -14,7 +14,7 @@
       <prop name="allows-authenticated-scan" value="yes"/>
       <prop name="public" value="no"/>
       <prop name="virtual" value="yes"/>
-      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="scan-type" value="database" ns="http://fedramp.gov/ns/oscal"/>
       <responsible-party role-id="asset-owner">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>
