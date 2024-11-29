@@ -36,6 +36,7 @@ Examples:
   | cia-impact-has-selected |
   | cloud-service-model |
   | component-has-authentication-method |
+  | component-has-non-provider-responsible-role |
   | component-has-provider-responsible-role |
   | component-type |
   | control-implementation-status |
@@ -180,6 +181,8 @@ Examples:
   | cloud-service-model-PASS.yaml |
   | component-has-authentication-method-FAIL.yaml |
   | component-has-authentication-method-PASS.yaml |
+  | component-has-non-provider-responsible-role-FAIL.yaml |
+  | component-has-non-provider-responsible-role-PASS.yaml |
   | component-responsible-role-references-party-FAIL.yaml |
   | component-responsible-role-references-party-PASS.yaml |
   | component-type-FAIL.yaml |
