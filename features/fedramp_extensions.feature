@@ -36,7 +36,7 @@ Examples:
   | cia-impact-has-selected |
   | cloud-service-model |
   | component-has-authentication-method |
-  | component-responsible-role-references-party |
+  | component-has-provider-responsible-role |
   | component-type |
   | control-implementation-status |
   | data-center-alternate |
