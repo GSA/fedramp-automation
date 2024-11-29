@@ -309,7 +309,11 @@
       </description>
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
       <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+        <remarks>
+          <p>Some description of the authentication method.</p>
+        </remarks>
+      </prop>
      <status state="operational"/>
      </component>
 
@@ -342,6 +346,11 @@
       <prop name="asset-type" value="cli"/>
       <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+        <remarks>
+          <p>Some description of the authentication method.</p>
+        </remarks>
+      </prop>
       <status state="operational"/>
     </component>
     
