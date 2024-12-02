@@ -554,6 +554,7 @@
                 <formal-name>Leveraged Authorization Component Has Valid Reference</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <key-field target="@value" />
+                <message>A FedRAMP SSP with leveraged authorization(s) and component(s) describing their services MUST have those components reference the leveraged authorization by its ID.</message>
             </index-has-key>
             <expect id="leveraged-authorization-has-authorized-users" target="." test="count($leveraged-authorization-component/responsible-role/@role-id) gte 1" level="WARNING">
                 <formal-name>Leveraged Authorization Has Authorized Users</formal-name>
