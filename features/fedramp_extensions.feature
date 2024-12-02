@@ -28,6 +28,7 @@ Examples:
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
   | address-type |
   | attachment-type |
+  | authentication-method-has-remarks |
   | authorization-type |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
@@ -107,6 +108,7 @@ Examples:
   | leveraged-authorization-has-authorization-type |
   | leveraged-authorization-has-impact-level |
   | leveraged-authorization-has-system-identifier |
+  | leveraged-authorization-has-valid-impact-level |
   | leveraged-authorization-nature-of-agreement |
   | marking |
   | missing-response-components |
@@ -161,6 +163,8 @@ Examples:
   | address-type-PASS.yaml |
   | attachment-type-FAIL.yaml |
   | attachment-type-PASS.yaml |
+  | authentication-method-has-remarks-FAIL.yaml |
+  | authentication-method-has-remarks-PASS.yaml |
   | authorization-type-FAIL.yaml |
   | authorization-type-PASS.yaml |
   | categorization-has-correct-system-attribute-FAIL.yaml |
@@ -319,6 +323,8 @@ Examples:
   | leveraged-authorization-has-impact-level-PASS.yaml |
   | leveraged-authorization-has-system-identifier-FAIL.yaml |
   | leveraged-authorization-has-system-identifier-PASS.yaml |
+  | leveraged-authorization-has-valid-impact-level-FAIL.yaml |
+  | leveraged-authorization-has-valid-impact-level-PASS.yaml |
   | leveraged-authorization-nature-of-agreement-FAIL.yaml |
   | leveraged-authorization-nature-of-agreement-PASS.yaml |
   | marking-FAIL.yaml |

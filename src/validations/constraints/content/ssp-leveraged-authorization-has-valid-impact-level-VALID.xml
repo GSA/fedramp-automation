@@ -259,21 +259,14 @@
   </system-characteristics>
   
   <system-implementation>
-
-    <leveraged-authorization uuid="233e0f09-fe5e-47e2-bca3-5f32df75e57a">
-      <title>GovCloud</title>
-      <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-moderate"/>
-      <link href="//path/to/leveraged_system_ssp.xml"/>
-      <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
-      <date-authorized>2015-01-01</date-authorized>
-      <remarks>
-        <p>Use one leveraged-authorization assembly for each underlying system. In the legacy world, these may be general support systems.</p>
-        <p>The link fields are optional, but preferred when known. Often, a leveraging system's SSP author will not have access to the leveraged system's SSP, but should have access to the leveraged system's CRM.</p>
-      </remarks>
+    <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+         <title>GovCloud</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-high"/>
+         <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
+         <date-authorized>2020-01-01</date-authorized>
     </leveraged-authorization>
-
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
@@ -285,6 +278,7 @@
         <description><p>admin user</p></description>
         <function-performed>administration</function-performed>
       </authorized-privilege>
+
     </user>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
@@ -301,58 +295,14 @@
         <p>This is the primary application server for the system.</p>
       </remarks>
     </component>
-    <component uuid="66666666-0000-4000-9000-000000000007" type="service">
-      <title>Firebase CLI Connection</title>
-      <description>
-        <p>CLI for updating firebase Secure connection to an external API for data enrichment.</p>
-      </description>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
-        <remarks>
-          <p>Some description of the authentication method.</p>
-        </remarks>
-      </prop>
-      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
-      <prop name="asset-type" value="cli"/>
-      <prop name="implementation-point" value="external"/>
-      <status state="operational"/>
-      <responsible-role role-id="system-admin">
-        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
-      </responsible-role>
-      <remarks>
-        <p>This connection is used for secure data exchange with external systems.</p>
-      </remarks>
-    </component>
-    <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
-      <title>An External Leveraged System</title>
-      <description>
-        <p>An external leveraged system.</p>
-      </description>
-      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
-      <prop name="implementation-point" value="external"/>
-      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
-        <remarks>
-          <p>Some description of the external authentication method.</p>
-        </remarks>
-      </prop>
-     <status state="operational"/>
-     </component>
-
+    
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
       <title>External API Connection</title>
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
       <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
-        <remarks>
-          <p>Some description of the authentication method.</p>
-        </remarks>
-      </prop>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
@@ -360,23 +310,6 @@
       <remarks>
         <p>This connection is used for secure data exchange with external systems.</p>
       </remarks>
-    </component>
-
-    <component uuid="77777777-0000-4000-9000-000000000007" type="software">
-      <title>Name of External System</title>
-      <description>
-          <p>Briefly describe the external system.</p>
-      </description>
-      <prop name="asset-type" value="cli"/>
-      <prop name="implementation-point" value="external"/>
-      <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
-        <remarks>
-          <p>Some description of the authentication method.</p>
-        </remarks>
-      </prop>
-      <status state="operational"/>
     </component>
     
     <inventory-item uuid="77777777-0000-4000-9000-000000000007">
