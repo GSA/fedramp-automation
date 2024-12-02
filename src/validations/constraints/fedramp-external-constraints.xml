@@ -5,26 +5,6 @@
     <!-- ================== -->
 
     <context>
-    	<metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
-        <constraints>
-            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']" level="ERROR">
-                <formal-name>Fedramp Version</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-version"/>
-                <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
-                <remarks>
-                    <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
-                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
-                </remarks>
-            </expect>
-            <expect id="marking" target="." test="prop[@name='marking']" level="ERROR">
-                <formal-name>FedRAMP data sensitivity classification identifier.</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/"/>
-            	<message>A FedRAMP document MUST have a marking that defines its data classification.</message>
-            </expect>
-        </constraints>
-    </context>
-
-    <context>
         <metapath target="//user"/>
         <constraints>
             <expect id="user-has-authorized-privilege" target="." test="count(authorized-privilege) gt 0" level="ERROR">
@@ -270,30 +250,6 @@
             </expect>
         </constraints>
     </context>
-    
-    <context>
-        <metapath target="/system-security-plan/system-characteristics"/>
-        <constraints>
-            <expect id="fully-operational-date-is-valid" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" test=". &lt;= current-dateTime()" level="ERROR"><!-- TODO - Need metapath current-date() function -->
-                <formal-name>Fully Operational Date Is Valid</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
-                <message>A system MUST be fully implemented prior to submitting the SSP to FedRAMP.</message>
-            </expect>
-            <matches id="fully-operational-date-type" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" datatype="date-with-timezone" level="ERROR">
-                <formal-name>Fully Operational Date Type</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
-                <!-- Todo: add custom error message once Metaschma 'match' constraints support 'message' field. -->
-                <!-- 
-                <message>A FedRAMP SSP MUST specify the system's fully operational data as a "full-date" per RFC3339 with the addition of a timezone.</message>
-                -->
-            </matches> 
-            <expect id="has-fully-operational-date" target="." test="exists(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date'])" level="ERROR">
-                <formal-name>Fully Operational Date</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
-                <message>A FedRAMP SSP MUST define the system's fully operational date.</message>
-            </expect>
-        </constraints>
-    </context>
 
     <context>
         <metapath target="/system-security-plan/system-characteristics"/>
@@ -325,6 +281,16 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-information-and-information-types"/>
                 <message>A FedRAMP SSP information type confidentiality, integrity, or availability impact MUST specify the selected impact.</message>
             </expect>
+            <expect id="fully-operational-date-is-valid" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" test=". &lt;= current-dateTime()" level="ERROR"><!-- TODO - Need metapath current-date() function -->
+                <formal-name>Fully Operational Date Is Valid</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
+                <message>A system MUST be fully implemented prior to submitting the SSP to FedRAMP.</message>
+            </expect>
+            <matches id="fully-operational-date-type" target="prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date']/@value" datatype="date-with-timezone" level="ERROR">
+                <formal-name>Fully Operational Date Type</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
+                <message>A FedRAMP SSP MUST specify the system's fully operational data as a "full-date" per RFC3339 with the addition of a timezone.</message>
+            </matches> 
             <expect id="has-authenticator-assurance-level" target="." test="exists(prop[@name eq 'authenticator-assurance-level'])" level="ERROR">
                 <formal-name>Has Authenticator Assurance Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
@@ -433,6 +399,11 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
                 <message>A FedRAMP SSP MUST define its NIST SP 800-63 federation assurance level (FAL).</message>
             </expect>
+            <expect id="has-fully-operational-date" target="." test="exists(prop[@ns='https://fedramp.gov/ns/oscal' and @name='fully-operational-date'])" level="ERROR">
+                <formal-name>Fully Operational Date</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#system-status"/>
+                <message>A FedRAMP SSP MUST define the system's fully operational date.</message>
+            </expect>
             <expect id="has-identity-assurance-level" target="." test="exists(prop[@name eq 'identity-assurance-level'])" level="ERROR">
                 <formal-name>Has Identity Assurance Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#digital-identity-level-dil-determination"/>
@@ -520,14 +491,20 @@
             </expect>
         </constraints>
     </context>
-	<context>
-		<metapath target="/system-security-plan/system-implementation"/>
-		<constraints>
-			<expect id="has-inventory-items" target="." test="count(inventory-item) >= 2" level="ERROR">
-				<formal-name>System Implementation Has Inventory Items</formal-name>
-				<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
-				<message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
-			</expect>
+
+    <context>
+	<metapath target="/system-security-plan/system-implementation"/>
+	<constraints>
+            <expect id="authentication-method-has-remarks" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]"  test="count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal'])  = count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal']/remarks)" level="ERROR">
+                <formal-name>Authentication Method Has Remarks</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>Each authentication method in a FedRAMP SSP MUST have a remarks field.</message>
+            </expect>
+	    <expect id="has-inventory-items" target="." test="count(inventory-item) >= 2" level="ERROR">
+	    	<formal-name>System Implementation Has Inventory Items</formal-name>
+		<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
+		<message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
+	    </expect>
             <expect id="leveraged-authorization-has-authorization-type" target="leveraged-authorization" test="count(prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>Leveraged Authorization Has Authorization Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
@@ -543,18 +520,43 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST define exactly one system identifier for each leveraged authorization entry.</message>
             </expect>
-		</constraints>
-	</context>    
+            <is-unique id="unique-inventory-item-asset-id" target="inventory-item/prop[@name='asset-id']">
+                <formal-name>Unique Asset Identifier</formal-name>
+                <description>Ensure each inventory item has a unique asset-id property.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
+                <key-field target="@value"/>
+                <remarks>
+                    <p>A FedRAMP SSP's inventory item MUST have an Asset ID that is unique across all inventory items in the system and its components.</p>
+                </remarks>
+            </is-unique>
+	</constraints>
+    </context>   
+
     <context>
         <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata"/>
         <constraints>
+            <expect id="fedramp-version" target="." test="prop[@name='fedramp-version'][@ns='https://fedramp.gov/ns/oscal']" level="ERROR">
+                <formal-name>Fedramp Version</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#fedramp-version"/>
+                <message>A FedRAMP document's metadata MUST define a valid FedRAMP version.</message>
+                <remarks>
+                    <p>All documents in a digital authorization package for FedRAMP must specify the version that identifies which FedRAMP policies, guidance, and technical specifications its authors used during the creation and maintenance of the package.</p>
+                    <p>FedRAMP maintains an official list of the versions on <a href="https://github.com/GSA/fedramp-automation/releases">the fedramp-automation releases page</a>. Unless noted otherwise, a valid version is <a href="https://github.com/GSA/fedramp-automation/tags">a published tag name</a>.</p>
+                </remarks>
+            </expect>
             <expect id="has-published-date" target="." test="exists(published)" level="ERROR">
                 <formal-name>Has Published Date</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/#title-page"/>
                 <message>All documents submitted to FedRAMP MUST define a valid publication date.</message>
             </expect>
+            <expect id="marking" target="." test="prop[@name='marking']" level="ERROR">
+                <formal-name>FedRAMP data sensitivity classification identifier.</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/4-expressing-common-fedramp-template-elements-in-oscal/"/>
+            	<message>A FedRAMP document MUST have a marking that defines its data classification.</message>
+            </expect>
         </constraints>
-    </context>    
+    </context>  
+
     <context>
         <metapath target="/(assessment-plan|assessment-results|plan-of-action-and-milestones|system-security-plan)/metadata/party"/>
         <constraints>
@@ -565,23 +567,5 @@
             </expect>
         </constraints>
     </context>
-    <context>
-        <metapath target="/system-security-plan/system-implementation"/>
-        <constraints>
-            <expect id="authentication-method-has-remarks" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]"  test="count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal'])  = count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal']/remarks)" level="ERROR">
-                <formal-name>Authentication Method Has Remarks</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
-                <message>Each authentication method in a FedRAMP SSP MUST have a remarks field.</message>
-            </expect>
-            <is-unique id="unique-inventory-item-asset-id" target="inventory-item/prop[@name='asset-id']">
-                <formal-name>Unique Asset Identifier</formal-name>
-                <description>Ensure each inventory item has a unique asset-id property.</description>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
-                <key-field target="@value"/>
-                <remarks>
-                    <p>A FedRAMP SSP's inventory item MUST have an Asset ID that is unique across all inventory items in the system and its components.</p>
-                </remarks>
-            </is-unique>
-        </constraints>
-    </context>
+
 </metaschema-meta-constraints>
