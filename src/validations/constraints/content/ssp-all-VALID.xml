@@ -118,16 +118,6 @@
       <email-address>jane.doe@example.com</email-address>
     <address type="work"  />
     </party>
-    <party uuid="11111111-0000-4000-9000-000000000003" type="organization">
-      <name>Example Organization for Leveraged Authorization</name>
-      <short-name>LeveragedCSP</short-name>
-      <link rel="website" href="https://example-iaas.com"/>
-    </party>
-    <party uuid="11111111-0000-4000-9000-000000000004" type="organization">
-      <name>Example Organization for Leveraged Authorization 2</name>
-      <short-name>LeveragedCSP 2</short-name>
-      <link rel="website" href="https://example-paas.com"/>
-    </party>
 
     <responsible-party role-id="prepared-by">
       <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
@@ -296,24 +286,6 @@
         <function-performed>administration</function-performed>
       </authorized-privilege>
     </user>
-
-    <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
-      <title>An External Leveraged System</title>
-      <description>
-        <p>An external leveraged system.</p>
-      </description>
-      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
-      <prop name="nature-of-agreement"  ns="https://fedramp.gov/ns/oscal" value="sla" />
-      <prop name="information-type"  ns="https://fedramp.gov/ns/oscal" value="C.3.5.8" />
-      <prop name="implementation-point" value="external"/>
-      <status state="operational"/>
-      <responsible-role role-id="system-admin">
-        <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
-        <remarks>
-          <p>Using responsible-role to represent the CSPs "authorized users" who have access the leveraged authorization service.</p>
-        </remarks>
-      </responsible-role>
-    </component>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
       <title>Primary Application Server</title>
@@ -337,13 +309,21 @@
       </description>
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
       <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
+      <prop name="information-type"  ns="https://fedramp.gov/ns/oscal" value="C.3.5.8" />
+      <prop name="implementation-point" value="external"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>Some description of the authentication method.</p>
         </remarks>
       </prop>
      <status state="operational"/>
-     </component>
+      <responsible-role role-id="system-admin">
+        <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+        <remarks>
+          <p>Using responsible-role to represent the CSPs "authorized users" who have access the leveraged authorization service.</p>
+        </remarks>
+      </responsible-role>
+    </component>
 
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
       <title>External API Connection</title>
