@@ -309,13 +309,21 @@
       </description>
       <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
       <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
+      <prop name="information-type"  ns="https://fedramp.gov/ns/oscal" value="C.3.5.8" />
+      <prop name="implementation-point" value="external"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>Some description of the authentication method.</p>
         </remarks>
       </prop>
      <status state="operational"/>
-     </component>
+      <responsible-role role-id="system-admin">
+        <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+        <remarks>
+          <p>Using responsible-role to represent the CSPs "authorized users" who have access the leveraged authorization service.</p>
+        </remarks>
+      </responsible-role>
+    </component>
 
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
       <title>External API Connection</title>

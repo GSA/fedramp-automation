@@ -105,8 +105,14 @@ Examples:
   | inventory-item-allows-authenticated-scan |
   | inventory-item-public |
   | inventory-item-virtual |
+  | leveraged-authorization-component-has-valid-reference |
   | leveraged-authorization-has-authorization-type |
+  | leveraged-authorization-has-authorized-users |
   | leveraged-authorization-has-impact-level |
+  | leveraged-authorization-has-implementation-point |
+  | leveraged-authorization-has-information-type |
+  | leveraged-authorization-has-nature-of-agreement |
+  | leveraged-authorization-has-one-system-component |
   | leveraged-authorization-has-system-identifier |
   | leveraged-authorization-has-valid-impact-level |
   | leveraged-authorization-nature-of-agreement |
@@ -316,10 +322,22 @@ Examples:
   | inventory-item-public-PASS.yaml |
   | inventory-item-virtual-FAIL.yaml |
   | inventory-item-virtual-PASS.yaml |
+  | leveraged-authorization-component-has-valid-reference-FAIL.yaml |
+  | leveraged-authorization-component-has-valid-reference-PASS.yaml |
   | leveraged-authorization-has-authorization-type-FAIL.yaml |
   | leveraged-authorization-has-authorization-type-PASS.yaml |
+  | leveraged-authorization-has-authorized-users-FAIL.yaml |
+  | leveraged-authorization-has-authorized-users-PASS.yaml |
   | leveraged-authorization-has-impact-level-FAIL.yaml |
   | leveraged-authorization-has-impact-level-PASS.yaml |
+  | leveraged-authorization-has-implementation-point-FAIL.yaml |
+  | leveraged-authorization-has-implementation-point-PASS.yaml |
+  | leveraged-authorization-has-information-type-FAIL.yaml |
+  | leveraged-authorization-has-information-type-PASS.yaml |
+  | leveraged-authorization-has-nature-of-agreement-FAIL.yaml |
+  | leveraged-authorization-has-nature-of-agreement-PASS.yaml |
+  | leveraged-authorization-has-one-system-component-FAIL.yaml |
+  | leveraged-authorization-has-one-system-component-PASS.yaml |
   | leveraged-authorization-has-system-identifier-FAIL.yaml |
   | leveraged-authorization-has-system-identifier-PASS.yaml |
   | leveraged-authorization-has-valid-impact-level-FAIL.yaml |
