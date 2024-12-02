@@ -78,7 +78,7 @@
             <expect id="component-has-non-provider-responsible-role" target="//component[(@type='system' and prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and prop[@name='implementation-point' and @value='internal'] and prop[@name='direction']) or (@type='software' and prop[@name='asset-type' and @value='cli'] and prop[@name='direction'])]" test="count(responsible-role[not(@role-id='provider')]) >= 1" level="ERROR">
                 <formal-name>Component Has Non-Provider Responsible Role</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
-                <message>Each component dealing with leveraged systems, interconnections, or authorized services MUST have at least one responsible role other than "provider".</message>
+                <message>A FedRAMP SSP MUST have each component describing leveraged systems, interconnections, or authorized services identify at least one responsible role other than "provider".</message>
             </expect>
             <expect id="component-has-provider-responsible-role" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]" test="count(responsible-role[@role-id='provider']/party-uuid) = 1" level="ERROR">
                 <formal-name>Component Has Provider Responsible Role</formal-name>
@@ -121,7 +121,7 @@
             <expect id="non-provider-responsible-role-references-user" target="." test="$non-provider-user-has-function-performed" level="ERROR">
                 <formal-name>Non-Provider Responsible Role References User</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
-                <message>Each non-provider responsible role MUST reference at least one user with an authorized privilege and function performed via the "privilege-uuid" property.</message>
+                <message>A FedRAMP SSP MUST have each component describing leveraged systems, interconnections, or authorized services reference at least one user with an authorized privilege and function performed via the "privilege-uuid" property.</message>
             </expect>         
         </constraints>
     </context>
