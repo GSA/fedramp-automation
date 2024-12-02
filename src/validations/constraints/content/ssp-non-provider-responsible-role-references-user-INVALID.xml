@@ -1,0 +1,14 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd" uuid="12345678-1234-4321-8765-123456789012">
+  <system-implementation>
+    <user uuid="44444444-0000-4000-9000-000000000004">
+      <authorized-privilege>
+        <!-- <function-performed>administration</function-performed> Missing at least one function performed-->
+      </authorized-privilege>
+    </user>
+    <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
+      <responsible-role role-id="administrator">
+        <prop name="privilege-uuid" value="44444444-0000-4000-9000-000000000004" ns="https://fedramp.gov/ns/oscal"/>
+      </responsible-role>
+    </component>
+  </system-implementation>
+</system-security-plan>

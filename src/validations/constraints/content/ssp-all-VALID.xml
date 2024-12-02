@@ -337,12 +337,15 @@
           <p>Some description of the external authentication method.</p>
         </remarks>
       </prop>
-     <status state="operational"/>
+      <status state="operational"/>
       <responsible-role role-id="provider">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-role>
-     <responsible-role role-id="system-admin">
+      <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <responsible-role role-id="administrator">
+        <prop name="privilege-uuid" value="44444444-0000-4000-9000-000000000004" ns="https://fedramp.gov/ns/oscal" />
       </responsible-role>
     </component>
 

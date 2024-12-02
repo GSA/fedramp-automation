@@ -115,6 +115,7 @@ Examples:
   | marking |
   | missing-response-components |
   | network-component-has-implementation-point |
+  | non-provider-responsible-role-references-user |
   | party-has-name |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
@@ -339,6 +340,8 @@ Examples:
   | missing-response-components-PASS.yaml |
   | network-component-has-implementation-point-FAIL.yaml |
   | network-component-has-implementation-point-PASS.yaml |
+  | non-provider-responsible-role-references-user-FAIL.yaml |
+  | non-provider-responsible-role-references-user-PASS.yaml |
   | party-has-name-FAIL.yaml |
   | party-has-name-PASS.yaml |
   | privilege-level-FAIL.yaml |
