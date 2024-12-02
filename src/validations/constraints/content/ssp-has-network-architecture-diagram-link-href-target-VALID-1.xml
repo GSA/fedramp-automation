@@ -181,7 +181,7 @@
         <description>
           <p>A diagram-specific explanation.</p>
         </description>
-        <link href="./diagram.png" rel="diagram"/>
+        <link href="./ssp-all-VALID.xml" rel="diagram"/>
         <caption>Network Diagram</caption>
       </diagram>
     </network-architecture>

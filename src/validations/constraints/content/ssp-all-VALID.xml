@@ -534,50 +534,56 @@
   </remarks>
 </resource>
 
+    <resource uuid="d2eb3c18-6754-4e3a-a933-03d289e3fad5">
+      <title>Boundary Diagram</title>
+      <description>
+        <p>The primary authorization boundary diagram.</p>
+      </description>
+      <prop name="type" value="image" class="authorization-boundary" />
+      <rlink href="./attachments/diagrams/boundary.png"/>
+      <base64 filename="logo.png" media-type="image/png">00000000</base64>
+      <remarks>
+        <p>Section 8.1, Figure 8-1 Authorization Boundary Diagram (graphic)</p>
+        <p>This should be referenced in the system-characteristics/authorization-boundary/diagram/link/@href flag using a value of "#11111111-2222-4000-8000-001000000054"</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+        <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
+        <p>Images must be in sufficient resolution to read all detail when rendered in a browser via HTML5.</p>
+      </remarks>
+    </resource>
 
-<resource uuid="d2eb3c18-6754-4e3a-a933-03d289e3fad5">
-  <title>Authorization Boundary</title>
-  <description>
-     <p>Authorization Boundary Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/AuthBoundary.docx" media-type="application/msword"/>
-  <base64 filename="AuthBoundary.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
+    <resource uuid="61081e81-850b-43c1-bf43-1ecbddcb9e7f">
+      <title>Network Diagram</title>
+      <description>
+        <p>The primary network diagram.</p>
+      </description>
+      <prop name="type" value="image" class="network-architecture" />
+      <!-- Use rlink and/or base64 -->
+      <rlink href="./attachments/diagrams/network.png"/>
+      <base64 filename="network.png" media-type="image/png">00000000</base64>
+      <remarks>
+        <p>Section 8.1, Figure 8-2 Network Diagram (graphic)</p>
+        <p>This should be referenced in the system-characteristics/network-architecture/diagram/link/@href flag using a value of "#11111111-2222-4000-8000-001000000055"</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+        <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
+        <p>Images must be in sufficient resolution to read all detail when rendered in a browser via HTML5.</p>
+      </remarks>
+    </resource>
 
-<resource uuid="61081e81-850b-43c1-bf43-1ecbddcb9e7f">
-  <title>Network Architecture</title>
-  <description>
-     <p>Network Architecture Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/NetworkArchitecture.docx" media-type="application/msword"/>
-  <base64 filename="NetworkArchitecture.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-
-<resource uuid="ac5d7535-f3b8-45d3-bf3b-735c82c64547">
-  <title>Data Flow</title>
-  <description>
-     <p>Data flow Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/Dataflo.docx" media-type="application/msword"/>
-  <base64 filename="Dataflow.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
+    <resource uuid="ac5d7535-f3b8-45d3-bf3b-735c82c64547">
+      <title>Data Flow Diagram</title>
+      <description>
+        <p>The primary data flow diagram.</p>
+      </description>
+      <prop name="type" value="image" class="data-flow" />
+      <rlink href="./attachments/diagrams/dataflow.png"/>
+      <base64 filename="dataflow.png" media-type="image/png">00000000</base64>
+      <remarks>
+        <p>Section 8.1, Figure 8-3 Data Flow Diagram (graphic)</p>
+        <p>This should be referenced in the system-characteristics/data-flow/diagram/link/@href flag using a value of "#11111111-2222-4000-8000-001000000056"</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+        <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
+        <p>Images must be in sufficient resolution to read all detail when rendered in a browser via HTML5.</p>
+      </remarks>
+    </resource>
   </back-matter>
 </system-security-plan>
