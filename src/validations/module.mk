@@ -1,6 +1,7 @@
 # Variables
 OSCAL_VERSION = $(shell jq -r .dependencies.oscal package.json)
 OSCAL_CLI_VERSION = $(shell awk '/^oscal-cli/ {print $$2}' .tool-versions)
+OSCAL_SERVER_VERSION = $(shell awk '/^oscal-server/ {print $$2}' .tool-versions)
 OSCAL_CLI = npx oscal@$(OSCAL_VERSION)
 SRC_DIR = ./src
 DIST_DIR = ./dist
@@ -13,7 +14,7 @@ init-validations:
 	@echo "Installing node modules..."
 	npm install
 	$(OSCAL_CLI) use $(OSCAL_CLI_VERSION)
-	$(OSCAL_CLI) server update
+	$(OSCAL_CLI) server update $(OSCAL_SERVER_VERSION)
 
 # Style lint
 .PHONY: lint-style
