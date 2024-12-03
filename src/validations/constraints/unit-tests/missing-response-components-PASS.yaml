@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     missing-response-components
-  content: ../content/fedramp-ssp-example.xml
+  content: ../content/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: missing-response-components
       result: pass
