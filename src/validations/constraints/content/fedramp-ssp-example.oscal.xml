@@ -1181,7 +1181,15 @@
          <description>
             <p>An external system to which this system shares an interconnection.</p>
          </description>
+         <prop name="implementation-point" value="external"/>
          <prop name="asset-type" value="saas"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+            <remarks>
+               <p>If 'yes', describe the authentication method.</p>
+               <p>If 'no', explain why no authentication is used.</p>
+               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
+            </remarks>
+         </prop>
 
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
 
@@ -1247,6 +1255,7 @@
             <p>Describe the purpose of the external system/service; specifically, provide reasons
                for connectivity (e.g., system monitoring, system alerting, download updates, etc.)</p>
          </description>
+         <prop name="implementation-point" value="external"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
@@ -1515,6 +1524,9 @@
          <responsible-role role-id="provider">
             <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
          </responsible-role>
+         <responsible-role role-id="admin">
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
+         </responsible-role>
 
          <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
             <title>Remote API Service</title>
@@ -1590,6 +1602,9 @@
          <status state="operational"/>
          <responsible-role role-id="provider">
             <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="admin">
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
          </responsible-role>
       </component>
 
@@ -1742,12 +1757,26 @@
          <description>
             <p>None</p>
          </description>
+         <prop name="implementation-point" value="external"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+            <remarks>
+               <p>If 'yes', describe the authentication method.</p>
+               <p>If 'no', explain why no authentication is used.</p>
+               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
+            </remarks>
+         </prop>
          <prop name="asset-type" value="database"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
          <link href="#11111111-2222-4000-8000-009000500006" rel="used-by" />
          <status state="operational"/>
+         <responsible-role role-id="admin">
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
+         </responsible-role>
+         <responsible-role role-id="provider">
+            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
+         </responsible-role>
          <protocol name="postgresql">
             <port-range start="5432" end="5432" transport="TCP" />
             <port-range start="5432" end="5432" transport="UDP" />
@@ -2140,10 +2169,24 @@
          <description>
             <p>Email Service</p>
          </description>
+         <prop name="implementation-point" value="external"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+            <remarks>
+               <p>If 'yes', describe the authentication method.</p>
+               <p>If 'no', explain why no authentication is used.</p>
+               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
+            </remarks>
+         </prop>
          <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
          <!-- is-scanned prop applies to inventory-item (not component) -->
          <!-- <prop name="is-scanned" value="yes"/> -->
          <status state="operational"/>
+         <responsible-role role-id="admin">
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- place holder to satisfy constraint: component-has-non-provider-responsible-role -->
+         </responsible-role>
+         <responsible-role role-id="provider">
+            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
+         </responsible-role>
          <protocol name="smtp">
             <port-range start="23" end="23" transport="TCP" />
             <port-range start="23" end="23" transport="UDP" />
