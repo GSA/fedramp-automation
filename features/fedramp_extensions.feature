@@ -6,6 +6,7 @@ Scenario Outline: Validating OSCAL constraints with metaschema constraints
 
 @integration
 Scenario Outline: Documents that should be valid are pass
+  Given I have loaded all Metaschema extensions documents
   Then I should have valid results "<valid_file>"
 Examples:
 | valid_file     |
@@ -136,9 +137,7 @@ Examples:
   | unique-inventory-item-asset-id |
   | user-authentication |
   | user-has-authorized-privilege |
-  | user-has-privilege-level |
   | user-has-role-id |
-  | user-has-sensitivity-level |
   | user-has-user-type |
   | user-privilege-level |
   | user-sensitivity-level |
@@ -380,12 +379,8 @@ Examples:
   | user-authentication-PASS.yaml |
   | user-has-authorized-privilege-FAIL.yaml |
   | user-has-authorized-privilege-PASS.yaml |
-  | user-has-privilege-level-FAIL.yaml |
-  | user-has-privilege-level-PASS.yaml |
   | user-has-role-id-FAIL.yaml |
   | user-has-role-id-PASS.yaml |
-  | user-has-sensitivity-level-FAIL.yaml |
-  | user-has-sensitivity-level-PASS.yaml |
   | user-has-user-type-FAIL.yaml |
   | user-has-user-type-PASS.yaml |
   | user-privilege-level-FAIL.yaml |
