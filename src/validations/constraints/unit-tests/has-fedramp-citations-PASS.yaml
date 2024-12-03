@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for has-fedramp-citations
+  description: This test case validates the behavior of constraint has-fedramp-citations
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: has-fedramp-citations
+      result: pass
