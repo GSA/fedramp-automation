@@ -37,6 +37,7 @@ Examples:
   | cia-impact-has-selected |
   | cloud-service-model |
   | component-has-authentication-method |
+  | component-has-non-provider-responsible-role |
   | component-has-provider-responsible-role |
   | component-type |
   | control-implementation-status |
@@ -115,6 +116,7 @@ Examples:
   | marking |
   | missing-response-components |
   | network-component-has-implementation-point |
+  | non-provider-responsible-role-references-user |
   | party-has-name |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
@@ -179,6 +181,8 @@ Examples:
   | cloud-service-model-PASS.yaml |
   | component-has-authentication-method-FAIL.yaml |
   | component-has-authentication-method-PASS.yaml |
+  | component-has-non-provider-responsible-role-FAIL.yaml |
+  | component-has-non-provider-responsible-role-PASS.yaml |
   | component-responsible-role-references-party-FAIL.yaml |
   | component-responsible-role-references-party-PASS.yaml |
   | component-type-FAIL.yaml |
@@ -335,6 +339,8 @@ Examples:
   | missing-response-components-PASS.yaml |
   | network-component-has-implementation-point-FAIL.yaml |
   | network-component-has-implementation-point-PASS.yaml |
+  | non-provider-responsible-role-references-user-FAIL.yaml |
+  | non-provider-responsible-role-references-user-PASS.yaml |
   | party-has-name-FAIL.yaml |
   | party-has-name-PASS.yaml |
   | privilege-level-FAIL.yaml |

@@ -57,10 +57,18 @@
                 else if (system-characteristics/security-sensitivity-level = 'fips-199-moderate')
                     then ('fips-199-moderate', 'fips-199-high')
                 else ('fips-199-low', 'fips-199-moderate', 'fips-199-high')"/>
+            <let var="non-authorized-components" expression="system-implementation/component[(@type='system' and prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and prop[@name='implementation-point' and @value='internal'] and prop[@name='direction']) or (@type='software' and prop[@name='asset-type' and @value='cli'] and prop[@name='direction'])]"/>
+            <let var="system-implementation-users" expression="system-implementation/user"/>
+            <let var="non-provider-user-has-function-performed" expression="count($system-implementation-users[@uuid = $non-authorized-components/responsible-role/prop[@name='privilege-uuid' and @ns='https://fedramp.gov/ns/oscal']/@value]/authorized-privilege/function-performed) >= 1"/>
             <expect id="component-has-authentication-method" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']) >= 1" level="ERROR">
                 <formal-name>Component Has Authentication Method</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST include at least one authentication method for each leveraged system.</message>
+            </expect>
+            <expect id="component-has-non-provider-responsible-role" target="//component[(@type='system' and prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and prop[@name='implementation-point' and @value='internal'] and prop[@name='direction']) or (@type='software' and prop[@name='asset-type' and @value='cli'] and prop[@name='direction'])]" test="count(responsible-role[not(@role-id='provider')]) >= 1" level="ERROR">
+                <formal-name>Component Has Non-Provider Responsible Role</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
+                <message>A FedRAMP SSP MUST have each component describing leveraged systems, interconnections, or authorized services identify at least one responsible role other than "provider".</message>
             </expect>
             <expect id="component-has-provider-responsible-role" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]" test="count(responsible-role[@role-id='provider']/party-uuid) = 1" level="ERROR">
                 <formal-name>Component Has Provider Responsible Role</formal-name>
@@ -99,7 +107,12 @@
                 <formal-name>Leveraged Authorization Has Valid Impact Level</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>A FedRAMP SSP MUST define the appropriate FIPS-199 impact level (low, moderate, or high) for each leveraged authorization.</message>
-            </expect>             
+            </expect>    
+            <expect id="non-provider-responsible-role-references-user" target="." test="$non-provider-user-has-function-performed" level="ERROR">
+                <formal-name>Non-Provider Responsible Role References User</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
+                <message>A FedRAMP SSP MUST have each component describing leveraged systems, interconnections, or authorized services reference at least one user with an authorized privilege and function performed via the "privilege-uuid" property.</message>
+            </expect>         
         </constraints>
     </context>
 
@@ -500,17 +513,17 @@
 
     <context>
 	<metapath target="/system-security-plan/system-implementation"/>
-	<constraints>
+	    <constraints>
             <expect id="authentication-method-has-remarks" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]"  test="count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal'])  = count(./prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal']/remarks)" level="ERROR">
                 <formal-name>Authentication Method Has Remarks</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>Each authentication method in a FedRAMP SSP MUST have a remarks field.</message>
             </expect>
-	    <expect id="has-inventory-items" target="." test="count(inventory-item) >= 2" level="ERROR">
-	    	<formal-name>System Implementation Has Inventory Items</formal-name>
-		<prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
-		<message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
-	    </expect>
+	        <expect id="has-inventory-items" target="." test="count(inventory-item) >= 2" level="ERROR">
+	    	    <formal-name>System Implementation Has Inventory Items</formal-name>
+		        <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
+		        <message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
+	        </expect>
             <expect id="leveraged-authorization-has-authorization-type" target="leveraged-authorization" test="count(prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>Leveraged Authorization Has Authorization Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
@@ -535,7 +548,7 @@
                     <p>A FedRAMP SSP's inventory item MUST have an Asset ID that is unique across all inventory items in the system and its components.</p>
                 </remarks>
             </is-unique>
-	</constraints>
+	    </constraints>
     </context>   
 
     <context>
