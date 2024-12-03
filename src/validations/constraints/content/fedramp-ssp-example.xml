@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-   uuid="11111111-2222-4000-8000-000000000000">
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
    <metadata>
       <title>FedRAMP [Baseline Name] System Security Plan (SSP)</title>
       <published>2024-12-31T23:59:59Z</published>
@@ -13,8 +12,7 @@
             <published>2023-06-30T00:00:00Z</published>
             <version>1.0</version>
             <oscal-version>1.0.4</oscal-version>
-            <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid"
-               value="11111111-2222-4000-8000-004000000001"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
             <remarks>
                <p>Initial publication.</p>
             </remarks>
@@ -23,15 +21,14 @@
             <published>2023-07-06T00:00:00Z</published>
             <version>1.1</version>
             <oscal-version>1.0.4</oscal-version>
-            <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid"
-               value="11111111-2222-4000-8000-004000000001"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
             <remarks>
                <p>Minor <code>prop</code> updates.</p>
             </remarks>
          </revision>
       </revisions>
       <prop name="marking" value="cui" class="fedramp.gov"/>
-      <prop name="fedramp-version" ns="http://fedramp.gov/ns/oscal" value="fedramp-3.0.0-oscal-1.1.2" />
+      <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -287,7 +284,8 @@
          <remarks>
             <p>Replace sample CSP information.</p>
             <p>CSP information must be present and associated with the "cloud-service-provider" role
-               via <code>responsible-party</code>.</p>
+               via <code>responsible-party</code>.
+            </p>
          </remarks>
       </party>
       <party uuid="11111111-2222-4000-8000-004000000002" type="organization">
@@ -563,8 +561,7 @@
 
 
    </metadata>
-   <import-profile
-      href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
+   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official
             FedRAMP 3.0.0 release.</p>
@@ -574,7 +571,7 @@
    <system-characteristics>
       <!-- Section 3 - System Information -->
       <!-- Table 3.1 Information System Name and Title -->
-      <system-id identifier-type="http://fedramp.gov">F00000000</system-id>
+      <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
       <system-name>System's Full Name</system-name>
       <system-name-short>System's Short Name or Acronym</system-name-short>
       <!-- General System Description -->
@@ -608,10 +605,10 @@
       <prop name="identity-assurance-level" value="2"/>
       <prop name="authenticator-assurance-level" value="2"/>
       <prop name="federation-assurance-level" value="2"/>
-      <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-12031T00:00:00z"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
       <!-- Rev5 update - new prop -->
       <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
-      <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
       <!-- FIPS PUB 199 Level -->
       <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
       <system-information>
@@ -777,16 +774,16 @@
 
       <leveraged-authorization uuid="11111111-2222-4000-8000-019000000001">
          <title>AwesomeCloud Commercial(IaaS)</title>
-         <prop ns="http://fedramp.gov/ns/oscal" name="leveraged-system-identifier"
-            value="F9999999999"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency">
+
+         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F9999999999"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency">
             <remarks>
                <p>For now, this is a required field. In the future we intend 
                   to pull this information directly from FedRAMP's records
                   based on the "leveraged-system-identifier" property's value.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-moderate">
+         <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-moderate">
             <remarks>
                <p>For now, this is a required field. In the future we intend 
                   to pull this information directly from FedRAMP's records
@@ -807,9 +804,17 @@
       </leveraged-authorization>
 
       <user uuid="11111111-2222-4000-8000-008000000001">
+         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
+         <prop name="type" value="internal"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+         <role-id>system-poc-technical</role-id>
          <authorized-privilege>
-            <title></title>
-            <function-performed>none</function-performed>
+            <title>Admin</title>
+            <description>
+               <p>admin user</p>
+            </description>
+            <function-performed>administration</function-performed>
          </authorized-privilege>
          <remarks>
             <p>The user assembly is being reviewed for continued applicability 
@@ -820,31 +825,57 @@
          </remarks>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000002">
-         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
+         <prop name="type" value="internal"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+
+         <role-id>system-poc-technical</role-id>
          <authorized-privilege>
             <title>Add/Remove Admins</title>
             <function-performed>This can add and remove admins.</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000003">
-         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
+         <prop name="type" value="internal"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+         <role-id>system-poc-technical</role-id>
          <authorized-privilege>
-            <title></title>
-            <function-performed>add/remove non-privliged admins</function-performed>
+            <title>Admin</title>
+            <description>
+               <p>admin user</p>
+            </description>
+            <function-performed>administration</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000004">
-         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
+         <prop name="type" value="internal"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+         <role-id>system-poc-technical</role-id>
          <authorized-privilege>
-            <title></title>
-            <function-performed>Manage services and components within the virtual cloud environment.</function-performed>
+            <title>Admin</title>
+            <description>
+               <p>admin user</p>
+            </description>
+            <function-performed>administration</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000005">
-         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+         <prop name="type" value="internal"/>
+         <role-id>system-owner</role-id>
          <authorized-privilege>
-            <title></title>
-            <function-performed>Add and remove users from the virtual cloud environment.</function-performed>
+            <title>Admin</title>
+            <description>
+               <p>admin user</p>
+            </description>
+            <function-performed>administration</function-performed>
          </authorized-privilege>
       </user>
       <!-- ========= MINIMUM REQUIRED COMPONENT: THIS SYSTEM ======= -->
@@ -883,16 +914,16 @@
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method.</p>
                <p>If 'no', explain why no authentication is used.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
          <status state="operational"/>
 
          <responsible-role role-id="provider">
@@ -905,8 +936,8 @@
             </remarks>
          </responsible-role>
          <responsible-role role-id="administrator">
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="http://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="https://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="https://fedramp.gov/ns/oscal" />
          </responsible-role>
          <remarks>
             <p>This is a leveraged system within which this system operates.
@@ -942,7 +973,7 @@
             </ul>
             <p/>
             <p>Links to the vendor website describing the system are encouraged, but not required.</p>
-            
+
             <h1>Services</h1>
             <p>A service within the scope of the leveraged system's authorization boundary 
                is considered an "authorized service". Any other service offered by the 
@@ -961,12 +992,13 @@
                a "poam-item" link that references a corrisponding entry in this system's
                POA&amp;M.</li>
             </ul>
-            
+
             <p>Both authorized and non-authorized leveraged services include:</p>
             <ul>
                <li>a "provided-by" link with a URI fragment that points
                to the "system" component representing the leveraged system. 
-               (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
+               (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)
+               </li>
                <li>the name of the service in the title (for authorized services this should be 
                   exactly as it appears in the FedRAMP Marketplace</li>
                <li>an "implementation-point" core property with a value of "external"</li>
@@ -978,7 +1010,7 @@
                <li>a status with a state value of "operational"</li>
                <li>At least one responsible-role (other than "provider") that indicates any authorized
                   users. This must have one or more "privilege-uuid" property/extensions. Each references
-                  a user assembly entry.</li>               
+                  a user assembly entry.</li>
             </ul>
 
             <p>Although SSP Table 7.1 also requires data categoriation and hosting
@@ -996,13 +1028,13 @@
          </description>
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
          <status state="operational"/>
          <responsible-role role-id="administrator">
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="http://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="https://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="https://fedramp.gov/ns/oscal" />
          </responsible-role>
          <remarks>
             <p>This is a service offered by a leveraged system and used by this system.
@@ -1017,7 +1049,8 @@
                leveraged-authorization entry</li>
                <li>an "implementation-point" property with a value of "external"; and</li>
                <li>a "provided-by" link with a URI fragment that points  to the 
-                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
+                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)
+               </li>
             </ul>
             <p/>
             <p>Where relevant, this component should also have:</p>
@@ -1055,23 +1088,27 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external" />
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="provider" value="self"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method.</p>
                <p>If 'no', explain why no authentication is used.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
-         <prop name="poam-item-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001" />
-         <prop name="poam-id" ns="http://fedramp.gov/ns/oscal" value="ID-0001" />
-         <link  rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
+         <prop name="poam-item-uuid" ns="https://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001" />
+         <prop name="poam-id" ns="https://fedramp.gov/ns/oscal" value="ID-0001" />
+         <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
          <status state="operational" />
          <responsible-role role-id="admin">
-            
+
+         </responsible-role>
+         <responsible-role role-id="provider">
+            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
          </responsible-role>
          <remarks>
             <p>This is a service offered by a leveraged system and used by this system.
@@ -1092,7 +1129,8 @@
                   POAM&amp;M ID (legacy) in a Excel workbook or poam-item-uuid (preferred)
                   in an OSCAL-based POA&amp;M.</li>
                <li>a "provided-by" link with a URI fragment that points to the 
-                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
+                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)
+               </li>
                <li></li>
                <li></li>
 
@@ -1101,7 +1139,7 @@
                tools are able to distinguish between authorized and non-authorized services
                from the same leveraged provider.</p>
             <p/>
-            
+
             <p>Where relevant, this component should also have:</p>
             <ul>
                <li>At least one responsible-role that indicates the authorized userswith a role-id of "leveraged-authorization-users" and exactly
@@ -1118,7 +1156,7 @@
                <li>Package ID, Authorization Type, Impact Level</li>
             </ul>
             <p/>
-            
+
             <p>- An "inherited-uuid" property if the leveraged system's owner provides a UUID for
                their system (such as in an OSCAL-based CRM).</p>
             <p>Link(s) to the vendor's web site describing the service are encouraged, but not
@@ -1138,20 +1176,20 @@
 
       <!-- Scenario 2: An interconnection between this system and an external system -->
       <!-- Scenario 2 - Part 1: An external system with which this system has an interconnection -->
-      <component uuid="11111111-2222-4000-8000-009000100002" type="system">
+      <component uuid="11111111-2222-4000-8000-009000100002" type="service">
          <title>Other Cloud SaaS</title>
          <description>
             <p>An external system to which this system shares an interconnection.</p>
          </description>
          <prop name="asset-type" value="saas"/>
-         
+
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
-         
+
          <status state="operational"/>
 
          <responsible-role role-id="provider">
             <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
-         </responsible-role>         
+         </responsible-role>
          <responsible-role role-id="authorizing-official">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
@@ -1183,7 +1221,7 @@
                   remote listening ports, one or more "protocol" assemblies must
                   be provided.</li>
             </ul>
-            
+
             <p>While not required, each "system" component should have:</p>
             <ul>
                <li>an "inherited-uuid" property if the value was provided by the system owner</li>
@@ -1192,7 +1230,7 @@
                <li>an "system-owner" responsible-role</li>
                <li>an "system-poc-management" responsible-role</li>
                <li>an "system-poc-technical" responsible-role</li>
-            </ul>  
+            </ul>
             <p>Unlike prior FedRAMP OSCAL publications, avoid the use of FedRAMP 
                properties/extensions for these roles, instead favor the core OSCAL
                responsible-roles constructs, and the NIST-standard roles of 
@@ -1202,50 +1240,50 @@
       </component>
 
       <!-- Scenario 2 - Part 2: Interconnection to external system -->
-      <component uuid="11111111-2222-4000-8000-009000200001" type="interconnection">
+      <component uuid="11111111-2222-4000-8000-009000200001" type="service">
          <!-- Use title element to provid System/ Service/ API/CLI Name -->
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
          <description>
             <p>Describe the purpose of the external system/service; specifically, provide reasons
                for connectivity (e.g., system monitoring, system alerting, download updates, etc.)</p>
          </description>
-         <prop name="direction" value="incoming"/>
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="hosting-environment" value="see-remarks">
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="hosting-environment" value="see-remarks">
             <remarks>
                <p>Describe the hosting of the interconnection itself (NOT the hosting of the remote system).</p>
             </remarks>
          </prop>
 
 
-         <prop name="ipv4-address" class="local" value="10.1.1.1"/>
-         <prop name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
-         <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
-         <prop name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.2"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
 
-         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
 
          <link rel="agreement" href="#11111111-2222-4000-8000-001000000058"/>
-         <link rel="used-by"   href="#11111111-2222-4000-8000-009000000000" />
-         <link rel="used-by"   href="#11111111-2222-4000-8000-009000100002" />
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000" />
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000100002" />
 
-         
+
 
          <status state="operational"/>
-         
+
          <responsible-role role-id="provider">
             <party-uuid>44444444-2222-4000-8000-004000000001</party-uuid>
          </responsible-role>
@@ -1293,7 +1331,7 @@
                <li>a "compliance" property/extension if appropriate</li>
                <li>an "system-poc-management" responsible-role</li>
                <li>an "system-poc-technical" responsible-role</li>
-            </ul>  
+            </ul>
             <p>Unlike prior FedRAMP OSCAL publications, avoid the use of FedRAMP 
                properties/extensions for these roles, instead favor the core OSCAL
                responsible-roles constructs, and the NIST-standard roles of 
@@ -1309,13 +1347,13 @@
          <description>
             <p/>
          </description>
-         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" /> 
+         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" />
          <prop name="implementation-point" value="external" />
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
-         
+
          <status state="operational"/>
-         
+
          <responsible-role role-id="system-owner">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
@@ -1337,8 +1375,8 @@
                here.</p>
             <p>For an external system, the "implementation-point" property must always be present
                with a value of "external".</p>
-            
-            
+
+
             <p>Each interconnection must be defined with both an "system" component and an
                "interconnection" component.</p>
             <p>Must include all leveraged services and features from the leveraged authorization
@@ -1354,17 +1392,18 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external"/>
-<!--         <prop name="direction" value="outgoing"/>-->
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <!--         <prop name="direction" value="outgoing"/>-->
+         <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
             <remarks>
                <p>This can only be known if provided by the leveraged system.
@@ -1374,20 +1413,21 @@
          </prop>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100003" />
          <status state="operational"/>
-         
-         <responsible-role role-id="provider">
-            <party-uuid>11111111-2222-4000-8000-c0040000000a</party-uuid>
-         </responsible-role>
+
          <responsible-role role-id="leveraged-authorization-users">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
+         <responsible-role role-id="provider">
+            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
+         </responsible-role>
+
          <protocol name="abc" uuid="11111111-2222-4000-8000-010000000003">
             <title></title>
-            <port-range start="5432" end="5432" transport="tcp" />
+            <port-range start="5432" end="5432" transport="TCP" />
          </protocol>
-         
+
          <remarks>
             <p>This is a service provided by an external system other than the leveraged system.</p>
             <p>As a result, the "leveraged-authorization-uuid" property is not applicable and must
@@ -1404,7 +1444,8 @@
             <p>- An "implementation-point" property with a value of "external".</p>
             <p>- A "provided-by" link with a URI fragment that points to the UUID of the above
                "system" component.</p>
-            <p> - Example: <code>"#11111111-2222-4000-8000-009000100001"</code></p>
+            <p> - Example: <code>"#11111111-2222-4000-8000-009000100001"</code>
+            </p>
             <p> - IMPORTANT: Due to a known error in core OSCAL (versions &lt;=1.1.2) constraints,
                this property is blocked from proper use.</p>
             <p>- a status with a state value of "operational"</p>
@@ -1435,50 +1476,58 @@
       <!-- Scenario 4: A service from this system offered to external systems -->
       <component uuid="11111111-2222-4000-8000-009000500004" type="service">
          <title>Service C</title>
+
          <description>
             <p>A service provided by an external system other than the leveraged system.</p>
             <p>Describe the service and what it is used for.</p>
          </description>
+
          <prop name="implementation-point" value="internal"/>
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop ns="https://fedramp.gov/ns/oscal" name="provider" value="self"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
+         <prop ns="https://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
             <remarks>
                <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
                <p>If there is no risk, please explain your basis for that conclusion.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
+         <prop ns="https://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
             <remarks>
                <p>If there are one or more identified risks, describe any resulting impact.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
+         <prop ns="https://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
             <remarks>
                <p>If there are one or more identified risks, describe any mitigating factors.</p>
             </remarks>
-         </prop>      
-         
+         </prop>
+
          <!-- <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/> -->
          <link rel="api" href="https://api.example.com/v1" />
          <status state="operational"/>
+         <responsible-role role-id="provider">
+            <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
+         </responsible-role>
+
          <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
             <title>Remote API Service</title>
             <port-range start="443" end="443" transport="TCP"/>
          </protocol>
+
          <remarks>
             <p>This is a service provided by an external system other than the leveraged system.</p>
 
 
 
             <p>- A "risk" property/extension - using the remarks, either describe any risk or state there is no risk and provide a basis for that assertion.</p>
-            
+
 
 
             <p>As a result, the "leveraged-authorization-uuid" property is not applicable and must
@@ -1490,10 +1539,10 @@
             <p>If the leveraged system owner provides a UUID for their service (such as in an
                OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
                property.</p>
-            
-            
-            
-            
+
+
+
+
          </remarks>
       </component>
 
@@ -1505,32 +1554,33 @@
          </description>
          <prop name="asset-type" value="cli"/>
          <prop name="implementation-point" value="internal"/>
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop ns="https://fedramp.gov/ns/oscal" name="provider" value="self"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
-         </prop>         
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
+         </prop>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
             <remarks>
                <p>Either describe a risk associated with this CLI, or indicate there is no identified risk.</p>
                <p>If there is no risk, please explain your basis for that conclusion.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
+         <prop ns="https://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
             <remarks>
                <p>If there are one or more identified risks, describe any resulting impact.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
+         <prop ns="https://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
             <remarks>
                <p>If there are one or more identified risks, describe any mitigating factors.</p>
             </remarks>
-         </prop>      
+         </prop>
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
                <p/>
@@ -1538,6 +1588,9 @@
          </prop>
          <link rel='provided-by' href="#11111111-2222-4000-8000-009000100001" />
          <status state="operational"/>
+         <responsible-role role-id="provider">
+            <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
+         </responsible-role>
       </component>
 
 
@@ -1570,16 +1623,14 @@
                compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev 5 new props for CMs -->
-         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="cryptographic-module-usage"
-            value="data-at-rest"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-at-rest"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-2"/>
          <!-- Provide the certificate number (CMVP #) -->
          <prop name="validation-reference" value="3928"/>
-         <link rel="validation-details"
-            href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3928"/>
+         <link rel="validation-details" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3928"/>
          <status state="operational"/>
       </component>
       <!-- List all cryptographic modules for Data-in-Transit (DIT) - must referenced by using component(s), provide CMVP #, FIPS validation status, Vendor Name, Module Name, and brief usage description -->
@@ -1591,16 +1642,14 @@
                compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev5 new props for CMs -->
-         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="cryptographic-module-usage"
-            value="data-in-transit"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-in-transit"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-3"/>
          <!-- Provide the certificate number (CMVP #) -->
          <prop name="validation-reference" value="3920"/>
-         <link rel="validation-details"
-            href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3920"/>
+         <link rel="validation-details" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3920"/>
          <status state="operational"/>
       </component>
 
@@ -1618,7 +1667,7 @@
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -1639,7 +1688,7 @@
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -1661,8 +1710,8 @@
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="database"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -1683,18 +1732,18 @@
             <p>None</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000300005" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300005" type="service">
          <title>Database Sample</title>
          <description>
             <p>None</p>
          </description>
          <prop name="asset-type" value="database"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
          <link href="#11111111-2222-4000-8000-009000500006" rel="used-by" />
@@ -1710,9 +1759,8 @@
             <p>None</p>
          </description>
          <prop name="asset-type" value="appliance"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="login-url"
-            value="https://admin.offering.com/login"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
@@ -2126,8 +2174,8 @@
          <prop name="asset-tag" value="Asset Tag"/>
          <prop name="vlan-id" value="VLAN Identifier"/>
          <prop name="network-id" value="Network Identifier"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <!-- <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>-->
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <!-- <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>-->
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
                <p>If no, explain why. If yes, omit remarks field.</p>
@@ -2187,7 +2235,7 @@
                <p>If no, explain why. If yes, omit remark.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <responsible-party role-id="asset-owner">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-party>
@@ -2213,9 +2261,8 @@
          <!-- Todo: check why schematron validation is indicating that this is not a valid ipv4 value -->
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a03:0303"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"
-         > </implemented-component>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"></implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000004">
          <description>
@@ -2228,9 +2275,8 @@
          <prop name="ipv4-address" value="10.4.4.4"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a04:0404"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"
-         > </implemented-component>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"></implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000005">
          <description>
@@ -2243,9 +2289,8 @@
          <prop name="virtual" value="no"/>
          <prop name="public" value="yes"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000011"
-         > </implemented-component>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000011"></implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000006">
          <description>
@@ -2262,8 +2307,7 @@
                <p>Asset wasn't running at time of scan.</p>
             </remarks>
          </prop>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"
-         > </implemented-component>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"></implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000007">
          <description>
@@ -2276,9 +2320,8 @@
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"
-         > </implemented-component>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"></implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000008">
          <description>
@@ -2295,8 +2338,7 @@
                <p>Asset wasn't running at time of scan.</p>
             </remarks>
          </prop>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"
-         > </implemented-component>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"></implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000009">
          <description>
@@ -2309,9 +2351,8 @@
          <prop name="virtual" value="yes"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000018"
-         > </implemented-component>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000018"></implemented-component>
       </inventory-item>
    </system-implementation>
    <!-- Appendix A - FedRAMP Security Controls (in the rev 5 SSP template, control implementations go in appendix A) -->
@@ -2327,7 +2368,7 @@
          <p>FedRAMP does not require any specific information here.</p>
       </description>
       <implemented-requirement control-id="ac-1" uuid="11111111-2222-4000-8000-012000000001">
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
 
@@ -2342,8 +2383,7 @@
          </set-parameter>
 
          <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000001">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000001">
                <description>
                   <p>Describe how Part a is satisfied within the system.</p>
                   <p>Legacy approach. If no policy component is defined, describe here how the
@@ -2361,8 +2401,7 @@
                      component is associated with the component representing the system.</p>
                </remarks>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000002">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000002">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Identity
@@ -2374,26 +2413,22 @@
             </by-component>
          </statement>
          <statement statement-id="ac-1_smt.a.2" uuid="11111111-2222-4000-8000-013000000002">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000003">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000003">
                <description>
                   <p>There </p>
                </description>
-               <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date"
-                  value="2024-01-31Z"/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
                <implementation-status state="partial">
                   <remarks>
                      <p>Describe the plan to complete the implementation.</p>
                   </remarks>
                </implementation-status>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000004">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000004">
                <description>
                   <p>Describe how this policy currently satisfies part a.</p>
                </description>
-               <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date"
-                  value="2024-01-31Z">
+               <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z">
                   <remarks>
                      <p>Describe the plan for addressing the missing policy elements.</p>
                   </remarks>
@@ -2406,8 +2441,7 @@
             </by-component>
          </statement>
          <statement statement-id="ac-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000003">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000005">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000005">
                <description>
                   <p>Describe how Part b-1 is satisfied.</p>
                </description>
@@ -2415,8 +2449,7 @@
             </by-component>
          </statement>
          <statement statement-id="ac-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000004">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000006">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000006">
                <description>
                   <p>Describe how Part b-2 is satisfied.</p>
                </description>
@@ -2425,16 +2458,15 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ac-2" uuid="11111111-2222-4000-8000-012000000002">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
          <!-- sample implementation-status below -->
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination"
-            value="customer-configured">
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="customer-configured">
             <remarks>
                <p>Describe any customer-configured requirements for satisfying this control.</p>
             </remarks>
@@ -2446,8 +2478,7 @@
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="ac-2_smt" uuid="11111111-2222-4000-8000-013000000005">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000007">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000007">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -2466,8 +2497,7 @@
             </by-component>
          </statement>
          <statement statement-id="ac-2_smt.a" uuid="11111111-2222-4000-8000-013000000006">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000008">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000008">
                <description>
                   <p>Describe how AC-2, part a is satisfied within this system.</p>
                   <p>This points to the "This System" component, and is used any time a more
@@ -2480,8 +2510,7 @@
                            leveraging systems to satisfy AC-2, part a.</p>
                      </description>
                   </provided>
-                  <responsibility uuid="11111111-2222-4000-8000-016000000001"
-                     provided-uuid="11111111-2222-4000-8000-015000000001">
+                  <responsibility uuid="11111111-2222-4000-8000-016000000001" provided-uuid="11111111-2222-4000-8000-015000000001">
                      <description>
                         <p>Leveraged system's statement of a leveraging system's responsibilities in
                            satisfaction of AC-2, part a.</p>
@@ -2494,8 +2523,7 @@
                   </responsibility>
                </export>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000014"
-               uuid="11111111-2222-4000-8000-014000000009">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000014" uuid="11111111-2222-4000-8000-014000000009">
                <description>
                   <p>For the portion of the control satisfied by the application component of this
                      system, describe <strong>how</strong> the control is met.</p>
@@ -2512,8 +2540,7 @@
                         <party-uuid>11111111-2222-4000-8000-004000000005</party-uuid>
                      </responsible-role>
                   </provided>
-                  <responsibility uuid="11111111-0000-4000-9009-002001002002"
-                     provided-uuid="11111111-2222-4000-8000-015000000002">
+                  <responsibility uuid="11111111-0000-4000-9009-002001002002" provided-uuid="11111111-2222-4000-8000-015000000002">
                      <description>
                         <p>Leveraging system's responsibilities with respect to inheriting this
                            capability from this application.</p>
@@ -2532,17 +2559,15 @@
                   <p>This can also be used to provide a summary, such as a holistic overview of how
                      multiple components work together.</p>
                   <p>While the "this system" component is not explicitly required within every
-                        <code>statement</code>, it will typically be present.</p>
+                     <code>statement</code>, it will typically be present.</p>
                </remarks>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000004"
-               uuid="11111111-2222-4000-8000-014000000010">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000004" uuid="11111111-2222-4000-8000-014000000010">
                <description>
                   <p>For the portion inherited from an underlying FedRAMP-authorized provider,
                      describe <strong>what</strong> is inherited.</p>
                </description>
-               <inherited provided-uuid="11111111-0000-4000-9009-002001002001"
-                  uuid="11111111-2222-4000-8000-017000000001">
+               <inherited provided-uuid="11111111-0000-4000-9009-002001002001" uuid="11111111-2222-4000-8000-017000000001">
                   <description>
                      <p>Optional description.</p>
                      <p>Consumer-appropriate description of what may be inherited as provided by the
@@ -2554,8 +2579,7 @@
                         CRM (Inheritance and Responsibility Model).</p>
                   </description>
                </inherited>
-               <satisfied responsibility-uuid="11111111-0000-4000-9009-002001002002"
-                  uuid="11111111-2222-4000-8000-018000000001">
+               <satisfied responsibility-uuid="11111111-0000-4000-9009-002001002002" uuid="11111111-2222-4000-8000-018000000001">
                   <description>
                      <p>Description of how the responsibility was satisfied.</p>
                      <p>The <code>responsibility-uuid</code> links this to the same statement in the
@@ -2563,8 +2587,8 @@
                      <p>It may be linked directly, but is more commonly provided via an OSCAL-based
                         CRM (Inheritance and Responsibility Model).</p>
                      <p>Tools should use this to ensure all identified customer
-                           <code>responsibility</code> statements have a corresponding
-                           <code>satisfied</code> statement in the leveraging system's SSP.</p>
+                        <code>responsibility</code> statements have a corresponding
+                        <code>satisfied</code> statement in the leveraging system's SSP.</p>
                      <p>Tool developers should be mindful that </p>
                   </description>
                </satisfied>
@@ -2572,21 +2596,20 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="at-1" uuid="11111111-2222-4000-8000-012000000003">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000006" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000024" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="at-1_smt" uuid="11111111-2222-4000-8000-013000000007">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000011">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000011">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -2602,14 +2625,12 @@
             </by-component>
          </statement>
          <statement statement-id="at-1_smt.a" uuid="11111111-2222-4000-8000-013000000008">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000012">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000012">
                <description>
                   <p>Describe how Part a is satisfied.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000013">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000013">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -2617,8 +2638,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000014">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000014">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -2628,16 +2648,14 @@
             </by-component>
          </statement>
          <statement statement-id="at-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000009">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000015">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000015">
                <description>
                   <p>Describe how Part b-1 is satisfied.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="at-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000010">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000016">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000016">
                <description>
                   <p>Describe how Part b-2 is satisfied.</p>
                </description>
@@ -2645,21 +2663,20 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="au-1" uuid="11111111-2222-4000-8000-012000000004">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000025" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="au-1_smt" uuid="11111111-2222-4000-8000-013000000011">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000017">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000017">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -2675,16 +2692,14 @@
             </by-component>
          </statement>
          <statement statement-id="au-1_smt.a" uuid="11111111-2222-4000-8000-013000000012">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000018">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000018">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
                <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000019">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000019">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -2692,8 +2707,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000020">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000020">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -2703,42 +2717,39 @@
             </by-component>
          </statement>
          <statement statement-id="au-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000013">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000021">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000021">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
                <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
             </by-component>
          </statement>
          <statement statement-id="au-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000014">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000022">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000022">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
                <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ca-1" uuid="11111111-2222-4000-8000-012000000005">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000008" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000026" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="ca-1_smt" uuid="11111111-2222-4000-8000-013000000015">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000023">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000023">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -2754,15 +2765,13 @@
             </by-component>
          </statement>
          <statement statement-id="ca-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000024">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000025">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000025">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -2770,8 +2779,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000026">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000026">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -2781,40 +2789,37 @@
             </by-component>
          </statement>
          <statement statement-id="ca-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000017">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000027">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000027">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="ca-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000018">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000028">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000028">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="cm-1" uuid="11111111-2222-4000-8000-012000000006">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000009" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000027" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="cm-1_smt" uuid="11111111-2222-4000-8000-013000000019">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000029">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000029">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -2830,15 +2835,13 @@
             </by-component>
          </statement>
          <statement statement-id="cm-1_smt.a" uuid="11111111-2222-4000-8000-013000000020">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000030">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000030">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000031">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000031">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -2846,8 +2849,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000032">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000032">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -2857,38 +2859,35 @@
             </by-component>
          </statement>
          <statement statement-id="cm-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000021">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000033">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000033">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="cm-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000022">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000034">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000034">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="cp-1" uuid="11111111-2222-4000-8000-012000000007">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="cp-1_smt" uuid="11111111-2222-4000-8000-013000000023">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000035">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000035">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -2904,15 +2903,13 @@
             </by-component>
          </statement>
          <statement statement-id="cp-1_smt.a" uuid="11111111-2222-4000-8000-013000000024">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000036">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000036">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000037">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000037">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -2920,8 +2917,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000038">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000038">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -2931,40 +2927,37 @@
             </by-component>
          </statement>
          <statement statement-id="cp-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000025">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000039">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000039">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="cp-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000026">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000040">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000040">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ia-1" uuid="11111111-2222-4000-8000-012000000008">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000011" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000029" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="ia-1_smt" uuid="11111111-2222-4000-8000-013000000027">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000041">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000041">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -2980,15 +2973,13 @@
             </by-component>
          </statement>
          <statement statement-id="ia-1_smt.a" uuid="11111111-2222-4000-8000-013000000028">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000042">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000042">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000043">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000043">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -2996,8 +2987,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000044">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000044">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3007,40 +2997,37 @@
             </by-component>
          </statement>
          <statement statement-id="ia-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000029">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000045">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000045">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="ia-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000030">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000046">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000046">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ir-1" uuid="11111111-2222-4000-8000-012000000009">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000011" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000030" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="ir-1_smt" uuid="11111111-2222-4000-8000-013000000031">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000047">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000047">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3056,15 +3043,13 @@
             </by-component>
          </statement>
          <statement statement-id="ir-1_smt.a" uuid="11111111-2222-4000-8000-013000000032">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000048">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000048">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000049">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000049">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3072,8 +3057,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000050">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000050">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3083,40 +3067,37 @@
             </by-component>
          </statement>
          <statement statement-id="ir-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000033">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000051">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000051">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="ir-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000034">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000052">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000052">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ma-1" uuid="11111111-2222-4000-8000-012000000010">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000013" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000031" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="ma-1_smt" uuid="11111111-2222-4000-8000-013000000035">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000053">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000053">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3132,15 +3113,13 @@
             </by-component>
          </statement>
          <statement statement-id="ma-1_smt.a" uuid="11111111-2222-4000-8000-013000000036">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000054">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000054">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000055">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000055">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3148,8 +3127,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000056">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000056">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3159,40 +3137,37 @@
             </by-component>
          </statement>
          <statement statement-id="ma-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000037">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000057">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000057">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="ma-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000038">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000058">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000058">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="mp-1" uuid="11111111-2222-4000-8000-012000000011">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000014" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000032" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="_smt" uuid="11111111-2222-4000-8000-013000000039">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000059">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000059">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3208,15 +3183,13 @@
             </by-component>
          </statement>
          <statement statement-id="mp-1_smt.a" uuid="11111111-2222-4000-8000-013000000040">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000060">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000060">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000061">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000061">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3224,8 +3197,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000062">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000062">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3235,40 +3207,37 @@
             </by-component>
          </statement>
          <statement statement-id="mp-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000041">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000063">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000063">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="mp-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000042">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000064">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000064">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="pe-1" uuid="11111111-2222-4000-8000-012000000012">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000015" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000033" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="_smt" uuid="11111111-2222-4000-8000-013000000043">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000065">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000065">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3284,15 +3253,13 @@
             </by-component>
          </statement>
          <statement statement-id="pe-1_smt.a" uuid="11111111-2222-4000-8000-013000000044">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000066">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000066">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000067">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000067">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3300,8 +3267,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000068">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000068">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3311,40 +3277,37 @@
             </by-component>
          </statement>
          <statement statement-id="pe-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000045">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000069">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000069">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="pe-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000046">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000070">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000070">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="pl-1" uuid="11111111-2222-4000-8000-012000000013">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#de28452-4b02-4b49-b316-59142a7633c1" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000034" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="pl-1_smt" uuid="11111111-2222-4000-8000-013000000047">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000071">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000071">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3360,15 +3323,13 @@
             </by-component>
          </statement>
          <statement statement-id="pl-1_smt.a" uuid="11111111-2222-4000-8000-013000000048">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000072">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000072">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000073">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000073">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3376,8 +3337,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000074">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000074">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3387,40 +3347,37 @@
             </by-component>
          </statement>
          <statement statement-id="pl-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000049">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000075">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000075">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="pl-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000050">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000076">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000076">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ps-1" uuid="11111111-2222-4000-8000-012000000014">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000017" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000035" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="ps-1_smt" uuid="11111111-2222-4000-8000-013000000051">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000077">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000077">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3436,15 +3393,13 @@
             </by-component>
          </statement>
          <statement statement-id="ps-1_smt.a" uuid="11111111-2222-4000-8000-013000000052">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000078">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000078">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000079">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000079">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3452,8 +3407,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000080">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000080">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3463,40 +3417,37 @@
             </by-component>
          </statement>
          <statement statement-id="ps-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000053">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000081">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000081">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="ps-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000054">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000082">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000082">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ra-1" uuid="11111111-2222-4000-8000-012000000015">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000018" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000036" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="ra-1_smt" uuid="11111111-2222-4000-8000-013000000055">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000083">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000083">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3512,15 +3463,13 @@
             </by-component>
          </statement>
          <statement statement-id="ra-1_smt.a" uuid="11111111-2222-4000-8000-013000000056">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000084">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000084">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000085">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000085">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3528,8 +3477,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000086">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000086">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3539,40 +3487,37 @@
             </by-component>
          </statement>
          <statement statement-id="ra-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000057">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000087">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000087">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="ra-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000058">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000088">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000088">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sa-1" uuid="11111111-2222-4000-8000-012000000016">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000019" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000037" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="sa-1_smt" uuid="11111111-2222-4000-8000-013000000059">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000089">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000089">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3588,15 +3533,13 @@
             </by-component>
          </statement>
          <statement statement-id="sa-1_smt.a" uuid="11111111-2222-4000-8000-013000000060">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000090">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000090">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000091">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000091">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3604,8 +3547,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000092">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000092">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3615,40 +3557,37 @@
             </by-component>
          </statement>
          <statement statement-id="sa-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000061">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000093">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000093">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="sa-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000062">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000094">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000094">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sc-1" uuid="11111111-2222-4000-8000-012000000017">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000020" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000038" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="sc-1_smt" uuid="11111111-2222-4000-8000-013000000063">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000095">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000095">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3664,15 +3603,13 @@
             </by-component>
          </statement>
          <statement statement-id="sc-1_smt.a" uuid="11111111-2222-4000-8000-013000000064">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000096">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000096">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000097">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000097">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3680,8 +3617,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000098">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000098">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3691,40 +3627,37 @@
             </by-component>
          </statement>
          <statement statement-id="sc-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000065">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000099">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000099">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="sc-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000066">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000100">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000100">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="si-1" uuid="11111111-2222-4000-8000-012000000018">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000021" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000039" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="si-1_smt" uuid="11111111-2222-4000-8000-013000000067">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000101">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000101">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3740,15 +3673,13 @@
             </by-component>
          </statement>
          <statement statement-id="si-1_smt.a" uuid="11111111-2222-4000-8000-013000000068">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000102">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000102">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000103">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000103">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3756,8 +3687,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000104">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000104">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3767,35 +3697,32 @@
             </by-component>
          </statement>
          <statement statement-id="si-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000069">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000105">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000105">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
          <statement statement-id="si-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000070">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000106">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000106">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="si-8" uuid="11111111-2222-4000-8000-012000000019">
          <!--Spam Protection-->
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
          <!--There are no control parameters-->
          <responsible-role role-id="asset-administrator">
             <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
          </responsible-role>
          <statement statement-id="si-8_smt" uuid="11111111-2222-4000-8000-013000000071">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000018"
-               uuid="11111111-2222-4000-8000-014000000107">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000018" uuid="11111111-2222-4000-8000-014000000107">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                   <p>DMARC is employed.</p>
@@ -3815,21 +3742,20 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sr-1" uuid="11111111-2222-4000-8000-012000000020">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#11111111-2222-4000-8000-001000000022" rel="policy"/>
          <link href="#11111111-2222-4000-8000-001000000040" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
          <statement statement-id="sr-1_smt" uuid="11111111-2222-4000-8000-013000000072">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000108">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000108">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
@@ -3845,15 +3771,13 @@
             </by-component>
          </statement>
          <statement statement-id="sr-1_smt.a" uuid="11111111-2222-4000-8000-013000000073">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000109">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000109">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
+                     <strong>how</strong> the control is met.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000110">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000110">
                <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
@@ -3861,8 +3785,7 @@
                      here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000111">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000111">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -3902,8 +3825,7 @@
       <resource uuid="11111111-2222-4000-8000-001000000003">
          <title>FedRAMP Applicable Laws and Regulations</title>
          <prop name="type" class="fedramp-citations" value="citation"/>
-         <rlink
-            href="https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx"/>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx"/>
          <remarks>
             <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
@@ -3925,7 +3847,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000006">
@@ -3942,7 +3865,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000007">
@@ -3959,7 +3883,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000008">
@@ -3976,7 +3901,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000009">
@@ -3993,7 +3919,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000010">
@@ -4011,7 +3938,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000011">
@@ -4028,7 +3956,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000012">
@@ -4045,7 +3974,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000013">
@@ -4062,7 +3992,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000014">
@@ -4079,7 +4010,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000015">
@@ -4096,7 +4028,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000016">
@@ -4113,7 +4046,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000017">
@@ -4130,7 +4064,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000018">
@@ -4147,7 +4082,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000019">
@@ -4164,7 +4100,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000020">
@@ -4181,7 +4118,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000021">
@@ -4198,7 +4136,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000022">
@@ -4215,7 +4154,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix C - Security Prodedure documents -->
@@ -4233,7 +4173,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000024">
@@ -4250,7 +4191,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000025">
@@ -4267,7 +4209,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000026">
@@ -4284,7 +4227,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000027">
@@ -4301,7 +4245,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000028">
@@ -4318,7 +4263,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000029">
@@ -4335,7 +4281,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000030">
@@ -4352,7 +4299,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000031">
@@ -4369,7 +4317,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000032">
@@ -4386,7 +4335,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000033">
@@ -4403,7 +4353,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000034">
@@ -4420,7 +4371,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000035">
@@ -4437,7 +4389,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000036">
@@ -4454,7 +4407,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000037">
@@ -4471,7 +4425,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000038">
@@ -4488,7 +4443,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000039">
@@ -4505,7 +4461,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000040">
@@ -4522,7 +4479,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix D - User Guide -->
@@ -4539,7 +4497,8 @@
          <remarks>
             <p>Table 12-1 Attachments: User's Guide Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix E - Digital Identity Worksheet -->
@@ -4559,7 +4518,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Rules of Behavior (ROB)</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix G - Information System Contingency Plan (ISCP) -->
@@ -4577,7 +4537,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Contingency Plan (CP) Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix H - Configuration Management Plan -->
@@ -4595,7 +4556,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Configuration Management (CM) Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix I - Incident Response Plan (IRP) -->
@@ -4613,7 +4575,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Incident Response (IR) Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix J - CIS and CRM Workbook -->
@@ -4652,7 +4615,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Continuous Monitoring Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix O - POA&M -->
@@ -4682,7 +4646,8 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
          </remarks>
       </resource>
       <!-- Appendix Q - Cryptographic Modules Table -->
@@ -4703,7 +4668,7 @@
          <description>
             <p>FedRAMP Logo</p>
          </description>
-         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="logo-main-fedramp.png" media-type="image/png">00000000</base64>
@@ -4720,7 +4685,8 @@
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -4735,7 +4701,8 @@
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -4756,7 +4723,8 @@
                system-characteristics/authorization-boundary/diagram/link/@href flag using a value
                of "#11111111-2222-4000-8000-001000000054"</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -4777,7 +4745,8 @@
                system-characteristics/network-architecture/diagram/link/@href flag using a value of
                "#11111111-2222-4000-8000-001000000055"</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -4796,7 +4765,8 @@
             <p>This should be referenced in the system-characteristics/data-flow/diagram/link/@href
                flag using a value of "#11111111-2222-4000-8000-001000000056"</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+               <code>base64</code>.
+            </p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -4813,7 +4783,8 @@
          <title>41 CFR 201</title>
          <prop name="type" class="law" value="citation"/>
          <citation>
-            <text><q>Federal Acquisition Supply Chain Security Act; Rule,</q> 85 Federal Register 54263 (September 1, 2020), pp 54263-54271.</text>
+            <text>
+               <q>Federal Acquisition Supply Chain Security Act; Rule,</q> 85 Federal Register 54263 (September 1, 2020), pp 54263-54271.</text>
          </citation>
          <rlink href="https://www.federalregister.gov/d/2020-18939"/>
          <remarks>
@@ -4830,5 +4801,32 @@
                and the value is "citation".</p>
          </remarks>
       </resource>
+      <resource uuid="11111111-2222-4000-8000-001000000004">
+         <title>CSP Reference</title>
+         <prop name="type" class="reference" value="citation"/>
+         <rlink href="./attachments/reference.pdf"/>
+         <remarks>
+            <p>CSP-specific reference. Note the "type" property's class is "reference"
+               and the value is "citation".</p>
+         </remarks>
+      </resource>
+      <resource uuid="49fb4631-1da2-41ca-b0b3-e1b1006d4025">
+         <title>Separation of Duties Matrix</title>
+         <description>
+            <p>Separation of Duties Matrix</p>
+         </description>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
+         <prop name="published" value="2023-01-01T00:00:00Z"/>
+         <prop name="version" value="Document Version"/>
+         <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
+         <base64 filename="Sep_Matrix.docx" media-type="application/msword">00000000</base64>
+         <remarks>
+            <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.
+            </p>
+         </remarks>
+      </resource>
+
+
+
    </back-matter>
 </system-security-plan>
