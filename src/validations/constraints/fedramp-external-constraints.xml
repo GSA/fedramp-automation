@@ -32,20 +32,10 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with at least one authorized privilege by a privilege identifier.</message>
             </expect>
-            <expect id="user-has-privilege-level" target="." test="count(prop[@name='privilege-level'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
-                <formal-name>User Has Privilege Level</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>A FedRAMP document MUST define a user with a privilege for their use of the system.</message>
-            </expect>
             <expect id="user-has-role-id" target="." test="count(role-id) gt 0" level="ERROR">
                 <formal-name>User Has Role ID</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
                 <message>A FedRAMP document MUST define a user with at least one role by a role identifier.</message>
-            </expect>
-            <expect id="user-has-sensitivity-level" target="." test="count(prop[@name='sensitivity']) = 1" level="ERROR">
-                <formal-name>User Has Sensitivity Level</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#user"/>
-                <message>A FedRAMP document MUST define a user with a sensitivity level of their use of the system.</message>
             </expect>
             <expect id="user-has-user-type" target="." test="count(prop[@name='type']) = 1" level="ERROR">
                 <formal-name>User Has User Type</formal-name>

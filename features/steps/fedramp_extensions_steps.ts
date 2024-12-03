@@ -16,7 +16,7 @@ import { Exception, Log, Result } from "sarif";
 import { fileURLToPath } from "url";
 import { parseString } from "xml2js";
 import { promisify } from "util";
-import {formatSarifOutput,fedrampValidationOptions} from 'oscal'
+import {formatSarifOutput} from 'oscal'
 let executor: 'oscal-cli'|'oscal-server' = process.env.OSCAL_EXECUTOR as 'oscal-cli'|'oscal-server' || 'oscal-cli'
 const quiet = process.env.OSCAL_TEST_QUIET === 'true'
 
@@ -677,7 +677,8 @@ Then('I should have valid results {string}', async function (fileToValidate) {
     "src",
     "validations","constraints","content",fileToValidate
   );
-  const {isValid,log}=await validateDocument(fullPath,{quiet,...fedrampValidationOptions},executor);
+  const {isValid,log}=await validateDocument(fullPath,{quiet,
+    extensions:metaschemaDocuments.flatMap((x) => resolve(x))},executor);
   expect(isValid,formatSarifOutput(log)).to.be.true;
 });
 
