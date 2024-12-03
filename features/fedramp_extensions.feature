@@ -113,6 +113,7 @@ Examples:
   | leveraged-authorization-nature-of-agreement |
   | marking |
   | missing-response-components |
+  | network-component-has-implementation-point |
   | party-has-name |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
@@ -333,6 +334,8 @@ Examples:
   | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
+  | network-component-has-implementation-point-FAIL.yaml |
+  | network-component-has-implementation-point-PASS.yaml |
   | party-has-name-FAIL.yaml |
   | party-has-name-PASS.yaml |
   | privilege-level-FAIL.yaml |

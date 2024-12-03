@@ -583,5 +583,23 @@
             </expect>
         </constraints>
     </context>
-
+    <context>
+        <metapath target="/system-security-plan/system-implementation"/>
+        <constraints>
+            <is-unique id="unique-inventory-item-asset-id" target="inventory-item/prop[@name='asset-id']">
+                <formal-name>Unique Asset Identifier</formal-name>
+                <description>Ensure each inventory item has a unique asset-id property.</description>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
+                <key-field target="@value"/>
+                <remarks>
+                    <p>A FedRAMP SSP's inventory item MUST have an Asset ID that is unique across all inventory items in the system and its components.</p>
+                </remarks>
+            </is-unique>
+            <expect id="network-component-has-implementation-point" target="component[@type='service' or (@type='software' and ./prop[@name='asset-type' and @value='cli'])]" test="count(./prop[@name='implementation-point']) = 1" level="ERROR">
+                <formal-name>Component Has Implementation Point</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
+                <message>A FedRAMP SSP with service components and CLI software components performing cross-boundary network communication MUST indicate exactly one time if the point of implementation is internal or external to the system.</message>
+            </expect>
+        </constraints>
+    </context>
 </metaschema-meta-constraints>
