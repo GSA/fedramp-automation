@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for component-has-provider-responsible-role
+  description: >-
+    This test case validates the behavior of constraint
+    component-has-provider-responsible-role
+  content: ../content/ssp-component-has-provider-responsible-role-INVALID.xml
+  expectations:
+    - constraint-id: component-has-provider-responsible-role
+      result: fail
