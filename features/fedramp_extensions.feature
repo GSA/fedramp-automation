@@ -113,6 +113,7 @@ Examples:
   | leveraged-authorization-has-valid-impact-level |
   | leveraged-authorization-nature-of-agreement |
   | marking |
+  | misplaced-response-components |
   | missing-response-components |
   | network-component-has-connection-security-prop |
   | network-component-has-implementation-point |
@@ -337,6 +338,8 @@ Examples:
   | leveraged-authorization-nature-of-agreement-PASS.yaml |
   | marking-FAIL.yaml |
   | marking-PASS.yaml |
+  | misplaced-response-components-FAIL.yaml |
+  | misplaced-response-components-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
   | network-component-has-connection-security-prop-FAIL.yaml |

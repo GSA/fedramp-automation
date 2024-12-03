@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+  <system-implementation>
+    <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
+      <title>System To Be Authorized</title>
+      <description>
+        <p>This component reflects the system to be authorized.</p>
+        <p>A proper SSP should reference this correctly within a given statement to document implemented requirements per FedRAMP requirements.</p>
+        <p>This example SSP does not do that, it's invalid and has some problems.</p>
+      </description>
+    </component>  
+  </system-implementation>
+  <control-implementation>
+    <description>
+      <p>Implementation of controls for the System to be Authorized</p>
+    </description>    
+    <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
+      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
+      <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c"/>
+      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="ce9c5b13-c9ea-40bb-bd4e-51e1520a4bce">
+          <description>
+            <p>This component reference would be valid if it was within the <code>statement</code> above, but it is not.</p>
+            <p>This constraint violation for the invalid file should warn users and developers repurposing valid syntax for NIST's upstream OSCAL generic use cases is not valid specifically for FedRAMP.</p>
+          </description>        
+      </by-component>
+    </implemented-requirement>
+  </control-implementation>
+</system-security-plan>

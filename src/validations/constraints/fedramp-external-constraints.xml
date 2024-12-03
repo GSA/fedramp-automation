@@ -166,10 +166,20 @@
     <context>
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
-            <expect id="missing-response-components" target="//statement" test="count(by-component) gt 0" level="ERROR">
-                <formal-name>Missing Response Components</formal-name>
+            <expect id="misplaced-response-components" target="implemented-requirement" test="not(exists(by-component))" level="WARNING">
+                <formal-name>By-Component Reference for Implemented Requirements Misplaced</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-overview"/>
-                <message>Each implemented requirement MUST have at least one by-component reference to the source component implementing it.</message>
+                <message>A FedRAMP SSP MUST identify how the system implements each control requirement implemented at the per-statement level, not in other locations allowed for non-FedRAMP use cases.</message>
+                <remarks>
+                    <p>NIST maintains OSCAL models that allow implemented requirements for controls to have references to the implementing components in multiple locations to support multiple use cases.</p>
+                    <p>Despite the flexibility of NIST's upstream OSCAL models, FedRAMP only accepts OSCAL-based SSP with the reference in one of those locations, see <code>missing-response-components</code> for more details about this requirement.</p>
+                    <p>A constraint violation with this warning indicates a given SSP uses one of the valid locations for all NIST use cases, not the only one FedRA</p>
+                </remarks>
+            </expect>        
+            <expect id="missing-response-components" target="implemented-requirement/statement" test="count(by-component) ge 1" level="ERROR">
+                <formal-name>By-Component Reference for Implemented Requirements Missing</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-overview"/>
+                <message>A FedRAMP SSP MUST identify how the system implements each control requirement implemented at the per-statement level and reference any component used to implement it.</message>
             </expect>
         </constraints>
     </context>
