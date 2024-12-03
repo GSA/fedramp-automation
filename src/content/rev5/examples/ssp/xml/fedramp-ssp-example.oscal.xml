@@ -1166,6 +1166,10 @@
          <responsible-role role-id="system-poc-technical">
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
+         <protocol name="ldap" uuid="11111111-2222-4000-8000-010000000002">
+            <title>services</title>
+            <port-range start="389" end="389" transport="TCP" />
+         </protocol>
          <remarks>
             <p>Each interconnection to one or more remote systems must have:</p>
             <ul>
@@ -1177,6 +1181,9 @@
                <li>an "asset-type" property with a value of "saas", "paas", "iaas" or "other"</li>
                <li>an "implementation-point" property with a value of "external"</li>
                <li>a "status" field with a state value of "operational"</li>
+               <li>if an interconnection exists with this system and there are 
+                  remote listening ports, one or more "protocol" assemblies must
+                  be provided.</li>
             </ul>
             
             <p>While not required, each "system" component should have:</p>
@@ -1227,8 +1234,8 @@
 
 
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
-         <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
+         <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
 
          <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
@@ -1253,8 +1260,8 @@
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
 
-         <protocol name="remote" uuid="11111111-2222-4000-8000-010000000001">
-            <title>services</title>
+         <protocol name="ftp" uuid="11111111-2222-4000-8000-010000000001">
+            <title>Incoming FTP Service</title>
             <port-range start="80" end="80" transport="TCP" />
          </protocol>
          <remarks>
@@ -1362,22 +1369,6 @@
          </prop>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
-            <remarks>
-               <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
             <remarks>
                <p>This can only be known if provided by the leveraged system.
@@ -1395,8 +1386,11 @@
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
-         </responsible-role>     
-         
+         </responsible-role>
+         <protocol name="abc" uuid="11111111-2222-4000-8000-010000000003">
+            <title></title>
+            <port-range start="5432" end="5432" transport="tcp" />
+         </protocol>
          
          <remarks>
             <p>This is a service provided by an external system other than the leveraged system.</p>
@@ -1707,7 +1701,12 @@
          <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
+         <link href="#11111111-2222-4000-8000-009000500006" rel="used-by" />
          <status state="operational"/>
+         <protocol name="postgresql">
+            <port-range start="5432" end="5432" transport="TCP" />
+            <port-range start="5432" end="5432" transport="UDP" />
+         </protocol>
       </component>
       <component uuid="11111111-2222-4000-8000-009000300006" type="software">
          <title>Appliance Sample</title>
@@ -2097,10 +2096,14 @@
          <description>
             <p>Email Service</p>
          </description>
-         <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/>
+         <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
          <!-- is-scanned prop applies to inventory-item (not component) -->
          <!-- <prop name="is-scanned" value="yes"/> -->
          <status state="operational"/>
+         <protocol name="smtp">
+            <port-range start="23" end="23" transport="TCP" />
+            <port-range start="23" end="23" transport="UDP" />
+         </protocol>
       </component>
 
       <!-- Appendix M - Inventory -->
@@ -3904,28 +3907,12 @@
          <title>FedRAMP Applicable Laws and Regulations</title>
          <prop name="type" class="fedramp-citations" value="citation"/>
          <rlink
-            href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-         <!-- Todo: Make base64 optional -->
-         <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
-            media-type="application/vnd.ms-excel">00000000</base64>
+            href="https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx"/>
          <remarks>
             <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
       </resource>
-      <!-- Section 12 lists required attachments -->
-      <!-- Appendix B - Related Acronyms -->
-      <resource uuid="11111111-2222-4000-8000-001000000004">
-         <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="type" class="fedramp-acronyms" value="citation"/>
-         <rlink
-            href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
-         <!-- Todo: Make base64 optional -->
-         <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf"
-            >00000000</base64>
-         <remarks>
-            <p>Must be present in a FedRAMP SSP.</p>
-         </remarks>
-      </resource>
+
       <!-- Appendix C - Security Policy documents -->
       <resource uuid="11111111-2222-4000-8000-001000000005">
          <title>Access Control Policy Title</title>
@@ -4639,13 +4626,17 @@
       <!-- Note - This is specified in the document (see //system-security-plan/system-characteristics[1]/system-information[1]/information-type) and no longer need to be maintained separately or attached -->
       <!-- Appendix L - CSP-Specific Required Laws and Regulations -->
       <resource uuid="11111111-2222-4000-8000-001000000046">
-         <title>[SAMPLE] Laws and Regulations </title>
+         <title>CSP-specific Law Citation</title>
          <prop name="type" value="law"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <document-id scheme="https://www.doi.org/">Identification Number</document-id>
          <rlink href="https://example.com/path/to/document.pdf"/>
          <base64 filename="document.pdf" media-type="application/pdf">00000000</base64>
+         <remarks>
+            <p>A CSP-specific law citation</p>
+            <p>The "type" property must be present and contain the value "law".</p>
+         </remarks>
          <!-- Todo: Fix Schematron. Make base64 optional -->
       </resource>
       <!-- Appendix M - Integrated Inventory Workbook -->
