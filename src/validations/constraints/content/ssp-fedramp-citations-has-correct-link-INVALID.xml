@@ -1,0 +1,186 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
+  <back-matter>
+    <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
+      <title>Access Control Policy</title>
+      <description>
+        <p>Detailed access control policy document</p>
+      </description>
+      <prop name="type" value="policy" ns="https://fedramp.gov/ns/oscal"/>
+      <rlink href="https://example.com/policies/access-control.pdf"/>
+    </resource>
+    <resource uuid="90a128ac-c850-48f6-8fff-a55692f80b41">
+      <title>User's Guide</title>
+      <description>
+        <p>User's Guide</p>
+      </description>
+      <prop name="type" value="users-guide"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <rlink href="./documents/guides/sample_guide.pdf"/>
+      <remarks>
+        <p>Table 12-1 Attachments: User's Guide Attachment</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="489112e1-57f2-4c29-8dd0-95b1442fbf3b">
+      <title>Document Title</title>
+      <description>
+        <p>Rules of Behavior</p>
+      </description>
+      <prop name="type" value="rules-of-behavior"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/rob.docx" media-type="application/msword"/>
+      <base64 filename="rob.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>Table 12-1 Attachments: Rules of Behavior (ROB)</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="c7860916-f2f4-43aa-b578-d48cf8e6d381">
+      <title>Document Title</title>
+      <description>
+        <p>Contingency Plan (CP)</p>
+      </description>
+      <prop name="type" value="plan" class="information-system-contingency-plan"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/cp.docx" media-type="application/msword"/>
+      <base64 filename="cp.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>Table 12-1 Attachments: Contingency Plan (CP) Attachment</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="ab56cf27-0dae-40d6-89b7-d750137309af">
+      <title>Document Title</title>
+      <description>
+        <p>Configuration Management (CM) Plan</p>
+      </description>
+      <prop name="type" value="plan" class="configuration-management-plan"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/CM_Plan.docx" media-type="application/msword"/>
+      <base64 filename="CM_Plan.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>Table 12-1 Attachments: Configuration Management (CM) Plan Attachment</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="3f771ab5-8016-4571-98d1-f0fb962e15e2">
+      <title>Document Title</title>
+      <description>
+        <p>Incident Response (IR) Plan</p>
+      </description>
+      <prop name="type" value="plan" class="incident-response-plan"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/IR_Plan.docx" media-type="application/msword"/>
+      <base64 filename="IR_Plan.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>Table 12-1 Attachments: Incident Response (IR) Plan Attachment</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="49fb4631-1da2-41ca-b0b3-e1b1006d4025">
+      <title>Separation of Duties Matrix</title>
+      <description>
+        <p>Separation of Duties Matrix</p>
+      </description>
+      <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
+      <base64 filename="Sep_Matrix.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="d2eb3c18-6754-4e3a-a933-03d289e3fad5">
+      <title>Authorization Boundary</title>
+      <description>
+        <p>Authorization Boundary Diagram</p>
+      </description>
+      <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/AuthBoundary.docx" media-type="application/msword"/>
+      <base64 filename="AuthBoundary.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="61081e81-850b-43c1-bf43-1ecbddcb9e7f">
+      <title>Network Architecture</title>
+      <description>
+        <p>Network Architecture Diagram</p>
+      </description>
+      <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/NetworkArchitecture.docx" media-type="application/msword"/>
+      <base64 filename="NetworkArchitecture.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="ac5d7535-f3b8-45d3-bf3b-735c82c64547">
+      <title>Data Flow</title>
+      <description>
+        <p>Data flow Diagram</p>
+      </description>
+      <prop ns="https://fedramp.gov/ns/oscal" name="type" value="artifact"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="Document Version"/>
+      <rlink href="./documents/Dataflo.docx" media-type="application/msword"/>
+      <base64 filename="Dataflow.docx" media-type="application/msword">00000000</base64>
+      <remarks>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="9b657253-c129-4e88-8930-92d5267294c3">
+      <title>Privacy Impact Assessment</title>
+      <description>
+        <p>Privacy Impact Assessment (PIA)</p>
+      </description>
+      <prop name="type" value="report" class="privacy-impact-assessment"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="1.0"/>
+      <rlink href="./documents/PIA.pdf" media-type="application/pdf"/>
+      <base64 filename="PIA.pdf" media-type="application/pdf">00000000</base64>
+      <remarks>
+        <p>Table 12-1 Attachments: Privacy Impact Assessment</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="31f0bc7d-8c8f-45fa-9c0d-93a52a7f7c54">
+      <title>E-Authentication Workflow</title>
+      <description>
+        <p>E-Authentication Workflow Diagram</p>
+      </description>
+      <prop name="type" value="artifact" class="e-authentication-workflow"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="1.0"/>
+      <rlink href="./documents/eauth-workflow.pdf" media-type="application/pdf"/>
+      <base64 filename="eauth-workflow.pdf" media-type="application/pdf">00000000</base64>
+      <remarks>
+        <p>Table 12-1 Attachments: E-Authentication Workflow Diagram</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+    <resource uuid="b246c9e4-057f-4e4d-89be-a9c9234ef387">
+      <title>Digital Identity Worksheet</title>
+      <description>
+        <p>Digital Identity Determination Worksheet</p>
+      </description>
+      <prop name="type" value="questionnaire" class="digital-identity-worksheet"/>
+      <prop name="published" value="2023-01-01T00:00:00Z"/>
+      <prop name="version" value="1.0"/>
+      <rlink href="./documents/digital-identity.xlsx" media-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+      <base64 filename="digital-identity.xlsx" media-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">00000000</base64>
+      <remarks>
+        <p>Table 12-1 Attachments: Digital Identity Worksheet</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+      </remarks>
+    </resource>
+  </back-matter>
+</system-security-plan>

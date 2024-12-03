@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-e-authentication-workflow
+  description: >-
+    This test case validates the behavior of constraint
+    has-e-authentication-workflow
+  content: ../content/ssp-has-e-authentication-workflow-INVALID.xml
+  expectations:
+    - constraint-id: has-e-authentication-workflow
+      result: fail

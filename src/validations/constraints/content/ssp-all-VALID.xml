@@ -561,12 +561,60 @@
   <description>
      <p>Data flow Diagram</p>
   </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="artifact"/>
   <prop name="published" value="2023-01-01T00:00:00Z"/>
   <prop name="version" value="Document Version"/>
   <rlink href="./documents/Dataflo.docx" media-type="application/msword"/>
   <base64 filename="Dataflow.docx" media-type="application/msword">00000000</base64>
   <remarks>
+     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+  </remarks>
+</resource>
+
+  <resource uuid="9b657253-c129-4e88-8930-92d5267294c3">
+  <title>Privacy Impact Assessment</title>
+  <description>
+     <p>Privacy Impact Assessment (PIA)</p>
+  </description>
+  <prop name="type" value="report" class="privacy-impact-assessment"/>
+  <prop name="published" value="2023-01-01T00:00:00Z"/>
+  <prop name="version" value="1.0"/>
+  <rlink href="./documents/PIA.pdf" media-type="application/pdf"/>
+  <base64 filename="PIA.pdf" media-type="application/pdf">00000000</base64>
+  <remarks>
+     <p>Table 12-1 Attachments: Privacy Impact Assessment</p>
+     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+  </remarks>
+</resource>
+
+<resource uuid="31f0bc7d-8c8f-45fa-9c0d-93a52a7f7c54">
+  <title>E-Authentication Workflow</title>
+  <description>
+     <p>E-Authentication Workflow Diagram</p>
+  </description>
+  <prop name="type" value="artifact" class="e-authentication-workflow"/>
+  <prop name="published" value="2023-01-01T00:00:00Z"/>
+  <prop name="version" value="1.0"/>
+  <rlink href="./documents/eauth-workflow.pdf" media-type="application/pdf"/>
+  <base64 filename="eauth-workflow.pdf" media-type="application/pdf">00000000</base64>
+  <remarks>
+     <p>Table 12-1 Attachments: E-Authentication Workflow Diagram</p>
+     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+  </remarks>
+</resource>
+
+<resource uuid="b246c9e4-057f-4e4d-89be-a9c9234ef387">
+  <title>Digital Identity Worksheet</title>
+  <description>
+     <p>Digital Identity Determination Worksheet</p>
+  </description>
+  <prop name="type" value="questionnaire" class="digital-identity-worksheet"/>
+  <prop name="published" value="2023-01-01T00:00:00Z"/>
+  <prop name="version" value="1.0"/>
+  <rlink href="./documents/digital-identity.xlsx" media-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+  <base64 filename="digital-identity.xlsx" media-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">00000000</base64>
+  <remarks>
+     <p>Table 12-1 Attachments: Digital Identity Worksheet</p>
      <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
   </remarks>
 </resource>

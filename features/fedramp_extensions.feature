@@ -45,6 +45,7 @@ Examples:
   | data-center-us |
   | deployment-model |
   | external-system-nature-of-agreement |
+  | fedramp-citations-has-correct-link |
   | fedramp-version |
   | fully-operational-date-is-valid |
   | fully-operational-date-type |
@@ -71,7 +72,10 @@ Examples:
   | has-data-flow-diagram-link-rel |
   | has-data-flow-diagram-link-rel-allowed-value |
   | has-data-flow-diagram-uuid |
+  | has-digital-identity-worksheet |
+  | has-e-authentication-workflow |
   | has-federation-assurance-level |
+  | has-fedramp-citations |
   | has-fully-operational-date |
   | has-identity-assurance-level |
   | has-incident-response-plan |
@@ -85,6 +89,7 @@ Examples:
   | has-network-architecture-diagram-link-href-target |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
+  | has-privacy-impact-assessment |
   | has-published-date |
   | has-rules-of-behavior |
   | has-security-impact-level |
@@ -195,6 +200,8 @@ Examples:
   | deployment-model-PASS.yaml |
   | external-system-nature-of-agreement-FAIL.yaml |
   | external-system-nature-of-agreement-PASS.yaml |
+  | fedramp-citations-has-correct-link-FAIL.yaml |
+  | fedramp-citations-has-correct-link-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
   | fully-operational-date-is-valid-FAIL.yaml |
@@ -247,8 +254,14 @@ Examples:
   | has-data-flow-diagram-link-rel-allowed-value-PASS.yaml |
   | has-data-flow-diagram-uuid-FAIL.yaml |
   | has-data-flow-diagram-uuid-PASS.yaml |
+  | has-digital-identity-worksheet-FAIL.yaml |
+  | has-digital-identity-worksheet-PASS.yaml |
+  | has-e-authentication-workflow-FAIL.yaml |
+  | has-e-authentication-workflow-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
   | has-federation-assurance-level-PASS.yaml |
+  | has-fedramp-citations-FAIL.yaml |
+  | has-fedramp-citations-PASS.yaml |
   | has-fully-operational-date-FAIL.yaml |
   | has-fully-operational-date-PASS.yaml |
   | has-identity-assurance-level-FAIL.yaml |
@@ -275,6 +288,8 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-privacy-impact-assessment-FAIL.yaml |
+  | has-privacy-impact-assessment-PASS.yaml |
   | has-published-date-FAIL.yaml |
   | has-published-date-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |

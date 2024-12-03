@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for fedramp-citations-has-correct-link
+  description: >-
+    This test case validates the behavior of constraint
+    fedramp-citations-has-correct-link
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: fedramp-citations-has-correct-link
+      result: pass
