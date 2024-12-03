@@ -158,10 +158,10 @@
     <context>
         <metapath target="/system-security-plan/control-implementation"/>
         <constraints>
-            <expect id="missing-response-components" target="implemented-requirement" test="count(./by-component) gt 0" level="ERROR">
-                <formal-name>Missing Response Components</formal-name>
+            <expect id="missing-response-components" target="implemented-requirement/statement" test="count(./by-component) gt 0" level="ERROR">
+                <formal-name>By-Component Reference for Implemented Requirements Missing</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-overview"/>
-                <message>Each implemented requirement MUST have at least one by-component reference to the source component implementing it.</message>
+                <message>A FedRAMP SSP MUST identify how the system implements each control requirement implemented at the per-statement level and reference any component used to implement it.</message>
             </expect>
         </constraints>
     </context>
