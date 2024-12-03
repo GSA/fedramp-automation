@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for misplaced-response-components
+  description: >-
+    This test case validates the behavior of constraint
+    misplaced-response-components
+  content: ../content/ssp-all-VALID.xml
+  expectations:
+    - constraint-id: misplaced-response-components
+      result: pass

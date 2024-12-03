@@ -111,6 +111,7 @@ Examples:
   | leveraged-authorization-has-valid-impact-level |
   | leveraged-authorization-nature-of-agreement |
   | marking |
+  | misplaced-response-components |  
   | missing-response-components |
   | party-has-name |
   | privilege-level |
@@ -328,6 +329,8 @@ Examples:
   | leveraged-authorization-nature-of-agreement-PASS.yaml |
   | marking-FAIL.yaml |
   | marking-PASS.yaml |
+  | misplaced-response-components-FAIL.yaml |
+  | misplaced-response-components-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
   | party-has-name-FAIL.yaml |
