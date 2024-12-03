@@ -10,7 +10,7 @@ Scenario Outline: Documents that should be valid are pass
   Then I should have valid results "<valid_file>"
 Examples:
 | valid_file     |
-| fedramp-ssp-example.oscal.xml |
+| ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml |
 # | ssp-all-VALID.xml |
 # | ../../../content/awesome-cloud/xml/AwesomeCloudSSP1.xml |
 # | ../../../content/awesome-cloud/xml/AwesomeCloudSSP2.xml |
