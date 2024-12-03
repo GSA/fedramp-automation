@@ -338,7 +338,10 @@
         </remarks>
       </prop>
      <status state="operational"/>
-     </component>
+      <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+    </component>
 
     <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
       <title>External API Connection</title>
@@ -354,6 +357,9 @@
         </remarks>
       </prop>
       <status state="operational"/>
+      <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-role>
@@ -377,6 +383,9 @@
         </remarks>
       </prop>
       <status state="operational"/>
+      <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
     </component>
     
     <inventory-item uuid="77777777-0000-4000-9000-000000000007">
