@@ -283,7 +283,7 @@ async function scaffoldTest(constraintId,context) {
         'test-case': {
             name: `Positive Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content: `../content/${model}-all-VALID.xml`,  
+            content: model === 'ssp' ? '../content/fedramp-example-ssp.xml' : `../content/${model}-all-VALID.xml`,
             expectations: [
                 {
                     'constraint-id': constraintId,
