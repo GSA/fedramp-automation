@@ -13,6 +13,8 @@ Examples:
 | ssp-all-VALID.xml |
 # | ../../../content/awesome-cloud/xml/AwesomeCloudSSP1.xml |
 # | ../../../content/awesome-cloud/xml/AwesomeCloudSSP2.xml |
+| ../../../content/rev5/examples/ssp/xml/FedRAMP-SSP-Example.OSCAL.xml |
+
 
 @full-coverage
 Scenario: Preparing constraint coverage analysis

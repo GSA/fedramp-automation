@@ -146,25 +146,37 @@
         </security-impact-level>
         <status state="operational"/>        
         <authorization-boundary>
-            <description/>            
+            <description>
+                <p></p>
+            </description>            
             <diagram uuid="16ebbf5d-b2ca-4447-9ea0-da9ef5a9a1a1">
-                <description/>
+                <description>
+                    <p></p>
+                </description>            
                 <link href="#51cbc2c8-7eb8-4ab1-a9fc-5a742508c968" rel="diagram"/>
                 <caption/>
             </diagram>
         </authorization-boundary>
         <network-architecture>
-            <description/>                
+            <description>
+                <p></p>
+            </description>            
             <diagram uuid="5d35e4e0-2dc3-4871-a0aa-c65039a62c1b">
-                <description/>
+                <description>
+                    <p></p>
+                </description>            
                 <link href="#2de57f8e-9611-47f6-a124-a2095265627a" rel="diagram"></link>
                 <caption/>
             </diagram>
         </network-architecture>
         <data-flow>
-            <description/>
+            <description>
+                <p></p>
+            </description>            
             <diagram uuid="8ecdf38a-f2c9-4e3a-a597-e7335769b537">
-                <description/>
+                <description>
+                    <p></p>
+                </description>            
                 <link href="#5ed3e8a9-3fdd-49e6-a4a3-a1485a496e07" rel="diagram"></link>
                 <caption/>
             </diagram>
@@ -272,7 +284,9 @@
         </user>        
         <component uuid="19a38c5f-e4af-494b-a482-acf22c28a448" type="this-system" xmlns="http://csrc.nist.gov/ns/oscal/1.0">
             <title>The AwesomeCloud Software as a Service (SaaS) Solution</title>
-            <description/>
+            <description>
+                <p></p>
+            </description>            
             <prop name="component-type" value="system"/>                
             <status state="operational"/>            
         </component>
@@ -659,7 +673,9 @@
         </inventory-item>
     </system-implementation>
     <control-implementation>
-        <description/>        
+        <description>
+            <p></p>
+        </description>            
         <implemented-requirement control-id="cm-8" uuid="41af2ac0-5e22-488d-a052-549a46ad181d">
             <!-- Control title: Information System Component Inventory -->
             <prop name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system"/>
@@ -737,19 +753,25 @@
         <!--Authorization Boundary Diagram-->
         <resource uuid="51cbc2c8-7eb8-4ab1-a9fc-5a742508c968">
             <title>Authorization Boundary Diagram</title>
-            <description/>
+            <description>
+                <p></p>
+            </description>            
             <rlink href="../artifacts/AwesomeCloudHLA2.png"/>            
         </resource>
         <!--Network Architecture Diagram-->
         <resource uuid="2de57f8e-9611-47f6-a124-a2095265627a">
             <title>Network Architecture Diagram</title>
-            <description/>            
+            <description>
+                <p></p>
+            </description>            
             <rlink href="../artifacts/AwesomeCloudHLA2.png"/>            
         </resource>
         <!--Data Flow Diagram-->
         <resource uuid="5ed3e8a9-3fdd-49e6-a4a3-a1485a496e07">
             <title>Data Flow Diagram</title>
-            <description/>            
+            <description>
+                <p></p>
+            </description>            
             <rlink href="../artifacts/AwesomeCloudHLA2.png"/>            
         </resource>
         <!--Laws and Regulations-->
