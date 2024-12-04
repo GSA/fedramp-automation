@@ -11,7 +11,25 @@
     <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
     <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
-    
+    <prop name="marking" value="cui"/>
+    <role id="authorizing-official">
+      <title>Authorizing Official</title>
+      <description>
+        <p>Senior official with authority to formally assume responsibility for operating a system at an acceptable level of risk.</p>
+      </description>
+    </role>
+    <role id="prepared-by">
+      <title>Prepared By</title>
+      <description>
+        <p>This party prepared the SSP.</p>
+      </description>
+    </role>
+    <role id="prepared-for">
+      <title>Prepared For</title>
+      <description>
+        <p>The organization for which this SSP was prepared. Typically the CSP.</p>
+      </description>
+    </role>
     <role id="creator">
       <title>Document Creator</title>
     </role>
@@ -52,6 +70,17 @@
           </description>
       </role>
 
+    <location uuid="27b78960-59ef-4619-82b0-ae20b9c709ac">
+      <title>CSP HQ</title>
+      <address type="work">
+        <addr-line>Suite 0000</addr-line>
+        <addr-line>1234 Some Street</addr-line>
+        <city>Haven</city>
+        <state>ME</state>
+        <postal-code>00000</postal-code>
+        <country>US</country>
+      </address>
+    </location>
     <location uuid="11111112-0000-4000-9001-000000000009">
       <address >
         <country>US</country>
@@ -64,6 +93,21 @@
       </address>
       <prop name="type" value="data-center" class="alternate"/>
     </location>
+    <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
+      <name>Person Name 1</name>
+      <prop name="job-title" value="Individual's Title"/>
+      <prop name="mail-stop" value="Mailstop A-1"/>
+      <email-address>name@example.com</email-address>
+      <telephone-number>2020000001</telephone-number>
+      <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+      <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+    </party>
+    <party uuid="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" type="organization">
+      <name>Cloud Service Provider (CSP) Name</name>
+      <short-name>CSP Acronym/Short Name</short-name>
+      <link href="#31a46c4f-2959-4287-bc1c-67297d7da60b" rel="logo"/>
+      <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+    </party>
     <party uuid="11111111-0000-4000-9000-000000000001" type="organization">
       <name>Example Organization</name>
       <short-name>ExOrg</short-name>
@@ -75,6 +119,12 @@
     <address type="work"  />
     </party>
 
+    <responsible-party role-id="prepared-by">
+      <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+    </responsible-party>
+    <responsible-party role-id="prepared-for">
+      <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+    </responsible-party>
     <responsible-party role-id="creator">
       <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
     </responsible-party>
@@ -118,12 +168,21 @@
     <description>
       <p>This is an enhanced example system for demonstration purposes, incorporating more FedRAMP-specific elements.</p>
     </description>
-    <prop name='cloud-deployment-model' value='government-only-cloud' ns="https://fedramp.gov/ns/oscal"/>
-    <prop name='cloud-service-model' value='other' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name="cloud-deployment-model" value="public-cloud">
+      <remarks>
+        <p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional otherwise.</p>
+      </remarks>
+    </prop>
+    <prop name="cloud-service-model" value="other">
+      <remarks>
+        <p>Remarks are required if service model is "other". Optional otherwise.</p>
+      </remarks>
+    </prop>
     <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
+    <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
     <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
@@ -169,7 +228,7 @@
             <description>
                <p>A diagram-specific explanation.</p>
             </description>
-            <link href="https://www.fedramp.gov/assets/resources/documents/Agency-Authorization-Auth-Boundary-Diagram-Job-Aid.pdf" rel="diagram"/>
+            <link href="#d2eb3c18-6754-4e3a-a933-03d289e3fad5" rel="diagram"/>
             <caption>Authorization Boundary Diagram</caption>
          </diagram>
     </authorization-boundary>
@@ -200,6 +259,21 @@
   </system-characteristics>
   
   <system-implementation>
+
+    <leveraged-authorization uuid="233e0f09-fe5e-47e2-bca3-5f32df75e57a">
+      <title>GovCloud</title>
+      <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-moderate"/>
+      <link href="//path/to/leveraged_system_ssp.xml"/>
+      <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
+      <date-authorized>2015-01-01</date-authorized>
+      <remarks>
+        <p>Use one leveraged-authorization assembly for each underlying system. In the legacy world, these may be general support systems.</p>
+        <p>The link fields are optional, but preferred when known. Often, a leveraging system's SSP author will not have access to the leveraged system's SSP, but should have access to the leveraged system's CRM.</p>
+      </remarks>
+    </leveraged-authorization>
+
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
@@ -211,7 +285,6 @@
         <description><p>admin user</p></description>
         <function-performed>administration</function-performed>
       </authorized-privilege>
-
     </user>
     
     <component uuid="55555555-0000-4000-9000-000000000005" type="this-system">
@@ -228,14 +301,21 @@
         <p>This is the primary application server for the system.</p>
       </remarks>
     </component>
-    
-    <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
-      <title>External API Connection</title>
+    <component uuid="66666666-0000-4000-9000-000000000007" type="service">
+      <title>Firebase CLI Connection</title>
       <description>
-        <p>Secure connection to an external API for data enrichment.</p>
+        <p>CLI for updating firebase Secure connection to an external API for data enrichment.</p>
       </description>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+        <remarks>
+          <p>Some description of the authentication method.</p>
+        </remarks>
+      </prop>
       <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
+      <prop name="asset-type" value="cli"/>
+      <prop name="implementation-point" value="external"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
@@ -243,6 +323,80 @@
       <remarks>
         <p>This connection is used for secure data exchange with external systems.</p>
       </remarks>
+    </component>
+    <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
+      <title>An External Leveraged System</title>
+      <description>
+        <p>An external leveraged system.</p>
+      </description>
+      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
+      <prop name="implementation-point" value="external"/>
+      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="sla"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+        <remarks>
+          <p>Some description of the external authentication method.</p>
+        </remarks>
+      </prop>
+      <status state="operational"/>
+      <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <responsible-role role-id="system-admin">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <responsible-role role-id="administrator">
+        <prop name="privilege-uuid" value="44444444-0000-4000-9000-000000000004" ns="https://fedramp.gov/ns/oscal" />
+      </responsible-role>
+    </component>
+
+    <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
+      <title>External API Connection</title>
+      <description>
+        <p>Secure connection to an external API for data enrichment.</p>
+      </description>
+      <prop name="leveraged-authorization-uuid" value="233e0f09-fe5e-47e2-bca3-5f32df75e57a"/>
+      <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+        <remarks>
+          <p>Some description of the authentication method.</p>
+        </remarks>
+      </prop>
+      <status state="operational"/>
+      <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <responsible-role role-id="system-admin">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <remarks>
+        <p>This connection is used for secure data exchange with external systems.</p>
+      </remarks>
+    </component>
+
+    <component uuid="77777777-0000-4000-9000-000000000007" type="software">
+      <title>Name of External System</title>
+      <description>
+          <p>Briefly describe the external system.</p>
+      </description>
+      <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>      
+      <prop name="asset-type" value="cli"/>
+      <prop name="implementation-point" value="external"/>
+      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+        <remarks>
+          <p>Some description of the authentication method.</p>
+        </remarks>
+      </prop>
+      <status state="operational"/>
+      <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <responsible-role role-id="system-admin">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
     </component>
     
     <inventory-item uuid="77777777-0000-4000-9000-000000000007">
@@ -262,6 +416,25 @@
         <prop name="asset-id" value="DB-001" ns="http://csrc.nist.gov/ns/oscal"/>
       </implemented-component>
     </inventory-item>
+
+    <inventory-item uuid="77777777-0000-4000-9001-000000000007">
+      <description>
+        <p>Secondary database server</p>
+      </description>
+      <prop name="asset-id" value="DB-002" ns="http://csrc.nist.gov/ns/oscal"/>
+      <prop name="asset-type" value="database"/>
+      <prop name="allows-authenticated-scan" value="yes"/>
+      <prop name="public" value="no"/>
+      <prop name="virtual" value="yes"/>
+      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <responsible-party role-id="asset-owner">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-party>
+      <implemented-component component-uuid="55555555-0000-4000-9001-000000000005">
+        <prop name="asset-id" value="DB-002" ns="http://csrc.nist.gov/ns/oscal"/>
+      </implemented-component>
+    </inventory-item>
+
   </system-implementation>
   
   <control-implementation>
@@ -397,53 +570,56 @@
   </remarks>
 </resource>
 
+    <resource uuid="d2eb3c18-6754-4e3a-a933-03d289e3fad5">
+      <title>Boundary Diagram</title>
+      <description>
+        <p>The primary authorization boundary diagram.</p>
+      </description>
+      <prop name="type" value="image" class="authorization-boundary" />
+      <rlink href="./attachments/diagrams/boundary.png"/>
+      <base64 filename="logo.png" media-type="image/png">00000000</base64>
+      <remarks>
+        <p>Section 8.1, Figure 8-1 Authorization Boundary Diagram (graphic)</p>
+        <p>This should be referenced in the system-characteristics/authorization-boundary/diagram/link/@href flag using a value of "#11111111-2222-4000-8000-001000000054"</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+        <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
+        <p>Images must be in sufficient resolution to read all detail when rendered in a browser via HTML5.</p>
+      </remarks>
+    </resource>
 
-<resource uuid="d2eb3c18-6754-4e3a-a933-03d289e3fad5">
-  <title>Authorization Boundary</title>
-  <description>
-     <p>Authorization Boundary Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/AuthBoundary.docx" media-type="application/msword"/>
-  <base64 filename="AuthBoundary.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
+    <resource uuid="61081e81-850b-43c1-bf43-1ecbddcb9e7f">
+      <title>Network Diagram</title>
+      <description>
+        <p>The primary network diagram.</p>
+      </description>
+      <prop name="type" value="image" class="network-architecture" />
+      <!-- Use rlink and/or base64 -->
+      <rlink href="./attachments/diagrams/network.png"/>
+      <base64 filename="network.png" media-type="image/png">00000000</base64>
+      <remarks>
+        <p>Section 8.1, Figure 8-2 Network Diagram (graphic)</p>
+        <p>This should be referenced in the system-characteristics/network-architecture/diagram/link/@href flag using a value of "#11111111-2222-4000-8000-001000000055"</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+        <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
+        <p>Images must be in sufficient resolution to read all detail when rendered in a browser via HTML5.</p>
+      </remarks>
+    </resource>
 
-<resource uuid="61081e81-850b-43c1-bf43-1ecbddcb9e7f">
-  <title>Network Architecture</title>
-  <description>
-     <p>Network Architecture Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/NetworkArchitecture.docx" media-type="application/msword"/>
-  <base64 filename="NetworkArchitecture.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-
-<resource uuid="ac5d7535-f3b8-45d3-bf3b-735c82c64547">
-  <title>Data Flow</title>
-  <description>
-     <p>Data flow Diagram</p>
-  </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
-  <prop name="published" value="2023-01-01T00:00:00Z"/>
-  <prop name="version" value="Document Version"/>
-  <rlink href="./documents/Dataflo.docx" media-type="application/msword"/>
-  <base64 filename="Dataflow.docx" media-type="application/msword">00000000</base64>
-  <remarks>
-     <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-  </remarks>
-</resource>
-
-
-
+    <resource uuid="ac5d7535-f3b8-45d3-bf3b-735c82c64547">
+      <title>Data Flow Diagram</title>
+      <description>
+        <p>The primary data flow diagram.</p>
+      </description>
+      <prop name="type" value="image" class="data-flow" />
+      <rlink href="./attachments/diagrams/dataflow.png"/>
+      <base64 filename="dataflow.png" media-type="image/png">00000000</base64>
+      <remarks>
+        <p>Section 8.1, Figure 8-3 Data Flow Diagram (graphic)</p>
+        <p>This should be referenced in the system-characteristics/data-flow/diagram/link/@href flag using a value of "#11111111-2222-4000-8000-001000000056"</p>
+        <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
+        <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
+        <p>Images must be in sufficient resolution to read all detail when rendered in a browser via HTML5.</p>
+      </remarks>
+    </resource>
   </back-matter>
 </system-security-plan>

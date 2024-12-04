@@ -2,7 +2,7 @@
 test-case:
   name: Test Valid Deployment Model Use
   description: Test that the specified deployment model is valid.
-  content: ../content/ssp-all-VALID.xml # the content to run
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml # the content to run
   expectations: # check the constraint result
   - constraint-id: deployment-model
     result: pass

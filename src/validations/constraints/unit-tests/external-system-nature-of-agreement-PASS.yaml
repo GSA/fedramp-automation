@@ -2,7 +2,7 @@
 test-case:
   name: The valid external-system-nature-of-agreement constraint unit test.
   description: Test that the FedRAMP SSP contains valid nature-of-agreement value for an external system.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
   - constraint-id: external-system-nature-of-agreement
     result: pass

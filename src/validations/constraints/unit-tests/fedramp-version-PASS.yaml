@@ -2,7 +2,7 @@
 test-case:
   name: The valid fedramp-version constraint unit test.
   description: Test that the SSP metadata contains the "fedramp-version" property.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
   - constraint-id: fedramp-version
     result: pass

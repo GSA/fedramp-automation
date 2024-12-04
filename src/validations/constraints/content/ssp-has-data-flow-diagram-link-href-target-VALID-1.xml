@@ -193,7 +193,7 @@
         <description>
           <p>A diagram-specific explanation.</p>
         </description>
-        <link href="./ssp-all-VALID.xml" rel="diagram"/>
+        <link href="https://www.fedramp.gov/assets/resources/documents/Agency-Authorization-Auth-Boundary-Diagram-Job-Aid.pdf" rel="diagram" />
         <caption>Data Flow Diagram</caption>
       </diagram>
     </data-flow>

@@ -85,9 +85,6 @@
     <responsible-party role-id="system-owner">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
-    <responsible-party role-id="authorizing-official">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
     <responsible-party role-id="authorizing-official-poc">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
@@ -181,7 +178,7 @@
         <description>
           <p>A diagram-specific explanation.</p>
         </description>
-        <link href="./ssp-all-VALID.xml" rel="diagram"/>
+        <link href="https://www.fedramp.gov/assets/resources/documents/Agency-Authorization-Auth-Boundary-Diagram-Job-Aid.pdf" rel="diagram"/>
         <caption>Network Diagram</caption>
       </diagram>
     </network-architecture>
@@ -234,7 +231,7 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">

@@ -107,7 +107,7 @@ npm run constraint
 You can add a constraint and test to this repository by following these high-level steps.
 
 1. Create a new constraint in [the appropriate constraints file](#which-constraint-file-do-i-edit). Note the `id`, you will use it later.
-2. Add the necessary, correct data to [`./content/ssp-all-VALID.xml`](./content/ssp-all-VALID.xml) for a positive test of the constraint.
+2. Add the necessary, correct data to [`../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml`](../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml) for a positive test of the constraint.
 3. Add the YAML metadata for the positive test in [`./unit-tests`](./unit-tests/). The name of the file should start with the name of the assembly, field, or flag, and end with `-PASS.yaml`. For example, a new constraint and test for a [`//metadata/party/prop`](https://pages.nist.gov/OSCAL-Reference/models/v1.1.2/system-security-plan/json-reference/#/system-security-plan/metadata/parties) assembly should be `party-PASS.yaml`. The content should be like the example below.
 
 ```yaml
@@ -115,7 +115,7 @@ You can add a constraint and test to this repository by following these high-lev
 test-case:
   name: Positive Test for party
   description: This test case validates the behavior of constraint party
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: party
       result: pass

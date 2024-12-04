@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-network-architecture-diagram-caption
   description: Test that a SSP network-architecture diagram element has a caption element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: has-network-architecture-diagram-caption
       result: pass
