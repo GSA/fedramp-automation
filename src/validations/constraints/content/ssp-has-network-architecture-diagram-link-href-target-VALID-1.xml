@@ -231,7 +231,7 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
