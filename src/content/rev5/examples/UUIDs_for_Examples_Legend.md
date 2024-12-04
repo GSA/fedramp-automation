@@ -55,13 +55,13 @@ The format used for examples is v4 compliant as follows:
 - `-0090`=component
 - `-0100`=protocol
 - `-0110`=inventory-item
-- `-0120`=implemented-requirement
-- `-0130`=statement
-- `-0140`=by-component
-- `-0150`=provided
-- `-0160`=responsibility
-- `-0170`=inherited
-- `-0180`=satisfied
+- `-0120####`=implemented-requirement
+- `-0120cccc##`=statement
+- `-0120ccccss##`=by-component
+- `-0130cccc01xx`=provided
+- `-0130cccc02xx`=responsibility
+- `-0140cccc01xx`=inherited
+- `-0140cccc02xx`=satisfied
 - `-0190`=leveraged-authorization
 
 _Fields for other models to be added as we work with those models._

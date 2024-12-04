@@ -196,12 +196,6 @@
             <p>This is a sample role.</p>
          </description>
       </role>
-      <role id="leveraged-authorization-users">
-         <title>Leveraged Authorization Users</title>
-         <description>
-            <p>Any internal users of a leveraged authorization.</p>
-         </description>
-      </role>
       <role id="external-system-owner">
          <title>External System Owner</title>
          <description>
@@ -1061,16 +1055,14 @@
          </prop>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
-         <prop name="poam-item-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001" />
-         <prop name="poam-id" ns="http://fedramp.gov/ns/oscal" value="ID-0001" />
          <link  rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
          <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000001" />
-         <link  rel="poam-item"   href="https://raw.githubusercontent.com/usnistgov/oscal-content/refs/heads/main/examples/poam/xml/ifa_plan-of-action-and-milestones.xml" resource-fragment="11111111-3333-4000-8000-000000000001" />
          <status state="operational" />
          <responsible-role role-id="admin">
             
          </responsible-role>
          <remarks>
+            <!-- TODO: Validate this description -->
             <p>This is a service offered by a leveraged system and used by this system.
                It is NOT explicitly listed on the FedRAMP marketplace as being included 
                in the scope of the leveraged system's ATO, thus is treated as a 
@@ -1085,9 +1077,8 @@
                <li>One or more "information-type" property/extensions, where the allowed values are the 800-63
                   information type identifiers, and the cited types are included full list of system information types.</li>
                <li>exactly one "poam-item" link, with an href value that references the 
-                  POA&amp;M and a resource-fragment that represents the 
-                  POAM&amp;M ID (legacy) in a Excel workbook or poam-item-uuid (preferred)
-                  in an OSCAL-based POA&amp;M.</li>
+                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
                <li>a "provided-by" link with a URI fragment that points to the 
                   "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
                <li></li>
@@ -1166,6 +1157,7 @@
             <port-range start="389" end="389" transport="TCP" />
          </protocol>
          <remarks>
+            <!-- TODO: Validate this description -->
             <p>Each interconnection to one or more remote systems must have:</p>
             <ul>
                <li>a "system" component (this component)</li>
@@ -1239,8 +1231,7 @@
          <link rel="used-by"   href="#11111111-2222-4000-8000-009000000000" />
          <link rel="used-by"   href="#11111111-2222-4000-8000-009000100002" />
 
-         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000001" />
-         <link  rel="poam-item"   href="https://raw.githubusercontent.com/usnistgov/oscal-content/refs/heads/main/examples/poam/xml/ifa_plan-of-action-and-milestones.xml" resource-fragment="11111111-3333-4000-8000-000000000001" />
+         <link rel="poam-item" href="https://raw.githubusercontent.com/usnistgov/oscal-content/refs/heads/main/examples/poam/xml/ifa_plan-of-action-and-milestones.xml" resource-fragment="11111111-3333-4000-8000-000000000001" />
          
 
          <status state="operational"/>
@@ -1260,6 +1251,8 @@
             <port-range start="80" end="80" transport="TCP" />
          </protocol>
          <remarks>
+            <!-- TODO: Validate this description -->
+            
             <p>Each interconnection to one or more remote systems must have:</p>
             <ul>
                <li>one "system" component for each remote system sharing the connection</li>
@@ -1279,6 +1272,10 @@
                <li>at least one "agreement" link with an href vlue that refers to a back-matter resource containing the interconnection security agreemnet (ISA)</li>
                <li>exactly one "used-by" link with an href value that refers to the "this-system" component.</li>
                <li>one or more "used-by" links with href values that refer to each "system" component representing a remote system sharing the connection.</li>
+               <li>exactly one "poam-item" link, with an href value that references the 
+                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               
                <li>exactly one "provider" responsible role that references the party information for the organization the provides the connection.</li>
             </ul>
             <p>Authentication methods must address both system-authentication as well as 
@@ -1353,7 +1350,7 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external"/>
-<!--         <prop name="direction" value="outgoing"/>-->
+         <prop name="direction" value="outgoing"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
@@ -1372,52 +1369,60 @@
             </remarks>
          </prop>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100003" />
+         <link  rel="poam-item"   href="./attachments/plan-of-action-and-milestones.xlxs" resource-fragment="V-1234" />
          <status state="operational"/>
          
          <responsible-role role-id="provider">
             <party-uuid>11111111-2222-4000-8000-c0040000000a</party-uuid>
          </responsible-role>
-         <responsible-role role-id="leveraged-authorization-users">
+         <responsible-role role-id="administrator">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
          <protocol name="abc" uuid="11111111-2222-4000-8000-010000000003">
             <title></title>
-            <port-range start="5432" end="5432" transport="tcp" />
+            <port-range start="5432" end="5432" transport="TCP" />
          </protocol>
          
          <remarks>
+            <!-- TODO: Revise this description -->
+            
             <p>This is a service provided by an external system other than the leveraged system.</p>
             <p>As a result, the "leveraged-authorization-uuid" property is not applicable and must
                NOT be used.</p>
             <p/>
             <p>Each external service used from a leveraged authorization must have:</p>
-            <p>- a "system" component (CURRENTLY DEFERRED DUE TO A KNOWN ISSUE WITH THE "provided-by" link relationship).</p>
-            <p>- a "service" component (this component).</p>
+            <ul>
+               <li>a "system" component (CURRENTLY DEFERRED DUE TO A KNOWN ISSUE WITH THE "provided-by" link relationship).</li>
+               <li>a "service" component (this component).</li>
+            </ul>
             <p/>
             <p>This component must always have:</p>
-            <p>- The name of the service in the title - preferably exactly as it appears on the
-               vendor's web site</p>
-            <p>- A "risk" property/extension - using the remarks, either describe any risk or state there is no risk and provide a basis for that assertion.</p>
-            <p>- An "implementation-point" property with a value of "external".</p>
-            <p>- A "provided-by" link with a URI fragment that points to the UUID of the above
-               "system" component.</p>
-            <p> - Example: <code>"#11111111-2222-4000-8000-009000100001"</code></p>
-            <p> - IMPORTANT: Due to a known error in core OSCAL (versions &lt;=1.1.2) constraints,
-               this property is blocked from proper use.</p>
-            <p>- a status with a state value of "operational"</p>
+            <ul>
+               <li>The name of the service in the title - preferably exactly as it appears on the
+                  vendor's web site</li>
+               <li>An "implementation-point" property with a value of "external".</li>
+               <li>A "provided-by" link with a URI fragment that points to the UUID of the above
+                  "system" component.</li>
+               <li>exactly one "poam-item" link, with an href value that references the 
+                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>a status with a state value of "operational"</li>
+            </ul>
             <p/>
             <p>Where relevant, this component should also have:</p>
-            <p>- One or more "information-type" properties, where the allowed values are the 800-63
-               information type identifiers.</p>
-            <p>- A responsible-role with a role-id of "leveraged-authorization-users" and exactly
-               one or more party-uuid entries that indicates which users within this system may
-               interact with the leveraged systeme.</p>
-            <p>- An "inherited-uuid" property if the leveraged system's owner provides a UUID for
-               their system (such as in an OSCAL-based CRM).</p>
-            <p>Link(s) to the vendor's web site describing the service are encouraged, but not
-               required.</p>
+            <ul>
+               <li>One or more "information-type" properties, where the allowed values are the 800-63
+                  information type identifiers.</li>
+               <li>A responsible-role with a role-id of "leveraged-authorization-users" and exactly
+                  one or more party-uuid entries that indicates which users within this system may
+                  interact with the leveraged systeme.</li>
+               <li>An "inherited-uuid" property if the leveraged system's owner provides a UUID for
+                  their system (such as in an OSCAL-based CRM).</li>
+               <li>Link(s) to the vendor's web site describing the service are encouraged, but not
+                  required.</li>               
+            </ul>
             <p/>
             <p>The following fields from the Leveraged Authorization Table are handled in the
                leveraged-authorization assembly:</p>
@@ -1427,7 +1432,9 @@
                "system" component assembly:</p>
             <p>- Nature of Agreement, CSP Name</p>
             <p/>
-            <p>An unauthorized service from an underlying leveraged authorization must NOT have the "leveraged-authorization-uuid" property. The presence or absence of this property is how the authorization status of a service is indicated.</p>
+            <p>An unauthorized service from an underlying leveraged authorization 
+               must NOT have the "leveraged-authorization-uuid" property. The presence 
+               or absence of this property is how the authorization status of a service is indicated.</p>
          </remarks>
       </component>
 
@@ -1435,7 +1442,8 @@
       <component uuid="11111111-2222-4000-8000-009000500004" type="service">
          <title>Service C</title>
          <description>
-            <p>A service provided by an external system other than the leveraged system.</p>
+            <p>A service offered by this system to external systems, such as an API.
+            As a result, communication crosses the boundary.</p>
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="internal"/>
@@ -1447,52 +1455,26 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
-            <remarks>
-               <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>      
          
          <!-- <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/> -->
          <link rel="api" href="https://api.example.com/v1" />
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000004" />
          <status state="operational"/>
          <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
             <title>Remote API Service</title>
             <port-range start="443" end="443" transport="TCP"/>
          </protocol>
          <remarks>
-            <p>This is a service provided by an external system other than the leveraged system.</p>
+            <!-- TODO: Finish this description -->
+            <p>This is a service provided by this system to external systems, such as an offered API.</p>
 
-
-
-            <p>- A "risk" property/extension - using the remarks, either describe any risk or state there is no risk and provide a basis for that assertion.</p>
-            
-
-
-            <p>As a result, the "leveraged-authorization-uuid" property is not applicable and must
-               NOT be used.</p>
             <p>All services require the "implementation-point" property. In this case, the property
-               value is set to "external.</p>
-            <p>All external services would normally require a "provided-by" link; however, a known
-               bug in core OSCAL syntax prevents the use of this property at this time.</p>
-            <p>If the leveraged system owner provides a UUID for their service (such as in an
-               OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-               property.</p>
-            
-            
-            
-            
+               value is set to "internal.</p>
+            <ul>
+              <li>exactly one "poam-item" link, with an href value that references the 
+                 POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                 or poam-item UUID (OSCAL POA&amp;M)</li>
+            </ul>
          </remarks>
       </component>
 
@@ -1500,7 +1482,11 @@
       <component uuid="11111111-2222-4000-8000-009000300001" type="software">
          <title>Management CLI</title>
          <description>
-            <p>None</p>
+            <p>A CLI tool used to manage a hypervisor, service or system outside 
+               this system's boundary, resulting in communication that crosses 
+               the boundary.</p>
+            <p>This may also be a CLI tool that others use from outside the boundary
+            to manage or interact with this system.</p>
          </description>
          <prop name="asset-type" value="cli"/>
          <prop name="implementation-point" value="internal"/>
@@ -1512,31 +1498,24 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>         
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
-            <remarks>
-               <p>Either describe a risk associated with this CLI, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>      
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
                <p/>
             </remarks>
          </prop>
          <link rel='provided-by' href="#11111111-2222-4000-8000-009000100001" />
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000005" />
          <status state="operational"/>
+         <remarks>
+            <!-- TODO: Finish this description -->
+            <p></p>
+            <ul>
+               <li>exactly one "poam-item" link, with an href value that references the 
+                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+            </ul>
+         </remarks>
       </component>
 
 
@@ -2271,6 +2250,100 @@
                      <p>Tool developers should be mindful that </p>
                   </description>
                </satisfied>
+            </by-component>
+         </statement>
+      </implemented-requirement>
+      <implemented-requirement control-id="ia-1" uuid="11111111-2222-4000-8000-012000000001">
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <set-parameter param-id="ac-1_prm_1">
+            <value>organization-defined personnel or roles</value>
+         </set-parameter>
+         <set-parameter param-id="ac-01_odp.05">
+            <value>at least every 3 years</value>
+         </set-parameter>
+         <set-parameter param-id="ac-01_odp.07">
+            <value>at least annually</value>
+         </set-parameter>
+         
+         <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-013000000001">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
+               uuid="11111111-2222-4000-8000-014000000001">
+               <description>
+                  <p>Describe how Part a is satisfied within the system.</p>
+                  <p>Legacy approach. If no policy component is defined, describe here how the
+                     policy satisfies part a.</p>
+                  <p>In this case, a link must be provided to the policy.</p>
+                  <p>FedRAMP prefers all policies and procedures be attached as a resource in the
+                     back-matter. The link points to a resource.</p>
+               </description>
+               <remarks>
+                  <p>The specified component is the system itself.</p>
+                  <p>Any control implementation response that can not be associated with another
+                     component is associated with the component representing the system.</p>
+               </remarks>
+            </by-component>
+            <by-component component-uuid="11111111-2222-4000-8000-009000600001"
+               uuid="11111111-2222-4000-8000-014000000002">
+               <description>
+                  <p>Describe how this policy  satisfies part a.</p>
+                  <p>Component approach. This links to a component representing the Identity
+                     Management and Access Control Policy.</p>
+                  <p>That component contains a link to the policy, so it does not have to be linked
+                     here too.</p>
+               </description>
+               <implementation-status state="operational"/>
+            </by-component>
+            <by-component component-uuid="11111111-2222-4000-8000-009000700001"
+               uuid="11111111-2222-4000-8000-014000000002">
+               <description>
+                  <p>Describe how this procedure  satisfies part a.</p>
+                  <p>Component approach. This links to a component representing the Identity
+                     Management and Access Control Policy.</p>
+                  <p>That component contains a link to the policy, so it does not have to be linked
+                     here too.</p>
+               </description>
+               <implementation-status state="operational"/>
+            </by-component>
+         </statement>
+         <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-013000000002">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
+               uuid="11111111-2222-4000-8000-014000000003">
+               <description>
+                  <p>There </p>
+               </description>
+               <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date"
+                  value="2024-01-31Z"/>
+               <implementation-status state="partial">
+                  <remarks>
+                     <p>Describe the plan to complete the implementation.</p>
+                  </remarks>
+               </implementation-status>
+            </by-component>
+            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
+               uuid="11111111-2222-4000-8000-014000000004">
+               <description>
+                  <p>Describe how this policy currently satisfies part a.</p>
+               </description>
+               <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date"
+                  value="2024-01-31Z">
+                  <remarks>
+                     <p>Describe the plan for addressing the missing policy elements.</p>
+                  </remarks>
+               </prop>
+               <implementation-status state="partial">
+                  <remarks>
+                     <p>Identify what is currently missing from this policy.</p>
+                  </remarks>
+               </implementation-status>
+            </by-component>
+         </statement>
+         <statement statement-id="ac-1_smt.c" uuid="11111111-2222-4000-8000-013000000003">
+            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
+               uuid="11111111-2222-4000-8000-014000000005">
+               <description>
+                  <p>Describe how Part b-1 is satisfied.</p>
+               </description>
+               <implementation-status state="operational"/>
             </by-component>
          </statement>
       </implemented-requirement>
@@ -3113,7 +3186,7 @@
       <!-- Note - This is specified in the document (see //*/component[@type="cryptographic-module"]) and doe not need to be maintained separately  or attached -->
       <!-- Other SSP attachements / documents -->
       <resource uuid="11111111-2222-4000-8000-001000000050">
-         <title>[SAMPLE]Interconnection Security Agreement Title</title>
+         <title>Interconnection Security Agreement</title>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
