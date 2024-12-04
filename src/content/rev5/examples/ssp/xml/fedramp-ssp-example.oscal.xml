@@ -564,7 +564,7 @@
 
    </metadata>
    <import-profile
-      href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
+      href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official
             FedRAMP 3.0.0 release.</p>
@@ -2332,9 +2332,6 @@
       </description>
       <implemented-requirement control-id="ac-1" uuid="11111111-2222-4000-8000-012000000001">
          <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
-
          <set-parameter param-id="ac-1_prm_1">
             <value>organization-defined personnel or roles</value>
          </set-parameter>
@@ -2345,7 +2342,7 @@
             <value>at least annually</value>
          </set-parameter>
 
-         <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
+         <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-013000000001">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
                uuid="11111111-2222-4000-8000-014000000001">
                <description>
@@ -2356,19 +2353,27 @@
                   <p>FedRAMP prefers all policies and procedures be attached as a resource in the
                      back-matter. The link points to a resource.</p>
                </description>
-               <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
-               <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
-               <implementation-status state="operational"/>
                <remarks>
                   <p>The specified component is the system itself.</p>
                   <p>Any control implementation response that can not be associated with another
                      component is associated with the component representing the system.</p>
                </remarks>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
+            <by-component component-uuid="11111111-2222-4000-8000-009000600001"
                uuid="11111111-2222-4000-8000-014000000002">
                <description>
-                  <p>Describe how this policy component satisfies part a.</p>
+                  <p>Describe how this policy  satisfies part a.</p>
+                  <p>Component approach. This links to a component representing the Identity
+                     Management and Access Control Policy.</p>
+                  <p>That component contains a link to the policy, so it does not have to be linked
+                     here too.</p>
+               </description>
+               <implementation-status state="operational"/>
+            </by-component>
+            <by-component component-uuid="11111111-2222-4000-8000-009000700001"
+               uuid="11111111-2222-4000-8000-014000000002">
+               <description>
+                  <p>Describe how this procedure  satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Identity
                      Management and Access Control Policy.</p>
                   <p>That component contains a link to the policy, so it does not have to be linked
@@ -2377,7 +2382,7 @@
                <implementation-status state="operational"/>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_smt.a.2" uuid="11111111-2222-4000-8000-013000000002">
+         <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-013000000002">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
                uuid="11111111-2222-4000-8000-014000000003">
                <description>
@@ -2409,20 +2414,11 @@
                </implementation-status>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000003">
+         <statement statement-id="ac-1_smt.c" uuid="11111111-2222-4000-8000-013000000003">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
                uuid="11111111-2222-4000-8000-014000000005">
                <description>
                   <p>Describe how Part b-1 is satisfied.</p>
-               </description>
-               <implementation-status state="operational"/>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000004">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000006">
-               <description>
-                  <p>Describe how Part b-2 is satisfied.</p>
                </description>
                <implementation-status state="operational"/>
             </by-component>
@@ -2575,1307 +2571,6 @@
             </by-component>
          </statement>
       </implemented-requirement>
-      <implemented-requirement control-id="at-1" uuid="11111111-2222-4000-8000-012000000003">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000006" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000024" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="at-1_smt" uuid="11111111-2222-4000-8000-013000000007">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000011">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="at-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="at-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="at-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="at-1_smt.a" uuid="11111111-2222-4000-8000-013000000008">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000012">
-               <description>
-                  <p>Describe how Part a is satisfied.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000013">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000014">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="at-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000009">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000015">
-               <description>
-                  <p>Describe how Part b-1 is satisfied.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="at-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000010">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000016">
-               <description>
-                  <p>Describe how Part b-2 is satisfied.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="au-1" uuid="11111111-2222-4000-8000-012000000004">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000025" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="au-1_smt" uuid="11111111-2222-4000-8000-013000000011">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000017">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="au-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="au-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="au-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="au-1_smt.a" uuid="11111111-2222-4000-8000-013000000012">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000018">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-               <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000019">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000020">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="au-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000013">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000021">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-               <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
-            </by-component>
-         </statement>
-         <statement statement-id="au-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000014">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000022">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-               <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="ca-1" uuid="11111111-2222-4000-8000-012000000005">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000008" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000026" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="ca-1_smt" uuid="11111111-2222-4000-8000-013000000015">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000023">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="ca-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="ca-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="ca-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="ca-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000024">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000025">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000026">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ca-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000017">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000027">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ca-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000018">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000028">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="cm-1" uuid="11111111-2222-4000-8000-012000000006">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000009" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000027" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="cm-1_smt" uuid="11111111-2222-4000-8000-013000000019">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000029">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="cm-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="cm-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="cm-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="cm-1_smt.a" uuid="11111111-2222-4000-8000-013000000020">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000030">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000031">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000032">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="cm-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000021">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000033">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="cm-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000022">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000034">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="cp-1" uuid="11111111-2222-4000-8000-012000000007">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="cp-1_smt" uuid="11111111-2222-4000-8000-013000000023">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000035">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="cp-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="cp-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="cp-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="cp-1_smt.a" uuid="11111111-2222-4000-8000-013000000024">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000036">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000037">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000038">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="cp-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000025">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000039">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="cp-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000026">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000040">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="ia-1" uuid="11111111-2222-4000-8000-012000000008">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000011" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000029" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="ia-1_smt" uuid="11111111-2222-4000-8000-013000000027">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000041">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="ia-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="ia-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="ia-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="ia-1_smt.a" uuid="11111111-2222-4000-8000-013000000028">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000042">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000043">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000044">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ia-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000029">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000045">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ia-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000030">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000046">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="ir-1" uuid="11111111-2222-4000-8000-012000000009">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000011" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000030" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="ir-1_smt" uuid="11111111-2222-4000-8000-013000000031">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000047">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="ir-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="ir-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="ir-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="ir-1_smt.a" uuid="11111111-2222-4000-8000-013000000032">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000048">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000049">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000050">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ir-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000033">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000051">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ir-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000034">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000052">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="ma-1" uuid="11111111-2222-4000-8000-012000000010">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000013" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000031" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="ma-1_smt" uuid="11111111-2222-4000-8000-013000000035">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000053">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="ma-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="ma-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="ma-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="ma-1_smt.a" uuid="11111111-2222-4000-8000-013000000036">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000054">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000055">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000056">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ma-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000037">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000057">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ma-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000038">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000058">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="mp-1" uuid="11111111-2222-4000-8000-012000000011">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000014" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000032" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="_smt" uuid="11111111-2222-4000-8000-013000000039">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000059">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="mp-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="mp-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="mp-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="mp-1_smt.a" uuid="11111111-2222-4000-8000-013000000040">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000060">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000061">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000062">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="mp-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000041">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000063">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="mp-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000042">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000064">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="pe-1" uuid="11111111-2222-4000-8000-012000000012">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000015" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000033" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="_smt" uuid="11111111-2222-4000-8000-013000000043">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000065">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="pe-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="pe-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="pe-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="pe-1_smt.a" uuid="11111111-2222-4000-8000-013000000044">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000066">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000067">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000068">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="pe-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000045">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000069">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="pe-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000046">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000070">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="pl-1" uuid="11111111-2222-4000-8000-012000000013">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#de28452-4b02-4b49-b316-59142a7633c1" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000034" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="pl-1_smt" uuid="11111111-2222-4000-8000-013000000047">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000071">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="pl-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="pl-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="pl-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="pl-1_smt.a" uuid="11111111-2222-4000-8000-013000000048">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000072">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000073">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000074">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="pl-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000049">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000075">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="pl-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000050">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000076">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="ps-1" uuid="11111111-2222-4000-8000-012000000014">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000017" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000035" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="ps-1_smt" uuid="11111111-2222-4000-8000-013000000051">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000077">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="ps-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="ps-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="ps-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="ps-1_smt.a" uuid="11111111-2222-4000-8000-013000000052">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000078">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000079">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000080">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ps-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000053">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000081">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ps-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000054">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000082">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="ra-1" uuid="11111111-2222-4000-8000-012000000015">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000018" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000036" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="ra-1_smt" uuid="11111111-2222-4000-8000-013000000055">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000083">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="ra-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="ra-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="ra-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="ra-1_smt.a" uuid="11111111-2222-4000-8000-013000000056">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000084">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000085">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000086">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ra-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000057">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000087">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="ra-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000058">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000088">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="sa-1" uuid="11111111-2222-4000-8000-012000000016">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000019" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000037" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="sa-1_smt" uuid="11111111-2222-4000-8000-013000000059">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000089">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="sa-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="sa-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="sa-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="sa-1_smt.a" uuid="11111111-2222-4000-8000-013000000060">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000090">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000091">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000092">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="sa-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000061">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000093">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="sa-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000062">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000094">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="sc-1" uuid="11111111-2222-4000-8000-012000000017">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000020" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000038" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="sc-1_smt" uuid="11111111-2222-4000-8000-013000000063">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000095">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="sc-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="sc-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="sc-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="sc-1_smt.a" uuid="11111111-2222-4000-8000-013000000064">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000096">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000097">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000098">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="sc-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000065">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000099">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="sc-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000066">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000100">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="si-1" uuid="11111111-2222-4000-8000-012000000018">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000021" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000039" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="si-1_smt" uuid="11111111-2222-4000-8000-013000000067">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000101">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="si-1_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="si-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="si-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="si-1_smt.a" uuid="11111111-2222-4000-8000-013000000068">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000102">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000103">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000104">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="si-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000069">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000105">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-         <statement statement-id="si-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000070">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000106">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="si-8" uuid="11111111-2222-4000-8000-012000000019">
-         <!--Spam Protection-->
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
-         <!--There are no control parameters-->
-         <responsible-role role-id="asset-administrator">
-            <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
-         </responsible-role>
-         <statement statement-id="si-8_smt" uuid="11111111-2222-4000-8000-013000000071">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000018"
-               uuid="11111111-2222-4000-8000-014000000107">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-                  <p>DMARC is employed.</p>
-                  <p>SPF is employed.</p>
-                  <p>DKIM is employed.</p>
-               </description>
-               <set-parameter param-id="si-8_prm_1">
-                  <value>organization-defined personnel or roles</value>
-               </set-parameter>
-               <set-parameter param-id="si-8_prm_2">
-                  <value>[specify frequency]</value>
-               </set-parameter>
-               <set-parameter param-id="si-8_prm_3">
-                  <value>[specify frequency]</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-      </implemented-requirement>
-      <implemented-requirement control-id="sr-1" uuid="11111111-2222-4000-8000-012000000020">
-         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
-               <p>Describe the plan to complete the implementation.</p>
-            </remarks>
-         </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <link href="#11111111-2222-4000-8000-001000000022" rel="policy"/>
-         <link href="#11111111-2222-4000-8000-001000000040" rel="procedure"/>
-         <responsible-role role-id="information-system-security-officer">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
-         </responsible-role>
-         <statement statement-id="sr-1_smt" uuid="11111111-2222-4000-8000-013000000072">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000108">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="sr-1_prm_1">
-                  <value>to include chief privacy and ISSO and/or similar role or designees</value>
-               </set-parameter>
-               <set-parameter param-id="sr-1_prm_2">
-                  <value>at least every 3 years</value>
-               </set-parameter>
-               <set-parameter param-id="sr-1_prm_3">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="sr-1_smt.a" uuid="11111111-2222-4000-8000-013000000073">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000109">
-               <description>
-                  <p>For the portion of the control satisfied by the service provider, describe
-                        <strong>how</strong> the control is met.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000012"
-               uuid="11111111-2222-4000-8000-014000000110">
-               <description>
-                  <p>Describe how this policy component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
-               </description>
-            </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000111">
-               <description>
-                  <p>Describe how this procedure component satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the procedure.</p>
-                  <p>That component contains a link to the procedure, so it does not have to be
-                     linked here too.</p>
-               </description>
-            </by-component>
-         </statement>
-      </implemented-requirement>
    </control-implementation>
    <!-- SSP Attachments -->
    <back-matter>
@@ -3915,21 +2610,26 @@
 
       <!-- Appendix C - Security Policy documents -->
       <resource uuid="11111111-2222-4000-8000-001000000005">
-         <title>Access Control Policy Title</title>
+         <title>Access Control and Identity Management Policy</title>
          <description>
-            <p>AC Policy document</p>
+            <p>A single policy that addresses both the AC and IA families.</p>
          </description>
          <prop name="type" value="policy"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
-         <!-- document date -->
-         <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_policy.pdf"/>
-         <!-- Todo: Make base64 optional -->
-         <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
+         <prop name="version" value="1.2"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_and_IA_policy.pdf"/>
+         <base64 filename="sample_AC_and_IA_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
-            <p>Table 12-1 Attachments: Policy Attachment</p>
-            <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+            <p>Each policy must be attached as back-matter resources, and must include:</p>
+            <ul>
+               <li>a title field with the attached document's published title.</li>
+               <li>a "type" property with a value of "policy".</li>
+               <li>a "published" property with the attached document's publication date.</li>
+               <li>a "version" property with the attached document's published version.</li>
+               <li>Either base64 embedded attachment or an rlink with a valid href value.</li>
+               <li>both base64 and rlink require a media-type for policies</li>
+            </ul>
+            <p>Each policy must have a corrisponding "policy" component.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000006">
@@ -4060,7 +2760,7 @@
          <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
-         <prop name="version" value="Document Version"/>
+         <prop name="version" value="1.1"/>
          <rlink media-type="application/pdf" href="./attachments/policies/sample_MA_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
@@ -4232,12 +2932,18 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/procedures/sample_AC_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
-            <p>Table 12-1 Attachments: Procedure Attachment</p>
-            <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.</p>
+            <p>Procedures must be attached as back-matter resources, and must include:</p>
+            <ul>
+               <li>a title field with the attached document's published title.</li>
+               <li>a "type" property with a value of "procedure".</li>
+               <li>a "published" property with the attached document's publication date.</li>
+               <li>a "version" property with the attached document's published version.</li>
+               <li>Either base64 embedded attachment or an rlink with a valid href value.</li>
+               <li>both base64 and rlink require a media-type for policies</li>
+            </ul>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000024">
@@ -4663,13 +3369,24 @@
       <resource uuid="11111111-2222-4000-8000-001000000048">
          <title>Plan of Actions and Milestones (POAM)</title>
          <prop name="published" value="2023-05-31T00:00:00Z"/>
-         <!-- document date -->
-         <prop name="version" value="Document Version"/>
          <prop name="type" value="plan" class="poam"/>
          <rlink href="./attachments/POAMs/SAMPLE_POAM_20230531.xml" media-type="=application/xml"/>
          <rlink href="./attachments/POAMs/SAMPLE_POAM_20230531.xlsx" media-type="application/vnd.ms-excel"/>
          <base64 filename="SAMPLE_POAM_20230531.xml" media-type="application/xml">00000000</base64>
-         <!-- Todo: Fix Schematron. Make base64 optional -->
+         <remarks>
+            <p>The POA&amp;M attachment may either be a legacy Excel workbook or OSCAL file.
+            The resource must have:</p>
+            <ul>
+               <li>a title field with the the value, "Plan of Actions and Milestones (POAM)"</li>
+               <li>a "published" property with the effective date of the attached POA&amp;M.</li>
+               <li>a "type" property with a value of "plan" and a class of "poam".</li>
+               <li>Either base64 embedded attachment or an rlink with a valid href value.</li>
+               <li>Both base64 and rlink require a media-type for policies</li>
+            </ul>
+            <p>A "version" property is optional.</p>
+            <p>The appropriate media types for OSCAL content 
+               are, "application/xml", "application/json" or "application/yaml".</p>
+         </remarks>
       </resource>
       <!-- Appendix P - Supply Chain Risk Management Plan (SCRMP) -->
       <resource uuid="11111111-2222-4000-8000-001000000049">
@@ -4707,7 +3424,7 @@
          <description>
             <p>FedRAMP Logo</p>
          </description>
-         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
+         <prop name="type" value="fedramp-logo"/>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="logo-main-fedramp.png" media-type="image/png">00000000</base64>
