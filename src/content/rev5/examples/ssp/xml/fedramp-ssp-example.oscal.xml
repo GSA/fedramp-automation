@@ -847,8 +847,7 @@
             <function-performed>Add and remove users from the virtual cloud environment.</function-performed>
          </authorized-privilege>
       </user>
-      <!-- ========= MINIMUM REQUIRED COMPONENT: THIS SYSTEM ======= -->
-      <!-- ========= MINIMUM REQUIRED COMPONENT: THIS SYSTEM ======= -->
+
       <!-- ========= MINIMUM REQUIRED COMPONENT: THIS SYSTEM ======= -->
       <!--         There must be a "this-system" component           -->
       <component uuid="11111111-2222-4000-8000-009000000000" type="this-system">
@@ -868,10 +867,7 @@
       </component>
 
       <!-- ============= EXTERNAL COMPONENTS ============= -->
-      <!-- ============= EXTERNAL COMPONENTS ============= -->
-      <!-- ============= EXTERNAL COMPONENTS ============= -->
 
-      <!-- ==== Table 6.1 Leveraged Authorizations ====- -->
       <!-- ==== Table 6.1 Leveraged Authorizations ====- -->
 
       <!-- Leveraged FedRAMP-Authorized Systems -->
@@ -1044,10 +1040,9 @@
          </remarks>
       </component>
 
-      <!-- ==== Table 7.1 Leveraged Authorizations ====- -->
-      <!-- ==== Table 7.1 Leveraged Authorizations ====- -->
+      <!-- ==== Table 7.1 External Services, Interconnections, and Non-Authorized ====- -->
 
-      <!-- Scenario 1: A non-authorized service from a FedRAMP leveraged authorization -->
+      <!-- Table 7.1 Scenario 1: A non-authorized service from a FedRAMP leveraged authorization -->
       <component uuid="11111111-2222-4000-8000-009000500002" type="service">
          <title>Service B</title>
          <description>
@@ -1138,8 +1133,8 @@
          </remarks>
       </component>
 
-      <!-- Scenario 2: An interconnection between this system and an external system -->
-      <!-- Scenario 2 - Part 1: An external system with which this system has an interconnection -->
+      <!-- Table 7.1 Scenario 2: An interconnection between this system and an external system -->
+      <!-- Table 7.1 Scenario 2 - Part 1: An external system with which this system has an interconnection -->
       <component uuid="11111111-2222-4000-8000-009000100002" type="system">
          <title>Other Cloud SaaS</title>
          <description>
@@ -1203,7 +1198,7 @@
          </remarks>
       </component>
 
-      <!-- Scenario 2 - Part 2: Interconnection to external system -->
+      <!-- Table 7.1 Scenario 2 - Part 2: Interconnection to external system -->
       <component uuid="11111111-2222-4000-8000-009000200001" type="interconnection">
          <!-- Use title element to provid System/ Service/ API/CLI Name -->
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
@@ -1306,8 +1301,8 @@
          </remarks>
       </component>
 
-      <!-- Scenario 3: A service from an external system other than the leveraged system -->
-      <!-- Scenario 3 - Part 1: An external system that offers a service used by this system -->
+      <!-- Table 7.1 Scenario 3: A service from an external system other than the leveraged system -->
+      <!-- Table 7.1 Scenario 3 - Part 1: An external system that offers a service used by this system -->
       <component uuid="11111111-2222-4000-8000-009000100003" type="system">
          <title>Other Cloud SaaS</title>
          <description>
@@ -1350,7 +1345,7 @@
          </remarks>
       </component>
 
-      <!-- Scenario 3 - Part 2: An external service  -->
+      <!-- Table 7.1 Scenario 3 - Part 2: An external service  -->
       <component uuid="11111111-2222-4000-8000-009000500003" type="service">
          <title>Service C</title>
          <description>
@@ -1436,7 +1431,7 @@
          </remarks>
       </component>
 
-      <!-- Scenario 4: A service from this system offered to external systems -->
+      <!-- Table 7.1 Scenario 4: A service from this system offered to external systems -->
       <component uuid="11111111-2222-4000-8000-009000500004" type="service">
          <title>Service C</title>
          <description>
@@ -1501,7 +1496,7 @@
          </remarks>
       </component>
 
-      <!-- Scenario 5: A CLI that connects to leveraged or external systems -->
+      <!-- Table 7.1 Scenario 5: A CLI that connects to leveraged or external systems -->
       <component uuid="11111111-2222-4000-8000-009000300001" type="software">
          <title>Management CLI</title>
          <description>
@@ -1546,8 +1541,6 @@
 
 
 
-      <!-- ============= INTERNAL COMPONENTS ============= -->
-      <!-- ============= INTERNAL COMPONENTS ============= -->
       <!-- ============= INTERNAL COMPONENTS ============= -->
       <component uuid="11111111-2222-4000-8000-009000500005" type="service">
          <title>Service D</title>
@@ -1658,7 +1651,21 @@
          </remarks>
       </component>
 
-
+      <component type="service" uuid="11111111-2222-4000-8000-009000500006">
+         <title>Email Service</title>
+         <description>
+            <p>Email Service</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
+         <!-- is-scanned prop applies to inventory-item (not component) -->
+         <!-- <prop name="is-scanned" value="yes"/> -->
+         <status state="operational"/>
+         <protocol name="smtp">
+            <port-range start="23" end="23" transport="TCP" />
+            <port-range start="23" end="23" transport="UDP" />
+         </protocol>
+      </component>
+      
       <component uuid="11111111-2222-4000-8000-009000400001" type="hardware">
          <title>[SAMPLE]Product</title>
          <description>
@@ -1726,350 +1733,7 @@
          <status state="operational"/>
       </component>
 
-      <!-- SSP Attachments - Policies -->
-      <component uuid="11111111-2222-4000-8000-009000600001" type="policy">
-         <title>AC Policy</title>
-         <description>
-            <p>The Access Control Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600002" type="policy">
-         <title>AT Policy</title>
-         <description>
-            <p>The Awareness and Training Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000006" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600003" type="policy">
-         <title>AU Policy</title>
-         <description>
-            <p>The Audit and Accountability governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600004" type="policy">
-         <title>CA Policy</title>
-         <description>
-            <p>The Assessment, Authorization, and Monitoring Policy governs how access is managed
-               and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000008" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600005" type="policy">
-         <title>CM Policy</title>
-         <description>
-            <p>The Configuration Management Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000009" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600006" type="policy">
-         <title>CP Policy</title>
-         <description>
-            <p>The Contingency Planning Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000010" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600007" type="policy">
-         <title>IA Policy</title>
-         <description>
-            <p>The Identificaiton and Authentication Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000011" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600008" type="policy">
-         <title>IR Policy</title>
-         <description>
-            <p>The Incident Response Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000012" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600009" type="policy">
-         <title>MA Policy</title>
-         <description>
-            <p>The Maintenance Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-0010000000013" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600010" type="policy">
-         <title>MP Policy</title>
-         <description>
-            <p>The Media Protection Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-0010000000014" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600011" type="policy">
-         <title>PE Policy</title>
-         <description>
-            <p>The Physical and Enviornmental Protection Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000015" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600012" type="policy">
-         <title>PL Policy</title>
-         <description>
-            <p>The Planning Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000016" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600013" type="policy">
-         <title>PM Policy</title>
-         <description>
-            <p>The Program Management Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000017" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600014" type="policy">
-         <title>PS Policy</title>
-         <description>
-            <p>The Personnel Security Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000018" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600015" type="policy">
-         <title>PT Policy</title>
-         <description>
-            <p>The PII Processing and Transparency Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000019" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600016" type="policy">
-         <title>RA Policy</title>
-         <description>
-            <p>The Risk Assessment Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000020" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600017" type="policy">
-         <title>SA Policy</title>
-         <description>
-            <p>The System and Services Acquisition Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000021" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600018" type="policy">
-         <title>S3 Policy</title>
-         <description>
-            <p>The System and Communication Protection Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000022" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600019" type="policy">
-         <title>SI Policy</title>
-         <description>
-            <p>The System and Information Integrity Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000023" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600020" type="policy">
-         <title>SR Policy</title>
-         <description>
-            <p>The Supply Chain Risk Management Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000024" rel="policy"/>
-         <status state="operational"/>
-      </component>
-
-      <!-- SSP Attachments - Procedures -->
-      <component uuid="11111111-2222-4000-8000-009000800001" type="process-procedure">
-         <title>AC Policy</title>
-         <description>
-            <p>The Access Control Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800002" type="process-procedure">
-         <title>AT Policy</title>
-         <description>
-            <p>The Awareness and Training Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000024" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800003" type="process-procedure">
-         <title>AU Policy</title>
-         <description>
-            <p>The Audit and Accountability Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000025" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800004" type="process-procedure">
-         <title>CA Policy</title>
-         <description>
-            <p>The Assessment, Authorization, and Monitoring Procedure governs how access is managed
-               and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000026" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800005" type="process-procedure">
-         <title>CM Policy</title>
-         <description>
-            <p>The Configuration Management Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000027" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800006" type="process-procedure">
-         <title>CP Policy</title>
-         <description>
-            <p>The Contingency Planning Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000028" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800007" type="process-procedure">
-         <title>IA Policy</title>
-         <description>
-            <p>The Identificaiton and Authentication Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000029" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800008" type="process-procedure">
-         <title>IR Policy</title>
-         <description>
-            <p>The Incident Response Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000030" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800009" type="process-procedure">
-         <title>MA Policy</title>
-         <description>
-            <p>The Maintenance Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000031" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800010" type="process-procedure">
-         <title>MP Policy</title>
-         <description>
-            <p>The Media Protection Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-0010000000032" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800011" type="process-procedure">
-         <title>PE Policy</title>
-         <description>
-            <p>The Physical and Enviornmental Protection Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000033" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800012" type="process-procedure">
-         <title>PL Policy</title>
-         <description>
-            <p>The Planning Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000034" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800013" type="process-procedure">
-         <title>PM Policy</title>
-         <description>
-            <p>The Program Management Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000035" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800014" type="process-procedure">
-         <title>PS Policy</title>
-         <description>
-            <p>The Personnel Security Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000036" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800015" type="process-procedure">
-         <title>PT Policy</title>
-         <description>
-            <p>The PII Processing and Transparency Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000037" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800016" type="process-procedure">
-         <title>RA Policy</title>
-         <description>
-            <p>The Risk Assessment Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000038" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800017" type="process-procedure">
-         <title>SA Policy</title>
-         <description>
-            <p>The System and Services Acquisition Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000039" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800018" type="process-procedure">
-         <title>S3 Policy</title>
-         <description>
-            <p>The System and Communication Protection Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000040" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800019" type="process-procedure">
-         <title>SI Policy</title>
-         <description>
-            <p>The System and Information Integrity Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000041" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800020" type="process-procedure">
-         <title>SR Policy</title>
-         <description>
-            <p>The Supply Chain Risk Management Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000042" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-
-
-      <!-- Other components -->
+      <!-- Network Segments -->
       <component type="network" uuid="11111111-2222-4000-8000-009000000016">
          <title>IPv4 Production Subnet</title>
          <description>
@@ -2091,20 +1755,59 @@
          <!-- <prop name="is-scanned" value="yes"/> -->
          <status state="operational"/>
       </component>
-      <component type="service" uuid="11111111-2222-4000-8000-009000500006">
-         <title>Email Service</title>
+      
+
+
+      <!-- SSP Attachments - Policies -->
+      <component uuid="11111111-2222-4000-8000-009000600001" type="policy">
+         <title>Access Control and Identity Management Policy</title>
          <description>
-            <p>Email Service</p>
+            <p>The Access Control and Identity Management Policy governs how 
+               user identities and access rights are managed.</p>
          </description>
-         <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
-         <!-- is-scanned prop applies to inventory-item (not component) -->
-         <!-- <prop name="is-scanned" value="yes"/> -->
+         <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
          <status state="operational"/>
-         <protocol name="smtp">
-            <port-range start="23" end="23" transport="TCP" />
-            <port-range start="23" end="23" transport="UDP" />
-         </protocol>
+         <remarks>
+            <p>A policy component is required for each policy that governs the system.</p>
+            <p>The title, description and status fields are required by core OSCAL. 
+               The title field should reflect the actual title of the policy document.</p>
+            <p>A "policy" link field must be present that identifies the back-matter 
+               resource representing the attached policy.</p>
+            <p>The document version and date are represented in the linked resource. Not here.</p>
+            <p>At this time FedRAMP does not _require_ policy approver or 
+               audience information in the SSP; however, both may be represented here
+            using the responsible-role field. If electing to include this information,
+            use the "approver" role ID to represent approvers. Any other role listed
+            is assumed to be audience.</p>
+         </remarks>
       </component>
+      <component uuid="11111111-2222-4000-8000-009000600002" type="policy">
+         <title>AT Policy</title>
+         <description>
+            <p>The Awareness and Training Policy governs how access is managed and approved.</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-001000000006" rel="policy"/>
+         <status state="operational"/>
+      </component>
+
+      <!-- SSP Attachments - Procedures -->
+      <component uuid="11111111-2222-4000-8000-009000800001" type="process-procedure">
+         <title>Access Control Procedure</title>
+         <description>
+            <p>The Access Control Procedure governs how access is managed and approved.</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
+         <status state="operational"/>
+      </component>
+      <component uuid="11111111-2222-4000-8000-009000800002" type="process-procedure">
+         <title>AT Policy</title>
+         <description>
+            <p>The Awareness and Training Procedure governs how access is managed and approved.</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-001000000024" rel="procedure"/>
+         <status state="operational"/>
+      </component>
+
 
       <!-- Appendix M - Inventory -->
       <inventory-item uuid="11111111-2222-4000-8000-011000000001">
