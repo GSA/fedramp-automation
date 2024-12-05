@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for protocol-has-used-by-link
+  description: >-
+    This test case validates the behavior of constraint
+    protocol-has-used-by-link
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+    - constraint-id: protocol-has-used-by-link
+      result: pass
