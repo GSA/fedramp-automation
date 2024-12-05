@@ -1185,6 +1185,8 @@
          <prop name="implementation-point" value="external"/>
          <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
          <prop name="asset-type" value="saas"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method.</p>
@@ -1762,6 +1764,8 @@
             <p>None</p>
          </description>
          <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
          <prop name="implementation-point" value="external"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
@@ -2175,6 +2179,8 @@
             <p>Email Service</p>
          </description>
          <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
          <prop name="implementation-point" value="external"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>

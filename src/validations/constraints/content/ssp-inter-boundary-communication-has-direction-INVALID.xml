@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+  <system-implementation>
+    <component uuid="77777777-0000-4000-9000-000000000008" type="service">
+      <title>Communication Service System</title>
+      <description>
+        <p>A network communication service system.</p>
+      </description>
+      <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
+      <prop name="implementation-point" value="internal"/>
+      <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
+      <status state="operational"/>
+    </component>
+  </system-implementation>
+</system-security-plan>

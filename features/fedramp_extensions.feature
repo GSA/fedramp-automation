@@ -101,6 +101,7 @@ Examples:
   | information-type-has-confidentiality-impact |
   | information-type-has-integrity-impact |
   | information-type-system |
+  | inter-boundary-communication-has-direction |
   | interconnection-direction |
   | interconnection-security |
   | inventory-item-allows-authenticated-scan |
@@ -312,6 +313,8 @@ Examples:
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
+  | inter-boundary-communication-has-direction-FAIL.yaml |
+  | inter-boundary-communication-has-direction-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |

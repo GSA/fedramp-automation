@@ -1,0 +1,8 @@
+# Driver for the invalid inter-boundary-communication-has-direction constraint unit test.
+test-case:
+  name: The invalid inter-boundary-communication-has-direction constraint unit test.
+  description: Test that the FedRAMP SSP inter-boundary communication component has more than one incoming or outgoing direction.
+  content: ../content/ssp-inter-boundary-communication-has-direction-INVALID.xml
+  expectations:
+  - constraint-id: inter-boundary-communication-has-direction
+    result: fail

@@ -1,0 +1,8 @@
+# Driver for the valid inter-boundary-communication-has-direction constraint unit test.
+test-case:
+  name: The valid inter-boundary-communication-has-direction constraint unit test.
+  description: Test that the FedRAMP SSP inter-boundary communication component has at least one direction property, with no more than one incoming and no more than one outgoing direction.
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+  - constraint-id: inter-boundary-communication-has-direction
+    result: pass
