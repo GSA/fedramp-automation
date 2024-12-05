@@ -2,7 +2,7 @@
 test-case:
   name: The valid virtual asset test.
   description: Test that the specified virtual asset is valid.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
   - constraint-id: inventory-item-virtual
     result: pass

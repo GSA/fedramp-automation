@@ -11,9 +11,6 @@ Scenario Outline: Documents that should be valid are pass
 Examples:
 | valid_file     |
 | ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml |
-# | ssp-all-VALID.xml |
-# | ../../../content/awesome-cloud/xml/AwesomeCloudSSP1.xml |
-# | ../../../content/awesome-cloud/xml/AwesomeCloudSSP2.xml |
 
 @full-coverage
 Scenario: Preparing constraint coverage analysis

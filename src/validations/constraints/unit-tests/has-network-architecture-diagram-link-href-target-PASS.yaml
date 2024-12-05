@@ -5,7 +5,7 @@ test-case:
     Scenario 1: Tests an @href that references a resource in the back-matter.
     Scenario 2: Tests a link provided directly in the @href.
   content: 
-    - ../content/ssp-all-VALID.xml
+    - ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
     - ../content/ssp-has-network-architecture-diagram-link-href-target-VALID-1.xml
   expectations:
     - constraint-id: has-network-architecture-diagram-link-href-target

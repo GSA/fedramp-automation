@@ -169,7 +169,7 @@
             <description>
                <p>A diagram-specific explanation.</p>
             </description>
-            <link href="./ssp-all-VALID.xml" rel="diagram"/>
+            <link href="https://github.com/GSA/fedramp-automation/blob/9a8e155668d4f7a26ffc372b73d568b074854aac/src/content/awesome-cloud/artifacts/AwesomeCloudHLA1.png" rel="diagram"/>
             <caption>Authorization Boundary Diagram</caption>
          </diagram>
     </authorization-boundary>

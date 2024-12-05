@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-incident-response-plan
   description: Test that a SSP back-matter resource element has an incident-response-plan element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: has-incident-response-plan
       result: pass
