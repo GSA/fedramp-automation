@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for component-has-used-by-link
+  description: >-
+    This test case validates the behavior of constraint
+    component-has-used-by-link
+  content: ../content/ssp-component-has-used-by-link-INVALID.xml
+  expectations:
+    - constraint-id: component-has-used-by-link
+      result: fail

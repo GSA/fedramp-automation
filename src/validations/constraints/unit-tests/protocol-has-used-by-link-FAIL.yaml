@@ -1,9 +1,0 @@
-test-case:
-  name: Negative Test for protocol-has-used-by-link
-  description: >-
-    This test case validates the behavior of constraint
-    protocol-has-used-by-link
-  content: ../content/ssp-protocol-has-used-by-link-INVALID.xml
-  expectations:
-    - constraint-id: protocol-has-used-by-link
-      result: fail
