@@ -558,7 +558,7 @@
             <expect id="component-has-used-by-link" target="component[protocol]" test="count(link[@rel='used-by']) >= 1" level="ERROR">
                 <formal-name>Component Has Used-By Link</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#ports-protocols-and-services"/>
-                <message>A FedRAMP SSP's component MUST identify which other components use it via network communication. Component "{ string(title) }" exposes ports for other components to connect, but does not identify which components use it.</message>
+                <message>A FedRAMP SSP's component MUST identify which other components use it via network communication. Component "{ @uuid }" exposes ports for other components to connect, but does not identify which components use it.</message>
             </expect>
             <is-unique id="unique-inventory-item-asset-id" target="inventory-item/prop[@name='asset-id']">
                 <formal-name>Unique Asset Identifier</formal-name>
