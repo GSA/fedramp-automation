@@ -1196,6 +1196,7 @@
          </prop>
 
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
 
          <status state="operational"/>
 
@@ -1425,6 +1426,7 @@
             </remarks>
          </prop>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100003" />
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
          <status state="operational"/>
 
          <responsible-role role-id="leveraged-authorization-users">
@@ -1525,6 +1527,7 @@
 
          <!-- <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/> -->
          <link rel="api" href="https://api.example.com/v1" />
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
          <status state="operational"/>
          <responsible-role role-id="provider">
             <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>

@@ -37,6 +37,7 @@ Examples:
   | component-has-authentication-method |
   | component-has-non-provider-responsible-role |
   | component-has-provider-responsible-role |
+  | component-has-used-by-link |
   | component-type |
   | control-implementation-status |
   | data-center-alternate |
@@ -183,6 +184,8 @@ Examples:
   | component-has-authentication-method-PASS.yaml |
   | component-has-non-provider-responsible-role-FAIL.yaml |
   | component-has-non-provider-responsible-role-PASS.yaml |
+  | component-has-used-by-link-FAIL.yaml |
+  | component-has-used-by-link-PASS.yaml |
   | component-responsible-role-references-party-FAIL.yaml |
   | component-responsible-role-references-party-PASS.yaml |
   | component-type-FAIL.yaml |
