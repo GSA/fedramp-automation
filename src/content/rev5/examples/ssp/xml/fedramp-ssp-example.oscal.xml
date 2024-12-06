@@ -2227,7 +2227,7 @@
 
          <statement statement-id="ac-2_smt.a" uuid="11111111-2222-4000-8000-012000020100">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000008">
+               uuid="11111111-2222-4000-8000-012000020101">
                <description>
                   <p>Describe how AC-2, part a is satisfied within this system.</p>
                   <p>This points to the "This System" component, and is used any time a more
@@ -2255,7 +2255,7 @@
                </export>
             </by-component>
             <by-component component-uuid="11111111-2222-4000-8000-009000000014"
-               uuid="11111111-2222-4000-8000-014000000009">
+               uuid="11111111-2222-4000-8000-012000020102">
                <description>
                   <p>For the portion of the control satisfied by the application component of this
                      system, describe <strong>how</strong> the control is met.</p>
@@ -2296,7 +2296,7 @@
                </remarks>
             </by-component>
             <by-component component-uuid="11111111-2222-4000-8000-009000000004"
-               uuid="11111111-2222-4000-8000-014000000010">
+               uuid="11111111-2222-4000-8000-012000020103">
                <description>
                   <p>For the portion inherited from an underlying FedRAMP-authorized provider,
                      describe <strong>what</strong> is inherited.</p>
@@ -2331,7 +2331,7 @@
             </by-component>
          </statement>
       </implemented-requirement>
-      <implemented-requirement control-id="ia-1" uuid="11111111-2222-4000-8000-012000000001">
+      <implemented-requirement control-id="ia-1" uuid="11111111-2222-4000-8000-012000030000">
          <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <set-parameter param-id="ac-1_prm_1">
             <value>organization-defined personnel or roles</value>
@@ -2343,9 +2343,9 @@
             <value>at least annually</value>
          </set-parameter>
          
-         <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-013000000001">
+         <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-012000030100">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000001">
+               uuid="11111111-2222-4000-8000-012000030101">
                <description>
                   <p>Describe how Part a is satisfied within the system.</p>
                   <p>Legacy approach. If no policy component is defined, describe here how the
@@ -2361,7 +2361,7 @@
                </remarks>
             </by-component>
             <by-component component-uuid="11111111-2222-4000-8000-009000600001"
-               uuid="11111111-2222-4000-8000-014000000002">
+               uuid="11111111-2222-4000-8000-012000030102">
                <description>
                   <p>Describe how this policy  satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Identity
@@ -2372,7 +2372,7 @@
                <implementation-status state="operational"/>
             </by-component>
             <by-component component-uuid="11111111-2222-4000-8000-009000700001"
-               uuid="11111111-2222-4000-8000-014000000002">
+               uuid="11111111-2222-4000-8000-012000030103">
                <description>
                   <p>Describe how this procedure  satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Identity
@@ -2383,9 +2383,9 @@
                <implementation-status state="operational"/>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-013000000002">
+         <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-012000030200">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000003">
+               uuid="11111111-2222-4000-8000-012000030201">
                <description>
                   <p>There </p>
                </description>
@@ -2398,7 +2398,7 @@
                </implementation-status>
             </by-component>
             <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000004">
+               uuid="11111111-2222-4000-8000-012000030202">
                <description>
                   <p>Describe how this policy currently satisfies part a.</p>
                </description>
@@ -2415,7 +2415,7 @@
                </implementation-status>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_smt.c" uuid="11111111-2222-4000-8000-013000000003">
+         <statement statement-id="ac-1_smt.c" uuid="11111111-2222-4000-8000-012000030300">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
                uuid="11111111-2222-4000-8000-014000000005">
                <description>
