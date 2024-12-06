@@ -567,7 +567,7 @@
             <expect id="used-by-link-references-component" target="component[protocol]/link[@rel='used-by']" test="some $uuid in ../../component/@uuid satisfies $uuid = substring-after(@href, '#')" level="ERROR">
                 <formal-name>Used-By Link References Component</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#ports-protocols-and-services"/>
-                <message>A FedRAMP SSP's component MUST reference components that use it via network communication. Component "{ string(../@uuid) }" references a nonexistent component "{@href}".</message>
+                <message>A FedRAMP SSP's component MUST reference the existing component(s) that use it via network communication. However, component "{ string(../@uuid) }" references a nonexistent component "{@href}".</message>
             </expect>
         </constraints>
     </context>
