@@ -289,7 +289,6 @@
          <short-name>FedRAMP PMO</short-name>
          <link href="http://fedramp.gov" rel="homepage"/>
          <link href="#11111111-2222-4000-8000-001000000051" rel="logo"/>
-         <link href="#11111111-2222-4000-8000-001000000004" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -862,8 +861,10 @@
 
       <!-- ============= EXTERNAL COMPONENTS ============= -->
 
-      <!-- ==== Table 6.1 Leveraged Authorizations ====- -->
-
+      <!-- ==== ================================================================= ====- -->
+      <!-- ====                  Table 6.1 Leveraged Authorizations               ====- -->
+      <!-- ==== ================================================================= ====- -->
+      
       <!-- Leveraged FedRAMP-Authorized Systems -->
       <component uuid="11111111-2222-4000-8000-009000100001" type="system">
          <title>Awesome Cloud IaaS (Leveraged Authorized System)</title>
@@ -986,6 +987,7 @@
          </description>
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="tls-1.3" />
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
@@ -993,6 +995,7 @@
          <responsible-role role-id="administrator">
             <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
             <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
          <remarks>
             <p>This is a service offered by a leveraged system and used by this system.
@@ -1034,8 +1037,10 @@
          </remarks>
       </component>
 
+      <!-- ==== ================================================================= ====- -->
       <!-- ==== Table 7.1 External Services, Interconnections, and Non-Authorized ====- -->
-
+      <!-- ==== ================================================================= ====- -->
+      
       <!-- Table 7.1 Scenario 1: A non-authorized service from a FedRAMP leveraged authorization -->
       <component uuid="11111111-2222-4000-8000-009000500002" type="service">
          <title>Service B</title>
@@ -1045,6 +1050,7 @@
          </description>
          <prop name="implementation-point" value="external" />
          <prop name="direction" value="outgoing"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
          <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
@@ -1058,8 +1064,11 @@
          <link  rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
          <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000001" />
          <status state="operational" />
-         <responsible-role role-id="admin">
-            
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
          <remarks>
             <!-- TODO: Validate this description -->
@@ -1227,7 +1236,7 @@
 
          <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
 
-         <link rel="agreement" href="#11111111-2222-4000-8000-001000000058"/>
+         <link rel="attachment" href="#11111111-2222-4000-8000-001000000058"/>
          <link rel="used-by"   href="#11111111-2222-4000-8000-009000000000" />
          <link rel="used-by"   href="#11111111-2222-4000-8000-009000100002" />
 
@@ -1245,7 +1254,13 @@
          <responsible-role role-id="isa-poc-local">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
-
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
+         </responsible-role>
+         
          <protocol name="ftp" uuid="11111111-2222-4000-8000-010000000001">
             <title>Incoming FTP Service</title>
             <port-range start="80" end="80" transport="TCP" />
@@ -1351,6 +1366,7 @@
          </description>
          <prop name="implementation-point" value="external"/>
          <prop name="direction" value="outgoing"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
@@ -1376,6 +1392,7 @@
             <party-uuid>11111111-2222-4000-8000-c0040000000a</party-uuid>
          </responsible-role>
          <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
@@ -1448,6 +1465,7 @@
          </description>
          <prop name="implementation-point" value="internal"/>
          <prop name="direction" value="outgoing"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
@@ -1460,6 +1478,12 @@
          <link rel="api" href="https://api.example.com/v1" />
          <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000004" />
          <status state="operational"/>
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
+         </responsible-role>
          <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
             <title>Remote API Service</title>
             <port-range start="443" end="443" transport="TCP"/>
@@ -1491,6 +1515,7 @@
          <prop name="asset-type" value="cli"/>
          <prop name="implementation-point" value="internal"/>
          <prop name="direction" value="outgoing"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
@@ -1507,6 +1532,10 @@
          <link rel='provided-by' href="#11111111-2222-4000-8000-009000100001" />
          <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000005" />
          <status state="operational"/>
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+         </responsible-role>
          <remarks>
             <!-- TODO: Finish this description -->
             <p></p>
@@ -1744,7 +1773,7 @@
             <p>The Access Control and Identity Management Policy governs how 
                user identities and access rights are managed.</p>
          </description>
-         <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
+         <link href="#11111111-2222-4000-8000-001000000005" rel="attachment"/>
          <status state="operational"/>
          <remarks>
             <p>A policy component is required for each policy that governs the system.</p>
@@ -1765,7 +1794,7 @@
          <description>
             <p>The Awareness and Training Policy governs how access is managed and approved.</p>
          </description>
-         <link href="#11111111-2222-4000-8000-001000000006" rel="policy"/>
+         <link href="#11111111-2222-4000-8000-001000000006" rel="attachment"/>
          <status state="operational"/>
       </component>
 
@@ -1775,7 +1804,7 @@
          <description>
             <p>The Access Control Procedure governs how access is managed and approved.</p>
          </description>
-         <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
+         <link href="#11111111-2222-4000-8000-001000000023" rel="attachment"/>
          <status state="operational"/>
       </component>
       <component uuid="11111111-2222-4000-8000-009000800002" type="process-procedure">
@@ -1783,7 +1812,7 @@
          <description>
             <p>The Awareness and Training Procedure governs how access is managed and approved.</p>
          </description>
-         <link href="#11111111-2222-4000-8000-001000000024" rel="procedure"/>
+         <link href="#11111111-2222-4000-8000-001000000024" rel="attachment"/>
          <status state="operational"/>
       </component>
 
@@ -2012,63 +2041,107 @@
          <p>This description field is required by OSCAL.</p>
          <p>FedRAMP does not require any specific information here.</p>
       </description>
-      <implemented-requirement control-id="ac-1" uuid="11111111-2222-4000-8000-012000000001">
+      <implemented-requirement control-id="ac-1" uuid="11111111-2222-4000-8000-012000010000">
          <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ac-1_prm_1">
-            <value>organization-defined personnel or roles</value>
+         <set-parameter param-id="ac-01_odp.01">
+            <value>all managers, administrators and users of the system</value>
+            <remarks>
+               <p>[Assignment: organization-defined personnel or roles]</p>
+               <p>This focuses on roles the POLICY is disseminated to.</p>
+            </remarks>
          </set-parameter>
+         <set-parameter param-id="ac-01_odp.02">
+            <value>all managers and administrators of the system</value>
+            <remarks>
+               <p>[Assignment: organization-defined personnel or roles]</p>
+               <p>This focuses on roles PROCEDURES are disseminated to.</p>
+            </remarks>
+         </set-parameter>         
+         <set-parameter param-id="ac-01_odp.03">
+            <value>System-level</value>
+            <remarks>
+               <p>[Selection (one or more): Organization-level; Mission/business process-level; Systemlevel]</p>
+               <p>This is a SELECT parameter. Use one "value" field for each selection.</p>
+            </remarks>
+         </set-parameter>         
+         <set-parameter param-id="ac-01_odp.04">
+            <value>System Architect</value>
+            <remarks>
+               <p>[Assignment: organization-defined official]</p>
+            </remarks>
+         </set-parameter>         
          <set-parameter param-id="ac-01_odp.05">
             <value>at least every 3 years</value>
+            <remarks>
+               <p>[Assignment: organization-defined frequency]</p>
+            </remarks>
          </set-parameter>
+         <set-parameter param-id="ac-01_odp.06">
+            <value>change in organizational legal status or ownership</value>
+            <remarks>
+               <p>[Assignment:organization-defined events]</p>
+            </remarks>
+         </set-parameter>         
          <set-parameter param-id="ac-01_odp.07">
             <value>at least annually</value>
+            <remarks>
+               <p>[Assignment: organization-defined frequency]</p>
+            </remarks>
          </set-parameter>
-
-         <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-013000000001">
+         <set-parameter param-id="ac-01_odp.08">
+            <value>change in policy or a security incident involving a failure of access control mechanisms</value>
+            <remarks>
+               <p>[Assignment:organization-defined events]</p>
+            </remarks>
+         </set-parameter>         
+         
+         <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-012000010100">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000001">
+               uuid="11111111-2222-4000-8000-012000010101">
                <description>
-                  <p>Describe how Part a is satisfied within the system.</p>
-                  <p>Legacy approach. If no policy component is defined, describe here how the
-                     policy satisfies part a.</p>
-                  <p>In this case, a link must be provided to the policy.</p>
+                  <p>Describe how Part a is satisfied within the system as a whole.</p>
                   <p>FedRAMP prefers all policies and procedures be attached as a resource in the
                      back-matter. The link points to a resource.</p>
                </description>
                <remarks>
-                  <p>The specified component is the system itself.</p>
-                  <p>Any control implementation response that can not be associated with another
-                     component is associated with the component representing the system.</p>
+                  <p>This is the "this-system" component, which represents the system as a whole.</p>
+                  <p>There are two reasons to provide a response here:</p>
+                  <ul>
+                     <li>When first converting a legacy/Word-based SSP to OSCAL, the entire control
+                     response may be placed here until it can be parsed out into appropriate component
+                     responses.</li>
+                     <li>When it is necessary to explain how two or more components work together to
+                     satisfy this requirement.</li>
+                  </ul>
                </remarks>
             </by-component>
             <by-component component-uuid="11111111-2222-4000-8000-009000600001"
-               uuid="11111111-2222-4000-8000-014000000002">
+               uuid="11111111-2222-4000-8000-012000010102">
                <description>
-                  <p>Describe how this policy  satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Identity
-                     Management and Access Control Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
+                  <p>Describe how this policy satisfies part a.</p>
                </description>
                <implementation-status state="operational"/>
+               <remarks>
+                  <p>This is the "policy" component, which represents the Access Control and 
+                  Identity Management Policy.</p>
+               </remarks>
             </by-component>
-            <by-component component-uuid="11111111-2222-4000-8000-009000700001"
-               uuid="11111111-2222-4000-8000-014000000002">
+            <by-component component-uuid="11111111-2222-4000-8000-009000800001"
+               uuid="11111111-2222-4000-8000-012000010103">
                <description>
-                  <p>Describe how this procedure  satisfies part a.</p>
-                  <p>Component approach. This links to a component representing the Identity
-                     Management and Access Control Policy.</p>
-                  <p>That component contains a link to the policy, so it does not have to be linked
-                     here too.</p>
+                  <p>Describe how this procedure satisfies part a.</p>
                </description>
                <implementation-status state="operational"/>
+               <remarks>
+                  <p>This is the "process-procedure" component, which represents the Access Control Process.</p>
+               </remarks>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-013000000002">
+         <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-012000010200">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000003">
+               uuid="11111111-2222-4000-8000-012000010201">
                <description>
-                  <p>There </p>
+                  <p>Describe how Part b is satisfied within the system as a whole.</p>
                </description>
                <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date"
                   value="2024-01-31Z"/>
@@ -2077,9 +2150,21 @@
                      <p>Describe the plan to complete the implementation.</p>
                   </remarks>
                </implementation-status>
+               <remarks>
+                  <p>This is the "this-system" component, which represents the system as a whole.</p>
+                  <p>There are two reasons to provide a response here:</p>
+                  <ul>
+                     <li>When first converting a legacy/Word-based SSP to OSCAL, the entire control
+                        response may be placed here until it can be parsed out into appropriate component
+                        responses.</li>
+                     <li>When it is necessary to explain how two or more components work together to
+                        satisfy this requirement.</li>
+                  </ul>
+               </remarks>
             </by-component>
+
             <by-component component-uuid="11111111-2222-4000-8000-009000000013"
-               uuid="11111111-2222-4000-8000-014000000004">
+               uuid="11111111-2222-4000-8000-012000010202">
                <description>
                   <p>Describe how this policy currently satisfies part a.</p>
                </description>
@@ -2096,9 +2181,9 @@
                </implementation-status>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_smt.c" uuid="11111111-2222-4000-8000-013000000003">
+         <statement statement-id="ac-1_smt.c" uuid="11111111-2222-4000-8000-012000010300">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000005">
+               uuid="11111111-2222-4000-8000-012000010301">
                <description>
                   <p>Describe how Part b-1 is satisfied.</p>
                </description>
@@ -2106,7 +2191,7 @@
             </by-component>
          </statement>
       </implemented-requirement>
-      <implemented-requirement control-id="ac-2" uuid="11111111-2222-4000-8000-012000000002">
+      <implemented-requirement control-id="ac-2" uuid="11111111-2222-4000-8000-012000020000">
          <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
@@ -2121,33 +2206,26 @@
                <p>Describe any customer-configured requirements for satisfying this control.</p>
             </remarks>
          </prop>
+         <set-parameter param-id="ac-2_prm_1">
+            <value>[SAMPLE]privileged, non-privileged</value>
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_2">
+            <value>[SAMPLE]all</value>
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_3">
+            <value>[SAMPLE]The Access Control Procedure</value>
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_4">
+            <value>at least annually</value>
+         </set-parameter>
          <responsible-role role-id="admin-unix">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
          </responsible-role>
-         <statement statement-id="ac-2_smt" uuid="11111111-2222-4000-8000-013000000005">
-            <by-component component-uuid="11111111-2222-4000-8000-009000000000"
-               uuid="11111111-2222-4000-8000-014000000007">
-               <description>
-                  <p>Describe how the control is satisfied within the system.</p>
-               </description>
-               <set-parameter param-id="ac-2_prm_1">
-                  <value>[SAMPLE]privileged, non-privileged</value>
-               </set-parameter>
-               <set-parameter param-id="ac-2_prm_2">
-                  <value>[SAMPLE]all</value>
-               </set-parameter>
-               <set-parameter param-id="ac-2_prm_3">
-                  <value>[SAMPLE]The Access Control Procedure</value>
-               </set-parameter>
-               <set-parameter param-id="ac-2_prm_4">
-                  <value>at least annually</value>
-               </set-parameter>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_smt.a" uuid="11111111-2222-4000-8000-013000000006">
+
+         <statement statement-id="ac-2_smt.a" uuid="11111111-2222-4000-8000-012000020100">
             <by-component component-uuid="11111111-2222-4000-8000-009000000000"
                uuid="11111111-2222-4000-8000-014000000008">
                <description>
@@ -3200,7 +3278,7 @@
          <description>
             <p>FedRAMP Logo</p>
          </description>
-         <prop name="type" value="fedramp-logo"/>
+         <prop name="type" value="logo"/>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="logo-main-fedramp.png" media-type="image/png">00000000</base64>
