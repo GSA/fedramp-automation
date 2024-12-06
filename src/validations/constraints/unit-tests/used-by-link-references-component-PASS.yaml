@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for used-by-link-references-component
+  description: >-
+    This test case validates the behavior of constraint
+    used-by-link-references-component
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+    - constraint-id: used-by-link-references-component
+      result: pass

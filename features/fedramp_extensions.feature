@@ -137,6 +137,7 @@ Examples:
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
   | unique-inventory-item-asset-id |
+  | used-by-link-references-component |
   | user-authentication |
   | user-has-authorized-privilege |
   | user-has-role-id |
@@ -385,6 +386,8 @@ Examples:
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
   | unique-inventory-item-asset-id-FAIL.yaml |
   | unique-inventory-item-asset-id-PASS.yaml |
+  | used-by-link-references-component-FAIL.yaml |
+  | used-by-link-references-component-PASS.yaml |
   | user-authentication-FAIL.yaml |
   | user-authentication-PASS.yaml |
   | user-has-authorized-privilege-FAIL.yaml |

@@ -564,6 +564,11 @@
                     <p>A FedRAMP SSP's inventory item MUST have an Asset ID that is unique across all inventory items in the system and its components.</p>
                 </remarks>
             </is-unique>
+            <expect id="used-by-link-references-component" target="component[protocol]/link[@rel='used-by']" test="some $uuid in ../../component/@uuid satisfies $uuid = substring-after(@href, '#')" level="ERROR">
+                <formal-name>Used-By Link References Component</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#ports-protocols-and-services"/>
+                <message>A FedRAMP SSP's component MUST reference components that use it via network communication. Component "{ string(../@uuid) }" references a nonexistent component "{@href}".</message>
+            </expect>
         </constraints>
     </context>
 
