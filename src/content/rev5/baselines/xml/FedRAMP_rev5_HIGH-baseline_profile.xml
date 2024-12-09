@@ -12698,7 +12698,7 @@
 		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
 			<title>NIST Special Publication (SP) 800-53 revision 5</title>
 			<prop name="version" value="5.1.1"/>
-			<rlink media-type="application/oscal+xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.2.0/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
+			<rlink media-type="application/oscal+xml" href="NIST_SP-800-53_rev5_catalog.xml"/>
 		</resource>
 	</back-matter>
 </profile>
