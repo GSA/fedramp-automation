@@ -557,7 +557,7 @@
 
    </metadata>
    <import-profile
-      href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml">
+      href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official
             FedRAMP 3.0.0 release.</p>
@@ -874,16 +874,16 @@
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop name="nature-of-agreement" value="sla"  ns="http://fedramp.gov/ns/oscal"/>
+         <prop name="authentication-method" value="yes"  ns="http://fedramp.gov/ns/oscal">
             <remarks>
                <p>If 'yes', describe the authentication method.</p>
                <p>If 'no', explain why no authentication is used.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop name="information-type" value="C.3.5.1" class="incoming" ns="http://fedramp.gov/ns/oscal"/>
+         <prop name="information-type" value="C.3.5.8" class="outgoing" ns="http://fedramp.gov/ns/oscal"/>
          <status state="operational"/>
 
          <responsible-role role-id="provider">
@@ -988,8 +988,8 @@
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="tls-1.3" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="incoming" name="information-type" value="C.3.5.1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="outgoing" name="information-type" value="C.3.5.8"/>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
          <status state="operational"/>
          <responsible-role role-id="administrator">
@@ -1049,18 +1049,17 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external" />
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="still-supported" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method.</p>
                <p>If 'no', explain why no authentication is used.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
+         <prop name="information-type" value="C.3.5.1" class="incoming" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" value="C.3.5.8" class="outgoing" ns="http://fedramp.gov/ns/oscal" />
          <link  rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
          <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000001" />
          <status state="operational" />
@@ -1207,22 +1206,21 @@
             <p>Describe the purpose of the external system/service; specifically, provide reasons
                for connectivity (e.g., system monitoring, system alerting, download updates, etc.)</p>
          </description>
-         <prop name="direction" value="incoming"/>
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+
+         <prop name="nature-of-agreement" value="contract" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="hosting-environment" value="see-remarks">
+         <prop class="incoming" name="information-type" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop class="incoming" name="information-type" value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="compliance" value="soc-2-type-1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="compliance" value="pci-dss" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="compliance" value="iso-27001" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="hosting-environment" value="see-remarks" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>Describe the hosting of the interconnection itself (NOT the hosting of the remote system).</p>
             </remarks>
@@ -1234,7 +1232,7 @@
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
 
-         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
 
          <link rel="attachment" href="#11111111-2222-4000-8000-001000000058"/>
          <link rel="used-by"   href="#11111111-2222-4000-8000-009000000000" />
@@ -1261,10 +1259,7 @@
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
          
-         <protocol name="ftp" uuid="11111111-2222-4000-8000-010000000001">
-            <title>Incoming FTP Service</title>
-            <port-range start="80" end="80" transport="TCP" />
-         </protocol>
+
          <remarks>
             <!-- TODO: Validate this description -->
             
@@ -1365,7 +1360,7 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external"/>
-         <prop name="direction" value="outgoing"/>
+
          <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
          <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
@@ -1375,8 +1370,8 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="incoming" name="information-type" value="C.3.5.1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="outgoing" name="information-type" value="C.3.5.8"/>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
             <remarks>
                <p>This can only be known if provided by the leveraged system.
@@ -1456,27 +1451,72 @@
       </component>
 
       <!-- Table 7.1 Scenario 4: A service from this system offered to external systems -->
+      <!-- Table 7.1 Scenario 4 - Part 1: An external API client that accesses this API service -->
+      <component uuid="11111111-2222-4000-8000-009000100004" type="external-client">
+         <title>Undetermined External API Clients</title>
+         <description>
+            <p>This component represents any of the public API clients that may 
+               access this systems'API service.</p>
+         </description>
+         <prop name="asset-type" value="api-client"/>
+
+         <prop name="implementation-point" value="external" />
+         <status state="operational"/>
+         <responsible-role role-id="public" />
+
+         <remarks>
+            <p>When an API service is offered to a large community, this one component 
+               bay be used to represent the collection of API clients that may connect
+               from that community. This must have:</p>
+            <ul>
+               <li>a component type set to "external-client"</li>
+               <li>an "implementation-point" property set to "external"</li>
+               <li>one or more responsible roles should be defined representing 
+                  the community of potential API client users. If the servvice
+               is open to the public, use the "public" responsible-role ID.</li>
+            </ul>
+         </remarks>
+      </component>
+
       <component uuid="11111111-2222-4000-8000-009000500004" type="service">
-         <title>Service C</title>
+         <title>API Service</title>
          <description>
             <p>A service offered by this system to external systems, such as an API.
             As a result, communication crosses the boundary.</p>
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="internal"/>
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         
+         <prop name="communicates-externally" value="yes" ns="http://fedramp.gov/ns/oscal"/>
+         <prop name="information-type" class="incoming-outgoing" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="outgoing"          value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="connection-security" value="tls-1.3" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         
-         <!-- <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/> -->
+         <prop name="nature-of-agreement" value="other" ns="http://fedramp.gov/ns/oscal">
+            <remarks>
+               <p>Terms of Use</p>
+            </remarks>
+         </prop>          
+
+         <prop name="allows-authenticated-scan" value="no" >
+            <remarks>
+               <p>Explain why authentication scans are not possible for this component.
+                  Provide evidence if available, such as scanner tool or vendor links.</p>
+            </remarks>
+         </prop>
+         <prop name="scan-type" value="infrastructure" ns="http://fedramp.gov/ns/oscal" />
+
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000100003" /> 
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000100004" />
+         <link rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000004" />
          <link rel="api" href="https://api.example.com/v1" />
-         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000004" />
+         
          <status state="operational"/>
          <responsible-role role-id="administrator">
             <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
@@ -1484,21 +1524,47 @@
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
-         <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
-            <title>Remote API Service</title>
+         <protocol name="tls" uuid="11111111-2222-4000-8000-010000000002">
+            <title>API Service</title>
             <port-range start="443" end="443" transport="TCP"/>
          </protocol>
          <remarks>
-            <!-- TODO: Finish this description -->
-            <p>This is a service provided by this system to external systems, such as an offered API.</p>
-
-            <p>All services require the "implementation-point" property. In this case, the property
-               value is set to "internal.</p>
+            <p>This is a service provided by this system to external systems, such as an 
+               offered API. The following is required:</p>
             <ul>
-              <li>exactly one "poam-item" link, with an href value that references the 
-                 POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
-                 or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>The "title" fields must have the name of the offered API.</li>
+               <li>The "description" field must include the purpose and use of the API.</li>
+               <li>The component "type" attribute must have a value of "service".</li>
+               <li>The "implementation-point" property must have a value of "internal".</li>
+               <li>The "communicates-externally" prop/extensions must have a value of "yes".</li>
+               <li>One or more "information-type" prop/extensions must be present with 800-60 information type values.</li>
+               <li>The "connection-security" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions "remarks" must provide additional content.</li>
+               <li>The "nature-of-agreement" prop/extension must identify any governing terms for the connection.</li>
+               <li>One or more "used-by" links must provide the component UUID of the other system.</li>
+               <li>A "poam-item" link, which must have an href value that references the POA&amp;M and a 
+                  resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>A "status" field that must have a state of "operational"</li>
+               <li>One or more "responsible-role" fields with:
+                  <ul>
+                     <li>one or more roles by "role-id" [rquiried]</li>
+                     <li>one or more "privilege-uuid" prop/extensions [required]</li>
+                     <li>one or more "party-uuid" values to identify who has these privliges. [required]</li>
+                  </ul>
+               </li>
+               <li>One or more "protocol" fields.</li>
             </ul>
+            <p />
+            <p>Because this is softare that exists within the boundary, it is also requires the following
+               in satisfaction of inventory/CM/ConMon requirements:</p>
+            <ul>
+               <li>An "allows-authenticated-scan" property with an appropriate value.</li>
+               <li>An "scan-type" property/extension set to "infrastructure".</li>
+               <li>TODO: Revisit this list when working the inventory epic</li>
+            </ul>
+
          </remarks>
       </component>
 
@@ -1506,30 +1572,39 @@
       <component uuid="11111111-2222-4000-8000-009000300001" type="software">
          <title>Management CLI</title>
          <description>
-            <p>A CLI tool used to manage a hypervisor, service or system outside 
-               this system's boundary, resulting in communication that crosses 
-               the boundary.</p>
-            <p>This may also be a CLI tool that others use from outside the boundary
-            to manage or interact with this system.</p>
+            <p>A CLI tool used from within this system's boundary to manage a 
+               hypervisor, service, or other system outside this system's boundary, 
+               resulting in communication that crosses the boundary.</p>
          </description>
          <prop name="asset-type" value="cli"/>
          <prop name="implementation-point" value="internal"/>
-         <prop name="direction" value="outgoing"/>
-         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
-         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+
+         <prop name="communicates-externally" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="incoming" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="outgoing" value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>         
-         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <prop name="allows-authenticated-scan" value="no">
+         <prop name="nature-of-agreement" value="other" ns="http://fedramp.gov/ns/oscal">
             <remarks>
-               <p/>
+               <p>Terms of Use</p>
+            </remarks>
+         </prop>          
+
+         <prop name="allows-authenticated-scan" value="no" >
+            <remarks>
+               <p>Explain why authentication scans are not possible for this component.
+                  Provide evidence if available, such as scanner tool or vendor links.</p>
             </remarks>
          </prop>
-         <link rel='provided-by' href="#11111111-2222-4000-8000-009000100001" />
+         <prop name="scan-type" value="infrastructure" ns="http://fedramp.gov/ns/oscal" />
+         
+         <link rel="communicates-with" href="#11111111-2222-4000-8000-009000100001" />
          <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000005" />
          <status state="operational"/>
          <responsible-role role-id="administrator">
@@ -1537,17 +1612,108 @@
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
          <remarks>
-            <!-- TODO: Finish this description -->
-            <p></p>
+            <p>When an internal CLI tool communicates with a system outside the boundary, 
+            such as for management of the underlying leveraged system or interaction
+            with an external system, the following is required:</p>
             <ul>
-               <li>exactly one "poam-item" link, with an href value that references the 
-                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+               <li>The "title" fields must have the name of the CLI tool.</li>
+               <li>The "description" field must include the purpose and use of the tool within this system.</li>
+               <li>The component "type" attribute must have a value of "software".</li>
+               <li>The "asset-type" property must have a value of "cli".</li>
+               <li>The "implementation-point" property must have a value of "internal".</li>
+               <li>The "communicates-externally" prop/extensions must have a value of "yes".</li>
+               <li>One or more "information-type" prop/extensions must be present with 800-60 information type values.</li>
+               <li>The "connection-security" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions "remarks" must provide additional content.</li>
+               <li>The "nature-of-agreement" prop/extension must identify any governing terms for the connection.</li>
+               <li>One or more "communicates-with" link must provide the component UUID of the other system.</li>
+               <li>A "poam-item" link, which must have an href value that references the POA&amp;M and a 
+                  resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
                   or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>A "status" field that must have a state of "operational"</li>
+               <li>One or more "responsible-role" fields with:
+                  <ul>
+                     <li>one or more roles by "role-id" [rquiried]</li>
+                     <li>one or more "privilege-uuid" prop/extensions [required]</li>
+                     <li>one or more "party-uuid" values to identify who has these privliges. [required]</li>
+                  </ul>
+               </li>
+            </ul>
+            <p />
+            <p>Because this is softare that exists within the boundary, it is also requires the following
+            in satisfaction of inventory/CM/ConMon requirements:</p>
+            <ul>
+               <li>An "allows-authenticated-scan" property with an appropriate value.</li>
+               <li>An "scan-type" property/extension set to "infrastructure".</li>
+               <li>TODO: Revisit this list when working the inventory epic</li>
             </ul>
          </remarks>
       </component>
 
-
+      <!-- Table 7.1 Scenario 5 variant: An external CLI that connects to this system -->
+      <component uuid="11111111-2222-4000-8000-009000300003" type="software">
+         <title>External Management CLI</title>
+         <description>
+            <p>A CLI tool used by systems outside the authorization boundary to manage
+               or interact with this system..</p>
+         </description>
+         <prop name="asset-type" value="cli"/>
+         <prop name="implementation-point" value="external"/>
+         <prop name="information-type" class="incoming" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="outgoing" value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
+            <remarks>
+               <p>If 'yes', describe the authentication method in the remarks.</p>
+               <p>If 'no', explain why no authentication is used in the remarks.</p>
+               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
+            </remarks>
+         </prop>         
+         <prop name="nature-of-agreement" value="other" ns="http://fedramp.gov/ns/oscal">
+            <remarks>
+               <p>Terms of Use</p>
+            </remarks>
+         </prop>          
+         <link rel='communicates-with' href="#11111111-2222-4000-8000-009000100001" />
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000005" />
+         <status state="operational"/>
+         <responsible-role role-id="external-users">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+         </responsible-role>
+         <remarks>
+            <p>When a CLI tool outside the system communicates with this system, 
+               such as for management of the user's hypervisor in this system, the
+            following is required:</p>
+            <ul>
+               <li>The "title" fields must have the name of the CLI tool.</li>
+               <li>The "description" field that describes how the tool can influence the operation of this system.</li>
+               <li>The component "type" attribute must have a value of "software".</li>
+               <li>The "asset-type" property must have a value of "cli".</li>
+               <li>The "implementation-point" property must have a value of "external".</li>
+               <li>One or more "information-type" prop/extensions must be present with 800-60 information type values.</li>
+               <li>The "connection-security" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions "remarks" must provide additional content.</li>
+               <li>The "nature-of-agreement" prop/extension must identify any governing terms for the connection.</li>
+               <li>One or more "communicates-with" link must provide the component UUID of the component within this system.</li>
+               <li>A "poam-item" link, which must have an href value that references the POA&amp;M and a 
+                  resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>A "status" field that must have a state of "operational"</li>
+               <li>One or more "responsible-role" fields with:
+                  <ul>
+                     <li>one or more roles by "role-id" [rquiried]</li>
+                     <li>one or more "privilege-uuid" prop/extensions [required]</li>
+                     <li>one or more "party-uuid" values to identify who has these privliges. [optional]</li>
+                  </ul>
+               </li>
+            </ul>
+            <p />
+            <p>As this is impelemented external to the system boundary, information such as "scan-type" 
+               and "allows-authenticated-scanning" are not applicable and should not be present.</p>
+         </remarks>
+      </component>
 
       <!-- ============= INTERNAL COMPONENTS ============= -->
       <component uuid="11111111-2222-4000-8000-009000500005" type="service">
@@ -1638,7 +1804,7 @@
          </remarks>
       </component>
 
-      <component uuid="11111111-2222-4000-8000-009000300003" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300004" type="software">
          <title>[SAMPLE]Product Name</title>
          <description>
             <p>FUNCTION: Describe typical component function.</p>
@@ -1696,7 +1862,7 @@
             <p>COMMENTS: Provide other comments as needed.</p>
          </remarks>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000300004" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300005" type="software">
          <title>OS Sample</title>
          <description>
             <p>None</p>
@@ -1707,7 +1873,7 @@
          <prop name="allows-authenticated-scan" value="yes"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000300005" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300006" type="software">
          <title>Database Sample</title>
          <description>
             <p>None</p>
@@ -1723,7 +1889,7 @@
             <port-range start="5432" end="5432" transport="UDP" />
          </protocol>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000300006" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300007" type="software">
          <title>Appliance Sample</title>
          <description>
             <p>None</p>
@@ -2029,12 +2195,7 @@
          > </implemented-component>
       </inventory-item>
    </system-implementation>
-   <!-- Appendix A - FedRAMP Security Controls (in the rev 5 SSP template, control implementations go in appendix A) -->
-   <!-- 
-      NOTE: A FedRAMP SSP must implement all controls from the corresponding baseline.  This template is only 
-      a nominal example and does not pass FedRAMP schematron validations due to many controls being omitted.  
-      SSP authors must add implmentations for all required controls.
-   -->
+
    <control-implementation>
       <description>
          <p>Appendix A - FedRAMP SSP Rev5 Template</p>
