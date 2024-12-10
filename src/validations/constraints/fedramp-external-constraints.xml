@@ -670,7 +670,7 @@
         <expect id="has-fedramp-citations" target="." test="count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]) = 1" level="ERROR">
             <formal-name>Has FedRAMP Citations Reference</formal-name>
             <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://www.fedramp.gov/assets/resources/templates/"/>
-            <message>A FedRAMP MUST be have exactly one resource with a link to the FedRAMP Laws, Regulations, Standards and Guidance. {count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']])} found.</message>
+            <message>A FedRAMP MUST be have exactly one resource with a link to the FedRAMP Laws, Regulations, Standards and Guidance, but {count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']])} found.</message>
         </expect>
         <expect id="fedramp-citations-has-correct-link" target="resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]" test="count(rlink[@href = 'https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx']) eq 1" level="ERROR">
             <formal-name>FedRAMP Citations Has Correct Link</formal-name>
