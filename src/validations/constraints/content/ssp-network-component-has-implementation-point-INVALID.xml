@@ -12,7 +12,7 @@
       <prop name="asset-type" value="cli"/>
       <status state="operational"/>
     </component>
-    <component uuid="66666666-0000-4000-9000-000000000006" type="software">
+    <component uuid="66666666-0000-4000-9000-000000000007" type="software">
       <title>Firebase CLI Connection</title>
       <description>
         <p>CLI for updating firebase Secure connection to an external API for data enrichment.</p>

@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-digital-identity-worksheet
+  description: >-
+    This test case validates the behavior of constraint
+    has-digital-identity-worksheet
+  content: ../content/ssp-has-digital-identity-worksheet-INVALID.xml
+  expectations:
+    - constraint-id: has-digital-identity-worksheet
+      result: fail

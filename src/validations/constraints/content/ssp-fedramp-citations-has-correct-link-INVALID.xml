@@ -1,0 +1,12 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
+  <back-matter>
+    <resource uuid="b246c9e4-057f-4e4d-89be-a9c9234ef387">
+      <title>Digital Identity Worksheet</title>
+      <description>
+        <p>Digital Identity Determination Worksheet</p>
+      </description>
+      <prop name="type" value="citation" class="fedramp-citations"/>
+      <rlink href="./documents/digital-identity.xlsx" media-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+    </resource>
+  </back-matter>
+</system-security-plan>
