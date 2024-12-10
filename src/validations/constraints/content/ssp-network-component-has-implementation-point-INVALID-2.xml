@@ -10,7 +10,6 @@
         <p>CLI for updating firebase Secure connection to an external API for data enrichment.</p>
       </description>
       <prop name="asset-type" value="cli"/>
-      <prop name="implementation-point" value="test"/>      
       <status state="operational"/>
     </component>
     <component uuid="66666666-0000-4000-9000-000000000006" type="software">

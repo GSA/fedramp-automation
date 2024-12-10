@@ -1533,7 +1533,7 @@
             <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
          </responsible-role>
          <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>            <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
          </responsible-role>
 
          <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
@@ -1613,7 +1613,7 @@
             <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
          </responsible-role>
          <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>            <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
          </responsible-role>
       </component>
 
@@ -1784,7 +1784,7 @@
          <link href="#11111111-2222-4000-8000-009000500006" rel="used-by" />
          <status state="operational"/>
          <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>            <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
          </responsible-role>
          <responsible-role role-id="provider">
             <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
@@ -2197,7 +2197,7 @@
          <!-- <prop name="is-scanned" value="yes"/> -->
          <status state="operational"/>
          <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- place holder to satisfy constraint: component-has-non-provider-responsible-role -->
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>            <!-- place holder to satisfy constraint: component-has-non-provider-responsible-role -->
          </responsible-role>
          <responsible-role role-id="provider">
             <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
@@ -4883,8 +4883,37 @@
             </p>
          </remarks>
       </resource>
-
-
-
+      <resource uuid="8f742c15-9d3f-4f9a-b2b4-76f8e2734291">
+         <title>Privacy Impact Assessment</title>
+         <description>
+            <p>Privacy Impact Assessment (PIA)</p>
+         </description>
+         <prop name="type" value="plan" class="privacy-impact-assessment"/>
+         <prop name="published" value="2023-01-01T00:00:00Z"/>
+         <prop name="version" value="Document Version"/>
+         <rlink href="./documents/PIA.docx" media-type="application/msword"/>
+         <base64 filename="PIA.docx" media-type="application/msword">00000000</base64>
+         <remarks>
+            <p>Table 12-1 Attachments: Privacy Impact Assessment (PIA)</p>
+            <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.
+            </p>
+         </remarks>
+      </resource>
+      <resource uuid="7d93e4f2-1b8c-4d6a-9f3b-2e5a9c8d0a1e">
+         <title>E-Authentication Workflow</title>
+         <description>
+            <p>E-Authentication Workflow Diagram</p>
+         </description>
+         <prop name="type" value="artifact" class="e-authentication-workflow"/>
+         <prop name="published" value="2023-01-01T00:00:00Z"/>
+         <prop name="version" value="Document Version"/>
+         <rlink href="./documents/EAuthWorkflow.docx" media-type="application/msword"/>
+         <base64 filename="EAuthWorkflow.docx" media-type="application/msword">00000000</base64>
+         <remarks>
+            <p>Table 12-1 Attachments: E-Authentication Workflow Diagram</p>
+            <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.
+            </p>
+         </remarks>
+      </resource>
    </back-matter>
 </system-security-plan>
