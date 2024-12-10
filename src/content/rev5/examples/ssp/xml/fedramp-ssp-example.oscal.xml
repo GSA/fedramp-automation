@@ -4567,7 +4567,7 @@
          <description>
             <p>Rules of Behavior</p>
          </description>
-         <prop name="type" value="rules-of-behavior"/>
+         <prop name="type" value="rules-of-behavior" class='digital-identity-worksheet'/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
