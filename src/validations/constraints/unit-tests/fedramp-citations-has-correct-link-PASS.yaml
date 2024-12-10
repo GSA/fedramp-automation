@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     fedramp-citations-has-correct-link
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: fedramp-citations-has-correct-link
       result: pass
