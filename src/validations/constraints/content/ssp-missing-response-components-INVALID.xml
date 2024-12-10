@@ -11,12 +11,14 @@
       <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="implementation-status" value="unsupported-status" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
+        <!-- A require by-component reference is missing here, this missing assembly should trigger a constraint violation error. -->
       </statement>
     </implemented-requirement>
     
     <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
       <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
       <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
+        <!-- A require by-component reference is missing here, this missing assembly should trigger a constraint violation error. -->
       </statement>
     </implemented-requirement>
   </control-implementation>
