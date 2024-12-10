@@ -15,10 +15,10 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr103"/>
                 <message>A FedRAMP constraint MUST be sorted Alphabetically within it's specific context block.</message>
             </expect> -->
-            <expect id="frr104" target="//expect | //index-has-key" test="count(prop[@namespace = 'https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name = 'help-url']) eq 1" level="ERROR">
+            <expect id="frr104" target="//expect | //index-has-key" test="count(prop[@namespace = 'https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name = 'help-url']) eq 1 and doc-available(prop[@namespace = 'https://docs.oasis-open.org/sarif/sarif/v2.1.0' and @name = 'help-url']/@value)" level="ERROR">
                 <formal-name>Constraints Have a Help URL Property</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://github.com/GSA/fedramp-automation/blob/develop/src/validations/styleguides/STYLE.md#frr104"/>
-                <message>A FedRAMP constraint MUST define a help URL.</message>
+                <message>A FedRAMP constraint MUST define a valid help URL.</message>
             </expect>
             <!-- TODO: Uniqueness check needs to be added to frr105 once support is added for a function like distinct-values() or some other method of ensuring that an id is unique-->
             <expect id="frr105" target="//expect | //allowed-values | //index-has-key" test="@id" level="ERROR">
