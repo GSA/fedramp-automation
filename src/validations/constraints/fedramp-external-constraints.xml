@@ -200,14 +200,18 @@
             <let var="statement-id" expression="('ac-1_smt.a', 'ac-2_smt.b')"/>
             <let var="control-id" expression="../../../@control-id"/>
             <let var="component-uuid" expression="@component-uuid"/>
-            <let var="component-type" expression="('policy', 'process-procedure')"/>
-            <expect id="control-statement-missing-policy-component"
-            target=".[../@statement-id = $statement-id]"
-            test="../../../../system-implementation/component[@uuid = $component-uuid and @type=$component-type]">
+            <expect id="control-statement-missing-policy-component" target=".[../@statement-id = $statement-id]" test="../../../../system-implementation/component[@uuid = $component-uuid and @type='policy']">
                 <formal-name>Required Attachment is Present</formal-name>
                 <prop name="help-url"  namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" value="https://automate.fedramp.gov/placeholder" />
                 <message>A FedRAMP SSP MUST define attachments that document control implementation in a policy component. Control statement {../@statement-id} is missing such a policy component.</message>
-            </expect>        
+            </expect>
+            <expect id="control-statement-missing-policy-component"
+            target=".[../@statement-id = $statement-id]"
+            test="../../../../system-implementation/component[@uuid = $component-uuid and @type='process-procedure']">
+                <formal-name>Required Attachment is Present</formal-name>
+                <prop name="help-url"  namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" value="https://automate.fedramp.gov/placeholder" />
+                <message>A FedRAMP SSP MUST define attachments that document control implementation in a policy component. Control statement {../@statement-id} is missing such a policy component.</message>
+            </expect>            
         </constraints>
     </context>
 
