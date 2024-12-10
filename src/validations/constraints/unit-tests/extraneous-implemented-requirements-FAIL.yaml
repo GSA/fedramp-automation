@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for extraneous-implemented-requirements
+  description: >-
+    This test case validates the behavior of constraint
+    extraneous-implemented-requirements
+  content: ../content/ssp-extraneous-implemented-requirements-INVALID.xml
+  expectations:
+    - constraint-id: extraneous-implemented-requirements
+      result: fail
