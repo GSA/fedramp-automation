@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+   uuid="11111111-2222-4000-8000-000000000000">
    <metadata>
       <title>FedRAMP [Baseline Name] System Security Plan (SSP)</title>
       <published>2024-12-31T23:59:59Z</published>
@@ -12,7 +13,8 @@
             <published>2023-06-30T00:00:00Z</published>
             <version>1.0</version>
             <oscal-version>1.0.4</oscal-version>
-            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid"
+               value="11111111-2222-4000-8000-004000000001"/>
             <remarks>
                <p>Initial publication.</p>
             </remarks>
@@ -21,14 +23,15 @@
             <published>2023-07-06T00:00:00Z</published>
             <version>1.1</version>
             <oscal-version>1.0.4</oscal-version>
-            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid"
+               value="11111111-2222-4000-8000-004000000001"/>
             <remarks>
                <p>Minor <code>prop</code> updates.</p>
             </remarks>
          </revision>
       </revisions>
       <prop name="marking" value="cui" class="fedramp.gov"/>
-      <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
+      <prop name="fedramp-version" ns="http://fedramp.gov/ns/oscal" value="fedramp-3.0.0-oscal-1.1.2" />
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -193,12 +196,6 @@
             <p>This is a sample role.</p>
          </description>
       </role>
-      <role id="leveraged-authorization-users">
-         <title>Leveraged Authorization Users</title>
-         <description>
-            <p>Any internal users of a leveraged authorization.</p>
-         </description>
-      </role>
       <role id="external-system-owner">
          <title>External System Owner</title>
          <description>
@@ -284,8 +281,7 @@
          <remarks>
             <p>Replace sample CSP information.</p>
             <p>CSP information must be present and associated with the "cloud-service-provider" role
-               via <code>responsible-party</code>.
-            </p>
+               via <code>responsible-party</code>.</p>
          </remarks>
       </party>
       <party uuid="11111111-2222-4000-8000-004000000002" type="organization">
@@ -293,7 +289,6 @@
          <short-name>FedRAMP PMO</short-name>
          <link href="http://fedramp.gov" rel="homepage"/>
          <link href="#11111111-2222-4000-8000-001000000051" rel="logo"/>
-         <link href="#11111111-2222-4000-8000-001000000004" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -561,7 +556,8 @@
 
 
    </metadata>
-   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
+   <import-profile
+      href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official
             FedRAMP 3.0.0 release.</p>
@@ -571,7 +567,7 @@
    <system-characteristics>
       <!-- Section 3 - System Information -->
       <!-- Table 3.1 Information System Name and Title -->
-      <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
+      <system-id identifier-type="http://fedramp.gov">F00000000</system-id>
       <system-name>System's Full Name</system-name>
       <system-name-short>System's Short Name or Acronym</system-name-short>
       <!-- General System Description -->
@@ -605,10 +601,10 @@
       <prop name="identity-assurance-level" value="2"/>
       <prop name="authenticator-assurance-level" value="2"/>
       <prop name="federation-assurance-level" value="2"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-12031T00:00:00z"/>
       <!-- Rev5 update - new prop -->
       <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
       <!-- FIPS PUB 199 Level -->
       <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
       <system-information>
@@ -774,16 +770,16 @@
 
       <leveraged-authorization uuid="11111111-2222-4000-8000-019000000001">
          <title>AwesomeCloud Commercial(IaaS)</title>
-
-         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F9999999999"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency">
+         <prop ns="http://fedramp.gov/ns/oscal" name="leveraged-system-identifier"
+            value="F9999999999"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency">
             <remarks>
                <p>For now, this is a required field. In the future we intend 
                   to pull this information directly from FedRAMP's records
                   based on the "leveraged-system-identifier" property's value.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-moderate">
+         <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-moderate">
             <remarks>
                <p>For now, this is a required field. In the future we intend 
                   to pull this information directly from FedRAMP's records
@@ -804,17 +800,9 @@
       </leveraged-authorization>
 
       <user uuid="11111111-2222-4000-8000-008000000001">
-         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
-         <prop name="type" value="internal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
-         <role-id>system-poc-technical</role-id>
          <authorized-privilege>
-            <title>Admin</title>
-            <description>
-               <p>admin user</p>
-            </description>
-            <function-performed>administration</function-performed>
+            <title></title>
+            <function-performed>none</function-performed>
          </authorized-privilege>
          <remarks>
             <p>The user assembly is being reviewed for continued applicability 
@@ -825,61 +813,34 @@
          </remarks>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000002">
-         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
-         <prop name="type" value="internal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-
-         <role-id>system-poc-technical</role-id>
+         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
          <authorized-privilege>
             <title>Add/Remove Admins</title>
             <function-performed>This can add and remove admins.</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000003">
-         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
-         <prop name="type" value="internal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-         <role-id>system-poc-technical</role-id>
+         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
          <authorized-privilege>
-            <title>Admin</title>
-            <description>
-               <p>admin user</p>
-            </description>
-            <function-performed>administration</function-performed>
+            <title></title>
+            <function-performed>add/remove non-privliged admins</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000004">
-         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
-         <prop name="type" value="internal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
-         <role-id>system-poc-technical</role-id>
+         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
          <authorized-privilege>
-            <title>Admin</title>
-            <description>
-               <p>admin user</p>
-            </description>
-            <function-performed>administration</function-performed>
+            <title></title>
+            <function-performed>Manage services and components within the virtual cloud environment.</function-performed>
          </authorized-privilege>
       </user>
       <user uuid="11111111-2222-4000-8000-008000000005">
-         <prop name="separation-of-duties-matrix" value="yes" ns="https://fedramp.gov/ns/oscal" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-         <prop name="type" value="internal"/>
-         <role-id>system-owner</role-id>
+         <prop name="separation-of-duties-matrix" value="yes" ns="http://fedramp.gov/ns/oscal" />
          <authorized-privilege>
-            <title>Admin</title>
-            <description>
-               <p>admin user</p>
-            </description>
-            <function-performed>administration</function-performed>
+            <title></title>
+            <function-performed>Add and remove users from the virtual cloud environment.</function-performed>
          </authorized-privilege>
       </user>
-      <!-- ========= MINIMUM REQUIRED COMPONENT: THIS SYSTEM ======= -->
-      <!-- ========= MINIMUM REQUIRED COMPONENT: THIS SYSTEM ======= -->
+
       <!-- ========= MINIMUM REQUIRED COMPONENT: THIS SYSTEM ======= -->
       <!--         There must be a "this-system" component           -->
       <component uuid="11111111-2222-4000-8000-009000000000" type="this-system">
@@ -899,12 +860,11 @@
       </component>
 
       <!-- ============= EXTERNAL COMPONENTS ============= -->
-      <!-- ============= EXTERNAL COMPONENTS ============= -->
-      <!-- ============= EXTERNAL COMPONENTS ============= -->
 
-      <!-- ==== Table 6.1 Leveraged Authorizations ====- -->
-      <!-- ==== Table 6.1 Leveraged Authorizations ====- -->
-
+      <!-- ==== ================================================================= ====- -->
+      <!-- ====                  Table 6.1 Leveraged Authorizations               ====- -->
+      <!-- ==== ================================================================= ====- -->
+      
       <!-- Leveraged FedRAMP-Authorized Systems -->
       <component uuid="11111111-2222-4000-8000-009000100001" type="system">
          <title>Awesome Cloud IaaS (Leveraged Authorized System)</title>
@@ -914,16 +874,16 @@
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop name="nature-of-agreement" value="sla"  ns="http://fedramp.gov/ns/oscal"/>
+         <prop name="authentication-method" value="yes"  ns="http://fedramp.gov/ns/oscal">
             <remarks>
                <p>If 'yes', describe the authentication method.</p>
                <p>If 'no', explain why no authentication is used.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop name="information-type" value="C.3.5.1" class="incoming" ns="http://fedramp.gov/ns/oscal"/>
+         <prop name="information-type" value="C.3.5.8" class="outgoing" ns="http://fedramp.gov/ns/oscal"/>
          <status state="operational"/>
 
          <responsible-role role-id="provider">
@@ -936,8 +896,8 @@
             </remarks>
          </responsible-role>
          <responsible-role role-id="administrator">
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="https://fedramp.gov/ns/oscal" />
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="https://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="http://fedramp.gov/ns/oscal" />
          </responsible-role>
          <remarks>
             <p>This is a leveraged system within which this system operates.
@@ -973,7 +933,7 @@
             </ul>
             <p/>
             <p>Links to the vendor website describing the system are encouraged, but not required.</p>
-
+            
             <h1>Services</h1>
             <p>A service within the scope of the leveraged system's authorization boundary 
                is considered an "authorized service". Any other service offered by the 
@@ -992,13 +952,12 @@
                a "poam-item" link that references a corrisponding entry in this system's
                POA&amp;M.</li>
             </ul>
-
+            
             <p>Both authorized and non-authorized leveraged services include:</p>
             <ul>
                <li>a "provided-by" link with a URI fragment that points
                to the "system" component representing the leveraged system. 
-               (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)
-               </li>
+               (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
                <li>the name of the service in the title (for authorized services this should be 
                   exactly as it appears in the FedRAMP Marketplace</li>
                <li>an "implementation-point" core property with a value of "external"</li>
@@ -1010,7 +969,7 @@
                <li>a status with a state value of "operational"</li>
                <li>At least one responsible-role (other than "provider") that indicates any authorized
                   users. This must have one or more "privilege-uuid" property/extensions. Each references
-                  a user assembly entry.</li>
+                  a user assembly entry.</li>               
             </ul>
 
             <p>Although SSP Table 7.1 also requires data categoriation and hosting
@@ -1028,13 +987,15 @@
          </description>
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="tls-1.3" />
+         <prop ns="http://fedramp.gov/ns/oscal" class="incoming" name="information-type" value="C.3.5.1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="outgoing" name="information-type" value="C.3.5.8"/>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
          <status state="operational"/>
          <responsible-role role-id="administrator">
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="https://fedramp.gov/ns/oscal" />
-            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="https://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
          <remarks>
             <p>This is a service offered by a leveraged system and used by this system.
@@ -1049,8 +1010,7 @@
                leveraged-authorization entry</li>
                <li>an "implementation-point" property with a value of "external"; and</li>
                <li>a "provided-by" link with a URI fragment that points  to the 
-                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)
-               </li>
+                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
             </ul>
             <p/>
             <p>Where relevant, this component should also have:</p>
@@ -1077,10 +1037,11 @@
          </remarks>
       </component>
 
-      <!-- ==== Table 7.1 Leveraged Authorizations ====- -->
-      <!-- ==== Table 7.1 Leveraged Authorizations ====- -->
-
-      <!-- Scenario 1: A non-authorized service from a FedRAMP leveraged authorization -->
+      <!-- ==== ================================================================= ====- -->
+      <!-- ==== Table 7.1 External Services, Interconnections, and Non-Authorized ====- -->
+      <!-- ==== ================================================================= ====- -->
+      
+      <!-- Table 7.1 Scenario 1: A non-authorized service from a FedRAMP leveraged authorization -->
       <component uuid="11111111-2222-4000-8000-009000500002" type="service">
          <title>Service B</title>
          <description>
@@ -1088,30 +1049,28 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external" />
-         <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="provider" value="self"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="still-supported" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method.</p>
                <p>If 'no', explain why no authentication is used.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
-         <prop name="poam-item-uuid" ns="https://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001" />
-         <prop name="poam-id" ns="https://fedramp.gov/ns/oscal" value="ID-0001" />
-         <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
+         <prop name="information-type" value="C.3.5.1" class="incoming" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" value="C.3.5.8" class="outgoing" ns="http://fedramp.gov/ns/oscal" />
+         <link  rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000001" />
          <status state="operational" />
-         <responsible-role role-id="admin">
-
-         </responsible-role>
-         <responsible-role role-id="provider">
-            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
          <remarks>
+            <!-- TODO: Validate this description -->
             <p>This is a service offered by a leveraged system and used by this system.
                It is NOT explicitly listed on the FedRAMP marketplace as being included 
                in the scope of the leveraged system's ATO, thus is treated as a 
@@ -1126,12 +1085,10 @@
                <li>One or more "information-type" property/extensions, where the allowed values are the 800-63
                   information type identifiers, and the cited types are included full list of system information types.</li>
                <li>exactly one "poam-item" link, with an href value that references the 
-                  POA&amp;M and a resource-fragment that represents the 
-                  POAM&amp;M ID (legacy) in a Excel workbook or poam-item-uuid (preferred)
-                  in an OSCAL-based POA&amp;M.</li>
+                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
                <li>a "provided-by" link with a URI fragment that points to the 
-                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)
-               </li>
+                  "system" component representing the leveraged system. (Example: <code>"#11111111-2222-4000-8000-009000100001"</code>)</li>
                <li></li>
                <li></li>
 
@@ -1140,7 +1097,7 @@
                tools are able to distinguish between authorized and non-authorized services
                from the same leveraged provider.</p>
             <p/>
-
+            
             <p>Where relevant, this component should also have:</p>
             <ul>
                <li>At least one responsible-role that indicates the authorized userswith a role-id of "leveraged-authorization-users" and exactly
@@ -1157,7 +1114,7 @@
                <li>Package ID, Authorization Type, Impact Level</li>
             </ul>
             <p/>
-
+            
             <p>- An "inherited-uuid" property if the leveraged system's owner provides a UUID for
                their system (such as in an OSCAL-based CRM).</p>
             <p>Link(s) to the vendor's web site describing the service are encouraged, but not
@@ -1175,34 +1132,22 @@
          </remarks>
       </component>
 
-      <!-- Scenario 2: An interconnection between this system and an external system -->
-      <!-- Scenario 2 - Part 1: An external system with which this system has an interconnection -->
-      <component uuid="11111111-2222-4000-8000-009000100002" type="service">
+      <!-- Table 7.1 Scenario 2: An interconnection between this system and an external system -->
+      <!-- Table 7.1 Scenario 2 - Part 1: An external system with which this system has an interconnection -->
+      <component uuid="11111111-2222-4000-8000-009000100002" type="system">
          <title>Other Cloud SaaS</title>
          <description>
             <p>An external system to which this system shares an interconnection.</p>
          </description>
-         <prop name="implementation-point" value="external"/>
-         <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
-         <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
-         <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
          <prop name="asset-type" value="saas"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
-            <remarks>
-               <p>If 'yes', describe the authentication method.</p>
-               <p>If 'no', explain why no authentication is used.</p>
-               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
-            </remarks>
-         </prop>
-
+         
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
-         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
-
+         
          <status state="operational"/>
 
          <responsible-role role-id="provider">
             <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
-         </responsible-role>
+         </responsible-role>         
          <responsible-role role-id="authorizing-official">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
@@ -1220,6 +1165,7 @@
             <port-range start="389" end="389" transport="TCP" />
          </protocol>
          <remarks>
+            <!-- TODO: Validate this description -->
             <p>Each interconnection to one or more remote systems must have:</p>
             <ul>
                <li>a "system" component (this component)</li>
@@ -1234,7 +1180,7 @@
                   remote listening ports, one or more "protocol" assemblies must
                   be provided.</li>
             </ul>
-
+            
             <p>While not required, each "system" component should have:</p>
             <ul>
                <li>an "inherited-uuid" property if the value was provided by the system owner</li>
@@ -1243,7 +1189,7 @@
                <li>an "system-owner" responsible-role</li>
                <li>an "system-poc-management" responsible-role</li>
                <li>an "system-poc-technical" responsible-role</li>
-            </ul>
+            </ul>  
             <p>Unlike prior FedRAMP OSCAL publications, avoid the use of FedRAMP 
                properties/extensions for these roles, instead favor the core OSCAL
                responsible-roles constructs, and the NIST-standard roles of 
@@ -1252,52 +1198,51 @@
          </remarks>
       </component>
 
-      <!-- Scenario 2 - Part 2: Interconnection to external system -->
-      <component uuid="11111111-2222-4000-8000-009000200001" type="service">
+      <!-- Table 7.1 Scenario 2 - Part 2: Interconnection to external system -->
+      <component uuid="11111111-2222-4000-8000-009000200001" type="interconnection">
          <!-- Use title element to provid System/ Service/ API/CLI Name -->
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
          <description>
             <p>Describe the purpose of the external system/service; specifically, provide reasons
                for connectivity (e.g., system monitoring, system alerting, download updates, etc.)</p>
          </description>
-         <prop name="implementation-point" value="external"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+
+         <prop name="nature-of-agreement" value="contract" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="hosting-environment" value="see-remarks">
+         <prop class="incoming" name="information-type" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop class="incoming" name="information-type" value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="compliance" value="soc-2-type-1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="compliance" value="pci-dss" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="compliance" value="iso-27001" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="hosting-environment" value="see-remarks" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>Describe the hosting of the interconnection itself (NOT the hosting of the remote system).</p>
             </remarks>
          </prop>
 
 
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.2"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
+         <prop name="ipv4-address" class="local" value="10.1.1.1"/>
+         <prop name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
+         <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
+         <prop name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
 
-         <prop ns="https://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
 
-         <link rel="agreement" href="#11111111-2222-4000-8000-001000000058"/>
-         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000" />
-         <link rel="used-by" href="#11111111-2222-4000-8000-009000100002" />
+         <link rel="attachment" href="#11111111-2222-4000-8000-001000000058"/>
+         <link rel="used-by"   href="#11111111-2222-4000-8000-009000000000" />
+         <link rel="used-by"   href="#11111111-2222-4000-8000-009000100002" />
 
-
+         <link rel="poam-item" href="https://raw.githubusercontent.com/usnistgov/oscal-content/refs/heads/main/examples/poam/xml/ifa_plan-of-action-and-milestones.xml" resource-fragment="11111111-3333-4000-8000-000000000001" />
+         
 
          <status state="operational"/>
-
+         
          <responsible-role role-id="provider">
             <party-uuid>44444444-2222-4000-8000-004000000001</party-uuid>
          </responsible-role>
@@ -1307,12 +1252,17 @@
          <responsible-role role-id="isa-poc-local">
             <party-uuid>11111111-2222-4000-8000-004000000008</party-uuid>
          </responsible-role>
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
+         </responsible-role>
+         
 
-         <protocol name="ftp" uuid="11111111-2222-4000-8000-010000000001">
-            <title>Incoming FTP Service</title>
-            <port-range start="80" end="80" transport="TCP" />
-         </protocol>
          <remarks>
+            <!-- TODO: Validate this description -->
+            
             <p>Each interconnection to one or more remote systems must have:</p>
             <ul>
                <li>one "system" component for each remote system sharing the connection</li>
@@ -1332,6 +1282,10 @@
                <li>at least one "agreement" link with an href vlue that refers to a back-matter resource containing the interconnection security agreemnet (ISA)</li>
                <li>exactly one "used-by" link with an href value that refers to the "this-system" component.</li>
                <li>one or more "used-by" links with href values that refer to each "system" component representing a remote system sharing the connection.</li>
+               <li>exactly one "poam-item" link, with an href value that references the 
+                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               
                <li>exactly one "provider" responsible role that references the party information for the organization the provides the connection.</li>
             </ul>
             <p>Authentication methods must address both system-authentication as well as 
@@ -1345,7 +1299,7 @@
                <li>a "compliance" property/extension if appropriate</li>
                <li>an "system-poc-management" responsible-role</li>
                <li>an "system-poc-technical" responsible-role</li>
-            </ul>
+            </ul>  
             <p>Unlike prior FedRAMP OSCAL publications, avoid the use of FedRAMP 
                properties/extensions for these roles, instead favor the core OSCAL
                responsible-roles constructs, and the NIST-standard roles of 
@@ -1354,20 +1308,20 @@
          </remarks>
       </component>
 
-      <!-- Scenario 3: A service from an external system other than the leveraged system -->
-      <!-- Scenario 3 - Part 1: An external system that offers a service used by this system -->
+      <!-- Table 7.1 Scenario 3: A service from an external system other than the leveraged system -->
+      <!-- Table 7.1 Scenario 3 - Part 1: An external system that offers a service used by this system -->
       <component uuid="11111111-2222-4000-8000-009000100003" type="system">
          <title>Other Cloud SaaS</title>
          <description>
             <p/>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" />
+         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa" /> 
          <prop name="implementation-point" value="external" />
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
-
+         
          <status state="operational"/>
-
+         
          <responsible-role role-id="system-owner">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
@@ -1389,8 +1343,8 @@
                here.</p>
             <p>For an external system, the "implementation-point" property must always be present
                with a value of "external".</p>
-
-
+            
+            
             <p>Each interconnection must be defined with both an "system" component and an
                "interconnection" component.</p>
             <p>Must include all leveraged services and features from the leveraged authorization
@@ -1398,7 +1352,7 @@
          </remarks>
       </component>
 
-      <!-- Scenario 3 - Part 2: An external service  -->
+      <!-- Table 7.1 Scenario 3 - Part 2: An external service  -->
       <component uuid="11111111-2222-4000-8000-009000500003" type="service">
          <title>Service C</title>
          <description>
@@ -1406,18 +1360,18 @@
             <p>Describe the service and what it is used for.</p>
          </description>
          <prop name="implementation-point" value="external"/>
-         <!--         <prop name="direction" value="outgoing"/>-->
-         <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+
+         <prop ns="http://fedramp.gov/ns/oscal" name="connection-security" value="ipsec" />
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="incoming" name="information-type" value="C.3.5.1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="outgoing" name="information-type" value="C.3.5.8"/>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
             <remarks>
                <p>This can only be known if provided by the leveraged system.
@@ -1426,55 +1380,61 @@
             </remarks>
          </prop>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100003" />
-         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
+         <link  rel="poam-item"   href="./attachments/plan-of-action-and-milestones.xlxs" resource-fragment="V-1234" />
          <status state="operational"/>
-
-         <responsible-role role-id="leveraged-authorization-users">
+         
+         <responsible-role role-id="provider">
+            <party-uuid>11111111-2222-4000-8000-c0040000000a</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
             <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
-         <responsible-role role-id="provider">
-            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
-         </responsible-role>
-
          <protocol name="abc" uuid="11111111-2222-4000-8000-010000000003">
             <title></title>
             <port-range start="5432" end="5432" transport="TCP" />
          </protocol>
-
+         
          <remarks>
+            <!-- TODO: Revise this description -->
+            
             <p>This is a service provided by an external system other than the leveraged system.</p>
             <p>As a result, the "leveraged-authorization-uuid" property is not applicable and must
                NOT be used.</p>
             <p/>
             <p>Each external service used from a leveraged authorization must have:</p>
-            <p>- a "system" component (CURRENTLY DEFERRED DUE TO A KNOWN ISSUE WITH THE "provided-by" link relationship).</p>
-            <p>- a "service" component (this component).</p>
+            <ul>
+               <li>a "system" component (CURRENTLY DEFERRED DUE TO A KNOWN ISSUE WITH THE "provided-by" link relationship).</li>
+               <li>a "service" component (this component).</li>
+            </ul>
             <p/>
             <p>This component must always have:</p>
-            <p>- The name of the service in the title - preferably exactly as it appears on the
-               vendor's web site</p>
-            <p>- A "risk" property/extension - using the remarks, either describe any risk or state there is no risk and provide a basis for that assertion.</p>
-            <p>- An "implementation-point" property with a value of "external".</p>
-            <p>- A "provided-by" link with a URI fragment that points to the UUID of the above
-               "system" component.</p>
-            <p> - Example: <code>"#11111111-2222-4000-8000-009000100001"</code>
-            </p>
-            <p> - IMPORTANT: Due to a known error in core OSCAL (versions &lt;=1.1.2) constraints,
-               this property is blocked from proper use.</p>
-            <p>- a status with a state value of "operational"</p>
+            <ul>
+               <li>The name of the service in the title - preferably exactly as it appears on the
+                  vendor's web site</li>
+               <li>An "implementation-point" property with a value of "external".</li>
+               <li>A "provided-by" link with a URI fragment that points to the UUID of the above
+                  "system" component.</li>
+               <li>exactly one "poam-item" link, with an href value that references the 
+                  POA&amp;M and a resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>a status with a state value of "operational"</li>
+            </ul>
             <p/>
             <p>Where relevant, this component should also have:</p>
-            <p>- One or more "information-type" properties, where the allowed values are the 800-63
-               information type identifiers.</p>
-            <p>- A responsible-role with a role-id of "leveraged-authorization-users" and exactly
-               one or more party-uuid entries that indicates which users within this system may
-               interact with the leveraged systeme.</p>
-            <p>- An "inherited-uuid" property if the leveraged system's owner provides a UUID for
-               their system (such as in an OSCAL-based CRM).</p>
-            <p>Link(s) to the vendor's web site describing the service are encouraged, but not
-               required.</p>
+            <ul>
+               <li>One or more "information-type" properties, where the allowed values are the 800-63
+                  information type identifiers.</li>
+               <li>A responsible-role with a role-id of "leveraged-authorization-users" and exactly
+                  one or more party-uuid entries that indicates which users within this system may
+                  interact with the leveraged systeme.</li>
+               <li>An "inherited-uuid" property if the leveraged system's owner provides a UUID for
+                  their system (such as in an OSCAL-based CRM).</li>
+               <li>Link(s) to the vendor's web site describing the service are encouraged, but not
+                  required.</li>               
+            </ul>
             <p/>
             <p>The following fields from the Leveraged Authorization Table are handled in the
                leveraged-authorization assembly:</p>
@@ -1484,143 +1444,277 @@
                "system" component assembly:</p>
             <p>- Nature of Agreement, CSP Name</p>
             <p/>
-            <p>An unauthorized service from an underlying leveraged authorization must NOT have the "leveraged-authorization-uuid" property. The presence or absence of this property is how the authorization status of a service is indicated.</p>
+            <p>An unauthorized service from an underlying leveraged authorization 
+               must NOT have the "leveraged-authorization-uuid" property. The presence 
+               or absence of this property is how the authorization status of a service is indicated.</p>
          </remarks>
       </component>
 
-      <!-- Scenario 4: A service from this system offered to external systems -->
-      <component uuid="11111111-2222-4000-8000-009000500004" type="service">
-         <title>Service C</title>
-
+      <!-- Table 7.1 Scenario 4: A service from this system offered to external systems -->
+      <!-- Table 7.1 Scenario 4 - Part 1: An external API client that accesses this API service -->
+      <component uuid="11111111-2222-4000-8000-009000100004" type="external-client">
+         <title>Undetermined External API Clients</title>
          <description>
-            <p>A service provided by an external system other than the leveraged system.</p>
+            <p>This component represents any of the public API clients that may 
+               access this systems'API service.</p>
+         </description>
+         <prop name="asset-type" value="api-client"/>
+
+         <prop name="implementation-point" value="external" />
+         <status state="operational"/>
+         <responsible-role role-id="public" />
+
+         <remarks>
+            <p>When an API service is offered to a large community, this one component 
+               bay be used to represent the collection of API clients that may connect
+               from that community. This must have:</p>
+            <ul>
+               <li>a component type set to "external-client"</li>
+               <li>an "implementation-point" property set to "external"</li>
+               <li>one or more responsible roles should be defined representing 
+                  the community of potential API client users. If the servvice
+               is open to the public, use the "public" responsible-role ID.</li>
+            </ul>
+         </remarks>
+      </component>
+
+      <component uuid="11111111-2222-4000-8000-009000500004" type="service">
+         <title>API Service</title>
+         <description>
+            <p>A service offered by this system to external systems, such as an API.
+            As a result, communication crosses the boundary.</p>
             <p>Describe the service and what it is used for.</p>
          </description>
-
          <prop name="implementation-point" value="internal"/>
-         <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="provider" value="self"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+         
+         <prop name="communicates-externally" value="yes" ns="http://fedramp.gov/ns/oscal"/>
+         <prop name="information-type" class="incoming-outgoing" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="outgoing"          value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="connection-security" value="tls-1.3" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
+         <prop name="nature-of-agreement" value="other" ns="http://fedramp.gov/ns/oscal">
             <remarks>
-               <p>Either describe a risk associated with this service, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
+               <p>Terms of Use</p>
             </remarks>
-         </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>
+         </prop>          
 
-         <!-- <link href="11111111-2222-4000-8000-009000000000" rel="used-by"/> -->
+         <prop name="allows-authenticated-scan" value="no" >
+            <remarks>
+               <p>Explain why authentication scans are not possible for this component.
+                  Provide evidence if available, such as scanner tool or vendor links.</p>
+            </remarks>
+         </prop>
+         <prop name="scan-type" value="infrastructure" ns="http://fedramp.gov/ns/oscal" />
+
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000100003" /> 
+         <link rel="used-by" href="#11111111-2222-4000-8000-009000100004" />
+         <link rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000004" />
          <link rel="api" href="https://api.example.com/v1" />
-         <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
+         
          <status state="operational"/>
-         <responsible-role role-id="provider">
-            <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid>
+            <party-uuid>11111111-2222-4000-8000-004000000012</party-uuid>
          </responsible-role>
-         <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
-         </responsible-role>
-
-         <protocol name="remote" uuid="11111111-2222-4000-8000-010000000002">
-            <title>Remote API Service</title>
+         <protocol name="tls" uuid="11111111-2222-4000-8000-010000000002">
+            <title>API Service</title>
             <port-range start="443" end="443" transport="TCP"/>
          </protocol>
-
          <remarks>
-            <p>This is a service provided by an external system other than the leveraged system.</p>
-
-
-
-            <p>- A "risk" property/extension - using the remarks, either describe any risk or state there is no risk and provide a basis for that assertion.</p>
-
-
-
-            <p>As a result, the "leveraged-authorization-uuid" property is not applicable and must
-               NOT be used.</p>
-            <p>All services require the "implementation-point" property. In this case, the property
-               value is set to "external.</p>
-            <p>All external services would normally require a "provided-by" link; however, a known
-               bug in core OSCAL syntax prevents the use of this property at this time.</p>
-            <p>If the leveraged system owner provides a UUID for their service (such as in an
-               OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-               property.</p>
-
-
-
+            <p>This is a service provided by this system to external systems, such as an 
+               offered API. The following is required:</p>
+            <ul>
+               <li>The "title" fields must have the name of the offered API.</li>
+               <li>The "description" field must include the purpose and use of the API.</li>
+               <li>The component "type" attribute must have a value of "service".</li>
+               <li>The "implementation-point" property must have a value of "internal".</li>
+               <li>The "communicates-externally" prop/extensions must have a value of "yes".</li>
+               <li>One or more "information-type" prop/extensions must be present with 800-60 information type values.</li>
+               <li>The "connection-security" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions "remarks" must provide additional content.</li>
+               <li>The "nature-of-agreement" prop/extension must identify any governing terms for the connection.</li>
+               <li>One or more "used-by" links must provide the component UUID of the other system.</li>
+               <li>A "poam-item" link, which must have an href value that references the POA&amp;M and a 
+                  resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>A "status" field that must have a state of "operational"</li>
+               <li>One or more "responsible-role" fields with:
+                  <ul>
+                     <li>one or more roles by "role-id" [rquiried]</li>
+                     <li>one or more "privilege-uuid" prop/extensions [required]</li>
+                     <li>one or more "party-uuid" values to identify who has these privliges. [required]</li>
+                  </ul>
+               </li>
+               <li>One or more "protocol" fields.</li>
+            </ul>
+            <p />
+            <p>Because this is softare that exists within the boundary, it is also requires the following
+               in satisfaction of inventory/CM/ConMon requirements:</p>
+            <ul>
+               <li>An "allows-authenticated-scan" property with an appropriate value.</li>
+               <li>An "scan-type" property/extension set to "infrastructure".</li>
+               <li>TODO: Revisit this list when working the inventory epic</li>
+            </ul>
 
          </remarks>
       </component>
 
-      <!-- Scenario 5: A CLI that connects to leveraged or external systems -->
+      <!-- Table 7.1 Scenario 5: A CLI that connects to leveraged or external systems -->
       <component uuid="11111111-2222-4000-8000-009000300001" type="software">
          <title>Management CLI</title>
          <description>
-            <p>None</p>
+            <p>A CLI tool used from within this system's boundary to manage a 
+               hypervisor, service, or other system outside this system's boundary, 
+               resulting in communication that crosses the boundary.</p>
          </description>
          <prop name="asset-type" value="cli"/>
          <prop name="implementation-point" value="internal"/>
-         <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="provider" value="self"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+
+         <prop name="communicates-externally" value="yes" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="incoming" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="outgoing" value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
             <remarks>
                <p>If 'yes', describe the authentication method in the remarks.</p>
                <p>If 'no', explain why no authentication is used in the remarks.</p>
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
-         </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="risk" value="see-remarks">
+         </prop>         
+         <prop name="nature-of-agreement" value="other" ns="http://fedramp.gov/ns/oscal">
             <remarks>
-               <p>Either describe a risk associated with this CLI, or indicate there is no identified risk.</p>
-               <p>If there is no risk, please explain your basis for that conclusion.</p>
+               <p>Terms of Use</p>
+            </remarks>
+         </prop>          
+
+         <prop name="allows-authenticated-scan" value="no" >
+            <remarks>
+               <p>Explain why authentication scans are not possible for this component.
+                  Provide evidence if available, such as scanner tool or vendor links.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="impact" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any resulting impact.</p>
-            </remarks>
-         </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="mitigation" value="see-remarks">
-            <remarks>
-               <p>If there are one or more identified risks, describe any mitigating factors.</p>
-            </remarks>
-         </prop>
-         <prop name="allows-authenticated-scan" value="no">
-            <remarks>
-               <p/>
-            </remarks>
-         </prop>
-         <link rel='provided-by' href="#11111111-2222-4000-8000-009000100001" />
+         <prop name="scan-type" value="infrastructure" ns="http://fedramp.gov/ns/oscal" />
+         
+         <link rel="communicates-with" href="#11111111-2222-4000-8000-009000100001" />
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000005" />
          <status state="operational"/>
-         <responsible-role role-id="provider">
-            <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
+         <responsible-role role-id="administrator">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+            <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-role>
-         <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
-         </responsible-role>
+         <remarks>
+            <p>When an internal CLI tool communicates with a system outside the boundary, 
+            such as for management of the underlying leveraged system or interaction
+            with an external system, the following is required:</p>
+            <ul>
+               <li>The "title" fields must have the name of the CLI tool.</li>
+               <li>The "description" field must include the purpose and use of the tool within this system.</li>
+               <li>The component "type" attribute must have a value of "software".</li>
+               <li>The "asset-type" property must have a value of "cli".</li>
+               <li>The "implementation-point" property must have a value of "internal".</li>
+               <li>The "communicates-externally" prop/extensions must have a value of "yes".</li>
+               <li>One or more "information-type" prop/extensions must be present with 800-60 information type values.</li>
+               <li>The "connection-security" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions "remarks" must provide additional content.</li>
+               <li>The "nature-of-agreement" prop/extension must identify any governing terms for the connection.</li>
+               <li>One or more "communicates-with" link must provide the component UUID of the other system.</li>
+               <li>A "poam-item" link, which must have an href value that references the POA&amp;M and a 
+                  resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>A "status" field that must have a state of "operational"</li>
+               <li>One or more "responsible-role" fields with:
+                  <ul>
+                     <li>one or more roles by "role-id" [rquiried]</li>
+                     <li>one or more "privilege-uuid" prop/extensions [required]</li>
+                     <li>one or more "party-uuid" values to identify who has these privliges. [required]</li>
+                  </ul>
+               </li>
+            </ul>
+            <p />
+            <p>Because this is softare that exists within the boundary, it is also requires the following
+            in satisfaction of inventory/CM/ConMon requirements:</p>
+            <ul>
+               <li>An "allows-authenticated-scan" property with an appropriate value.</li>
+               <li>An "scan-type" property/extension set to "infrastructure".</li>
+               <li>TODO: Revisit this list when working the inventory epic</li>
+            </ul>
+         </remarks>
       </component>
 
+      <!-- Table 7.1 Scenario 5 variant: An external CLI that connects to this system -->
+      <component uuid="11111111-2222-4000-8000-009000300003" type="software">
+         <title>External Management CLI</title>
+         <description>
+            <p>A CLI tool used by systems outside the authorization boundary to manage
+               or interact with this system..</p>
+         </description>
+         <prop name="asset-type" value="cli"/>
+         <prop name="implementation-point" value="external"/>
+         <prop name="information-type" class="incoming" value="C.3.5.1" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="information-type" class="outgoing" value="C.3.5.8" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="connection-security" value="ipsec" ns="http://fedramp.gov/ns/oscal" />
+         <prop name="authentication-method" value="yes" ns="http://fedramp.gov/ns/oscal" >
+            <remarks>
+               <p>If 'yes', describe the authentication method in the remarks.</p>
+               <p>If 'no', explain why no authentication is used in the remarks.</p>
+               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
+            </remarks>
+         </prop>         
+         <prop name="nature-of-agreement" value="other" ns="http://fedramp.gov/ns/oscal">
+            <remarks>
+               <p>Terms of Use</p>
+            </remarks>
+         </prop>          
+         <link rel='communicates-with' href="#11111111-2222-4000-8000-009000100001" />
+         <link  rel="poam-item"   href="#11111111-2222-4000-8000-001000000048" resource-fragment="11111111-3333-4000-8000-000000000005" />
+         <status state="operational"/>
+         <responsible-role role-id="external-users">
+            <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal" />
+         </responsible-role>
+         <remarks>
+            <p>When a CLI tool outside the system communicates with this system, 
+               such as for management of the user's hypervisor in this system, the
+            following is required:</p>
+            <ul>
+               <li>The "title" fields must have the name of the CLI tool.</li>
+               <li>The "description" field that describes how the tool can influence the operation of this system.</li>
+               <li>The component "type" attribute must have a value of "software".</li>
+               <li>The "asset-type" property must have a value of "cli".</li>
+               <li>The "implementation-point" property must have a value of "external".</li>
+               <li>One or more "information-type" prop/extensions must be present with 800-60 information type values.</li>
+               <li>The "connection-security" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions must be present with an appropriate value.</li>
+               <li>The "authentication-method" prop/extensions "remarks" must provide additional content.</li>
+               <li>The "nature-of-agreement" prop/extension must identify any governing terms for the connection.</li>
+               <li>One or more "communicates-with" link must provide the component UUID of the component within this system.</li>
+               <li>A "poam-item" link, which must have an href value that references the POA&amp;M and a 
+                  resource-fragment that represents the POAM&amp;M ID (legacy/Excel POA&amp;M) 
+                  or poam-item UUID (OSCAL POA&amp;M)</li>
+               <li>A "status" field that must have a state of "operational"</li>
+               <li>One or more "responsible-role" fields with:
+                  <ul>
+                     <li>one or more roles by "role-id" [rquiried]</li>
+                     <li>one or more "privilege-uuid" prop/extensions [required]</li>
+                     <li>one or more "party-uuid" values to identify who has these privliges. [optional]</li>
+                  </ul>
+               </li>
+            </ul>
+            <p />
+            <p>As this is impelemented external to the system boundary, information such as "scan-type" 
+               and "allows-authenticated-scanning" are not applicable and should not be present.</p>
+         </remarks>
+      </component>
 
-
-      <!-- ============= INTERNAL COMPONENTS ============= -->
-      <!-- ============= INTERNAL COMPONENTS ============= -->
       <!-- ============= INTERNAL COMPONENTS ============= -->
       <component uuid="11111111-2222-4000-8000-009000500005" type="service">
          <title>Service D</title>
@@ -1647,14 +1741,16 @@
                compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev 5 new props for CMs -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-at-rest"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="cryptographic-module-usage"
+            value="data-at-rest"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-2"/>
          <!-- Provide the certificate number (CMVP #) -->
          <prop name="validation-reference" value="3928"/>
-         <link rel="validation-details" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3928"/>
+         <link rel="validation-details"
+            href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3928"/>
          <status state="operational"/>
       </component>
       <!-- List all cryptographic modules for Data-in-Transit (DIT) - must referenced by using component(s), provide CMVP #, FIPS validation status, Vendor Name, Module Name, and brief usage description -->
@@ -1666,14 +1762,16 @@
                compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev5 new props for CMs -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-in-transit"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="cryptographic-module-usage"
+            value="data-in-transit"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-3"/>
          <!-- Provide the certificate number (CMVP #) -->
          <prop name="validation-reference" value="3920"/>
-         <link rel="validation-details" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3920"/>
+         <link rel="validation-details"
+            href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3920"/>
          <status state="operational"/>
       </component>
 
@@ -1691,7 +1789,7 @@
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -1706,13 +1804,13 @@
          </remarks>
       </component>
 
-      <component uuid="11111111-2222-4000-8000-009000300003" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300004" type="software">
          <title>[SAMPLE]Product Name</title>
          <description>
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -1727,15 +1825,29 @@
          </remarks>
       </component>
 
-
+      <component type="service" uuid="11111111-2222-4000-8000-009000500006">
+         <title>Email Service</title>
+         <description>
+            <p>Email Service</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
+         <!-- is-scanned prop applies to inventory-item (not component) -->
+         <!-- <prop name="is-scanned" value="yes"/> -->
+         <status state="operational"/>
+         <protocol name="smtp">
+            <port-range start="23" end="23" transport="TCP" />
+            <port-range start="23" end="23" transport="UDP" />
+         </protocol>
+      </component>
+      
       <component uuid="11111111-2222-4000-8000-009000400001" type="hardware">
          <title>[SAMPLE]Product</title>
          <description>
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="database"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -1750,58 +1862,42 @@
             <p>COMMENTS: Provide other comments as needed.</p>
          </remarks>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000300004" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300005" type="software">
          <title>OS Sample</title>
          <description>
             <p>None</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
          <status state="operational"/>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000300005" type="service">
+      <component uuid="11111111-2222-4000-8000-009000300006" type="software">
          <title>Database Sample</title>
          <description>
             <p>None</p>
          </description>
-         <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
-         <prop name="implementation-point" value="external"/>
-         <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
-         <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
-            <remarks>
-               <p>If 'yes', describe the authentication method.</p>
-               <p>If 'no', explain why no authentication is used.</p>
-               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
-            </remarks>
-         </prop>
          <prop name="asset-type" value="database"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
          <link href="#11111111-2222-4000-8000-009000500006" rel="used-by" />
          <status state="operational"/>
-         <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- placeholder to satisfy constraint: component-has-non-provider-responsible-role -->
-         </responsible-role>
-         <responsible-role role-id="provider">
-            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
-         </responsible-role>
          <protocol name="postgresql">
             <port-range start="5432" end="5432" transport="TCP" />
             <port-range start="5432" end="5432" transport="UDP" />
          </protocol>
       </component>
-      <component uuid="11111111-2222-4000-8000-009000300006" type="software">
+      <component uuid="11111111-2222-4000-8000-009000300007" type="software">
          <title>Appliance Sample</title>
          <description>
             <p>None</p>
          </description>
          <prop name="asset-type" value="appliance"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="login-url"
+            value="https://admin.offering.com/login"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
@@ -1811,350 +1907,7 @@
          <status state="operational"/>
       </component>
 
-      <!-- SSP Attachments - Policies -->
-      <component uuid="11111111-2222-4000-8000-009000600001" type="policy">
-         <title>AC Policy</title>
-         <description>
-            <p>The Access Control Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600002" type="policy">
-         <title>AT Policy</title>
-         <description>
-            <p>The Awareness and Training Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000006" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600003" type="policy">
-         <title>AU Policy</title>
-         <description>
-            <p>The Audit and Accountability governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600004" type="policy">
-         <title>CA Policy</title>
-         <description>
-            <p>The Assessment, Authorization, and Monitoring Policy governs how access is managed
-               and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000008" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600005" type="policy">
-         <title>CM Policy</title>
-         <description>
-            <p>The Configuration Management Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000009" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600006" type="policy">
-         <title>CP Policy</title>
-         <description>
-            <p>The Contingency Planning Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000010" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600007" type="policy">
-         <title>IA Policy</title>
-         <description>
-            <p>The Identificaiton and Authentication Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000011" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600008" type="policy">
-         <title>IR Policy</title>
-         <description>
-            <p>The Incident Response Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000012" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600009" type="policy">
-         <title>MA Policy</title>
-         <description>
-            <p>The Maintenance Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-0010000000013" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600010" type="policy">
-         <title>MP Policy</title>
-         <description>
-            <p>The Media Protection Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-0010000000014" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600011" type="policy">
-         <title>PE Policy</title>
-         <description>
-            <p>The Physical and Enviornmental Protection Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000015" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600012" type="policy">
-         <title>PL Policy</title>
-         <description>
-            <p>The Planning Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000016" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600013" type="policy">
-         <title>PM Policy</title>
-         <description>
-            <p>The Program Management Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000017" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600014" type="policy">
-         <title>PS Policy</title>
-         <description>
-            <p>The Personnel Security Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000018" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600015" type="policy">
-         <title>PT Policy</title>
-         <description>
-            <p>The PII Processing and Transparency Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000019" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600016" type="policy">
-         <title>RA Policy</title>
-         <description>
-            <p>The Risk Assessment Policy governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000020" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600017" type="policy">
-         <title>SA Policy</title>
-         <description>
-            <p>The System and Services Acquisition Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000021" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600018" type="policy">
-         <title>S3 Policy</title>
-         <description>
-            <p>The System and Communication Protection Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000022" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600019" type="policy">
-         <title>SI Policy</title>
-         <description>
-            <p>The System and Information Integrity Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000023" rel="policy"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000600020" type="policy">
-         <title>SR Policy</title>
-         <description>
-            <p>The Supply Chain Risk Management Policy governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000024" rel="policy"/>
-         <status state="operational"/>
-      </component>
-
-      <!-- SSP Attachments - Procedures -->
-      <component uuid="11111111-2222-4000-8000-009000800001" type="process-procedure">
-         <title>AC Policy</title>
-         <description>
-            <p>The Access Control Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800002" type="process-procedure">
-         <title>AT Policy</title>
-         <description>
-            <p>The Awareness and Training Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000024" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800003" type="process-procedure">
-         <title>AU Policy</title>
-         <description>
-            <p>The Audit and Accountability Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000025" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800004" type="process-procedure">
-         <title>CA Policy</title>
-         <description>
-            <p>The Assessment, Authorization, and Monitoring Procedure governs how access is managed
-               and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000026" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800005" type="process-procedure">
-         <title>CM Policy</title>
-         <description>
-            <p>The Configuration Management Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000027" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800006" type="process-procedure">
-         <title>CP Policy</title>
-         <description>
-            <p>The Contingency Planning Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000028" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800007" type="process-procedure">
-         <title>IA Policy</title>
-         <description>
-            <p>The Identificaiton and Authentication Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000029" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800008" type="process-procedure">
-         <title>IR Policy</title>
-         <description>
-            <p>The Incident Response Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000030" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800009" type="process-procedure">
-         <title>MA Policy</title>
-         <description>
-            <p>The Maintenance Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000031" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800010" type="process-procedure">
-         <title>MP Policy</title>
-         <description>
-            <p>The Media Protection Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-0010000000032" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800011" type="process-procedure">
-         <title>PE Policy</title>
-         <description>
-            <p>The Physical and Enviornmental Protection Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000033" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800012" type="process-procedure">
-         <title>PL Policy</title>
-         <description>
-            <p>The Planning Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000034" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800013" type="process-procedure">
-         <title>PM Policy</title>
-         <description>
-            <p>The Program Management Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000035" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800014" type="process-procedure">
-         <title>PS Policy</title>
-         <description>
-            <p>The Personnel Security Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000036" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800015" type="process-procedure">
-         <title>PT Policy</title>
-         <description>
-            <p>The PII Processing and Transparency Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000037" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800016" type="process-procedure">
-         <title>RA Policy</title>
-         <description>
-            <p>The Risk Assessment Procedure governs how access is managed and approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000038" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800017" type="process-procedure">
-         <title>SA Policy</title>
-         <description>
-            <p>The System and Services Acquisition Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000039" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800018" type="process-procedure">
-         <title>S3 Policy</title>
-         <description>
-            <p>The System and Communication Protection Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000040" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800019" type="process-procedure">
-         <title>SI Policy</title>
-         <description>
-            <p>The System and Information Integrity Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000041" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-      <component uuid="11111111-2222-4000-8000-009000800020" type="process-procedure">
-         <title>SR Policy</title>
-         <description>
-            <p>The Supply Chain Risk Management Procedure governs how access is managed and
-               approved.</p>
-         </description>
-         <link href="#11111111-2222-4000-8000-001000000042" rel="procedure"/>
-         <status state="operational"/>
-      </component>
-
-
-      <!-- Other components -->
+      <!-- Network Segments -->
       <component type="network" uuid="11111111-2222-4000-8000-009000000016">
          <title>IPv4 Production Subnet</title>
          <description>
@@ -2176,37 +1929,59 @@
          <!-- <prop name="is-scanned" value="yes"/> -->
          <status state="operational"/>
       </component>
-      <component type="service" uuid="11111111-2222-4000-8000-009000500006">
-         <title>Email Service</title>
+      
+
+
+      <!-- SSP Attachments - Policies -->
+      <component uuid="11111111-2222-4000-8000-009000600001" type="policy">
+         <title>Access Control and Identity Management Policy</title>
          <description>
-            <p>Email Service</p>
+            <p>The Access Control and Identity Management Policy governs how 
+               user identities and access rights are managed.</p>
          </description>
-         <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
-         <prop name="implementation-point" value="external"/>
-         <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
-         <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
-            <remarks>
-               <p>If 'yes', describe the authentication method.</p>
-               <p>If 'no', explain why no authentication is used.</p>
-               <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
-            </remarks>
-         </prop>
-         <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
-         <!-- is-scanned prop applies to inventory-item (not component) -->
-         <!-- <prop name="is-scanned" value="yes"/> -->
+         <link href="#11111111-2222-4000-8000-001000000005" rel="attachment"/>
          <status state="operational"/>
-         <responsible-role role-id="admin">
-            <party-uuid>11111111-2222-4000-8000-004000000011</party-uuid> <!-- place holder to satisfy constraint: component-has-non-provider-responsible-role -->
-         </responsible-role>
-         <responsible-role role-id="provider">
-            <party-uuid>33333333-2222-4000-8000-004000000001</party-uuid>
-         </responsible-role>
-         <protocol name="smtp">
-            <port-range start="23" end="23" transport="TCP" />
-            <port-range start="23" end="23" transport="UDP" />
-         </protocol>
+         <remarks>
+            <p>A policy component is required for each policy that governs the system.</p>
+            <p>The title, description and status fields are required by core OSCAL. 
+               The title field should reflect the actual title of the policy document.</p>
+            <p>A "policy" link field must be present that identifies the back-matter 
+               resource representing the attached policy.</p>
+            <p>The document version and date are represented in the linked resource. Not here.</p>
+            <p>At this time FedRAMP does not _require_ policy approver or 
+               audience information in the SSP; however, both may be represented here
+            using the responsible-role field. If electing to include this information,
+            use the "approver" role ID to represent approvers. Any other role listed
+            is assumed to be audience.</p>
+         </remarks>
       </component>
+      <component uuid="11111111-2222-4000-8000-009000600002" type="policy">
+         <title>AT Policy</title>
+         <description>
+            <p>The Awareness and Training Policy governs how access is managed and approved.</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-001000000006" rel="attachment"/>
+         <status state="operational"/>
+      </component>
+
+      <!-- SSP Attachments - Procedures -->
+      <component uuid="11111111-2222-4000-8000-009000800001" type="process-procedure">
+         <title>Access Control Procedure</title>
+         <description>
+            <p>The Access Control Procedure governs how access is managed and approved.</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-001000000023" rel="attachment"/>
+         <status state="operational"/>
+      </component>
+      <component uuid="11111111-2222-4000-8000-009000800002" type="process-procedure">
+         <title>AT Policy</title>
+         <description>
+            <p>The Awareness and Training Procedure governs how access is managed and approved.</p>
+         </description>
+         <link href="#11111111-2222-4000-8000-001000000024" rel="attachment"/>
+         <status state="operational"/>
+      </component>
+
 
       <!-- Appendix M - Inventory -->
       <inventory-item uuid="11111111-2222-4000-8000-011000000001">
@@ -2232,8 +2007,8 @@
          <prop name="asset-tag" value="Asset Tag"/>
          <prop name="vlan-id" value="VLAN Identifier"/>
          <prop name="network-id" value="Network Identifier"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <!-- <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>-->
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <!-- <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>-->
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
                <p>If no, explain why. If yes, omit remarks field.</p>
@@ -2293,7 +2068,7 @@
                <p>If no, explain why. If yes, omit remark.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <responsible-party role-id="asset-owner">
             <party-uuid>11111111-2222-4000-8000-004000000010</party-uuid>
          </responsible-party>
@@ -2319,8 +2094,9 @@
          <!-- Todo: check why schematron validation is indicating that this is not a valid ipv4 value -->
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a03:0303"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"></implemented-component>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"
+         > </implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000004">
          <description>
@@ -2333,8 +2109,9 @@
          <prop name="ipv4-address" value="10.4.4.4"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a04:0404"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"></implemented-component>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"
+         > </implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000005">
          <description>
@@ -2347,8 +2124,9 @@
          <prop name="virtual" value="no"/>
          <prop name="public" value="yes"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000011"></implemented-component>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000011"
+         > </implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000006">
          <description>
@@ -2365,7 +2143,8 @@
                <p>Asset wasn't running at time of scan.</p>
             </remarks>
          </prop>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"></implemented-component>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"
+         > </implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000007">
          <description>
@@ -2378,8 +2157,9 @@
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"></implemented-component>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000008"
+         > </implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000008">
          <description>
@@ -2396,7 +2176,8 @@
                <p>Asset wasn't running at time of scan.</p>
             </remarks>
          </prop>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"></implemented-component>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000007"
+         > </implemented-component>
       </inventory-item>
       <inventory-item uuid="11111111-2222-4000-8000-011000000009">
          <description>
@@ -2409,8 +2190,9 @@
          <prop name="virtual" value="yes"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <implemented-component component-uuid="11111111-2222-4000-8000-009000000018"></implemented-component>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <implemented-component component-uuid="11111111-2222-4000-8000-009000000018"
+         > </implemented-component>
       </inventory-item>
    </system-implementation>
    <!-- Appendix A - FedRAMP Security Controls (in the rev 5 SSP template, control implementations go in appendix A) -->
@@ -7191,7 +6973,8 @@
       <resource uuid="11111111-2222-4000-8000-001000000003">
          <title>FedRAMP Applicable Laws and Regulations</title>
          <prop name="type" class="fedramp-citations" value="citation"/>
-         <rlink href="https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx"/>
+         <rlink
+            href="https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx"/>
          <remarks>
             <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
@@ -7199,22 +6982,26 @@
 
       <!-- Appendix C - Security Policy documents -->
       <resource uuid="11111111-2222-4000-8000-001000000005">
-         <title>Access Control Policy Title</title>
+         <title>Access Control and Identity Management Policy</title>
          <description>
-            <p>AC Policy document</p>
+            <p>A single policy that addresses both the AC and IA families.</p>
          </description>
          <prop name="type" value="policy"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
-         <!-- document date -->
-         <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_policy.pdf"/>
-         <!-- Todo: Make base64 optional -->
-         <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
+         <prop name="version" value="1.2"/>
+         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_and_IA_policy.pdf"/>
+         <base64 filename="sample_AC_and_IA_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
-            <p>Table 12-1 Attachments: Policy Attachment</p>
-            <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+            <p>Each policy must be attached as back-matter resources, and must include:</p>
+            <ul>
+               <li>a title field with the attached document's published title.</li>
+               <li>a "type" property with a value of "policy".</li>
+               <li>a "published" property with the attached document's publication date.</li>
+               <li>a "version" property with the attached document's published version.</li>
+               <li>Either base64 embedded attachment or an rlink with a valid href value.</li>
+               <li>both base64 and rlink require a media-type for policies</li>
+            </ul>
+            <p>Each policy must have a corrisponding "policy" component.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000006">
@@ -7231,8 +7018,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000007">
@@ -7249,8 +7035,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000008">
@@ -7267,8 +7052,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000009">
@@ -7285,8 +7069,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000010">
@@ -7304,8 +7087,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000011">
@@ -7322,8 +7104,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000012">
@@ -7340,8 +7121,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000013">
@@ -7352,14 +7132,13 @@
          <prop name="type" value="policy" />
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
-         <prop name="version" value="Document Version"/>
+         <prop name="version" value="1.1"/>
          <rlink media-type="application/pdf" href="./attachments/policies/sample_MA_policy.pdf"/>
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000014">
@@ -7376,8 +7155,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000015">
@@ -7394,8 +7172,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000016">
@@ -7412,8 +7189,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000017">
@@ -7430,8 +7206,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000018">
@@ -7448,8 +7223,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000019">
@@ -7466,8 +7240,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000020">
@@ -7484,8 +7257,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000021">
@@ -7502,8 +7274,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000022">
@@ -7520,8 +7291,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix C - Security Prodedure documents -->
@@ -7534,13 +7304,18 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink media-type="application/pdf" href="./attachments/policies/sample_AC_procedure.pdf"/>
+         <rlink media-type="application/pdf" href="./attachments/procedures/sample_AC_procedure.pdf"/>
          <base64 filename="sample_procedure.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
-            <p>Table 12-1 Attachments: Procedure Attachment</p>
-            <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+            <p>Procedures must be attached as back-matter resources, and must include:</p>
+            <ul>
+               <li>a title field with the attached document's published title.</li>
+               <li>a "type" property with a value of "procedure".</li>
+               <li>a "published" property with the attached document's publication date.</li>
+               <li>a "version" property with the attached document's published version.</li>
+               <li>Either base64 embedded attachment or an rlink with a valid href value.</li>
+               <li>both base64 and rlink require a media-type for policies</li>
+            </ul>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000024">
@@ -7557,8 +7332,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000025">
@@ -7575,8 +7349,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000026">
@@ -7593,8 +7366,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000027">
@@ -7611,8 +7383,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000028">
@@ -7629,8 +7400,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000029">
@@ -7647,8 +7417,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000030">
@@ -7665,8 +7434,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000031">
@@ -7683,8 +7451,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000032">
@@ -7701,8 +7468,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000033">
@@ -7719,8 +7485,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000034">
@@ -7737,8 +7502,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000035">
@@ -7755,8 +7519,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000036">
@@ -7773,8 +7536,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000037">
@@ -7791,8 +7553,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000038">
@@ -7809,8 +7570,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000039">
@@ -7827,8 +7587,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <resource uuid="11111111-2222-4000-8000-001000000040">
@@ -7845,8 +7604,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix D - User Guide -->
@@ -7863,8 +7621,7 @@
          <remarks>
             <p>Table 12-1 Attachments: User's Guide Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix E - Digital Identity Worksheet -->
@@ -7884,8 +7641,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Rules of Behavior (ROB)</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix G - Information System Contingency Plan (ISCP) -->
@@ -7903,8 +7659,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Contingency Plan (CP) Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix H - Configuration Management Plan -->
@@ -7922,8 +7677,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Configuration Management (CM) Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix I - Incident Response Plan (IRP) -->
@@ -7941,8 +7695,7 @@
          <remarks>
             <p>Table 12-1 Attachments: Incident Response (IR) Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix J - CIS and CRM Workbook -->
@@ -7981,21 +7734,31 @@
          <remarks>
             <p>Table 12-1 Attachments: Continuous Monitoring Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix O - POA&M -->
       <resource uuid="11111111-2222-4000-8000-001000000048">
          <title>Plan of Actions and Milestones (POAM)</title>
          <prop name="published" value="2023-05-31T00:00:00Z"/>
-         <!-- document date -->
-         <prop name="version" value="Document Version"/>
          <prop name="type" value="plan" class="poam"/>
          <rlink href="./attachments/POAMs/SAMPLE_POAM_20230531.xml" media-type="=application/xml"/>
          <rlink href="./attachments/POAMs/SAMPLE_POAM_20230531.xlsx" media-type="application/vnd.ms-excel"/>
          <base64 filename="SAMPLE_POAM_20230531.xml" media-type="application/xml">00000000</base64>
-         <!-- Todo: Fix Schematron. Make base64 optional -->
+         <remarks>
+            <p>The POA&amp;M attachment may either be a legacy Excel workbook or OSCAL file.
+            The resource must have:</p>
+            <ul>
+               <li>a title field with the the value, "Plan of Actions and Milestones (POAM)"</li>
+               <li>a "published" property with the effective date of the attached POA&amp;M.</li>
+               <li>a "type" property with a value of "plan" and a class of "poam".</li>
+               <li>Either base64 embedded attachment or an rlink with a valid href value.</li>
+               <li>Both base64 and rlink require a media-type for policies</li>
+            </ul>
+            <p>A "version" property is optional.</p>
+            <p>The appropriate media types for OSCAL content 
+               are, "application/xml", "application/json" or "application/yaml".</p>
+         </remarks>
       </resource>
       <!-- Appendix P - Supply Chain Risk Management Plan (SCRMP) -->
       <resource uuid="11111111-2222-4000-8000-001000000049">
@@ -8012,15 +7775,14 @@
          <remarks>
             <p>Table 12-1 Attachments: Procedure Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
          </remarks>
       </resource>
       <!-- Appendix Q - Cryptographic Modules Table -->
       <!-- Note - This is specified in the document (see //*/component[@type="cryptographic-module"]) and doe not need to be maintained separately  or attached -->
       <!-- Other SSP attachements / documents -->
       <resource uuid="11111111-2222-4000-8000-001000000050">
-         <title>[SAMPLE]Interconnection Security Agreement Title</title>
+         <title>Interconnection Security Agreement</title>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -8034,7 +7796,7 @@
          <description>
             <p>FedRAMP Logo</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
+         <prop name="type" value="logo"/>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="logo-main-fedramp.png" media-type="image/png">00000000</base64>
@@ -8051,8 +7813,7 @@
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -8067,8 +7828,7 @@
          <base64 filename="logo.png" media-type="image/png">00000000</base64>
          <remarks>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -8089,8 +7849,7 @@
                system-characteristics/authorization-boundary/diagram/link/@href flag using a value
                of "#11111111-2222-4000-8000-001000000054"</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -8111,8 +7870,7 @@
                system-characteristics/network-architecture/diagram/link/@href flag using a value of
                "#11111111-2222-4000-8000-001000000055"</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -8131,8 +7889,7 @@
             <p>This should be referenced in the system-characteristics/data-flow/diagram/link/@href
                flag using a value of "#11111111-2222-4000-8000-001000000056"</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as
-               <code>base64</code>.
-            </p>
+               <code>base64</code>.</p>
             <p>FedRAMP prefers <code>base64</code> for images and diagrams.</p>
             <p>Images must be in sufficient resolution to read all detail when rendered in a browser
                via HTML5.</p>
@@ -8149,8 +7906,7 @@
          <title>41 CFR 201</title>
          <prop name="type" class="law" value="citation"/>
          <citation>
-            <text>
-               <q>Federal Acquisition Supply Chain Security Act; Rule,</q> 85 Federal Register 54263 (September 1, 2020), pp 54263-54271.</text>
+            <text><q>Federal Acquisition Supply Chain Security Act; Rule,</q> 85 Federal Register 54263 (September 1, 2020), pp 54263-54271.</text>
          </citation>
          <rlink href="https://www.federalregister.gov/d/2020-18939"/>
          <remarks>
@@ -8167,32 +7923,5 @@
                and the value is "citation".</p>
          </remarks>
       </resource>
-      <resource uuid="11111111-2222-4000-8000-001000000004">
-         <title>CSP Reference</title>
-         <prop name="type" class="reference" value="citation"/>
-         <rlink href="./attachments/reference.pdf"/>
-         <remarks>
-            <p>CSP-specific reference. Note the "type" property's class is "reference"
-               and the value is "citation".</p>
-         </remarks>
-      </resource>
-      <resource uuid="49fb4631-1da2-41ca-b0b3-e1b1006d4025">
-         <title>Separation of Duties Matrix</title>
-         <description>
-            <p>Separation of Duties Matrix</p>
-         </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
-         <prop name="published" value="2023-01-01T00:00:00Z"/>
-         <prop name="version" value="Document Version"/>
-         <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
-         <base64 filename="Sep_Matrix.docx" media-type="application/msword">00000000</base64>
-         <remarks>
-            <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.
-            </p>
-         </remarks>
-      </resource>
-
-
-
    </back-matter>
 </system-security-plan>
