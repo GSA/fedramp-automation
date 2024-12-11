@@ -299,8 +299,6 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
-  | has-privacy-impact-assessment-FAIL.yaml |
-  | has-privacy-impact-assessment-PASS.yaml |
   | has-published-date-FAIL.yaml |
   | has-published-date-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
