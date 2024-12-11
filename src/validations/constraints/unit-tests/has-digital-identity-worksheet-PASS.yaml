@@ -1,9 +1,0 @@
-test-case:
-  name: Positive Test for has-digital-identity-worksheet
-  description: >-
-    This test case validates the behavior of constraint
-    has-digital-identity-worksheet
-  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
-  expectations:
-    - constraint-id: has-digital-identity-worksheet
-      result: pass

@@ -75,7 +75,6 @@ Examples:
   | has-data-flow-diagram-link-rel |
   | has-data-flow-diagram-link-rel-allowed-value |
   | has-data-flow-diagram-uuid |
-  | has-digital-identity-worksheet |
   | has-e-authentication-workflow |
   | has-federation-assurance-level |
   | has-fedramp-citations |
@@ -269,8 +268,6 @@ Examples:
   | has-data-flow-diagram-link-rel-allowed-value-PASS.yaml |
   | has-data-flow-diagram-uuid-FAIL.yaml |
   | has-data-flow-diagram-uuid-PASS.yaml |
-  | has-digital-identity-worksheet-FAIL.yaml |
-  | has-digital-identity-worksheet-PASS.yaml |
   | has-e-authentication-workflow-FAIL.yaml |
   | has-e-authentication-workflow-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |

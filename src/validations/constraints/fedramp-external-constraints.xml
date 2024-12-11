@@ -684,11 +684,6 @@
             <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
             <message>A FedRAMP SSP MUST have an E-Authentication Workflow diagram attached.</message>
         </expect>
-        <expect id="has-digital-identity-worksheet" target="." test="resource[prop[@name eq 'type' and @class eq 'digital-identity-worksheet']]" level="ERROR">
-            <formal-name>Has Digital Identity Worksheet</formal-name>
-            <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-            <message>A FedRAMP SSP MUST have a Digital Identity Worksheet attached.</message>
-        </expect>
         <expect id="has-fedramp-citations" target="." test="count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]) = 1" level="ERROR">
             <formal-name>Has FedRAMP Citations Reference</formal-name>
             <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
