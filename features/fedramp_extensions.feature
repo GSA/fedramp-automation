@@ -91,7 +91,6 @@ Examples:
   | has-network-architecture-diagram-link-href-target |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
-  | has-privacy-impact-assessment |
   | has-published-date |
   | has-rules-of-behavior |
   | has-security-impact-level |
