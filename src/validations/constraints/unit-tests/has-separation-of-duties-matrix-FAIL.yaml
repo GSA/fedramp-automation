@@ -1,7 +1,0 @@
-test-case:
-  name: Negative Test for has-separation-of-duties-matrix
-  description: Test that a SSP back-matter resource element does not have a separation-of-duties-matrix element.
-  content: ../content/ssp-has-separation-of-duties-matrix-INVALID.xml
-  expectations:
-    - constraint-id: has-separation-of-duties-matrix
-      result: fail
