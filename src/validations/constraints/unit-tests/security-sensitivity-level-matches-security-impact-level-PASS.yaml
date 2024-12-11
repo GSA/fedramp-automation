@@ -2,7 +2,7 @@
 test-case:
   name: The valid security-sensitivity-level-matches-security-impact-level constraint unit test.
   description: Test that the SSP "security-sensitivity-level" element value matches "security-impact-level" values.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
   - constraint-id: security-sensitivity-level-matches-security-impact-level
     result: pass

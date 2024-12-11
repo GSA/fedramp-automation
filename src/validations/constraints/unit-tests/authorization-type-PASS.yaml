@@ -2,7 +2,7 @@
 test-case:
   name: Test Valid Authorization Type Use
   description: Test that the specified authorization type is valid.
-  content: ../content/ssp-all-VALID.xml # the content to run
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml # the content to run
   expectations: # check the constraint result
   - constraint-id: authorization-type
     result: pass

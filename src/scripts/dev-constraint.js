@@ -171,7 +171,7 @@ async function scaffoldTest(constraintId,context) {
 
     let invalidContent;
     if (useTemplate === 'new') {
-        const templatePath = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content', `${model}-all-VALID.xml`);
+        const templatePath = model === 'ssp' ? path.join(__dirname, '..', '..', 'src', 'content', 'rev5', 'examples', 'ssp/xml', 'fedramp-ssp-example.oscal.xml') : path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content', `${model}-all-VALID.xml`);
         const newInvalidPath = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content', `${model}-${constraintId}-INVALID.xml`);
         
         try {
@@ -283,7 +283,7 @@ async function scaffoldTest(constraintId,context) {
         'test-case': {
             name: `Positive Test for ${constraintId}`,
             description: `This test case validates the behavior of constraint ${constraintId}`,
-            content: `../content/${model}-all-VALID.xml`,  
+            content: model === 'ssp' ? '../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml' : `../content/${model}-all-VALID.xml`,
             expectations: [
                 {
                     'constraint-id': constraintId,

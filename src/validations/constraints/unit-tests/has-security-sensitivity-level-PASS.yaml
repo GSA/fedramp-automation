@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-security-sensitivity-level
   description: Test that an SSP system-characteristics element has a security-sensitivity-level element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: has-security-sensitivity-level
       result: pass

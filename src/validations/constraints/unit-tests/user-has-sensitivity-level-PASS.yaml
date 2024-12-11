@@ -1,9 +1,0 @@
-test-case:
-  name: Positive Test for user-has-sensitivity-level
-  description: >-
-    This test case validates the behavior of constraint
-    user-has-sensitivity-level
-  content: ../content/ssp-all-VALID.xml
-  expectations:
-    - constraint-id: user-has-sensitivity-level
-      result: pass

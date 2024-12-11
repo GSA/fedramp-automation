@@ -85,9 +85,6 @@
     <responsible-party role-id="system-owner">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
-    <responsible-party role-id="authorizing-official">
-      <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
-    </responsible-party>
     <responsible-party role-id="authorizing-official-poc">
       <party-uuid>22222222-0000-4000-9000-000000000002</party-uuid>
     </responsible-party>
@@ -181,7 +178,7 @@
         <description>
           <p>A diagram-specific explanation.</p>
         </description>
-        <link href="./diagram.png" rel="diagram"/>
+            <link href="https://github.com/GSA/fedramp-automation/blob/9a8e155668d4f7a26ffc372b73d568b074854aac/src/content/awesome-cloud/artifacts/AwesomeCloudHLA1.png" rel="diagram"/>
         <caption>Network Diagram</caption>
       </diagram>
     </network-architecture>
@@ -234,7 +231,7 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
       <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">

@@ -1,0 +1,11 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+  <system-implementation>
+    <!-- <component uuid="11111111-2222-4000-8000-009000000000" type="service">
+    </component> Missing the referenced component in the used-by link.-->
+    <component uuid="11111111-2222-4000-8000-009000200001" type="service">
+      <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
+      <protocol name="ftp" uuid="11111111-2222-4000-8000-010000000001">
+      </protocol>
+    </component>
+  </system-implementation>
+</system-security-plan>

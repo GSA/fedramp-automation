@@ -3,7 +3,7 @@ test-case:
   description: >-
     This test case validates the behavior of constraint
     has-fully-operational-date
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: has-fully-operational-date
       result: pass

@@ -6,12 +6,11 @@ Scenario Outline: Validating OSCAL constraints with metaschema constraints
 
 @integration
 Scenario Outline: Documents that should be valid are pass
+  Given I have loaded all Metaschema extensions documents
   Then I should have valid results "<valid_file>"
 Examples:
 | valid_file     |
-| ssp-all-VALID.xml |
-# | ../../../content/awesome-cloud/xml/AwesomeCloudSSP1.xml |
-# | ../../../content/awesome-cloud/xml/AwesomeCloudSSP2.xml |
+| ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml |
 
 @full-coverage
 Scenario: Preparing constraint coverage analysis
@@ -36,6 +35,9 @@ Examples:
   | cia-impact-has-selected |
   | cloud-service-model |
   | component-has-authentication-method |
+  | component-has-non-provider-responsible-role |
+  | component-has-provider-responsible-role |
+  | component-has-used-by-link |
   | component-type |
   | control-implementation-status |
   | data-center-alternate |
@@ -46,6 +48,7 @@ Examples:
   | deployment-model |
   | external-system-nature-of-agreement |
   | fedramp-citations-has-correct-link |
+  | extraneous-implemented-requirements |
   | fedramp-version |
   | fully-operational-date-is-valid |
   | fully-operational-date-type |
@@ -100,11 +103,13 @@ Examples:
   | has-user-guide |
   | import-profile-has-available-document |
   | import-profile-resolves-to-fedramp-content |
+  | incomplete-implemented-requirements |
   | information-type-800-60-v2r1 |
   | information-type-has-availability-impact |
   | information-type-has-confidentiality-impact |
   | information-type-has-integrity-impact |
   | information-type-system |
+  | inter-boundary-component-has-direction |
   | interconnection-direction |
   | interconnection-security |
   | inventory-item-allows-authenticated-scan |
@@ -113,9 +118,13 @@ Examples:
   | leveraged-authorization-has-authorization-type |
   | leveraged-authorization-has-impact-level |
   | leveraged-authorization-has-system-identifier |
+  | leveraged-authorization-has-valid-impact-level |
   | leveraged-authorization-nature-of-agreement |
   | marking |
   | missing-response-components |
+  | network-component-has-connection-security-prop |
+  | network-component-has-implementation-point |
+  | non-provider-responsible-role-references-user |
   | party-has-name |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
@@ -136,11 +145,10 @@ Examples:
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
   | unique-inventory-item-asset-id |
+  | used-by-link-references-component |
   | user-authentication |
   | user-has-authorized-privilege |
-  | user-has-privilege-level |
   | user-has-role-id |
-  | user-has-sensitivity-level |
   | user-has-user-type |
   | user-privilege-level |
   | user-sensitivity-level |
@@ -182,6 +190,12 @@ Examples:
   | cloud-service-model-PASS.yaml |
   | component-has-authentication-method-FAIL.yaml |
   | component-has-authentication-method-PASS.yaml |
+  | component-has-non-provider-responsible-role-FAIL.yaml |
+  | component-has-non-provider-responsible-role-PASS.yaml |
+  | component-has-used-by-link-FAIL.yaml |
+  | component-has-used-by-link-PASS.yaml |
+  | component-responsible-role-references-party-FAIL.yaml |
+  | component-responsible-role-references-party-PASS.yaml |
   | component-type-FAIL.yaml |
   | component-type-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
@@ -202,6 +216,8 @@ Examples:
   | external-system-nature-of-agreement-PASS.yaml |
   | fedramp-citations-has-correct-link-FAIL.yaml |
   | fedramp-citations-has-correct-link-PASS.yaml |
+  | extraneous-implemented-requirements-FAIL.yaml |
+  | extraneous-implemented-requirements-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
   | fully-operational-date-is-valid-FAIL.yaml |
@@ -310,6 +326,8 @@ Examples:
   | import-profile-has-available-document-PASS.yaml |
   | import-profile-resolves-to-fedramp-content-FAIL.yaml |
   | import-profile-resolves-to-fedramp-content-PASS.yaml |
+  | incomplete-implemented-requirements-FAIL.yaml |
+  | incomplete-implemented-requirements-PASS.yaml |
   | information-type-has-availability-impact-FAIL.yaml |
   | information-type-has-availability-impact-PASS.yaml |
   | information-type-has-confidentiality-impact-FAIL.yaml |
@@ -320,6 +338,8 @@ Examples:
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
+  | inter-boundary-component-has-direction-FAIL.yaml |
+  | inter-boundary-component-has-direction-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
@@ -336,12 +356,20 @@ Examples:
   | leveraged-authorization-has-impact-level-PASS.yaml |
   | leveraged-authorization-has-system-identifier-FAIL.yaml |
   | leveraged-authorization-has-system-identifier-PASS.yaml |
+  | leveraged-authorization-has-valid-impact-level-FAIL.yaml |
+  | leveraged-authorization-has-valid-impact-level-PASS.yaml |
   | leveraged-authorization-nature-of-agreement-FAIL.yaml |
   | leveraged-authorization-nature-of-agreement-PASS.yaml |
   | marking-FAIL.yaml |
   | marking-PASS.yaml |
   | missing-response-components-FAIL.yaml |
   | missing-response-components-PASS.yaml |
+  | network-component-has-connection-security-prop-FAIL.yaml |
+  | network-component-has-connection-security-prop-PASS.yaml |
+  | network-component-has-implementation-point-FAIL.yaml |
+  | network-component-has-implementation-point-PASS.yaml |
+  | non-provider-responsible-role-references-user-FAIL.yaml |
+  | non-provider-responsible-role-references-user-PASS.yaml |
   | party-has-name-FAIL.yaml |
   | party-has-name-PASS.yaml |
   | privilege-level-FAIL.yaml |
@@ -382,16 +410,14 @@ Examples:
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
   | unique-inventory-item-asset-id-FAIL.yaml |
   | unique-inventory-item-asset-id-PASS.yaml |
+  | used-by-link-references-component-FAIL.yaml |
+  | used-by-link-references-component-PASS.yaml |
   | user-authentication-FAIL.yaml |
   | user-authentication-PASS.yaml |
   | user-has-authorized-privilege-FAIL.yaml |
   | user-has-authorized-privilege-PASS.yaml |
-  | user-has-privilege-level-FAIL.yaml |
-  | user-has-privilege-level-PASS.yaml |
   | user-has-role-id-FAIL.yaml |
   | user-has-role-id-PASS.yaml |
-  | user-has-sensitivity-level-FAIL.yaml |
-  | user-has-sensitivity-level-PASS.yaml |
   | user-has-user-type-FAIL.yaml |
   | user-has-user-type-PASS.yaml |
   | user-privilege-level-FAIL.yaml |

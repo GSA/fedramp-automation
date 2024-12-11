@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for non-provider-responsible-role-references-user
+  description: >-
+    This test case validates the behavior of constraint
+    non-provider-responsible-role-references-user
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+    - constraint-id: non-provider-responsible-role-references-user
+      result: pass

@@ -2,7 +2,7 @@
 test-case:
   name: The valid interconnection direction test.
   description: Test that the specified interconnection direction is valid.
-  content: ../content/ssp-all-VALID.xml
+  content: ../content/ssp-interconnection-direction-VALID.xml
   expectations:
   - constraint-id: interconnection-direction
     result: pass

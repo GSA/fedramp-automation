@@ -2,7 +2,7 @@
 test-case:
   name: The valid role-defined-information-system-security-officer constraint unit test.
   description: Test that SSP metadata contains the information-system-security-officer role.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
   - constraint-id: role-defined-information-system-security-officer
     result: pass

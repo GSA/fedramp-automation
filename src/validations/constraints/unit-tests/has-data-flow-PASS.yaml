@@ -1,7 +1,7 @@
 test-case:
   name: Positive Test for has-data-flow
   description: Test that a SSP system-characteristics element has a data-flow element.
-  content: ../content/ssp-all-VALID.xml
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: has-data-flow
       result: pass

@@ -146,7 +146,7 @@
                 <enum value="fedramp-3.0.0rc1-oscal-1.1.2">FedRAMP Version</enum>
             </allowed-values>
 
-            <allowed-values id="information-type-800-60-v2r1" target="system-characteristics/system-information/information-type/categorization[@system='https://doi.org/10.6028/NIST.SP.800-60v2r1']/information-type-id" allow-other="no" level="ERROR">
+            <allowed-values id="information-type-800-60-v2r1" target="(system-characteristics/system-information/information-type/categorization[@system='https://doi.org/10.6028/NIST.SP.800-60v2r1']/information-type-id | //component[(@type='system' and prop[@name='leveraged-authorization-uuid']) or (@type=('service', 'software') and not(prop[@name='leveraged-authorization-uuid']) and  prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type=('service', 'software') and prop[@name='implementation-point' and @value='internal'] and prop[@name='communicates-externally' and @value='yes' and @ns='https://fedramp.gov/ns/oscal'])]/prop[@ns='https://fedramp.gov/ns/oscal' and @name='information-type']/@value)" allow-other="no" level="ERROR">
                 <formal-name>NIST SP 800-60 Volume 2 Revision 1 Information Types</formal-name>
                 <description>Contains a list of all supported information types from NIST SP 800-60 Volume 2 Revision 1.</description>
                 <enum value="C.2.1.1">Controls and Oversight: Corrective Action Information Type as defined by <a href="https://doi.org/10.6028/NIST.SP.800-60v2r1">NIST.SP.800-60v2r1</a></enum>
@@ -398,7 +398,7 @@
                 <enum value="other">Other</enum>
             </allowed-values>
 
-            <allowed-values id="user-authentication" target="//component[(@type='system' and ./prop[@name='leveraged-authorization-uuid']) or (@type='service' and not(./prop[@name='leveraged-authorization-uuid']) and ./prop[@name='implementation-point' and @value='external']) or (@type='interconnection') or (@type='service' and ./prop[@name='implementation-point' and @value='internal'] and ./prop[@name='direction']) or (@type='software' and ./prop[@name='asset-type' and @value='cli'] and ./prop[@name='direction'])]/prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']/@value" allow-other="no" level="ERROR">
+            <allowed-values id="user-authentication" target="system-implementation/component/prop[@name='authentication-method' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="no" level="ERROR">
                 <formal-name>User Authentication</formal-name>
                 <description>Identifies if user authentication is required.</description>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>

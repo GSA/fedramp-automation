@@ -1,0 +1,12 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="12345678-1234-4321-8765-123456789012">
+  <system-implementation>
+    <component uuid="66666666-0000-4000-9000-000000000006" type="interconnection">
+      <responsible-role role-id="provider">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role>
+      <!-- <responsible-role role-id="system-admin">
+        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+      </responsible-role> Missing at least 1 responsible role that isn't "provider". -->
+    </component>
+  </system-implementation>
+</system-security-plan>

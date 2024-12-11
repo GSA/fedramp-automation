@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for used-by-link-references-component
+  description: >-
+    This test case validates the behavior of constraint
+    used-by-link-references-component
+  content: ../content/ssp-used-by-link-references-component-INVALID.xml
+  expectations:
+    - constraint-id: used-by-link-references-component
+      result: fail

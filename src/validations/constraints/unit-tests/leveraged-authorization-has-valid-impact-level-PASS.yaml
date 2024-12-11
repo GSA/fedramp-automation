@@ -1,0 +1,12 @@
+test-case:
+  name: Positive Test for leveraged-authorization-has-valid-impact-level
+  description: >-
+    This test case validates the behavior of constraint leveraged-authorization-has-valid-impact-level.
+    Scenario 1: Security-sensitivity-level = 'fips-199-moderate' and leveraged-authorization impact-level = 'fips-199-moderate'.
+    Scenario 2: Security-sensitivity-level = 'fips-199-moderate' and leveraged-authorization impact-level = 'fips-199-high'.
+  content: 
+    - ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+    - ../content/ssp-leveraged-authorization-has-valid-impact-level-VALID.xml
+  expectations:
+    - constraint-id: leveraged-authorization-has-valid-impact-level
+      result: pass
