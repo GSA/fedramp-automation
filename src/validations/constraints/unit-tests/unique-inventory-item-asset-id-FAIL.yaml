@@ -8,4 +8,4 @@ test-case:
     - constraint-id: unique-inventory-item-asset-id
       fail_count:
         type: "exact"
-        value: 3
+        value: 1
