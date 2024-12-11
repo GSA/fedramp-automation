@@ -652,11 +652,6 @@
     <context>
     <metapath target="/system-security-plan/back-matter"/>
     <constraints>
-        <expect id="has-privacy-impact-assessment" target="." test="resource[prop[@name eq 'type' and @class eq 'privacy-impact-assessment']]" level="ERROR">
-            <formal-name>Has Privacy Impact Assessment</formal-name>
-            <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-            <message>A FedRAMP SSP MUST have a Privacy Impact Assessment attached.</message>
-        </expect>
         <expect id="has-e-authentication-workflow" target="." test="resource[prop[@name eq 'type' and @class eq 'e-authentication-workflow']]" level="ERROR">
             <formal-name>Has E-Authentication Workflow</formal-name>
             <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
