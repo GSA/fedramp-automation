@@ -12,7 +12,7 @@
         <published>2023-06-30T00:00:00Z</published>
         <version>1.0</version>
         <oscal-version>1.0.4</oscal-version>
-        <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
         <remarks>
           <p>Initial publication.</p>
         </remarks>
@@ -21,14 +21,14 @@
         <published>2023-07-06T00:00:00Z</published>
         <version>1.1</version>
         <oscal-version>1.0.4</oscal-version>
-        <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid" value="11111111-2222-4000-8000-004000000001"/>
         <remarks>
           <p>Minor <code>prop</code> updates.</p>
         </remarks>
       </revision>
     </revisions>
     <prop name="marking" value="cui" class="fedramp.gov"/>
-    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
+    <prop name="fedramp-version" ns="http://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     <!-- The following role definitions are required by FedRAMP -->
     <!-- Do not change the ID's or titles. -->
     <role id="fedramp-pmo">
@@ -1042,13 +1042,13 @@ these datails are derived from other content in this SSP.</p>
       </description>
       <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
       <prop name="implementation-point" value="external"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
       <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
       <status state="operational"/>
       <responsible-role role-id="administrator">
-        <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="https://fedramp.gov/ns/oscal"/>
-        <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="https://fedramp.gov/ns/oscal"/>
+        <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000004" ns="http://fedramp.gov/ns/oscal"/>
+        <prop name="privilege-uuid" value="11111111-2222-4000-8000-008000000005" ns="http://fedramp.gov/ns/oscal"/>
       </responsible-role>
       <remarks>
         <p>This is a service offered by a leveraged system and used by this system.
@@ -1102,21 +1102,21 @@ leveraged-authorization assembly:</p>
         <p>Describe the service and what it is used for.</p>
       </description>
       <prop name="implementation-point" value="external"/>
-      <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="provider" value="self"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop name="connection-security" value="tls-1.3" ns="http://fedramp.gov/ns/oscal"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="provider" value="self"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>If 'yes', describe the authentication method.</p>
           <p>If 'no', explain why no authentication is used.</p>
           <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
         </remarks>
       </prop>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
-      <prop name="poam-item-uuid" ns="https://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001"/>
-      <prop name="poam-id" ns="https://fedramp.gov/ns/oscal" value="ID-0001"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
+      <prop name="poam-item-uuid" ns="http://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001"/>
+      <prop name="poam-id" ns="http://fedramp.gov/ns/oscal" value="ID-0001"/>
       <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
       <status state="operational"/>
       <responsible-role role-id="admin">
@@ -1197,11 +1197,11 @@ leveraged-authorization assembly:</p>
         <p>An external system to which this system shares an interconnection.</p>
       </description>
       <prop name="implementation-point" value="external"/>
-      <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="connection-security" value="tls-1.3" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="incoming" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="outgoing" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="connection-security" value="tls-1.3" ns="http://fedramp.gov/ns/oscal"/>
       <prop name="asset-type" value="saas"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>If 'yes', describe the authentication method.</p>
           <p>If 'no', explain why no authentication is used.</p>
@@ -1281,32 +1281,32 @@ and "system-poc-technical"</p>
 for connectivity (e.g., system monitoring, system alerting, download updates, etc.)</p>
       </description>
       <prop name="implementation-point" value="external"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop ns="http://fedramp.gov/ns/oscal" name="direction" value="incoming"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="direction" value="outgoing"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="contract"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>If 'yes', describe the authentication method in the remarks.</p>
           <p>If 'no', explain why no authentication is used in the remarks.</p>
           <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
         </remarks>
       </prop>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="hosting-environment" value="see-remarks">
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="hosting-environment" value="see-remarks">
         <remarks>
           <p>Describe the hosting of the interconnection itself (NOT the hosting of the remote system).</p>
         </remarks>
       </prop>
 
 
-      <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.1"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.2"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.2"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.2"/>
 
       <prop ns="https://fedramp.gov/ns/oscal" name="connection-security" value="ipsec"/>
 
@@ -1381,8 +1381,8 @@ the system POC roles reference parties that represent the connection provider.</
       <description>
         <p/>
       </description>
-      <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="saas"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="isa"/>
       <prop name="implementation-point" value="external"/>
       <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001"/>
 
@@ -1428,16 +1428,16 @@ here.</p>
       <prop name="implementation-point" value="external"/>
       <!--<prop name="direction" value="outgoing"/>-->
       <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
+      <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="sla"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="yes">
         <remarks>
           <p>If 'yes', describe the authentication method in the remarks.</p>
           <p>If 'no', explain why no authentication is used in the remarks.</p>
           <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
         </remarks>
       </prop>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
       <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
         <remarks>
           <p>This can only be known if provided by the leveraged system.

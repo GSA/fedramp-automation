@@ -4,7 +4,7 @@
   </system-characteristics>
   <system-implementation>
     <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
-      <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-low"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-low"/>
     </leveraged-authorization>
   </system-implementation>
 </system-security-plan>

@@ -256,7 +256,7 @@
         <p>Profile to be imported</p>
       </description>
       <prop name="type" value="policy" ns="http://fedramp.gov/ns/oscal"/>
-      <rlink href="../../../../src/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml"/>
+      <rlink href="../../../content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml"/>
     </resource>
     <resource uuid="90a128ac-c850-48f6-8fff-a55692f80b41">
       <title>User's Guide</title>

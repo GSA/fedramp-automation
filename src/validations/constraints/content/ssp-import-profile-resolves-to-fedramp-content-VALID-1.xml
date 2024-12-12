@@ -68,8 +68,7 @@
     </remarks>
   </metadata>
   
-  <import-profile href="../../../../src/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml"/>
-  
+  <import-profile href="../../../content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml" />  
   <system-characteristics>
     <system-id identifier-type="http://fedramp.gov/ns/oscal">F00000001</system-id>
     <system-name>Enhanced Example System</system-name>
