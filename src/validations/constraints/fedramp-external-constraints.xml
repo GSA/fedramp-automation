@@ -545,6 +545,11 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
                 <message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
             </expect>
+            <expect id="inter-boundary-component-direction-incoming-has-ipv-uri" target="$inter-boundary-component" test="if (prop[@name='direction' and @value='incoming']) then exists(prop[@class='local' and @name=('ipv4-address','ipv6-address')]) or exists(link[@rel='uri']) else true()" level="ERROR">
+               <formal-name>Inter-Boundary Incoming Communication Direction Has an IPV Address or a URI</formal-name>
+               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
+               <message>Component {@uuid} ({path(.)}) MUST have at least one local ipv4 address, ipv6 address, or a URI to an API.</message>
+            </expect>
             <expect id="inter-boundary-component-has-direction" target="$inter-boundary-component" test="count(prop[@name='direction']) >= 1 and count(prop[@name='direction' and @value='incoming']) &lt;= 1 and count(prop[@name='direction' and @value='outgoing']) &lt;= 1" level="ERROR">
                 <formal-name>Inter-Boundary Component Has Direction</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>

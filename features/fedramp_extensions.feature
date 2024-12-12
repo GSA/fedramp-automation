@@ -92,7 +92,6 @@ Examples:
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
-  | has-separation-of-duties-matrix |
   | has-system-id |
   | has-system-name-short |
   | has-user-guide |
@@ -104,6 +103,7 @@ Examples:
   | information-type-has-confidentiality-impact |
   | information-type-has-integrity-impact |
   | information-type-system |
+  | inter-boundary-component-direction-incoming-has-ipv-uri |
   | inter-boundary-component-has-direction |
   | interconnection-direction |
   | interconnection-security |
@@ -299,8 +299,6 @@ Examples:
   | has-security-impact-level-PASS.yaml |
   | has-security-sensitivity-level-FAIL.yaml |
   | has-security-sensitivity-level-PASS.yaml |
-  | has-separation-of-duties-matrix-FAIL.yaml |
-  | has-separation-of-duties-matrix-PASS.yaml |
   | has-system-id-FAIL.yaml |
   | has-system-id-PASS.yaml |
   | has-system-name-short-FAIL.yaml |
@@ -323,6 +321,8 @@ Examples:
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
+  | inter-boundary-component-direction-incoming-has-ipv-uri-FAIL.yaml |
+  | inter-boundary-component-direction-incoming-has-ipv-uri-PASS.yaml |
   | inter-boundary-component-has-direction-FAIL.yaml |
   | inter-boundary-component-has-direction-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
