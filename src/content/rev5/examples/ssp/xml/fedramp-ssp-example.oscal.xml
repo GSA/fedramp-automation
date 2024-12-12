@@ -3455,12 +3455,8 @@
                         <p>The organization:</p>
                         <p>a. Implements procedures for the use of maintenance personnel that lack appropriate security clearances or are not U.S. citizens, that include the following requirements:</p>
                         <ol>
-                            <li>
-                                <p>Maintenance personnel who do not have needed access authorizations, clearances, or formal access approvals are escorted and supervised during the performance of maintenance and diagnostic activities on the system by approved organizational personnel who are fully cleared, have appropriate access authorizations, and are technically qualified;</p>
-                            </li>
-                            <li>
-                                <p>Prior to initiating maintenance or diagnostic activities by personnel who do not have needed access authorizations, clearances or formal access approvals, all volatile information storage components within the system are sanitized and all nonvolatile storage media are removed or physically disconnected from the system and secured; and</p>
-                            </li>
+                            <li>Maintenance personnel who do not have needed access authorizations, clearances, or formal access approvals are escorted and supervised during the performance of maintenance and diagnostic activities on the system by approved organizational personnel who are fully cleared, have appropriate access authorizations, and are technically qualified;</li>
+                            <li>Prior to initiating maintenance or diagnostic activities by personnel who do not have needed access authorizations, clearances or formal access approvals, all volatile information storage components within the system are sanitized and all nonvolatile storage media are removed or physically disconnected from the system and secured; and</li>
                         </ol>
                         <p>b. Develops and implements alternate security safeguards in the event a system component cannot be sanitized, removed, or disconnected from the system.</p>
                     </description>
