@@ -619,8 +619,9 @@
     <context>
         <metapath target="/system-security-plan/system-characteristics/authorization-boundary/diagram/link"/>
         <constraints>
-            <let var="authorization-boundary-href" expression="@href"/>
-            <expect id="has-authorization-boundary-diagram-link-href-target" target="." test="doc-available(resolve-uri(.[not(starts-with(@href, '#'))]/@href)) or count(../../../../back-matter/resource[@uuid=substring-after($authorization-boundary-href, '#') and prop[@name='type' and @value='image' and @class='authorization-boundary']]) = 1" level="ERROR">
+            <let var="authorization-boundary-href" expression=".[@rel='diagram']/@href"/>
+            <let var="authorization-boundary-diagram-uuid" expression="../@uuid"/>
+            <expect id="has-authorization-boundary-diagram-link-href-target" target=".[@rel='diagram' and ../../../authorization-boundary/diagram/@uuid = $authorization-boundary-diagram-uuid]" test="doc-available(resolve-uri(.[not(starts-with(@href, '#'))]/@href)) or count(../../../../back-matter/resource[@uuid=substring-after($authorization-boundary-href, '#') and prop[@name='type' and @value='image' and @class='authorization-boundary']]) = 1" level="ERROR">
                 <formal-name>Has Authorization Boundary Diagram Link Href Target</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#authorization-boundary"/>
                 <message>A FedRAMP SSP MUST include an authorization boundary diagram.</message>
@@ -631,8 +632,9 @@
     <context>
         <metapath target="/system-security-plan/system-characteristics/data-flow/diagram/link"/>
         <constraints>
-            <let var="data-flow-href" expression="@href"/>
-            <expect id="has-data-flow-diagram-link-href-target" target="." test="doc-available(resolve-uri(.[not(starts-with(@href, '#'))]/@href)) or count(../../../../back-matter/resource[@uuid=substring-after($data-flow-href, '#') and prop[@name='type' and @value='image' and @class='data-flow']]) = 1" level="ERROR">
+            <let var="data-flow-href" expression=".[@rel='diagram']/@href"/>
+            <let var="data-flow-diagram-uuid" expression="../@uuid"/>
+            <expect id="has-data-flow-diagram-link-href-target" target=".[@rel='diagram' and ../../../data-flow/diagram/@uuid = $data-flow-diagram-uuid]" test="doc-available(resolve-uri(.[not(starts-with(@href, '#'))]/@href)) or count(../../../../back-matter/resource[@uuid=substring-after($data-flow-href, '#') and prop[@name='type' and @value='image' and @class='data-flow']]) = 1" level="ERROR">
                 <formal-name>Has Data Flow Diagram Link Href Target</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#data-flow"/>
                 <message>A FedRAMP SSP MUST include a data flow diagram.</message>
@@ -643,8 +645,9 @@
     <context>
         <metapath target="/system-security-plan/system-characteristics/network-architecture/diagram/link"/>
         <constraints>
-            <let var="network-architecture-href" expression="@href"/>
-            <expect id="has-network-architecture-diagram-link-href-target" target="." test="doc-available(resolve-uri(.[not(starts-with(@href, '#'))]/@href)) or count(../../../../back-matter/resource[@uuid=substring-after($network-architecture-href, '#') and prop[@name='type' and @value='image' and @class='network-architecture']]) = 1" level="ERROR">
+            <let var="network-architecture-href" expression=".[@rel='diagram']/@href"/>
+            <let var="network-architecture-diagram-uuid" expression="../@uuid"/>
+            <expect id="has-network-architecture-diagram-link-href-target" target=".[@rel='diagram' and ../../../network-architecture/diagram/@uuid = $network-architecture-diagram-uuid]" test="doc-available(resolve-uri(.[not(starts-with(@href, '#'))]/@href)) or count(../../../../back-matter/resource[@uuid=substring-after($network-architecture-href, '#') and prop[@name='type' and @value='image' and @class='network-architecture']]) = 1" level="ERROR">
                 <formal-name>Has Network Architecture Diagram Link Href Target</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#network-architecture"/>
                 <message>A FedRAMP SSP MUST include a network architecture diagram.</message>
