@@ -64,7 +64,7 @@
             <let var="profile-is-available" expression="doc-available($resolved-import-profile-href)"/>
             <let var="resolved-profile" expression="if ($profile-is-available) then resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//catalog else //catalog"/>
             <let var="imported-controls-map" expression="map:merge($resolved-profile//control ! map:entry(@id,.))?*"/>
-            <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>          
+            <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>
             <expect id="component-has-authentication-method" target="//component[(@type='system' and prop[@name='leveraged-authorization-uuid']) or (@type='interconnection') or (@type=('service', 'software') and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type=('service', 'software') and prop[@name='implementation-point' and @value='internal'] and prop[@name='communicates-externally' and @value='yes' and @ns='https://fedramp.gov/ns/oscal'])]" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']) >= 1" level="ERROR">
                 <formal-name>Component Has Authentication Method</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
@@ -632,25 +632,25 @@
                 <message>Every FedRAMP document MUST define a party with a name.</message>
             </expect>
         </constraints>
-    </context>    
+    </context>
     <context>
-    <metapath target="/system-security-plan/back-matter"/>
-    <constraints>
-        <expect id="has-e-authentication-workflow" target="." test="exists(resource[prop[@name eq 'type' and @class eq 'e-authentication-workflow']])" level="ERROR">
-            <formal-name>Has E-Authentication Workflow</formal-name>
-            <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-            <message>A FedRAMP SSP MUST have an E-Authentication Workflow diagram attached.</message>
-        </expect>
-        <expect id="has-fedramp-citations" target="." test="count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]) = 1" level="ERROR">
-            <formal-name>Has FedRAMP Citations Reference</formal-name>
-            <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-            <message>A FedRAMP SSP MUST have exactly one resource with a link to the FedRAMP Laws, Regulations, Standards and Guidance, but found {count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']])}.</message>
-        </expect>
-        <expect id="fedramp-citations-has-correct-link" target="resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]" test="count(rlink[@href = 'https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx']) eq 1" level="ERROR">
-            <formal-name>FedRAMP Citations Has Correct Link</formal-name>
-            <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
-            <message>The FedRAMP Laws, Regulations, Standards and Guidance MUST be https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx</message>
-        </expect>
-    </constraints>
-</context>
+        <metapath target="/system-security-plan/back-matter"/>
+        <constraints>
+            <expect id="fedramp-citations-has-correct-link" target="resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]" test="count(rlink[@href = 'https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx']) eq 1" level="ERROR">
+                <formal-name>FedRAMP Citations Has Correct Link</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>The FedRAMP Laws, Regulations, Standards and Guidance MUST be https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx</message>
+            </expect>
+            <expect id="has-e-authentication-workflow" target="." test="resource[prop[@name eq 'type' and @class eq 'e-authentication-workflow']]" level="ERROR">
+                <formal-name>Has E-Authentication Workflow</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>A FedRAMP SSP MUST have an E-Authentication Workflow diagram attached.</message>
+            </expect>
+            <expect id="has-fedramp-citations" target="." test="count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]) = 1" level="ERROR">
+                <formal-name>Has FedRAMP Citations Reference</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
+                <message>A FedRAMP MUST be have exactly one resource with a link to the FedRAMP Laws, Regulations, Standards and Guidance, but {count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']])} found.</message>
+            </expect>
+        </constraints>
+    </context>
 </metaschema-meta-constraints>
