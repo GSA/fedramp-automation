@@ -95,6 +95,7 @@ Examples:
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
+  | has-separation-of-duties-matrix |
   | has-system-id |
   | has-system-name-short |
   | has-user-guide |
@@ -307,6 +308,8 @@ Examples:
   | has-security-impact-level-PASS.yaml |
   | has-security-sensitivity-level-FAIL.yaml |
   | has-security-sensitivity-level-PASS.yaml |
+  | has-separation-of-duties-matrix-FAIL.yaml |
+  | has-separation-of-duties-matrix-PASS.yaml |
   | has-system-id-FAIL.yaml |
   | has-system-id-PASS.yaml |
   | has-system-name-short-FAIL.yaml |
