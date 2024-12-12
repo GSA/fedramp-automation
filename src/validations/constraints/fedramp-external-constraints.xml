@@ -165,6 +165,12 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
                 <message>A FedRAMP SSP MUST have Rules of Behavior.</message>
             </expect>
+            <expect id="has-separation-of-duties-matrix" target="." test="exists(resource[prop[@name eq 'type' and @value eq 'separation-of-duties-matrix']])" level="ERROR">
+                <formal-name>Has Separation Of Duties Matrix</formal-name>
+                <!-- TODO: Add supporting documentation to automate.fedramp.gov -->
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/"/>
+                <message>A FedRAMP SSP MUST have a Separation of Duties Matrix attached.</message>
+            </expect>
             <expect id="has-user-guide" target="." test="exists(resource[prop[@name eq 'type' and @value eq 'users-guide']])" level="ERROR">
                 <formal-name>Has User Guide</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
