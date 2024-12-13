@@ -7,6 +7,7 @@ test-case:
   content: 
     - ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
     - ../content/ssp-has-network-architecture-diagram-link-href-target-VALID-1.xml
+    - ../content/ssp-boundary-diagram-link-VALID.xml
   expectations:
     - constraint-id: has-network-architecture-diagram-link-href-target
       result: pass
