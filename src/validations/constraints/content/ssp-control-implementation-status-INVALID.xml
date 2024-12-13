@@ -5,9 +5,11 @@
                       uuid="12345678-1234-4321-8765-123456789012">
   <control-implementation>
     <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
-      <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
-      </by-component>
+      <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
+        <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
+          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="unsupported-status"/>
+        </by-component>
+      </statement>
     </implemented-requirement>
   </control-implementation>
 </system-security-plan>
