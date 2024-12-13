@@ -10,7 +10,7 @@
     <version>1.1</version>
     <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
-    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
+    <prop name="fedramp-version" ns="http://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
     <prop name="marking" value="cui"/>
     <role id="authorizing-official">
       <title>Authorizing Official</title>
@@ -178,11 +178,11 @@
         <p>Remarks are required if service model is "other". Optional otherwise.</p>
       </remarks>
     </prop>
-    <prop name='authorization-type' value='fedramp-agency' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='fedramp-agency' ns="http://fedramp.gov/ns/oscal"/>
     <prop name="identity-assurance-level" value="2"/>
     <prop name="authenticator-assurance-level" value="2"/>
     <prop name="federation-assurance-level" value="2"/>
-    <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
+    <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
     <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
     <system-information>
       <information-type  uuid="33333333-0000-4000-9000-000000000003">
@@ -261,17 +261,17 @@
   <system-implementation>
     <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
          <title>GovCloud</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-high"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="fips-199-high"/>
          <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
          <date-authorized>2020-01-01</date-authorized>
     </leveraged-authorization>
     <user uuid="44444444-0000-4000-9000-000000000004">
       <title>System Administrator</title>
       <prop name="type" value="internal"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="privilege-level" value="read-write"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
       <role-id>system-admin</role-id>
       <authorized-privilege>
         <title>Admin</title>
@@ -301,8 +301,8 @@
       <description>
         <p>Secure connection to an external API for data enrichment.</p>
       </description>
-      <prop name="interconnection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="interconnection-direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-security" value="vpn" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="interconnection-direction" value="in/out" ns="http://fedramp.gov/ns/oscal"/>
       <status state="operational"/>
       <responsible-role role-id="system-admin">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
@@ -321,7 +321,7 @@
       <prop name="allows-authenticated-scan" value="yes"/>
       <prop name="public" value="no"/>
       <prop name="virtual" value="yes"/>
-      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="scan-type" value="database" ns="http://fedramp.gov/ns/oscal"/>
       <responsible-party role-id="asset-owner">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>
@@ -339,7 +339,7 @@
       <prop name="allows-authenticated-scan" value="yes"/>
       <prop name="public" value="no"/>
       <prop name="virtual" value="yes"/>
-      <prop name="scan-type" value="database" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="scan-type" value="database" ns="http://fedramp.gov/ns/oscal"/>
       <responsible-party role-id="asset-owner">
         <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
       </responsible-party>
@@ -355,15 +355,15 @@
       <p>Implementation of controls for the Enhanced Example System</p>
     </description>
     <implemented-requirement uuid="88888888-0000-4000-9000-000000000008" control-id="ac-1">
-      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="implementation-status" value="partial" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="control-origination" value="sp-system" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="implementation-status" value="partial" ns="http://fedramp.gov/ns/oscal"/>
       <statement statement-id="ac-1_stmt.a" uuid="99999999-0000-4000-9000-000000000009">
       </statement>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="aaaaaaaa-0000-4000-9000-00000000000a">
         <description>
           <p>Access Control Policy and Procedures (AC-1) is fully implemented in our system.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
@@ -371,14 +371,14 @@
     </implemented-requirement>
     
     <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
-      <prop name="control-origination" value="sp-system" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="control-origination" value="sp-system" ns="http://fedramp.gov/ns/oscal"/>
       <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c">
       </statement>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="dddddddd-0000-4000-9000-00000000000d">
         <description>
           <p>Information System Component Inventory (CM-8) is partially implemented.</p>
         </description>
-        <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
         </responsible-role>
@@ -392,7 +392,7 @@
       <description>
         <p>Detailed access control policy document</p>
       </description>
-      <prop name="type" value="policy" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="type" value="policy" ns="http://fedramp.gov/ns/oscal"/>
       <rlink href="https://example.com/policies/access-control.pdf"/>
     </resource>
     <resource uuid="90a128ac-c850-48f6-8fff-a55692f80b41">
@@ -473,7 +473,7 @@
   <description>
      <p>Separation of Duties Matrix</p>
   </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
+  <prop ns="http://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
   <prop name="published" value="2023-01-01T00:00:00Z"/>
   <prop name="version" value="Document Version"/>
   <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
@@ -489,7 +489,7 @@
   <description>
      <p>Authorization Boundary Diagram</p>
   </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+  <prop ns="http://fedramp.gov/ns/oscal" name="type" value="plan"/>
   <prop name="published" value="2023-01-01T00:00:00Z"/>
   <prop name="version" value="Document Version"/>
   <rlink href="./documents/AuthBoundary.docx" media-type="application/msword"/>
@@ -504,7 +504,7 @@
   <description>
      <p>Network Architecture Diagram</p>
   </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+  <prop ns="http://fedramp.gov/ns/oscal" name="type" value="plan"/>
   <prop name="published" value="2023-01-01T00:00:00Z"/>
   <prop name="version" value="Document Version"/>
   <rlink href="./documents/NetworkArchitecture.docx" media-type="application/msword"/>
@@ -519,7 +519,7 @@
   <description>
      <p>Data flow Diagram</p>
   </description>
-  <prop ns="https://fedramp.gov/ns/oscal" name="type" value="plan"/>
+  <prop ns="http://fedramp.gov/ns/oscal" name="type" value="plan"/>
   <prop name="published" value="2023-01-01T00:00:00Z"/>
   <prop name="version" value="Document Version"/>
   <rlink href="./documents/Dataflo.docx" media-type="application/msword"/>

@@ -12,7 +12,7 @@
             <published>2023-06-30T00:00:00Z</published>
             <version>1.0</version>
             <oscal-version>1.0.4</oscal-version>
-            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" uuid="528974e9-fcde-494f-a2fa-35d6f1e31171"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" uuid="528974e9-fcde-494f-a2fa-35d6f1e31171"/>
             <remarks>
                <p>Initial publication.</p>
             </remarks>
@@ -21,7 +21,7 @@
             <published>2023-07-06T00:00:00Z</published>
             <version>1.1</version>
             <oscal-version>1.0.4</oscal-version>
-            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" uuid="528974e9-fcde-494f-a2fa-35d6f1e31171"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" uuid="528974e9-fcde-494f-a2fa-35d6f1e31171"/>
             <remarks>
                <p>Minor <code>prop</code> updates.</p>
             </remarks>
@@ -29,7 +29,7 @@
       </revisions>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -537,10 +537,10 @@
       <prop name="identity-assurance-level" value="2"/>
       <prop name="authenticator-assurance-level" value="2"/>
       <prop name="federation-assurance-level" value="2"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="yyyy-mm-ddThh:mmZ"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="yyyy-mm-ddThh:mmZ"/>
       <!-- Rev5 update - new prop -->
       <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
       <!-- FIPS PUB 199 Level -->
       <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
       <system-information>
@@ -638,19 +638,19 @@
    </system-characteristics>
    <system-implementation>
       <!-- Rev 5 update - these "users-*" props are optional in rev 5 -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="users-internal" value="0"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="users-external" value="0"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="users-internal-future" value="0"/>
-      <prop ns="https://fedramp.gov/ns/oscal" name="users-external-future" value="0"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="users-internal" value="0"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="users-external" value="0"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="users-internal-future" value="0"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="users-external-future" value="0"/>
       <!-- Section 6 - Leveraged Authorizations.  Add one for each leveraged system -->
       <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
          <title>GovCloud</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
          <!-- Rev5 update - new prop -->
          <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
          <!-- FedRAMP Impact Level: high, moderate, low, li-saas -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="impact-level" value="moderate"/>
          <link href="//path/to/leveraged_system_ssp.xml"/>
          <link href="//path/to/leveraged_system_legacy_crm.xslt"/>
          <link href="//path/to/leveraged_system_responsibility_and_inheritance.xml"/>
@@ -665,10 +665,10 @@
       <!-- NOTE - users may be referenced throughout the document (e.g., Table 6.1, Table 7.1, etc.) -->
       <user uuid="9cb0fab0-78bd-44ba-bcb8-3e9801cc952f">
          <title>[SAMPLE]Unix System Administrator</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
          <prop name="privilege-level" value="privileged"/>
          <!-- New Rev 5 prop - refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentiction methods -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="multi-factor OTP device"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="multi-factor OTP device"/>
          <prop name="type" value="internal"/>
          <role-id>admin-unix</role-id>
          <authorized-privilege>
@@ -681,10 +681,10 @@
       </user>
       <user uuid="16ec71e7-025c-43e4-9d3f-3acb485fac2e">
          <title>[SAMPLE]Client Administrator</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="moderate"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="sensitivity" value="moderate"/>
          <prop name="privilege-level" value="non-privileged"/>
          <!-- New Rev 5 prop - refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentiction methods -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="memorized seccret plus SF OTP device"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="memorized seccret plus SF OTP device"/>
          <prop name="type" value="external"/>
          <role-id>admin-client</role-id>
          <authorized-privilege>
@@ -695,10 +695,10 @@
       </user>
       <user uuid="ba7708c1-4041-48ab-9b7b-1ddb5e175fe0">
          <title>[SAMPLE]Program Director</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="limited"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="sensitivity" value="limited"/>
          <prop name="privilege-level" value="no-logical-access"/>
          <!-- New Rev 5 prop - refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentiction methods -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="not-applicable"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="not-applicable"/>
          <prop name="type" value="internal"/>
          <role-id>information-system-security-officer</role-id>
          <role-id>isa-poc-local</role-id>
@@ -714,10 +714,10 @@
       </user>
       <user uuid="73ae456f-5581-4ff7-9ada-49fc057b2e0b">
          <title>[SAMPLE]ISA POC</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="not-applicable"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="sensitivity" value="not-applicable"/>
          <prop name="privilege-level" value="no-logical-access"/>
          <!-- New Rev 5 prop - refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentiction methods -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="not-applicable"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authentication-method" value="not-applicable"/>
          <prop name="type" value="external"/>
          <role-id>isa-poc-remote</role-id>
          <role-id>isa-authorizing-official-remote</role-id>
@@ -751,9 +751,9 @@
             <p>Lastly, provide any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev 5 new props for CMs -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-at-rest"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-at-rest"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-2"/>
          <!-- Provide the certificate number (CMVP #) -->
@@ -769,9 +769,9 @@
             <p>For example, any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev5 new props for CMs -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-in-transit"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-in-transit"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-3"/>
          <!-- Provide the certificate number (CMVP #) -->
@@ -790,21 +790,21 @@
             <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
             <p>Must include all leveraged services and features from the leveraged authorization here.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="paas"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="asset-type" value="paas"/>
          <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="SLA"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="SLA"/>
          <!-- New Rev 5 prop - Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" value="172.0.0.0"/>
          <prop name="ipv6-address" value="::"/>
          <prop name="direction" value="incoming"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information" value="describe information being transferred"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="information" value="describe information being transferred"/>
          <!-- New Rev 5 prop - Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
          <!-- Alternatively, if the list is long, data types may be provided as a link to a backmatter resource containing all the information -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1"/>
          <!-- system development information type -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8"/>
          <!-- system & network monitoring information type -->
          <!-- other props -->
          <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
@@ -835,34 +835,34 @@
          <description>
             <p>Describe the purpose of the external system/service; specifically, provide reasons for connectivity (e.g., system monitoring, system alerting, download updates, etc.).</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
          <!-- New Rev5 prop.  Specify the type of interconnection (1=Non-FedRAMP authorized cloud service, 2=Corporate Shared Services, 3-update Service for In-Boundary SW/Services) -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-type" value="1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="interconnection-type" value="1"/>
          <!-- New Rev5 prop.  Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc.) -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="Contract"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="nature-of-agreement" value="Contract"/>
          <!-- New Rev5 prop.  Specify if this product still supported by the manufacturer? Accepted values are "yes" or "no" -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
          <!-- New Rev5 prop. Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
          <!-- Alternatively, if the list is long, data types may be provided as a link to a backmatter resource containing all the information -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1"/>
          <!-- system development information type -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8"/>
          <!-- system & network monitoring information type -->
          <!-- New Rev5 prop. For each interconnection-data-type above, add a prop for the corresponding data categorization.  Use the security impact level of the data (Low, Moderate, High) in accordance with FIPS 199 & NIST 800-60 Vol. 2. -->
          <!-- Alternatively, if the list is long, data categorization may be provided as a link to a backmatter resource containing all the information -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.1" name="interconnection-data-categorization" value="low"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="C.3.5.1" name="interconnection-data-categorization" value="low"/>
          <!-- low, moderate, high -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.8" name="interconnection-data-categorization" value="moderate"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="C.3.5.8" name="interconnection-data-categorization" value="moderate"/>
          <!-- low, moderate, high -->
          <!-- New Rev5 prop.  Use prop to list the user roles (e.g., SecOps engineers) authorized to access the service, and provide the authentication method. -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authorized-users" value="SecOps engineers"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="authorized-users" value="SecOps engineers"/>
          <!-- New Rev5 prop.  List any certifications for this service (e.g., PCI SOC 2, CSA STAR Level 2, FISMA, etc.) -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="PCI SOC 2"/>
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="ISO/IEC 27001"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="PCI SOC 2"/>
+         <prop ns="http://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="ISO/IEC 27001"/>
          <!-- New Rev5 prop. Describe the hosting environemnt (e.g., corporate newtork, IaaS, self-hosted, etc.) -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-hosting-environment" value="PaaS"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="interconnection-hosting-environment" value="PaaS"/>
          <!-- New Rev5 prop. Describe potential risks introduced by the external system/service and impact to the CSO or federal data if the CIA of the system/service is compromised. Describe any mitigations or compensating controls in place to reduce risk. -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-risk" value="None"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="interconnection-risk" value="None"/>
          <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
@@ -873,9 +873,9 @@
          <!-- determine why schematron is not validating direciton of data flow per props below -->
          <prop name="direction" value="incoming"/>
          <prop name="direction" value="outgoing"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
+         <prop ns="http://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
             <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>
             </remarks>
@@ -910,7 +910,7 @@
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -930,8 +930,8 @@
             <p>FUNCTION: Describe typical component function.</p>
          </description>
          <prop name="asset-type" value="database"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -952,7 +952,7 @@
             <p>None</p>
          </description>
          <prop name="asset-type" value="operating-system"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
          <status state="operational"/>
@@ -963,7 +963,7 @@
             <p>None</p>
          </description>
          <prop name="asset-type" value="database"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
          <status state="operational"/>
@@ -974,8 +974,8 @@
             <p>None</p>
          </description>
          <prop name="asset-type" value="appliance"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="login-url" value="https://admin.offering.com/login"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
@@ -1070,16 +1070,16 @@
          <description>
             <p>Briefly describe the interconnection.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" value="2001:0000:0000:0000:0000:ffff:0a02:0202"/>
          <!-- describe the flow of information transmitted -->
          <prop name="direction" value="incoming"/>
          <prop name="direction" value="outgoing"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
+         <prop ns="http://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
             <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>
             </remarks>
@@ -1158,8 +1158,8 @@
          <prop name="asset-tag" value="Asset Tag"/>
          <prop name="vlan-id" value="VLAN Identifier"/>
          <prop name="network-id" value="Network Identifier"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <!-- <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>-->
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <!-- <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>-->
          <prop name="allows-authenticated-scan" value="no">
             <remarks>
                <p>If no, explain why. If yes, omit remarks field.</p>
@@ -1217,7 +1217,7 @@
                <p>If no, explain why. If yes, omit remark.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <responsible-party role-id="asset-owner">
             <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
          </responsible-party>
@@ -1243,7 +1243,7 @@
          <!-- Todo: check why schematron validation is indicating that this is not a valid ipv4 value -->
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a03:0303"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <implemented-component component-uuid="1541015b-6d19-42cb-a991-624cc082ed4d"> </implemented-component>
       </inventory-item>
       <inventory-item uuid="fb7a84fb-7e30-4f5b-9997-2ecd4d270bdd">
@@ -1257,7 +1257,7 @@
          <prop name="ipv4-address" value="10.4.4.4"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a04:0404"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <implemented-component component-uuid="05ceb8df-52e7-49db-9719-891723f366bd"> </implemented-component>
       </inventory-item>
       <inventory-item uuid="779d4e89-bba6-432c-b50d-d699fe534129">
@@ -1271,7 +1271,7 @@
          <prop name="virtual" value="no"/>
          <prop name="public" value="yes"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <implemented-component component-uuid="8f230d84-2f9b-44a3-acdb-019566ab2554"> </implemented-component>
       </inventory-item>
       <inventory-item uuid="20b207d5-5e77-4501-b02d-5d2a6e88db85">
@@ -1302,7 +1302,7 @@
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <implemented-component component-uuid="1541015b-6d19-42cb-a991-624cc082ed4d"> </implemented-component>
       </inventory-item>
       <inventory-item uuid="b31b360d-b58b-4c7c-b344-68e17238d858">
@@ -1333,7 +1333,7 @@
          <prop name="virtual" value="yes"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <implemented-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"> </implemented-component>
       </inventory-item>
    </system-implementation>
@@ -1350,13 +1350,13 @@
          <p>FedRAMP does not require any specific information here.</p>
       </description>
       <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#330bac69-5840-479a-981b-afda037d7a6f" rel="policy"/>
          <link href="#e1fa7a30-efb8-4738-b4e2-7fbeb86644cd" rel="procedure"/>
          <statement statement-id="ac-1_smt" uuid="240fa015-01df-4741-bff5-6958c7fb85e5">
@@ -1432,15 +1432,15 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ac-2" uuid="7a36cf53-156d-4d1f-9a8b-433f61cc57b7">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
          <!-- sample implementation-status below -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="customer-configured">
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="customer-configured">
             <remarks>
                <p>Describe any customer-configured requirements for satisfying this control.</p>
             </remarks>
@@ -1550,13 +1550,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="at-1" uuid="c332a6f8-bbe6-4ee9-aaea-d89d251c68df">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#184d2fc9-6c9e-4302-acb3-8c24f6843c79" rel="policy"/>
          <link href="#ce9f3af2-f4bc-47b5-bc25-df52a917748b" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -1615,13 +1615,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="au-1" uuid="381c8d0c-e6ec-41a9-9b16-01657226c70f">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#64977a9e-cd62-4c04-891e-7943e9046179" rel="policy"/>
          <link href="#b1cdaad8-2127-4563-b248-3d2777307c4f" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -1683,13 +1683,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ca-1" uuid="43e388d9-3854-44f6-8c6f-17a6d51ee6a2">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#f81fe324-844f-4b53-b915-8c72b6fde8cf" rel="policy"/>
          <link href="#a552272e-803c-40db-895c-5de35c76d871" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -1748,13 +1748,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="cm-1" uuid="c8e45d78-2afe-42ae-80e1-c1e2499a0346">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#eb4467a5-c3ca-4cac-9181-557886d7d1dc" rel="policy"/>
          <link href="#b4c87da0-0f96-4231-a3c1-2d1a9d0b99a3" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -1813,13 +1813,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="cp-1" uuid="13af9343-73e7-4d71-b386-9a0844fa7e45">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="information-system-security-officer">
             <party-uuid>36b8d6c0-3b25-42cc-b529-cf4066145cdd</party-uuid>
          </responsible-role>
@@ -1876,13 +1876,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ia-1" uuid="4050c933-3ecc-4a8d-8da7-391364685cbb">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#f6070655-ac54-4c4c-847e-d073bcf23baf" rel="policy"/>
          <link href="#08a6ab70-8c56-4713-ae9c-81fbb6594943" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -1941,13 +1941,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ir-1" uuid="229846dc-83cc-4ff2-a9ed-210490a343d9">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#f6070655-ac54-4c4c-847e-d073bcf23baf" rel="policy"/>
          <link href="#649eac51-c21b-4cb2-bd10-7828e0522e50" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2006,13 +2006,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ma-1" uuid="f0c6b63f-6b94-448f-bb16-db3d54b91734">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#8b009787-771c-4b02-9a8f-3f3b581e9464" rel="policy"/>
          <link href="#fd29a63b-2a08-4d56-b91e-aadfa4c0f55b" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2071,13 +2071,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="mp-1" uuid="fa3a9747-3451-456a-aae9-9896e03a52c8">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#776b9f3b-2896-4118-87d9-7a5e62149afb" rel="policy"/>
          <link href="#908175c9-7502-4ab4-b469-80450ed18a8b" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2136,13 +2136,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="pe-1" uuid="a85ff28e-517c-4455-8bd4-866103a2c94a">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#a54bc32c-6bae-4c89-b5b4-9299c56893fb" rel="policy"/>
          <link href="#22522abe-fd09-4476-b09f-c6422b72bf12" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2201,13 +2201,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="pl-1" uuid="97ba1f95-92a8-480b-a489-960661e4206b">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#de28452-4b02-4b49-b316-59142a7633c1" rel="policy"/>
          <link href="#937dfbb6-9d82-4974-be85-23f1e4b130d8" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2266,13 +2266,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ps-1" uuid="5e7498de-b540-4a28-b041-4381b023e98a">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#34f3388e-e5b2-4d85-b050-19f62dba6d7e" rel="policy"/>
          <link href="#552dec25-74a9-4cbe-b3b0-f865d99bfa9d" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2331,13 +2331,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ra-1" uuid="789e6c0f-acda-4a94-9b48-7d41dd4c607c">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#53fbc1b6-0f3c-4298-9554-da5acfef3a5a" rel="policy"/>
          <link href="#1a852337-d28f-4a66-a367-68aebec35698" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2396,13 +2396,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sa-1" uuid="55358f60-db9b-4d75-a313-5fa6c328273c">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#f969f849-8920-4325-9abe-dcc7133518d6" rel="policy"/>
          <link href="#4a59a06d-3b1b-410f-b067-3fe1dab083f2" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2461,13 +2461,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sc-1" uuid="9e2852c6-f48a-47b2-9ea5-77cbbb42b365">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#03ae437f-fffc-48e3-81f1-4040fce2d6e3" rel="policy"/>
          <link href="#936093ce-a567-4592-8fcc-eeeef024cdd4" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2526,13 +2526,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="si-1" uuid="81ba4fe8-1649-437b-9ecf-367fd87336e6">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#7a5ee0b7-402c-487f-8ac7-e1735b991674" rel="policy"/>
          <link href="#ac953d62-a392-499f-b832-b90b325cceb6" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2592,8 +2592,8 @@
       </implemented-requirement>
       <implemented-requirement control-id="si-8" uuid="f33674dc-d16f-4a8c-8902-b8e60f947ce7">
          <!--Spam Protection-->
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
          <!--There are no control parameters-->
          <responsible-role role-id="asset-administrator">
             <party-uuid>59cdc953-5902-4fa4-a878-f3163854624c</party-uuid>
@@ -2619,13 +2619,13 @@
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sr-1" uuid="2286bf93-2664-4852-bc4c-e235ec076b94">
-         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+         <prop ns="http://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#7d440e15-ca4d-4e4a-8fcc-50bb05ffa2fd" rel="policy"/>
          <link href="#b2aaedad-5ff0-4b0c-b490-bbe64b2033b0" rel="procedure"/>
          <responsible-role role-id="information-system-security-officer">
@@ -2688,7 +2688,7 @@
          <description>
             <p>SSP Signature</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="signed-ssp"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="signed-ssp"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-ssp.pdf" media-type="application/pdf"/>
          <base64 filename="ssp.pdf" media-type="application/pdf">00000000</base64>
@@ -2705,7 +2705,7 @@
       <!-- FedRAMP Laws -->
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
          <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" media-type="application/vnd.ms-excel">00000000</base64>
@@ -2717,7 +2717,7 @@
       <!-- Appendix B - Related Acronyms -->
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
@@ -3471,7 +3471,7 @@
          <description>
             <p>FedRAMP Logo</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <!-- Todo: Make base64 optional -->
          <base64 filename="logo-main-fedramp.png" media-type="image/png">00000000</base64>
@@ -3558,7 +3558,7 @@
          <description>
             <p>Separation of Duties Matrix</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>

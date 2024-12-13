@@ -111,7 +111,7 @@
         </description>
         <prop name="cloud-service-model" value="saas"/>
         <prop name="cloud-deployment-model" value="public-cloud"/>
-        <prop name="security-eauth-level" class="security-eauth" ns="https://fedramp.gov/ns/oscal" value="2"/>
+        <prop name="security-eauth-level" class="security-eauth" ns="http://fedramp.gov/ns/oscal" value="2"/>
         <prop name="identity-assurance-level" value="2"/> 
         <prop name="authenticator-assurance-level" value="2"/> 
         <prop name="federation-assurance-level" value="2"/>
@@ -179,7 +179,7 @@
         <user uuid="e34daa7e-9cce-4350-9d7e-2037890b4ada">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="non-privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="limited"/>
             <role-id>system-owner</role-id>
             <authorized-privilege>
                 <title>GRC Access (Read Only)</title>
@@ -191,7 +191,7 @@
         <user uuid="8921737a-98b3-4a8c-81ae-c73b41ed22c2">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="non-privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="limited"/>
             <role-id>authorizing-official</role-id>
             <authorized-privilege>
                 <title>GRC Access (Read Only)</title>
@@ -203,7 +203,7 @@
         <user uuid="76e6dc7f-fa58-469f-a9e4-858cfe674975">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="non-privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="limited"/>
             <role-id>system-poc-management</role-id>
             <authorized-privilege>
                 <title>GRC Access (Read Only)</title>
@@ -215,7 +215,7 @@
         <user uuid="26139e80-572a-4e40-94b4-e677133baf4d">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="non-privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="limited"/>
             <role-id>system-poc-technical</role-id>
             <authorized-privilege>
                 <title>GRC Access</title>
@@ -227,7 +227,7 @@
         <user uuid="7b201a77-b213-4d21-804e-e60b4a0bda9e">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="non-privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="limited"/>
             <role-id>system-poc-other</role-id>
             <authorized-privilege>
                 <title>GRC Access</title>
@@ -239,7 +239,7 @@
         <user uuid="9dec1073-6ce1-4145-92d1-f88f99428c0e">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="non-privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="limited"/>
             <role-id>information-system-security-officer</role-id>
             <authorized-privilege>
                 <title>Managerial Access</title>
@@ -250,7 +250,7 @@
         <user uuid="9dec1073-6ce1-4145-92d1-f88f99428c0e">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="non-privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="limited"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="limited"/>
             <role-id>authorizing-official-poc</role-id>
             <authorized-privilege>
                 <title>Managerial Access</title>
@@ -261,7 +261,7 @@
         <user uuid="c81c9e24-aa12-48dd-8518-ba266d014250">
             <prop name="type" value="internal"/>
             <prop name="privilege-level" value="privileged"/>
-            <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal" value="moderate"/>
+            <prop name="sensitivity" ns="http://fedramp.gov/ns/oscal" value="moderate"/>
             <role-id>sys-admin</role-id>
             <authorized-privilege>
                 <title>Administrative Access</title>
@@ -289,7 +289,7 @@
             <prop name="mac-address" value="AC-10-F0-39-27-04"/>
             <prop name="asset-type" value="firewall"/>
             <prop name="vendor-name" value="Microsoft"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="no">
                 <remarks>
                 <p>This is an appliance.</p>
@@ -316,7 +316,7 @@
             <prop name="mac-address" value="AC-2D-AF-2B-3F-79"/>
             <prop name="asset-type" value="router"/>
             <prop name="vendor-name" value="Citrix"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="no">
                 <remarks>
                 <p>This is an appliance.</p>
@@ -343,7 +343,7 @@
             <prop name="mac-address" value="AC-C4-82-FD-F0-B0"/>
             <prop name="asset-type" value="router"/>
             <prop name="vendor-name" value="Citrix"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="no">
                 <remarks>
                 <p>This is an appliance.</p>
@@ -372,7 +372,7 @@
             <prop name="software-version" value="2019"/>
             <prop name="asset-type" value="web-server"/>
             <prop name="vendor-name" value="Microsoft"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="Web_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -393,7 +393,7 @@
             <prop name="software-version" value="2019"/>
             <prop name="asset-type" value="web-server"/>
             <prop name="vendor-name" value="Microsoft"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="Web_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -414,7 +414,7 @@
             <prop name="software-version" value="7"/>
             <prop name="asset-type" value="web-server"/>
             <prop name="vendor-name" value="RedHat"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="Web_Server_Config_2"/>
             <prop name="is-scanned" value="yes"/>
@@ -433,7 +433,7 @@
             <prop name="mac-address" value="AC-2B-50-FD-21-D1"/>
             <prop name="asset-type" value="router"/>
             <prop name="vendor-name" value="Citrix"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="no">
                 <remarks>
                 <p>This is an appliance.</p>
@@ -462,7 +462,7 @@
             <prop name="software-version" value="13.1"/>
             <prop name="asset-type" value="web-server"/>
             <prop name="vendor-name" value="CentOs"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="App_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -483,7 +483,7 @@
             <prop name="software-version" value="2019"/>
             <prop name="asset-type" value="storage-array"/>
             <prop name="vendor-name" value="Microsoft"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="File_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -504,7 +504,7 @@
             <prop name="software-version" value="7"/>
             <prop name="asset-type" value="web-server"/>
             <prop name="vendor-name" value="RedHat"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="APP_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -525,7 +525,7 @@
             <prop name="software-version" value="22.04"/>
             <prop name="asset-type" value="database"/>
             <prop name="vendor-name" value="Ubuntu"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="DB_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -546,7 +546,7 @@
             <prop name="software-version" value="22.04"/>
             <prop name="asset-type" value="database"/>
             <prop name="vendor-name" value="Ubuntu"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="DB_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -567,7 +567,7 @@
             <prop name="software-version" value="11"/>
             <prop name="asset-type" value="operating-system"/>
             <prop name="vendor-name" value="Microsoft"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="DB_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -588,7 +588,7 @@
             <prop name="software-version" value="2019"/>
             <prop name="asset-type" value="directory-server"/>
             <prop name="vendor-name" value="Microsoft"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="DB_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -609,7 +609,7 @@
             <prop name="software-version" value="13.1"/>
             <prop name="asset-type" value="web-server"/>
             <prop name="vendor-name" value="CentOs"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="App_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -630,7 +630,7 @@
             <prop name="software-version" value="2019"/>
             <prop name="asset-type" value="storage-array"/>
             <prop name="vendor-name" value="Microsoft"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="File_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -651,7 +651,7 @@
             <prop name="software-version" value="7"/>
             <prop name="asset-type" value="web-server"/>
             <prop name="vendor-name" value="RedHat"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
+            <prop ns="http://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
             <prop name="allows-authenticated-scan" value="yes"/>
             <prop name="baseline-configuration-name" value="APP_Server_Config"/>
             <prop name="is-scanned" value="yes"/>
@@ -662,8 +662,8 @@
         <description/>        
         <implemented-requirement control-id="cm-8" uuid="41af2ac0-5e22-488d-a052-549a46ad181d">
             <!-- Control title: Information System Component Inventory -->
-            <prop name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system"/>
-            <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>            
+            <prop name="control-origination" ns="http://fedramp.gov/ns/oscal" value="sp-system"/>
+            <prop name="implementation-status" ns="http://fedramp.gov/ns/oscal" value="implemented"/>            
             <set-parameter param-id="cm-8_prm_1">
                 <value>the information contained in the FedRAMP Integrated Inventory Workbook Template</value>
             </set-parameter>
@@ -755,43 +755,43 @@
         <!--Laws and Regulations-->
         <resource uuid="33dce5f7-3b32-44d5-8aea-94d86507e20f">
             <title>Laws and Regulations</title>
-            <prop name="type" ns="https://fedramp.gov/ns/oscal" value="fedramp-citations"/>
+            <prop name="type" ns="http://fedramp.gov/ns/oscal" value="fedramp-citations"/>
             <rlink href="https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx"/>
         </resource>
         <!--User Guide-->
         <resource uuid="b680f64a-2c2f-4985-98fb-de68d181eaee">
             <title>User Guide</title>
-            <prop name="type" ns="https://fedramp.gov/ns/oscal" value="user-guide"/>
+            <prop name="type" ns="http://fedramp.gov/ns/oscal" value="user-guide"/>
             <rlink href="../artifacts/AwesomeCloud-User-Guide.docx"/>
         </resource>
         <!--Rules of Behavior-->
         <resource uuid="1ec9b9e7-b65d-440d-b328-a55a6d45cf4c">
             <title>Rules of Behavior</title>
-            <prop name="type" ns="https://fedramp.gov/ns/oscal" value="rules-of-behavior"/>
+            <prop name="type" ns="http://fedramp.gov/ns/oscal" value="rules-of-behavior"/>
             <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-Appendix-F-Rules-of-Behavior-(RoB)-Template.docx"/>
         </resource>
         <!--Contingency Plan-->
         <resource uuid="3cec07fa-070f-43b7-8f93-34addcbcc6e2">
             <title>Contingency Plan</title>
-            <prop name="type" ns="https://fedramp.gov/ns/oscal" value="information-system-contingency-plan"/>
+            <prop name="type" ns="http://fedramp.gov/ns/oscal" value="information-system-contingency-plan"/>
             <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-Appendix-G-Information-System-Contingency-Plan-(ISCP)-Template.docx"/>
         </resource>
         <!--Configuration Management Plan-->
         <resource uuid="a91699d7-37cd-482a-87c0-6ad69e72399d">
             <title>Configuration Management Plan</title>
-            <prop name="type" ns="https://fedramp.gov/ns/oscal" value="configuration-management-plan"/>
+            <prop name="type" ns="http://fedramp.gov/ns/oscal" value="configuration-management-plan"/>
             <rlink href="../artifacts/AwesomeCloud-CMP.docx"/>
         </resource>
         <!--Incident Response Plan-->
         <resource uuid="97363fce-ff4e-4390-9c3a-ff6110c2ff13">
             <title>Incident Response Plan</title>
-            <prop name="type" ns="https://fedramp.gov/ns/oscal" value="incident-response-plan"/>
+            <prop name="type" ns="http://fedramp.gov/ns/oscal" value="incident-response-plan"/>
             <rlink href="../artifacts/AwesomeCloud-IRP.docx"/>
         </resource>
         <!--Separation of Duties Matrix-->
         <resource uuid="e5947269-fff6-4dc5-a4b9-e85be2965924">
             <title>Separation of Duties Matrix</title>
-            <prop name="type" ns="https://fedramp.gov/ns/oscal" value="separation-of-duties-matrix"/>
+            <prop name="type" ns="http://fedramp.gov/ns/oscal" value="separation-of-duties-matrix"/>
             <rlink href="../artifacts/AwesomeCloud%20SOD%20Matrix.xlsx"/>
         </resource>
     </back-matter>

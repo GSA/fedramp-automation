@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fedramp-threats xmlns="https://fedramp.gov/ns/oscal" uuid="5683bfeb-a111-4cf9-86ae-43523f85bdc9">
+<fedramp-threats xmlns="http://fedramp.gov/ns/oscal" uuid="5683bfeb-a111-4cf9-86ae-43523f85bdc9">
 
     <metadata>
         <title>FedRAMP Defined Threat Table [Experimental]</title>
@@ -10,7 +10,7 @@
             <revision>
                 <published>2023-06-30T00:00:00Z</published>
                 <version>DRAFT-01</version>
-                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal" value="20fcdba5-796e-43fd-9478-e3b949567c00"/>
+                <prop name="party-uuid" ns="http://fedramp.gov/ns/oscal" value="20fcdba5-796e-43fd-9478-e3b949567c00"/>
                 <remarks>
                     <p>Initial draft for fedramp-2.0.0-oscal-1.1.1 release. Subject to change.</p>
                 </remarks>

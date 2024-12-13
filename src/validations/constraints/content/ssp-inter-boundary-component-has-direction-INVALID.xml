@@ -13,10 +13,10 @@
       </description>
       <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
       <prop name="implementation-point" value="external"/>
-      <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="direction" value="outgoing" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="isa"/>
+      <prop name="direction" value="incoming" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="outgoing" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="direction" value="outgoing" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="nature-of-agreement" ns="http://fedramp.gov/ns/oscal" value="isa"/>
       <status state="operational"/>
     </component>
 

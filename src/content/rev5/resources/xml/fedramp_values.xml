@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fedramp-values
-    xmlns="https://fedramp.gov/ns/oscal">
+    xmlns="http://fedramp.gov/ns/oscal">
     <metadata>
         <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values</title>
         <title-short>FedRAMP Data Values (Experimental)</title-short>
@@ -13,7 +13,7 @@
                 <version>DRAFT-01</version>
                 <prop
                     name="party-uuid"
-                    ns="https://fedramp.gov/ns/oscal"
+                    ns="http://fedramp.gov/ns/oscal"
                     value="b6a86c7d-4883-4ff8-9bcf-632b72ac3b80"/>
                 <remarks>
                     <p>Initial draft for fedramp-2.0.0-oscal-1.1.1 release. Subject to change.</p>
@@ -28,7 +28,7 @@
     <namespace>
         <ns
             name="fedramp"
-            ns="https://fedramp.gov/ns/oscal"/>
+            ns="http://fedramp.gov/ns/oscal"/>
     </namespace>
 
     <value-set
@@ -134,7 +134,7 @@
         <formal-name>Authorization Type</formal-name>
         <description>The FedRAMP Authorization Type</description>
         <binding
-            pattern="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="system-characteristics/prop[@name='authorization-type'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -177,7 +177,7 @@
         <formal-name>Deployment Model</formal-name>
         <description>The cloud deployment model.</description>
         <binding
-            pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+            pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='http://fedramp.gov/ns/oscal']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -246,7 +246,7 @@
         <formal-name>Privacy Threshold Analysis (Q1)</formal-name>
         <description>Does the ISA collect, maintain, or share PII in any identifiable form?</description>
         <binding
-            pattern="system-information/prop[@name='pta-1'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="system-information/prop[@name='pta-1'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -263,7 +263,7 @@
         <formal-name>Privacy Threshold Analysis (Q2)</formal-name>
         <description>Does the ISA collect, maintain, share PII info from or about the public?</description>
         <binding
-            pattern="system-information/prop[@name='pta-2'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="system-information/prop[@name='pta-2'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -280,7 +280,7 @@
         <formal-name>Privacy Threshold Analysis (Q3)</formal-name>
         <description>Has a Privacy Impact Assessment ever been performed for the ISA?</description>
         <binding
-            pattern="system-information/prop[@name='pta-3'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="system-information/prop[@name='pta-3'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -297,7 +297,7 @@
         <formal-name>Privacy Threshold Analysis (Q4)</formal-name>
         <description>Is there a Privacy Act System of Records Notice (SORN) for this ISA system?</description>
         <binding
-            pattern="system-information/prop[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="system-information/prop[@name='pta-4'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -438,7 +438,7 @@
         <formal-name>User Sensitivity level</formal-name>
         <description>Identifies the sensitivity level of the user.</description>
         <binding
-            pattern="user/prop[@name='sensitivity'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="user/prop[@name='sensitivity'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -464,7 +464,7 @@
         <formal-name>Interconnection Direction</formal-name>
         <description>Identifies the direction of information flow for the interconnection.</description>
         <binding
-            pattern="component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -484,7 +484,7 @@
         <formal-name>Interconnection Security</formal-name>
         <description>Identifies the type of security applied to the interconnection.</description>
         <binding
-            pattern="component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+            pattern="component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='http://fedramp.gov/ns/oscal']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -612,9 +612,9 @@
         <formal-name>Scan Type</formal-name>
         <description>Identifies the type of scan.</description>
         <binding
-            pattern="component/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="component/prop[@name='scan-type'][@ns='http://fedramp.gov/ns/oscal']"/>
         <binding
-            pattern="inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="inventory-item/prop[@name='scan-type'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -758,7 +758,7 @@
         <formal-name>Control Origination</formal-name>
         <description>The point(s) from which the control satisfaction originates.</description>
         <binding
-            pattern="implemented-requirement/prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+            pattern="implemented-requirement/prop[@name='control-origination'][@ns='http://fedramp.gov/ns/oscal']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -784,7 +784,7 @@
         <formal-name>Attachment Type</formal-name>
         <description>Identifies the type of attachment.</description>
         <binding
-            pattern="resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']"/>
+            pattern="resource/prop[@name='type'][@ns='http://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="yes">
             <enum

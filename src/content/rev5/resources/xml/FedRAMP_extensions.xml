@@ -9,7 +9,7 @@
          <revision>
             <published>2023-06-30T00:00:00Z</published>
             <version>DRAFT-01</version>
-            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal" value="9505ecff-86c4-42ad-aeb9-e6b0f8eacb69"/>
+            <prop name="party-uuid" ns="http://fedramp.gov/ns/oscal" value="9505ecff-86c4-42ad-aeb9-e6b0f8eacb69"/>
             <remarks>
                <p>Initial draft for fedramp-2.0.0-oscal-1.1.1 release. Subject to change.</p>
             </remarks>
@@ -94,7 +94,7 @@
    <!--  OSCAL Extension Namespace Value  -->
    <!-- ===================================================================== -->
 
-   <extension-namespace ns="https://fedramp.gov/ns/oscal"/>
+   <extension-namespace ns="http://fedramp.gov/ns/oscal"/>
 
    <!-- ===================================================================== -->
    <!--  EXTENSIONS  -->
@@ -349,7 +349,7 @@
       <constraint>
          <matches data-type="string"/>
          <has-cardinality min-occurs="0" max-occurs="1"/>
-         <expect test=".[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']/@value='yes' and .[@name='sorn-id'][@ns='https://fedramp.gov/ns/oscal']"/>
+         <expect test=".[@name='pta-4'][@ns='http://fedramp.gov/ns/oscal']/@value='yes' and .[@name='sorn-id'][@ns='http://fedramp.gov/ns/oscal']"/>
       </constraint>
       <remarks>
          <p>Deprecated.</p>
@@ -427,7 +427,7 @@
       <extension-name>interconnection-direction</extension-name>
       <formal-name>Interconnection Direction</formal-name>
       <description>Identifies the direction of information flow for the interconnection.</description>
-      <binding pattern="o:component[@component-type='interconnection']/o:prop[@name='direction'][@ns='https://fedramp.gov/ns/oscal']"/>
+      <binding pattern="o:component[@component-type='interconnection']/o:prop[@name='direction'][@ns='http://fedramp.gov/ns/oscal']"/>
       <constraint>
          <matches data-type="token"/>
          <allowed-values allow-other="no">
@@ -446,7 +446,7 @@
       <extension-name>interconnection-security</extension-name>
       <formal-name>Interconnection Security</formal-name>
       <description>Identifies the type of security applied to the interconnection.</description>
-      <binding pattern="o:component[@component-type='interconnection']/o:prop[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <binding pattern="o:component[@component-type='interconnection']/o:prop[@name='connection-security'][@ns='http://fedramp.gov/ns/oscal']/@value"/>
       <constraint>
          <matches data-type="token"/>
          <allowed-values allow-other="no">
@@ -1458,7 +1458,7 @@
    <constraint name="control-origination-constraints">
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
-      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='control-origination'][@ns='http://fedramp.gov/ns/oscal']/@value"/>
       <matches data-type="token"/>
       <allowed-values allow-other="no">
          <enum value="sp-corporate" label="SP Corporate">Service Provider (Corporate)</enum>
@@ -1472,7 +1472,7 @@
    <constraint name="control-implementation-status-constraints">
       <formal-name>Control Implementation Status Constraints</formal-name>
       <description>Defines the data type and allowed values for the Control Implementation Status</description>
-      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='implementation-status'][@ns='http://fedramp.gov/ns/oscal']/@value"/>
       <matches data-type="token"/>
       <allowed-values allow-other="no">
          <enum value="implemented" label="Implemented">The assessor finds sufficient evidence to agree the control objective is fully implemented.</enum>
@@ -1491,7 +1491,7 @@
       <description>Remarks are required for certain Control Implementation Status values.</description>
       <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement"/>
       <matches data-type="NCName"/>
-      <expect test="(o:prop[@name='planned-completion'][@ns='https://fedramp.gov/ns/oscal'])"/>
+      <expect test="(o:prop[@name='planned-completion'][@ns='http://fedramp.gov/ns/oscal'])"/>
    </constraint>
 
    <constraint>
@@ -1509,10 +1509,10 @@
       <description>If the control implementation status is "Planned" a "Planned Implementation Date" must be provided.</description>
       <prop name="reference">3.1</prop>
       <binding pattern="/o:system-security-plan/o:control-implementation/o:implemented-requirement[o:prop[@name='implementation-status'][@value='planned']]"/>
-      <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='partial']/remarks)"/>
-      <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='planned']/remarks)"/>
-      <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='alternative']/remarks)"/>
-      <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='not-applicable']/remarks)"/>
+      <expect test="(o:prop[@name='implementation-status'][@ns='http://fedramp.gov/ns/oscal'][@value='partial']/remarks)"/>
+      <expect test="(o:prop[@name='implementation-status'][@ns='http://fedramp.gov/ns/oscal'][@value='planned']/remarks)"/>
+      <expect test="(o:prop[@name='implementation-status'][@ns='http://fedramp.gov/ns/oscal'][@value='alternative']/remarks)"/>
+      <expect test="(o:prop[@name='implementation-status'][@ns='http://fedramp.gov/ns/oscal'][@value='not-applicable']/remarks)"/>
       <remarks>
          <p>In the SSP, if <code>implemented-requirement</code> includes <code>prop[@name='implementation-status']</code> with <code>value='planned'</code>, a <code>planned-completion-date</code> extension must be provided.</p>
       </remarks>

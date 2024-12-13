@@ -1,6 +1,6 @@
 test-case:
   name: Positive Test for has-system-id
-  description: Test that a SSP system-characteristics system-id identifier-type attribute is equal to 'https://fedramp.gov'.
+  description: Test that a SSP system-characteristics system-id identifier-type attribute is equal to 'http://fedramp.gov'.
   content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
   expectations:
     - constraint-id: has-system-id
