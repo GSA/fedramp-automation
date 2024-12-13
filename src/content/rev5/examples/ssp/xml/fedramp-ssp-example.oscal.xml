@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<?xml-model href="https://github.com/usnistgov/OSCAL/releases/download/v1.1.3/oscal_ssp_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
    <metadata>
       <title>FedRAMP [Baseline Name] System Security Plan (SSP)</title>
