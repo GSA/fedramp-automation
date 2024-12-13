@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
+                      uuid="12345678-1234-4321-8765-123456789012">
+	<metadata>
+		<title>Enhanced Example System Security Plan</title>
+		<published>2024-08-01T14:30:00Z</published>
+		<last-modified>2024-08-01T14:30:00Z</last-modified>
+		<version>1.1</version>
+		<oscal-version>1.1.2</oscal-version>
+		<document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
+	</metadata>
+    <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml"></import-profile>
+    <control-implementation>
+    <description/>
+    <implemented-requirement uuid="59b469cb-5e57-45ee-b1bd-848431df7da1" control-id="ac-1"></implemented-requirement>
+    </control-implementation>
+</system-security-plan>

@@ -6,6 +6,7 @@ test-case:
     Scenario 2: Tests a link provided directly in the @href.
   content: 
     - ../content/ssp-has-data-flow-diagram-link-href-target-VALID-1.xml
+    - ../content/ssp-has-data-flow-diagram-link-href-target-VALID-2.xml
   expectations:
     - constraint-id: has-data-flow-diagram-link-href-target
       result: pass
