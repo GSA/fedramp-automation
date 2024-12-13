@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METASCHEMA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://csrc.nist.gov/ns/oscal/metaschema/1.0">
+    <schema-name>OSCAL Extensions Registry</schema-name>
+    <schema-version>0.0.1</schema-version>
+    <short-name>extensions</short-name>
+    <namespace>http://fedramp.gov/ns/oscal</namespace>
+    <json-base-uri>http://fedramp.gov/ns/oscal</json-base-uri>
+    <remarks>
+        <p>The OSCAL Extension Model is used to describe the comprehensive set of extenstions.</p>
+        <p>This provides OSCAL practitioners a machine-readable documentation of the extensions used
+            in an organization's authorization package. Specific requirements, in the form of external 
+            constraints, are referenced in this model.</p>
+    </remarks>
+
+    <!-- Import OSCAL Metadata Metaschema which includes: title, published, last-modified, version,
+    oscal-version, revision, role, party, responsible-party, remarks -->
+    <import href="../../vendor/oscal/src/metaschema/oscal_metadata_metaschema.xml" />
+
+    <!-- Extensions Registry - assembly for collection of extensions -->
+    <define-assembly name="extensions-registry">
+        <formal-name>OSCAL Extensions</formal-name>
+        <description>Defines the collection of OSCAL extensions.</description>
+        <root-name>extensions-registry</root-name>
+        <define-flag name="uuid" as-type="uuid" required="yes">
+          <formal-name>Extensions Registry Universally Unique Identifier</formal-name>
+          <description>A globally unique identifier used to reference this Extensions Registry.</description>
+        </define-flag>
+        <model>
+            <!-- TODO - import metadata assembly. Commented out because it is causing java.lang.NullPointerException when generating schema and validating content. -->
+            <!-- <assembly ref="metadata" min-occurs="1" /> -->
+            <assembly ref="extension" min-occurs="1">
+                <group-as name="extensions" in-xml="UNGROUPED" in-json="ARRAY" />
+            </assembly>
+        </model>
+    </define-assembly>
+
+    <!-- Extension Assembly -->
+    <define-assembly name="extension">
+        <formal-name>OSCAL Extension</formal-name>
+        <description>Defines a OSCAL extension. This can include custom properties, links,
+            and parts with an organization's namespace.</description>
+        <define-flag name="id" as-type="token" required="yes">
+            <formal-name>Extension Identifier</formal-name>
+            <description>An unique identifier for the extension.</description>
+        </define-flag>
+        <define-flag name="deprecated" as-type="string">
+            <formal-name>Deprecated</formal-name>
+            <description>This optional attribute communicates the version after which use of the given 'extension' is discontinued and no longer supported.</description>
+        </define-flag>
+        <model>
+            <define-field name="formal-name" as-type="string" min-occurs="1" max-occurs="1">
+                <formal-name>Extension Name</formal-name>
+                <description>Formal name for the extension.</description>
+            </define-field>
+            <define-field name="description" as-type="markup-multiline" min-occurs="1" max-occurs="1">
+                <formal-name>Description</formal-name>
+                <description>Description of the extension.</description>
+            </define-field>
+            <define-field name="external-constraint-id" as-type="string" min-occurs="1" max-occurs="unbounded">
+                <formal-name>External Constraint ID</formal-name>
+                <description>The unique identifier of the referenced external constraint.</description>
+                <group-as name="external-constraint-ids" in-json="ARRAY" />
+            </define-field>
+            <define-field name="remarks" as-type="markup-multiline">
+                <formal-name>Remarks</formal-name>
+                <description>Additional commentary about the containing object.</description>
+            </define-field>                    
+        </model>
+
+    </define-assembly>
+
+</METASCHEMA>
