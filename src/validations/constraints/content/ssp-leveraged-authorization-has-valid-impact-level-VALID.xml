@@ -10,14 +10,14 @@
     <version>1.1</version>
     <oscal-version>1.1.2</oscal-version>
     <document-id scheme="https://example.com/identifiers">SSP-2024-002</document-id>
-    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="fedramp-3.0.0rc1-oscal-1.1.2"/>
-    <prop name="marking" value="cui"/>
+    <prop name="fedramp-version" ns="https://fedramp.gov/ns/oscal" value="3.0.0-rc1"/>    
+    <prop name="marking" value="cui"/>  
     <role id="authorizing-official">
       <title>Authorizing Official</title>
       <description>
         <p>Senior official with authority to formally assume responsibility for operating a system at an acceptable level of risk.</p>
       </description>
-    </role>
+    </role>  
     <role id="prepared-by">
       <title>Prepared By</title>
       <description>
