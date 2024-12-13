@@ -421,7 +421,7 @@ async function checkConstraints(
               `The content may need adjustment to properly test this constraint.`
           );
         }
-        !quiet && console.error(formatSarifOutput(sarifOutput))
+        !quiet && console.error(formatSarifOutput({version:"2.1.0",runs:[{tool:{driver:{name:"oscal-js"}},results:constraintResults}]}))
         errors.push(""); // Add a blank line for readability
       }
     }

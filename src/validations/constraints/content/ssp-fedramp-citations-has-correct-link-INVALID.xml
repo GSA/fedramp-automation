@@ -1,0 +1,13 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+  <back-matter>      
+    <!-- FedRAMP Laws -->
+    <resource uuid="11111111-2222-4000-8000-001000000003">
+      <title>FedRAMP Applicable Laws and Regulations</title>
+      <prop name="type" value="citation" class="fedramp-citations" />
+      <rlink href="https://example.com"/>
+      <remarks>
+        <p>Must be present in a FedRAMP SSP.</p>
+      </remarks>
+    </resource>
+    </back-matter>
+</system-security-plan>
