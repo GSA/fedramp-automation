@@ -48,6 +48,7 @@ Examples:
   | deployment-model |
   | external-system-nature-of-agreement |
   | extraneous-implemented-requirements |
+  | fedramp-citations-has-correct-link |
   | fedramp-version |
   | fully-operational-date-is-valid |
   | fully-operational-date-type |
@@ -75,6 +76,7 @@ Examples:
   | has-data-flow-diagram-link-rel-allowed-value |
   | has-data-flow-diagram-uuid |
   | has-federation-assurance-level |
+  | has-fedramp-citations |
   | has-fully-operational-date |
   | has-identity-assurance-level |
   | has-incident-response-plan |
@@ -212,6 +214,8 @@ Examples:
   | external-system-nature-of-agreement-PASS.yaml |
   | extraneous-implemented-requirements-FAIL.yaml |
   | extraneous-implemented-requirements-PASS.yaml |
+  | fedramp-citations-has-correct-link-FAIL.yaml |
+  | fedramp-citations-has-correct-link-PASS.yaml |
   | fedramp-version-FAIL.yaml |
   | fedramp-version-PASS.yaml |
   | fully-operational-date-is-valid-FAIL.yaml |
@@ -266,6 +270,8 @@ Examples:
   | has-data-flow-diagram-uuid-PASS.yaml |
   | has-federation-assurance-level-FAIL.yaml |
   | has-federation-assurance-level-PASS.yaml |
+  | has-fedramp-citations-FAIL.yaml |
+  | has-fedramp-citations-PASS.yaml |
   | has-fully-operational-date-FAIL.yaml |
   | has-fully-operational-date-PASS.yaml |
   | has-identity-assurance-level-FAIL.yaml |

@@ -127,10 +127,20 @@
     <context>
         <metapath target="/system-security-plan/back-matter"/>
         <constraints>
+            <expect id="fedramp-citations-has-correct-link" target="resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]" test="count(rlink[@href = 'https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx']) eq 1" level="ERROR">
+                <formal-name>FedRAMP Citations Has Correct Link</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-citations-and-attachments/"/>
+                <message>The FedRAMP Laws, Regulations, Standards and Guidance MUST be https://www.fedramp.gov/assets/resources/templates/FedRAMP-Laws-Regulations-Standards-and-Guidance-Reference.xlsx</message>
+            </expect>
             <expect id="has-configuration-management-plan" target="." test="exists(resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'configuration-management-plan']])" level="ERROR">
                 <formal-name>Has Configuration Management Plan</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/"/>
                 <message>A FedRAMP SSP MUST have a Configuration Management Plan attached.</message>
+            </expect>
+            <expect id="has-fedramp-citations" target="." test="count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']]) = 1" level="ERROR">
+                <formal-name>Has FedRAMP Citations Reference</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-citations-and-attachments/"/>
+                <message>A FedRAMP MUST be have exactly one resource with a link to the FedRAMP Laws, Regulations, Standards and Guidance, but {count(resource[prop[@name='type' and @value='citation' and @class='fedramp-citations']])} found.</message>
             </expect>
             <expect id="has-incident-response-plan" target="." test="exists(resource[prop[@name eq 'type' and @value eq 'plan' and @class eq 'incident-response-plan']])" level="ERROR">
                 <formal-name>Has Incident Response Plan</formal-name>
