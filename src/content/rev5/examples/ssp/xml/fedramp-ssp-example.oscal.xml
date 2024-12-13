@@ -1196,6 +1196,12 @@
          </prop>
 
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
+
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.3"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.3"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.3"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.3"/>
+
          <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
 
          <status state="operational"/>
@@ -1781,6 +1787,14 @@
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="database"/>
          <prop name="baseline-configuration-name" value="Baseline Config. Name"/>
          <prop name="allows-authenticated-scan" value="yes"/>
+
+
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.4"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.4"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.4"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.4"/>   
+
+
          <link href="#11111111-2222-4000-8000-009000500006" rel="used-by" />
          <status state="operational"/>
          <responsible-role role-id="admin">
@@ -2192,6 +2206,12 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
+
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.5"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.5"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.5"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.5"/>
+
          <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
          <!-- is-scanned prop applies to inventory-item (not component) -->
          <!-- <prop name="is-scanned" value="yes"/> -->
