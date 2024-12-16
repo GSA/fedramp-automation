@@ -100,8 +100,10 @@ Examples:
   | import-profile-has-available-document |
   | import-profile-resolves-to-fedramp-content |
   | incomplete-implemented-requirements |
+  | information-type |
   | information-type-800-60-v2r1 |
   | information-type-has-availability-impact |
+  | information-type-has-class |
   | information-type-has-confidentiality-impact |
   | information-type-has-integrity-impact |
   | information-type-system |
@@ -318,8 +320,12 @@ Examples:
   | import-profile-resolves-to-fedramp-content-PASS.yaml |
   | incomplete-implemented-requirements-FAIL.yaml |
   | incomplete-implemented-requirements-PASS.yaml |
+  | information-type-FAIL.yaml |
+  | information-type-PASS.yaml |
   | information-type-has-availability-impact-FAIL.yaml |
   | information-type-has-availability-impact-PASS.yaml |
+  | information-type-has-class-FAIL.yaml |
+  | information-type-has-class-PASS.yaml |
   | information-type-has-confidentiality-impact-FAIL.yaml |
   | information-type-has-confidentiality-impact-PASS.yaml |
   | information-type-has-integrity-impact-FAIL.yaml |

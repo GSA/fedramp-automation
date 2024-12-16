@@ -1,0 +1,9 @@
+test-case:
+  name: Positive Test for information-type-has-class
+  description: >-
+    This test case validates the behavior of constraint
+    information-type-has-class
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+    - constraint-id: information-type-has-class
+      result: pass

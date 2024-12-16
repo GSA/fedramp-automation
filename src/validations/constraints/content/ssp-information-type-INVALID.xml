@@ -1,0 +1,9 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+  <system-implementation>
+    <component uuid="11111111-2222-4000-8000-009000100001" type="system">
+      <!-- The information type props don't have one of the correct allowed-values (incoming/outgoing) -->
+      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="neither" value="C.3.5.1"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="neither" value="C.3.5.8"/>
+    </component>
+  </system-implementation>
+</system-security-plan>
