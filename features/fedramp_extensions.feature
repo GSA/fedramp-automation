@@ -91,6 +91,7 @@ Examples:
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-published-date |
+  | has-required-parameters |
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
@@ -302,6 +303,8 @@ Examples:
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
   | has-published-date-FAIL.yaml |
   | has-published-date-PASS.yaml |
+  | has-required-parameters-FAIL.yaml |
+  | has-required-parameters-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |
