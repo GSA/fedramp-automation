@@ -164,7 +164,8 @@ async function scaffoldTest(constraintId,context) {
             message: `Choose the content for the negative test:`,
             choices: [
                 { name: `Create new ${constraintId}-INVALID.xml`, value: 'new' },
-                { name: 'Select an existing content file to copy', value: 'select' }
+                { name: 'Select an existing content file to copy', value: 'select' },
+                { name: 'Point to an existing content file', value: 'point' }
             ]
         }
     ]);
@@ -256,7 +257,7 @@ async function scaffoldTest(constraintId,context) {
             fs.copyFileSync(templatePath, newInvalidPath);
             invalidContent = `../content/${model}-${constraintId}-INVALID.xml`;
         }
-    } else {
+    } else if (useTemplate === 'select') {
         const contentDir = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content');
         const contentFiles = fs.readdirSync(contentDir).filter(file => file.endsWith('.xml'));
         const { selectedContent } = await prompt([
@@ -277,6 +278,22 @@ async function scaffoldTest(constraintId,context) {
         console.log(`Created new ${model}-${constraintId}-INVALID.xml file based on ${selectedContent}`);
         
         invalidContent = `../content/${model}-${constraintId}-INVALID.xml`;
+    }
+    else {
+        const contentDir = path.join(__dirname, '..', '..', 'src', 'validations', 'constraints', 'content');
+        const contentFiles = fs.readdirSync(contentDir).filter(file => file.endsWith('.xml'));
+        const { selectedContent } = await prompt([
+            {
+                type: 'list',
+                name: 'selectedContent',
+                message: 'Select an existing content file to point to:',
+                choices: contentFiles
+            }
+        ]);
+        const selectedContentPath = path.join(contentDir, selectedContent);
+        const selectedContentTarget = selectedContentPath.split("/").pop();
+        console.log(`Pointed invalid test for ${constraintId} to ${selectedContentTarget}`);
+        invalidContent = `../content/${selectedContentTarget}`;
     }
 
     const positivetestCase = {
