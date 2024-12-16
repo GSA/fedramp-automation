@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for has-procedure
+  description: This test case validates the behavior of constraint has-procedure
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+    - constraint-id: has-procedure
+      result: pass

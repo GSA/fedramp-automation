@@ -1,0 +1,260 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+  <system-implementation>
+    <component uuid="11111111-2222-4000-8000-009000000000" type="this-system">
+    </component>
+    <!-- <component uuid="11111111-2222-4000-8000-009000600001" type="policy">
+    </component> (AC) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800001" type="process-procedure">
+    </component> (AC) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600002" type="policy">
+    </component> (AT) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800002" type="process-procedure">
+    </component> (AT) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600003" type="policy">
+    </component> (AU) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800003" type="process-procedure">
+    </component> (AU) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600004" type="policy">
+    </component> (CA) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800004" type="process-procedure">
+    </component> (CA) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600005" type="policy">
+    </component> (CM) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800005" type="process-procedure">
+    </component> (CM) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600006" type="policy">
+    </component> (CP) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800006" type="process-procedure">
+    </component> (CP) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600007" type="policy">
+    </component> (IA) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800007" type="process-procedure">
+    </component> (IA) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600008" type="policy">
+    </component> (IR) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800008" type="process-procedure">
+    </component> (IR) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600009" type="policy">
+    </component> (MA) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800009" type="process-procedure">
+    </component> (MA) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600010" type="policy">
+    </component> (MP) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800010" type="process-procedure">
+    </component> (MP) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600011" type="policy">
+    </component> (PE) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800011" type="process-procedure">
+    </component> (PE) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600012" type="policy">
+    </component> (PL) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800012" type="process-procedure">
+    </component> (PL) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600014" type="policy">
+    </component> (PS) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800014" type="process-procedure">
+    </component> (PS) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600016" type="policy">
+    </component> (RA) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800016" type="process-procedure">
+    </component> (RA) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600017" type="policy">
+    </component> (SA) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800017" type="process-procedure">
+    </component> (SA) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600018" type="policy">
+    </component> (SC) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800018" type="process-procedure">
+    </component> (SC) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600019" type="policy">
+    </component> (SI) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800019" type="process-procedure">
+    </component> (SI) No component that has matching uuid and a type of "process-procedure".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000600020" type="policy">
+    </component> (SR) No component that has matching uuid and a type of "policy".-->
+    <!-- <component uuid="11111111-2222-4000-8000-009000800020" type="process-procedure">
+    </component> (SR) No component that has matching uuid and a type of "process-procedure".-->
+  </system-implementation>
+  <control-implementation>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000001" control-id="ac-1">
+      <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-012000010100">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-012000010101">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600001" uuid="11111111-2222-4000-8000-012000010102">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800001" uuid="11111111-2222-4000-8000-012000010103">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000003" control-id="at-1">
+      <statement statement-id="at-1_smt.a" uuid="11111111-2222-4000-8000-013000000008">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000012">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600002" uuid="11111111-2222-4000-8000-014000000013">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800002" uuid="11111111-2222-4000-8000-014000000014">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000004" control-id="au-1">
+      <statement statement-id="au-1_smt.a" uuid="11111111-2222-4000-8000-013000000012">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000018">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600003" uuid="11111111-2222-4000-8000-014000000019">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800003" uuid="11111111-2222-4000-8000-014000000020">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="ca-1">
+      <statement statement-id="ca-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600004" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800004" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="cm-1">
+      <statement statement-id="cm-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600005" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800005" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="cp-1">
+      <statement statement-id="cp-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600006" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800006" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="ia-1">
+      <statement statement-id="ia-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600007" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800007" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="ir-1">
+      <statement statement-id="ir-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600008" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800008" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="ma-1">
+      <statement statement-id="ma-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600009" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800009" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="mp-1">
+      <statement statement-id="mp-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600010" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800010" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="pe-1">
+      <statement statement-id="pe-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600011" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800011" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="pl-1">
+      <statement statement-id="pl-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600012" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800012" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="ps-1">
+      <statement statement-id="ps-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600014" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800014" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="ra-1">
+      <statement statement-id="ra-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600016" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800016" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="sa-1">
+      <statement statement-id="sa-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600017" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800017" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="sc-1">
+      <statement statement-id="sc-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600018" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800018" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="si-1">
+      <statement statement-id="si-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600019" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800019" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000005" control-id="sr-1">
+      <statement statement-id="sr-1_smt.a" uuid="11111111-2222-4000-8000-013000000016">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000024">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000600020" uuid="11111111-2222-4000-8000-014000000025">
+        </by-component>
+        <by-component component-uuid="11111111-2222-4000-8000-009000800020" uuid="11111111-2222-4000-8000-014000000026">
+        </by-component>
+      </statement>
+    </implemented-requirement>
+  </control-implementation>
+</system-security-plan>

@@ -90,6 +90,8 @@ Examples:
   | has-network-architecture-diagram-link-href-target |
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
+  | has-policy |
+  | has-procedure |
   | has-published-date |
   | has-rules-of-behavior |
   | has-security-impact-level |
@@ -299,6 +301,10 @@ Examples:
   | has-network-architecture-diagram-link-rel-PASS.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-FAIL.yaml |
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
+  | has-policy-FAIL.yaml |
+  | has-policy-PASS.yaml |
+  | has-procedure-FAIL.yaml |
+  | has-procedure-PASS.yaml |
   | has-published-date-FAIL.yaml |
   | has-published-date-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
