@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for information-type
+  description: This test case validates the behavior of constraint information-type
+  content: ../content/ssp-information-type-INVALID.xml
+  expectations:
+    - constraint-id: information-type
+      result: fail

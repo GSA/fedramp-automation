@@ -922,8 +922,8 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
          <status state="operational"/>
 
          <responsible-role role-id="provider">
@@ -1028,8 +1028,8 @@
          </description>
          <prop name="leveraged-authorization-uuid" value="11111111-2222-4000-8000-019000000001"/>
          <prop name="implementation-point" value="external"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001"/>
          <status state="operational"/>
          <responsible-role role-id="administrator">
@@ -1099,8 +1099,8 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8" />
          <prop name="poam-item-uuid" ns="https://fedramp.gov/ns/oscal" value="11111111-3333-4000-8000-000000000001" />
          <prop name="poam-id" ns="https://fedramp.gov/ns/oscal" value="ID-0001" />
          <link rel="provided-by" href="#11111111-2222-4000-8000-009000100001" />
@@ -1277,8 +1277,8 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="soc-2-type-1"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="pci-dss"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="compliance" value="iso-27001"/>
@@ -1422,8 +1422,8 @@
                <p>If 'not-applicable', attest explain why authentication is not applicable in the remarks.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/>
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001">
             <remarks>
                <p>This can only be known if provided by the leveraged system.

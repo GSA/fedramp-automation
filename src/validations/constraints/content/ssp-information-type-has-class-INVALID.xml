@@ -1,0 +1,13 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+  <system-implementation>
+    <component uuid="11111111-2222-4000-8000-009000100001" type="system">
+      <!-- 
+      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="incoming" value="C.3.5.1"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" class="outgoing" value="C.3.5.8"/> 
+      -->
+      <!-- The information-type props are missing the @class attribute. -->
+      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.1"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="information-type" value="C.3.5.8"/>
+    </component>
+  </system-implementation>
+</system-security-plan>
