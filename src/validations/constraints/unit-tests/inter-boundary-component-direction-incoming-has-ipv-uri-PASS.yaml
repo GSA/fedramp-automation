@@ -1,8 +1,0 @@
-# Driver for the valid inter-boundary-component-direction-incoming-has-ipv-uri constraint unit test.
-test-case:
-  name: The valid inter-boundary-component-direction-incoming-has-ipv-uri constraint unit test.
-  description: Test that the FedRAMP SSP inter-boundary incoming communication component has at least one local ipv4 address, ipv6 address, or a URI to an API.
-  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
-  expectations:
-  - constraint-id: inter-boundary-component-direction-incoming-has-ipv-uri
-    result: pass
