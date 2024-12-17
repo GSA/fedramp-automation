@@ -639,6 +639,11 @@
     <context>
         <metapath target="/system-security-plan/control-implementation/implemented-requirement/statement/by-component"/>
         <constraints>
+            <expect id="by-component-has-responsible-role" target="." test="count(responsible-role) >= 1" level="ERROR">
+                <formal-name>By Component Has Responsible Role</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#responsible-roles-and-parameter-assignments"/>
+                <message>In a FedRAMP SSP, each by-component MUST have at least one responsible role.</message>
+            </expect>
             <expect id="implementation-status-has-remarks" target="implementation-status[@state=('partial', 'planned', 'alternative', 'not-applicable' )]" test="exists(remarks)" level="ERROR">
                 <formal-name>Implementation Status Has Remarks</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#implementation-status"/>
