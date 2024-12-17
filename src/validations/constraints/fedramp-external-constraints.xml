@@ -647,6 +647,17 @@
     </context>
 
     <context>
+        <metapath target="/system-security-plan/control-implementation/implemented-requirement/statement/by-component"/>
+        <constraints>
+            <expect id="implementation-status-has-remarks" target="implementation-status[@state=('partial', 'planned', 'alternative', 'not-applicable' )]" test="exists(remarks)" level="ERROR">
+                <formal-name>Implementation Status Has Remarks</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#implementation-status"/>
+                <message>In a FedRAMP SSP, each by-component that is not implemented MUST have remarks to provide context.</message>
+            </expect>
+        </constraints>
+    </context>
+
+    <context>
         <metapath target="/system-security-plan/system-characteristics/authorization-boundary/diagram/link"/>
         <constraints>
             <let var="authorization-boundary-href" expression=".[@rel='diagram']/@href"/>
