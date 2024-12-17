@@ -143,6 +143,7 @@ Examples:
   | scan-type |
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
+  | statement-has-this-system-component |
   | unique-inventory-item-asset-id |
   | used-by-link-references-component |
   | user-authentication |
@@ -405,6 +406,8 @@ Examples:
   | security-level-PASS.yaml |
   | security-sensitivity-level-matches-security-impact-level-FAIL.yaml |
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
+  | statement-has-this-system-component-FAIL.yaml |
+  | statement-has-this-system-component-PASS.yaml |
   | unique-inventory-item-asset-id-FAIL.yaml |
   | unique-inventory-item-asset-id-PASS.yaml |
   | used-by-link-references-component-FAIL.yaml |

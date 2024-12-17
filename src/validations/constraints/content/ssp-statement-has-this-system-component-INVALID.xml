@@ -1,0 +1,14 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+  <system-implementation>
+    <component uuid="11111111-2222-4000-8000-009000000000" type="this-system">
+    </component>
+  </system-implementation>
+  <control-implementation>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000001" control-id="ac-1">
+      <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
+        <!-- <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000001">
+        </by-component> Missing "this-system" by-component.-->
+      </statement>
+    </implemented-requirement>
+  </control-implementation>
+</system-security-plan>
