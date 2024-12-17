@@ -553,7 +553,7 @@
                 <message>In a FedRAMP SSP, each information type property in a component MUST categorize the class of data flow as incoming to the system, outgoing from the system, or both.</message>
             </expect>
             <expect id="inter-boundary-component-direction-incoming-has-ipv-uri" target="$inter-boundary-component" test="if (prop[@name='direction' and @value='incoming']) then exists(prop[@class='local' and @name=('ipv4-address','ipv6-address')]) or exists(link[@rel='uri']) else true()" level="ERROR">
-               <formal-name>Inter-Boundary Incoming Communication Direction Has an IPV Address or a URI</formal-name>
+               <formal-name>Inter-Boundary Incoming Communication Direction Has an IP Address or a URI</formal-name>
                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
                <message>Component {@uuid} ({path(.)}) MUST have at least one local ipv4 address, ipv6 address, or a URI to an API.</message>
             </expect>
