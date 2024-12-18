@@ -26,6 +26,7 @@ Examples:
 | constraint_id |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
   | address-type |
+  | aggregate-parameters-warning |
   | attachment-type |
   | authentication-method-has-remarks |
   | authorization-type |
@@ -173,6 +174,8 @@ Examples:
 #BEGIN_DYNAMIC_TEST_CASES
   | address-type-FAIL.yaml |
   | address-type-PASS.yaml |
+  | aggregate-parameters-warning-FAIL.yaml |
+  | aggregate-parameters-warning-PASS.yaml |
   | attachment-type-FAIL.yaml |
   | attachment-type-PASS.yaml |
   | authentication-method-has-remarks-FAIL.yaml |

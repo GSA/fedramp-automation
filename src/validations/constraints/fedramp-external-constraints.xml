@@ -62,7 +62,8 @@
             <let var="resolved-profile" expression="if ($profile-is-available) then resolve-profile(doc(resolve-uri($resolved-import-profile-href)))//catalog else //catalog"/>
             <let var="imported-controls-map" expression="map:merge($resolved-profile//control ! map:entry(@id,.))?*"/>
             <let var="implemented-requirements-map" expression="map:merge(//implemented-requirement ! map:entry(@control-id,.))?*"/>          
-            <let var="required-parameters-map" expression="map:merge($resolved-profile//param ! map:entry(@id,.))?*"/>          
+            <let var="required-parameters-map" expression="map:merge($resolved-profile//param[not(prop[@name='aggregates'])] ! map:entry(@id,.))?*"/>          
+            <let var="aggregate-parameters" expression="$resolved-profile//param[prop[@name='aggregates']]/@id"/>
             <let var="implemented-parameters-map" expression="map:merge(//set-parameter ! map:entry(@param-id,.))?*"/>          
             <index name="index-implemented-parameters" target="$implemented-parameters-map">
                 <formal-name>Parameters Implemented in SSP</formal-name>
@@ -80,6 +81,11 @@
                 <key-field target="@id"/>
                 <message>All parameters defined in the baseline MUST have corresponding set-parameter values in the SSP. Missing parameter: ({@id}).</message>
             </index-has-key>
+            <expect id="aggregate-parameters-warning" target="//set-parameter" test="every $param in $aggregate-parameters satisfies @param-id != $param" level="WARNING">
+                <formal-name>No Aggregate Parameters in SSP</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#responsible-roles-and-parameter-assignments"/>
+                <message>A FedRAMP SSP MUST NOT set aggregate parameters directly. Parameter {@param-id} is an aggregate parameter that should not be set in the SSP.</message>
+            </expect>
             <expect id="component-has-authentication-method" target="//component[(@type='system' and prop[@name='leveraged-authorization-uuid']) or (@type='interconnection') or (@type=('service', 'software') and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type=('service', 'software') and prop[@name='implementation-point' and @value='internal'] and prop[@name='communicates-externally' and @value='yes' and @ns='https://fedramp.gov/ns/oscal'])]" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']) >= 1" level="ERROR">
                 <formal-name>Component Has Authentication Method</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
