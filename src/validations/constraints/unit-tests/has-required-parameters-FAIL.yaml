@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for required-parameters
+  description: This test case validates the behavior of constraint required-parameters
+  content: ../content/ssp-has-required-parameters-INVALID.xml
+  expectations:
+    - constraint-id: has-required-parameters
+      result: fail

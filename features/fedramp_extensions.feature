@@ -26,6 +26,7 @@ Examples:
 | constraint_id |
 #BEGIN_DYNAMIC_CONSTRAINT_IDS
   | address-type |
+  | aggregate-parameters-warning |
   | attachment-type |
   | authentication-method-has-remarks |
   | authorization-type |
@@ -91,6 +92,7 @@ Examples:
   | has-network-architecture-diagram-link-rel |
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-published-date |
+  | has-required-parameters |
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
@@ -171,6 +173,8 @@ Examples:
 #BEGIN_DYNAMIC_TEST_CASES
   | address-type-FAIL.yaml |
   | address-type-PASS.yaml |
+  | aggregate-parameters-warning-FAIL.yaml |
+  | aggregate-parameters-warning-PASS.yaml |
   | attachment-type-FAIL.yaml |
   | attachment-type-PASS.yaml |
   | authentication-method-has-remarks-FAIL.yaml |
@@ -301,6 +305,8 @@ Examples:
   | has-network-architecture-diagram-link-rel-allowed-value-PASS.yaml |
   | has-published-date-FAIL.yaml |
   | has-published-date-PASS.yaml |
+  | has-required-parameters-FAIL.yaml |
+  | has-required-parameters-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |

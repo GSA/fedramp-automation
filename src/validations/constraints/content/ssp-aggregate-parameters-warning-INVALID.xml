@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+     <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml"/>
+     <control-implementation>
+     <description></description>
+         <implemented-requirement uuid="11111111-2222-4000-8000-012000000001" control-id="unsupported-id">
+            <prop name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system"/>
+            <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
+            <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
+            <set-parameter param-id="ac-1_prm_1">
+                <value>organization-defined personnel or roles</value>
+            </set-parameter>
+                        <set-parameter param-id="mp-2_prm_2">
+                <value>Chief Information Security Officer, Information System Security Officers, and System Administrators</value>
+            </set-parameter>
+            <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000001">
+                    <description>
+                        <p>Describe how Part a is satisfied within the system.</p>
+                        <p>Legacy approach. If no policy component is defined, describe here how the policy satisfies part a.</p>
+                        <p>In this case, a link must be provided to the policy.</p>
+                        <p>FedRAMP prefers all policies and procedures be attached as a resource in the back-matter. The link points to a resource.</p>
+                    </description>
+                    <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
+                    <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
+                    <implementation-status state="operational"/>
+                    <remarks>
+                        <p>The specified component is the system itself.</p>
+                        <p>Any control implementation response that can not be associated with another component is associated with the component representing the system.</p>
+                    </remarks>
+                </by-component>
+                <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000002">
+                    <description>
+                        <p>Describe how this policy component satisfies part a.</p>
+                        <p>Component approach. This links to a component representing the Identity Management and Access Control Policy.</p>
+                        <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
+                    </description>
+                    <implementation-status state="operational"/>
+                </by-component>
+            </statement>
+            <statement statement-id="ac-1_smt.a.2" uuid="11111111-2222-4000-8000-013000000002">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000003">
+                    <description>
+                        <p>There</p>
+                    </description>
+                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z"/>
+                    <implementation-status state="partial">
+                        <remarks>
+                            <p>Describe the plan to complete the implementation.</p>
+                        </remarks>
+                    </implementation-status>
+                </by-component>
+                <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000004">
+                    <description>
+                        <p>Describe how this policy currently satisfies part a.</p>
+                    </description>
+                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z">
+                        <remarks>
+                            <p>Describe the plan for addressing the missing policy elements.</p>
+                        </remarks>
+                    </prop>
+                    <implementation-status state="partial">
+                        <remarks>
+                            <p>Identify what is currently missing from this policy.</p>
+                        </remarks>
+                    </implementation-status>
+                </by-component>
+            </statement>
+            <statement statement-id="ac-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000003">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000005">
+                    <description>
+                        <p>Describe how Part b-1 is satisfied.</p>
+                    </description>
+                    <implementation-status state="operational"/>
+                </by-component>
+            </statement>
+            <statement statement-id="ac-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000004">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000006">
+                    <description>
+                        <p>Describe how Part b-2 is satisfied.</p>
+                    </description>
+                    <implementation-status state="operational"/>
+                </by-component>
+            </statement>
+        </implemented-requirement>
+    </control-implementation>
+</system-security-plan>

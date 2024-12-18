@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://github.com/usnistgov/OSCAL/releases/download/v1.1.3/oscal_ssp_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+   <metadata/>
+   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
+        <remarks>
+            <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official
+            FedRAMP 3.0.0 release.</p>
+            <p>Must adjust accordingly for applicable baseline and revision.</p>
+        </remarks>
+    </import-profile>
+    <system-characteristics>
+        <!-- Section 3 - System Information -->
+        <!-- Table 3.1 Information System Name and Title -->
+        <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
+        <system-name>System's Full Name</system-name>
+        <system-name-short>System's Short Name or Acronym</system-name-short>
+        <!-- General System Description -->
+        <description>
+            <p>[Insert CSO Name] is delivered as [a/an] [insert based on the Service Model above]
+            offering using a multi-tenant [insert based on the Deployment Model above] cloud
+            computing environment. It is available to [Insert scope of customers in accordance with
+            instructions above (for example, the public, federal, state, local, and tribal
+            governments, as well as research institutions, federal contractors, government
+            contractors etc.)].</p>
+            <p>NOTE: Additional description, including the purpose and functions of this system may be
+            added here. This includes any narrative text usually included in section 9.1 of the
+            SSP.</p>
+            <p>NOTE: The description is expected to be at least 32 words in length.</p>
+        </description>
+        <!-- Service & Deployment Model -->
+        <prop name="cloud-service-model" value="saas">
+            <remarks>
+                <p>Remarks are required if service model is "other". Optional otherwise.</p>
+            </remarks>
+        </prop>
+        <prop name="cloud-deployment-model" value="government-only-cloud">
+            <!-- Rev5 update - switch to core prop -->
+            <remarks>
+                <p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional
+               otherwise.</p>
+            </remarks>
+        </prop>
+        <!-- Digital Identity Level (DIL) Determination -->
+        <!-- 1 = low, 2= moderate, 3 = high  -->
+        <prop name="identity-assurance-level" value="2"/>
+        <prop name="authenticator-assurance-level" value="2"/>
+        <prop name="federation-assurance-level" value="2"/>
+        <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
+        <!-- Rev5 update - new prop -->
+        <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
+        <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+        <!-- FIPS PUB 199 Level -->
+        <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+        <system-information>
+            <!-- Rev5 update - PIA/PTAs are no longer required by FedRAMP -->
+            <!-- Table K.1 - Use the information-type element to provide details about all information types that are stored, processed, or transmitted by the system -->
+            <information-type uuid="11111111-2222-4000-8000-006000000001">
+                <title>Information Type Name</title>
+                <description>
+                    <p>A description of the information.</p>
+                </description>
+                <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                    <information-type-id>C.2.4.1</information-type-id>
+                </categorization>
+                <confidentiality-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-moderate</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </confidentiality-impact>
+                <integrity-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-low</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </integrity-impact>
+                <availability-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-moderate</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </availability-impact>
+            </information-type>
+            <information-type uuid="11111111-2222-4000-8000-006000000002">
+                <title>Information Type Name</title>
+                <description>
+                    <p>A description of the information.</p>
+                </description>
+                <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                    <information-type-id>C.3.5.1</information-type-id>
+                </categorization>
+                <confidentiality-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-low</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </confidentiality-impact>
+                <integrity-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-moderate</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </integrity-impact>
+                <availability-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-high</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </availability-impact>
+            </information-type>
+            <information-type uuid="11111111-2222-4000-8000-006000000003">
+                <title>Information Type Name</title>
+                <description>
+                    <p>A description of the information.</p>
+                </description>
+                <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                    <information-type-id>C.3.5.8</information-type-id>
+                </categorization>
+                <confidentiality-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-moderate</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </confidentiality-impact>
+                <integrity-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-moderate</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </integrity-impact>
+                <availability-impact>
+                    <base>fips-199-moderate</base>
+                    <selected>fips-199-moderate</selected>
+                    <adjustment-justification>
+                        <p>Required if the base and selected values do not match.</p>
+                    </adjustment-justification>
+                </availability-impact>
+            </information-type>
+
+
+        </system-information>
+        <!-- Security Impact Level -->
+        <security-impact-level>
+            <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
+            <security-objective-integrity>fips-199-moderate</security-objective-integrity>
+            <security-objective-availability>fips-199-moderate</security-objective-availability>
+        </security-impact-level>
+
+        <!-- Fully Operational as of -->
+        <status state="operational">
+            <remarks>
+                <p>Remarks are optional if status/state is "operational".</p>
+                <p>Remarks are required otherwise.</p>
+            </remarks>
+        </status>
+
+        <!-- Section 8 - Illustrated Architecture and Narrative -->
+        <authorization-boundary>
+            <!-- Section 8.2 Narrative (boundary) -->
+            <description>
+                <p>A holistic, top-level explanation of the FedRAMP authorization boundary.</p>
+            </description>
+            <!-- Section 8.1 Illustrated Architecture (boundary diagram) -->
+            <diagram uuid="11111111-2222-4000-8000-007000000001">
+                <description>
+                    <p>A diagram-specific explanation.</p>
+                </description>
+                <link href="#11111111-2222-4000-8000-001000000054" rel="diagram"/>
+                <caption>Authorization Boundary Diagram</caption>
+            </diagram>
+        </authorization-boundary>
+        <network-architecture>
+            <!-- Section 8.2 Narrative (network) -->
+            <description>
+                <p>A holistic, top-level explanation of the network architecture.</p>
+            </description>
+            <!-- Section 8.1 Illustrated Architecture (network diagram) -->
+            <diagram uuid="11111111-2222-4000-8000-007000000002">
+                <description>
+                    <p>A diagram-specific explanation.</p>
+                </description>
+                <link href="#11111111-2222-4000-8000-001000000055" rel="diagram"/>
+                <caption>Network Diagram</caption>
+            </diagram>
+        </network-architecture>
+        <data-flow>
+            <!-- Section 8.2 Narrative (data flows) -->
+            <description>
+                <p>A holistic, top-level explanation of the system's data flows.</p>
+            </description>
+            <!-- Section 8.1 Illustrated Architecture (data flows) -->
+            <diagram uuid="11111111-2222-4000-8000-007000000003">
+                <description>
+                    <p>A diagram-specific explanation.</p>
+                </description>
+                <link href="#11111111-2222-4000-8000-001000000056" rel="diagram"/>
+                <caption>Data Flow Diagram</caption>
+            </diagram>
+        </data-flow>
+    </system-characteristics>
+    <!-- Appendix A - FedRAMP Security Controls (in the rev 5 SSP template, control implementations go in appendix A) -->
+    <!-- 
+      NOTE: A FedRAMP SSP must implement all controls from the corresponding baseline.  This template is only 
+      a nominal example and does not pass FedRAMP schematron validations due to many controls being omitted.  
+      SSP authors must add implmentations for all required controls.
+   -->
+    <control-implementation>
+        <description>
+            <p>Appendix A - FedRAMP SSP Rev5 Template</p>
+            <p>This description field is required by OSCAL.</p>
+            <p>FedRAMP does not require any specific information here.</p>
+        </description>
+        <implemented-requirement uuid="11111111-2222-4000-8000-012000000001" control-id="ac-1">
+            <prop name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system"/>
+            <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
+            <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>           
+            <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000001">
+                    <description>
+                        <p>Describe how Part a is satisfied within the system.</p>
+                        <p>Legacy approach. If no policy component is defined, describe here how the policy satisfies part a.</p>
+                        <p>In this case, a link must be provided to the policy.</p>
+                        <p>FedRAMP prefers all policies and procedures be attached as a resource in the back-matter. The link points to a resource.</p>
+                    </description>
+                    <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
+                    <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
+                    <implementation-status state="operational"/>
+                    <remarks>
+                        <p>The specified component is the system itself.</p>
+                        <p>Any control implementation response that can not be associated with another component is associated with the component representing the system.</p>
+                    </remarks>
+                </by-component>
+                <by-component component-uuid="11111111-2222-4000-8000-009000000012" uuid="11111111-2222-4000-8000-014000000002">
+                    <description>
+                        <p>Describe how this policy component satisfies part a.</p>
+                        <p>Component approach. This links to a component representing the Identity Management and Access Control Policy.</p>
+                        <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
+                    </description>
+                    <implementation-status state="operational"/>
+                </by-component>
+            </statement>
+            <statement statement-id="ac-1_smt.a.2" uuid="11111111-2222-4000-8000-013000000002">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000003">
+                    <description>
+                        <p>There</p>
+                    </description>
+                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z"/>
+                    <implementation-status state="partial">
+                        <remarks>
+                            <p>Describe the plan to complete the implementation.</p>
+                        </remarks>
+                    </implementation-status>
+                </by-component>
+                <by-component component-uuid="11111111-2222-4000-8000-009000000013" uuid="11111111-2222-4000-8000-014000000004">
+                    <description>
+                        <p>Describe how this policy currently satisfies part a.</p>
+                    </description>
+                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z">
+                        <remarks>
+                            <p>Describe the plan for addressing the missing policy elements.</p>
+                        </remarks>
+                    </prop>
+                    <implementation-status state="partial">
+                        <remarks>
+                            <p>Identify what is currently missing from this policy.</p>
+                        </remarks>
+                    </implementation-status>
+                </by-component>
+            </statement>
+            <statement statement-id="ac-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000003">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000005">
+                    <description>
+                        <p>Describe how Part b-1 is satisfied.</p>
+                    </description>
+                    <implementation-status state="operational"/>
+                </by-component>
+            </statement>
+            <statement statement-id="ac-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000004">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000006">
+                    <description>
+                        <p>Describe how Part b-2 is satisfied.</p>
+                    </description>
+                    <implementation-status state="operational"/>
+                </by-component>
+            </statement>
+        </implemented-requirement>
+    </control-implementation>
+    <!-- SSP Attachments -->
+</system-security-plan>
