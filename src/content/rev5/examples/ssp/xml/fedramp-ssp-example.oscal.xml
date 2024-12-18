@@ -561,7 +561,6 @@
 
 
    </metadata>
-   <!-- <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/refs/heads/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml"> -->
    <import-profile href="../../../baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official
@@ -1198,10 +1197,10 @@
 
          <prop name="inherited-uuid" value="22222222-0000-4000-9001-009000000001" />
 
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.3"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.3"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.3"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.3"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.3"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.3"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.3"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.3"/>
 
          <link rel="used-by" href="#11111111-2222-4000-8000-009000000000"/>
 
@@ -1790,10 +1789,10 @@
          <prop name="allows-authenticated-scan" value="yes"/>
 
 
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.4"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.4"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.4"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.4"/>   
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.4"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.4"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.4"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.4"/>   
 
 
          <link href="#11111111-2222-4000-8000-009000500006" rel="used-by" />
@@ -2208,10 +2207,10 @@
             </remarks>
          </prop>
 
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.5"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.5"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.5"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.5"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="local" value="10.1.1.5"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="local" value="::ffff:10.1.1.5"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv4-address" class="remote" value="10.2.2.5"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="ipv6-address" class="remote" value="::ffff:10.2.2.5"/>
 
          <link href="#11111111-2222-4000-8000-009000500005" rel="used-by" />
          <!-- is-scanned prop applies to inventory-item (not component) -->
