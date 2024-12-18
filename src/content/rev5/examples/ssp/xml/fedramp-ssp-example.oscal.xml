@@ -2468,7 +2468,7 @@
                     </description>
                     <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
                     <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
-                    <implementation-status state="operational"/>
+                    <implementation-status state="implemented"/>
                     <remarks>
                         <p>The specified component is the system itself.</p>
                         <p>Any control implementation response that can not be associated with another component is associated with the component representing the system.</p>
@@ -2480,7 +2480,7 @@
                         <p>Component approach. This links to a component representing the Identity Management and Access Control Policy.</p>
                         <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
                     </description>
-                    <implementation-status state="operational"/>
+                    <implementation-status state="implemented"/>
                 </by-component>
             </statement>
             <statement statement-id="ac-1_smt.a.2" uuid="11111111-2222-4000-8000-013000000002">
@@ -2516,7 +2516,7 @@
                     <description>
                         <p>Describe how Part b-1 is satisfied.</p>
                     </description>
-                    <implementation-status state="operational"/>
+                    <implementation-status state="implemented"/>
                 </by-component>
             </statement>
             <statement statement-id="ac-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000004">
@@ -2524,7 +2524,7 @@
                     <description>
                         <p>Describe how Part b-2 is satisfied.</p>
                     </description>
-                    <implementation-status state="operational"/>
+                    <implementation-status state="implemented"/>
                 </by-component>
             </statement>
         </implemented-requirement>
