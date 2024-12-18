@@ -939,10 +939,10 @@
             <origin>
                <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
-            <facet name="impact" system="https://fedramp.gov" value="high">
+            <facet name="impact" system="http://fedramp.gov/ns/oscal" value="high">
                <prop name="state" value="initial"/>
             </facet>
-            <facet name="likelihood" system="https://fedramp.gov" value="moderate">
+            <facet name="likelihood" system="http://fedramp.gov/ns/oscal" value="moderate">
                <prop name="state" value="initial"/>
             </facet>
          </characterization>
@@ -979,10 +979,10 @@
             <origin>
                <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
-            <facet name="impact" system="https://fedramp.gov" value="moderate">
+            <facet name="impact" system="http://fedramp.gov/ns/oscal" value="moderate">
                <prop name="state" value="initial"/>
             </facet>
-            <facet name="likelihood" system="https://fedramp.gov" value="low">
+            <facet name="likelihood" system="http://fedramp.gov/ns/oscal" value="low">
                <prop name="state" value="initial"/>
             </facet>
          </characterization>
@@ -1025,16 +1025,16 @@
             <facet name="cve-id" system="http://cve.mitre.org" value="CVE-2020-00000"/>
             <facet name="impact" system="http://csrc.nist.gov/ns/oscal/unknown" value="high"/>
             <facet name="attack-vector" system="http://www.first.org/cvss/v3.1" value="network"/>
-            <facet name="likelihood" system="https://fedramp.gov" value="high">
+            <facet name="likelihood" system="http://fedramp.gov/ns/oscal" value="high">
                <prop name="state" value="initial"/>
             </facet>
-            <facet name="impact" system="https://fedramp.gov" value="high">
+            <facet name="impact" system="http://fedramp.gov/ns/oscal" value="high">
                <prop name="state" value="initial"/>
             </facet>
-            <facet name="likelihood" system="https://fedramp.gov" value="moderate">
+            <facet name="likelihood" system="http://fedramp.gov/ns/oscal" value="moderate">
                <prop name="state" value="adjusted"/>
             </facet>
-            <facet name="impact" system="https://fedramp.gov" value="moderate">
+            <facet name="impact" system="http://fedramp.gov/ns/oscal" value="moderate">
                <prop name="state" value="adjusted"/>
             </facet>
          </characterization>
@@ -1102,10 +1102,10 @@
             <origin>
                <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
-            <facet name="likelihood" system="https://fedramp.gov" value="high">
+            <facet name="likelihood" system="http://fedramp.gov/ns/oscal" value="high">
                <prop name="state" value="initial"/>
             </facet>
-            <facet name="impact" system="https://fedramp.gov" value="high">
+            <facet name="impact" system="http://fedramp.gov/ns/oscal" value="high">
                <prop name="state" value="initial"/>
             </facet>
          </characterization>

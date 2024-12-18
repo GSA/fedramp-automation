@@ -127,7 +127,7 @@
          <p>If no OSCAL-based SSP exists, this must be a URI fragment pointing to a special back-matter resource. The resource must include the <code>no-oscal-ssp</code> conformity tag.</p>
       </remarks>
    </import-ssp>
-   <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
+   <system-id identifier-type="http://fedramp.gov/ns/oscal">F00000000</system-id>
    <local-definitions>
       <component uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e" type="software">
          <title>XYZ Vulnerability Scanning Tool</title>
