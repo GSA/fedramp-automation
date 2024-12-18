@@ -10,8 +10,8 @@
           <p>Secure connection to an external API for data enrichment.</p>
         </description>
         <!--Error: connection-security property not defined for an interconnection component-->
-        <!-- <prop name="connection-security" value="vpn" ns="https://fedramp.gov/ns/oscal"/> -->
-        <prop name="direction" value="incoming" ns="https://fedramp.gov/ns/oscal"/>
+        <!-- <prop name="connection-security" value="vpn" ns="http://fedramp.gov/ns/oscal"/> -->
+        <prop name="direction" value="incoming" ns="http://fedramp.gov/ns/oscal"/>
         <status state="operational"/>
         <responsible-role role-id="system-admin">
           <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
