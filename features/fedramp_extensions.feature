@@ -97,6 +97,7 @@ Examples:
   | has-system-id |
   | has-system-name-short |
   | has-user-guide |
+  | implementation-status-has-remarks |
   | import-profile-has-available-document |
   | import-profile-resolves-to-fedramp-content |
   | incomplete-implemented-requirements |
@@ -312,6 +313,8 @@ Examples:
   | has-system-name-short-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
+  | implementation-status-has-remarks-FAIL.yaml |
+  | implementation-status-has-remarks-PASS.yaml |
   | import-profile-has-available-document-FAIL.yaml |
   | import-profile-has-available-document-PASS.yaml |
   | import-profile-resolves-to-fedramp-content-FAIL.yaml |

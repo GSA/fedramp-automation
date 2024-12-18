@@ -1,0 +1,15 @@
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="11111111-2222-4000-8000-000000000000">
+  <control-implementation>
+    <implemented-requirement uuid="11111111-2222-4000-8000-012000000001" control-id="ac-1">
+      <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
+        <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000001">
+          <implementation-status state="planned"/>
+          <!-- <remarks>
+            <p>The specified component is the system itself.</p>
+            <p>Any control implementation response that can not be associated with another component is associated with the component representing the system.</p>
+          </remarks> Implementation status is not "implemented", therefore it is missing remarks to provide context. -->
+        </by-component>
+      </statement>
+    </implemented-requirement>
+  </control-implementation>
+</system-security-plan>

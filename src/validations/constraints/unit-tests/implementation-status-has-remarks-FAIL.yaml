@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for implementation-status-has-remarks
+  description: >-
+    This test case validates the behavior of constraint
+    implementation-status-has-remarks
+  content: ../content/ssp-implementation-status-has-remarks-INVALID.xml
+  expectations:
+    - constraint-id: implementation-status-has-remarks
+      result: fail
