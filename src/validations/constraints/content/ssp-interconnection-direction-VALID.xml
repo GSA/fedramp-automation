@@ -162,7 +162,7 @@
   <import-profile href="../../../../dist/content/rev5/baselines/xml/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml"/>
   
   <system-characteristics>
-    <system-id identifier-type="https://fedramp.gov">F00000001</system-id>
+    <system-id identifier-type="http://fedramp.gov/ns/oscal">F00000001</system-id>
     <system-name>Enhanced Example System</system-name>
     <system-name-short>System's Short Name or Acronym</system-name-short>
     <description>
