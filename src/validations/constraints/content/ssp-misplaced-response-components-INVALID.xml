@@ -18,7 +18,7 @@
       <p>Implementation of controls for the System to be Authorized</p>
     </description>    
     <implemented-requirement uuid="bbbbbbbb-0000-4000-9000-00000000000b" control-id="cm-8">
-      <prop name="control-origination" value="unsupported-origination" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="control-origination" value="unsupported-origination" ns="http://fedramp.gov/ns/oscal"/>
       <statement statement-id="cm-8_stmt.a" uuid="cccccccc-0000-4000-9000-00000000000c"/>
       <by-component component-uuid="55555555-0000-4000-9000-000000000005" uuid="ce9c5b13-c9ea-40bb-bd4e-51e1520a4bce">
           <description>

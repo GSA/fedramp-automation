@@ -174,7 +174,7 @@ Below is a conformant example.
     <context>
         <metapath target="/catalog//control"/>
         <constraints>
-            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
         </constraints>
@@ -226,7 +226,7 @@ Below is a non-conformant example.
         -->
         <metapath target="/catalog//control"/>
         <constraints>
-            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
             <remarks>
@@ -398,7 +398,7 @@ Below is a conformant example.
     <context>
         <metapath target="/catalog//control"/>
         <constraints>
-            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
+            <expect id="prop-response-point-has-cardinality-one" target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
         </constraints>
@@ -419,7 +419,7 @@ Below is a non-conformant example.
         <metapath target="/catalog//control"/>
         <constraints>
             <!-- This constraint is missing an @id flag, it does not meet FedRAMP developer style requirements. -->
-            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
+            <expect target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="WARNING">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
         </constraints>
@@ -514,7 +514,7 @@ Below is a conformant example.
     <context>
         <metapath target="/catalog//control"/>
         <constraints>
-            <expect id="duplicate-response-point" target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="ERROR">
+            <expect id="duplicate-response-point" target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="ERROR">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
         </constraints>
@@ -535,7 +535,7 @@ Below is a non-conformant example.
         <metapath target="/catalog//control"/>
         <constraints>
             <!-- This constraint is missing an @level flag, it does not meet FedRAMP developer style requirements. -->
-            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
+            <expect target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
         </constraints>
@@ -590,7 +590,7 @@ Below is a non-conformant example.
         <metapath target="/catalog//control"/>
         <constraints>
             <!-- This constraint defines a CRITICAL severity level for a violation that does not cause an irrecoverable error or undefined behavior. This example does not conform with the FedRAMP developer's guide. -->
-            <expect target=".//part" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="CRITICAL">
+            <expect target=".//part" test="count(prop[@ns='http://fedramp.gov/ns/oscal' and @name='response-point']) &lt;= 1" level="CRITICAL">
                 <message>Duplicate response point at '{ path(.) }'.</message>
             </expect>
         </constraints>
