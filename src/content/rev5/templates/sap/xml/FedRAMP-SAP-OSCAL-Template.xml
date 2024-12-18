@@ -812,7 +812,7 @@
             </table>
          </part>
          <!-- Section 6.3 Testing performed using automated tools -->
-         <part ns="https://fedramp.gov/ns/osccal" name="automated-tools-testing">
+         <part ns="http://fedramp.gov/ns/osccal" name="automated-tools-testing">
             <title>Testing Performed Using Automated Tools</title>
             <prop ns="http://fedramp.gov/ns/oscal" name="sort-id" value="003"/>
             <p>[IA Name] plans to use the following tools noted in Table 6-3 to perform testing of the [CSO Name].</p>
