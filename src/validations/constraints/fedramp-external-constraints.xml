@@ -635,6 +635,62 @@
             </expect>
         </constraints>
     </context>
+    
+    <context>
+        <metapath target="/system-security-plan/control-implementation/implemented-requirement/statement"/>
+        <constraints>
+            <let var="control-statement-ids" expression="('ac-1_smt.a', 'at-1_smt.a', 'au-1_smt.a', 'ca-1_smt.a', 'cm-1_smt.a', 'cp-1_smt.a', 'ia-1_smt.a', 'ir-1_smt.a', 'ma-1_smt.a', 'mp-1_smt.a', 'pe-1_smt.a', 'pl-1_smt.a', 'ps-1_smt.a', 'ra-1_smt.a', 'sa-1_smt.a', 'sc-1_smt.a', 'si-1_smt.a', 'sr-1_smt.a')"/>
+            <let var="component-uuid" expression="by-component/@component-uuid"/>
+            <let var="policy-messages" expression=
+            "map{'ac-1_smt.a' : 'a policy that addresses Access Control MUST be associated with AC-1 part a.', 
+            'at-1_smt.a' : 'a policy that addresses Awareness and Training MUST be associated with AT-1 part a.', 
+            'au-1_smt.a' : 'a policy that addresses Audit and Accountability MUST be associated with AU-1 part a.', 
+            'ca-1_smt.a' : 'a policy that addresses Assessment, Authorization, and Monitoring MUST be associated with CA-1 part a.', 
+            'cm-1_smt.a' : 'a policy that addresses Configuration Management MUST be associated with CM part a.', 
+            'cp-1_smt.a' : 'a policy that addresses Contingency Planning MUST be associated with CP-1 part a.',
+            'ia-1_smt.a' : 'a policy that addresses Identification and Authentication MUST be associated with ACIA1 part a.',
+            'ir-1_smt.a' : 'a policy that addresses Incident Response MUST be associated with IR-1 part a.',
+            'ma-1_smt.a' : 'a policy that addresses Maintenance MUST be associated with MA-1 part a.',
+            'mp-1_smt.a' : 'a policy that addresses Media Protection MUST be associated with MP-1 part a.',
+            'pe-1_smt.a' : 'a policy that addresses Physical and Environmental Protection MUST be associated with PE-1 part a.',
+            'pl-1_smt.a' : 'a policy that addresses Planning MUST be associated with PL-1 part a.',
+            'ps-1_smt.a' : 'a policy that addresses Personnel Security MUST be associated with PS-1 part a.',
+            'ra-1_smt.a' : 'a policy that addresses Risk Assessment MUST be associated with RA-1 part a.',
+            'sa-1_smt.a' : 'a policy that addresses System and Services Acquisition MUST be associated with SA-1 part a.',
+            'sc-1_smt.a' : 'a policy that addresses System and Communications Protection MUST be associated with SC-1 part a.',
+            'si-1_smt.a' : 'a policy that addresses System and Information Integrity MUST be associated with SI-1 part a.',
+            'sr-1_smt.a' : 'a policy that addresses Supply Chain Risk Management MUST be associated with SR-1 part a.'}"/>
+            <let var="procedure-messages" expression=
+            "map{'ac-1_smt.a' : 'at least one procedure that addresses Access Control MUST be associated with AC-1 part a.', 
+            'at-1_smt.a' : 'at least one procedure that addresses Awareness and Training MUST be associated with AT-1 part a.', 
+            'au-1_smt.a' : 'at least one procedure that addresses Audit and Accountability MUST be associated with AU-1 part a.', 
+            'ca-1_smt.a' : 'at least one procedure that addresses Assessment, Authorization, and Monitoring MUST be associated with CA-1 part a.', 
+            'cm-1_smt.a' : 'at least one procedure that addresses Configuration Management MUST be associated with CM1 part a.',
+            'cp-1_smt.a' : 'at least one procedure that addresses Contingency Planning MUST be associated with CP-1 part a.',
+            'ia-1_smt.a' : 'at least one procedure that addresses Incident Response MUST be associated with IA-1 part a.',
+            'ir-1_smt.a' : 'at least one procedure that addresses Incident Response MUST be associated with IR-1 part a.',
+            'ma-1_smt.a' : 'at least one procedure that addresses Maintenance MUST be associated with MA-1 part a.',
+            'mp-1_smt.a' : 'at least one procedure that addresses Media Protection MUST be associated with MP-1 part a.',
+            'pe-1_smt.a' : 'at least one procedure that addresses Physical and Environmental Protection MUST be associated with PE-1 part a.',
+            'pl-1_smt.a' : 'at least one procedure that addresses Planning MUST be associated with PL-1 part a.',
+            'ps-1_smt.a' : 'at least one procedure that addresses Personnel Security MUST be associated with PS-1 part a.',
+            'ra-1_smt.a' : 'at least one procedure that addresses Risk Assessment MUST be associated with RA-1 part a.',
+            'sa-1_smt.a' : 'at least one procedure that addresses System and Services Acquisition MUST be associated with SA-1 part a.',
+            'sc-1_smt.a' : 'at least one procedure that addresses System and Communications Protection MUST be associated with SC-1 part a.',
+            'si-1_smt.a' : 'at least one procedure that addresses System and Information Integrity MUST be associated with SI-1 part a.',
+            'sr-1_smt.a' : 'at least one procedure that addresses Supply Chain Risk Management MUST be associated with SR-1 part a.'}"/>
+            <expect id="has-policy" target=".[@statement-id=$control-statement-ids]" test="some $uuid in $component-uuid satisfies count(../../../system-implementation/component[@uuid=$component-uuid and @type='policy']) >= 1" level="ERROR">
+                <formal-name>Has Policy</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#organization-policy-and-procedure-statements"/>
+                <message>In a FedRAMP SSP, {$policy-messages(./@statement-id)}</message>
+            </expect>
+            <expect id="has-procedure" target=".[@statement-id=$control-statement-ids]" test="some $uuid in $component-uuid satisfies count(../../../system-implementation/component[@uuid=$component-uuid and @type='process-procedure']) >= 1" level="ERROR">
+                <formal-name>Has Procedure</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#organization-policy-and-procedure-statements"/>
+                <message>In a FedRAMP SSP, {$procedure-messages(./@statement-id)}</message>
+            </expect>
+        </constraints>
+    </context>
 
     <context>
         <metapath target="/system-security-plan/control-implementation/implemented-requirement/statement/by-component"/>

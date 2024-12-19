@@ -1,0 +1,7 @@
+test-case:
+  name: Negative Test for has-procedure
+  description: This test case validates the behavior of constraint has-procedure
+  content: ../content/ssp-has-policy-and-procedure-INVALID.xml
+  expectations:
+    - constraint-id: has-procedure
+      result: fail

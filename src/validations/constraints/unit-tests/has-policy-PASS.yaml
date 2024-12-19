@@ -1,0 +1,7 @@
+test-case:
+  name: Positive Test for has-policy
+  description: This test case validates the behavior of constraint has-policy
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+    - constraint-id: has-policy
+      result: pass
