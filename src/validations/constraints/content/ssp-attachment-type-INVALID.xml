@@ -5,7 +5,7 @@
                       uuid="12345678-1234-4321-8765-123456789012">
   <back-matter>
     <resource uuid="eeeeeeee-0000-4000-9000-00000000000e">
-      <prop name="type" value="unsupported-type" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="type" value="unsupported-type" ns="http://fedramp.gov/ns/oscal"/>
     </resource>
   </back-matter>
 </system-security-plan>

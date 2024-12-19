@@ -7,7 +7,7 @@
     </user>
     <component uuid="6ac88fd2-7c7b-4357-af2e-f22ccd3ead26" type="system">
       <responsible-role role-id="administrator">
-        <prop name="privilege-uuid" value="44444444-0000-4000-9000-000000000004" ns="https://fedramp.gov/ns/oscal"/>
+        <prop name="privilege-uuid" value="44444444-0000-4000-9000-000000000004" ns="http://fedramp.gov/ns/oscal"/>
       </responsible-role>
     </component>
   </system-implementation>
