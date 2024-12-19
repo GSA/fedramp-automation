@@ -4030,6 +4030,11 @@
                 <party-uuid>11111111-2222-4000-8000-004000000018</party-uuid>
             </responsible-role>
             <statement statement-id="si-8_smt" uuid="11111111-2222-4000-8000-013000000071">
+                <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-024000000105">
+                    <description>
+                        <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
+                    </description>
+                </by-component>
                 <by-component component-uuid="11111111-2222-4000-8000-009000000018" uuid="11111111-2222-4000-8000-014000000107">
                     <description>
                         <p>Describe how the control is satisfied within the system.</p>
