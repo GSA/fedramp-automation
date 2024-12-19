@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for statement-has-this-system-component
+  description: >-
+    This test case validates the behavior of constraint
+    statement-has-this-system-component
+  content: ../content/ssp-statement-has-this-system-component-INVALID.xml
+  expectations:
+    - constraint-id: statement-has-this-system-component
+      result: fail

@@ -653,6 +653,18 @@
     </context>
 
     <context>
+        <metapath target="/system-security-plan/control-implementation/implemented-requirement/statement"/>
+        <constraints>
+            <let var="component-uuid" expression="by-component/@component-uuid"/>
+            <expect id="statement-has-this-system-component" target="." test="count(../../../system-implementation/component[@type='this-system' and @uuid=$component-uuid]) = 1" level="ERROR">
+                <formal-name>Statement Has This System Component</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-this-system-component"/>
+                <message>In a FedRAMP SSP, each control implementation statement MUST have one "this-system" by-component.</message>
+            </expect>
+        </constraints>
+    </context>
+
+    <context>
         <metapath target="/system-security-plan/system-characteristics/authorization-boundary/diagram/link"/>
         <constraints>
             <let var="authorization-boundary-href" expression=".[@rel='diagram']/@href"/>
