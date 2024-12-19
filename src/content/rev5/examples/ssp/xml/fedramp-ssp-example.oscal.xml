@@ -4435,6 +4435,9 @@
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
+                    <responsible-role role-id="system-admin">
+                        <party-uuid>11111111-0000-4000-9000-000000000001</party-uuid>
+                    </responsible-role>
                 </by-component>
                 <by-component component-uuid="11111111-2222-4000-8000-009000000018" uuid="11111111-2222-4000-8000-014000000107">
                     <description>
