@@ -2458,7 +2458,7 @@
             <set-parameter param-id="ac-01_odp.07">
                 <value>at least annually</value>
             </set-parameter>
-            <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
+            <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-013000000001">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000001">
                     <description>
                         <p>Describe how Part a is satisfied within the system.</p>
@@ -2483,7 +2483,7 @@
                     <implementation-status state="operational"/>
                 </by-component>
             </statement>
-            <statement statement-id="ac-1_smt.a.2" uuid="11111111-2222-4000-8000-013000000002">
+            <statement statement-id="ac-1_smt.a" uuid="11111111-2222-4000-8000-013000000002">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000003">
                     <description>
                         <p>There</p>
@@ -2511,7 +2511,7 @@
                     </implementation-status>
                 </by-component>
             </statement>
-            <statement statement-id="ac-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000003">
+            <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-013000000003">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000005">
                     <description>
                         <p>Describe how Part b-1 is satisfied.</p>
@@ -2519,7 +2519,7 @@
                     <implementation-status state="operational"/>
                 </by-component>
             </statement>
-            <statement statement-id="ac-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000004">
+            <statement statement-id="ac-1_smt.b" uuid="11111111-2222-4000-8000-013000000004">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000006">
                     <description>
                         <p>Describe how Part b-2 is satisfied.</p>
@@ -2696,14 +2696,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="at-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000009">
+            <statement statement-id="at-1_smt.b" uuid="11111111-2222-4000-8000-013000000009">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000015">
                     <description>
                         <p>Describe how Part b-1 is satisfied.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="at-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000010">
+            <statement statement-id="at-1_smt.b" uuid="11111111-2222-4000-8000-013000000010">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000016">
                     <description>
                         <p>Describe how Part b-2 is satisfied.</p>
@@ -2762,7 +2762,7 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="au-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000013">
+            <statement statement-id="au-1_smt.b" uuid="11111111-2222-4000-8000-013000000013">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000021">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -2770,7 +2770,7 @@
                     <link href="#11111111-2222-4000-8000-001000000007" rel="policy"/>
                 </by-component>
             </statement>
-            <statement statement-id="au-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000014">
+            <statement statement-id="au-1_smt.b" uuid="11111111-2222-4000-8000-013000000014">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000022">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -2829,14 +2829,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ca-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000017">
+            <statement statement-id="ca-1_smt.b" uuid="11111111-2222-4000-8000-013000000017">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000027">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ca-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000018">
+            <statement statement-id="ca-1_smt.b" uuid="11111111-2222-4000-8000-013000000018">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000028">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -2894,14 +2894,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="cm-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000021">
+            <statement statement-id="cm-1_smt.b" uuid="11111111-2222-4000-8000-013000000021">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000033">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="cm-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000022">
+            <statement statement-id="cm-1_smt.b" uuid="11111111-2222-4000-8000-013000000022">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000034">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -2957,14 +2957,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="cp-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000025">
+            <statement statement-id="cp-1_smt.b" uuid="11111111-2222-4000-8000-013000000025">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000039">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="cp-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000026">
+            <statement statement-id="cp-1_smt.b" uuid="11111111-2222-4000-8000-013000000026">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000040">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3207,14 +3207,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ia-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000029">
+            <statement statement-id="ia-1_smt.b" uuid="11111111-2222-4000-8000-013000000029">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000045">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ia-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000030">
+            <statement statement-id="ia-1_smt.b" uuid="11111111-2222-4000-8000-013000000030">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000046">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3272,14 +3272,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ir-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000033">
+            <statement statement-id="ir-1_smt.b" uuid="11111111-2222-4000-8000-013000000033">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000051">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ir-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000034">
+            <statement statement-id="ir-1_smt.b" uuid="11111111-2222-4000-8000-013000000034">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000052">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3337,14 +3337,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ma-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000037">
+            <statement statement-id="ma-1_smt.b" uuid="11111111-2222-4000-8000-013000000037">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000057">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ma-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000038">
+            <statement statement-id="ma-1_smt.b" uuid="11111111-2222-4000-8000-013000000038">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000058">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3553,14 +3553,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="mp-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000041">
+            <statement statement-id="mp-1_smt.b" uuid="11111111-2222-4000-8000-013000000041">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000063">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="mp-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000042">
+            <statement statement-id="mp-1_smt.b" uuid="11111111-2222-4000-8000-013000000042">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000064">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3618,14 +3618,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="pe-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000045">
+            <statement statement-id="pe-1_smt.b" uuid="11111111-2222-4000-8000-013000000045">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000069">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="pe-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000046">
+            <statement statement-id="pe-1_smt.b" uuid="11111111-2222-4000-8000-013000000046">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000070">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3683,14 +3683,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="pl-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000049">
+            <statement statement-id="pl-1_smt.b" uuid="11111111-2222-4000-8000-013000000049">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000075">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="pl-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000050">
+            <statement statement-id="pl-1_smt.b" uuid="11111111-2222-4000-8000-013000000050">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000076">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3748,14 +3748,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ps-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000053">
+            <statement statement-id="ps-1_smt.b" uuid="11111111-2222-4000-8000-013000000053">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000081">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ps-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000054">
+            <statement statement-id="ps-1_smt.b" uuid="11111111-2222-4000-8000-013000000054">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000082">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3813,14 +3813,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ra-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000057">
+            <statement statement-id="ra-1_smt.b" uuid="11111111-2222-4000-8000-013000000057">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000087">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="ra-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000058">
+            <statement statement-id="ra-1_smt.b" uuid="11111111-2222-4000-8000-013000000058">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000088">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3878,14 +3878,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="sa-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000061">
+            <statement statement-id="sa-1_smt.b" uuid="11111111-2222-4000-8000-013000000061">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000093">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="sa-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000062">
+            <statement statement-id="sa-1_smt.b" uuid="11111111-2222-4000-8000-013000000062">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000094">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3943,14 +3943,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="sc-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000065">
+            <statement statement-id="sc-1_smt.b" uuid="11111111-2222-4000-8000-013000000065">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000099">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="sc-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000066">
+            <statement statement-id="sc-1_smt.b" uuid="11111111-2222-4000-8000-013000000066">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000100">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -4008,14 +4008,14 @@
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="si-1_smt.b.1" uuid="11111111-2222-4000-8000-013000000069">
+            <statement statement-id="si-1_smt.b" uuid="11111111-2222-4000-8000-013000000069">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000105">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
                     </description>
                 </by-component>
             </statement>
-            <statement statement-id="si-1_smt.b.2" uuid="11111111-2222-4000-8000-013000000070">
+            <statement statement-id="si-1_smt.b" uuid="11111111-2222-4000-8000-013000000070">
                 <by-component component-uuid="11111111-2222-4000-8000-009000000000" uuid="11111111-2222-4000-8000-014000000106">
                     <description>
                         <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
