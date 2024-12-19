@@ -29,6 +29,7 @@ Examples:
   | attachment-type |
   | authentication-method-has-remarks |
   | authorization-type |
+  | by-component-has-responsible-role |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
   | cia-impact-has-adjustment-justification |
@@ -177,6 +178,8 @@ Examples:
   | authentication-method-has-remarks-PASS.yaml |
   | authorization-type-FAIL.yaml |
   | authorization-type-PASS.yaml |
+  | by-component-has-responsible-role-FAIL.yaml |
+  | by-component-has-responsible-role-PASS.yaml |
   | categorization-has-correct-system-attribute-FAIL.yaml |
   | categorization-has-correct-system-attribute-PASS.yaml |
   | categorization-has-information-type-id-FAIL.yaml |
