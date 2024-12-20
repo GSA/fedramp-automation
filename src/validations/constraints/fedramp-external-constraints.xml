@@ -67,19 +67,19 @@
             <let var="implemented-parameters-map" expression="map:merge(//set-parameter ! map:entry(@param-id,.))?*"/>          
             <index name="index-implemented-parameters" target="$implemented-parameters-map">
                 <formal-name>Parameters Implemented in SSP</formal-name>
-                <description>All parameters defined in the SSP</description>
+                <description>This index includes all parameters in a FedRAMP SSP.</description>
                 <key-field target="@param-id"/>
             </index>
             <index name="index-required-parameters" target="$required-parameters-map">
                 <formal-name>Parameters from Profile</formal-name>
-                <description>All parameters defined in the resolved profile catalog</description>
+                <description>This index includes all parameters defined in the resolved profile catalog, imported by a FedRAMP SSP.</description>
                 <key-field target="@id"/>
             </index>
             <index-has-key id="has-required-parameters" target="$required-parameters-map" name="index-implemented-parameters" level="ERROR">
                 <formal-name>Required Parameters Must Be Set</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#responsible-roles-and-parameter-assignments"/>
                 <key-field target="@id"/>
-                <message>All parameters defined in the baseline MUST have corresponding set-parameter values in the SSP. Missing parameter: ({@id}).</message>
+                <message>A FedRAMP SSP must define all parameters for all controls from the imported baseline. The following parameters are defined in the baseline, but not properly set in the SSP: ({@id}).</message>
             </index-has-key>
             <expect id="aggregate-parameters-warning" target="//set-parameter" test="every $param in $aggregate-parameters satisfies @param-id != $param" level="WARNING">
                 <formal-name>No Aggregate Parameters in SSP</formal-name>
