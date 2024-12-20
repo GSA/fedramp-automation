@@ -41,6 +41,7 @@ Examples:
   | component-has-provider-responsible-role |
   | component-has-used-by-link |
   | component-type |
+  | connection-security |
   | control-implementation-status |
   | data-center-alternate |
   | data-center-count |
@@ -206,6 +207,8 @@ Examples:
   | component-responsible-role-references-party-PASS.yaml |
   | component-type-FAIL.yaml |
   | component-type-PASS.yaml |
+  | connection-security-FAIL.yaml |
+  | connection-security-PASS.yaml |
   | control-implementation-status-FAIL.yaml |
   | control-implementation-status-PASS.yaml |
   | data-center-alternate-FAIL.yaml |

@@ -1,0 +1,8 @@
+# Driver for the negative connection-security constraint unit test.
+test-case:
+  name: The negative connection-security constraint unit test.
+  description: This test case suppresses the negative test for the connection-security "allowed-values" constraint because of its @allow-other="yes" attribute value.
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+  - constraint-id: connection-security
+    fail_count: 0
