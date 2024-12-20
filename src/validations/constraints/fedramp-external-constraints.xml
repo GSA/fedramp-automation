@@ -576,16 +576,6 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>In a FedRAMP SSP, each information type property in a component MUST categorize the class of data flow as incoming to the system, outgoing from the system, or both.</message>
             </expect>
-            <expect id="inter-boundary-component-direction-incoming-has-ipv-uri" target="$inter-boundary-component" test="if (prop[@name='direction' and @value='incoming']) then exists(prop[@class='local' and @name=('ipv4-address','ipv6-address')]) or exists(link[@rel='uri']) else true()" level="ERROR">
-               <formal-name>Inter-Boundary Incoming Communication Direction Has an IP Address or a URI</formal-name>
-               <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
-               <message>Component {@uuid} ({path(.)}) MUST have at least one local ipv4 address, ipv6 address, or a URI to an API.</message>
-            </expect>
-            <expect id="inter-boundary-component-has-direction" target="$inter-boundary-component" test="count(prop[@name='direction']) >= 1 and count(prop[@name='direction' and @value='incoming']) &lt;= 1 and count(prop[@name='direction' and @value='outgoing']) &lt;= 1" level="ERROR">
-                <formal-name>Inter-Boundary Component Has Direction</formal-name>
-                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#external-systems-and-services-not-having-fedramp-authorization"/>
-                <message>In an inter-boundary communication component, a FedRAMP SSP MUST have at least one direction property, with no more than one incoming and no more than one outgoing direction.</message>
-            </expect>
             <expect id="leveraged-authorization-has-authorization-type" target="leveraged-authorization" test="count(prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']) = 1" level="ERROR">
                 <formal-name>Leveraged Authorization Has Authorization Type</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
@@ -666,6 +656,34 @@
                 <formal-name>Party Has a Name</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/general-concepts/oscal-metadata/#working-with-party-assemblies"/>
                 <message>Every FedRAMP document MUST define a party with a name.</message>
+            </expect>
+        </constraints>
+    </context>
+
+    <context>
+        <metapath target="/system-security-plan/control-implementation/implemented-requirement/statement/by-component"/>
+        <constraints>
+            <expect id="by-component-has-responsible-role" target="." test="count(responsible-role) >= 1" level="ERROR">
+                <formal-name>By Component Has Responsible Role</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#responsible-roles-and-parameter-assignments"/>
+                <message>In a FedRAMP SSP, each by-component MUST have at least one responsible role.</message>
+            </expect>
+            <expect id="implementation-status-has-remarks" target="implementation-status[@state=('partial', 'planned', 'alternative', 'not-applicable' )]" test="exists(remarks)" level="ERROR">
+                <formal-name>Implementation Status Has Remarks</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#implementation-status"/>
+                <message>In a FedRAMP SSP, each by-component that is not implemented MUST have remarks to provide context.</message>
+            </expect>
+        </constraints>
+    </context>
+
+    <context>
+        <metapath target="/system-security-plan/control-implementation/implemented-requirement/statement"/>
+        <constraints>
+            <let var="component-uuid" expression="by-component/@component-uuid"/>
+            <expect id="statement-has-this-system-component" target="." test="count(../../../system-implementation/component[@type='this-system' and @uuid=$component-uuid]) = 1" level="ERROR">
+                <formal-name>Statement Has This System Component</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#response-this-system-component"/>
+                <message>In a FedRAMP SSP, each control implementation statement MUST have one "this-system" by-component.</message>
             </expect>
         </constraints>
     </context>

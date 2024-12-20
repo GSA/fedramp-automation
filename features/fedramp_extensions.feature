@@ -30,6 +30,7 @@ Examples:
   | attachment-type |
   | authentication-method-has-remarks |
   | authorization-type |
+  | by-component-has-responsible-role |
   | categorization-has-correct-system-attribute |
   | categorization-has-information-type-id |
   | cia-impact-has-adjustment-justification |
@@ -99,6 +100,7 @@ Examples:
   | has-system-id |
   | has-system-name-short |
   | has-user-guide |
+  | implementation-status-has-remarks |
   | import-profile-has-available-document |
   | import-profile-resolves-to-fedramp-content |
   | incomplete-implemented-requirements |
@@ -109,8 +111,6 @@ Examples:
   | information-type-has-confidentiality-impact |
   | information-type-has-integrity-impact |
   | information-type-system |
-  | inter-boundary-component-direction-incoming-has-ipv-uri |
-  | inter-boundary-component-has-direction |
   | interconnection-direction |
   | interconnection-security |
   | inventory-item-allows-authenticated-scan |
@@ -146,6 +146,7 @@ Examples:
   | scan-type |
   | security-level |
   | security-sensitivity-level-matches-security-impact-level |
+  | statement-has-this-system-component |
   | unique-inventory-item-asset-id |
   | used-by-link-references-component |
   | user-authentication |
@@ -182,6 +183,8 @@ Examples:
   | authentication-method-has-remarks-PASS.yaml |
   | authorization-type-FAIL.yaml |
   | authorization-type-PASS.yaml |
+  | by-component-has-responsible-role-FAIL.yaml |
+  | by-component-has-responsible-role-PASS.yaml |
   | categorization-has-correct-system-attribute-FAIL.yaml |
   | categorization-has-correct-system-attribute-PASS.yaml |
   | categorization-has-information-type-id-FAIL.yaml |
@@ -320,6 +323,8 @@ Examples:
   | has-system-name-short-PASS.yaml |
   | has-user-guide-FAIL.yaml |
   | has-user-guide-PASS.yaml |
+  | implementation-status-has-remarks-FAIL.yaml |
+  | implementation-status-has-remarks-PASS.yaml |
   | import-profile-has-available-document-FAIL.yaml |
   | import-profile-has-available-document-PASS.yaml |
   | import-profile-resolves-to-fedramp-content-FAIL.yaml |
@@ -340,10 +345,6 @@ Examples:
   | information-type-id-PASS.yaml |
   | information-type-system-FAIL.yaml |
   | information-type-system-PASS.yaml |
-  | inter-boundary-component-direction-incoming-has-ipv-uri-FAIL.yaml |
-  | inter-boundary-component-direction-incoming-has-ipv-uri-PASS.yaml |
-  | inter-boundary-component-has-direction-FAIL.yaml |
-  | inter-boundary-component-has-direction-PASS.yaml |
   | interconnection-direction-FAIL.yaml |
   | interconnection-direction-PASS.yaml |
   | interconnection-security-FAIL.yaml |
@@ -414,6 +415,8 @@ Examples:
   | security-level-PASS.yaml |
   | security-sensitivity-level-matches-security-impact-level-FAIL.yaml |
   | security-sensitivity-level-matches-security-impact-level-PASS.yaml |
+  | statement-has-this-system-component-FAIL.yaml |
+  | statement-has-this-system-component-PASS.yaml |
   | unique-inventory-item-asset-id-FAIL.yaml |
   | unique-inventory-item-asset-id-PASS.yaml |
   | used-by-link-references-component-FAIL.yaml |
