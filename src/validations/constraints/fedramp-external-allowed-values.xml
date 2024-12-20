@@ -107,6 +107,24 @@
                 <enum value="network">A physical or virtual network.</enum>
             </allowed-values>
 
+            <allowed-values id="connection-security" target="system-implementation/component/prop[@name='connection-security' and @ns='https://fedramp.gov/ns/oscal']/@value" allow-other="yes" level="WARNING">
+                <formal-name>Connection Security</formal-name>
+                <description>Identifies connection security value.</description>
+                <enum value="ipsec-ikev1">Internet Protocol Security (IPSec) Internet Key Exchange (IKE) Version 1</enum>
+                <enum value="ipsec-ikev2">Internet Protocol Security (IPSec) Internet Key Exchange (IKE) Version 2</enum>
+                <enum value="ipsec">Internet Protocol Security (IPSec)</enum>
+                <enum value="ssh-1">Secure Shell 1 (SSH-1)</enum>
+                <enum value="ssh-2">Secure Shell 2 (SSH-2)</enum>
+                <enum value="ssl-1.0">Secure Sockets Layer (SSL) 1.0</enum>
+                <enum value="ssl-2.0">Secure Sockets Layer (SSL) 2.0</enum>
+                <enum value="ssl-3.0">Secure Sockets Layer (SSL) 3.0</enum>
+                <enum value="tls-1.0">Transport Layer Security (TLS) Version 1.0</enum>
+                <enum value="tls-1.1">Transport Layer Security (TLS) Version 1.1</enum>
+                <enum value="tls-1.2">Transport Layer Security (TLS) Version 1.2</enum>
+                <enum value="tls-1.3">Transport Layer Security (TLS) Version 1.3</enum>
+                <enum value="vpn">Virtual Private Network (VPN)</enum>
+            </allowed-values>
+
             <allowed-values id="control-implementation-status" target="control-implementation/implemented-requirement/statement/by-component/prop[@name='implementation-status']/@value" allow-other="no" level="ERROR">
                 <formal-name>Control Implementation Status</formal-name>
                 <description>The implementation status of the control.</description>

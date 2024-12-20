@@ -1,0 +1,8 @@
+# Driver for the positive connection-security constraint unit test.
+test-case:
+  name: The positive connection-security constraint unit test.
+  description: Test that the FedRAMP SSP connection-security properties contain FedRAMP-approved values.
+  content: ../../../content/rev5/examples/ssp/xml/fedramp-ssp-example.oscal.xml
+  expectations:
+  - constraint-id: connection-security
+    result: pass
