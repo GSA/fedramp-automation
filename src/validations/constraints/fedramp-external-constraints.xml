@@ -84,7 +84,7 @@
             <expect id="aggregate-parameters-warning" target="//set-parameter" test="every $param in $aggregate-parameters satisfies @param-id != $param" level="WARNING">
                 <formal-name>No Aggregate Parameters in SSP</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#responsible-roles-and-parameter-assignments"/>
-                <message>A FedRAMP SSP MUST NOT set aggregate parameters directly. Parameter {@param-id} is an aggregate parameter that should not be set in the SSP.</message>
+                <message>A FedRAMP SSP SHOULD NOT set aggregate parameters directly. Parameter {@param-id} is an aggregate parameter that should not be set in the SSP.</message>
             </expect>
             <expect id="component-has-authentication-method" target="//component[(@type='system' and prop[@name='leveraged-authorization-uuid']) or (@type='interconnection') or (@type=('service', 'software') and not(prop[@name='leveraged-authorization-uuid']) and prop[@name='implementation-point' and @value='external']) or (@type=('service', 'software') and prop[@name='implementation-point' and @value='internal'] and prop[@name='communicates-externally' and @value='yes' and @ns='https://fedramp.gov/ns/oscal'])]" test="count(prop[@ns='https://fedramp.gov/ns/oscal' and @name='authentication-method']) >= 1" level="ERROR">
                 <formal-name>Component Has Authentication Method</formal-name>
