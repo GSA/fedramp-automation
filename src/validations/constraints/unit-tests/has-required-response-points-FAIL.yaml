@@ -1,0 +1,9 @@
+test-case:
+  name: Negative Test for has-required-response-points
+  description: >-
+    This test case validates the behavior of constraint
+    has-required-response-points
+  content: ../content/ssp-has-required-response-points-INVALID.xml
+  expectations:
+    - constraint-id: has-required-response-points
+      result: fail
