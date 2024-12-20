@@ -128,6 +128,7 @@ Examples:
   | network-component-has-connection-security-prop |
   | network-component-has-implementation-point |
   | non-provider-responsible-role-references-user |
+  | oscal-version-matches-fedramp-version |  
   | party-has-name |
   | privilege-level |
   | prop-response-point-has-cardinality-one |
@@ -380,6 +381,8 @@ Examples:
   | network-component-has-implementation-point-PASS.yaml |
   | non-provider-responsible-role-references-user-FAIL.yaml |
   | non-provider-responsible-role-references-user-PASS.yaml |
+  | oscal-version-matches-fedramp-version-FAIL.yaml |
+  | oscal-version-matches-fedramp-version-PASS.yaml |  
   | party-has-name-FAIL.yaml |
   | party-has-name-PASS.yaml |
   | privilege-level-FAIL.yaml |
