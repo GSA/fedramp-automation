@@ -5,7 +5,7 @@
      <control-implementation>
      <description></description>
          <implemented-requirement uuid="11111111-2222-4000-8000-012000000001" control-id="unsupported-id">
-            <prop name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system"/>
+            <prop name="control-origination" ns="http://fedramp.gov/ns/oscal" value="sp-system"/>
             <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
             <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>
             <set-parameter param-id="ac-1_prm_1">
@@ -44,7 +44,7 @@
                     <description>
                         <p>There</p>
                     </description>
-                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z"/>
+                    <prop name="planned-completion-date" ns="http://fedramp.gov/ns/oscal" value="2024-01-31Z"/>
                     <implementation-status state="partial">
                         <remarks>
                             <p>Describe the plan to complete the implementation.</p>
@@ -55,7 +55,7 @@
                     <description>
                         <p>Describe how this policy currently satisfies part a.</p>
                     </description>
-                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z">
+                    <prop name="planned-completion-date" ns="http://fedramp.gov/ns/oscal" value="2024-01-31Z">
                         <remarks>
                             <p>Describe the plan for addressing the missing policy elements.</p>
                         </remarks>

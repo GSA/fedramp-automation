@@ -585,7 +585,7 @@ FedRAMP 3.0.0 release.</p>
   <system-characteristics>
     <!-- Section 3 - System Information -->
     <!-- Table 3.1 Information System Name and Title -->
-    <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
+    <system-id identifier-type="http://fedramp.gov/ns/oscal">F00000000</system-id>
     <system-name>System's Full Name</system-name>
     <system-name-short>System's Short Name or Acronym</system-name-short>
     <!-- General System Description -->
