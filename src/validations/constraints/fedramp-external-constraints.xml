@@ -584,7 +584,7 @@
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/5-attachments/#system-inventory-approach"/>
                 <message>A FedRAMP SSP system implementation section MUST have at least two inventory items.</message>
             </expect>
-            <expect id="information-type-has-class" target="component/prop[@name='information-type' and @ns='https://fedramp.gov/ns/oscal']" test="exists(@class)" level="ERROR">
+            <expect id="information-type-has-class" target="component/prop[@name='information-type' and @ns='http://fedramp.gov/ns/oscal']" test="exists(@class)" level="ERROR">
                 <formal-name>Information Type Has Class</formal-name>
                 <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/4-ssp-template-to-oscal-mapping/#leveraged-fedramp-authorized-services"/>
                 <message>In a FedRAMP SSP, each information type property in a component MUST categorize the class of data flow as incoming to the system, outgoing from the system, or both.</message>
