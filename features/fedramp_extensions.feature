@@ -312,6 +312,8 @@ Examples:
   | has-published-date-PASS.yaml |
   | has-required-parameters-FAIL.yaml |
   | has-required-parameters-PASS.yaml |
+  | has-required-response-points-FAIL.yaml |
+  | has-required-response-points-PASS.yaml |
   | has-rules-of-behavior-FAIL.yaml |
   | has-rules-of-behavior-PASS.yaml |
   | has-security-impact-level-FAIL.yaml |
