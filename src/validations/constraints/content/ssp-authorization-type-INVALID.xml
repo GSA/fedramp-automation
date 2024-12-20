@@ -4,6 +4,6 @@
                       xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_ssp_schema.xsd"
                       uuid="12345678-1234-4321-8765-123456789012">
   <system-characteristics>
-    <prop name='authorization-type' value='unsupported-value' ns="https://fedramp.gov/ns/oscal"/>
+    <prop name='authorization-type' value='unsupported-value' ns="http://fedramp.gov/ns/oscal"/>
   </system-characteristics>
 </system-security-plan>

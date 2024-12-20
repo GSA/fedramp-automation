@@ -12,8 +12,8 @@
           <p>Briefly describe the external system.</p>
       </description>
       <prop name="asset-type" value="cli"/>
-      <prop name="direction" value="in/out" ns="https://fedramp.gov/ns/oscal"/>
-      <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="invalid"/>
+      <prop name="direction" value="in/out" ns="http://fedramp.gov/ns/oscal"/>
+      <prop name="nature-of-agreement" ns="http://fedramp.gov/ns/oscal" value="invalid"/>
       <status state="operational"/>
     </component>
 

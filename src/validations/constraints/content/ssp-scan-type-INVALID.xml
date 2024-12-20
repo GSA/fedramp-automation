@@ -5,7 +5,7 @@
                       uuid="12345678-1234-4321-8765-123456789012">
   <system-implementation>
     <inventory-item uuid="77777777-0000-4000-9000-000000000007">
-      <prop name="scan-type" value="unsupported-scan-type" ns="https://fedramp.gov/ns/oscal"/>
+      <prop name="scan-type" value="unsupported-scan-type" ns="http://fedramp.gov/ns/oscal"/>
     </inventory-item>
   </system-implementation>
 </system-security-plan>

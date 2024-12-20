@@ -5,7 +5,7 @@
                       uuid="12345678-1234-4321-8765-123456789012">
   <system-implementation>
     <user uuid="44444444-0000-4000-9000-000000000004">
-      <prop ns="https://fedramp.gov/ns/oscal" name="privilege-level" value="unsupported-access-type"/>
+      <prop ns="http://fedramp.gov/ns/oscal" name="privilege-level" value="unsupported-access-type"/>
     </user>
   </system-implementation>
 </system-security-plan>
