@@ -12,7 +12,7 @@
     <system-characteristics>
         <!-- Section 3 - System Information -->
         <!-- Table 3.1 Information System Name and Title -->
-        <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
+        <system-id identifier-type="http://fedramp.gov/ns/gov">F00000000</system-id>
         <system-name>System's Full Name</system-name>
         <system-name-short>System's Short Name or Acronym</system-name-short>
         <!-- General System Description -->
@@ -46,10 +46,10 @@
         <prop name="identity-assurance-level" value="2"/>
         <prop name="authenticator-assurance-level" value="2"/>
         <prop name="federation-assurance-level" value="2"/>
-        <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="fully-operational-date" value="2023-01-01+00:00"/>
         <!-- Rev5 update - new prop -->
         <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
-        <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
+        <prop ns="http://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
         <!-- FIPS PUB 199 Level -->
         <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
         <system-information>
@@ -220,7 +220,7 @@
             <p>FedRAMP does not require any specific information here.</p>
         </description>
         <implemented-requirement uuid="11111111-2222-4000-8000-012000000001" control-id="ac-1">
-            <prop name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system"/>
+            <prop name="control-origination" ns="http://fedramp.gov/ns/oscal" value="sp-system"/>
             <link href="#11111111-2222-4000-8000-001000000005" rel="policy"/>
             <link href="#11111111-2222-4000-8000-001000000023" rel="procedure"/>           
             <statement statement-id="ac-1_smt.a.1" uuid="11111111-2222-4000-8000-013000000001">
@@ -253,7 +253,7 @@
                     <description>
                         <p>There</p>
                     </description>
-                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z"/>
+                    <prop name="planned-completion-date" ns="http://fedramp.gov/ns/oscal" value="2024-01-31Z"/>
                     <implementation-status state="partial">
                         <remarks>
                             <p>Describe the plan to complete the implementation.</p>
@@ -264,7 +264,7 @@
                     <description>
                         <p>Describe how this policy currently satisfies part a.</p>
                     </description>
-                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal" value="2024-01-31Z">
+                    <prop name="planned-completion-date" ns="http://fedramp.gov/ns/oscal" value="2024-01-31Z">
                         <remarks>
                             <p>Describe the plan for addressing the missing policy elements.</p>
                         </remarks>
