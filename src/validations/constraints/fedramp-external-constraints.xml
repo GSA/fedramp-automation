@@ -65,6 +65,19 @@
             <let var="required-parameters-map" expression="map:merge($resolved-profile//param[not(prop[@name='aggregates'])] ! map:entry(@id,.))?*"/>          
             <let var="aggregate-parameters" expression="$resolved-profile//param[prop[@name='aggregates']]/@id"/>
             <let var="implemented-parameters-map" expression="map:merge(//set-parameter ! map:entry(@param-id,.))?*"/>          
+            <let var="implemented-statements-map" expression="map:merge(//statement ! map:entry(@statement-id,.))?*"/>          
+            <let var="required-response-points-map" expression="map:merge($resolved-profile//part[(prop[@name='response-point'])] ! map:entry(@id,.))?*"/>          
+            <index name="index-implemented-statements" target="$implemented-statements-map">
+                <formal-name>Statements implimented in SSP</formal-name>
+                <description>This index includes all statements defined in a FedRAMP SSP</description>
+                <key-field target="@statement-id"/>
+            </index>
+            <index-has-key id="has-required-response-points" target="$required-response-points-map" name="index-implemented-statements" level="ERROR">
+                <formal-name>Response Points Must Be Set</formal-name>
+                <prop namespace="https://docs.oasis-open.org/sarif/sarif/v2.1.0" name="help-url" value="https://automate.fedramp.gov/documentation/ssp/6-security-controls/#responsible-roles-and-parameter-assignments"/>
+                <key-field target="@id"/>
+                <message>All Response points defined in the baseline MUST have corresponding statements values in the SSP. Missing statement: ({@id}).</message>
+            </index-has-key>
             <index name="index-implemented-parameters" target="$implemented-parameters-map">
                 <formal-name>Parameters Implemented in SSP</formal-name>
                 <description>This index includes all parameters in a FedRAMP SSP.</description>

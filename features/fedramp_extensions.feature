@@ -94,6 +94,7 @@ Examples:
   | has-network-architecture-diagram-link-rel-allowed-value |
   | has-published-date |
   | has-required-parameters |
+  | has-required-response-points |
   | has-rules-of-behavior |
   | has-security-impact-level |
   | has-security-sensitivity-level |
